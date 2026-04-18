@@ -30,17 +30,27 @@ for (const id of ids) {
 // 2) Single PDF (one slide per page, 16:9)
 const pdfPage = await browser.newPage();
 await pdfPage.setViewport({ width: 1280, height: 720, deviceScaleFactor: 2 });
+await pdfPage.emulateMediaType('screen'); // use screen CSS, not print
 await pdfPage.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 60000 });
 // Strip nav + outer container styling so PDF prints clean
 await pdfPage.addStyleTag({ content: `
   html, body { background:#fff !important; }
   .nav { display:none !important; }
   .deck { gap:0 !important; padding:0 !important; }
-  .slideWrap { box-shadow:none !important; width:1280px !important; height:720px !important; aspect-ratio:auto !important; page-break-after: always; break-after: page; }
+  .slideWrap { box-shadow:none !important; width:1280px !important; height:720px !important; aspect-ratio:auto !important; page-break-after: always; break-after: page; container-type:normal !important; }
   .slideWrap:last-child { page-break-after: auto; break-after: auto; }
   .slide { transform:none !important; }
   @page { size: 1280px 720px; margin: 0; }
 `});
+// Force-load all weights of the web fonts before printing
+await pdfPage.evaluate(async () => {
+  const families = [
+    '300 16px "Noto Sans JP"','400 16px "Noto Sans JP"','500 16px "Noto Sans JP"','700 16px "Noto Sans JP"','900 16px "Noto Sans JP"',
+    '400 16px "Inter"','600 16px "Inter"','800 16px "Inter"','900 16px "Inter"',
+  ];
+  await Promise.all(families.map(f => document.fonts.load(f, '日本語abc123')));
+  await document.fonts.ready;
+});
 await pdfPage.pdf({
   path: path.join(__dirname, 'hotice-deck.pdf'),
   width: '1280px',
