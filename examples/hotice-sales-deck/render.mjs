@@ -19,10 +19,10 @@ await page.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 60000 });
 const ids = await page.$$eval('section.slide', els => els.map(e => e.id));
 console.log('slides:', ids.join(', '));
 
+await page.setViewport({ width: 1400, height: 800, deviceScaleFactor: 2 });
+await page.addStyleTag({ content: `.slideWrap{width:1280px !important; height:720px !important; aspect-ratio:auto !important;} .slide{transform:none !important;} .nav{display:none !important;}` });
 for (const id of ids) {
   const el = await page.$('#' + id);
-  const box = await el.boundingBox();
-  await page.setViewport({ width: Math.ceil(box.width), height: Math.ceil(box.height), deviceScaleFactor: 2 });
   await el.screenshot({ path: path.join(__dirname, `slide-${id}.png`) });
   console.log('  png →', `slide-${id}.png`);
 }
@@ -36,8 +36,9 @@ await pdfPage.addStyleTag({ content: `
   html, body { background:#fff !important; }
   .nav { display:none !important; }
   .deck { gap:0 !important; padding:0 !important; }
-  .slide { box-shadow:none !important; page-break-after: always; break-after: page; }
-  .slide:last-child { page-break-after: auto; break-after: auto; }
+  .slideWrap { box-shadow:none !important; width:1280px !important; height:720px !important; aspect-ratio:auto !important; page-break-after: always; break-after: page; }
+  .slideWrap:last-child { page-break-after: auto; break-after: auto; }
+  .slide { transform:none !important; }
   @page { size: 1280px 720px; margin: 0; }
 `});
 await pdfPage.pdf({

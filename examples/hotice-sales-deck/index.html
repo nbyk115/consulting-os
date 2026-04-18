@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=1280" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>hotice｜再構成ドラフト v0.1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,10 +21,18 @@
   .nav{position:fixed;top:16px;left:16px;z-index:50;background:rgba(0,0,0,.72);color:#fff;padding:10px 14px;border-radius:10px;font-size:12px;line-height:1.6;backdrop-filter:blur(8px)}
   .nav a{color:#fff;text-decoration:none;opacity:.72;margin-right:10px}
   .nav a:hover{opacity:1;color:#FF4D5E}
-  .deck{display:flex;flex-direction:column;align-items:center;gap:28px;padding:28px 16px 80px}
+  .nav .pdf{margin-left:8px;padding:4px 10px;background:#E60012;color:#fff !important;border-radius:6px;opacity:1 !important;font-weight:700}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:28px;padding:80px 16px 80px}
+  .slideWrap{width:1280px;max-width:100%;aspect-ratio:16/9;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45)}
   .slide{
     width:1280px;height:720px;background:var(--bg);color:var(--ink);
-    position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);
+    position:absolute;top:0;left:0;overflow:hidden;
+    transform-origin:top left;
+  }
+  /* Responsive scaling: keep 1280x720 internal, scale down to fit viewport */
+  @media (max-width:1320px){
+    .slideWrap{width:calc(100vw - 32px)}
+    .slide{transform:scale(calc((100vw - 32px) / 1280))}
   }
   .slide .frame{position:absolute;inset:0;padding:56px 72px;display:flex;flex-direction:column}
   .tag{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:700;text-transform:uppercase}
@@ -122,6 +130,7 @@
   <a href="#s1">① 実績サマリー</a>
   <a href="#s2">② AI時代の見立て</a>
   <a href="#s3">③ 競合比較</a>
+  <a class="pdf" href="hotice-deck.pdf" target="_blank">PDF ↓</a>
 </div>
 
 <div class="deck">
@@ -129,7 +138,7 @@
 <!-- =========================================================
   SLIDE 0 : WHO WE ARE  （原P2 → 新P6 案）
 ========================================================= -->
-<section class="slide" id="s0">
+<div class="slideWrap"><section class="slide" id="s0">
   <div class="frame">
     <div class="sheetHead">
       <div>
@@ -214,12 +223,12 @@
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
     <div class="page">原P2 → 新P6</div>
   </div>
-</section>
+</section></div>
 
 <!-- =========================================================
   SLIDE 1 : EXEC SUMMARY / PROOF
 ========================================================= -->
-<section class="slide" id="s1">
+<div class="slideWrap"><section class="slide" id="s1">
   <div class="frame">
     <div class="sheetHead">
       <div>
@@ -281,12 +290,12 @@
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
     <div class="page">01 / 03</div>
   </div>
-</section>
+</section></div>
 
 <!-- =========================================================
   SLIDE 2 : AI ERA THESIS
 ========================================================= -->
-<section class="slide" id="s2">
+<div class="slideWrap"><section class="slide" id="s2">
   <div class="frame">
     <div class="sheetHead">
       <div>
@@ -343,12 +352,12 @@
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
     <div class="page">02 / 03</div>
   </div>
-</section>
+</section></div>
 
 <!-- =========================================================
   SLIDE 3 : COMPETITIVE COMPARISON
 ========================================================= -->
-<section class="slide" id="s3">
+<div class="slideWrap"><section class="slide" id="s3">
   <div class="frame">
     <div class="sheetHead">
       <div>
@@ -449,7 +458,7 @@
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
     <div class="page">03 / 03</div>
   </div>
-</section>
+</section></div>
 
 </div>
 </body>
