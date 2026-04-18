@@ -89,18 +89,139 @@
 
   .sheetHead{display:flex;justify-content:space-between;align-items:flex-end}
   .pageno{font-family:"Inter",sans-serif;font-size:60px;font-weight:900;color:#EAE8E3;letter-spacing:-.04em;line-height:1}
+
+  /* Slide P2 (Who we are) */
+  .whoHero{margin-top:24px;display:grid;grid-template-columns:1.55fr 1fr;gap:0;border-top:1px solid var(--ink)}
+  .whoHero .left{padding:32px 28px 28px 0;border-right:1px solid var(--ink)}
+  .whoHero .right{padding:32px 0 28px 32px;background:linear-gradient(180deg,#fff 0%,#fff 100%)}
+  .whoHero .lead{font-size:30px;font-weight:800;line-height:1.45;letter-spacing:-.005em}
+  .whoHero .lead em{font-style:normal;color:var(--red)}
+  .whoHero .lead .mark{background:linear-gradient(transparent 60%, #FFD9DD 60%);padding:0 2px}
+  .whoHero .leadFoot{font-size:13px;color:var(--sub);line-height:1.85;margin-top:18px}
+  .whoHero .verbs{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap}
+  .whoHero .verbs span{font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink);padding:6px 10px;border-radius:999px}
+  .whoHero .stack{display:grid;grid-template-rows:1fr 1fr;gap:20px;height:100%}
+  .whoStat{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:end}
+  .whoStat .n{font-family:"Inter",sans-serif;font-weight:900;font-size:78px;letter-spacing:-.04em;line-height:.9;color:var(--ink)}
+  .whoStat .n.red{color:var(--red)}
+  .whoStat .meta{padding-bottom:8px}
+  .whoStat .meta .lab{font-size:11px;letter-spacing:.16em;color:#888;font-weight:700}
+  .whoStat .meta .desc{font-size:13px;color:var(--ink);line-height:1.6;margin-top:4px;font-weight:500}
+  .whoStatRow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .biz{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--ink)}
+  .biz .b{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);border-top:1px solid var(--ink);padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:6px}
+  .biz .b .num{font-family:"Inter",sans-serif;font-size:11px;font-weight:800;color:var(--red);letter-spacing:.1em}
+  .biz .b .ttl{font-size:14px;font-weight:800;line-height:1.4}
+  .biz .b .dsc{font-size:11.5px;color:var(--sub);line-height:1.7}
 </style>
 </head>
 <body>
 
 <div class="nav">
   <b>hotice｜再構成ドラフト v0.1</b><br>
+  <a href="#s0">⓪ Who we are（原P2）</a>
   <a href="#s1">① 実績サマリー</a>
   <a href="#s2">② AI時代の見立て</a>
   <a href="#s3">③ 競合比較</a>
 </div>
 
 <div class="deck">
+
+<!-- =========================================================
+  SLIDE 0 : WHO WE ARE  （原P2 → 新P6 案）
+========================================================= -->
+<section class="slide" id="s0">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Who is hotice ｜ 原P2 再構成</div>
+        <div class="h1">hoticeは、ブランドの〈伝えたい〉を<br>ユーザーの<em>〈聞きたい〉に翻訳する</em> SNSマーケ会社。</div>
+        <div class="sub">2021年創業、東京・渋谷拠点。インフルエンサーキャスティングを起点に、SNS運用・広告配信・イベント制作までを一気通貫で実装する。</div>
+      </div>
+      <div class="pageno">P2</div>
+    </div>
+
+    <div class="whoHero">
+      <div class="left">
+        <div class="lead">
+          <span class="mark">代理店様の "インフルエンサー実装レイヤー"</span> を、<br>
+          ホワイトラベルで丸ごと請け負う <em>外部R&Dチーム</em>。
+        </div>
+        <div class="leadFoot">
+          自社で持ちにくい「人のネットワーク」「現地オペ」「成果型運用」をまとめて提供。<br>
+          御社のフロント・PMラインに常駐し、提案資料からレポートまでご一緒します。
+        </div>
+        <div class="verbs">
+          <span>CASTING</span>
+          <span>OPERATION</span>
+          <span>PAID MEDIA</span>
+          <span>EVENT &amp; PRODUCTION</span>
+          <span>BILINGUAL EN/JP/CN</span>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="stack">
+          <div class="whoStatRow">
+            <div class="whoStat">
+              <div class="n red">2021</div>
+              <div class="meta">
+                <div class="lab">FOUNDED</div>
+                <div class="desc">創業4年で年間¥5B＋の売上創出規模に</div>
+              </div>
+            </div>
+            <div class="whoStat">
+              <div class="n">20<span style="font-size:32px;font-weight:800">名</span></div>
+              <div class="meta">
+                <div class="lab">TEAM</div>
+                <div class="desc">平均30代／日英中バイリンガル精鋭</div>
+              </div>
+            </div>
+          </div>
+          <div class="whoStatRow">
+            <div class="whoStat">
+              <div class="n">10<span style="font-size:32px;font-weight:800">カ国+</span></div>
+              <div class="meta">
+                <div class="lab">GLOBAL</div>
+                <div class="desc">APAC＋米欧豪。現地事務所NWを保有</div>
+              </div>
+            </div>
+            <div class="whoStat">
+              <div class="n red">100<span style="font-size:32px;font-weight:800">社+</span></div>
+              <div class="meta">
+                <div class="lab">CLIENTS</div>
+                <div class="desc">P&amp;G／資生堂／SONY／SEGA等の主要ブランド<span style="color:#bbb">※</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz">
+      <div class="b">
+        <div class="num">01 — CASTING</div>
+        <div class="ttl">グローバル／国内インフルエンサーキャスティング</div>
+        <div class="dsc">海外25,000名・国内5,000名から最適な人選。1,000名の個人と直接リレーション</div>
+      </div>
+      <div class="b">
+        <div class="num">02 — OPERATION</div>
+        <div class="ttl">SNSアカウント運用・コンサルティング</div>
+        <div class="dsc">YouTube／Instagram／TikTok／X の開設から日常運用、コンテンツ投稿まで一気通貫</div>
+      </div>
+      <div class="b">
+        <div class="num">03 — PAID &amp; EVENT</div>
+        <div class="ttl">広告配信／イベント・クリエイティブ制作</div>
+        <div class="dsc">SNS広告の設計・配信、撮影・動画編集まで内製。イベント企画・運営も対応</div>
+      </div>
+    </div>
+
+    <div class="footnote" style="margin-top:14px">※ 取引社数は2021〜2024累計の自社集計。代表的ブランドは公開許諾済のもののみ抜粋。経営陣・組織図は巻末「Team」P参照。</div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
+    <div class="page">原P2 → 新P6</div>
+  </div>
+</section>
 
 <!-- =========================================================
   SLIDE 1 : EXEC SUMMARY / PROOF
