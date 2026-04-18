@@ -91,28 +91,27 @@
   .pageno{font-family:"Inter",sans-serif;font-size:60px;font-weight:900;color:#EAE8E3;letter-spacing:-.04em;line-height:1}
 
   /* Slide P2 (Who we are) */
-  .whoHero{margin-top:24px;display:grid;grid-template-columns:1.55fr 1fr;gap:0;border-top:1px solid var(--ink)}
-  .whoHero .left{padding:32px 28px 28px 0;border-right:1px solid var(--ink)}
-  .whoHero .right{padding:32px 0 28px 32px;background:linear-gradient(180deg,#fff 0%,#fff 100%)}
-  .whoHero .lead{font-size:30px;font-weight:800;line-height:1.45;letter-spacing:-.005em}
+  .whoHero{margin-top:20px;display:grid;grid-template-columns:1.45fr 1fr;gap:0;border-top:1px solid var(--ink)}
+  .whoHero .left{padding:24px 32px 22px 0;border-right:1px solid var(--ink)}
+  .whoHero .right{padding:18px 0 18px 32px;display:flex;flex-direction:column;justify-content:space-between}
+  .whoHero .lead{font-size:24px;font-weight:800;line-height:1.45;letter-spacing:-.005em}
   .whoHero .lead em{font-style:normal;color:var(--red)}
   .whoHero .lead .mark{background:linear-gradient(transparent 60%, #FFD9DD 60%);padding:0 2px}
-  .whoHero .leadFoot{font-size:13px;color:var(--sub);line-height:1.85;margin-top:18px}
-  .whoHero .verbs{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap}
-  .whoHero .verbs span{font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink);padding:6px 10px;border-radius:999px}
-  .whoHero .stack{display:grid;grid-template-rows:1fr 1fr;gap:20px;height:100%}
-  .whoStat{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:end}
-  .whoStat .n{font-family:"Inter",sans-serif;font-weight:900;font-size:78px;letter-spacing:-.04em;line-height:.9;color:var(--ink)}
+  .whoHero .leadFoot{font-size:12.5px;color:var(--sub);line-height:1.85;margin-top:14px}
+  .whoHero .verbs{margin-top:16px;display:flex;gap:6px;flex-wrap:wrap}
+  .whoHero .verbs span{font-size:10.5px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink);padding:5px 9px;border-radius:999px}
+  .whoStat{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center;border-bottom:1px dashed #D8D6D1;padding:8px 0}
+  .whoStat:last-child{border-bottom:none}
+  .whoStat .n{font-family:"Inter",sans-serif;font-weight:900;font-size:46px;letter-spacing:-.04em;line-height:1;color:var(--ink);text-align:right}
   .whoStat .n.red{color:var(--red)}
-  .whoStat .meta{padding-bottom:8px}
-  .whoStat .meta .lab{font-size:11px;letter-spacing:.16em;color:#888;font-weight:700}
-  .whoStat .meta .desc{font-size:13px;color:var(--ink);line-height:1.6;margin-top:4px;font-weight:500}
-  .whoStatRow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .biz{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--ink)}
-  .biz .b{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);border-top:1px solid var(--ink);padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:6px}
-  .biz .b .num{font-family:"Inter",sans-serif;font-size:11px;font-weight:800;color:var(--red);letter-spacing:.1em}
-  .biz .b .ttl{font-size:14px;font-weight:800;line-height:1.4}
-  .biz .b .dsc{font-size:11.5px;color:var(--sub);line-height:1.7}
+  .whoStat .n .u{font-size:18px;font-weight:800;margin-left:2px}
+  .whoStat .meta .lab{font-size:10px;letter-spacing:.18em;color:#888;font-weight:700}
+  .whoStat .meta .desc{font-size:12.5px;color:var(--ink);line-height:1.5;margin-top:3px;font-weight:500}
+  .biz{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--ink)}
+  .biz .b{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);border-top:1px solid var(--ink);padding:14px 16px;background:#fff;display:flex;flex-direction:column;gap:4px}
+  .biz .b .num{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:800;color:var(--red);letter-spacing:.1em}
+  .biz .b .ttl{font-size:13.5px;font-weight:800;line-height:1.4}
+  .biz .b .dsc{font-size:11px;color:var(--sub);line-height:1.65}
 </style>
 </head>
 <body>
@@ -161,38 +160,32 @@
       </div>
 
       <div class="right">
-        <div class="stack">
-          <div class="whoStatRow">
-            <div class="whoStat">
-              <div class="n red">2021</div>
-              <div class="meta">
-                <div class="lab">FOUNDED</div>
-                <div class="desc">創業4年で年間¥5B＋の売上創出規模に</div>
-              </div>
-            </div>
-            <div class="whoStat">
-              <div class="n">20<span style="font-size:32px;font-weight:800">名</span></div>
-              <div class="meta">
-                <div class="lab">TEAM</div>
-                <div class="desc">平均30代／日英中バイリンガル精鋭</div>
-              </div>
-            </div>
+        <div class="whoStat">
+          <div class="n red">2021</div>
+          <div class="meta">
+            <div class="lab">FOUNDED</div>
+            <div class="desc">創業4年で年間¥5B＋の売上創出規模に到達</div>
           </div>
-          <div class="whoStatRow">
-            <div class="whoStat">
-              <div class="n">10<span style="font-size:32px;font-weight:800">カ国+</span></div>
-              <div class="meta">
-                <div class="lab">GLOBAL</div>
-                <div class="desc">APAC＋米欧豪。現地事務所NWを保有</div>
-              </div>
-            </div>
-            <div class="whoStat">
-              <div class="n red">100<span style="font-size:32px;font-weight:800">社+</span></div>
-              <div class="meta">
-                <div class="lab">CLIENTS</div>
-                <div class="desc">P&amp;G／資生堂／SONY／SEGA等の主要ブランド<span style="color:#bbb">※</span></div>
-              </div>
-            </div>
+        </div>
+        <div class="whoStat">
+          <div class="n">20<span class="u">名</span></div>
+          <div class="meta">
+            <div class="lab">TEAM</div>
+            <div class="desc">平均30代／日英中バイリンガル精鋭</div>
+          </div>
+        </div>
+        <div class="whoStat">
+          <div class="n">10<span class="u">カ国+</span></div>
+          <div class="meta">
+            <div class="lab">GLOBAL</div>
+            <div class="desc">APAC＋米欧豪。現地事務所ネットワーク</div>
+          </div>
+        </div>
+        <div class="whoStat">
+          <div class="n red">100<span class="u">社+</span></div>
+          <div class="meta">
+            <div class="lab">CLIENTS</div>
+            <div class="desc">P&amp;G／資生堂／SONY／SEGA／Calbee 等</div>
           </div>
         </div>
       </div>
