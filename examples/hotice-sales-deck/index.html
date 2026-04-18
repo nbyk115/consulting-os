@@ -337,6 +337,45 @@
   .tierRow .tn{font-family:"Inter",sans-serif;font-weight:900;font-size:14px;color:var(--ink)}
   .tierRow .tc{color:var(--sub);line-height:1.5}
   .tierRow .tv{font-family:"Inter",sans-serif;font-weight:800;color:var(--red);font-size:12px;letter-spacing:-.01em}
+
+  /* Slide P10 (Speed x Quality) */
+  .sqHero{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .sqCard{background:#fff;padding:22px 24px;border-top:4px solid var(--ink);display:flex;flex-direction:column;gap:8px}
+  .sqCard.red{border-top-color:var(--red)}
+  .sqCard .lb{font-size:10.5px;letter-spacing:.22em;color:#888;font-weight:800}
+  .sqCard h3{font-size:22px;font-weight:900;letter-spacing:-.005em;line-height:1.35}
+  .sqCard h3 em{font-style:normal;color:var(--red)}
+  .sqCard .v{font-family:"Inter",sans-serif;font-weight:900;font-size:62px;letter-spacing:-.03em;line-height:1;margin-top:6px}
+  .sqCard .v.red{color:var(--red)}
+  .sqCard .v .u{font-size:22px;font-weight:800;margin-left:2px}
+  .sqCard .d{font-size:12.5px;color:var(--sub);line-height:1.8;margin-top:8px}
+  .sqCard .d b{color:var(--ink)}
+  /* Timeline */
+  .tl{margin-top:18px;background:#fff;padding:20px 24px;border:1px solid var(--line)}
+  .tl h4{font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:800;margin-bottom:14px}
+  .tlRow{display:grid;grid-template-columns:120px 1fr;gap:20px;position:relative;padding:10px 0}
+  .tlRow::before{content:"";position:absolute;left:55px;top:0;bottom:0;width:1px;background:#E6E6E6}
+  .tlRow:first-child::before{top:50%}
+  .tlRow:last-child::before{bottom:50%}
+  .tlWeek{font-family:"Inter",sans-serif;font-weight:900;font-size:13px;color:var(--ink);letter-spacing:-.01em;position:relative;padding-left:30px;display:flex;align-items:center;gap:8px}
+  .tlWeek::after{content:"";position:absolute;left:47px;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px #fff,0 0 0 5px #E6E6E6;z-index:2}
+  .tlWeek.start::after{background:var(--ink);box-shadow:0 0 0 4px #fff,0 0 0 5px var(--ink)}
+  .tlWeek.end::after{background:#fff;border:2px solid var(--red);box-shadow:0 0 0 4px #fff}
+  .tlTxt{font-size:12.5px;line-height:1.7;color:var(--ink);padding-left:36px}
+  .tlTxt b{font-weight:800}
+  .tlTxt .s{color:#888;font-size:11px;margin-left:6px}
+  /* Compare row */
+  .cmpRow{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cmpBox{padding:14px 18px;display:flex;flex-direction:column;gap:4px}
+  .cmpBox.them{background:#F5F2EC}
+  .cmpBox.us{background:var(--red);color:#fff}
+  .cmpBox .t{font-size:10.5px;letter-spacing:.18em;font-weight:800}
+  .cmpBox.them .t{color:#888}
+  .cmpBox.us .t{color:#FFD9DD}
+  .cmpBox .v{font-family:"Inter",sans-serif;font-weight:900;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+  .cmpBox .d{font-size:11.5px;line-height:1.55;margin-top:3px}
+  .cmpBox.them .d{color:var(--sub)}
+  .cmpBox.us .d{color:#fff;opacity:.95}
 </style>
 </head>
 <body>
@@ -352,6 +391,7 @@
   <a href="#s3">P8 競合比較</a>
   <a href="#p8a">P8a なぜhotice</a>
   <a href="#p9">P9 グローバル</a>
+  <a href="#p10">P10 速度×品質</a>
   <a href="#s1">P11 実績</a>
   <a href="#p13">P13 Amazon</a>
   <a class="pdf" href="hotice-deck.pdf" target="_blank">PDF ↓</a>
@@ -700,6 +740,143 @@
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
     <div class="page">P7 / 18</div>
+  </div>
+</section></div>
+
+<!-- =========================================================
+  SLIDE P9 : GLOBAL IMPLEMENTATION
+========================================================= -->
+<div class="slideWrap"><section class="slide" id="p9">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Strength 01 ｜ Global Implementation</div>
+        <div class="h1"><em>10カ国+</em>の現地オペで、<br>"グローバル"を口約束で終わらせない。</div>
+        <div class="sub">APAC を中核に、北米・欧州・豪州までカバー。各国の事務所NWと直接提携、撮影・契約・決済まで <b>自社で一気通貫</b>。</div>
+      </div>
+      <div class="pageno">P9</div>
+    </div>
+
+    <div class="glb">
+      <!-- MAP -->
+      <div class="glbMap">
+        <h4>— ACTIVE MARKETS / 稼働マーケット</h4>
+        <div class="mapBox">
+          <!-- USA -->
+          <div class="pin" style="left:22%;top:36%"><div class="dot"></div><div class="n">USA</div><div class="c">Los Angeles</div></div>
+          <!-- China -->
+          <div class="pin" style="left:68%;top:40%"><div class="dot"></div><div class="n">China</div><div class="c">Shanghai</div></div>
+          <!-- Korea -->
+          <div class="pin" style="left:77%;top:36%"><div class="dot"></div><div class="n">Korea</div><div class="c">Seoul</div></div>
+          <!-- Japan (HQ) -->
+          <div class="pin" style="left:82%;top:42%"><div class="dot big"></div><div class="n">Japan ● HQ</div><div class="c">Tokyo</div></div>
+          <!-- Taiwan -->
+          <div class="pin" style="left:75%;top:51%"><div class="dot"></div><div class="n">Taiwan</div><div class="c">Taipei</div></div>
+          <!-- Hong Kong -->
+          <div class="pin" style="left:70%;top:55%"><div class="dot"></div><div class="n">HK</div><div class="c">Hong Kong</div></div>
+          <!-- Philippines -->
+          <div class="pin" style="left:79%;top:60%"><div class="dot"></div><div class="n">Philippines</div><div class="c">Manila</div></div>
+          <!-- Vietnam -->
+          <div class="pin" style="left:70%;top:60%"><div class="dot"></div><div class="n">Vietnam</div><div class="c">Ho Chi Minh</div></div>
+          <!-- Thailand -->
+          <div class="pin" style="left:65%;top:62%"><div class="dot"></div><div class="n">Thailand</div><div class="c">Bangkok</div></div>
+          <!-- Singapore -->
+          <div class="pin" style="left:68%;top:72%"><div class="dot"></div><div class="n">Singapore</div><div class="c"></div></div>
+          <!-- Indonesia -->
+          <div class="pin" style="left:74%;top:77%"><div class="dot"></div><div class="n">Indonesia</div><div class="c">Jakarta</div></div>
+        </div>
+        <div class="mapFoot">
+          <div><span class="k red">10</span>カ国+<br><span style="opacity:.7">稼働マーケット</span></div>
+          <div><span class="k">APAC</span><br><span style="opacity:.7">強み領域</span></div>
+          <div><span class="k">JP/EN/CN</span><br><span style="opacity:.7">バイリンガル対応</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT STATS + TIERS -->
+      <div class="glbStats">
+        <div class="glbStat">
+          <div class="n red">25,000<span class="u">名+</span></div>
+          <div class="txt"><b>海外インフルエンサーDB</b>提案可能な海外クリエイター総数（日本含む）</div>
+        </div>
+        <div class="glbStat">
+          <div class="n">1,000<span class="u">名</span></div>
+          <div class="txt"><b>直接リレーション</b>hotice が個別契約・定期稼働しているコア層</div>
+        </div>
+        <div class="glbStat">
+          <div class="n red">9<span class="u">市場+</span></div>
+          <div class="txt"><b>現地提携事務所</b>各マーケットの有力MCNと提携、現地契約・決済対応</div>
+        </div>
+
+        <div class="tierBox">
+          <h5>— ACTIVE USE CASES / 活用パターン</h5>
+          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b>：空港・都心商業のPOS売上UP（台湾・韓国・タイ）</div><div class="tv">資生堂</div></div>
+          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b>：ブランド統一訴求の多国同時投下</div><div class="tv">Samsung</div></div>
+          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b>：現地KOL×Shopee/Lazada/Amazon US</div><div class="tv">ガジェット多数</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="srcLine">出典：hotice 自社ネットワーク（2024年12月時点）／稼働実績ベース。提携MCN・事務所名は個別にご相談ください。</div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="page">P9 / 18</div>
+  </div>
+</section></div>
+
+<!-- =========================================================
+  SLIDE P10 : SPEED x QUALITY
+========================================================= -->
+<div class="slideWrap"><section class="slide" id="p10">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Strength 02 ｜ Speed × Quality</div>
+        <div class="h1">最短 <em>2週間</em> で、事故率 <em>0件</em>。<br>スピードと品質を、両立させる。</div>
+        <div class="sub">20名の少数精鋭＋バイリンガル体制＋1,000名との直接リレーション。意思決定から投稿まで、<b>間に挟まるレイヤーをゼロ</b>にする設計。</div>
+      </div>
+      <div class="pageno">P10</div>
+    </div>
+
+    <div class="sqHero">
+      <div class="sqCard red">
+        <div class="lb">SPEED ／ スピード</div>
+        <h3>決定→投稿まで<br><em>最短 2 週間</em>。</h3>
+        <div class="v red">2<span class="u">週間</span></div>
+        <div class="d">フラットな組織・少数精鋭構成のため、営業〜PM〜ディレクションの<b>判断が中1日で完結</b>。爆速案件にも専任体制で対応。</div>
+      </div>
+      <div class="sqCard">
+        <div class="lb">QUALITY ／ 品質</div>
+        <h3>過去5年、<br><em>重大事故 0 件</em>。</h3>
+        <div class="v">0<span class="u">件</span></div>
+        <div class="d">炎上・権利問題・PR違反を徹底フィルタ。ステマ規制（2023年）以降もレギュレーション反映の<b>事故検知プロセスを内製</b>。</div>
+      </div>
+    </div>
+
+    <div class="tl">
+      <h4>— 最短2週間の内訳 ／ Typical 2-Week Timeline</h4>
+      <div class="tlRow"><div class="tlWeek start">Day 0-2</div><div class="tlTxt"><b>ブリーフ＆人選</b> ／ ターゲット・KPI・予算のヒアリング、1st キャスティング提案<span class="s">BRIEF</span></div></div>
+      <div class="tlRow"><div class="tlWeek">Day 3-6</div><div class="tlTxt"><b>人選確定＆コンセプト設計</b> ／ クリエイター最終決定、投稿コンセプト／シナリオ作成<span class="s">CREATIVE</span></div></div>
+      <div class="tlRow"><div class="tlWeek">Day 7-10</div><div class="tlTxt"><b>撮影・編集・チェック</b> ／ クリエイター撮影、ブランド確認、修正反映<span class="s">PRODUCTION</span></div></div>
+      <div class="tlRow"><div class="tlWeek end">Day 11-14</div><div class="tlTxt"><b>投稿＆初期レポーティング</b> ／ 各SNSへ投稿、48h 実績スナップショット送付<span class="s">LAUNCH</span></div></div>
+    </div>
+
+    <div class="cmpRow">
+      <div class="cmpBox them">
+        <div class="t">業界一般</div>
+        <div class="v">1〜2ヶ月</div>
+        <div class="d">大手・中堅は多層PM体制でリードタイム長め。急ぎ案件は断られるか、品質が落ちる</div>
+      </div>
+      <div class="cmpBox us">
+        <div class="t">HOTICE</div>
+        <div class="v">2週間</div>
+        <div class="d">最短は業界の約 <b>1/3〜1/4</b>。さらに事故率 0件を維持 ── スピードを取りにいくほど、品質管理が重要</div>
+      </div>
+    </div>
+
+    <div class="srcLine">出典：hotice 自社実績（2021-2024 全案件の平均デリバリーおよび重大事故カウント）／業界ベンチマークは公開情報およびヒアリング。</div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="page">P10 / 18</div>
   </div>
 </section></div>
 
