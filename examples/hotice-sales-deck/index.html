@@ -121,20 +121,271 @@
   .biz .b .num{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:800;color:var(--red);letter-spacing:.1em}
   .biz .b .ttl{font-size:13.5px;font-weight:800;line-height:1.4}
   .biz .b .dsc{font-size:11px;color:var(--sub);line-height:1.65}
+
+  /* Slide P1 (Cover) */
+  .cover{background:var(--red);color:#fff;position:relative;overflow:hidden}
+  .cover::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 80% at 100% 0%, rgba(0,0,0,.18) 0%, transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(255,255,255,.10) 0%, transparent 50%);pointer-events:none}
+  .cover .frame{padding:60px 80px;display:flex;flex-direction:column;justify-content:space-between;height:100%;position:relative;z-index:2}
+  .cover .top{display:flex;justify-content:space-between;align-items:flex-start;font-size:11px;letter-spacing:.22em;font-weight:700;opacity:.9}
+  .cover .top .l::before{content:"";display:inline-block;width:24px;height:2px;background:#fff;vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+  .cover .mid{display:flex;flex-direction:column;gap:24px;margin-top:30px}
+  .cover .word{font-family:"Inter","Noto Sans JP",sans-serif;font-weight:900;font-size:148px;letter-spacing:-.055em;line-height:.9;margin-left:-6px}
+  .cover .word .dot{display:inline-block;width:16px;height:16px;border-radius:50%;background:#fff;vertical-align:top;margin:26px 0 0 -6px}
+  .cover .hr{width:80px;height:2px;background:#fff;opacity:.6}
+  .cover .tag{font-size:30px;font-weight:700;letter-spacing:-.005em;line-height:1.55;max-width:900px;color:#fff !important;text-transform:none !important}
+  .cover .tag::before{content:none !important}
+  .cover .tag em{font-style:normal;background:#fff;color:var(--red);padding:0 10px;margin:0 2px;border-radius:2px;font-weight:900}
+  .cover .subtag{font-size:14px;letter-spacing:.02em;opacity:.9;line-height:1.85;max-width:720px;font-weight:500}
+  .cover .bot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.35);padding-top:18px}
+  .cover .bot .l{font-size:11px;letter-spacing:.14em;font-weight:600;line-height:1.8;opacity:.92}
+  .cover .bot .l b{display:block;font-size:13px;letter-spacing:.06em;margin-bottom:3px;font-weight:800;opacity:1}
+  .cover .bot .r{text-align:right;font-size:11px;letter-spacing:.18em;font-weight:700;opacity:.85;line-height:1.8}
+  .cover .ch{position:absolute;font-family:"Inter",sans-serif;font-weight:900;color:rgba(255,255,255,.07);font-size:420px;letter-spacing:-.08em;line-height:.8;right:-20px;bottom:-80px;pointer-events:none;user-select:none;z-index:1}
+
+  /* Slide P2 (Executive Summary) */
+  .xs{display:grid;grid-template-columns:1.1fr 1fr;gap:0;margin-top:18px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .xs > div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 22px;background:#fff;min-height:170px}
+  .xs .ttl{font-size:10.5px;letter-spacing:.18em;color:var(--red);font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .xs .ttl .n{font-family:"Inter",sans-serif;font-size:11px;color:#999;letter-spacing:.05em}
+  .xs .lead{font-size:18px;font-weight:800;line-height:1.5;color:var(--ink)}
+  .xs .lead em{font-style:normal;color:var(--red)}
+  .xs .sub{font-size:12px;color:var(--sub);line-height:1.75;margin-top:8px}
+  .xs .numBig{font-family:"Inter",sans-serif;font-weight:900;font-size:48px;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:4px}
+  .xs .numBig.red{color:var(--red)}
+  .xs .numBig .u{font-size:20px;font-weight:800;margin-left:3px}
+  .xs .numRow{display:flex;gap:22px;margin-top:6px;align-items:flex-end}
+  .xs .numCol{flex:1}
+  .xs .numCol .k{font-family:"Inter",sans-serif;font-weight:900;font-size:30px;letter-spacing:-.02em;line-height:1}
+  .xs .numCol .k.red{color:var(--red)}
+  .xs .numCol .kLab{font-size:10.5px;color:#888;letter-spacing:.08em;font-weight:700;margin-top:5px}
+  .xs .ask{background:var(--ink) !important;color:#fff}
+  .xs .ask .ttl{color:#FF7A86}
+  .xs .ask .lead{color:#fff}
+  .xs .ask .sub{color:#ccc}
+  .xs .src{font-size:10px;color:#aaa;margin-top:8px;line-height:1.6}
+
+  /* Slide P3 (Market) */
+  .mkt{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .mkt .card{background:#fff;padding:20px 22px;border-top:3px solid var(--ink);position:relative;min-height:410px}
+  .mkt .card.jp{border-top-color:var(--red)}
+  .mkt .card h3{font-size:15px;font-weight:800;letter-spacing:.02em}
+  .mkt .card .region{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.22em;color:#888;font-weight:700}
+  .mkt .card h3 em{font-style:normal;color:var(--red)}
+  .mkt .hero{margin-top:14px}
+  .mkt .hero .n{font-family:"Inter",sans-serif;font-weight:900;font-size:62px;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .mkt .hero .n.red{color:var(--red)}
+  .mkt .hero .n .u{font-size:22px;font-weight:800;margin-left:2px}
+  .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
+  .mkt .hero .desc b{color:var(--ink)}
+  /* bar chart (Japan) */
+  .bars{margin-top:18px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:160px;padding-top:16px;border-bottom:1px solid var(--ink)}
+  .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
+  .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
+  .bars .bar.accent::before{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:900;font-size:14px;color:var(--red);letter-spacing:-.02em;white-space:nowrap}
+  .bars .bar::before{content:attr(data-v);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11.5px;color:#666;letter-spacing:-.01em;white-space:nowrap}
+  .barsLab{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:6px}
+  .barsLab span{font-family:"Inter",sans-serif;font-size:10.5px;color:#888;font-weight:700;text-align:center;letter-spacing:.02em}
+  /* global line/bars */
+  .gBars{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .gBars .g{background:#FAFAFA;border:1px solid #EEE;padding:12px 14px}
+  .gBars .g .lab{font-size:10px;letter-spacing:.14em;color:#888;font-weight:700}
+  .gBars .g .v{font-family:"Inter",sans-serif;font-weight:900;font-size:28px;letter-spacing:-.02em;margin-top:4px}
+  .gBars .g .v.red{color:var(--red)}
+  .gBars .g .d{font-size:11px;color:var(--sub);margin-top:4px;line-height:1.5}
+  .trendList{margin-top:14px}
+  .trendList .li{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:8px 0;border-bottom:1px dashed #ddd;align-items:baseline}
+  .trendList .li:last-child{border-bottom:none}
+  .trendList .li .pct{font-family:"Inter",sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;color:var(--red);text-align:right}
+  .trendList .li .txt{font-size:12px;color:var(--ink);line-height:1.55}
+  .trendList .li .txt b{font-weight:800}
+  .trendList .li .txt .s{color:#999;font-size:10.5px;margin-left:4px}
+  .mktThesis{margin-top:18px;padding:14px 20px;background:var(--ink);color:#fff;display:flex;gap:18px;align-items:center}
+  .mktThesis .t{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap}
+  .mktThesis .b{font-size:14px;font-weight:700;line-height:1.5}
+  .mktThesis .b em{font-style:normal;color:#FF7A86}
+  .srcLine{font-size:10px;color:#888;margin-top:10px;line-height:1.7}
+  .srcLine a{color:#888;text-decoration:underline}
 </style>
 </head>
 <body>
 
 <div class="nav">
   <b>hotice｜再構成ドラフト v0.1</b><br>
-  <a href="#s0">⓪ Who we are（原P2）</a>
-  <a href="#s1">① 実績サマリー</a>
-  <a href="#s2">② AI時代の見立て</a>
-  <a href="#s3">③ 競合比較</a>
+  <a href="#cover">P1 表紙</a>
+  <a href="#p2">P2 サマリー</a>
+  <a href="#p3">P3 市場</a>
+  <a href="#s2">P4 AI見立て</a>
+  <a href="#s0">P6 Who we are</a>
+  <a href="#s3">P8 競合比較</a>
+  <a href="#s1">P11 実績</a>
   <a class="pdf" href="hotice-deck.pdf" target="_blank">PDF ↓</a>
 </div>
 
 <div class="deck">
+
+<!-- =========================================================
+  SLIDE COVER : P1 表紙
+========================================================= -->
+<div class="slideWrap"><section class="slide cover" id="cover">
+  <div class="ch">2026</div>
+  <div class="frame">
+    <div class="top">
+      <div class="l">GLOBAL SNS &amp; INFLUENCER MARKETING ｜ AGENCY PARTNER BRIEF</div>
+      <div class="r">v 0.1</div>
+    </div>
+
+    <div class="mid">
+      <div class="word">hotice<span class="dot"></span></div>
+      <div class="hr"></div>
+      <div class="tag">
+        ブランドの〈伝えたい〉を、<br>ユーザーの<em>〈聞きたい〉</em>に翻訳する。
+      </div>
+      <div class="subtag">
+        25,000名×10カ国のインフルエンサーネットワークと、年間¥5B＋の売上創出実績。<br>
+        広告代理店様の "インフルエンサー実装レイヤー" を、ホワイトラベルで丸ごと請け負います。
+      </div>
+    </div>
+
+    <div class="bot">
+      <div class="l">
+        <b>hotice株式会社</b>
+        東京都渋谷区渋谷3-17-4 山口ビル新館4階<br>
+        Casting ／ Operation ／ Paid Media ／ Event &amp; Production
+      </div>
+      <div class="r">
+        Company &amp; Service Profile<br>
+        April 2026 Edition
+      </div>
+    </div>
+  </div>
+</section></div>
+
+<!-- =========================================================
+  SLIDE P2 : EXECUTIVE SUMMARY
+========================================================= -->
+<div class="slideWrap"><section class="slide" id="p2">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Executive Summary ｜ 1-page 要旨</div>
+        <div class="h1"><em>なぜ今、hotice</em>を代理店の<br>インフルエンサー実装レイヤーに据えるべきか。</div>
+        <div class="sub">市場の構造変化、自社の数字、組み方のオプション ── 稟議に必要な要素を1枚で。</div>
+      </div>
+      <div class="pageno">P2</div>
+    </div>
+
+    <div class="xs">
+      <div>
+        <div class="ttl"><span class="n">01</span>MARKET ／ なぜ今か</div>
+        <div class="lead">日本IM市場は <em>2026年 1,150億円</em>、<br>2029年 <em>1,645億円</em> へ（2024年比1.9倍）。</div>
+        <div class="sub">グローバルIM市場は2026年に <b>$32.55B</b>（eMarketer/Statista）、代理店予算の再配分が加速中。</div>
+        <div class="src">出典：サイバー・バズ×デジタルインファクト 2024年調査／Statista Influencer Advertising Outlook 2026</div>
+      </div>
+      <div>
+        <div class="ttl"><span class="n">02</span>WHAT CMOs ARE SAYING</div>
+        <div class="numRow">
+          <div class="numCol"><div class="k red">91<span style="font-size:20px">%</span></div><div class="kLab">BRAND×CREATOR<br>パートナーシップ型</div></div>
+          <div class="numCol"><div class="k">+14<span style="font-size:20px">pt</span></div><div class="kLab">前年比の増加幅</div></div>
+          <div class="numCol"><div class="k">90<span style="font-size:20px">%</span></div><div class="kLab">SNS＞既存広告<br>と認識</div></div>
+        </div>
+        <div class="sub" style="margin-top:14px">「ブランドはクリエイター・プラットフォーム・文化担い手との共創で築かれる」── 世界14市場1,950名のCMO調査。</div>
+        <div class="src">出典：Dentsu Creative 2025 CMO Report "Agents of Reinvention"</div>
+      </div>
+      <div>
+        <div class="ttl"><span class="n">03</span>WHAT HOTICE DELIVERS</div>
+        <div class="numRow">
+          <div class="numCol"><div class="k red">¥5.0<span style="font-size:20px">B+</span></div><div class="kLab">年間GMV創出<br>2024年実績</div></div>
+          <div class="numCol"><div class="k">20,000<span style="font-size:20px">%</span></div><div class="kLab">最大ROAS<br>Amazon案件</div></div>
+          <div class="numCol"><div class="k">10<span style="font-size:20px">カ国+</span></div><div class="kLab">稼働国数<br>25,000名NW</div></div>
+        </div>
+        <div class="sub" style="margin-top:14px">代理店との協業実績：P&amp;G／資生堂／SONY／SEGA／Calbee 等。最短 <b>2週間</b> で決定→投稿、事故率 <b>0件</b>（過去5年）。</div>
+      </div>
+      <div class="ask">
+        <div class="ttl"><span class="n">04</span>WHAT WE PROPOSE</div>
+        <div class="lead">御社のインフルエンサー実装を、<em>ホワイトラベル</em>で<br>丸ごとお任せください。</div>
+        <div class="sub">① 共同提案：企画書段階から同席／② 実行支援：PM常駐・レポーティング／③ ホワイトラベル：御社名義で前面対応。<br>初回ミーティング〜投稿まで最短2週間。</div>
+      </div>
+    </div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="page">P2 / 18</div>
+  </div>
+</section></div>
+
+<!-- =========================================================
+  SLIDE P3 : MARKET STATE OF PLAY
+========================================================= -->
+<div class="slideWrap"><section class="slide" id="p3">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Market ｜ 市場の現在地</div>
+        <div class="h1">日本は <em>5年で 2倍</em>、グローバルは <em>$32B</em>。<br>インフルエンサーMKTは"主流"に。</div>
+        <div class="sub">日本市場は2029年に1,645億円（2024年比1.9倍）。代理店予算の再配分が加速している。</div>
+      </div>
+      <div class="pageno">P3</div>
+    </div>
+
+    <div class="mkt">
+      <!-- JAPAN -->
+      <div class="card jp">
+        <div class="region">JAPAN ／ 国内市場</div>
+        <h3>2024 <em>860億円</em> → 2029 <em>1,645億円</em></h3>
+        <div class="hero">
+          <div class="n red">1,150<span class="u">億円</span></div>
+          <div class="desc"><b>2026年予測</b>。2024年比で約 <b>1.34倍</b>。5年後の2029年には <b>1.9倍</b> へ到達する見込み。</div>
+        </div>
+        <div class="bars">
+          <div class="bar" data-v="860" style="--h:82px"></div>
+          <div class="bar" data-v="1,021" style="--h:98px"></div>
+          <div class="bar accent" data-v="1,150" style="--h:110px"></div>
+          <div class="bar" data-v="1,285" style="--h:123px"></div>
+          <div class="bar" data-v="1,450" style="--h:138px"></div>
+          <div class="bar" data-v="1,645" style="--h:156px"></div>
+        </div>
+        <div class="barsLab"><span>2024</span><span>2025</span><span>2026</span><span>2027</span><span>2028</span><span>2029</span></div>
+      </div>
+
+      <!-- GLOBAL -->
+      <div class="card">
+        <div class="region">GLOBAL ／ 世界市場</div>
+        <h3>2026年 <em>$32.55B</em>／米国単独 $12.17B</h3>
+        <div class="gBars">
+          <div class="g">
+            <div class="lab">GLOBAL 2026</div>
+            <div class="v red">$32.55B</div>
+            <div class="d">eMarketer / Statista 予測</div>
+          </div>
+          <div class="g">
+            <div class="lab">USA 2026</div>
+            <div class="v">$12.17B</div>
+            <div class="d">世界最大市場</div>
+          </div>
+        </div>
+        <div class="trendList">
+          <div class="li"><div class="pct">91%</div><div class="txt"><b>CMOの91%</b>：ブランド＝クリエイター／プラットフォーム／文化との共創で築かれる<span class="s">前年比+14pt</span></div></div>
+          <div class="li"><div class="pct">79%</div><div class="txt"><b>79%</b> のマーケターが生成AIクリエイターコンテンツへの投資を拡大予定<span class="s">2023年 70% →</span></div></div>
+          <div class="li"><div class="pct">92%</div><div class="txt"><b>92%</b> のマーケターが <b>macro（10〜50万）＋ micro（5千〜10万）</b> の両方を活用</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mktThesis">
+      <div class="t">HOTICE'S<br>TAKE</div>
+      <div class="b">
+        市場はまだ <em>二桁成長</em>、かつ <em>予算が既存広告から流入</em> している局面。<br>
+        代理店にとっての論点は "やるか否か" ではなく "誰を実装パートナーに据えるか"。
+      </div>
+    </div>
+
+    <div class="srcLine">出典：サイバー・バズ×デジタルインファクト 2024年調査（日本国内市場）／ Statista Influencer Advertising Outlook 2026（グローバル）／ Dentsu Creative 2025 CMO Report "Agents of Reinvention"（91%・前年比+14pt）／ DigiDay "In graphic detail: How AI is going to shape influencer marketing next year"（79%・92%）</div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="page">P3 / 18</div>
+  </div>
+</section></div>
 
 <!-- =========================================================
   SLIDE 0 : WHO WE ARE  （原P2 → 新P6 案）
