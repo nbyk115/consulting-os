@@ -22,17 +22,18 @@
   .nav a{color:#fff;text-decoration:none;opacity:.72;margin-right:10px}
   .nav a:hover{opacity:1;color:#FF4D5E}
   .nav .pdf{margin-left:8px;padding:4px 10px;background:#E60012;color:#fff !important;border-radius:6px;opacity:1 !important;font-weight:700}
-  .deck{display:flex;flex-direction:column;align-items:center;gap:28px;padding:80px 16px 80px}
-  .slideWrap{width:1280px;max-width:100%;aspect-ratio:16/9;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:70px 12px 80px}
+  .slideWrap{
+    width:1280px;max-width:100%;aspect-ratio:1280/720;
+    position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45);
+    overflow:hidden;background:var(--bg);
+    container-type:inline-size;
+  }
   .slide{
     width:1280px;height:720px;background:var(--bg);color:var(--ink);
     position:absolute;top:0;left:0;overflow:hidden;
     transform-origin:top left;
-  }
-  /* Responsive scaling: keep 1280x720 internal, scale down to fit viewport */
-  @media (max-width:1320px){
-    .slideWrap{width:calc(100vw - 32px)}
-    .slide{transform:scale(calc((100vw - 32px) / 1280))}
+    transform:scale(calc(100cqw / 1280px));
   }
   .slide .frame{position:absolute;inset:0;padding:56px 72px;display:flex;flex-direction:column}
   .tag{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:700;text-transform:uppercase}
