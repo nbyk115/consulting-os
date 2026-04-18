@@ -464,31 +464,50 @@
   .caseResult .rd{font-size:12px;line-height:1.65;margin-top:6px;color:#ddd}
   .caseNote{margin-top:8px;padding:8px 14px;background:#F5F2EC;font-size:10.5px;color:#666;line-height:1.6}
   .caseNote b{color:var(--ink)}
+
+  /* Slide P2 (NEW: hotice とは — clean company intro) */
+  .intro{display:flex;flex-direction:column;gap:18px;margin-top:14px;flex:1}
+  .introKpi{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);border-left:1px solid var(--ink);border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .introKpi > div{padding:14px 18px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;background:#fff}
+  .introKpi > div:last-child{border-right:none}
+  .introKpi .lb{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.22em;color:#888;font-weight:800}
+  .introKpi .vl{font-family:"Inter",sans-serif;font-weight:900;font-size:42px;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:4px}
+  .introKpi .vl.red{color:var(--red)}
+  .introKpi .vl .u{font-size:18px;font-weight:800;margin-left:2px}
+  .introKpi .dc{font-size:11px;color:var(--sub);line-height:1.55;margin-top:4px}
+  .introSvc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .introSvc > div{background:#fff;padding:14px 16px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:4px}
+  .introSvc .sk{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.2em;color:var(--red);font-weight:800}
+  .introSvc .st{font-size:13px;font-weight:900;line-height:1.4}
+  .introSvc .sd{font-size:11px;color:var(--sub);line-height:1.65}
+  .introBrands{background:var(--ink);color:#fff;padding:14px 20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .introBrands .bk{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.25);padding-right:18px}
+  .introBrands .bv{font-size:14.5px;font-weight:800;letter-spacing:.06em;line-height:1.7;color:#fff}
+  .introBrands .bv span{display:inline-block;margin:0 10px 0 0;opacity:.95}
 </style>
 </head>
 <body>
 
 <div class="nav">
-  <b>hotice｜再構成ドラフト v0.2（全19P）</b><br>
+  <b>hotice｜再構成ドラフト v0.3（全18P）</b><br>
   <a href="#cover">P1</a>
   <a href="#p2">P2</a>
   <a href="#p3">P3</a>
   <a href="#s2">P4</a>
   <a href="#p5">P5</a>
-  <a href="#s0">P6</a>
-  <a href="#p7">P7</a>
-  <a href="#s3">P8</a>
-  <a href="#p8a">P8a</a>
-  <a href="#p9">P9</a>
-  <a href="#p10">P10</a>
-  <a href="#s1">P11</a>
-  <a href="#p12">P12</a>
-  <a href="#p13">P13</a>
-  <a href="#p14">P14</a>
-  <a href="#p15">P15</a>
-  <a href="#p16">P16</a>
-  <a href="#p17">P17</a>
-  <a href="#p18">P18</a>
+  <a href="#p7">P6</a>
+  <a href="#s3">P7</a>
+  <a href="#p8a">P7a</a>
+  <a href="#p9">P8</a>
+  <a href="#p10">P9</a>
+  <a href="#s1">P10</a>
+  <a href="#p12">P11</a>
+  <a href="#p13">P12</a>
+  <a href="#p14">P13</a>
+  <a href="#p15">P14</a>
+  <a href="#p16">P15</a>
+  <a href="#p17">P16</a>
+  <a href="#p18">P17</a>
   <a class="pdf" href="hotice-deck.pdf" target="_blank">PDF ↓</a>
 </div>
 
@@ -532,47 +551,72 @@
   <div class="frame">
     <div class="sheetHead">
       <div>
-        <div class="tag">Executive Summary ｜ 1-page 要旨</div>
-        <div class="h1"><em>なぜ今、hotice</em>を代理店の<br>インフルエンサー実装レイヤーに据えるべきか。</div>
-        <div class="sub">市場の構造変化、自社の数字、組み方のオプション ── 稟議に必要な要素を1枚で。</div>
+        <div class="tag">Who is hotice ｜ 会社紹介</div>
+        <div class="h1">hoticeは、<em>"気づき"を売上に変える</em>、<br>日本発のグローバル SNS マーケティング会社。</div>
+        <div class="sub">2021年創業。東京・渋谷拠点の<b>日英中バイリンガル精鋭チーム</b>。インフルエンサーキャスティングを起点に、SNS運用・広告配信・イベント制作までを一気通貫で実装します。</div>
       </div>
       <div class="pageno">P2</div>
     </div>
 
-    <div class="xs">
-      <div>
-        <div class="ttl"><span class="n">01</span>MARKET ／ なぜ今か</div>
-        <div class="lead">日本IM市場は <em>2026年 1,150億円</em>、<br>2029年 <em>1,645億円</em> へ（2024年比1.9倍）。</div>
-        <div class="sub">グローバルIM市場は2026年に <b>$32.55B</b>（eMarketer/Statista）、代理店予算の再配分が加速中。</div>
-        <div class="src">出典：サイバー・バズ×デジタルインファクト 2024年調査／Statista Influencer Advertising Outlook 2026</div>
-      </div>
-      <div>
-        <div class="ttl"><span class="n">02</span>WHAT CMOs ARE SAYING</div>
-        <div class="numRow">
-          <div class="numCol"><div class="k red">91<span style="font-size:20px">%</span></div><div class="kLab">BRAND×CREATOR<br>パートナーシップ型</div></div>
-          <div class="numCol"><div class="k">+14<span style="font-size:20px">pt</span></div><div class="kLab">前年比の増加幅</div></div>
-          <div class="numCol"><div class="k">90<span style="font-size:20px">%</span></div><div class="kLab">SNS＞既存広告<br>と認識</div></div>
+    <div class="intro">
+      <!-- Company at a glance (4 numbers) -->
+      <div class="introKpi">
+        <div>
+          <div class="lb">FOUNDED</div>
+          <div class="vl red">2021</div>
+          <div class="dc">創業4年。東京・渋谷拠点</div>
         </div>
-        <div class="sub" style="margin-top:14px">「ブランドはクリエイター・プラットフォーム・文化担い手との共創で築かれる」── 世界14市場1,950名のCMO調査。</div>
-        <div class="src">出典：Dentsu Creative 2025 CMO Report "Agents of Reinvention"</div>
-      </div>
-      <div>
-        <div class="ttl"><span class="n">03</span>WHAT HOTICE DELIVERS</div>
-        <div class="numRow">
-          <div class="numCol"><div class="k red">¥5.0<span style="font-size:20px">B+</span></div><div class="kLab">年間GMV創出<br>2024年実績</div></div>
-          <div class="numCol"><div class="k">20,000<span style="font-size:20px">%</span></div><div class="kLab">最大ROAS<br>Amazon案件</div></div>
-          <div class="numCol"><div class="k">10<span style="font-size:20px">カ国+</span></div><div class="kLab">稼働国数<br>25,000名NW</div></div>
+        <div>
+          <div class="lb">TEAM</div>
+          <div class="vl">20<span class="u">名</span></div>
+          <div class="dc">平均30代・日英中バイリンガル</div>
         </div>
-        <div class="sub" style="margin-top:14px">代理店との協業実績：P&amp;G／資生堂／SONY／SEGA／Calbee 等。最短 <b>2週間</b> で決定→投稿、事故率 <b>0件</b>（過去5年）。</div>
+        <div>
+          <div class="lb">GLOBAL</div>
+          <div class="vl red">10<span class="u">カ国+</span></div>
+          <div class="dc">APAC＋米欧豪、現地事務所NW保有</div>
+        </div>
+        <div>
+          <div class="lb">NETWORK</div>
+          <div class="vl">25,000<span class="u">名+</span></div>
+          <div class="dc">海外インフルエンサー、国内5,000名</div>
+        </div>
       </div>
-      <div class="ask">
-        <div class="ttl"><span class="n">04</span>WHAT WE PROPOSE</div>
-        <div class="lead">御社のインフルエンサー実装を、<em>ホワイトラベル</em>で<br>丸ごとお任せください。</div>
-        <div class="sub">① 共同提案：企画書段階から同席／② 実行支援：PM常駐・レポーティング／③ ホワイトラベル：御社名義で前面対応。<br>初回ミーティング〜投稿まで最短2週間。</div>
+
+      <!-- Service lineup (4 cards) -->
+      <div class="introSvc">
+        <div>
+          <div class="sk">01 ─ CASTING</div>
+          <div class="st">インフルエンサー・キャスティング</div>
+          <div class="sd">国内外 25,000+ からブランドに最適な人選。1,000名と直接リレーション</div>
+        </div>
+        <div>
+          <div class="sk">02 ─ OPERATION</div>
+          <div class="st">SNSアカウント運用・コンサル</div>
+          <div class="sd">YouTube／Instagram／TikTok／X の開設・運用・投稿まで一気通貫</div>
+        </div>
+        <div>
+          <div class="sk">03 ─ PAID MEDIA</div>
+          <div class="st">SNS広告配信</div>
+          <div class="sd">目的・ターゲットに合わせた広告設計／Amazon セール訴求も対応</div>
+        </div>
+        <div>
+          <div class="sk">04 ─ EVENT</div>
+          <div class="st">イベント・クリエイティブ制作</div>
+          <div class="sd">イベント企画・運営から撮影・動画編集まで、クリエイティブも内製</div>
+        </div>
+      </div>
+
+      <!-- Clients -->
+      <div class="introBrands">
+        <div class="bk">SELECTED<br>CLIENTS</div>
+        <div class="bv">
+          <span>P&amp;G</span><span>資生堂</span><span>Calbee</span><span>MIXI</span><span>SEGA</span><span>SONY</span><span>GU</span><span>Pokémon</span><span>ほか</span>
+        </div>
       </div>
     </div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
     <div class="page">P2 / 18</div>
   </div>
 </section></div>
@@ -646,7 +690,7 @@
       <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank">Dentsu Creative 2025 CMO Report "Agents of Reinvention"</a>（CMOの91%・+14pt・1,950名調査）／
       <a href="https://digiday.com/marketing/in-graphic-detail-how-ai-is-going-to-shape-influencer-marketing-next-year/" target="_blank">DigiDay "How AI is going to shape influencer marketing next year"</a>（79% AI投資・92% macro+micro）</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
     <div class="page">P3 / 18</div>
   </div>
 </section></div>
@@ -659,7 +703,7 @@
         <div class="h1">AI時代、<em>勝ち筋は「人間の選定」に戻る</em>。</div>
         <div class="sub">AIがコンテンツ生成をコモディティ化する中、唯一スケールしないのは"誰が語るか"。ここが次の主戦場になる。</div>
       </div>
-      <div class="pageno">02</div>
+      <div class="pageno">P4</div>
     </div>
 
     <div class="bCols">
@@ -706,7 +750,7 @@
     <div class="footnote">※1 <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank" style="color:var(--red);font-weight:700;text-decoration:underline">Dentsu Creative 2025 CMO Report "Agents of Reinvention"</a>（世界14市場・1,950名のCMOサーベイ）／ ※2 <a href="https://digiday.com/marketing/in-graphic-detail-how-ai-is-going-to-shape-influencer-marketing-next-year/" target="_blank" style="color:var(--red);font-weight:700;text-decoration:underline">DigiDay "How AI is going to shape influencer marketing next year"</a></div>
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
-    <div class="page">02 / 03</div>
+    <div class="page">P4 / 18</div>
   </div>
 </section></div>
 
@@ -796,95 +840,8 @@
       <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank">Dentsu Creative 2025 CMO Report</a>（代理店協業モデル転換）／
       <a href="https://digiday.com/media/from-vibes-to-data-why-some-brands-use-predictive-tech-to-vet-creators/" target="_blank">DigiDay "Brands are turning to predictive models"</a>（成果型の潮流）／ hotice 自社実績</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
     <div class="page">P5 / 18</div>
-  </div>
-</section></div>
-
-<div class="slideWrap"><section class="slide" id="s0">
-  <div class="frame">
-    <div class="sheetHead">
-      <div>
-        <div class="tag">Who is hotice ｜ 原P2 再構成</div>
-        <div class="h1">hoticeは、<em>"気づき"</em>を売上に変える、<br>日本発のグローバル SNS マーケ会社。</div>
-        <div class="sub">2021年創業、東京・渋谷拠点。インフルエンサーキャスティングを起点に、SNS運用・広告配信・イベント制作までを一気通貫で実装。<b>認知で終わらせず、ROASで測る</b>のが我々の流儀。</div>
-      </div>
-      <div class="pageno">P2</div>
-    </div>
-
-    <div class="whoHero">
-      <div class="left">
-        <div class="lead">
-          <span class="mark">代理店様の "インフルエンサー実装レイヤー"</span> を、<br>
-          ホワイトラベルで丸ごと請け負う <em>外部R&Dチーム</em>。
-        </div>
-        <div class="leadFoot">
-          自社で持ちにくい「人のネットワーク」「現地オペ」「成果型運用」をまとめて提供。<br>
-          御社のフロント・PMラインに常駐し、提案資料からレポートまでご一緒します。
-        </div>
-        <div class="verbs">
-          <span>CASTING</span>
-          <span>OPERATION</span>
-          <span>PAID MEDIA</span>
-          <span>EVENT &amp; PRODUCTION</span>
-          <span>BILINGUAL EN/JP/CN</span>
-        </div>
-      </div>
-
-      <div class="right">
-        <div class="whoStat">
-          <div class="n red">2021</div>
-          <div class="meta">
-            <div class="lab">FOUNDED</div>
-            <div class="desc">創業4年で年間¥5B＋の売上創出規模に到達</div>
-          </div>
-        </div>
-        <div class="whoStat">
-          <div class="n">20<span class="u">名</span></div>
-          <div class="meta">
-            <div class="lab">TEAM</div>
-            <div class="desc">平均30代／日英中バイリンガル精鋭</div>
-          </div>
-        </div>
-        <div class="whoStat">
-          <div class="n">10<span class="u">カ国+</span></div>
-          <div class="meta">
-            <div class="lab">GLOBAL</div>
-            <div class="desc">APAC＋米欧豪。現地事務所ネットワーク</div>
-          </div>
-        </div>
-        <div class="whoStat">
-          <div class="n red">100<span class="u">社+</span></div>
-          <div class="meta">
-            <div class="lab">CLIENTS</div>
-            <div class="desc">P&amp;G／資生堂／SONY／SEGA／Calbee 等</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="biz">
-      <div class="b">
-        <div class="num">01 — CASTING</div>
-        <div class="ttl">グローバル／国内インフルエンサーキャスティング</div>
-        <div class="dsc">海外25,000名・国内5,000名から最適な人選。1,000名の個人と直接リレーション</div>
-      </div>
-      <div class="b">
-        <div class="num">02 — OPERATION</div>
-        <div class="ttl">SNSアカウント運用・コンサルティング</div>
-        <div class="dsc">YouTube／Instagram／TikTok／X の開設から日常運用、コンテンツ投稿まで一気通貫</div>
-      </div>
-      <div class="b">
-        <div class="num">03 — PAID &amp; EVENT</div>
-        <div class="ttl">広告配信／イベント・クリエイティブ制作</div>
-        <div class="dsc">SNS広告の設計・配信、撮影・動画編集まで内製。イベント企画・運営も対応</div>
-      </div>
-    </div>
-
-    <div class="footnote" style="margin-top:14px">※ 取引社数は2021〜2024累計の自社集計。代表的ブランドは公開許諾済のもののみ抜粋。経営陣・組織図は巻末「Team」P参照。</div>
-
-    <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
-    <div class="page">原P2 → 新P6</div>
   </div>
 </section></div>
 
@@ -896,7 +853,7 @@
         <div class="h1">hotice が売っているのは、<em>"翻訳"</em>。<br>ブランドの〈機能〉を、ユーザーの〈体験〉に変える。</div>
         <div class="sub">スペック／ブランドメッセージだけでは、もう人は動かない。クリエイターの視点を通して「自分ごと化」できる言葉に変換するのが、われわれの価値。</div>
       </div>
-      <div class="pageno">P7</div>
+      <div class="pageno">P6</div>
     </div>
 
     <!-- Flow: Brand → hotice → Creator → User -->
@@ -971,8 +928,8 @@
       </div>
     </div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P7 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P6 / 18</div>
   </div>
 </section></div>
 
@@ -984,7 +941,7 @@
         <div class="h1">代理店が <em>hotice を組む理由</em> を、6社比較で。</div>
         <div class="sub">国内主要プレイヤーとの機能・地域・協業柔軟性の差分。ポジショニングマップだけでは見えない解像度で。</div>
       </div>
-      <div class="pageno">03</div>
+      <div class="pageno">P7</div>
     </div>
 
     <table class="comp">
@@ -1075,7 +1032,7 @@
     </div>
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
-    <div class="page">03 / 03</div>
+    <div class="page">P7 / 18</div>
   </div>
 </section></div>
 
@@ -1087,7 +1044,7 @@
         <div class="h1"><em>スピード × 成果 × 協業</em>、<br>この3つを同時に出せる会社が、ほぼ無い。</div>
         <div class="sub">AnyMindなどのプラットフォーム型とは用途が違う。<b>スポット・機動・ROAS直結・代理店協業</b> が要る場面では hotice が第一候補になる。</div>
       </div>
-      <div class="pageno">P8a</div>
+      <div class="pageno">P7a</div>
     </div>
 
     <div class="why3">
@@ -1136,8 +1093,8 @@
       <div class="cell us"><b>ホワイトラベル</b>で実装チームごと借りる</div>
     </div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P8a / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P7a / 18</div>
   </div>
 </section></div>
 
@@ -1149,7 +1106,7 @@
         <div class="h1"><em>10カ国+</em>の現地オペで、<br>"グローバル"を口約束で終わらせない。</div>
         <div class="sub">APAC を中核に、北米・欧州・豪州までカバー。各国の事務所NWと直接提携、撮影・契約・決済まで <b>自社で一気通貫</b>。</div>
       </div>
-      <div class="pageno">P9</div>
+      <div class="pageno">P8</div>
     </div>
 
     <div class="glb">
@@ -1213,8 +1170,8 @@
 
     <div class="srcLine">出典：hotice 自社ネットワーク（2024年12月時点）／稼働実績ベース。提携MCN・事務所名は個別にご相談ください。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P9 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P8 / 18</div>
   </div>
 </section></div>
 
@@ -1226,7 +1183,7 @@
         <div class="h1">最短 <em>2週間</em> で、事故率 <em>0件</em>。<br>スピードと品質を、両立させる。</div>
         <div class="sub">20名の少数精鋭＋バイリンガル体制＋1,000名との直接リレーション。意思決定から投稿まで、<b>間に挟まるレイヤーをゼロ</b>にする設計。</div>
       </div>
-      <div class="pageno">P10</div>
+      <div class="pageno">P9</div>
     </div>
 
     <div class="sqHero">
@@ -1267,8 +1224,8 @@
 
     <div class="srcLine">出典：hotice 自社実績（2021-2024 全案件の平均デリバリーおよび重大事故カウント）／業界ベンチマークは公開情報およびヒアリング。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P10 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P9 / 18</div>
   </div>
 </section></div>
 
@@ -1280,7 +1237,7 @@
         <div class="h1">数字で示す、<em>hoticeの現在地</em>。</div>
         <div class="sub">年間売上創出・ROAS・運用規模。代理店様の稟議にそのまま使える粒度で。</div>
       </div>
-      <div class="pageno">01</div>
+      <div class="pageno">P10</div>
     </div>
 
     <div class="kpiGrid">
@@ -1332,7 +1289,7 @@
     <div class="footnote">※ 数字は2024年1月〜12月の自社実績。ROASは各案件のクライアント計測値に基づく加重平均。案件別の内訳は P12〜15 のケーススタディ参照。</div>
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
-    <div class="page">01 / 03</div>
+    <div class="page">P10 / 18</div>
   </div>
 </section></div>
 
@@ -1344,7 +1301,7 @@
         <div class="h1">資生堂 免税事業の<em>訪日客認知</em>を、<br>台湾・韓国・タイの実装で広げた。</div>
         <div class="sub">羽田空港「SHISEIDO HANEDA BOUTIQUE」を中心とする免税店への訪日客誘致施策。主要アジア3市場の現地インフルエンサーをキャスティングし、渡航〜撮影まで全コーディネート。</div>
       </div>
-      <div class="pageno">P12</div>
+      <div class="pageno">P11</div>
     </div>
 
     <div class="caseMeta">
@@ -1397,8 +1354,8 @@
 
     <div class="caseNote"><b>※ 出典</b>：hotice 公式プレスリリース（PR TIMES #115672「アジア圏インフルエンサー25,000名超キャスティング」）／ SHISEIDO HANEDA BOUTIQUE 公式。定量数値は当社実績に基づく定性整理。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P12 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P11 / 18</div>
   </div>
 </section></div>
 
@@ -1410,7 +1367,7 @@
         <div class="h1">Amazonセール訴求なら、<em>hoticeが業界で最も数をこなしている</em>。</div>
         <div class="sub">プライムデー／ブラックフライデー／年末商戦など、<b>短期集中×ROAS直結</b>の連続運用は、競合が手薄な空白帯。ここで hoticeは4年連続の実装実績を積んでいる。</div>
       </div>
-      <div class="pageno">P13</div>
+      <div class="pageno">P12</div>
     </div>
 
     <div class="ama">
@@ -1476,8 +1433,8 @@
       <a href="https://www.uuum.co.jp/ir" target="_blank">UUUM IR</a> ／
       <a href="https://bitstar.tokyo/corp/news_release/6780/" target="_blank">BitStar 2025 ランキング</a></div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P13 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P12 / 18</div>
   </div>
 </section></div>
 
@@ -1489,7 +1446,7 @@
         <div class="h1">大阪・福岡の新店開業初動を、<br><em>地域密着インフルエンサー</em>で作った。</div>
         <div class="sub">グローバルアパレル発のカフェ新業態による大阪・福岡の初出店／国内複数店舗目。開業プレイベントに地域特化のインフルエンサーを動員し、SNS起点で初週動員を押し上げる。</div>
       </div>
-      <div class="pageno">P14</div>
+      <div class="pageno">P13</div>
     </div>
 
     <div class="caseMeta">
@@ -1542,8 +1499,8 @@
 
     <div class="caseNote"><b>※ 注</b>：クライアント実名はミーティング時に口頭で共有いたします。数値・施策範囲は当社実績に基づく概算。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P14 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P13 / 18</div>
   </div>
 </section></div>
 
@@ -1555,7 +1512,7 @@
         <div class="h1">上場D2Cの短納期リクエストを、<em>3週間</em>で完遂。<br>ジャンル横断で30名を同時展開。</div>
         <div class="sub">急成長中のウェルネスD2C（上場企業）による短納期キャンペーン。子育て・フィットネス・ペット等のジャンル別にインフルエンサーを並走アサインし、3週間で投稿まで完了。</div>
       </div>
-      <div class="pageno">P15</div>
+      <div class="pageno">P14</div>
     </div>
 
     <div class="caseMeta">
@@ -1608,8 +1565,8 @@
 
     <div class="caseNote"><b>※ 注</b>：上場企業のフェアディスクロージャーを配慮しクライアント実名は非開示。面談時に口頭共有いたします。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P15 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P14 / 18</div>
   </div>
 </section></div>
 
@@ -1621,7 +1578,7 @@
         <div class="h1">代理店側の都合に合わせて、<em>3つのモード</em>で組めます。</div>
         <div class="sub">稟議・クレジット・人員の状況に応じて、フロント露出度と実装関与度を柔軟に設計。いずれも御社名義で前面対応が可能。</div>
       </div>
-      <div class="pageno">P16</div>
+      <div class="pageno">P15</div>
     </div>
 
     <div class="pm">
@@ -1675,8 +1632,8 @@
       </div>
     </div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P16 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P15 / 18</div>
   </div>
 </section></div>
 
@@ -1688,7 +1645,7 @@
         <div class="h1">代理店が稟議に使える、<em>現実的な見積感</em>。</div>
         <div class="sub">金額・体制・リードタイムの3軸で、目安レンジを開示。最終見積は案件ヒアリング後に確定します。</div>
       </div>
-      <div class="pageno">P17</div>
+      <div class="pageno">P16</div>
     </div>
 
     <div class="pg">
@@ -1728,8 +1685,8 @@
 
     <div class="srcLine">出典：hotice 自社実績（2024年実施の全案件レンジ）／ 金額・体制は代表的なガイド値で、案件内容により増減します。</div>
 
-    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
-    <div class="page">P17 / 18</div>
+    <div class="brand">hotice ｜ 再構成ドラフト v0.3</div>
+    <div class="page">P16 / 18</div>
   </div>
 </section></div>
 
