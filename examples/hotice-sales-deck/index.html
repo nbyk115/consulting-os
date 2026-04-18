@@ -207,6 +207,31 @@
   .mktThesis .b em{font-style:normal;color:#FF7A86}
   .srcLine{font-size:10px;color:#888;margin-top:10px;line-height:1.7}
   .srcLine a{color:#888;text-decoration:underline}
+
+  /* Slide P5 (Agency 3 Pains) */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .pain{background:#fff;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);position:relative;overflow:hidden}
+  .pain .idx{position:absolute;top:12px;right:14px;font-family:"Inter",sans-serif;font-weight:900;font-size:80px;color:#F3EFE8;letter-spacing:-.05em;line-height:.9;z-index:0;pointer-events:none}
+  .pain > *{position:relative;z-index:1}
+  .pain .head{padding:20px 22px 0;display:flex;flex-direction:column;gap:2px}
+  .pain .pk{font-size:10.5px;letter-spacing:.22em;color:var(--red);font-weight:800}
+  .pain .pt{font-size:21px;font-weight:900;line-height:1.35;margin-top:6px;letter-spacing:-.005em}
+  .pain .pt em{font-style:normal;background:linear-gradient(transparent 62%, #FFD9DD 62%);padding:0 2px}
+  .pain .body{padding:14px 22px 12px;font-size:12.5px;color:var(--sub);line-height:1.8}
+  .pain .body b{color:var(--ink)}
+  .pain .proof{margin:0 22px;padding:12px 14px;background:#FAFAFA;border-left:3px solid var(--ink);display:flex;gap:12px;align-items:baseline}
+  .pain .proof .pn{font-family:"Inter",sans-serif;font-weight:900;font-size:26px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+  .pain .proof .ps{font-size:11px;color:var(--sub);line-height:1.6}
+  .pain .proof .ps b{color:var(--ink)}
+  .pain .ans{margin-top:auto;padding:14px 22px 18px;background:var(--red);color:#fff;display:flex;flex-direction:column;gap:4px}
+  .pain .ans .ak{font-size:10px;letter-spacing:.22em;font-weight:800;opacity:.9}
+  .pain .ans .av{font-size:13.5px;font-weight:800;line-height:1.55}
+  .pain .ans .av em{font-style:normal;background:#fff;color:var(--red);padding:0 6px;border-radius:2px}
+  .sato{margin-top:18px;background:var(--ink);color:#fff;padding:18px 24px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+  .sato .sk{font-size:10px;letter-spacing:.26em;font-weight:800;color:#FF7A86;line-height:1.5;white-space:nowrap;border-right:1px solid rgba(255,255,255,.3);padding-right:22px}
+  .sato .sv{font-size:16px;font-weight:700;line-height:1.7}
+  .sato .sv em{font-style:normal;color:#FF7A86}
+  .sato .sv .big{font-size:20px;font-weight:900}
 </style>
 </head>
 <body>
@@ -384,6 +409,97 @@
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
     <div class="page">P3 / 18</div>
+  </div>
+</section></div>
+
+<!-- =========================================================
+  SLIDE P5 : AGENCY 3 PAINS
+========================================================= -->
+<div class="slideWrap"><section class="slide" id="p5">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Why Partnership ｜ 代理店の本当の論点</div>
+        <div class="h1">リソース不足は、<em>採用</em>ではなく <em>ホワイトラベル</em> で解く。</div>
+        <div class="sub">大手総合代理店のKOL領域を分解すると、<b>所管部門で捌けているのは予算の約2割</b>。残り8割は部門外（AP→ベンダー直発注）に流出する構造。部門売上の天井は、採用ペースで決まってしまっている。</div>
+      </div>
+      <div class="pageno">P5</div>
+    </div>
+
+    <div class="pains">
+      <!-- PAIN 1 -->
+      <div class="pain">
+        <div class="idx">01</div>
+        <div class="head">
+          <div class="pk">PAIN ／ リソース天井 × 予算流出</div>
+          <div class="pt">所管部門の採用では、<br><em>予算成長に追いつかない</em>。</div>
+        </div>
+        <div class="body">
+          KOL予算は年々拡大、一方で所管部門の稼働は<b>採用スピードで頭打ち</b>。結果、予算の大半が部門外（AP→ベンダー直発注）に流出し、<b>部門売上の天井が固定</b>されてしまう。
+        </div>
+        <div class="proof">
+          <div class="pn">〜80%</div>
+          <div class="ps">所管部門を通さず<b>流出</b>するKOL予算の比率。<span style="color:#999">※大手総合代理店ヒアリング・hotice調べ</span></div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ANSWER</div>
+          <div class="av">hoticeを <em>ホワイトラベル</em> で所管部門に束ねる。<br>流出分を <em>部門売上に還流</em>。</div>
+        </div>
+      </div>
+
+      <!-- PAIN 2 -->
+      <div class="pain">
+        <div class="idx">02</div>
+        <div class="head">
+          <div class="pk">PAIN ／ グローバル空洞化</div>
+          <div class="pt"><em>グローバル案件</em>を、<br>国内体制で解けない。</div>
+        </div>
+        <div class="body">
+          資生堂・カネボウ・Samsung等の主要ブランドは<b>インバウンド・APAC需要</b>が拡大期。しかし国内代理店は現地オペ（採用・言語・契約・決済）を自前で持ちにくく、海外施策は協力会社経由で粗利が薄れる。
+        </div>
+        <div class="proof">
+          <div class="pn">10カ国+</div>
+          <div class="ps">hotice の稼働国。日英中バイリンガル体制＋現地事務所NWで <b>直接実装</b>。</div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ANSWER</div>
+          <div class="av">APAC＋米欧豪を <em>一気通貫</em> で。<br>撮影同行・契約・決済まで内製。</div>
+        </div>
+      </div>
+
+      <!-- PAIN 3 -->
+      <div class="pain">
+        <div class="idx">03</div>
+        <div class="head">
+          <div class="pk">PAIN ／ "成果"の定義変更</div>
+          <div class="pt">ブランドの要求が <em>売上直結</em>へ、<br>体制はリーチ型のまま。</div>
+        </div>
+        <div class="body">
+          DigiDayも指摘：<b>予測モデルでクリエイターを選定する時代</b>へ。ブランドKPIは impression から ROAS／購買コンバージョンへ。代理店のキャスティング基準が追いついていない。
+        </div>
+        <div class="proof">
+          <div class="pn">600%</div>
+          <div class="ps">hotice の年間平均ROAS（Amazon訴求は最大 <b>20,000%</b>）。実績ベースで成果型提案が可能。</div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ANSWER</div>
+          <div class="av">過去50億円分の販売データで<br><em>最適なクリエイター</em>をアサイン。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sato">
+      <div class="sk">THE TAKE</div>
+      <div class="sv">
+        勝ち筋は、部門の <span class="big">人数</span> を増やすことではない。<em>流出している80%を部門売上に還流する実装レイヤー</em>を <span class="big">1社に束ねる</span> こと。<br>
+        hotice は、その1社に立候補します ── 御社名義で、ホワイトラベルで。
+      </div>
+    </div>
+
+    <div class="srcLine">出典：大手総合代理店ヒアリング（KOL予算の所管比率・hotice調べ）／ Dentsu Creative 2025 CMO Report "Agents of Reinvention"（代理店の協業モデル転換）／ DigiDay "Brands are turning to predictive models for creator marketing"（成果型の潮流）／ hotice 自社実績（25,000名NW・平均ROAS 600%・10カ国稼働）</div>
+
+    <div class="brand">hotice ｜ 再構成ドラフト v0.2</div>
+    <div class="page">P5 / 18</div>
   </div>
 </section></div>
 
@@ -574,9 +690,9 @@
         <h3>コンテンツ供給の崩壊</h3>
         <p>生成AIによりクリエイティブ制作コストが限界費用ゼロへ。差別化の源泉が"量"から"誰"へ移動。</p>
         <ul>
-          <li>AI動画・画像が氾濫</li>
-          <li>SNSアルゴリズムは"本物"を選別</li>
-          <li>広告接触の信頼度が過去最低水準</li>
+          <li><b>79%</b> のマーケターが生成AIコンテンツ投資を拡大<span style="color:#aaa">※2</span></li>
+          <li>しかし <b>仮想インフルエンサー採用は僅か 9%</b>。82% のCMOは"コントロール喪失"を懸念<span style="color:#aaa">※1</span></li>
+          <li>SNSアルゴリズムは"本物"を選別、AI生成は埋もれる構造へ</li>
         </ul>
       </div>
       <div class="col active">
@@ -584,9 +700,9 @@
         <h3>"人の選定"が主戦場</h3>
         <p>ブランド×クリエイター×プラットフォームの<strong>パートナーシップ型</strong>施策が主流に。AIでは代替できない領域。</p>
         <ul>
-          <li><b>91%</b>（前年比+14pt）がパートナーシップ型へ移行と回答<span style="color:#aaa">※1</span></li>
-          <li><b>予算の20〜30%</b>をSNS／インフルエンサーへ<span style="color:#aaa">※1</span></li>
-          <li>代理店の勝ち筋＝"人のネットワーク"を押さえる側へ</li>
+          <li><b>91%</b>（前年比+14pt）のCMOが「ブランドは共創で築かれる」と回答<span style="color:#aaa">※1</span></li>
+          <li><b>90%</b> が "SNS/インフルエンサー＞既存広告" と認識<span style="color:#aaa">※1</span></li>
+          <li><b>92%</b> が macro（10-50万）＋micro（5千-10万）を両方活用<span style="color:#aaa">※2</span></li>
         </ul>
       </div>
     </div>
@@ -599,7 +715,7 @@
       </div>
     </div>
 
-    <div class="footnote">※1 Dentsu "Agents of Reinvention" 2025 CMO Report より。hotice 独自分析を付加。</div>
+    <div class="footnote">※1 Dentsu Creative 2025 CMO Report "Agents of Reinvention"（世界14市場・1,950名のCMOサーベイ）より。 ※2 DigiDay "In graphic detail: How AI is going to shape influencer marketing next year" より。</div>
 
     <div class="brand">hotice ｜ 再構成ドラフト v0.1</div>
     <div class="page">02 / 03</div>
