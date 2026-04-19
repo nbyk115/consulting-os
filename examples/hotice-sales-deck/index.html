@@ -80,7 +80,11 @@
 
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
-  .col{background:var(--white);padding:14px 16px 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column}
+  .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
+  .col .viz{height:100px;background-size:cover;background-position:center;border-bottom:1px solid #EAE6DE;position:relative}
+  .col .viz::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45))}
+  .col.active .viz::after{background:linear-gradient(180deg,rgba(230,0,18,.2),rgba(230,0,18,.55))}
+  .col .pad{padding:14px 16px 0}
   .col.active{border-top-color:var(--red);background:#fff}
   .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
   .col h3{font-size:18px;font-weight:800;margin-top:4px;line-height:1.35}
@@ -364,12 +368,13 @@
 
   /* Slide P10 (Speed x Quality) */
   .sqHero{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-  .sqCard{background:#fff;padding:14px 20px;border-top:4px solid var(--ink);display:flex;flex-direction:column;gap:6px}
+  .sqCard{background:#fff;padding:16px 22px;border-top:4px solid var(--ink);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
   .sqCard.red{border-top-color:var(--red)}
   .sqCard .lb{font-size:10.5px;letter-spacing:.22em;color:#888;font-weight:800}
   .sqCard h3{font-size:17px;font-weight:900;letter-spacing:-.005em;line-height:1.35}
   .sqCard h3 em{font-style:normal;color:var(--red)}
-  .sqCard .v{font-family:"Inter",sans-serif;font-weight:900;font-size:44px;letter-spacing:-.03em;line-height:1;margin-top:4px}
+  .sqCard .v{font-family:"Inter",sans-serif;font-weight:900;font-size:56px;letter-spacing:-.03em;line-height:1;align-self:center;white-space:nowrap}
+  .sqCard .sqR{display:flex;flex-direction:column;gap:4px}
   .sqCard .v.red{color:var(--red)}
   .sqCard .v .u{font-size:22px;font-weight:800;margin-left:2px}
   .sqCard .d{font-size:11.5px;color:var(--sub);line-height:1.65;margin-top:4px}
@@ -726,26 +731,6 @@
       <div class="pageno">P4</div>
     </div>
 
-    <!-- KPI progression visual timeline -->
-    <div class="kpiEvo">
-      <div class="kpiEvo-item">
-        <div class="kpiEvo-era">1.0</div>
-        <div class="kpiEvo-kpi">リーチ ／ インプレッション</div>
-        <div class="kpiEvo-note">量で買う</div>
-      </div>
-      <div class="kpiEvo-arrow">→</div>
-      <div class="kpiEvo-item">
-        <div class="kpiEvo-era">2.0</div>
-        <div class="kpiEvo-kpi">エンゲージメント率</div>
-        <div class="kpiEvo-note">質で選ぶ</div>
-      </div>
-      <div class="kpiEvo-arrow">→</div>
-      <div class="kpiEvo-item active">
-        <div class="kpiEvo-era">3.0</div>
-        <div class="kpiEvo-kpi">ROAS ／ 購買コンバージョン</div>
-        <div class="kpiEvo-note">実装力で勝つ</div>
-      </div>
-    </div>
 
     <div class="bCols">
       <div class="col">
@@ -1038,13 +1023,13 @@
           <td>日本語中心</td>
         </tr>
         <tr>
-          <td class="dim">直近の押し出し<br><span style="font-weight:400;color:#888;font-size:10.5px">2024-2026 公表ベース</span></td>
-          <td class="us"><b>ジャパスキ！</b>＋アジア4地域連携<br><span style="color:#888;font-size:10.5px">日本在住外国人CR × インバウンド低コスト化</span></td>
-          <td><b>Single ID Marketing</b><br><span style="color:#888;font-size:10.5px">ドコモID × インフルエンサー統合</span></td>
-          <td><b>AnyTag</b>（MTA 2024 最優秀）<br><span style="color:#888;font-size:10.5px">8プラットフォーム × AI/MCP</span></td>
-          <td><b>UUUM ONE ／ GOAT</b><br><span style="color:#888;font-size:10.5px">HIKAKIN等200組 × AI動画生成</span></td>
-          <td><b>AI推薦 特許2件</b><br><span style="color:#888;font-size:10.5px">150万PR投稿 × コスパ比較</span></td>
-          <td><b>PPP STUDIO</b>（9,000組）<br><span style="color:#888;font-size:10.5px">TikTok公認MCN × BeReal独占</span></td>
+          <td class="dim">強み<br><span style="font-weight:400;color:#888;font-size:10.5px">2024-2026 公表から</span></td>
+          <td class="us"><b>インバウンド × 成果型実装</b><br><span style="color:#888;font-size:10.5px">ジャパスキ！／アジア4拠点</span></td>
+          <td><b>ID会員データ × 統合広告</b><br><span style="color:#888;font-size:10.5px">ドコモID連動ターゲティング</span></td>
+          <td><b>多国 × AI 運用のSaaS</b><br><span style="color:#888;font-size:10.5px">8プラットフォーム／MTA 2024受賞</span></td>
+          <td><b>トップYouTuber × AI動画</b><br><span style="color:#888;font-size:10.5px">HIKAKIN等200組／GOAT</span></td>
+          <td><b>データ × AIの客観選定</b><br><span style="color:#888;font-size:10.5px">150万PR投稿／AI特許2件</span></td>
+          <td><b>TikTok／縦型動画特化</b><br><span style="color:#888;font-size:10.5px">PPP STUDIO 9,000組</span></td>
         </tr>
       </tbody>
     </table>
@@ -1174,9 +1159,9 @@
 
         <div class="tierBox">
           <h5>— ACTIVE USE CASES / 活用パターン</h5>
-          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b>：空港・都心商業のPOS売上UP（台湾・韓国・タイ）</div><div class="tv">資生堂</div></div>
-          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b>：ブランド統一訴求の多国同時投下</div><div class="tv">Samsung</div></div>
-          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b>：現地インフルエンサー×Shopee／Lazada／Amazon US</div><div class="tv">ガジェット多数</div></div>
+          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b><br><span style="color:#888;font-size:10.5px">台湾・韓国・タイ起点で空港／都心POS売上UP</span></div><div class="tv">資生堂</div></div>
+          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b><br><span style="color:#888;font-size:10.5px">ブランド統一訴求の多国同時投下</span></div><div class="tv">Samsung</div></div>
+          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b><br><span style="color:#888;font-size:10.5px">現地インフルエンサー × Shopee／Lazada／Amazon US</span></div><div class="tv">ガジェット多数</div></div>
         </div>
       </div>
     </div>
@@ -1201,16 +1186,20 @@
 
     <div class="sqHero">
       <div class="sqCard red">
-        <div class="lb">SPEED ／ スピード</div>
-        <h3>決定→投稿まで<br><em>最短 2 週間</em>。</h3>
         <div class="v red">2<span class="u">週間</span></div>
-        <div class="d">フラットな組織・少数精鋭構成のため、営業〜PM〜ディレクションの<b>判断が中1日で完結</b>。爆速案件にも専任体制で対応。</div>
+        <div class="sqR">
+          <div class="lb">SPEED ／ スピード</div>
+          <h3>決定→投稿までの <em>最短納期</em>。</h3>
+          <div class="d">フラット組織 × 少数精鋭で、営業〜PM〜ディレクションの <b>判断が中1日で完結</b>。爆速案件にも専任体制で対応。</div>
+        </div>
       </div>
       <div class="sqCard">
-        <div class="lb">QUALITY ／ 品質</div>
-        <h3>過去5年、<br><em>重大事故 0 件</em>。</h3>
         <div class="v">0<span class="u">件</span></div>
-        <div class="d">炎上・権利問題・PR違反を徹底フィルタ。ステマ規制（2023年）以降もレギュレーション反映の<b>事故検知プロセスを内製</b>。</div>
+        <div class="sqR">
+          <div class="lb">QUALITY ／ 品質</div>
+          <h3>過去5年、<em>重大事故ゼロ</em>の運用実績。</h3>
+          <div class="d">炎上・権利問題・PR違反を徹底フィルタ。ステマ規制（2023年）以降も即応するレギュレーション反映の <b>事故検知プロセスを内製</b>。</div>
+        </div>
       </div>
     </div>
 
