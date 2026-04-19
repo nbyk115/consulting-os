@@ -65,7 +65,7 @@
   .kpi.dark{background:var(--ink);color:#fff}
   .kpi.dark .label,.kpi.dark .foot{color:#fff;opacity:.7}
   .kpi.dark .unit{color:#fff}
-  .footnote{margin-top:18px;font-size:11px;color:#888;line-height:1.7}
+  .footnote{margin-top:auto;padding-top:14px;font-size:11px;color:#888;line-height:1.7}
 
   /* P4: KPI evolution visual timeline */
   .kpiEvo{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;margin-top:14px;align-items:stretch}
@@ -81,9 +81,12 @@
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
   .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
-  .col .viz{height:100px;background-size:cover;background-position:center;border-bottom:1px solid #EAE6DE;position:relative}
-  .col .viz::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45))}
-  .col.active .viz::after{background:linear-gradient(180deg,rgba(230,0,18,.2),rgba(230,0,18,.55))}
+  .col .viz{height:90px;border-bottom:1px solid #EAE6DE;position:relative;background:#1a1a1a;overflow:hidden}
+  .col.active .viz{background:var(--red)}
+  .col .viz svg{position:absolute;inset:0;width:100%;height:100%;opacity:.45}
+  .col.active .viz svg{opacity:.35}
+  .col .viz .vizCap{position:absolute;left:14px;bottom:10px;z-index:2;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.24em}
+  .col .viz .vizEra{position:absolute;right:14px;top:10px;z-index:2;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:24px;letter-spacing:-.02em;opacity:.85}
   .col .pad{padding:14px 16px 0}
   .col.active{border-top-color:var(--red);background:#fff}
   .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
@@ -227,7 +230,7 @@
   .mktThesis .t{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap}
   .mktThesis .b{font-size:12.5px;font-weight:700;line-height:1.5}
   .mktThesis .b em{font-style:normal;color:#FF7A86}
-  .srcLine{font-size:10px;color:#777;margin-top:10px;line-height:1.75}
+  .srcLine{font-size:10px;color:#777;margin-top:auto;padding-top:10px;line-height:1.75}
   .srcLine a{color:var(--red);text-decoration:underline;text-underline-offset:2px;font-weight:700}
   .srcLine a:hover{opacity:.7}
 
@@ -487,7 +490,7 @@
   .caseResult .rn{font-family:"Inter",sans-serif;font-weight:900;font-size:36px;letter-spacing:-.03em;line-height:1}
   .caseResult .rl{font-size:11px;color:#ccc;letter-spacing:.1em;font-weight:700;margin-top:5px;text-transform:uppercase}
   .caseResult .rd{font-size:12px;line-height:1.65;margin-top:6px;color:#ddd}
-  .caseNote{margin-top:8px;padding:8px 14px;background:#F5F2EC;font-size:10.5px;color:#666;line-height:1.6}
+  .caseNote{margin-top:auto;padding:8px 14px;background:#F5F2EC;font-size:10.5px;color:#666;line-height:1.6}
   .caseNote b{color:var(--ink)}
 
   /* Slide P2 (NEW: hotice とは — clean company intro) */
@@ -734,37 +737,115 @@
 
     <div class="bCols">
       <div class="col">
-        <div class="era">〜2020</div>
-        <h3>1.0 ／ <em style="color:#999;font-style:normal">フォロワー数で買う</em></h3>
-        <p>リーチ至上主義の時代。芸能人・有名人・メガインフルエンサー中心。単発投稿で認知を取りに行く。</p>
-        <ul>
-          <li>フォロワー数＝価値</li>
-          <li>単発・読み切り型 PR 投稿</li>
-          <li>KPI は <b>リーチ／インプレッション</b></li>
-          <li>代理店側もスポット起用が中心</li>
-        </ul>
+        <div class="viz">
+          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Megaphone cone emitting to crowd of dots -->
+            <g fill="#fff">
+              <path d="M30 45 L80 30 L80 60 Z" />
+              <rect x="78" y="40" width="28" height="10" rx="2"/>
+            </g>
+            <g fill="#fff" opacity=".7">
+              <circle cx="140" cy="30" r="3"/><circle cx="155" cy="22" r="3"/><circle cx="170" cy="35" r="3"/>
+              <circle cx="185" cy="18" r="3"/><circle cx="200" cy="28" r="3"/><circle cx="215" cy="40" r="3"/>
+              <circle cx="230" cy="22" r="3"/><circle cx="245" cy="35" r="3"/><circle cx="260" cy="18" r="3"/>
+              <circle cx="275" cy="45" r="3"/><circle cx="290" cy="28" r="3"/><circle cx="305" cy="38" r="3"/>
+              <circle cx="320" cy="22" r="3"/><circle cx="335" cy="45" r="3"/><circle cx="350" cy="30" r="3"/>
+              <circle cx="365" cy="25" r="3"/><circle cx="155" cy="55" r="3"/><circle cx="185" cy="65" r="3"/>
+              <circle cx="215" cy="70" r="3"/><circle cx="245" cy="60" r="3"/><circle cx="275" cy="68" r="3"/>
+              <circle cx="305" cy="55" r="3"/><circle cx="335" cy="70" r="3"/><circle cx="365" cy="60" r="3"/>
+            </g>
+            <!-- Sound waves -->
+            <g fill="none" stroke="#fff" stroke-width="2" opacity=".4">
+              <path d="M115 45 Q120 35 115 25"/><path d="M115 45 Q120 55 115 65"/>
+              <path d="M120 45 Q128 30 120 15"/><path d="M120 45 Q128 60 120 75"/>
+            </g>
+          </svg>
+          <div class="vizEra">1.0</div>
+          <div class="vizCap">量 ／ MASS REACH</div>
+        </div>
+        <div class="pad">
+          <div class="era">〜2020</div>
+          <h3>1.0 ／ <em style="color:#999;font-style:normal">フォロワー数で買う</em></h3>
+          <p>リーチ至上主義の時代。芸能人・有名人・メガインフルエンサー中心。単発投稿で認知を取りに行く。</p>
+          <ul>
+            <li>フォロワー数＝価値</li>
+            <li>単発・読み切り型 PR 投稿</li>
+            <li>KPI は <b>リーチ／インプレッション</b></li>
+            <li>代理店側もスポット起用が中心</li>
+          </ul>
+        </div>
       </div>
       <div class="col">
-        <div class="era">2021-2024</div>
-        <h3>2.0 ／ <em style="color:#999;font-style:normal">エンゲージメントで選ぶ</em></h3>
-        <p>マイクロ・ナノインフルエンサーの台頭。数より "信頼と共感" が価値を持つフェーズ。ステマ規制（2023年）で品質管理も必須化。</p>
-        <ul>
-          <li>マイクロ／ナノが主役化</li>
-          <li>継続起用・パートナーシップ化</li>
-          <li>KPI は <b>エンゲージメント率</b></li>
-          <li><b>92%</b> が macro＋micro を両方活用<span style="color:#aaa">※2</span></li>
-        </ul>
+        <div class="viz">
+          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Connected nodes (engagement network) -->
+            <g stroke="#fff" stroke-width="1.5" opacity=".45" fill="none">
+              <line x1="60" y1="30" x2="130" y2="45"/><line x1="130" y1="45" x2="200" y2="25"/>
+              <line x1="130" y1="45" x2="200" y2="65"/><line x1="200" y1="25" x2="270" y2="40"/>
+              <line x1="200" y1="65" x2="270" y2="40"/><line x1="270" y1="40" x2="340" y2="25"/>
+              <line x1="270" y1="40" x2="340" y2="60"/>
+            </g>
+            <g fill="#fff">
+              <circle cx="60" cy="30" r="8"/><circle cx="130" cy="45" r="10"/>
+              <circle cx="200" cy="25" r="8"/><circle cx="200" cy="65" r="8"/>
+              <circle cx="270" cy="40" r="10"/><circle cx="340" cy="25" r="7"/>
+              <circle cx="340" cy="60" r="7"/>
+            </g>
+            <!-- Heart icons -->
+            <g fill="#fff" opacity=".75">
+              <path d="M95 15 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
+              <path d="M305 75 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
+              <path d="M170 75 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
+            </g>
+          </svg>
+          <div class="vizEra">2.0</div>
+          <div class="vizCap">質 ／ ENGAGEMENT</div>
+        </div>
+        <div class="pad">
+          <div class="era">2021-2024</div>
+          <h3>2.0 ／ <em style="color:#999;font-style:normal">エンゲージメントで選ぶ</em></h3>
+          <p>マイクロ・ナノインフルエンサーの台頭。数より "信頼と共感" が価値を持つフェーズ。ステマ規制（2023年）で品質管理も必須化。</p>
+          <ul>
+            <li>マイクロ／ナノが主役化</li>
+            <li>継続起用・パートナーシップ化</li>
+            <li>KPI は <b>エンゲージメント率</b></li>
+            <li><b>92%</b> が macro＋micro を両方活用<span style="color:#aaa">※2</span></li>
+          </ul>
+        </div>
       </div>
       <div class="col active">
-        <div class="era active-tag">2025 →</div>
-        <h3>3.0 ／ <em>実装力で勝つ</em></h3>
-        <p>"認知で終わらない、ROASで測る" が主流に。AI時代で <b>"本物の人間性"</b> がプレミアム化。代理店が選ぶべきは、誰と組むかではなく <b>どう実装するか</b> を握る相手。</p>
-        <ul>
-          <li>KPI は <b>ROAS／購買コンバージョン</b></li>
-          <li><b>91%</b>（前年比+14pt）が「ブランド＝共創で築かれる」<span style="color:#aaa">※1</span></li>
-          <li><b>90%</b> が "インフルエンサー＞既存広告" と認識<span style="color:#aaa">※1</span></li>
-          <li><b>79%</b> が生成AIコンテンツ投資拡大<span style="color:#aaa">※2</span> ── だが仮想インフルエンサー採用は <b>僅か 9%</b>。"人" がプレミアム化<span style="color:#aaa">※1</span></li>
-        </ul>
+        <div class="viz">
+          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rising bar chart + upward arrow -->
+            <g fill="#fff">
+              <rect x="50" y="60" width="28" height="18"/>
+              <rect x="88" y="48" width="28" height="30"/>
+              <rect x="126" y="38" width="28" height="40"/>
+              <rect x="164" y="26" width="28" height="52"/>
+              <rect x="202" y="16" width="28" height="62"/>
+            </g>
+            <!-- Upward arrow -->
+            <g fill="#fff" opacity=".85">
+              <path d="M260 70 L310 30 L310 50 L360 50 L360 70 Z"/>
+              <polygon points="310,15 345,35 310,35"/>
+            </g>
+            <!-- "$" marker -->
+            <text x="330" y="80" fill="#fff" font-family="Inter, sans-serif" font-weight="900" font-size="18">$</text>
+          </svg>
+          <div class="vizEra">3.0</div>
+          <div class="vizCap">実装力 ／ OUTCOME</div>
+        </div>
+        <div class="pad">
+          <div class="era active-tag">2025 →</div>
+          <h3>3.0 ／ <em>実装力で勝つ</em></h3>
+          <p>"認知で終わらない、ROASで測る" が主流に。AI時代で <b>"本物の人間性"</b> がプレミアム化。代理店が選ぶべきは、誰と組むかではなく <b>どう実装するか</b> を握る相手。</p>
+          <ul>
+            <li>KPI は <b>ROAS／購買コンバージョン</b></li>
+            <li><b>91%</b>（前年比+14pt）が「ブランド＝共創で築かれる」<span style="color:#aaa">※1</span></li>
+            <li><b>90%</b> が "インフルエンサー＞既存広告" と認識<span style="color:#aaa">※1</span></li>
+            <li><b>79%</b> が生成AIコンテンツ投資拡大<span style="color:#aaa">※2</span></li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -1024,12 +1105,12 @@
         </tr>
         <tr>
           <td class="dim">強み<br><span style="font-weight:400;color:#888;font-size:10.5px">2024-2026 公表から</span></td>
-          <td class="us"><b>インバウンド × 成果型実装</b><br><span style="color:#888;font-size:10.5px">ジャパスキ！／アジア4拠点</span></td>
-          <td><b>ID会員データ × 統合広告</b><br><span style="color:#888;font-size:10.5px">ドコモID連動ターゲティング</span></td>
-          <td><b>多国 × AI 運用のSaaS</b><br><span style="color:#888;font-size:10.5px">8プラットフォーム／MTA 2024受賞</span></td>
-          <td><b>トップYouTuber × AI動画</b><br><span style="color:#888;font-size:10.5px">HIKAKIN等200組／GOAT</span></td>
-          <td><b>データ × AIの客観選定</b><br><span style="color:#888;font-size:10.5px">150万PR投稿／AI特許2件</span></td>
-          <td><b>TikTok／縦型動画特化</b><br><span style="color:#888;font-size:10.5px">PPP STUDIO 9,000組</span></td>
+          <td class="us"><b>インバウンド × 成果型実装</b><br><span style="color:#888;font-size:10.5px">日本在住外国人インフルエンサー ／ アジア4拠点連携</span></td>
+          <td><b>ID会員データ × 統合広告</b><br><span style="color:#888;font-size:10.5px">ドコモIDと連動したターゲティング</span></td>
+          <td><b>多国 × AI 運用のSaaS</b><br><span style="color:#888;font-size:10.5px">8プラットフォーム横断／業界賞受賞</span></td>
+          <td><b>トップYouTuber × AI動画</b><br><span style="color:#888;font-size:10.5px">HIKAKIN等200組 × AI動画生成</span></td>
+          <td><b>データ × AIの客観選定</b><br><span style="color:#888;font-size:10.5px">150万PR投稿実績 × AI推薦特許2件</span></td>
+          <td><b>TikTok／縦型動画特化</b><br><span style="color:#888;font-size:10.5px">TikTok公認MCN ／ 9,000組提携</span></td>
         </tr>
       </tbody>
     </table>
