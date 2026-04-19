@@ -81,12 +81,17 @@
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
   .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
-  .col .viz{height:72px;position:relative;background:#0A0A0A;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
+  .col .viz{height:96px;position:relative;background:#0A0A0A;display:grid;grid-template-columns:auto 1fr;gap:18px;padding:0 18px;align-items:center}
   .col:nth-child(2) .viz{background:#2a2a2a}
   .col.active .viz{background:var(--red)}
-  .col .viz .vizEra{color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:36px;letter-spacing:-.035em;line-height:1}
-  .col .viz .vizCap{color:#fff;font-family:"Inter",sans-serif;font-weight:800;font-size:10px;letter-spacing:.26em;opacity:.75;text-align:right;line-height:1.6}
-  .col .viz .vizCap b{display:block;font-weight:900;font-size:12.5px;letter-spacing:.01em;opacity:1;margin-top:3px;font-family:"Noto Sans JP",sans-serif}
+  .col .vizL{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+  .col .vizL .vizEra{color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:40px;letter-spacing:-.04em;line-height:1}
+  .col .vizL .vizYear{color:rgba(255,255,255,.6);font-family:"Inter",sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.08em}
+  .col.active .vizL .vizYear{color:rgba(255,255,255,.8)}
+  .col .vizR{text-align:right}
+  .col .vizR .vizCap{color:rgba(255,255,255,.7);font-family:"Inter",sans-serif;font-weight:800;font-size:10px;letter-spacing:.26em;line-height:1}
+  .col.active .vizR .vizCap{color:rgba(255,255,255,.85)}
+  .col .vizR .vizPhrase{color:#fff;font-weight:900;font-size:17px;letter-spacing:-.005em;margin-top:6px;line-height:1.35}
   .col .pad{padding:14px 16px 0}
   .col.active{border-top-color:var(--red);background:#fff}
   .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
@@ -205,7 +210,7 @@
   .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
   .mkt .hero .desc b{color:var(--ink)}
   /* bar chart (Japan) */
-  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:130px;padding:16px 0 24px;border-bottom:1px solid var(--ink)}
+  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:130px;padding:20px 0 30px;border-bottom:1px solid var(--ink)}
   .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
   .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
   .bars .bar.accent::before{color:var(--red);font-size:13px;top:-22px}
@@ -494,8 +499,8 @@
   .caseNote b{color:var(--ink)}
 
   /* Slide P2 (NEW: hotice とは — clean company intro) */
-  .intro{display:flex;flex-direction:column;gap:18px;margin-top:14px;flex:1}
-  .introKpi{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);border-left:1px solid var(--ink);border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+  .intro{display:flex;flex-direction:column;gap:14px;margin-top:14px;flex:1}
+  .introKpi{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);border-left:1px solid var(--ink);border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);flex-shrink:0}
   .introKpi > div{padding:14px 18px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;background:#fff}
   .introKpi > div:last-child{border-right:none}
   .introKpi .lb{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.22em;color:#888;font-weight:800}
@@ -503,8 +508,8 @@
   .introKpi .vl.red{color:var(--red)}
   .introKpi .vl .u{font-size:18px;font-weight:800;margin-left:2px}
   .introKpi .dc{font-size:11px;color:var(--sub);line-height:1.55;margin-top:4px}
-  .introSvc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .introSvc > div{background:#fff;padding:14px 16px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:4px}
+  .introSvc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1}
+  .introSvc > div{background:#fff;padding:16px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:6px}
   .introSvc .sk{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.2em;color:var(--red);font-weight:800}
   .introSvc .st{font-size:13px;font-weight:900;line-height:1.4}
   .introSvc .sd{font-size:11px;color:var(--sub);line-height:1.65}
@@ -581,7 +586,7 @@
       <div>
         <div class="tag">Who is hotice ｜ 会社紹介</div>
         <div class="h1"><em>"買いたい"</em>を、売上に変える。<br>日本発のグローバル・インフルエンサーマーケティング会社。</div>
-        <div class="sub">2021年創業、東京・渋谷拠点の<b>日英中バイリンガル精鋭チーム</b>。国内外 25,000名+ のインフルエンサーネットワークを基盤に、キャスティング・SNS運用・広告配信・イベント制作までを一気通貫で実装します。</div>
+        <div class="sub">2021年創業、東京・渋谷拠点。<b>日英中バイリンガル精鋭20名</b>と、国内外 25,000名＋ のインフルエンサーネットワーク。キャスティング／SNS運用／広告配信／イベント制作まで一気通貫。</div>
       </div>
       <div class="pageno">P2</div>
     </div>
@@ -697,9 +702,9 @@
           </div>
         </div>
         <div class="trendList">
-          <div class="li"><div class="pct">91%</div><div class="txt"><b>CMOの91%</b>：ブランド＝クリエイター／プラットフォーム／文化との共創で築かれる<span class="s">前年比+14pt</span></div></div>
-          <div class="li"><div class="pct">79%</div><div class="txt"><b>79%</b> のマーケターが生成AIクリエイターコンテンツへの投資を拡大予定<span class="s">2023年 70% →</span></div></div>
-          <div class="li"><div class="pct">92%</div><div class="txt"><b>92%</b> のマーケターが <b>macro（10〜50万）＋ micro（5千〜10万）</b> の両方を活用</div></div>
+          <div class="li"><div class="pct">91%</div><div class="txt">CMO が <b>「ブランドは共創で築かれる」</b> と回答（前年比 +14pt）</div></div>
+          <div class="li"><div class="pct">79%</div><div class="txt">マーケターが <b>生成AIコンテンツへの投資拡大</b> を予定（2023年 70% →）</div></div>
+          <div class="li"><div class="pct">92%</div><div class="txt">マーケターが <b>macro × micro を併用</b>（10-50万＋5千-10万）</div></div>
         </div>
       </div>
     </div>
@@ -738,13 +743,17 @@
     <div class="bCols">
       <div class="col">
         <div class="viz">
-          <div class="vizEra">1.0</div>
-          <div class="vizCap">MASS REACH<b>量で買う時代</b></div>
+          <div class="vizL">
+            <div class="vizEra">1.0</div>
+            <div class="vizYear">〜 2020</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">MASS REACH</div>
+            <div class="vizPhrase">フォロワー数で買う時代</div>
+          </div>
         </div>
         <div class="pad">
-          <div class="era">〜2020</div>
-          <h3>1.0 ／ <em style="color:#999;font-style:normal">フォロワー数で買う</em></h3>
-          <p>リーチ至上主義の時代。芸能人・有名人・メガインフルエンサー中心。単発投稿で認知を取りに行く。</p>
+          <p>リーチ至上主義の時代。芸能人・メガインフルエンサー中心で、単発投稿で認知を取る。</p>
           <ul>
             <li>フォロワー数＝価値</li>
             <li>単発・読み切り型 PR 投稿</li>
@@ -755,13 +764,17 @@
       </div>
       <div class="col">
         <div class="viz">
-          <div class="vizEra">2.0</div>
-          <div class="vizCap">ENGAGEMENT<b>質で選ぶ時代</b></div>
+          <div class="vizL">
+            <div class="vizEra">2.0</div>
+            <div class="vizYear">2021 – 2024</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">ENGAGEMENT</div>
+            <div class="vizPhrase">エンゲージメントで選ぶ時代</div>
+          </div>
         </div>
         <div class="pad">
-          <div class="era">2021-2024</div>
-          <h3>2.0 ／ <em style="color:#999;font-style:normal">エンゲージメントで選ぶ</em></h3>
-          <p>マイクロ・ナノインフルエンサーの台頭。数より "信頼と共感" が価値を持つフェーズ。ステマ規制（2023年）で品質管理も必須化。</p>
+          <p>マイクロ／ナノインフルエンサー台頭。"信頼と共感" が価値を持ち、ステマ規制（2023年）で品質管理も必須化。</p>
           <ul>
             <li>マイクロ／ナノが主役化</li>
             <li>継続起用・パートナーシップ化</li>
@@ -772,13 +785,17 @@
       </div>
       <div class="col active">
         <div class="viz">
-          <div class="vizEra">3.0</div>
-          <div class="vizCap">OUTCOME<b>実装力で勝つ時代</b></div>
+          <div class="vizL">
+            <div class="vizEra">3.0</div>
+            <div class="vizYear">2025 →</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">OUTCOME</div>
+            <div class="vizPhrase">実装力で勝つ時代</div>
+          </div>
         </div>
         <div class="pad">
-          <div class="era active-tag">2025 →</div>
-          <h3>3.0 ／ <em>実装力で勝つ</em></h3>
-          <p>"認知で終わらない、ROASで測る" が主流に。AI時代で <b>"本物の人間性"</b> がプレミアム化。代理店が選ぶべきは、誰と組むかではなく <b>どう実装するか</b> を握る相手。</p>
+          <p>"認知で終わらない、ROASで測る"。AI時代で <b>"本物の人間性"</b> がプレミアム化。<b>どう実装するか</b> が勝敗を分ける。</p>
           <ul>
             <li>KPI は <b>ROAS／購買コンバージョン</b></li>
             <li><b>91%</b>（前年比+14pt）が「ブランド＝共創で築かれる」<span style="color:#aaa">※1</span></li>
@@ -810,7 +827,7 @@
       <div>
         <div class="tag">Why hotice ｜ パートナー選定の論点</div>
         <div class="h1">代理店が広げる<em>実装パートナー網</em>の中で、<br>hoticeが占めるべき役割とは。</div>
-        <div class="sub">KOL予算の拡大に合わせ、代理店各社はすでに<b>実装パートナーを拡充中</b>。重要なのは "誰を増やすか" ではなく、<b>"どのパートナーに何を任せるか"</b>。hoticeは、他パートナーと<b>補完関係で組める3つの役割</b>で、御社の実装力を底上げします。</div>
+        <div class="sub">代理店の論点は <b>"誰を増やすか"</b> ではなく <b>"何を任せるか"</b>。hotice は、他パートナーと補完する <b>3つの役割</b> を担えます。</div>
       </div>
       <div class="pageno">P5</div>
     </div>
@@ -824,7 +841,7 @@
           <div class="pt"><em>ROAS訴求</em>・EC売上を<br>取りに行きたい時に。</div>
         </div>
         <div class="body">
-          ブランドKPIが <b>ROAS／購買</b> へ移行中。リーチ型だけでは届かない成果型の実装枠を。
+          ブランドKPIが <b>ROAS／購買</b> へ移行中。リーチ型だけでは届かない成果型で応えるパートナーを。
         </div>
         <div class="proof">
           <div class="pn">600%</div>
@@ -832,7 +849,7 @@
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av"><em>ROAS直結</em> 案件の <em>成果型実装枠</em>。</div>
+          <div class="av"><em>ROAS直結</em> 案件の <em>成果型パートナー</em>。</div>
         </div>
       </div>
 
@@ -841,10 +858,10 @@
         <div class="idx">02</div>
         <div class="head">
           <div class="pk">WHERE ／ グローバル案件</div>
-          <div class="pt">インバウンド・APACで<br><em>現地実装</em>が要る時に。</div>
+          <div class="pt">インバウンド・APAC を<br><em>現地稼働でスムーズに</em>。</div>
         </div>
         <div class="body">
-          資生堂・カネボウ・Samsung等で<b>インバウンド・APAC需要</b>が拡大。多国対応できる実装枠が必要。
+          資生堂・カネボウ・Samsung等で<b>インバウンド・APAC需要</b>が拡大。多国対応できるパートナーが必要。
         </div>
         <div class="proof">
           <div class="pn">10カ国+</div>
@@ -852,7 +869,7 @@
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av"><em>海外・APAC</em> 案件の <em>現地実装枠</em>。</div>
+          <div class="av"><em>海外・APAC</em> 案件の <em>現地稼働パートナー</em>。</div>
         </div>
       </div>
 
@@ -861,10 +878,10 @@
         <div class="idx">03</div>
         <div class="head">
           <div class="pk">WHERE ／ 短納期・ホワイトラベル</div>
-          <div class="pt"><em>爆速対応</em>＆<br>御社名義で動かしたい時に。</div>
+          <div class="pt"><em>短納期</em> ＆ <em>御社名義</em> で<br>動かしたい時に。</div>
         </div>
         <div class="body">
-          短納期・機密案件は業界標準では取りづらい。<b>ホワイトラベル対応</b>できる実装枠が必要。
+          短納期・機密案件は業界標準では取りづらい。<b>ホワイトラベル対応</b>できるパートナーが必要。
         </div>
         <div class="proof">
           <div class="pn">2週間</div>
@@ -872,7 +889,7 @@
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av">急ぎ・機密案件の <em>機動実装枠</em>。</div>
+          <div class="av">急ぎ・機密案件の <em>機動パートナー</em>。</div>
         </div>
       </div>
     </div>
@@ -1058,7 +1075,7 @@
     <div class="cBottom">
       <div class="cClaim">
         hoticeは <em>ROAS直結 × グローバル × 協業柔軟性</em> の交差点。<br>
-        代理店の "実装枠" の中で、他社では埋めにくいセグメントを担います。
+        代理店のパートナー陣の中で、他社では埋めにくい役割を担います。
       </div>
       <div class="cNote">※ 2026年4月時点・公開情報ベース（各社公式サイト／IR／プレス）。AnyMind: AnyTag／UUUM: JPX・FreakOut HD完全子会社・2025/1上場廃止／CARTA: 2025/9〜ドコモ51%子会社・電通GはJV持分／BitStar: Indonesia進出2024。標準リードタイムは各社非公表。</div>
     </div>
@@ -1121,8 +1138,8 @@
     <div class="sheetHead">
       <div>
         <div class="tag">Strength 01 ｜ Global Implementation</div>
-        <div class="h1"><em>現地パートナーとの密連携 × 日本QM</em>で、<br>グローバル案件の<em>品質</em>を落とさない。</div>
-        <div class="sub">各市場の現地ネットワークと密に連携して <b>現地文化・商習慣に根ざした投稿</b> を設計。加えて日本側で <b>QM（品質管理）・投稿前チェック・レポーティング</b> まで一貫対応 ── 文化を外さず、ブランドセーフティも守る二重レイヤー体制。</div>
+        <div class="h1"><em>現地パートナーとの密連携 × 日本チームによる品質管理</em>で、<br>グローバル案件の<em>品質</em>を落とさない。</div>
+        <div class="sub">各市場の現地ネットワークと密に連携して <b>現地文化・商習慣に根ざした投稿</b> を設計。加えて日本側で <b>品質管理・投稿前チェック・レポーティング</b> まで一貫対応 ── 文化を外さず、ブランドセーフティも守る二重レイヤー体制。</div>
       </div>
       <div class="pageno">P9</div>
     </div>
@@ -1133,7 +1150,7 @@
         <h4>— ACTIVE MARKETS / 稼働マーケット</h4>
         <div class="regionHero">
           <div class="big">10<span class="u">カ国+</span></div>
-          <div class="lab"><b>現地実装力 × 日本側QM</b> の二重レイヤー。<br>現地文化への深い理解と、日本基準の品質ゲートを同時に担保。</div>
+          <div class="lab"><b>現地稼働 × 日本側の品質管理</b> の二重レイヤー。<br>現地文化への深い理解と、日本基準の品質ゲートを同時に担保。</div>
         </div>
         <div class="regionGroup">
           <div class="gn">HQ ／ 本社</div>
@@ -1180,9 +1197,9 @@
 
         <div class="tierBox">
           <h5>— ACTIVE USE CASES / 活用パターン</h5>
-          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b><br><span style="color:#888;font-size:10.5px">台湾・韓国・タイ起点で空港／都心POS売上UP</span></div><div class="tv">資生堂</div></div>
-          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b><br><span style="color:#888;font-size:10.5px">ブランド統一訴求の多国同時投下</span></div><div class="tv">Samsung</div></div>
-          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b><br><span style="color:#888;font-size:10.5px">現地インフルエンサー × Shopee／Lazada／Amazon US</span></div><div class="tv">ガジェット多数</div></div>
+          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b><br><span style="color:#888;font-size:10.5px">台湾・韓国・タイ起点で空港／都心POS売上UP</span></div><div class="tv">資生堂様</div></div>
+          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b><br><span style="color:#888;font-size:10.5px">ブランド統一訴求の多国同時投下</span></div><div class="tv">Samsung様</div></div>
+          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b><br><span style="color:#888;font-size:10.5px">現地CR × 海外ECモールで販売促進</span></div><div class="tv">多数クライアント実績有</div></div>
         </div>
       </div>
     </div>
@@ -1361,19 +1378,19 @@
         <h4>— APPROACH ／ 打ち手</h4>
         <div class="phase">
           <div class="pl">01 ── KPI / TARGETING</div>
-          <div class="pv">羽田空港ブティックの<b>訪日客認知拡大</b>を起点に、免税購買実績上位国のインバウンド需要を捉える。</div>
+          <div class="pv">羽田空港ブティックの<b>訪日客認知拡大</b>。免税購買実績上位国を狙う。</div>
         </div>
         <div class="phase">
           <div class="pl">02 ── CASTING</div>
-          <div class="pv">台湾・韓国・タイの<b>美容／トラベル系インフルエンサー</b>をアサイン。各国の文脈に合う人選基準で厳選。</div>
+          <div class="pv">台湾・韓国・タイの <b>美容／トラベル系</b> インフルエンサーを厳選。</div>
         </div>
         <div class="phase">
           <div class="pl">03 ── EXECUTION</div>
-          <div class="pv">航空券・ホテル・都内観光・店舗撮影まで <b>全旅程コーディネート</b>。現地語スタッフが撮影同行し、ブランドルール遵守を担保。</div>
+          <div class="pv">航空券・ホテル・撮影まで <b>全旅程コーディネート</b>、現地語スタッフ同行。</div>
         </div>
         <div class="phase">
           <div class="pl">04 ── DELIVERY</div>
-          <div class="pv">各国SNSで訪日コンテンツ配信／店舗体験動画を主要プラットフォームに展開。</div>
+          <div class="pv">各国SNSで訪日体験コンテンツを配信。</div>
         </div>
       </div>
 
@@ -1506,19 +1523,19 @@
         <h4>— APPROACH ／ 打ち手</h4>
         <div class="phase">
           <div class="pl">01 ── INSIGHT</div>
-          <div class="pv">新店は "駅前広告" では足りない。開業初週の <b>SNS 体験投稿</b> が長期来店の起点になる。</div>
+          <div class="pv">開業初週の <b>SNS体験投稿</b> が長期来店の起点になる。</div>
         </div>
         <div class="phase">
           <div class="pl">02 ── CASTING</div>
-          <div class="pv">各地域に深いフォロワーを持つ <b>ローカルインフルエンサー 約50名</b> を地域別にアサイン（大阪／福岡それぞれ）。</div>
+          <div class="pv">地域別に <b>ローカルインフルエンサー 約50名</b> をアサイン。</div>
         </div>
         <div class="phase">
           <div class="pl">03 ── EXECUTION</div>
-          <div class="pv">プレイベント（開業前内覧）で <b>ブランド世界観×メニュー×空間</b> を体験投稿。投稿フォーマットと公開タイミングを hotice で統一管理。</div>
+          <div class="pv">開業前内覧で <b>世界観×メニュー×空間</b> を体験投稿、hotice が統一管理。</div>
         </div>
         <div class="phase">
           <div class="pl">04 ── DELIVERY</div>
-          <div class="pv">オープン当日〜翌週までに地域オーディエンスに投稿が届く設計。来店導線への連携も整備。</div>
+          <div class="pv">オープン初週に投稿集中、来店導線と連携。</div>
         </div>
       </div>
 
@@ -1572,19 +1589,19 @@
         <h4>— APPROACH ／ 打ち手</h4>
         <div class="phase">
           <div class="pl">01 ── CONSTRAINT</div>
-          <div class="pv">ブランド側の事情で <b>1ヶ月を切る短納期</b>。通常の業界リードタイム（1〜2ヶ月）では間に合わない設定。</div>
+          <div class="pv">ブランド側事情で <b>1ヶ月未満の短納期</b>。業界標準（1〜2ヶ月）では不可能。</div>
         </div>
         <div class="phase">
           <div class="pl">02 ── CASTING</div>
-          <div class="pv">商品ターゲットに合わせ <b>子育て／フィットネス／ペット等のジャンル別 Tribe</b> を整理。各ジャンル約10名 × 3ジャンルで計30名体制。</div>
+          <div class="pv"><b>子育て／フィットネス／ペット</b> のジャンル別 Tribe × 各10名 × 計30名体制。</div>
         </div>
         <div class="phase">
           <div class="pl">03 ── EXECUTION</div>
-          <div class="pv">並走でキャスティング・契約・撮影・チェックを多重並列化。hotice のバイリンガルPMが <b>日次で30名全員</b> を進行管理。</div>
+          <div class="pv">多重並列化 ＋ バイリンガルPMが <b>日次で30名進行管理</b>。</div>
         </div>
         <div class="phase">
           <div class="pl">04 ── DELIVERY</div>
-          <div class="pv">決定から <b>3週間で全員投稿完了</b>。ブランド都合の納期を守った上で、投稿品質・レギュレーション違反ゼロを担保。</div>
+          <div class="pv"><b>3週間で全員投稿完了</b>、違反ゼロを担保。</div>
         </div>
       </div>
 
