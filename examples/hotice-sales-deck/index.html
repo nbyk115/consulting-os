@@ -81,12 +81,13 @@
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
   .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
-  .col .viz{height:90px;border-bottom:1px solid #EAE6DE;position:relative;background:#1a1a1a;overflow:hidden}
+  .col .viz{height:96px;position:relative;background:#0A0A0A;overflow:hidden;border-bottom:3px solid transparent}
+  .col:nth-child(2) .viz{background:#2a2a2a}
   .col.active .viz{background:var(--red)}
-  .col .viz svg{position:absolute;inset:0;width:100%;height:100%;opacity:.45}
-  .col.active .viz svg{opacity:.35}
-  .col .viz .vizCap{position:absolute;left:14px;bottom:10px;z-index:2;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.24em}
-  .col .viz .vizEra{position:absolute;right:14px;top:10px;z-index:2;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:24px;letter-spacing:-.02em;opacity:.85}
+  .col .viz .vizEra{position:absolute;left:16px;bottom:-12px;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:82px;letter-spacing:-.06em;line-height:.85;opacity:.95}
+  .col .viz .vizCap{position:absolute;right:16px;top:12px;color:#fff;font-family:"Inter",sans-serif;font-weight:800;font-size:10.5px;letter-spacing:.26em;opacity:.7;text-align:right;max-width:130px;line-height:1.4}
+  .col .viz .vizPhrase{position:absolute;right:16px;bottom:14px;color:#fff;font-weight:800;font-size:18px;letter-spacing:-.01em;opacity:1;text-align:right}
+  .col.active .viz .vizCap{opacity:.85}
   .col .pad{padding:14px 16px 0}
   .col.active{border-top-color:var(--red);background:#fff}
   .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
@@ -738,30 +739,8 @@
     <div class="bCols">
       <div class="col">
         <div class="viz">
-          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Megaphone cone emitting to crowd of dots -->
-            <g fill="#fff">
-              <path d="M30 45 L80 30 L80 60 Z" />
-              <rect x="78" y="40" width="28" height="10" rx="2"/>
-            </g>
-            <g fill="#fff" opacity=".7">
-              <circle cx="140" cy="30" r="3"/><circle cx="155" cy="22" r="3"/><circle cx="170" cy="35" r="3"/>
-              <circle cx="185" cy="18" r="3"/><circle cx="200" cy="28" r="3"/><circle cx="215" cy="40" r="3"/>
-              <circle cx="230" cy="22" r="3"/><circle cx="245" cy="35" r="3"/><circle cx="260" cy="18" r="3"/>
-              <circle cx="275" cy="45" r="3"/><circle cx="290" cy="28" r="3"/><circle cx="305" cy="38" r="3"/>
-              <circle cx="320" cy="22" r="3"/><circle cx="335" cy="45" r="3"/><circle cx="350" cy="30" r="3"/>
-              <circle cx="365" cy="25" r="3"/><circle cx="155" cy="55" r="3"/><circle cx="185" cy="65" r="3"/>
-              <circle cx="215" cy="70" r="3"/><circle cx="245" cy="60" r="3"/><circle cx="275" cy="68" r="3"/>
-              <circle cx="305" cy="55" r="3"/><circle cx="335" cy="70" r="3"/><circle cx="365" cy="60" r="3"/>
-            </g>
-            <!-- Sound waves -->
-            <g fill="none" stroke="#fff" stroke-width="2" opacity=".4">
-              <path d="M115 45 Q120 35 115 25"/><path d="M115 45 Q120 55 115 65"/>
-              <path d="M120 45 Q128 30 120 15"/><path d="M120 45 Q128 60 120 75"/>
-            </g>
-          </svg>
           <div class="vizEra">1.0</div>
-          <div class="vizCap">量 ／ MASS REACH</div>
+          <div class="vizCap">MASS REACH<br>量で買う時代</div>
         </div>
         <div class="pad">
           <div class="era">〜2020</div>
@@ -777,29 +756,8 @@
       </div>
       <div class="col">
         <div class="viz">
-          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Connected nodes (engagement network) -->
-            <g stroke="#fff" stroke-width="1.5" opacity=".45" fill="none">
-              <line x1="60" y1="30" x2="130" y2="45"/><line x1="130" y1="45" x2="200" y2="25"/>
-              <line x1="130" y1="45" x2="200" y2="65"/><line x1="200" y1="25" x2="270" y2="40"/>
-              <line x1="200" y1="65" x2="270" y2="40"/><line x1="270" y1="40" x2="340" y2="25"/>
-              <line x1="270" y1="40" x2="340" y2="60"/>
-            </g>
-            <g fill="#fff">
-              <circle cx="60" cy="30" r="8"/><circle cx="130" cy="45" r="10"/>
-              <circle cx="200" cy="25" r="8"/><circle cx="200" cy="65" r="8"/>
-              <circle cx="270" cy="40" r="10"/><circle cx="340" cy="25" r="7"/>
-              <circle cx="340" cy="60" r="7"/>
-            </g>
-            <!-- Heart icons -->
-            <g fill="#fff" opacity=".75">
-              <path d="M95 15 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
-              <path d="M305 75 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
-              <path d="M170 75 c-3 -4 -9 -4 -9 2 c0 5 9 9 9 9 c0 0 9 -4 9 -9 c0 -6 -6 -6 -9 -2 z"/>
-            </g>
-          </svg>
           <div class="vizEra">2.0</div>
-          <div class="vizCap">質 ／ ENGAGEMENT</div>
+          <div class="vizCap">ENGAGEMENT<br>質で選ぶ時代</div>
         </div>
         <div class="pad">
           <div class="era">2021-2024</div>
@@ -815,25 +773,8 @@
       </div>
       <div class="col active">
         <div class="viz">
-          <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Rising bar chart + upward arrow -->
-            <g fill="#fff">
-              <rect x="50" y="60" width="28" height="18"/>
-              <rect x="88" y="48" width="28" height="30"/>
-              <rect x="126" y="38" width="28" height="40"/>
-              <rect x="164" y="26" width="28" height="52"/>
-              <rect x="202" y="16" width="28" height="62"/>
-            </g>
-            <!-- Upward arrow -->
-            <g fill="#fff" opacity=".85">
-              <path d="M260 70 L310 30 L310 50 L360 50 L360 70 Z"/>
-              <polygon points="310,15 345,35 310,35"/>
-            </g>
-            <!-- "$" marker -->
-            <text x="330" y="80" fill="#fff" font-family="Inter, sans-serif" font-weight="900" font-size="18">$</text>
-          </svg>
           <div class="vizEra">3.0</div>
-          <div class="vizCap">実装力 ／ OUTCOME</div>
+          <div class="vizCap">OUTCOME<br>実装力で勝つ時代</div>
         </div>
         <div class="pad">
           <div class="era active-tag">2025 →</div>
