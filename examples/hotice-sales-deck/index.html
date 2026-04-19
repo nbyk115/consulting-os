@@ -81,13 +81,12 @@
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
   .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
-  .col .viz{height:96px;position:relative;background:#0A0A0A;overflow:hidden;border-bottom:3px solid transparent}
+  .col .viz{height:72px;position:relative;background:#0A0A0A;display:flex;align-items:center;justify-content:space-between;padding:0 18px}
   .col:nth-child(2) .viz{background:#2a2a2a}
   .col.active .viz{background:var(--red)}
-  .col .viz .vizEra{position:absolute;left:16px;bottom:-12px;color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:82px;letter-spacing:-.06em;line-height:.85;opacity:.95}
-  .col .viz .vizCap{position:absolute;right:16px;top:12px;color:#fff;font-family:"Inter",sans-serif;font-weight:800;font-size:10.5px;letter-spacing:.26em;opacity:.7;text-align:right;max-width:130px;line-height:1.4}
-  .col .viz .vizPhrase{position:absolute;right:16px;bottom:14px;color:#fff;font-weight:800;font-size:18px;letter-spacing:-.01em;opacity:1;text-align:right}
-  .col.active .viz .vizCap{opacity:.85}
+  .col .viz .vizEra{color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:36px;letter-spacing:-.035em;line-height:1}
+  .col .viz .vizCap{color:#fff;font-family:"Inter",sans-serif;font-weight:800;font-size:10px;letter-spacing:.26em;opacity:.75;text-align:right;line-height:1.6}
+  .col .viz .vizCap b{display:block;font-weight:900;font-size:12.5px;letter-spacing:.01em;opacity:1;margin-top:3px;font-family:"Noto Sans JP",sans-serif}
   .col .pad{padding:14px 16px 0}
   .col.active{border-top-color:var(--red);background:#fff}
   .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
@@ -740,7 +739,7 @@
       <div class="col">
         <div class="viz">
           <div class="vizEra">1.0</div>
-          <div class="vizCap">MASS REACH<br>量で買う時代</div>
+          <div class="vizCap">MASS REACH<b>量で買う時代</b></div>
         </div>
         <div class="pad">
           <div class="era">〜2020</div>
@@ -757,7 +756,7 @@
       <div class="col">
         <div class="viz">
           <div class="vizEra">2.0</div>
-          <div class="vizCap">ENGAGEMENT<br>質で選ぶ時代</div>
+          <div class="vizCap">ENGAGEMENT<b>質で選ぶ時代</b></div>
         </div>
         <div class="pad">
           <div class="era">2021-2024</div>
@@ -774,7 +773,7 @@
       <div class="col active">
         <div class="viz">
           <div class="vizEra">3.0</div>
-          <div class="vizCap">OUTCOME<br>実装力で勝つ時代</div>
+          <div class="vizCap">OUTCOME<b>実装力で勝つ時代</b></div>
         </div>
         <div class="pad">
           <div class="era active-tag">2025 →</div>
