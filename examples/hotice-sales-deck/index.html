@@ -184,13 +184,13 @@
   .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
   .mkt .hero .desc b{color:var(--ink)}
   /* bar chart (Japan) */
-  .bars{margin-top:14px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:120px;padding-top:14px;border-bottom:1px solid var(--ink)}
+  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:130px;padding:16px 0 24px;border-bottom:1px solid var(--ink)}
   .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
   .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
-  .bars .bar.accent::before{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:900;font-size:14px;color:var(--red);letter-spacing:-.02em;white-space:nowrap}
-  .bars .bar::before{content:attr(data-v);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11.5px;color:#666;letter-spacing:-.01em;white-space:nowrap}
-  .barsLab{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:6px}
-  .barsLab span{font-family:"Inter",sans-serif;font-size:10.5px;color:#888;font-weight:700;text-align:center;letter-spacing:.02em}
+  .bars .bar.accent::before{color:var(--red);font-size:13px;top:-22px}
+  .bars .bar::before{content:attr(data-v);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11px;color:#666;letter-spacing:-.01em;white-space:nowrap}
+  .bars .bar::after{content:attr(data-y);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:700;font-size:10.5px;color:#888;letter-spacing:.02em}
+  .bars .bar.accent::after{color:var(--red);font-weight:800}
   /* global line/bars */
   .gBars{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .gBars .g{background:#FAFAFA;border:1px solid #EEE;padding:12px 14px}
@@ -783,15 +783,15 @@
           <div class="pt"><em>ROAS訴求</em>・EC売上を<br>取りに行きたい時に。</div>
         </div>
         <div class="body">
-          ブランドKPIが <b>impression → ROAS／購買</b> に移行する中、リーチ型パートナーだけではカバーしきれない案件が増加。<b>成果型の実装実績を持つパートナー</b>の枠が空く。
+          ブランドKPIが <b>ROAS／購買</b> へ移行中。リーチ型だけでは届かない成果型の実装枠を。
         </div>
         <div class="proof">
           <div class="pn">600%</div>
-          <div class="ps">hotice の <b>Amazon アフィリエイト施策</b> 年間平均ROAS（単月最大 <b>20,000%</b>）。過去50億円の販売データで成果型提案が可能。</div>
+          <div class="ps">hotice の <b>Amazon アフィリエイト施策</b> 年間平均ROAS（単月最大 20,000%）。</div>
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av"><em>ROAS直結</em> 案件の <em>成果型実装枠</em>。<br>Amazon EC 領域の実装実績多数。</div>
+          <div class="av"><em>ROAS直結</em> 案件の <em>成果型実装枠</em>。</div>
         </div>
       </div>
 
@@ -803,15 +803,15 @@
           <div class="pt">インバウンド・APACで<br><em>現地実装</em>が要る時に。</div>
         </div>
         <div class="body">
-          資生堂・カネボウ・Samsung等でインバウンド／APAC需要が拡大中。国内特化のパートナーでは現地オペ（採用・言語・契約・決済）が回せず、<b>多国対応できる実装パートナー</b>が1社は必要になる。
+          資生堂・カネボウ・Samsung等で<b>インバウンド・APAC需要</b>が拡大。多国対応できる実装枠が必要。
         </div>
         <div class="proof">
           <div class="pn">10カ国+</div>
-          <div class="ps">hotice の稼働国。日英中バイリンガル体制＋現地事務所NWで <b>直接実装</b>・撮影同行まで内製。</div>
+          <div class="ps">hotice の稼働国。日英中対応 ＋ 現地オペで <b>直接実装</b>。</div>
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av"><em>海外・APAC</em> 案件の <em>現地実装枠</em>。<br>現地オペ・契約・撮影まで内製。</div>
+          <div class="av"><em>海外・APAC</em> 案件の <em>現地実装枠</em>。</div>
         </div>
       </div>
 
@@ -823,15 +823,15 @@
           <div class="pt"><em>爆速対応</em>＆<br>御社名義で動かしたい時に。</div>
         </div>
         <div class="body">
-          短納期・機動案件は業界標準（1〜2ヶ月）で取りづらい。また代理店が<b>前面に立ち続ける必要のある案件</b>では、ホワイトラベル対応できる実装パートナーが要る。
+          短納期・機密案件は業界標準では取りづらい。<b>ホワイトラベル対応</b>できる実装枠が必要。
         </div>
         <div class="proof">
           <div class="pn">2週間</div>
-          <div class="ps">hotice の最短デリバリー。事故率 0件（過去5年）。ホワイトラベルで<b>御社名義のまま対応可</b>。</div>
+          <div class="ps">hotice の最短デリバリー。ホワイトラベルで <b>御社名義のまま対応可</b>。</div>
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av">急ぎ・機密案件の <em>機動実装枠</em>。<br>御社の <em>名義・売上・実績</em> 維持。</div>
+          <div class="av">急ぎ・機密案件の <em>機動実装枠</em>。</div>
         </div>
       </div>
     </div>
@@ -992,6 +992,15 @@
           <td>日本語中心</td>
           <td>日・英（拡張中）</td>
           <td>日本語中心</td>
+        </tr>
+        <tr>
+          <td class="dim">料金モデル<br><span style="font-weight:400;color:#888;font-size:10.5px">公表ベース</span></td>
+          <td class="us">案件別<br><span style="color:#888;font-size:10.5px">見積開示・代理店マージン別途</span></td>
+          <td>非公表</td>
+          <td>SaaS 月1万円〜<br><span style="color:#888;font-size:10.5px">実装費は別途</span></td>
+          <td>非公表</td>
+          <td>非公表</td>
+          <td>非公表</td>
         </tr>
         <tr>
           <td class="dim">強み<br><span style="font-weight:400;color:#888;font-size:10.5px">公表ベース</span></td>
