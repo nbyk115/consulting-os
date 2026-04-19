@@ -34,7 +34,11 @@
     position:absolute;top:0;left:0;overflow:hidden;
     transform-origin:top left;
     transform:scale(calc(100cqw / 1280px));
+    word-break:auto-phrase;
+    line-break:strict;
+    overflow-wrap:break-word;
   }
+  .slide p, .slide div, .slide li, .slide td, .slide th, .slide span{word-break:auto-phrase;line-break:strict}
   .slide .frame{position:absolute;inset:0;padding:44px 60px 52px;display:flex;flex-direction:column}
   .tag{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:700;text-transform:uppercase}
   .tag::before{content:"";display:inline-block;width:22px;height:2px;background:var(--red);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
@@ -211,14 +215,14 @@
 
   /* Slide P5 (Agency 3 Pains) */
   .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-  .pain{background:#fff;padding:0;display:grid;grid-template-rows:auto 1fr auto auto;border:1px solid var(--line);position:relative;overflow:hidden;min-height:320px}
+  .pain{background:#fff;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);position:relative;overflow:hidden;min-height:320px}
   .pain .idx{position:absolute;top:12px;right:14px;font-family:"Inter",sans-serif;font-weight:900;font-size:80px;color:#F3EFE8;letter-spacing:-.05em;line-height:.9;z-index:0;pointer-events:none}
   .pain > *{position:relative;z-index:1}
   .pain .head{padding:16px 20px 0;display:flex;flex-direction:column;gap:2px}
   .pain .pk{font-size:10.5px;letter-spacing:.22em;color:var(--red);font-weight:800}
   .pain .pt{font-size:18px;font-weight:900;line-height:1.35;margin-top:4px;letter-spacing:-.005em}
   .pain .pt em{font-style:normal;background:linear-gradient(transparent 62%, #FFD9DD 62%);padding:0 2px}
-  .pain .body{padding:10px 20px 10px;font-size:12px;color:var(--sub);line-height:1.7}
+  .pain .body{padding:10px 20px 10px;font-size:12px;color:var(--sub);line-height:1.7;min-height:110px}
   .pain .body b{color:var(--ink)}
   .pain .proof{margin:0 20px;padding:10px 14px;background:#FAFAFA;border-left:3px solid var(--ink);display:flex;gap:14px;align-items:center}
   .pain .proof .pn{font-family:"Inter",sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap;flex:0 0 80px;text-align:left}
@@ -781,11 +785,11 @@
         </div>
         <div class="proof">
           <div class="pn">600%</div>
-          <div class="ps">hotice の年間平均ROAS（Amazon訴求は最大 <b>20,000%</b>）。過去50億円の販売データで成果型提案が可能。</div>
+          <div class="ps">hotice の <b>Amazon アフィリエイト施策</b> 年間平均ROAS（単月最大 <b>20,000%</b>）。過去50億円の販売データで成果型提案が可能。</div>
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av">既存の認知型・リーチ型パートナーでは届かない<em>ROAS直結領域</em>を担当。</div>
+          <div class="av"><em>ROAS直結</em> 案件の <em>成果型実装枠</em>。</div>
         </div>
       </div>
 
@@ -805,7 +809,7 @@
         </div>
         <div class="ans">
           <div class="ak">HOTICE'S ROLE</div>
-          <div class="av">国内中心の既存パートナーを補完する<em>グローバル実装枠</em>。</div>
+          <div class="av"><em>海外・APAC</em> 案件の <em>現地実装枠</em>。</div>
         </div>
       </div>
 
@@ -979,24 +983,6 @@
           <td>5,000+<br><span style="color:#888;font-size:10.5px">PPP STUDIO 1,500+含む</span></td>
         </tr>
         <tr>
-          <td class="dim">成果型（ROAS）訴求<br><span style="font-weight:400;color:#888;font-size:10.5px">公式プロダクトでの表明</span></td>
-          <td class="us">◎ 平均ROAS 600%<br><span style="color:#888;font-size:10.5px">実績ベース提案（自社）</span></td>
-          <td>非公表</td>
-          <td>◎ Performance Dashboard<br>／Affiliate 公式提供</td>
-          <td>非公表</td>
-          <td>AI活用マッチング<br><span style="color:#888;font-size:10.5px">※ROAS改善率は非公表</span></td>
-          <td>非公表</td>
-        </tr>
-        <tr>
-          <td class="dim">代理店協業モデル<br><span style="font-weight:400;color:#888;font-size:10.5px">ホワイトラベル／PM常駐</span></td>
-          <td class="us">◎ <b>フル対応</b><br><span style="color:#888;font-size:10.5px">御社名義で前面対応可</span></td>
-          <td>要相談</td>
-          <td>要相談<br><span style="color:#888;font-size:10.5px">SaaS型は公式提供</span></td>
-          <td>要相談</td>
-          <td>要相談</td>
-          <td>要相談</td>
-        </tr>
-        <tr>
           <td class="dim">言語対応<br><span style="font-weight:400;color:#888;font-size:10.5px">バイリンガル体制</span></td>
           <td class="us">日・英・中・韓 対応</td>
           <td>日本語中心</td>
@@ -1006,13 +992,13 @@
           <td>日本語中心</td>
         </tr>
         <tr>
-          <td class="dim">品質管理<br><span style="font-weight:400;color:#888;font-size:10.5px">ブランドセーフティ</span></td>
-          <td class="us">専任レビュー体制<br><span style="color:#888;font-size:10.5px">過去5年事故ゼロ（自社実績）</span></td>
-          <td>非公表</td>
-          <td>非公表</td>
-          <td>非公表</td>
-          <td>非公表</td>
-          <td>非公表</td>
+          <td class="dim">事業モデル<br><span style="font-weight:400;color:#888;font-size:10.5px">強みの主軸</span></td>
+          <td class="us">実装チーム<br><span style="color:#888;font-size:10.5px">成果直結型・機動</span></td>
+          <td>総合広告・メディア<br><span style="color:#888;font-size:10.5px">ドコモ子会社</span></td>
+          <td>SaaS＋BPaaS<br><span style="color:#888;font-size:10.5px">AnyTagプラットフォーム</span></td>
+          <td>MCN／クリエイター<br><span style="color:#888;font-size:10.5px">FreakOut子会社</span></td>
+          <td>AI分析×実装<br><span style="color:#888;font-size:10.5px">BitStar DB</span></td>
+          <td>キャスティング特化<br><span style="color:#888;font-size:10.5px">PPP STUDIO運営</span></td>
         </tr>
       </tbody>
     </table>
@@ -1263,7 +1249,7 @@
         <div>
           <span class="num l">600<span class="unit">%</span></span>
         </div>
-        <div class="foot">年間／全案件の加重平均（成果直結型施策）</div>
+        <div class="foot">Amazon アフィリエイト施策の加重平均（年間）</div>
       </div>
 
       <div class="kpi">
