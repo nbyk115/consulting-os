@@ -81,9 +81,18 @@ model: claude-opus-4-7
 
 ### 10. 外部画像のハンドリング
 
-- Unsplash 等の外部画像URLは Puppeteer 環境で読み込まれない可能性あり
-- 代替：ローカル画像、SVG 埋め込み、または editorial typography
-- Claude.ai 側での画像生成を依頼する場合は、具体的プロンプト＋希望スペック（サイズ・背景色・スタイル）を提示
+**原則**：画像ビジュアルが必要なら **Claude.ai の Claude Design**（Opus 4.7 駆動）にハンドオフする。Claude Code CLI 内には画像生成ツールがない。
+
+フロー：
+1. 必要な画像の要件を定義（コンセプト、色、サイズ、禁則）
+2. ユーザに **Claude Design 用プロンプト** を提示して生成を依頼
+3. 生成物を受け取って組み込む（詳細：`.claude/skills/claude-design-handoff/SKILL.md`）
+
+代替ルート（Claude Design 不可のとき）：
+- **ローカル画像**：ユーザが手持ち画像をアップロード → `assets/` 配下で組込
+- **SVG 埋込**：単純な図版ならインライン SVG（複雑なイラストは避ける、素人くさくなる）
+- **Editorial Typography**：巨大なタイポ＋色ブロックだけで視覚効果を作る
+- **外部URL（Unsplash等）は基本NG**：Puppeteer 環境で読み込まれない可能性が高い
 
 ## 出力パターン
 
