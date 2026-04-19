@@ -80,7 +80,8 @@
 
   /* Slide B: AI thesis */
   .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
-  .col{background:var(--white);padding:0 0 14px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
+  .col{background:var(--white);padding:0 0 16px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
+  .col .pad{margin-top:auto}
   .col .viz{height:96px;position:relative;background:#0A0A0A;display:grid;grid-template-columns:auto 1fr;gap:18px;padding:0 18px;align-items:center}
   .col:nth-child(2) .viz{background:#2a2a2a}
   .col.active .viz{background:var(--red)}
@@ -210,12 +211,12 @@
   .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
   .mkt .hero .desc b{color:var(--ink)}
   /* bar chart (Japan) */
-  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:130px;padding:20px 0 30px;border-bottom:1px solid var(--ink)}
+  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:150px;padding-top:42px}
   .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
   .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
-  .bars .bar.accent::before{color:var(--red);font-size:13px;top:-22px}
-  .bars .bar::before{content:attr(data-v);position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11px;color:#666;letter-spacing:-.01em;white-space:nowrap}
-  .bars .bar::after{content:attr(data-y);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:700;font-size:10.5px;color:#888;letter-spacing:.02em}
+  .bars .bar::before{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11.5px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
+  .bars .bar.accent::before{color:var(--red);font-weight:900;font-size:13px;top:-24px}
+  .bars .bar::after{content:attr(data-y);position:absolute;top:-38px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:700;font-size:10px;color:#999;letter-spacing:.04em;white-space:nowrap}
   .bars .bar.accent::after{color:var(--red);font-weight:800}
   /* global line/bars */
   .gBars{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -509,10 +510,12 @@
   .introKpi .vl .u{font-size:18px;font-weight:800;margin-left:2px}
   .introKpi .dc{font-size:11px;color:var(--sub);line-height:1.55;margin-top:4px}
   .introSvc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1}
-  .introSvc > div{background:#fff;padding:16px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:6px}
-  .introSvc .sk{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.2em;color:var(--red);font-weight:800}
-  .introSvc .st{font-size:13px;font-weight:900;line-height:1.4}
-  .introSvc .sd{font-size:11px;color:var(--sub);line-height:1.65}
+  .introSvc > div{background:#fff;padding:18px 20px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+  .introSvc > div::after{content:attr(data-n);position:absolute;right:-6px;bottom:-24px;font-family:"Inter",sans-serif;font-weight:900;font-size:92px;color:#F3EFE8;letter-spacing:-.05em;line-height:.85;z-index:0;pointer-events:none}
+  .introSvc > div > *{position:relative;z-index:1}
+  .introSvc .sk{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.22em;color:var(--red);font-weight:800}
+  .introSvc .st{font-size:16px;font-weight:900;line-height:1.4;letter-spacing:-.005em}
+  .introSvc .sd{font-size:12px;color:var(--sub);line-height:1.7;margin-top:auto}
   .introBrands{background:var(--ink);color:#fff;padding:14px 20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:auto}
   .introBrands .bk{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.25);padding-right:18px}
   .introBrands .bv{font-size:14.5px;font-weight:800;letter-spacing:.06em;line-height:1.7;color:#fff}
@@ -675,14 +678,13 @@
           <div class="desc"><b>2026年予測</b>。2024年比で約 <b>1.34倍</b>。5年後の2029年には <b>1.9倍</b> へ到達する見込み。</div>
         </div>
         <div class="bars">
-          <div class="bar" data-v="860" style="--h:82px"></div>
-          <div class="bar" data-v="1,021" style="--h:98px"></div>
-          <div class="bar accent" data-v="1,150" style="--h:110px"></div>
-          <div class="bar" data-v="1,285" style="--h:123px"></div>
-          <div class="bar" data-v="1,450" style="--h:138px"></div>
-          <div class="bar" data-v="1,645" style="--h:156px"></div>
+          <div class="bar" data-v="860" data-y="2024" style="--h:82px"></div>
+          <div class="bar" data-v="1,021" data-y="2025" style="--h:98px"></div>
+          <div class="bar accent" data-v="1,150" data-y="2026" style="--h:110px"></div>
+          <div class="bar" data-v="1,285" data-y="2027" style="--h:123px"></div>
+          <div class="bar" data-v="1,450" data-y="2028" style="--h:138px"></div>
+          <div class="bar" data-v="1,645" data-y="2029" style="--h:156px"></div>
         </div>
-        <div class="barsLab"><span>2024</span><span>2025</span><span>2026</span><span>2027</span><span>2028</span><span>2029</span></div>
       </div>
 
       <!-- GLOBAL -->
@@ -957,7 +959,7 @@
           <div class="tag">BRAND SAYS ／ 機能</div>
           <div class="txt">業界最高峰のノイズキャンセリング / 最大-30dB低減</div>
         </div>
-        <div class="bridge"><span class="arr">▾</span> hotice translates <span class="arr">▾</span></div>
+        <div class="bridge">▾</div>
         <div class="b after">
           <div class="tag">USER HEARS ／ 体験</div>
           <div class="txt">寝ホンはこれで間違いない。隣の騒音で起きない。</div>
@@ -968,7 +970,7 @@
           <div class="tag">BRAND SAYS ／ 機能</div>
           <div class="txt">8K対応 / HDR10+ / 120Hz refresh rate</div>
         </div>
-        <div class="bridge"><span class="arr">▾</span> hotice translates <span class="arr">▾</span></div>
+        <div class="bridge">▾</div>
         <div class="b after">
           <div class="tag">USER HEARS ／ 体験</div>
           <div class="txt">映画館がリビングに来た。スポーツ観戦が化ける。</div>
@@ -979,7 +981,7 @@
           <div class="tag">BRAND SAYS ／ 機能</div>
           <div class="txt">独自成分◯◯配合でシミ予防・肌バリア機能強化</div>
         </div>
-        <div class="bridge"><span class="arr">▾</span> hotice translates <span class="arr">▾</span></div>
+        <div class="bridge">▾</div>
         <div class="b after">
           <div class="tag">USER HEARS ／ 体験</div>
           <div class="txt">朝5分で完結する時短ケア。"手抜きじゃない"お守り。</div>
@@ -1059,6 +1061,24 @@
           <td>日本語中心</td>
           <td>日・英（拡張中）</td>
           <td>日本語中心</td>
+        </tr>
+        <tr>
+          <td class="dim">代理店協業<br><span style="font-weight:400;color:#888;font-size:10.5px">ホワイトラベル可否</span></td>
+          <td class="us">◎ フル対応<br><span style="color:#888;font-size:10.5px">御社名義で前面対応</span></td>
+          <td>総合代理店として<br>自社名義中心</td>
+          <td>SaaS提供 ＋<br>実装協業</td>
+          <td>代理店経由案件多</td>
+          <td>代理店協業・直販<br>両対応</td>
+          <td>代理店協業多</td>
+        </tr>
+        <tr>
+          <td class="dim">短納期への対応<br><span style="font-weight:400;color:#888;font-size:10.5px">急ぎ案件の受け皿</span></td>
+          <td class="us">最短 2週間<br><span style="color:#888;font-size:10.5px">事前契約コア1,000名を活用</span></td>
+          <td>4〜8週（大手標準）</td>
+          <td>SaaS即時／実装1〜2ヶ月</td>
+          <td>1〜2ヶ月</td>
+          <td>3〜4週</td>
+          <td>1ヶ月前後</td>
         </tr>
         <tr>
           <td class="dim">インフルエンサー<br>領域の強み<br><span style="font-weight:400;color:#888;font-size:10.5px">2024-2026 公表から</span></td>
@@ -1359,9 +1379,9 @@
   <div class="frame">
     <div class="sheetHead">
       <div>
-        <div class="tag">Case 01 ｜ Shiseido × hotice ／ インバウンド</div>
-        <div class="h1">資生堂 免税事業の<em>訪日客</em>を、<br>台湾・韓国・タイから<em>呼び込む</em>。</div>
-        <div class="sub">羽田空港「SHISEIDO HANEDA BOUTIQUE」を中心とする免税店への訪日客誘致施策。主要アジア3市場の現地インフルエンサーをキャスティングし、渡航〜撮影まで全コーディネート。</div>
+        <div class="tag">Case 01 ｜ 資生堂様 × hotice ／ インバウンド</div>
+        <div class="h1">資生堂様 免税事業の<em>訪日客</em>を、<br>台湾・韓国・タイから<em>呼び込む</em>。</div>
+        <div class="sub">羽田空港「SHISEIDO HANEDA BOUTIQUE」への訪日客誘致。主要アジア3市場の現地インフルエンサーを起用、渡航〜撮影まで全コーディネート。</div>
       </div>
       <div class="pageno">P12</div>
     </div>
