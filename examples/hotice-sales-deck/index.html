@@ -50,7 +50,7 @@
   .rule{height:2px;background:var(--ink);width:36px;margin:14px 0 20px}
 
   /* Slide A: exec numbers */
-  .kpiGrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;margin-top:28px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .kpiGrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;margin-top:28px;border-top:1px solid var(--ink);border-left:1px solid var(--ink);flex:1}
   .kpi{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px 24px;background:var(--white);position:relative;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
   .kpi .label{font-size:11px;letter-spacing:.16em;color:var(--sub);font-weight:600}
   .kpi .num{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:-.04em;line-height:.95}
@@ -116,7 +116,7 @@
   .score span{width:8px;height:8px;border-radius:50%;background:#E8E8E8}
   .score span.on{background:var(--ink)}
   .us .score span.on{background:var(--red)}
-  .cBottom{margin-top:12px;display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:center}
+  .cBottom{margin-top:auto;padding-top:12px;display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:center}
   .cClaim{background:var(--red);color:#fff;padding:12px 18px;font-size:13.5px;font-weight:700;line-height:1.55}
   .cClaim em{font-style:normal;background:#fff;color:var(--red);padding:2px 8px;margin:0 2px;border-radius:2px}
   .cNote{font-size:10.5px;color:#888;line-height:1.65;padding:4px 0}
@@ -262,8 +262,8 @@
   .sato .sv .big{font-size:16px;font-weight:900}
 
   /* Slide Why-hotice (P8a) */
-  .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
-  .why3 .c{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 24px;background:#fff;display:flex;flex-direction:column;gap:10px;position:relative;min-height:340px}
+  .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-top:1px solid var(--ink);border-left:1px solid var(--ink);flex:1}
+  .why3 .c{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 24px;background:#fff;display:flex;flex-direction:column;gap:10px;position:relative}
   .why3 .c .num{font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--red)}
   .why3 .c .why{font-size:12px;color:#888;font-weight:700;letter-spacing:.08em;margin-top:-4px}
   .why3 .c .big{font-family:"Inter",sans-serif;font-weight:900;font-size:64px;letter-spacing:-.035em;line-height:.95;color:var(--ink);margin:6px 0 4px}
@@ -508,7 +508,7 @@
   .introSvc .sk{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.2em;color:var(--red);font-weight:800}
   .introSvc .st{font-size:13px;font-weight:900;line-height:1.4}
   .introSvc .sd{font-size:11px;color:var(--sub);line-height:1.65}
-  .introBrands{background:var(--ink);color:#fff;padding:14px 20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .introBrands{background:var(--ink);color:#fff;padding:14px 20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:auto}
   .introBrands .bk{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.25);padding-right:18px}
   .introBrands .bv{font-size:14.5px;font-weight:800;letter-spacing:.06em;line-height:1.7;color:#fff}
   .introBrands .bv span{display:inline-block;margin:0 10px 0 0;opacity:.95}
