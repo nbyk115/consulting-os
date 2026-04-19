@@ -211,7 +211,7 @@
   .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
   .mkt .hero .desc b{color:var(--ink)}
   /* bar chart (Japan) */
-  .bars{margin-top:16px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:150px;padding-top:42px}
+  .bars{margin-top:14px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:140px;padding-top:42px;border-bottom:1px solid var(--ink)}
   .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
   .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
   .bars .bar::before{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11.5px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
@@ -488,8 +488,8 @@
   .caseCol.right .phase{border-bottom-color:rgba(255,255,255,.15)}
   .caseCol .phase .pl{font-size:10.5px;color:#888;letter-spacing:.1em;font-weight:800}
   .caseCol.right .phase .pl{color:#FF7A86}
-  .caseCol .phase .pv{font-size:12px;color:var(--ink);line-height:1.6}
-  .caseCol.right .phase .pv{color:#fff}
+  .caseCol .phase .pv{font-size:13.5px;color:var(--ink);line-height:1.75;font-weight:500}
+  .caseCol.right .phase .pv{color:#fff;font-weight:400}
   .caseCol .phase .pv b{font-weight:800;color:var(--red)}
   .caseCol.right .phase .pv b{color:#FF7A86}
   .caseResult{margin-top:auto}
@@ -678,12 +678,12 @@
           <div class="desc"><b>2026年予測</b>。2024年比で約 <b>1.34倍</b>。5年後の2029年には <b>1.9倍</b> へ到達する見込み。</div>
         </div>
         <div class="bars">
-          <div class="bar" data-v="860" data-y="2024" style="--h:82px"></div>
-          <div class="bar" data-v="1,021" data-y="2025" style="--h:98px"></div>
-          <div class="bar accent" data-v="1,150" data-y="2026" style="--h:110px"></div>
-          <div class="bar" data-v="1,285" data-y="2027" style="--h:123px"></div>
-          <div class="bar" data-v="1,450" data-y="2028" style="--h:138px"></div>
-          <div class="bar" data-v="1,645" data-y="2029" style="--h:156px"></div>
+          <div class="bar" data-v="860" data-y="2024" style="--h:50px"></div>
+          <div class="bar" data-v="1,021" data-y="2025" style="--h:60px"></div>
+          <div class="bar accent" data-v="1,150" data-y="2026" style="--h:68px"></div>
+          <div class="bar" data-v="1,285" data-y="2027" style="--h:76px"></div>
+          <div class="bar" data-v="1,450" data-y="2028" style="--h:85px"></div>
+          <div class="bar" data-v="1,645" data-y="2029" style="--h:96px"></div>
         </div>
       </div>
 
