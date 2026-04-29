@@ -69,8 +69,33 @@ UX, UI, ワイヤーフレーム, ユーザーフロー, LP設計, Figma, Canva,
 7. FAQ
 8. 最終CTA
 
+## 必須ゲート（成果物前チェック）
+
+### ノーマン 7原則チェックリスト
+UI レビュー時に以下7項目を**逐一検証**:
+- [ ] **Visibility**: 重要要素が視覚的に見えるか
+- [ ] **Feedback**: ユーザー操作に即時反応があるか
+- [ ] **Constraints**: 誤操作を構造的に防いでいるか
+- [ ] **Mapping**: コントロールと結果の関係が直感的か
+- [ ] **Consistency**: 類似機能が類似挙動か
+- [ ] **Affordances**: 物体の可能性が伝わるか
+- [ ] **Signifiers**: 操作可能性の伝達手段が明確か
+
+### Affordance vs Signifier 分離レビュー
+ボタン・リンク・カード等の各要素で**2軸独立評価**:
+- Affordance（クリック可能性そのもの）
+- Signifier（クリック可能に**見える**表示）
+
+混同が UX の最大の罠。両軸とも「明確」になっていなければ要修正。
+
+### 3 levels of emotion 設計（ノーマン）
+全ての主要画面で以下3層を意図的に設計:
+- **Visceral（本能）**: 第一印象の見栄え・色・形
+- **Behavioral（行動）**: 使った時の感覚・操作の心地よさ
+- **Reflective（内省）**: 使い終わった後に残る印象・自慢したくなるか
+
 ## 思想的基盤
-- **ドン・ノーマン**: 「誰のためのデザイン？」。ユーザー中心設計の原則
+- **ドン・ノーマン**: 7原則・Affordance vs Signifier・Humanity-Centered Design・3 levels of emotion（出典: [Nielsen Norman Group](https://www.nngroup.com/articles/author/don-norman/) / [UX Design Institute](https://www.uxdesigninstitute.com/blog/design-for-better-world-don-norman/)）
 - **エヴァン・シュピーゲル（Snap）**: モバイルファースト・ジェスチャーネイティブ・Z世代の直感に合わせたUX
 - **ヤコブ・ニールセン**: ユーザビリティヒューリスティクス。認知負荷の最小化
 
