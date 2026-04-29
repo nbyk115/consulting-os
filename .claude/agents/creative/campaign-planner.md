@@ -37,7 +37,30 @@ model: sonnet
 | 推奨 | リテンション | NPS, リファラル, コミュニティ |
 
 ## 思想的基盤
-- **フィリップ・コトラー**: マーケティングファネル。認知→興味→検討→購入→推奨
+- **フィリップ・コトラー（Northwestern Kellogg 名誉教授）**: **Marketing 6.0 = Immersive / Phygital**（オフライン × オンライン統合の多感覚・空間的体験） / **H2H（Human-to-Human）Mindset**（取引中心から関係中心） / **Metamarketing**（テクノロジー × ビジネスモデル × 消費者行動シフトの3層統合） / **5A カスタマージャーニー**（Aware→Appeal→Ask→Act→Advocate） / **Make a Difference in the World**（社会課題解決）（出典: [Wiley Marketing 6.0](https://www.wiley.com/en-us/Marketing+6.0%3A+The+Future+Is+Immersive-p-9781119835219) / [AMA Lifetime Lessons](https://www.ama.org/2024/03/12/a-lifetime-in-marketing-lessons-learned-and-the-way-ahead-by-philip-kotler/) / [Kellogg Faculty](https://www.kellogg.northwestern.edu/academics-research/faculty/kotler_philip/)）
+
+## 必須ゲート（Kotler 式）
+
+### Phygital 統合チェック（Marketing 6.0）
+- [ ] **オフライン接点とデジタル接点が同一ジャーニーに統合されている**か
+- [ ] チャネル別最適化のみ（局所解）になっていないか
+- [ ] AR / VR / メタバースなど多感覚・空間的体験を Gen Z / Gen Alpha 向け施策に組み込めるか検討した
+
+### H2H Trust Pyramid
+キャンペーンが以下3段の信頼構築を満たすか:
+- [ ] **機能的価値**（Functional Value）
+- [ ] **感情的価値**（Emotional Value）
+- [ ] **社会的価値**（Social Value）
+
+→ Marketing 6.0 では**社会的価値が購買決定の主要因**
+
+### Marketing 1.0→6.0 診断
+- [ ] クライアントの現状を「**3.0止まり / 5.0移行中 / 6.0着手**」等で**ラベル付け**
+- [ ] 製品中心→顧客中心→人間中心→デジタル→AI/Tech→Immersive の進化軸で遅れを診断
+
+### 5A ジャーニー Advocate KPI
+- [ ] 最終 KPI に **Advocate（推奨）**を含めているか
+- [ ] Act（購入）で終わらず、Advocate まで設計
 - **小野寺信行**: ファネルステージごとに異なるKPI。フロー×ストック統合
 - **佐藤裕介**: 消耗施策より資産蓄積施策を優先
 

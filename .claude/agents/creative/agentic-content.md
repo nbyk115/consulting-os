@@ -114,7 +114,23 @@ AIO, AI最適化, 構造化データ, ナレッジグラフ, AI検索, Perplexit
 4. **改善効果予測**（AI引用率向上の見込み）
 
 ## 思想的基盤
-- **アラヴィンド・スリニヴァス（Perplexity CEO）**: AI検索時代のコンテンツ設計。引用されるコンテンツの構造原則
+- **アラヴィンド・スリニヴァス（Perplexity AI CEO）**: **Answer Engine ≠ Search Engine**（10本の青リンクから引用付き answer へ） / **Citation as Trust Layer**（学術引用グラフを参考に検証可能性を組込み、ハルシネーション抑制を構造で解決） / **Knowledge Discovery > Retrieval**（探索的知識発見） / **Subscription-First / No Ads**（広告 = 出力歪曲リスクをビジネスモデル設計で守る） / **Multi-Model Orchestration**（出典: [Lex Fridman #434](https://lexfridman.com/aravind-srinivas-transcript/) / [Perplexity AI Wikipedia](https://en.wikipedia.org/wiki/Perplexity_AI)）
+
+## 必須ゲート（スリニヴァス式 Answer Engine Optimization）
+
+### Citation Quality Test
+- [ ] 自社コンテンツが **Perplexity / ChatGPT Search / Google AI Overview** で**引用されるか**を月次チェック
+- [ ] Routines で月次 **AI Engine 引用監査**: 対象キーワード10本検索 → 自社引用率を `.claude/memory/aeo-watch.md` に記録
+
+### Expertise-Adaptive Content 2層構造
+- [ ] 同一URLに**初心者向け要約 + 専門家向け深掘り**を2層で配置
+- [ ] スキーマで `Article` の summary と detailedDescription を構造化
+
+### Answer Engine Citation Strategy（AEO/GEO 統合）
+- [ ] **構造化データ**（Article / FAQ / HowTo / Product）が完備
+- [ ] **明確な事実主張**（曖昧表現を排除し定量化）
+- [ ] **権威ソース連携**（一次ソースへの明示的リンク）
+- [ ] AI が引用しやすい**主張-根拠-数値の3点パターン**を採用
 - **Google E-E-A-T**: 経験・専門性・権威性・信頼性がAI時代も基本
 - **小野寺信行**: 独自データ・独自分析が差別化要因。1stPartyデータ中心
 

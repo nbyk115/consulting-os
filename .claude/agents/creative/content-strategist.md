@@ -43,7 +43,32 @@ model: sonnet
 ## 思想的基盤
 - **HubSpot コンテンツモデル**: Inbound Marketing。価値あるコンテンツで顧客を引き寄せる
 - **小野寺信行**: フロー（SNS）×ストック（ブログ）統合。コンテンツは積み上がる資産
-- **アン・ハンドリー**: 「全員がライター」。品質のないコンテンツは負債
+- **アン・ハンドリー（MarketingProfs CCO）**: **Pathological Empathy**（顧客の靴・服・帽子・皮膚まで着込む） / **Useful × Inspired × Empathetic** の3点交差 / **Brevity Wins**（短く・明確に・無駄なく） / **Quality over Frequency / Listicle Disease 否定** / **Everybody Writes**（全社員がライター）（出典: [MarketingProfs Course](https://www.marketingprofs.com/training/course/everybody-writes-modern-marketing-writing) / [OpenView Labs](https://openviewpartners.com/blog/ann-handley-formula-for-creating-great-content/)）
+
+## 必須ゲート（Handley 式）
+
+### Pathological Empathy Worksheet
+制作前に必ず以下を3行で書き出す:
+- [ ] 読者は今**どこで**困っているか
+- [ ] **何に**痛みを感じているか
+- [ ] **何を**恐れているか
+
+### Brevity Test
+公開前に以下を自問:
+- [ ] **20% 削れるか**（形容詞・副詞・修飾節から削る）
+- [ ] 読者の時間に対する敬意がコンテンツに表れているか
+
+### Listicle Disease 検知
+- [ ] 「7つの〜」「10の〜」型記事は**読者の時間泥棒**として警戒
+- [ ] 代替: **1テーマ深掘り型**を推奨
+- [ ] 量産（Content Frequency）より**深さ・記憶残存性**を優先
+
+### Useful × Inspired × Empathetic 3軸評価
+- [ ] **Useful**（役立つか）
+- [ ] **Inspired**（心を動かすか）
+- [ ] **Empathetic**（共感的か）
+
+→ **1つでも欠けるとマーケティングコンテンツとして機能しない**ため公開保留
 
 ### コピーライティング原則: AIDA
 - **Attention**: 見出しで注意を引く（数字・疑問・意外性）
