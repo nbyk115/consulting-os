@@ -139,6 +139,41 @@
 - **コード**: Monospace（JetBrains Mono / Fira Code）
 - **最小フォント**: 14px（本文）、12px（注釈）
 
+### 🚨 日本語字形禁則（中国字形フォールバック防止）
+> **現象**: Word / PPTX / PDF で日本語が中国語（簡体字・繁体字）の字形でレンダリングされる事故が頻発。原因は CJK 統合漢字（直・骨・没・強・社・直 等）の locale 解決失敗。
+
+#### 必須対応（全ドキュメント・全エクスポート形式）
+- **HTML**: `<html lang="ja">` 必須。`<meta charset="UTF-8">` も併記
+- **DOCX**: ドキュメントプロパティの言語を **`ja-JP`** に設定（Word の「校閲 → 言語」または python-docx の `w:lang` 要素）
+- **PPTX**: 各テキストランの `lang` 属性を `ja-JP` に。python-pptx なら `run.font.language_id = MSO_LANGUAGE_ID.JAPANESE`
+- **PDF**: 出力前に HTML/DOCX の lang を確定。Puppeteer なら `<html lang="ja">` を必ず確認
+
+#### フォント指定の禁則
+| ❌ NG（中国字形リスク） | ✅ OK（日本語字形確定） |
+|---|---|
+| `Noto Sans CJK`（サフィックスなし） | `Noto Sans JP` / `Noto Sans CJK JP` |
+| `Source Han Sans`（無印） | `Source Han Sans JP` / `源ノ角ゴシック JP` |
+| `SimSun` / `SimHei` / `Microsoft YaHei` | `Yu Gothic` / `游ゴシック` / `Hiragino Sans` |
+| `Arial Unicode MS` 単独 | `Yu Mincho` / `Hiragino Mincho ProN` |
+
+#### 推奨フォントスタック（全プラットフォーム互換）
+```css
+font-family:
+  "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
+  "Noto Sans JP", "Meiryo", "メイリオ",
+  sans-serif;
+```
+
+#### 検知方法
+- 出力後、以下の漢字を目視確認: **直 骨 没 強 社 入 海 角 直** （SC/TC/JP で字形差が大きい）
+- 「骨」の上部が縦か横か / 「直」の下部の点の位置 / 「没」の右側の形が判別ポイント
+- 違和感があれば **lang 属性とフォント指定を再確認**
+
+#### claude.ai Word 出力の既知バグ
+- claude.ai の `.docx` エクスポートは document language を未設定で出すケースあり
+- **対策**: Claude Code 側で生成する場合は `python-docx` で明示的に `<w:lang w:val="ja-JP"/>` を埋め込む
+- claude.ai 側の出力をそのまま使う場合は、Word で「校閲 → 言語 → 校正言語の設定 → 日本語」を必ず実行
+
 ### スペーシング
 - **基準単位**: 4px
 - **スペーシングスケール**: 4, 8, 12, 16, 24, 32, 48, 64, 96

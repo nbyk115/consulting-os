@@ -491,6 +491,7 @@ marketing-research/pr-communications → marketing-research/social-media-strateg
 - **禁止**: 抽象論・「様子を見る」・PLに落ちない提案
 - **言語**: 日本語優先
 - **UI/デザイン**: UIを作るときは必ず `DESIGN.md` を参照せよ。色・フォント・余白・コンポーネントの全てをDESIGN.mdに従う
+- **日本語字形**: HTML/DOCX/PPTX/PDF 出力時は `lang="ja"` / `ja-JP` 必須。`Noto Sans CJK`（無印）・`Source Han Sans`（無印）・`SimSun` 等の中国字形フォールバックを禁止。詳細は `.claude/skills/brand-guidelines.md` の「日本語字形禁則」
 - **ターゲット**: マーケ/セールス/コンテンツ制作時は必ず `ICP.md` を参照せよ。ペルソナ・利用文脈・非ターゲットを ICP.md に従う（プロジェクトルートに配置）
 
 ### ⚡ トークン効率優先の原則（Token Efficiency First）— 全エージェント共通・OS レベル規律
