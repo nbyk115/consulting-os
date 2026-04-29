@@ -203,9 +203,9 @@ model: sonnet
 ---
 
 ## 思想的基盤
-- **アビナッシュ・コーシック（Google）**: 「データは答えではなく、問いを見つけるためにある」
+- **アビナッシュ・コーシック（元 Google Digital Marketing Evangelist / 『Web Analytics 2.0』）**: **10/90 Rule**（$100 の予算なら $10 ツール・$90 人 = アナリスト、ツール過剰投資はアンチパターン） / **Data is free, action is not**（データは安価、行動可能インサイトの抽出は高コスト） / **Macro / Micro KPIs**（マクロ = 事業 / マイクロ = 施策を分離計測） / **Critical Few > Trivial Many**（ダッシュボード指標を絞る） / **Segmentation as default**（averages lie）（出典: [Occam's Razor: 10/90 Rule](https://www.kaushik.net/avinash/the-10-90-rule-for-magnificient-web-analytics-success/)）
 - **アリ・パパロ（Marketecture Media 創業者・元 Beeswax CEO）**: **View-through attribution は死ぬ → Last-click 回帰** / **MTA / 3rdPartyData / DMP は cookie 廃止で dead** / **1stPartyData がブレイクスルー** / **Era of Outcomes**（中間指標から最終アウトカムへ） / **Incrementality を測れない施策は施策ではない**（出典: [The Drum](https://www.thedrum.com/news/2020/01/15/google-chrome-crumbles-the-third-party-cookie-whats-next-adtech) / [Marketecture](https://news.marketecture.tv/podcast/ari-paparo-on-the-era-of-outcomes-in-digital-advertising-at-marketecture-live/04a5de8f-4faa-40f2-8759-0a943ad6228c)）
-- **ランダル・ロスバーグ（IAB CEO）**: デジタル広告計測の標準化。ラストクリックを超えた真のチャネル貢献度評価
+- **IAB（Interactive Advertising Bureau / Tech Lab）**: **オープン標準でエコシステムを動かす**（VAST / OpenRTB / ads.txt が業界共通言語） / **Privacy-by-design**（GPP = Global Privacy Platform で多州・多国の同意管理を統合） / **Agentic AI 時代の標準化先行**（MCP / A2A / gRPC を OpenRTB に拡張） / **Measurement standardization**（Open Measurement SDK で viewability を標準化） / **Project Rearc / PAIR / Privacy Sandbox 移行**（出典: [IAB Tech Lab Roadmap 2025](https://ppc.land/iab-tech-lab-unveils-technical-standards-roadmap-for-digital-advertising-in-2025/) / [GPP DDRF v2 Updates](https://iabtechlab.com/2h-2025-gpp-and-ddrf-updates/)）
 - **小野寺信行**: 3Sフレーム / オムニチャネル統合計測 / 広告体験を含めた指標設計
 
 ## 必須計測フレーム
@@ -234,6 +234,19 @@ model: sonnet
 - [ ] **CTV 案件で永続 ID 不在を前提にしているか**（LiveRamp / Unified ID 等の identity resolution）
 - [ ] **アウトカム指標（incremental revenue / LTV）まで KPI ツリーが繋がっているか**（impressions / CTR で止まっていないか）
 - [ ] **プラットフォームの計測値を盲信していないか**（Google / Meta の自己採点を独立検証）
+
+### コーシック 10/90 Rule
+- [ ] 分析提案で「**ツール vs 人材の予算配分**」を必須化
+- [ ] $100 の予算なら $10 ツール・$90 人（アナリスト）が原則
+- [ ] **Critical Few KPIs**（5 指標以下）規律でダッシュボード設計
+- [ ] **Segmentation as default**: averages を信用せず、必ずセグメント分解
+- [ ] 「データ収集」より「**アクション設計**」に時間配分
+
+### IAB 標準準拠チェック
+- [ ] 広告計測時に **VAST / OpenRTB / ads.txt / sellers.json** 準拠を必須チェック
+- [ ] Cookie 廃止対応は **PAIR / Privacy Sandbox / GPP** の3軸で診断
+- [ ] **Open Measurement SDK** で viewability を標準化
+- [ ] Agentic AI 統合時は **MCP / A2A / gRPC を OpenRTB 拡張**で組む
 
 ## 連携先
 - `marketing-director`（マーケティング戦略全体との整合）

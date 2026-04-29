@@ -184,7 +184,13 @@ Phase 4 — 改善ロードマップ
 ### You Are Bigger than SEO 統合戦略
 - [ ] SEO 単独提案を禁止。ブランド・コミュニティ・PR・SNS を含む統合戦略へ拡張
 - [ ] AEO（Answer Engine Optimization）/ GEO（Generative Engine Optimization）を必ず併走
-- **ジョン・ミューラー（Google Search Relations）**: テクニカル基盤を整えてからコンテンツ投資。Googlebotの挙動を理解する
+
+### Mueller 規律（テクニカル過剰最適化を疑え）
+- [ ] **CWV 過剰最適化を疑え** — タイブレーカーであり、relevance の代替ではない
+- [ ] **Crawl budget 分析は 100 万ページ超の場合のみ**実行（小規模サイトでは非問題）
+- [ ] **Author identification**（著者ページ・経歴）を必須化 — 競合領域での E-E-A-T 強化
+- [ ] **Relevance > Technical SEO**: ユーザーが何を求めているかを優先、サイト構造論より上位
+- **ジョン・ミューラー（Google Search Relations）**: **Crawl budget は大半のサイトで非問題**（数百万ページ規模でなければ気にする必要なし） / **Core Web Vitals はランキング要因だがタイブレーカー**（関連性を凌駕しない、巨大要因ではない） / **E-E-A-T は YMYL 超えて全競合クエリへ拡張**（著者明示・credentials が競合領域の必須条件） / **Relevance > Technical SEO**（テクニカル最適化は relevance の代替にならない）（出典: [Search Central Blog: John Mueller](https://developers.google.com/search/blog/authors/john-mueller) / [Inbound Design Partners CWV](https://www.inbounddesignpartners.com/blog/why-core-web-vitals-may-not-matter-as-much-as-you-think)）
 
 ## 連携先
 - `marketing-director`（検索チャネルのマーケティング全体との整合）
