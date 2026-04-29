@@ -739,7 +739,15 @@ model: sonnet  # 実装はSonnet
 - **無料運用が前提**: 有料APIを必要とするMCPは導入前にコスト確認必須
 - **Video Use**: TTS機能にElevenLabs APIキー（有料）が必要。TTS不要の編集タスクは無料で利用可能
 - **長セッションでは /compact**: コンテキスト圧縮を手動実行
+- **/btw（by the way）でメモ追加**: 重要な決定・制約を会話途中でCLAUDE.mdに追記
 - **コードマップ活用**: `/codemap` で `.claude/codemap.md` を生成し、巨大コードベースのナビゲーションコストを削減
+
+#### MCP `alwaysLoad`（Claude Code 2.1.121+）
+- **機能**: `~/.claude.json` のMCP設定に `"alwaysLoad": true` を付けると、起動時に自動ロード
+- **ConsultingOS方針**: **alwaysLoadは2-3個まで**（毎日使うもののみ）。「全MCP常時有効」のアンチパターンに堕ちないよう厳守
+- **常時ロード推奨**: GitHub MCP（PR/Issue常用）、Figma MCP（クリエイティブ部門で常用する場合のみ）
+- **常時ロードしない**: Browser Use、Video Use、Notion、Slack 等の単発用途MCP → タスク時に手動有効化
+- **判断基準**: 週3回以上起動するなら alwaysLoad 候補。それ以下は disabledMcpServers に置く
 
 ### サブエージェント運用
 - **ツール権限は絞る**: 権限を絞ることで集中力の高い専門エージェントになる
@@ -785,6 +793,51 @@ model: sonnet  # 実装はSonnet
 - **PreToolUse**: 長時間コマンド（dev server等）実行前にtmux警告
 - **Stop**: console.log残留チェック、ブランドガイドライン準拠確認
 - 詳細は `.claude/skills/claude-code-ops.md` 参照
+
+### モバイル通知（Mobile Push Notifications）
+> 長時間タスク（Cowork・大規模リサーチ・サブエージェント並列実行）の完了/承認待ちをスマホに通知。離席中の生産性向上に直結。
+
+- **設定**: Claude Code モバイルアプリをインストール → 同一アカウントでログイン → `Stop` / `Notification` hook でプッシュ送信
+- **ConsultingOS活用**:
+  - Cowork で competitive-analyst が3時間調査中 → 完了時にスマホへ通知
+  - 反証チェック Step 3 で承認が必要なケース → 承認待ちで通知
+  - Long-running render（hotice deck の Puppeteer 全ページ生成等）の完了通知
+- **オフ条件**: 短時間タスク・ローカル単発作業では通知ノイズになるため `notification.silentMode: true` で抑制
+
+### プラン・自己検証・権限の運用（Boris Cherny 流ベストプラクティス）
+> 長期運用で効くのは「派手な機能」ではなく「地味な規律」。以下6点を全エージェント・全セッションで徹底する。
+
+#### 1. Plan Mode を大規模変更で必ず使う
+- **トリガー**: 3ファイル以上の変更／アーキテクチャ判断を伴う／本番影響あり
+- **Shift+Tab で起動** → プラン承認後に実装に移る
+- ConsultingOS では `proposal-writer`・`tech-lead`・`strategy-lead` 起動時にデフォルトで Plan Mode 推奨
+
+#### 2. 自己検証（Self-Verification）の徹底
+- 実装後に「自分のアウトプットを別の視点で検証する」ステップを必ず入れる
+- **反証モード Step 1-3** がこれに相当（既に全エージェント必須）
+- コード変更時は `npm run typecheck` / `pytest` / lint を**変更直後に**実行（後でまとめてやらない）
+
+#### 3. CLAUDE.md は "ruthlessly edit"
+- ルールが守られなくなったら**追加ではなく削除/書き直し**
+- 量より「全エージェントが確実に実行できる規律」に絞る（フレームワーク量 ≠ 規律徹底の原則と整合）
+- 月1回はレビューし、形骸化したルールを除去
+
+#### 4. 権限を pre-approve / deny / ask で明示
+- `settings.json` の `permissions` で:
+  - **allow**: 安全で頻繁に使うコマンド（`npm test`, `git status`, `ls`）→ 承認プロンプト省略
+  - **deny**: 危険コマンド（`rm -rf /`, `git push --force`）→ 物理ブロック（Layer 2 と統合済み）
+  - **ask**: 中間リスク（`git push`, 外部API POST）→ 都度確認
+- 承認疲れを減らしつつ、危険操作はモデル判断に任せない
+
+#### 5. サブエージェントで context separation
+- 大量のコード探索・調査は**サブエージェント（Explore / general-purpose）に委譲**
+- メインセッションのコンテキストを汚さない → 長時間セッションが安定
+- ConsultingOS の34エージェントは既にこの設計（各エージェントが専門領域に集中）
+
+#### 6. コンテキストを攻撃的に管理
+- `/compact` を**長セッションで定期実行**（1時間以上 or 50ターン超で目安）
+- 関係ない過去のやり取りは積極的に圧縮
+- 重要な決定は `/btw` でCLAUDE.md or `.claude/memory/` に書き出し、コンテキストから外しても参照できる状態にする
 
 ---
 
