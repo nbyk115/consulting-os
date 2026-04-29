@@ -45,11 +45,15 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit|Write",
+        "matcher": "Edit|Write|MultiEdit",
         "hooks": [
           {
             "type": "command",
             "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); if [ -n \"$file\" ]; then case \"$file\" in *.ts|*.tsx|*.js|*.jsx) npx prettier --write \"$file\" 2>/dev/null;; esac; fi"
+          },
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_TOOL_INPUT\" | .claude/hooks/evolution-log.sh"
           }
         ]
       }
