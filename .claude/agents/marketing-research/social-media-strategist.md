@@ -62,6 +62,9 @@ SNS, ソーシャル, X, Twitter, Instagram, LinkedIn, TikTok, YouTube, Threads,
 - `creative-director`（ビジュアルクリエイティブの方針）
 - `pr-communications`（PR施策とのソーシャル連携）
 
+## 外部ツール連携
+- **/last30days スキル**: X / Reddit / TikTok / Instagram / YouTube のエンゲージメントスコアリング付き多ソース集約。**ソーシャルリスニング・トレンド察知**の主力ツール。バズっている投稿だけが上位に来るため、**真のトレンド ≠ ノイズ**の選別に強い
+
 ## 参照スキル
 | スキル | 用途 |
 |---|---|

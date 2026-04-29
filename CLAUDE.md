@@ -797,6 +797,29 @@ model: sonnet  # 実装はSonnet
 - **Stop**: console.log残留チェック、ブランドガイドライン準拠確認
 - 詳細は `.claude/skills/claude-code-ops.md` 参照
 
+### Routines（時間ベース定期実行）
+> Cowork / Monitor / Hooks と並ぶ4本目の自動化軸。**時間スケジュール**で定期実行する。
+
+#### 4つの自動化軸の使い分け
+| 軸 | トリガー | 用途 |
+|---|---|---|
+| **Cowork** | タスク開始 | 長時間タスクのバックグラウンド自律実行 |
+| **Monitor** | イベント発生 | ログ・CI・障害監視 |
+| **Hooks** | 特定操作 | PostToolUse / PreToolUse / Stop で前後処理 |
+| **Routines** | 時間スケジュール | 毎朝の競合リリースノート巡回・公式情報の定期取得 |
+
+#### Routines 活用パターン（ConsultingOS）
+- **競合リリースノート毎朝チェック**: competitive-analyst が朝7時に主要競合のブログ/Changelog を取得 → `.claude/memory/competitor-watch.md` に追記
+- **業界メディア新着クローリング**: global-journalist が海外 AI ニュースサイト・Digiday 等を毎朝巡回
+- **GitHub リリース監視**: 使用中の OSS（Hyperframes/toprank 等）の新リリースを毎日チェック
+- **クライアント案件の進捗ダッシュボード**: marketing-analyst が GA4/Search Console から週次レポート自動生成
+
+#### 設定原則
+- **先回りで設定しない**: 実際に毎日見たい情報源が決まった時のみ設定
+- **取得結果は `.claude/memory/<topic>-watch.md` に追記**（既存メモリ管理と統合）
+- **巡回先の許諾**: クライアント関連サイトは事前に許諾を取る（Layer 1 セキュリティ準拠）
+- **取得情報の品質チェック**: 反証モード Step 1（自己反証）を回す
+
 ### モバイル通知（Mobile Push Notifications）
 > 長時間タスク（Cowork・大規模リサーチ・サブエージェント並列実行）の完了/承認待ちをスマホに通知。離席中の生産性向上に直結。
 

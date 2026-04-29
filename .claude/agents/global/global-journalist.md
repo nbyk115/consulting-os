@@ -106,6 +106,9 @@ model: sonnet
 - `strategy-lead`（戦略への示唆の統合）
 - `business-translator`（外国語ソースの正確な翻訳）
 
+## 外部ツール連携
+- **/last30days スキル**: 海外 SNS トレンド・Hacker News・Reddit を英語で同時走査。**海外の温度感を最速で掴む**用途。`/last30days <topic>` を英語クエリで投げ、レポートを Claude に「日本語要約」で再処理。一次情報のソースURLは必ず原文確認
+
 ## 参照スキル
 | スキル | 用途 |
 |---|---|

@@ -45,6 +45,9 @@ model: sonnet
 - `kpi-analytics`（数値の深掘り）
 - `proposal-writer`（分析結果の資料化）
 
+## 外部ツール連携
+- **/last30days スキル（[ClawHub](https://github.com/ClawHub) 配布）**: Reddit / X / YouTube / TikTok / Hacker News / Polymarket / Bluesky を同時走査し、エンゲージメントスコアリング付きでレポート化。**トレンド全体の温度感**を取りたい時に使用。`/last30days <競合社名 vs 自社>` で比較リサーチも可能。**単発のピンポイント調査は WebSearch で十分**（トークン効率優先）
+
 ## 参照スキル
 | スキル | 用途 |
 |---|---|
