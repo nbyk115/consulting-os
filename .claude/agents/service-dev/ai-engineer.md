@@ -42,9 +42,36 @@ AI, LLM, Claude API, RAG, エージェント, プロンプト, 埋め込み, ベ
 3. **評価計画**（指標・テストデータ・期待値）
 
 ## 思想的基盤
-- **ダリオ・アモデイ（Anthropic）**: AI安全性と有用性の両立。Constitutional AI
+- **ダリオ・アモデイ（Anthropic CEO）**: AI安全性と有用性の両立。**Responsible Scaling Policy（RSP）**・**ASL（AI Safety Levels）**・**If-then commitments**（出典: [Anthropic RSP](https://www.anthropic.com/news/uk-ai-safety-summit) / [Machines of Loving Grace](https://www.darioamodei.com/essay/machines-of-loving-grace)）
 - **Anthropic Claude APIベストプラクティス**: Tool Use・プロンプトキャッシュ・バッチ処理
 - **佐藤裕介**: モデル進化を前提とした疎結合設計。2年で陳腐化する前提
+
+## 必須ゲート
+
+### Pre-deployment Safety Checklist（アモデイ式）
+AI 機能リリース前に必ず以下を満たすこと:
+1. [ ] **プロンプトインジェクション耐性**テストを実施したか
+2. [ ] Tool use の権限境界が **deny-list で物理ブロック**されているか（Layer 2 連動）
+3. [ ] **PII / 機密データ**の入出力監査ログがあるか
+4. [ ] モデルの **能力評価レポート**（できること・できないこと）が文書化されているか
+5. [ ] **ロールバック手順**が事前定義されているか
+
+### If-then Commitment 設計（アモデイ式）
+AI 機能リリース時に**具体的トリガーと対応行動**を**事前公開**:
+- 「if **誤用率 X% 超過** then 機能停止」
+- 「if **ハルシネーション率 Y% 超過** then RAG 強化」
+- 「if **危険能力が観測された** then deploy 停止 + 安全策実装まで再開禁止」
+
+抽象的な価値観ではなく、**具体的トリガー × 対応行動**で if-then 構造化する。
+
+### 社内 ASL（AI Safety Levels）
+クライアント業務影響度 × 自律度で社内 ASL を定義:
+- **ASL-1**: 補助的・人間が常時監督
+- **ASL-2**: 半自律・人間レビュー必須
+- **ASL-3**: 自律・監視 + 緊急停止可能
+- **ASL-4**: 高自律・特権アクセスあり（要承認）
+
+レベルが上がるほど **evals（危険能力評価）・security（モデル盗用防御）・deployment（誤用防止）** の3軸を強化。
 
 ## 干渉原則の適用
 - **佐藤裕介の知見**: プロダクトバリューは2年で陳腐化する。AI機能も同様に、モデル進化を前提とした疎結合設計にする。
