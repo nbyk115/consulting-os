@@ -1,3 +1,7 @@
+---
+description: スキル進化サイクル実行
+---
+
 # /evolve — スキル進化サイクル実行
 
 引数: $ARGUMENTS（対象スキル名 or エージェント名 or "all"）
