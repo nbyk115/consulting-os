@@ -891,7 +891,16 @@ model: sonnet  # 実装はSonnet
 
 ## 🛡️ セキュリティ多層防御（Multi-Layer Defense）
 
-> **「信頼」ではなく「制御」で固める。** モデルの善意に依存しない。Opus 4.7+ 級のモデルは単一層の制約を「ユーザーの意図を汲んで」柔軟解釈するリスクがある。2層で防御する。
+> **「信頼」ではなく「制御」で固める。** モデルの善意に依存しない。Opus 4.7+ 級のモデルは単一層の制約を「ユーザーの意図を汲んで」柔軟解釈するリスクがある。**3層**で防御する。
+
+### Layer 0: Git pre-commit/pre-push hook（最終物理ブロック）
+> **Layer 1/2 は Claude Code 経由のみ守る**。人間が手動で `git add` → `commit` → `push` した瞬間に Layer 1/2 はすり抜ける。Layer 0 は Git レベルで物理ブロックする最後の砦。
+
+- **Gitleaks（[gitleaks/gitleaks](https://github.com/gitleaks/gitleaks)）必須導入**: 24M+ docker pulls の業界デファクト。API キー・パスワード・トークンを正規表現で検出し、commit/push を物理的に止める。MIT、無料
+- **設定方法**: `brew install gitleaks` → `.git/hooks/pre-commit` に gitleaks protect を仕込む（または `pre-commit` framework 経由で `.pre-commit-config.yaml` に追加）
+- **CI でも実行**: GitHub Actions に `gitleaks-action` を入れ、PR 時にもスキャン
+- **対象**: 全 ConsultingOS プロジェクト + クライアント案件リポジトリ
+- **誤検知時**: `.gitleaksignore` で除外。**`.env.example` のダミー値**等は明示的に除外設定
 
 ### Layer 1: CLAUDE.md（意図レベル — このファイル）
 - `.env`, `credentials`, `secrets`, API キーを含むファイルの **読み取り・出力・コミット禁止**
@@ -912,21 +921,24 @@ model: sonnet  # 実装はSonnet
 - Bash: `rm -rf /`, `curl -X POST`（無承認外部送信）等をブロック
 - Git: `push --force`, `reset --hard` をブロック
 
-### なぜ 2 層必要か
+### なぜ 3 層必要か
 
 | 単一層 | リスク |
 |---|---|
+| Layer 0 だけ | Claude Code セッション内のリアルタイム判断は守れない（commit 段階での最終チェックのみ） |
 | Layer 1 だけ | モデルが「ユーザーの意図を汲んで」ルールを柔軟解釈し、「この場合は例外」と判断する |
 | Layer 2 だけ | 新しいツール/コマンドが deny リストに入っていない場合にすり抜ける |
-| **両方** | モデルの判断ミス → 技術的にブロック → 安全 |
+| Layer 1+2 | **人間が手動 git add した瞬間にすり抜ける**（Claude Code 経由のみ守られる） |
+| **3層全部** | モデル判断 → 技術ブロック → Git 物理ブロック の三重防御で完成 |
 
 ### 運用ルール
+- **Layer 0 のセットアップを onboarding 必須項目に**: 新リポジトリ作成時に gitleaks の pre-commit hook 導入を初日タスク化
 - **Layer 2 の更新は Layer 1 と同期**: CLAUDE.md にルールを追加したら settings.json の deny にも対応パターンを追加
 - **deny リストは定期レビュー**: `/security-scan` 実行時に deny パターンの網羅性を確認
 - **新 MCP 追加時**: セキュリティ影響を評価し、書き込み系ツールは deny パターンを先に設定
 
 ### Claude Code 運用セキュリティ規律（日常運用の最低線）
-> Layer 1/2 の前段階として、ユーザー側の運用習慣で事故を予防する。新規メンバー・社内拡張時の onboarding 必須項目。
+> Layer 0/1/2 の前段階として、ユーザー側の運用習慣で事故を予防する。新規メンバー・社内拡張時の onboarding 必須項目。
 
 - **作業フォルダの限定**: ホームディレクトリ（`~`）から `claude` を起動しない。`~/projects/<name>/` のような作業専用フォルダで起動し、アクセス範囲を絞る
 - **作業前 commit 習慣**: Claude Code に大規模変更を任せる前に必ず `git commit`。ロールバックポイントを毎回作る（既存の Verification Before Done と整合）
