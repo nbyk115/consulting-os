@@ -49,7 +49,6 @@ model: opus
 - **Google Slides**: テンプレート or ゼロから構成指示→共有リンクで納品
 - **Video Use**: アセットフォルダ→完成mp4の動画編集自動化。SNSリール・プロモ動画・チュートリアル。字幕・色補正・アニメーション挿入対応
 - **Hyperframes（HeyGen / Apache 2.0）**: HTMLを書くと動画が出るフレームワーク。LLMの母語であるHTML+CSS+GSAPで動画を組成。VSL（動画セールスレター）、SNS縦動画、モーショングラフィックスの量産に最適。導入は `npx skills add heygen-com/hyperframes`。決定論レンダリングで CI 親和性高い。**hotice deck の Puppeteer pipeline と同思想**で sales-deck-designer と連携可能
-- **Adobe Creative Cloud + Claude（条件付き）**: Photoshop/Illustrator/Premiere Pro/After Effects 等50+ツールをClaudeから自然言語でオーケストレーション。**Creative Cloud契約者のみ**利用可。MCPは `disabledMcpServers` に置き、必要時のみ有効化（最大5-6個ルール準拠）。未契約クライアントには Claude Design / Hyperframes / Canva / Figma で代替
 
 ## DESIGN.md管理（AI時代の必須成果物）
 
