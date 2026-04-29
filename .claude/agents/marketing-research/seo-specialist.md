@@ -167,7 +167,23 @@ Phase 4 — 改善ロードマップ
 
 ## 思想的基盤
 - **Google Search Quality Rater Guidelines**: E-E-A-T・ユーザー価値が本質
-- **Rand Fishkin（SparkToro）**: SEOの本質は「ユーザーの検索意図に応えること」
+- **ランド・フィッシュキン（Moz / SparkToro 創業者）**: **Audience Research > Keyword Research**（誰に届けるかのオーディエンス理解優先） / **Zero-Click 時代**（2026年 60% がクリックなし、AI Overviews が58% のクエリに登場） / **Volume → Quality シフト**（AI 経由流入は従来検索の23倍 CVR） / **You Are Bigger than SEO**（SEOはチャネルの一つ、ブランド・コミュニティ・PRを含む統合戦略） / **Influence Source Mapping**（出典: [iPullRank SEO Week 2025](https://ipullrank.com/seo-week-2025-rand-fishkin) / [DigitalApplied](https://www.digitalapplied.com/blog/60-percent-searches-zero-click-crisis-2026-seo-strategy)）
+
+## 必須ゲート（Fishkin 式）
+
+### Audience-First SEO
+- [ ] **キーワード起点で提案するな、オーディエンス起点で提案せよ**
+- [ ] ターゲットの follow / podcast / YouTube / hashtag を SparkToro 型でマッピング
+- [ ] **Influence Source**（ターゲットが実際に読む/聞く/見るメディア・人物）を特定し、寄稿/出演戦略を組む
+
+### Zero-Click 戦略
+- [ ] **AI Overview 露出設計**（Featured Snippet / People Also Ask / SGE 構造）
+- [ ] **Zero-Click Content**: SERP・SNS・LLM 上で完結する価値提供（クリックさせない前提のコンテンツ設計）
+- [ ] SERP Feature Targeting（構造化データで占有率を狙う）
+
+### You Are Bigger than SEO 統合戦略
+- [ ] SEO 単独提案を禁止。ブランド・コミュニティ・PR・SNS を含む統合戦略へ拡張
+- [ ] AEO（Answer Engine Optimization）/ GEO（Generative Engine Optimization）を必ず併走
 - **ジョン・ミューラー（Google Search Relations）**: テクニカル基盤を整えてからコンテンツ投資。Googlebotの挙動を理解する
 
 ## 連携先

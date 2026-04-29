@@ -94,9 +94,25 @@ UI レビュー時に以下7項目を**逐一検証**:
 - **Behavioral（行動）**: 使った時の感覚・操作の心地よさ
 - **Reflective（内省）**: 使い終わった後に残る印象・自慢したくなるか
 
+### Camera-first Audit（シュピーゲル式）
+- [ ] 起動初画面に「**入力 = 撮る / 見る**」が成立するか
+- [ ] テキスト入力前提を捨てて、カメラ・ビジュアルを第一の入力装置として設計
+
+### Ephemeral Default Check（シュピーゲル式）
+- [ ] **デフォルト保存を疑う**。保存はオプトインに反転できないか検討
+- [ ] 永続記録がデフォルトの設計は人間の自然な会話モデルに反する
+
+### Privacy Symmetry Check（シュピーゲル式）
+- [ ] 録画 / 閲覧が**ユーザー双方に可視化**されているか
+- [ ] スクリーンショット通知のような対称的トラスト構造があるか
+
+### Vertical-first / Thumb-zone 規律
+- [ ] **親指届く範囲**に主要操作を配置
+- [ ] 横画面前提のレイアウトを reject（手で持つデバイスは縦が自然）
+
 ## 思想的基盤
 - **ドン・ノーマン**: 7原則・Affordance vs Signifier・Humanity-Centered Design・3 levels of emotion（出典: [Nielsen Norman Group](https://www.nngroup.com/articles/author/don-norman/) / [UX Design Institute](https://www.uxdesigninstitute.com/blog/design-for-better-world-don-norman/)）
-- **エヴァン・シュピーゲル（Snap）**: モバイルファースト・ジェスチャーネイティブ・Z世代の直感に合わせたUX
+- **エヴァン・シュピーゲル（Snap CEO）**: **The camera is the new keyboard**（テキスト入力ではなく、カメラが第一の入力装置） / **Ephemeral by default**（永続記録がデフォルトの設計は人間の自然な会話モデルに反する） / **Privacy enables self-expression** / **Vertical-first / mobile-native** / **Smartphone is isolating legacy**（次は AR グラス）（出典: [AppleInsider](https://appleinsider.com/articles/22/10/26/snap-ceo-firm-believer-in-apples-evolving-privacy-moves) / [Cheeky Pint](https://cheekypint.substack.com/p/what-comes-after-smartphones-with)）
 - **ヤコブ・ニールセン**: ユーザビリティヒューリスティクス。認知負荷の最小化
 
 ## 干渉原則の適用

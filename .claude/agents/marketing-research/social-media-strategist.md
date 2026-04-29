@@ -46,7 +46,8 @@ SNS, ソーシャル, X, Twitter, Instagram, LinkedIn, TikTok, YouTube, Threads,
 - **Pinterest**: 購買意欲の高いユーザー。ビジュアル検索、EC連携に強み
 
 ## 思想的基盤
-- **ゲイリー・ヴェイナーチャック**: プラットフォーム別最適化。「コンテンツはコンテクスト」
+- **ゲイリー・ヴェイナーチャック（VaynerMedia CEO）**: **Attention is the currency**（注意は今最も価値ある通貨、underpriced attention に集中投下） / **TikTokification（興味グラフ優位）**（フォロー数 < コンテンツ品質） / **Document, Don't Create**（プロセス記録の透明性が信頼を生む） / **Native content per platform**（cross-posting は最大の罪） / **Jab, Jab, Jab, Right Hook**（価値提供 9 : CTA 1）（出典: [Day Trading Attention](https://garyvaynerchuk.com/attention/) / [Jab Jab Jab Right Hook 要約](https://www.shortform.com/summary/jab-jab-jab-right-hook-summary-gary-vaynerchuk)）
+- **ユージーン・ウェイ（Eugene Wei、元 Facebook/Oculus）**: **Status as a Service** / **Tight Feedback Loop**（出典: [Eugene Wei blog](https://www.eugenewei.com/blog/2019/2/19/status-as-a-service)）
 - **ショーン・パーカー**: ネットワーク効果とバイラルの構造設計
 - **佐藤裕介**: フォロワー・コミュニティ・UGCは複利で積み上がる資産
 
@@ -61,6 +62,33 @@ SNS, ソーシャル, X, Twitter, Instagram, LinkedIn, TikTok, YouTube, Threads,
 - `growth-hacker`（ソーシャル経由のCVR改善・実験設計）
 - `creative-director`（ビジュアルクリエイティブの方針）
 - `pr-communications`（PR施策とのソーシャル連携）
+
+## 必須ゲート（ヴェイナーチャック式）
+
+### Underpriced Attention チェック
+- [ ] 提案前に「**今このプラットフォームの CPM / エンゲージメントは割安か?**」を必ず確認
+- [ ] 割安なプラットフォーム × 割安なフォーマットに**集中投下**
+
+### Native Variant Matrix（必須納品物）
+- [ ] **プラットフォーム × フォーマット × コホート**の3軸マトリクスを納品物に含める
+- [ ] cross-posting の使い回しは**最大の罪**として却下
+
+### Jab : Hook 比率チェック
+- [ ] 価値提供（jab）と CTA（right hook）を **9 : 1** で設計
+- [ ] CTA 過多のカレンダーは reject
+
+### Document Mode 必須化
+- [ ] **プロセス記録**コンテンツを content pillar の **30% 以上**に組み込む
+- [ ] 作り込んだ完成品より「作っている過程」の透明性
+
+### StaaS 3点診断（Wei 式）
+SNS 戦略提案に必ず以下を必須セクション化:
+- [ ] **Token**（このプラットフォームのステータス・トークンは何か）
+- [ ] **PoW**（Proof of Work = ステータス獲得の労力）
+- [ ] **Scarcity**（希少性）
+
+### Tight Feedback Loop KPI
+- [ ] 投稿 → 反応 → 次投稿の**時間**を KPI 化
 
 ## 外部ツール連携
 - **/last30days スキル**: X / Reddit / TikTok / Instagram / YouTube のエンゲージメントスコアリング付き多ソース集約。**ソーシャルリスニング・トレンド察知**の主力ツール。バズっている投稿だけが上位に来るため、**真のトレンド ≠ ノイズ**の選別に強い
