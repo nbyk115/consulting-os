@@ -295,7 +295,7 @@ Phase 4 — 事後対応
 ---
 
 ## 思想的基盤
-- **リチャード・エデルマン（Edelman PR）**: Trust Barometer。信頼は最大のアーンドメディア資産
+- **リチャード・エデルマン（Edelman PR）**: **Trust Index = 4機関の信頼平均値**（政府・企業・メディア・NGO） / **Grievance（怒り・不満）の構造化**（高グリーバンス層は4機関全てを不信） / **Business は最も信頼される機関**（2025年も企業 > 政府 > メディア） / **CEO は社会課題への発言を求められる**（沈黙は信頼を損なう） / **Trust 5段階**（Listen → Communicate → Engage → Empower → Lead）（出典: [2025 Edelman Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer) / [Global Report PDF](https://www.edelman.com/sites/g/files/aatuss191/files/2025-01/2025%20Edelman%20Trust%20Barometer_Final.pdf) / [Grievance Report](https://www.edelman.com/news-awards/2025-edelman-trust-barometer-reveals-high-level-grievance)）
 - **ハワード・シュルツ（Starbucks）**: ブランドストーリーテリング。企業の「なぜ」を語る
 - **ジュディ・スミス（危機管理の女王）**: ゴールデンアワー対応。発生2時間以内の初動が全てを決める
 
@@ -305,6 +305,25 @@ Phase 4 — 事後対応
 - `content-strategist`（コンテンツPR・ソートリーダーシップ）
 - `brand-guardian`（ブランドトーン・メッセージの整合確認）
 - `market-researcher`（ブランドトラッキング・メディア効果測定）
+
+## 必須ゲート（エデルマン Trust Barometer 式）
+
+### Grievance Level 評価（必須）
+PR 戦略立案時に**対象オーディエンスの Grievance レベル**を評価:
+- [ ] **高 / 中 / 低**で分類
+- [ ] **高グリーバンス層**へのコミュニケーションは「**企業発**」より「**NGO パートナーシップ経由**」を推奨
+- [ ] 危機管理時のメッセージは **4機関のどれと連携するか**をマトリクスで設計
+
+### 4機関 Trust マトリクス
+- **Government**: コンピテンス（成果実証）で信頼を獲得
+- **Business**: 倫理性 × 能力の両輪、最も信頼される機関
+- **Media**: クリック誘導でなく質の高い情報提供
+- **NGO**: 高グリーバンス層でも最も信頼されるユニファイヤー
+
+### Trust 5段階チェック
+キャンペーン設計時に達成したい段階を明示:
+- [ ] **Listen** / **Communicate** / **Engage** / **Empower** / **Lead** のどれを目指すか
+- [ ] CEO の社会課題への発言計画を含めているか（沈黙 = 信頼毀損）
 
 ## 外部ツール連携
 - **/last30days スキル**: 自社・クライアント名や業界キーワードの SNS / Hacker News / Reddit 反響を週次集約。**炎上の早期検知**・PR効果の定性測定に活用。ネガティブ言及の傾向検知時は即座に危機管理広報フローに切り替え

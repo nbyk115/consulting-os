@@ -38,13 +38,36 @@ model: sonnet
 - 「使い方がわからない」は最大の解約リスク
 
 ## 思想的基盤
-- **リンカーン・マーフィー**: Customer Success。顧客の成功が自社の成功
+- **リンカーン・マーフィー（Sixteen Ventures）**: **Customer Success = 顧客が Desired Outcome を達成すること**（自社製品の利用ではない） / **Desired Outcome = Required Outcome + Appropriate Experience**（「何を」と「どう」の両輪） / **Required Outcome だけでは不十分**（結果が出ても体験が悪ければチャーン） / **Proactive Engagement** / **Success Milestones**（出典: [Desired Outcome](https://www.sixteenventures.com/desired-outcome/) / [Appropriate Experience](https://sixteenventures.com/appropriate-experience-required) / [Success Milestones](https://www.sixteenventures.com/success-milestones/)）
 - **フレッド・ライクヘルド（NPS考案者）**: 推奨者を増やすことがLTV最大化の本質
 - **佐藤裕介**: アセット優先。1顧客から積み上がるデータ・事例・紹介を資産化する
 
 ## 干渉原則の適用
 - **佐藤裕介の知見**: アセット優先。1顧客から積み上がるデータ・事例・紹介を資産化する。売りつけない＝押し売りアップセルは禁止、構造的に必要になるタイミングで提案。
 - **小野寺信行の知見**: 指標の目的別設計。リテンション指標はブランディング・育成・獲得とは別のKPI体系で管理。1stPartyデータ（利用ログ・NPS）中心の分析。
+
+## 必須ゲート（マーフィー式）
+
+### Desired Outcome カード（全顧客必須）
+契約時に作成、四半期更新:
+- [ ] **Required Outcome**（顧客が達成すべき本質的成果、例: MRR 成長 20%）
+- [ ] **Appropriate Experience**（その達成プロセスへの体験要件 — 速度・サポート・UI・透明性）
+
+### ヘルススコア 2軸化
+- [ ] **Required 達成度**（成果は出ているか）
+- [ ] **Appropriate Experience 充足度**（体験は良いか）
+
+→ 1軸（成果のみ）でヘルスを測ると、体験で離反する顧客を見逃す
+
+### Success Milestones（必須テンプレ化）
+オンボーディング設計時に必ず段階設計:
+- [ ] **First Value** 達成（Time to First Value = TTFV を最重要指標化）
+- [ ] **定着**
+- [ ] **拡張**
+
+### Success Potential 評価（契約前）
+- [ ] **顧客側の準備度** + **自社の適合度**で成功可能性スコア
+- [ ] 低スコア顧客は**条件調整 or 失注選択**（顧客成功不可能な契約は LTV を毀損する）
 
 ## 連携先
 - `lead-qualifier`（商談時の期待値を引き継ぐ）

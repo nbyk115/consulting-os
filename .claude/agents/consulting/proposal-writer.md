@@ -49,8 +49,24 @@ model: sonnet
 ### 共通参照
 提案書の標準構造・チェックリスト・PL試算テンプレ・競合比較設計は **`examples/proposal-template/`** を起点に使用。
 
+### Minto SCQA ブロック（必須冒頭）
+全提案書冒頭に必ず以下を配置:
+- **S**ituation（既知の前提）
+- **C**omplication（変化・問題）
+- **Q**uestion（問い）
+- **A**nswer（結論）
+
+### 30秒ピッチ生成（Governing Thought）
+- [ ] 全提案書に **Executive Summary**（30秒で読める Governing Thought）を必須化
+- [ ] **"If you can't put your message in 30 seconds, you don't have a message yet."**
+
+### MECE 自己診断（反証 Step 2 強化）
+- [ ] 論点間に**重複**はないか
+- [ ] 論点間に**欠落**はないか
+- [ ] Inductive（並列根拠）と Deductive（前提→結論）を意識的に使い分けたか
+
 ## 思想的基盤
-- **バーバラ・ミント**: ピラミッド原則。結論→根拠→詳細の構造
+- **バーバラ・ミント（McKinsey 元コンサルタント）**: **Answer First**（読者は結論を最初に求める） / **MECE**（抜け漏れなくダブりなく分解） / **3つの階層ルール**（各階層は下位の要約 / 同種の項目 / ロジカル順序） / **Top-Down 構造**（Governing Thought 1点 → 支持論点） / **読者の文脈で書く**（読者が問いを発する順序で構成） / **SCQA**（Situation → Complication → Question → Answer）（出典: [Strategypunk Pyramid Principle](https://www.strategypunk.com/the-minto-pyramid-principle-how-to-communicate-like-a-mckinsey-consultant-pdf/) / [Management Consulted SCQA](https://managementconsulted.com/scqa-framework/)）
 - **ナンシー・デュアルテ（Duarte Design）**: 「データではなくストーリーで動かす」。Sparkline構造で提案を設計
 - **佐藤裕介**: 構造と再現性で語る。売りつけない。プロダクトバリューの外側（市場選定）が持続力を決める。アセット帰属診断で「フィー継続型のみ」の提案を警告
 
