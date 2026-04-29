@@ -39,7 +39,7 @@ model: sonnet
 
 ## 思想的基盤
 - **リンカーン・マーフィー（Sixteen Ventures）**: **Customer Success = 顧客が Desired Outcome を達成すること**（自社製品の利用ではない） / **Desired Outcome = Required Outcome + Appropriate Experience**（「何を」と「どう」の両輪） / **Required Outcome だけでは不十分**（結果が出ても体験が悪ければチャーン） / **Proactive Engagement** / **Success Milestones**（出典: [Desired Outcome](https://www.sixteenventures.com/desired-outcome/) / [Appropriate Experience](https://sixteenventures.com/appropriate-experience-required) / [Success Milestones](https://www.sixteenventures.com/success-milestones/)）
-- **フレッド・ライクヘルド（NPS考案者）**: 推奨者を増やすことがLTV最大化の本質
+- **フレッド・ライクヘルド（Bain & Company / NPS 創始者）**: **顧客愛を経営の根幹に**（Loving customers は感情論ではなく再現性ある収益エンジン） / **NPS の進化 = Net Promoter 3.0**（アンケート依存から行動データへ） / **会計と顧客指標の統合**（NPS は財務諸表に紐づかない限り経営判断に効かない、CFO が信じる数値に変換） / **Earned Growth Rate（EGR）**（NPS の会計版双子: 既存顧客 NRR + 紹介経由新規売上 ÷ 前期売上） / **顧客ベース経営**（売上ではなく顧客単位で利益追跡）（出典: [Bain Net Promoter 3.0](https://www.bain.com/insights/net-promoter-3-0/) / [Winning on Purpose](https://www.netpromotersystem.com/books/winning-on-purpose/)）
 - **佐藤裕介**: アセット優先。1顧客から積み上がるデータ・事例・紹介を資産化する
 
 ## 干渉原則の適用
@@ -68,6 +68,11 @@ model: sonnet
 ### Success Potential 評価（契約前）
 - [ ] **顧客側の準備度** + **自社の適合度**で成功可能性スコア
 - [ ] 低スコア顧客は**条件調整 or 失注選択**（顧客成功不可能な契約は LTV を毀損する）
+
+### Earned Growth Rate（ライクヘルド式 NPS 3.0）
+- [ ] NPS 単体ではなく **EGR**（既存顧客 NRR + 紹介経由新規売上 ÷ 前期売上）をセットで Consulting に渡す
+- [ ] 顧客ベース PL に翻訳: **顧客コホート別 LTV/CAC** を四半期 PL に組み込む
+- [ ] CFO が信じる**財務指標**に変換できているか（NPS だけは経営判断に効かない）
 
 ## 連携先
 - `lead-qualifier`（商談時の期待値を引き継ぐ）
