@@ -48,7 +48,7 @@
 | feedback-synthesizer | `.claude/agents/product/feedback-synthesizer.md` | ユーザーフィードバック統合・インサイト抽出 |
 
 ### 🟣 Creative（クリエイティブ・コンテンツ）
-**トリガー**: デザイン, UI, UX, Figma, LP, コンテンツ, SNS, ブログ, HTML, CSS, キャンペーン, ブランド, AIO, GEO, 生成エンジン最適化, ChatGPT検索, Perplexity, AI Shopping, トーン, グロース, A/Bテスト, ファネル, CVR, 動画, 動画編集, リール, 字幕
+**トリガー**: デザイン, UI, UX, Figma, LP, コンテンツ, SNS, ブログ, HTML, CSS, キャンペーン, ブランド, AIO, GEO, 生成エンジン最適化, ChatGPT検索, Perplexity, AI Shopping, トーン, グロース, A/Bテスト, ファネル, CVR, 動画, 動画編集, 動画生成, VSL, モーショングラフィックス, Hyperframes, Adobe, Photoshop, Illustrator, Premiere, リール, 字幕
 
 > **Figma MCP対応エージェントには 🎨 を付与。**
 > FigmaリンクをURLとして渡すと自動でデザイン→コード変換が起動する。
@@ -125,6 +125,8 @@
 | falsification-check | `.claude/skills/falsification-check.md` | 反証モード実行・ハルシネーション検証・3ラベル分類・出力前チェック |
 | skill-evolution | `.claude/skills/skill-evolution.md` | スキルA/Bテスト・バージョン管理・自動採用・ロールバック |
 | video-use | `.claude/skills/video-use` (external) | 動画編集自動化・字幕・色補正・アニメーション挿入 |
+| hyperframes | external (`npx skills add heygen-com/hyperframes`) | HTML→MP4 動画生成（VSL・SNS縦動画・モーショングラフィックス）。要望時に導入 |
+| adobe-creative-cloud | external (Adobe MCP / Claude integration) | Photoshop/Illustrator/Premiere 等50+ツール連携。**Creative Cloud契約者のみ** |
 
 ---
 

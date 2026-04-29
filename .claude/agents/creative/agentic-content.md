@@ -78,6 +78,7 @@ AIO, AI最適化, 構造化データ, ナレッジグラフ, AI検索, Perplexit
 - **比較コンテンツの所有**: 「〜と〜の違い」をブランドサイトで持つ（第三者比較サイトに依存しない）
 - **レビュー要約の構造化**: Pros/Cons を明示的にマークアップ
 - **対象クエリ**: "ChatGPT で〇〇のおすすめを聞いた時に出るか" を成功指標に
+- **動画化（Hyperframes 連携）**: AI Shopping 訴求の製品紹介動画は **Hyperframes（HTML→MP4）** で量産。SNS縦動画 / VSL / 比較動画をテンプレ化し、商品ページに埋め込む。導入: `npx skills add heygen-com/hyperframes`
 
 #### 4. 検証ループ（Citation Tracking）
 週次で以下を自動実行:
