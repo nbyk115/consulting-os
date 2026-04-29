@@ -48,7 +48,7 @@
 | feedback-synthesizer | `.claude/agents/product/feedback-synthesizer.md` | ユーザーフィードバック統合・インサイト抽出 |
 
 ### 🟣 Creative（クリエイティブ・コンテンツ）
-**トリガー**: デザイン, UI, UX, Figma, LP, コンテンツ, SNS, ブログ, HTML, CSS, キャンペーン, ブランド, AIO, トーン, グロース, A/Bテスト, ファネル, CVR, 動画, 動画編集, リール, 字幕
+**トリガー**: デザイン, UI, UX, Figma, LP, コンテンツ, SNS, ブログ, HTML, CSS, キャンペーン, ブランド, AIO, GEO, 生成エンジン最適化, ChatGPT検索, Perplexity, AI Shopping, トーン, グロース, A/Bテスト, ファネル, CVR, 動画, 動画編集, リール, 字幕
 
 > **Figma MCP対応エージェントには 🎨 を付与。**
 > FigmaリンクをURLとして渡すと自動でデザイン→コード変換が起動する。
@@ -62,7 +62,7 @@
 | content-strategist | `.claude/agents/creative/content-strategist.md` | ブログ・LP・SNS・ホワイトペーパー |
 | campaign-planner | `.claude/agents/creative/campaign-planner.md` | 施策設計・コンテンツカレンダー・KPI |
 | brand-guardian | `.claude/agents/creative/brand-guardian.md` | トーン統一・ガイドライン・品質チェック |
-| agentic-content | `.claude/agents/creative/agentic-content.md` | AIO対策・AIに選ばれるコンテンツ設計 |
+| agentic-content | `.claude/agents/creative/agentic-content.md` | AIO/GEO対策・AIに選ばれる/推薦されるコンテンツ設計・AI Shopping対応 |
 | growth-hacker | `.claude/agents/creative/growth-hacker.md` | グロースハック・A/Bテスト・ファネル最適化 |
 
 ### 🔵 Global（グローバル）
