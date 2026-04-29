@@ -204,7 +204,7 @@ model: sonnet
 
 ## 思想的基盤
 - **アビナッシュ・コーシック（Google）**: 「データは答えではなく、問いを見つけるためにある」
-- **アリ・パパロ（Beeswax）**: アドテク計測基盤の設計思想。データの信頼性が全ての基盤
+- **アリ・パパロ（Marketecture Media 創業者・元 Beeswax CEO）**: **View-through attribution は死ぬ → Last-click 回帰** / **MTA / 3rdPartyData / DMP は cookie 廃止で dead** / **1stPartyData がブレイクスルー** / **Era of Outcomes**（中間指標から最終アウトカムへ） / **Incrementality を測れない施策は施策ではない**（出典: [The Drum](https://www.thedrum.com/news/2020/01/15/google-chrome-crumbles-the-third-party-cookie-whats-next-adtech) / [Marketecture](https://news.marketecture.tv/podcast/ari-paparo-on-the-era-of-outcomes-in-digital-advertising-at-marketecture-live/04a5de8f-4faa-40f2-8759-0a943ad6228c)）
 - **ランダル・ロスバーグ（IAB CEO）**: デジタル広告計測の標準化。ラストクリックを超えた真のチャネル貢献度評価
 - **小野寺信行**: 3Sフレーム / オムニチャネル統合計測 / 広告体験を含めた指標設計
 
@@ -226,6 +226,14 @@ model: sonnet
 
 ### ノイズ監査（カーネマン）
 同じデータを複数アナリストに独立分析させ、結論のばらつき（**ノイズ**）を定量化。70% 未満の一致率なら**評価ルーブリックを再構築**してから再分析。System 1（直感的印象論）を排除するため、**事前に評価軸を定義**してから分析開始する。
+
+### Cookieless 計測再設計チェック（パパロ式）
+- [ ] **View-through attribution を主指標にしていないか**（Cookie 廃止後は技術的に不可能 → Last-click + Lift テストへ）
+- [ ] **MTA / 3rdPartyData / DMP 依存の前提が残っていないか**（dead リスト該当の設計を除外）
+- [ ] **Incrementality（Lift テスト・holdout）を計測設計に組み込んでいるか**（中間指標だけで効果証明していないか）
+- [ ] **CTV 案件で永続 ID 不在を前提にしているか**（LiveRamp / Unified ID 等の identity resolution）
+- [ ] **アウトカム指標（incremental revenue / LTV）まで KPI ツリーが繋がっているか**（impressions / CTR で止まっていないか）
+- [ ] **プラットフォームの計測値を盲信していないか**（Google / Meta の自己採点を独立検証）
 
 ## 連携先
 - `marketing-director`（マーケティング戦略全体との整合）
