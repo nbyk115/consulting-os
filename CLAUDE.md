@@ -877,6 +877,10 @@ model: sonnet  # 実装はSonnet
 - ユーザーの明示的指示なく **他リポジトリ・他サービスにアクセスしない**
 - MCP サーバー経由の書き込み操作（Figma 編集、GitHub push_files 等）は **タスク単位で承認を得る**
 - `rm -rf`、`chmod 777` 等の破壊的ファイル操作は禁止
+- **`--dangerously-skip-permissions` フラグの使用は絶対禁止**: 承認プロンプトを全スキップする最危険フラグ。このフラグなしでは「面倒」と感じても使わない。承認疲れは Layer 2 の `permissions.allow` で安全コマンドを pre-approve することで解消する
+- **パスワード/APIキー/秘密鍵をプロンプトに直接入力しない**: 会話履歴に残る。環境変数経由で渡し「環境変数 FOO_API_KEY を読み取って」と指示する
+- **外部URLのプロンプトインジェクション警戒**: 不明なサイトのURLをそのまま「このページを読んで処理して」と渡さない。ページ内に LLM 向けの不正命令が埋め込まれている可能性がある。事前にブラウザで内容を目視確認 → 必要部分をテキストで貼る
+- **信頼できないリポジトリを clone してから claude を起動しない**: `.claude/` フォルダ・`CLAUDE.md` に悪意ある指示が仕込まれている可能性。外部リポは中身を確認してから利用
 
 ### Layer 2: settings.json（技術レベル — permissions.deny）
 - `disabledMcpServers`: 未使用 MCP は無効化（コンテキスト管理ルールと統合）
@@ -897,6 +901,17 @@ model: sonnet  # 実装はSonnet
 - **Layer 2 の更新は Layer 1 と同期**: CLAUDE.md にルールを追加したら settings.json の deny にも対応パターンを追加
 - **deny リストは定期レビュー**: `/security-scan` 実行時に deny パターンの網羅性を確認
 - **新 MCP 追加時**: セキュリティ影響を評価し、書き込み系ツールは deny パターンを先に設定
+
+### Claude Code 運用セキュリティ規律（日常運用の最低線）
+> Layer 1/2 の前段階として、ユーザー側の運用習慣で事故を予防する。新規メンバー・社内拡張時の onboarding 必須項目。
+
+- **作業フォルダの限定**: ホームディレクトリ（`~`）から `claude` を起動しない。`~/projects/<name>/` のような作業専用フォルダで起動し、アクセス範囲を絞る
+- **作業前 commit 習慣**: Claude Code に大規模変更を任せる前に必ず `git commit`。ロールバックポイントを毎回作る（既存の Verification Before Done と整合）
+- **`/permissions` 定期確認**: 週次で `/permissions` を実行し、見覚えのない allow ルール・想定通りの deny ルールを確認
+- **API 使用量上限の設定**: `console.anthropic.com` で月間 Spending Limit を設定。Claude Code 専用 API キーを発行し他サービスと分離（漏洩時に該当キーだけ無効化可能）
+- **アクティブセッション月次確認**: `claude.ai/settings/security` でアクティブセッションを点検、見覚えのないものはログアウト
+- **Claude Code 最新版維持**: セキュリティ修正を含むため、月1回 or 起動時のバージョン通知で更新
+- **生成コードの目視 → commit**: Claude Code 生成コードは差分を目視確認してから commit（既存 Boris Cherny #8 Verification Before Done と整合）。見知らぬ URL アクセス・外部送信処理・想定外の `rm` を必ずチェック
 
 ---
 
