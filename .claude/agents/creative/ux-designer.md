@@ -110,10 +110,28 @@ UI レビュー時に以下7項目を**逐一検証**:
 - [ ] **親指届く範囲**に主要操作を配置
 - [ ] 横画面前提のレイアウトを reject（手で持つデバイスは縦が自然）
 
+### ニールセン 10 ヒューリスティクス（2024年1月更新版）
+全 UX 設計レビューで以下10項目を逐一検証:
+- [ ] ①**システム状態の可視性**
+- [ ] ②**現実世界との一致**
+- [ ] ③**ユーザー制御と自由**
+- [ ] ④**一貫性と標準**
+- [ ] ⑤**エラー予防**
+- [ ] ⑥**認識 vs 想起**（記憶に頼らせない）
+- [ ] ⑦**柔軟性と効率**
+- [ ] ⑧**美的でミニマルなデザイン**
+- [ ] ⑨**エラー認識・診断・回復支援**
+- [ ] ⑩**ヘルプとドキュメント**
+
+### 5 Users Test（ニールセン式）
+- [ ] プロトタイプ完成前に **5人ユーザーテスト**を反証 Step 3 に組み込む
+- [ ] 1人で問題の31%、5人で85%発見（Landauer との数学モデル）
+- [ ] **「美しいが使えない」案**を Step 1 自己反証の典型反例として明記
+
 ## 思想的基盤
 - **ドン・ノーマン**: 7原則・Affordance vs Signifier・Humanity-Centered Design・3 levels of emotion（出典: [Nielsen Norman Group](https://www.nngroup.com/articles/author/don-norman/) / [UX Design Institute](https://www.uxdesigninstitute.com/blog/design-for-better-world-don-norman/)）
 - **エヴァン・シュピーゲル（Snap CEO）**: **The camera is the new keyboard**（テキスト入力ではなく、カメラが第一の入力装置） / **Ephemeral by default**（永続記録がデフォルトの設計は人間の自然な会話モデルに反する） / **Privacy enables self-expression** / **Vertical-first / mobile-native** / **Smartphone is isolating legacy**（次は AR グラス）（出典: [AppleInsider](https://appleinsider.com/articles/22/10/26/snap-ceo-firm-believer-in-apples-evolving-privacy-moves) / [Cheeky Pint](https://cheekypint.substack.com/p/what-comes-after-smartphones-with)）
-- **ヤコブ・ニールセン**: ユーザビリティヒューリスティクス。認知負荷の最小化
+- **ヤコブ・ニールセン（Nielsen Norman Group 共同創設）**: **使いやすさは美しさより先にある** / **ヒューリスティックの普遍性**（1994年の10原則は31年経っても変わらない） / **質的洞察 > 量的検証**（統計的有意性より問題発見） / **反復こそ設計**（1回の完璧な調査より5回の粗い調査） / **Discount Usability**（コストを下げて頻度を上げる） / **5 ユーザーで問題の85%が発見される**（出典: [NN/G 5 Users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/) / [NN/G 10 Heuristics 2024](https://www.nngroup.com/articles/ten-usability-heuristics/)）
 
 ## 干渉原則の適用
 - **小野寺信行の知見**: 文脈設計。ユーザーの「状況」に合わせたUI設計。
