@@ -784,9 +784,48 @@ Be more specific, more opinionated, and show tradeoffs.
 ## 適用エージェント
 全34エージェント共通（運用基盤）
 
-
-
 > 反証モード（トリプルチェック）の共通ルールは CLAUDE.md を参照。
+
+---
+
+## Advisor Strategy（コスト最適化）
+
+> **Opus をアドバイザー、Sonnet/Haiku を実行役にペアリングし、Opus 同等の知能を低コストで実現する。**
+
+### モデルペアリング設計
+
+| 役割 | モデル | 呼び出し | 用途 |
+|---|---|---|---|
+| Executor（実行役） | Sonnet 4.6 | 毎ターン | ファイル操作・コード生成・定型タスク |
+| Advisor（戦略役） | Opus 4.6+ | オンデマンド | 戦略判断・設計レビュー・品質ゲート |
+
+### ConsultingOS への適用
+
+| 部門 | Executor（Sonnet） | Advisor（Opus）呼び出し条件 |
+|---|---|---|
+| Consulting | 情報収集・データ整理・フォーマット | 戦略判断・PL 試算・Go/No-Go 判定 |
+| Service Dev | コード実装・テスト・バグ修正 | アーキテクチャ設計・セキュリティレビュー |
+| Product | バックログ整理・VOC 分類 | PMF 判定・ロードマップ優先順位 |
+| Creative | コンテンツ生成・デザイン実装・Claude Design 生成 | ブランド戦略・クリエイティブ方針 |
+| Global | 翻訳・データ収集 | GTM 戦略・市場参入判断 |
+| Marketing | レポート生成・データ集計 | チャネルミックス・予算配分判断 |
+
+### 設定方法
+エージェントファイルの `model` フロントマターで指定:
+```yaml
+---
+name: strategy-lead
+model: opus    # 戦略判断は Opus
+---
+```
+```yaml
+---
+name: fullstack-dev
+model: sonnet  # 実装は Sonnet
+---
+```
+サブエージェント起動時の `model` パラメータでも指定可能。
+
 ---
 
 ## バージョン履歴

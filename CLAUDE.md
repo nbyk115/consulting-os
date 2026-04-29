@@ -304,129 +304,7 @@
 
 ## エージェント連携パターン
 
-> 各パターンで使用するスキルを 📘 で明示。エージェントのシナリオ別プレイブックと組み合わせて使う。
-
-### パターン1: 新サービスのLPを作りたい
-```
-consulting/proposal-writer → creative/ux-designer → creative/frontend-dev
-     （訴求整理）              （UX設計）              （実装）
-📘 consulting-playbook → creative-playbook → code-quality-gates
-※ 早期プロトタイプはClaude Designで生成→HTML export→frontend-devで仕上げも可
-```
-
-### パターン2: クライアントへの戦略提案書を作りたい
-```
-consulting/competitive-analyst → consulting/strategy-lead → consulting/proposal-writer
-       （市場分析）                   （戦略立案）               （資料化）
-📘 first-principles-breakdown → revenue-growth-framework → brand-guidelines
-```
-
-### パターン3: SaaSプロダクトの新機能を開発したい
-```
-service-dev/tech-lead → service-dev/fullstack-dev → creative/frontend-dev
-      （設計）                （実装）                    （UI）
-📘 api-design-patterns → engineering-playbook + migration-safety → code-quality-gates
-```
-
-### パターン4: コンテンツマーケティング戦略を立てたい
-```
-consulting/kpi-analytics → creative/content-strategist → creative/agentic-content
-     （KPI設計）                （コンテンツ戦略）            （AIO最適化）
-📘 digital-sales-intelligence → creative-playbook → prompt-engineering
-```
-
-### パターン5: 新規事業の参入判断をしたい
-```
-consulting/competitive-analyst → consulting/strategy-lead → consulting/kpi-analytics
-       （市場構造分析）              （戦略判断）               （PL試算）
-📘 first-principles-breakdown → revenue-growth-framework → consulting-playbook
-```
-
-### パターン6: AI導入コンサルを提案したい
-```
-consulting/ai-consultant → service-dev/ai-engineer → consulting/proposal-writer
-     （導入戦略・ROI）         （技術検証）              （提案書化）
-📘 prompt-engineering → engineering-playbook → consulting-playbook
-```
-
-### パターン7: SaaSの解約率を下げたい
-```
-consulting/client-success → consulting/kpi-analytics → product/product-manager
-    （解約分析・ヘルススコア）     （LTV/チャーン計測）       （機能改善計画）
-```
-
-### パターン8: プロダクトロードマップを作りたい
-```
-product/product-manager → service-dev/tech-lead → consulting/kpi-analytics
-    （優先順位付け）           （技術実現性）          （PL試算）
-```
-
-### パターン9: CVR改善・グロース施策を回したい
-```
-creative/growth-hacker → consulting/kpi-analytics → product/feedback-synthesizer
-    （実験設計・A/Bテスト）     （計測・分析）            （ユーザー声との突合）
-```
-
-### パターン10: 新サービスの法務チェックをしたい
-```
-consulting/legal-compliance-checker → consulting/proposal-writer → consulting/strategy-lead
-       （法的リスク洗い出し）              （契約条件の整理）           （事業判断）
-```
-
-### パターン11: ユーザーフィードバックからプロダクト改善したい
-```
-product/feedback-synthesizer → product/product-manager → service-dev/tech-lead
-     （VOC分析・インサイト）         （優先順位付け）           （実装判断）
-```
-
-### パターン12: SaaSプロダクトを海外展開したい
-```
-global/gtm-consultant → global/global-journalist → consulting/kpi-analytics
-     （GTM戦略設計）         （現地市場リサーチ）         （PL試算）
-📘 revenue-growth-framework → first-principles-breakdown → consulting-playbook
-```
-
-### パターン13: 海外規制変更のインパクトを分析したい
-```
-global/global-journalist → consulting/legal-compliance-checker → consulting/strategy-lead
-     （情報収集・構造化）          （法的影響評価）                  （事業判断）
-📘 first-principles-breakdown → consulting-playbook
-```
-
-### パターン14: マーケティング資料を多言語展開したい
-```
-global/business-translator → creative/brand-guardian → creative/content-strategist
-     （トランスクリエーション）      （ブランド整合確認）        （現地コンテンツ戦略）
-📘 brand-guidelines → creative-playbook
-```
-
-### パターン15: 海外拠点を設立したい
-```
-global/global-business → consulting/legal-compliance-checker → consulting/kpi-analytics
-     （オペレーション設計）        （現地法規制チェック）            （コスト試算）
-📘 revenue-growth-framework → consulting-playbook
-```
-
-### パターン16: 広告ROAS改善・チャネルミックス最適化
-```
-marketing-research/marketing-director → marketing-research/performance-marketer → marketing-research/marketing-analyst
-          （全体戦略・予算配分）              （広告運用最適化）                    （アトリビューション分析）
-📘 digital-sales-intelligence → revenue-growth-framework → marketing-research-playbook
-```
-
-### パターン17: リード獲得→ナーチャリング→商談化パイプライン構築
-```
-marketing-research/crm-ma-strategist → consulting/lead-qualifier → creative/content-strategist
-       （MA設計・スコアリング）            （商談化基準・SLA）         （ナーチャリングコンテンツ）
-📘 marketing-research-playbook → consulting-playbook → creative-playbook
-```
-
-### パターン18: PR・広報戦略で認知拡大したい
-```
-marketing-research/pr-communications → marketing-research/social-media-strategist → creative/brand-guardian
-         （PR戦略・メディアリレーション）        （ソーシャル連携）                    （ブランド整合）
-📘 marketing-research-playbook → brand-guidelines → creative-playbook
-```
+18の代表的な連携パターン（LP制作・戦略提案・新機能開発・コンテンツマーケ・新規事業参入・AI導入・解約防止・ロードマップ・CVR改善・法務チェック・VOC改善・海外展開・規制分析・多言語展開・拠点設立・広告ROAS・MAパイプライン・PR広報）の詳細フローと使用スキルは **`docs/agent-collaboration-patterns.md`** を参照。
 
 ---
 
@@ -434,60 +312,7 @@ marketing-research/pr-communications → marketing-research/social-media-strateg
 
 ### アーキテクチャ: 佐藤・小野寺 → 各専門担当者
 
-> **佐藤裕介と小野寺信行が経営判断・方針を統制し、各エージェントがその方針の下で自分の専門家としての思想を最大限発揮してAI駆動する。**
-
-```
-佐藤裕介（事業構造・PL・プロダクト価値）──┐
-小野寺信行（デジタル・メディア・指標設計）──┤
-                                          ↓ 干渉原則として全体を統制
-┌─────────────────────────────────────────────────────────────┐
-│ Consulting                                                   │
-│  strategy-lead      = ピーター・ティール（独占戦略）          │
-│  competitive-analyst = マイケル・ポーター（競争戦略）          │
-│  proposal-writer     = バーバラ・ミント + デュアルテ（ストーリー）│
-│  lead-qualifier      = MEDDIC/BANT（構造化商談）              │
-│  kpi-analytics       = デミング + ベゾス（計測駆動経営）      │
-│  ai-consultant       = ダリオ・アモデイ（責任あるAI）         │
-│  client-success      = リンカーン・マーフィー（CS）           │
-│  legal-compliance    = レッシグ（Code is Law）                │
-├─────────────────────────────────────────────────────────────┤
-│ Creative                                                     │
-│  creative-director   = アイブ（Apple）+ ハットフィールド（Jordan）│
-│  ux-designer         = ドン・ノーマン + シュピーゲル（Snap）  │
-│  frontend-dev        = ラウチ（Vercel）+ ラッセル（Chrome）    │
-│  content-strategist  = HubSpot + ハンドリー                   │
-│  campaign-planner    = コトラー（ファネル）                   │
-│  brand-guardian      = フィル・ナイト（Nike）+ アイブ（Apple）│
-│  agentic-content     = スリニヴァス（Perplexity）+ E-E-A-T    │
-│  growth-hacker       = ショーン・エリス + パーカー（Facebook） │
-├─────────────────────────────────────────────────────────────┤
-│ Global                                                       │
-│  gtm-consultant      = オスターワルダー + ホフマン（LinkedIn） │
-│  global-journalist   = Reuters/FT（ファクトベース）           │
-│  global-business     = ホフステード（異文化）+ ゲマワット     │
-│  business-translator = ナイダ + クリスタル（言語学）           │
-├─────────────────────────────────────────────────────────────┤
-│ Marketing & Research                                         │
-│  marketing-director  = リトソン（Both, not either）            │
-│  performance-marketer = ジェフ・グリーン（TTD）+ パパロ       │
-│  seo-specialist      = Google QRG + Fishkin + ミューラー       │
-│  marketing-analyst   = コーシック + パパロ + ロスバーグ（IAB） │
-│  crm-ma-strategist   = HubSpot/Salesforce MA                 │
-│  social-media-strat. = ヴェイナーチャック + パーカー          │
-│  market-researcher   = カーネマン + クリステンセン（JTBD）    │
-│  pr-communications   = エデルマン（Trust）+ J.スミス（危機管理）│
-├─────────────────────────────────────────────────────────────┤
-│ Product                                                      │
-│  product-manager     = ケーガン（Inspired）+ ドーシー（Square）│
-│  feedback-synthesizer = クリステンセン（JTBD）+ シュピーゲル  │
-├─────────────────────────────────────────────────────────────┤
-│ Service Dev                                                  │
-│  tech-lead           = ファウラー + ドーシー + 12-Factor App  │
-│  fullstack-dev       = ケント・ベック（TDD）+ ヘルスバーグ（TS）│
-│  ai-engineer         = アモデイ（Anthropic）+ Claude API BP  │
-│  infra-devops        = ハイタワー（K8s）+ ヴォーゲルス（AWS） │
-└─────────────────────────────────────────────────────────────┘
-```
+> **佐藤裕介と小野寺信行が経営判断・方針を統制し、各エージェントがその方針の下で自分の専門家としての思想を最大限発揮してAI駆動する。** 各エージェントの思想的基盤（ピーター・ティール / アイブ / ファウラー / カーネマン 等）は、それぞれのエージェントファイルの「思想的基盤」セクションに記載。
 
 ### 【小野寺信行（電通デジタル）の知見】
 - **指標を疑う**: クライアントが「CPA改善したい」と言っても、本質的な課題を先に確認
@@ -708,45 +533,22 @@ Step 3: 実用反証（Practical Falsification）
 - エージェント別成績: `Archival Memory` の評価カード
 - スキル別バージョン履歴: 各スキルファイル末尾
 
----
+### 進化ログ運用ルール（形骸化防止）
+> **書く規律がないと evolution-log は死ぬ**。誰が・いつ・何を書くかを明確化する。
 
-### Advisor Strategy（コスト最適化）
+- **書くタイミング**: 以下のいずれかに該当した時、即時記録
+  1. スキル/エージェントを変更した（追加・削除・修正）
+  2. 新しい外部ツール（OSS / MCP / プラグイン）を採用 or 却下した
+  3. クライアント案件で**判断パターンが定着**した（3案件以上で同じ判断）
+  4. 反証モードで**致命的な問題**が見つかった
+- **書く責任者**: 変更を実行したエージェント本人。複数エージェント連携の場合は起点エージェント
+- **必須項目**: 日付 / 変更内容 / 根拠 / 期待効果 / 反証ステップ結果
+- **形式**: `evolution-log.md`（人間可読）+ `evolution-log.jsonl`（機械可読）の両方に追記
+- **週次レビュー**: `strategy-lead` が週末に直近のログを点検、Level 3 変更（構造変更）は要承認
+- **書かなくていいもの**: 単発のタスク完了報告、定型作業の実行履歴（これらは Archival Memory に蓄積）
 
-> **Opus をアドバイザー、Sonnet/Haiku を実行役にペアリングし、Opus同等の知能を低コストで実現する。**
-
-#### モデルペアリング設計
-
-| 役割 | モデル | 呼び出し | 用途 |
-|---|---|---|---|
-| Executor（実行役） | Sonnet 4.6 | 毎ターン | ファイル操作・コード生成・定型タスク |
-| Advisor（戦略役） | Opus 4.6 | オンデマンド | 戦略判断・設計レビュー・品質ゲート |
-
-#### ConsultingOS への適用
-
-| 部門 | Executor（Sonnet） | Advisor（Opus）呼び出し条件 |
-|---|---|---|
-| Consulting | 情報収集・データ整理・フォーマット | 戦略判断・PL試算・Go/No-Go判定 |
-| Service Dev | コード実装・テスト・バグ修正 | アーキテクチャ設計・セキュリティレビュー |
-| Product | バックログ整理・VOC分類 | PMF判定・ロードマップ優先順位 |
-| Creative | コンテンツ生成・デザイン実装・Claude Design生成 | ブランド戦略・クリエイティブ方針 |
-| Global | 翻訳・データ収集 | GTM戦略・市場参入判断 |
-| Marketing | レポート生成・データ集計 | チャネルミックス・予算配分判断 |
-
-#### 設定方法
-エージェントファイルの `model` フロントマターで指定:
-```yaml
----
-name: strategy-lead
-model: opus    # 戦略判断はOpus
----
-```
-```yaml
----
-name: fullstack-dev
-model: sonnet  # 実装はSonnet
----
-```
-サブエージェント起動時の `model` パラメータでも指定可能。
+### コスト最適化（Advisor Strategy）
+Opus をアドバイザー、Sonnet/Haiku を実行役にペアリングし、Opus 同等の知能を低コストで実現する設計。**詳細・部門別マッピング・設定方法は `.claude/skills/claude-code-ops.md`「Advisor Strategy」セクション参照**。
 
 ---
 
