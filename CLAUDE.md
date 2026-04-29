@@ -128,6 +128,23 @@
 | hyperframes | external (`npx skills add heygen-com/hyperframes`) | HTML→MP4 動画生成（VSL・SNS縦動画・モーショングラフィックス）。要望時に導入 |
 | toprank | external ([nowork-studio/toprank](https://github.com/nowork-studio/toprank)) | Search Console + Google Ads + テクニカルSEO監査を Claude Code 内で完結。**自社サイト分析のみ**。要望時に導入 |
 
+### スキル設計規律（Anthropic 公式パターン準拠）
+> 出典: Anthropic Skills 公式テンプレート / Khairallah 6要素フレームワーク
+
+- **SKILL.md は 500 行以下を目標**: 超えたら `references/` に分離。AI 処理精度の低下を防ぐ
+- **分離パターン**:
+  ```
+  skill-name/
+    SKILL.md         ← 役割と基本ルール（薄く保つ）
+    references/      ← タスク別に読み込む詳細
+      <topic>.md     ← 制約・品質基準・テンプレート・具体例
+  ```
+- **分離する内容**: 制約・品質基準・出力フォーマットテンプレート・具体例集
+- **SKILL.md に残す内容**: 役割定義・基本ルール・参照ファイル一覧
+- **新規スキル作成時の必須6要素**（Khairallah フレームワーク）: 役割 / 文脈 / 制約 / 形式 / 品質基準 / 具体例。**既存のCLAUDE.md・反証モード・各エージェント禁止事項で部分カバー済みのため、スキルファイルでは不足分のみ書く**
+- **分割タイミング**: 「500行超えた瞬間に分割」ではなく、「**問題が顕在化したスキルだけ分割**」。先回り分割は禁止（外科的変更原則）
+- **現状監視対象**: claude-code-ops（799行）/ creative-playbook（572行）/ cybersecurity-playbook（516行）。利用時に精度低下を感じたら `references/` 分離を実行
+
 ---
 
 ## コマンド（スラッシュコマンド）
