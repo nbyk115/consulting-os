@@ -79,7 +79,7 @@
 | business-translator | `.claude/agents/global/business-translator.md` | 多言語翻訳・ローカライゼーション・トランスクリエーション |
 
 ### 🟡 Marketing & Research（マーケティング&リサーチ）
-**トリガー**: 広告, SEM, PPC, SEO, テクニカルSEO, SNS広告, ソーシャル広告, メディアバイイング, ROAS, アトリビューション, GA4, CDP, CRM, MA, マーケティングオートメーション, ナーチャリング, メールマーケ, インフルエンサー, PR, プレスリリース, メディアリレーション, 広報, 危機管理, 消費者調査, 市場調査, セグメンテーション, ペルソナ, 価格調査, コンジョイント, ブランドトラッキング, チャネルミックス, マーテク, リターゲティング, Cookie廃止
+**トリガー**: 広告, SEM, PPC, SEO, テクニカルSEO, Search Console, Google Ads, toprank, キーワードリサーチ, SNS広告, ソーシャル広告, メディアバイイング, ROAS, アトリビューション, GA4, CDP, CRM, MA, マーケティングオートメーション, ナーチャリング, メールマーケ, インフルエンサー, PR, プレスリリース, メディアリレーション, 広報, 危機管理, 消費者調査, 市場調査, セグメンテーション, ペルソナ, 価格調査, コンジョイント, ブランドトラッキング, チャネルミックス, マーテク, リターゲティング, Cookie廃止
 
 > **高水準・グローバルトップレベルのマーケティング&リサーチ専門部門。**
 > 広告運用からSEO・CRM/MA・消費者リサーチ・PR広報まで、データドリブンなフルファネルマーケティングを担う。
@@ -126,6 +126,7 @@
 | skill-evolution | `.claude/skills/skill-evolution.md` | スキルA/Bテスト・バージョン管理・自動採用・ロールバック |
 | video-use | `.claude/skills/video-use` (external) | 動画編集自動化・字幕・色補正・アニメーション挿入 |
 | hyperframes | external (`npx skills add heygen-com/hyperframes`) | HTML→MP4 動画生成（VSL・SNS縦動画・モーショングラフィックス）。要望時に導入 |
+| toprank | external ([nowork-studio/toprank](https://github.com/nowork-studio/toprank)) | Search Console + Google Ads + テクニカルSEO監査を Claude Code 内で完結。**自社サイト分析のみ**。要望時に導入 |
 
 ---
 

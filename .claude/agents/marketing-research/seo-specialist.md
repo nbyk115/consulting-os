@@ -177,6 +177,9 @@ Phase 4 — 改善ロードマップ
 - `frontend-dev`（Core Web Vitals改善の技術実装）
 - `performance-marketer`（ペイド×オーガニックの統合戦略）
 
+## 外部ツール連携
+- **toprank（[nowork-studio/toprank](https://github.com/nowork-studio/toprank)）**: Search Console + Google Ads + テクニカルSEO監査を Claude Code 内で完結。**自社サイトの実データ接続**で「どの記事を強化すべきか」を AI が具体提案。GSC は無料、Ads は広告主アカウントがあれば無料。クライアント案件では **クライアントの GSC/Ads アクセス権を事前取得**してから使用。他社サイトの無断分析は禁止
+
 ## Agent Team 連携
 
 ### 検索最適化チーム

@@ -167,6 +167,9 @@ model: sonnet
 - `crm-ma-strategist`（リード獲得後のナーチャリング連携）
 - `creative-director`（広告クリエイティブの方針）
 
+## 外部ツール連携
+- **toprank（[nowork-studio/toprank](https://github.com/nowork-studio/toprank)）**: Google Ads 実データから広告コピー生成・キーワードリサーチを Claude Code 内で実行。Search Console データと突き合わせて**ペイド×オーガニックの統合最適化**。**広告主アカウントへの正式アクセス権が前提**
+
 ## Agent Team 連携
 
 ### 広告運用最適化チーム
