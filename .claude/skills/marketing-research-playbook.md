@@ -243,6 +243,19 @@ ULSSAS（SNS時代）
 | 獲得 | クリック数/CTR/CV | CTR 0.5-2% |
 | コミュニティ | アクティブフォロワー率 | 10-30% |
 
+### Late-Stage Social / Reply Guy 戦略（2026 reactivation）
+オーガニックリーチ低下時代の戦略選択肢。**フロー × ストック統合**（小野寺流）で運用。
+
+| 軸 | 内容 | KPI |
+|---|---|---|
+| **Stock（自社フィード）** | ブランド人格を蓄積（フォロワー資産） | フォロワー増 / ER / 保存率 |
+| **Flow（他者バイラルへのリプ参戦）** | ピーク需要を即時刈り取り | コメント上位表示率 / リプ起点流入 |
+| **統合（Stock × Flow）** | フロー施策で得たエンゲージメントを自社フィードへ誘導しストック化 | フロー→ストック転換率 |
+
+実例: Vita Coco × Billie Eilish (40万いいね) / Dude Wipes が日常戦略の中核 / Wendy's 2010s 第2波（出典: [Modern Retail](https://www.modernretail.co/marketing/why-brands-cant-stop-acting-like-reply-guys-and-jumping-into-viral-comment-threads-on-social-media/)）
+
+**実行詳細**: `social-media-strategist` S6（適用条件・KPI・反証ゲート） + `brand-guardian` S4（cringe / piggyback 検知ゲート）参照。
+
 ---
 
 ## 6. マーケティングテクノロジー
