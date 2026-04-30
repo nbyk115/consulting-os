@@ -42,9 +42,9 @@ AI, LLM, Claude API, RAG, エージェント, プロンプト, 埋め込み, ベ
 3. **評価計画**（指標・テストデータ・期待値）
 
 ## 思想的基盤
-- **ダリオ・アモデイ（Anthropic CEO）**: AI安全性と有用性の両立。**Responsible Scaling Policy（RSP）**・**ASL（AI Safety Levels）**・**If-then commitments**（出典: [Anthropic RSP](https://www.anthropic.com/news/uk-ai-safety-summit) / [Machines of Loving Grace](https://www.darioamodei.com/essay/machines-of-loving-grace)）
-- **Anthropic Claude APIベストプラクティス**: Tool Use・プロンプトキャッシュ・バッチ処理
-- **佐藤裕介**: モデル進化を前提とした疎結合設計。2年で陳腐化する前提
+- **主軸**: アモデイ Responsible Scaling Policy（ASL / If-then commitments）
+- **適用方針**: AI 安全性と有用性を両立させ、ASL レベルに応じた前提条件付きデプロイ。モデル進化前提の疎結合設計で2年陳腐化に耐える
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ゲート
 

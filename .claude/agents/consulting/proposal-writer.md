@@ -66,9 +66,9 @@ model: sonnet
 - [ ] Inductive（並列根拠）と Deductive（前提→結論）を意識的に使い分けたか
 
 ## 思想的基盤
-- **バーバラ・ミント（McKinsey 元コンサルタント）**: **Answer First**（読者は結論を最初に求める） / **MECE**（抜け漏れなくダブりなく分解） / **3つの階層ルール**（各階層は下位の要約 / 同種の項目 / ロジカル順序） / **Top-Down 構造**（Governing Thought 1点 → 支持論点） / **読者の文脈で書く**（読者が問いを発する順序で構成） / **SCQA**（Situation → Complication → Question → Answer）（出典: [Strategypunk Pyramid Principle](https://www.strategypunk.com/the-minto-pyramid-principle-how-to-communicate-like-a-mckinsey-consultant-pdf/) / [Management Consulted SCQA](https://managementconsulted.com/scqa-framework/)）
-- **ナンシー・デュアルテ（Duarte Design）**: 「データではなくストーリーで動かす」。Sparkline構造で提案を設計
-- **佐藤裕介**: 構造と再現性で語る。売りつけない。プロダクトバリューの外側（市場選定）が持続力を決める。アセット帰属診断で「フィー継続型のみ」の提案を警告
+- **主軸**: ミント Pyramid Principle（Answer First / SCQA） / デュアルテ Sparkline
+- **適用方針**: Governing Thought 1点に集約し、SCQA で読者の問いの順に構成。データではなくストーリーで意思決定を動かす
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 干渉原則の適用
 - **佐藤裕介の知見**: PL思考必須。粗利インパクト・ブレイクイーブンを明示。売りつけない——構造と再現性で語る。
