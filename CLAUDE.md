@@ -104,7 +104,7 @@
 | creative-playbook | `.claude/skills/creative-playbook.md` | デザイン・コンテンツ・Figma MCP |
 | brand-guidelines | `.claude/skills/brand-guidelines.md` | トーン・品質基準・禁止表現 |
 | first-principles-breakdown | `.claude/skills/first-principles-breakdown.md` | 第一原理分解・前提剥がし・真理からの再構築 |
-| claude-code-ops | `.claude/skills/claude-code-ops.md` | Hooks・MCP管理・並列ワークフロー・コンテキスト最適化 |
+| claude-code-ops | `.claude/skills/claude-code-ops/SKILL.md` | Hooks・MCP管理・並列ワークフロー・コンテキスト最適化（references/ に4分割） |
 | browser-automation | `.claude/skills/browser-automation.md` | Browser Use CLI 2.0・CDP直接接続・ブラウザ自動化 |
 | debug-methodology | `.claude/skills/debug-methodology.md` | 反証ベースデバッグ・根本原因特定・OODAループ |
 | migration-safety | `.claude/skills/migration-safety.md` | DB/APIマイグレーション安全手順・ゼロダウンタイム |
@@ -128,7 +128,7 @@
 - **SKILL.md は 500 行以下を目標**: 超えたら `<skill-name>/SKILL.md` + `<skill-name>/references/<topic>.md` に分離（制約・品質基準・テンプレ・具体例を参照ファイルへ）
 - **分割タイミング**: 「**問題が顕在化したスキルだけ分割**」。先回り分割は禁止（外科的変更原則）
 - **必須6要素**（Khairallah）: 役割 / 文脈 / 制約 / 形式 / 品質基準 / 具体例 — 既存 CLAUDE.md・反証モード・各エージェント禁止事項で部分カバー済みのため、スキルでは不足分のみ書く
-- **現状監視対象**: claude-code-ops（838行・規律違反・**次回分離対象**）/ creative-playbook（572行）/ cybersecurity-playbook（516行）— 精度低下を感じたら `references/` 分離
+- **現状監視対象**: 分離済 claude-code-ops/SKILL.md（148行）/ creative-playbook（572行）/ cybersecurity-playbook（516行）— 精度低下を感じたら `references/` 分離
 
 ---
 
@@ -253,7 +253,7 @@
 - **A/Bテスト・スキル進化システムは廃止**（5ヶ月稼働ゼロで形骸化、2026-04-30）
 
 ### コスト最適化（Advisor Strategy）
-Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳細は `.claude/skills/claude-code-ops.md`「Advisor Strategy」参照**。
+Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳細は `.claude/skills/claude-code-ops/references/advisor-strategy.md` 参照**。
 
 ---
 
@@ -281,7 +281,7 @@ Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳
 | **Hooks** | 特定操作 | PostToolUse / PreToolUse / Stop |
 | **Routines** | 時間スケジュール | 毎朝の競合巡回・定期取得 |
 
-→ **先回りで設定しない**。実需が出てから。詳細は `.claude/skills/claude-code-ops.md` 参照。
+→ **先回りで設定しない**。実需が出てから。詳細は `.claude/skills/claude-code-ops/references/hooks-monitor-routines.md` 参照。
 
 ### サブエージェント運用
 - **ツール権限は絞る**: コンサル系 = Read+WebSearch+WebFetch / 開発系 = 全ツール / クリエイティブ系 = Read+Edit+Write+WebFetch / プロダクト系 = Read+Grep+WebSearch / グローバル系 = Read+Glob+Grep+WebSearch+WebFetch
@@ -298,7 +298,7 @@ Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳
 8. **Verification Before Done**: 証明なしで complete マークしない（反証 Step 3 と統合）
 9. **Autonomous Bug Fixing**: バグ報告 = 修正開始、ログ→根本原因→修正を一気通貫
 
-詳細は `.claude/skills/claude-code-ops.md` 参照。
+詳細は `.claude/skills/claude-code-ops/references/boris-cherny-9-rules.md` 参照。
 
 ---
 
