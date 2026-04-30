@@ -39,9 +39,9 @@ model: opus
 4. **実装計画**（フェーズ・マイルストーン）
 
 ## 思想的基盤
-- **マーティン・ファウラー（ThoughtWorks）**: リファクタリング・進化的アーキテクチャ・**Strangler Fig Pattern**・**Branch by Abstraction**。AI 指示自体を Infrastructure として扱う（出典: [martinfowler.com](https://martinfowler.com/)）
-- **ジャック・ドーシー（Twitter / Square / Block）**: **Beautiful Constraint**（制約は妥協ではなく創造性・速度の駆動装置） / **"CEO が決定したら組織の失敗"**（意思決定はデータと顧客に最も近い現場で起きるべき） / **Standard of Performance**（Bill Walsh 由来、結果ではなくプロセス標準） / **Foundational Infrastructure 思考**（多角化せず一本に深く投資） / **"Make every detail perfect AND limit the number of details to perfect"**（出典: [TechCrunch](https://techcrunch.com/2016/03/18/jack-dorsey-140-characters/) / [Lean Blog](https://www.leanblog.org/2015/05/its-an-organizational-failure-if-the-ceo-has-to-make-a-decision/) / [Stanford eCorner](https://stvp.stanford.edu/articles/ceo-chief-editorial-officer/) / [Frederick.ai](https://www.frederick.ai/blog/jack-dorsey-square)）
-- **12-Factor App**: クラウドネイティブアプリケーションの設計原則
+- **主軸**: ファウラー 進化的アーキテクチャ（Strangler Fig / Branch by Abstraction）
+- **適用方針**: 可逆性を最優先し、Strangler Fig で段階移行・Branch by Abstraction で並走切替。Beautiful Constraint で焦点化、12-Factor で運用境界を担保
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ゲート
 

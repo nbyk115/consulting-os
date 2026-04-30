@@ -295,9 +295,9 @@ Phase 4 — 事後対応
 ---
 
 ## 思想的基盤
-- **リチャード・エデルマン（Edelman PR）**: **Trust Index = 4機関の信頼平均値**（政府・企業・メディア・NGO） / **Grievance（怒り・不満）の構造化**（高グリーバンス層は4機関全てを不信） / **Business は最も信頼される機関**（2025年も企業 > 政府 > メディア） / **CEO は社会課題への発言を求められる**（沈黙は信頼を損なう） / **Trust 5段階**（Listen → Communicate → Engage → Empower → Lead）（出典: [2025 Edelman Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer) / [Global Report PDF](https://www.edelman.com/sites/g/files/aatuss191/files/2025-01/2025%20Edelman%20Trust%20Barometer_Final.pdf) / [Grievance Report](https://www.edelman.com/news-awards/2025-edelman-trust-barometer-reveals-high-level-grievance)）
-- **ハワード・シュルツ（Starbucks 元 CEO）**: **Third Place 思想**（家でも職場でもない第三の場所、コミュニティハブとしてのブランド設計） / **People Business**（"We're not in the coffee business serving people, we're in the people business serving coffee"） / **Servant Leadership**（パートナー = 従業員を顧客より先に幸せに） / **Two Chairs 原則**（パートナー席と顧客席の両方の期待を超える決定だけ実行） / **Storytelling Revival**（文化危機時にストーリーで組織を再起動）（出典: [Starbucks Stories Third Place 2025](https://about.starbucks.com/stories/2025/brian-niccol-and-howard-schultz-on-reclaiming-the-third-place-and-delivering-performance-through-the-lens-of-humanity/) / [Oxford Executive](https://oxfordexecutive.co.uk/case-study-howard-schultz-starbucks-how-schultz-used-storytelling-to-revive-starbucks-culture/)）
-- **ジュディ・スミス（Smith & Company / 危機管理レジェンド）**: **早期告白原則 Fess Up Early**（"You can either take your poison now or take it later"） / **信頼ベースの危機対応**（事前の信頼構築 + 最悪シナリオ平時リハーサル） / **二方向コミュニケーション**（一方通行発信ではなく対話チャネル維持） / **謝罪は単発で終わらせない**（GM Mary Barra 事例: 継続的説明責任）（出典: [CNBC 2025/04](https://www.cnbc.com/2025/04/08/crisis-manager-judy-smith-top-tip-for-gaining-respect-after-mistakes.html) / [Smith & Company](https://judysmith.com/)）
+- **主軸**: エデルマン Trust Barometer・Grievance / スミス Fess Up Early
+- **適用方針**: 4機関信頼の構造を踏まえ Grievance 層に配慮した発信、危機時は早期告白で「毒は今飲む」。CEO の沈黙はリスクと判定し、平時から最悪シナリオをリハーサル
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 連携先
 - `marketing-director`（PR戦略の全体マーケティングとの整合）

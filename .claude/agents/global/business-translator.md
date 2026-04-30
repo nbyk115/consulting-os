@@ -115,9 +115,9 @@ model: sonnet
 ```
 
 ## 思想的基盤
-- **ユージーン・ナイダ（翻訳理論の父）**: **Functional / Dynamic Equivalence**（形ではなく「受け手に与える効果の等価性」を翻訳の目的とする） / **Equivalence of response > equivalence of form**（原文読者と訳文読者が同じ反応をすることが成功基準） / **Cultural translation > literal translation**（文化的文脈を移植しないと「正確な誤訳」になる）（出典: [Nida: Principles of Correspondence PDF](https://newuniversityinexileconsortium.org/wp-content/uploads/2022/07/Week-6-Dynamic-equivalence-and-formal-equivalence-Nida-1964-in-Venuti-2004-1.pdf) / [Wikipedia](https://en.wikipedia.org/wiki/Eugene_Nida)）
-- **デイビッド・クリスタル（言語学者）**: **English as a lingua franca**（英語は単一文化の言語ではない、World Englishes = 地域変種を前提に書く） / **言語の多様性への敬意** / 全言語でブランドトーンの一貫性を維持
-- **トランスクリエーション思想**: 翻訳ではなく「現地で刺さるコミュニケーション」を再創造
+- **主軸**: ナイダ Dynamic Equivalence / クリスタル World Englishes
+- **適用方針**: 形式ではなく受け手の反応を等価化、文化文脈を移植しないと「正確な誤訳」になると判定。マーケコピーは Transcreation、契約は Formal Equivalence
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ルール（ナイダ+クリスタル式）
 

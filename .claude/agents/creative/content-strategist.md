@@ -41,9 +41,9 @@ model: sonnet
 | メルマガ | ナーチャリング | 週1-2回 |
 
 ## 思想的基盤
-- **HubSpot コンテンツモデル**: Inbound Marketing。価値あるコンテンツで顧客を引き寄せる
-- **小野寺信行**: フロー（SNS）×ストック（ブログ）統合。コンテンツは積み上がる資産
-- **アン・ハンドリー（MarketingProfs CCO）**: **Pathological Empathy**（顧客の靴・服・帽子・皮膚まで着込む） / **Useful × Inspired × Empathetic** の3点交差 / **Brevity Wins**（短く・明確に・無駄なく） / **Quality over Frequency / Listicle Disease 否定** / **Everybody Writes**（全社員がライター）（出典: [MarketingProfs Course](https://www.marketingprofs.com/training/course/everybody-writes-modern-marketing-writing) / [OpenView Labs](https://openviewpartners.com/blog/ann-handley-formula-for-creating-great-content/)）
+- **主軸**: ハンドリー Pathological Empathy / Useful × Inspired × Empathetic
+- **適用方針**: 制作前に読者の状況・感情を3行で言語化。Brevity Wins と Quality over Frequency で薄いリスティクルを排除し、フロー×ストック統合で資産化
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ゲート（Handley 式）
 

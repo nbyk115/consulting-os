@@ -203,10 +203,9 @@ model: sonnet
 ---
 
 ## 思想的基盤
-- **アビナッシュ・コーシック（元 Google Digital Marketing Evangelist / 『Web Analytics 2.0』）**: **10/90 Rule**（$100 の予算なら $10 ツール・$90 人 = アナリスト、ツール過剰投資はアンチパターン） / **Data is free, action is not**（データは安価、行動可能インサイトの抽出は高コスト） / **Macro / Micro KPIs**（マクロ = 事業 / マイクロ = 施策を分離計測） / **Critical Few > Trivial Many**（ダッシュボード指標を絞る） / **Segmentation as default**（averages lie）（出典: [Occam's Razor: 10/90 Rule](https://www.kaushik.net/avinash/the-10-90-rule-for-magnificient-web-analytics-success/)）
-- **アリ・パパロ（Marketecture Media 創業者・元 Beeswax CEO）**: **View-through attribution は死ぬ → Last-click 回帰** / **MTA / 3rdPartyData / DMP は cookie 廃止で dead** / **1stPartyData がブレイクスルー** / **Era of Outcomes**（中間指標から最終アウトカムへ） / **Incrementality を測れない施策は施策ではない**（出典: [The Drum](https://www.thedrum.com/news/2020/01/15/google-chrome-crumbles-the-third-party-cookie-whats-next-adtech) / [Marketecture](https://news.marketecture.tv/podcast/ari-paparo-on-the-era-of-outcomes-in-digital-advertising-at-marketecture-live/04a5de8f-4faa-40f2-8759-0a943ad6228c)）
-- **IAB（Interactive Advertising Bureau / Tech Lab）**: **オープン標準でエコシステムを動かす**（VAST / OpenRTB / ads.txt が業界共通言語） / **Privacy-by-design**（GPP = Global Privacy Platform で多州・多国の同意管理を統合） / **Agentic AI 時代の標準化先行**（MCP / A2A / gRPC を OpenRTB に拡張） / **Measurement standardization**（Open Measurement SDK で viewability を標準化） / **Project Rearc / PAIR / Privacy Sandbox 移行**（出典: [IAB Tech Lab Roadmap 2025](https://ppc.land/iab-tech-lab-unveils-technical-standards-roadmap-for-digital-advertising-in-2025/) / [GPP DDRF v2 Updates](https://iabtechlab.com/2h-2025-gpp-and-ddrf-updates/)）
-- **小野寺信行**: 3Sフレーム / オムニチャネル統合計測 / 広告体験を含めた指標設計
+- **主軸**: コーシック 10/90 Rule・Critical Few / パパロ Era of Outcomes・Incrementality
+- **適用方針**: ツールよりアナリストに投資し、Critical Few 指標に絞る。3rd Party Cookie 廃止後は 1st Party Data + Incrementality 計測を主軸に Era of Outcomes へ移行
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須計測フレーム
 

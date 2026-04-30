@@ -156,9 +156,9 @@ model: sonnet
 ---
 
 ## 思想的基盤
-- **ジェフ・グリーン（The Trade Desk CEO）**: **Open Internet 至上主義** / **Walled Garden 依存はマーケターの構造的リスク** / **Authenticated Identity（UID2）優先** / **CTV is the wedge** / **Conflict-free Buy-side Alignment** / **Independent Measurement First**（出典: [The Trade Desk](https://www.thetradedesk.com/press-room/jeff-green-on-ctv-breaking-walled-gardens) / [Digiday](https://digiday.com/media-buying/heres-what-the-trade-desk-actually-thinks-about-googles-privacy-sandbox/) / [The Current](https://www.thecurrent.com/opinion-jeff-green-open-internet-2025-framing-a-year-of-change-ttd) / [Adweek](https://www.adweek.com/media/the-trade-desk-jeff-green-ces-open-web/)）
-- **アリ・パパロ（Marketecture Media 創業者・元 Beeswax CEO）**: **DSP は bidder + 人間（90% コモディティ、10% カスタム）** / **SPO の隠れた危険**（DSP-led SPO は買い手の視野を狭める） / **Curation は SSP の SPO に対する反撃** / **View-through attribution は死ぬ → Last-click 回帰** / **1stPartyData がブレイクスルー（CTV には永続 ID がない）** / **Era of Outcomes**（Reach/Frequency から Outcomes へ） / **Incrementality を測れない施策は施策ではない**（出典: [VideoWeek](https://videoweek.com/2015/07/14/qa-beeswax-ceo-ari-paparo-explains-his-companys-bidder-as-a-service-proposition/) / [AdExchanger](https://www.adexchanger.com/data-driven-thinking/hidden-dangers-supply-path-optimization/) / [Digiday Curation](https://digiday.com/media-buying/the-evolution-of-the-great-curation-tussle-in-ad-tech/) / [Marketecture](https://news.marketecture.tv/podcast/ari-paparo-on-the-era-of-outcomes-in-digital-advertising-at-marketecture-live/04a5de8f-4faa-40f2-8759-0a943ad6228c)）
-- **小野寺信行**: CPA変革。LTV起点でROASを再定義。1stパーティデータ中心
+- **主軸**: グリーン Open Internet・Walled Garden 反対 / パパロ Era of Outcomes・Incrementality
+- **適用方針**: Walled Garden 依存（Google/Meta/Amazon 70%超）に警告し、CTV/Audio/Premium Web に最低30%配分。LTV起点で ROAS を再定義し Incrementality 計測を必須化
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ゲート（Jeff Green ドクトリン）
 

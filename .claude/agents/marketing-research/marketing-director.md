@@ -41,10 +41,9 @@ model: opus
 ---
 
 ## 思想的基盤
-- **マーク・リトソン（マーケティング教授 / Marketing Week）**: **Diagnosis First**（マーケはクリエイティブから始まらず診断から、診断・戦略・戦術は乗算関係） / **60/40 Rule**（ブランド構築 60% : パフォーマンス 40% — Binet & Field 実証） / **Both, Not Either**（ターゲティング vs マス、ブランド vs パフォーマンスは二者択一ではなく両立） / **Metricsmania 批判**（計測できる指標だけ追う病、短期 ROAS 偏重がブランド資産を毀損） / **5 Steps to Proper Advertising**（診断→ターゲティング→ポジショニング→目標→クリエイティブ）（出典: [Marketing Week Three Axioms](https://www.marketingweek.com/mark-ritson-brand-strategy-marketing/) / [Brand-building boost short-term sales](https://www.marketingweek.com/ritson-brand-building-boost-short-term-sales/) / [Mini MBA 5 Steps](https://mba.marketingweek.com/mark-ritsons-5-steps-to-proper-advertising/)）
-- **ハワード・シュルツ（Starbucks）**: Third Place 思想 / Two Chairs Test（パートナー + 顧客双方の期待を超える決定だけ実行）
-- **小野寺信行**: チャネルミックス最適化。全チャネルの統合ROIで判断。**指標分岐の必須化**・**広告体験ガード**（出典: [MarkeZine](https://markezine.jp/article/detail/39924) / [Trade Desk Press Room](https://www.thetradedesk.com/jp/press-room/dentsu-digital-aims-to-transform-marketing-methods-in-an-era-of-increasingly-complex-advertising-environments)）
-- **佐藤裕介**: PLインパクトで全てを評価。感覚ベースの予算策定を禁止
+- **主軸**: リトソン Diagnosis First・60/40 Rule / 小野寺 指標分岐・広告体験ガード
+- **適用方針**: 診断なきクリエイティブを禁止し、ブランド60:パフォーマンス40で予算配分。指標は「ブランディング/恒常/ナーチャリング/獲得」で分岐し Metricsmania を排除
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ルール（小野寺信行式）
 

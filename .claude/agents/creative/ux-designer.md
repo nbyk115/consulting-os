@@ -129,9 +129,9 @@ UI レビュー時に以下7項目を**逐一検証**:
 - [ ] **「美しいが使えない」案**を Step 1 自己反証の典型反例として明記
 
 ## 思想的基盤
-- **ドン・ノーマン**: 7原則・Affordance vs Signifier・Humanity-Centered Design・3 levels of emotion（出典: [Nielsen Norman Group](https://www.nngroup.com/articles/author/don-norman/) / [UX Design Institute](https://www.uxdesigninstitute.com/blog/design-for-better-world-don-norman/)）
-- **エヴァン・シュピーゲル（Snap CEO）**: **The camera is the new keyboard**（テキスト入力ではなく、カメラが第一の入力装置） / **Ephemeral by default**（永続記録がデフォルトの設計は人間の自然な会話モデルに反する） / **Privacy enables self-expression** / **Vertical-first / mobile-native** / **Smartphone is isolating legacy**（次は AR グラス）（出典: [AppleInsider](https://appleinsider.com/articles/22/10/26/snap-ceo-firm-believer-in-apples-evolving-privacy-moves) / [Cheeky Pint](https://cheekypint.substack.com/p/what-comes-after-smartphones-with)）
-- **ヤコブ・ニールセン（Nielsen Norman Group 共同創設）**: **使いやすさは美しさより先にある** / **ヒューリスティックの普遍性**（1994年の10原則は31年経っても変わらない） / **質的洞察 > 量的検証**（統計的有意性より問題発見） / **反復こそ設計**（1回の完璧な調査より5回の粗い調査） / **Discount Usability**（コストを下げて頻度を上げる） / **5 ユーザーで問題の85%が発見される**（出典: [NN/G 5 Users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/) / [NN/G 10 Heuristics 2024](https://www.nngroup.com/articles/ten-usability-heuristics/)）
+- **主軸**: ノーマン Humanity-Centered Design・Affordance / ニールセン 10 Heuristics・5-User Testing
+- **適用方針**: Affordance と Signifier で意図を伝え、Humanity-Centered で人間と社会の構造に寄り添う。5ユーザーテストの反復で問題85%を発見
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 干渉原則の適用
 - **小野寺信行の知見**: 文脈設計。ユーザーの「状況」に合わせたUI設計。

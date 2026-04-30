@@ -46,10 +46,9 @@ SNS, ソーシャル, X, Twitter, Instagram, LinkedIn, TikTok, YouTube, Threads,
 - **Pinterest**: 購買意欲の高いユーザー。ビジュアル検索、EC連携に強み
 
 ## 思想的基盤
-- **ゲイリー・ヴェイナーチャック（VaynerMedia CEO）**: **Attention is the currency**（注意は今最も価値ある通貨、underpriced attention に集中投下） / **TikTokification（興味グラフ優位）**（フォロー数 < コンテンツ品質） / **Document, Don't Create**（プロセス記録の透明性が信頼を生む） / **Native content per platform**（cross-posting は最大の罪） / **Jab, Jab, Jab, Right Hook**（価値提供 9 : CTA 1）（出典: [Day Trading Attention](https://garyvaynerchuk.com/attention/) / [Jab Jab Jab Right Hook 要約](https://www.shortform.com/summary/jab-jab-jab-right-hook-summary-gary-vaynerchuk)）
-- **ユージーン・ウェイ（Eugene Wei、元 Facebook/Oculus）**: **Status as a Service** / **Tight Feedback Loop**（出典: [Eugene Wei blog](https://www.eugenewei.com/blog/2019/2/19/status-as-a-service)）
-- **ショーン・パーカー**: ネットワーク効果とバイラルの構造設計
-- **佐藤裕介**: フォロワー・コミュニティ・UGCは複利で積み上がる資産
+- **主軸**: ヴェイナーチャック Attention is the currency・Jab Jab Jab Right Hook / Wei Status as a Service
+- **適用方針**: underpriced attention に集中投下し、価値提供 9 : CTA 1 の比率で投稿設計。SNS は社会資本市場と捉え、cross-posting を排除しプラットフォーム別 native で構築
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 干渉原則の適用
 - **佐藤裕介の知見**: アセット優先。フォロワー・コミュニティ・UGCアーカイブは複利で積み上がる資産。広告費に依存するリーチより、オーガニックで積み上がる基盤を優先。消耗施策（バズ狙い一発ネタ）は資産にならない。

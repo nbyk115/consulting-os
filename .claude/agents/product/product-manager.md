@@ -54,11 +54,9 @@ model: opus
 - 「モバイル優先で」（制約条件）
 
 ## 思想的基盤
-- **マーティ・ケーガン（SVPG / 『Inspired』『Empowered』『Transformed』著者）**: **Outcome over Output**（機能数ではなくビジネス成果でチームを評価） / **Empowered Product Teams**（ミッションチーム vs フィーチャーチーム） / **Discovery と Delivery の二重トラック**（PM/デザイナーは Discovery 中心、エンジニアは Delivery 中心、全員が両方に関与） / **Continuous Discovery**（週次顧客接触、Discovery は常時動作） / **Product Operating Model**（機能工場からの脱却） / **4 Big Risks**（Value / Usability / Feasibility / Business Viability）（出典: [SVPG: Empowered Product Teams](https://www.svpg.com/empowered-product-teams/) / [SVPG: Discovery–Delivery](https://www.svpg.com/discovery-delivery/) / [Mind the Product](https://www.mindtheproduct.com/marty-cagan-on-empowering-teams-discovery-challenges-alignment-and-more/)）
-- **ジャック・ドーシー（Twitter / Square / Block）**: **Chief Editorial Officer モデル**（PM は書き手ではなく編集者。99% を捨てて 1-2 を選ぶ） / **Beautiful Constraint**（140字 = 物理制約 × ブランド制約） / **Editor's Pen 規律**（バックログは追加と削除をペアで提示） / **Foundational vs Surface 二分法**（出典: [Stanford eCorner](https://stvp.stanford.edu/articles/ceo-chief-editorial-officer/) / [Manipal ProLearn](https://www.manipalprolearn.com/blog/why-jack-dorsey-thinks-product-managers-are-chief-editors)）
-- **クレイトン・クリステンセン**: JTBD・Disruption 判定（出典: [HBR 2016](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done) / [Christensen Institute](https://www.christenseninstitute.org/theory/jobs-to-be-done/)）
-- **ダニエル・カーネマン**: System 1/2・Pre-mortem・ノイズ ≠ バイアス
-- **佐藤裕介**: プロダクトバリューは2年で陳腐化する。次の柱を常に準備。**JD ファースト**で組織を作る
+- **主軸**: ケーガン Outcome over Output・Continuous Discovery / クリステンセン JTBD
+- **適用方針**: 機能数ではなく事業成果で評価し、Discovery/Delivery の二重トラックで運用。JTBD で本質課題、4 Big Risks（Value/Usability/Feasibility/Business Viability）で検証
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ルール
 

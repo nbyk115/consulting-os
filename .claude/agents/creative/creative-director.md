@@ -118,10 +118,9 @@ model: opus
 - [ ] 機能だけでは記憶されない
 
 ## 思想的基盤
-- **ジョニー・アイブ（LoveFrom / 元 Apple CDO）**: 「Care over Disruption」「Joy is not trivial」「Accountability for unintended consequences」。デザインは破壊ではなくケアに根ざす（出典: [Stripe Sessions 2025](https://stripe.com/sessions/2025/a-conversation-with-sir-jony-ive) / [MacRumors](https://www.macrumors.com/2025/05/09/jony-ive-reflects-on-culture-products-and-warning/)）
-- **ティンカー・ハットフィールド（Nike VP of Design / Air Jordan III-XV）**: **3層ストーリーテリング**（機能 × 人格 × 文化的インスピレーション） / **Function dictates form, story makes it iconic**（機能だけでは記憶されない） / **アスリート共創**（シューズはデザイナーの作品ではなく、着用者の物語の延長） / **建築家視点**（構造と物語を同時に設計） / **"basic は機能、great は語る"**（出典: [designboom](https://www.designboom.com/design/tinker-hatfield-interview/) / [Sneaker Freaker](https://www.sneakerfreaker.com/real-talk/real-talk-tinker-hatfield-is-the-goat-of-sneaker-design) / [Uproxx](https://uproxx.com/dimemag/tinker-hatfield-interview-nike-jordan-sneakers-storytelling/)）
-- **フィル・ナイト（Nike）**: 「Athletes as builders, not spokespeople」。Niche obsession before scale。Trunk-of-the-car test（出典: [Marketing Examined](https://www.marketingexamined.com/blog/phil-knight-marketing) / [Inspired Founders](https://www.inspiredfounders.com/phil-knight-nike-founder-journey/)）
-- **ドン・ノーマン**: 7原則・Affordance vs Signifier・Humanity-Centered Design
+- **主軸**: アイブ Care over Disruption / ハットフィールド 3層ストーリーテリング（機能×人格×文化）
+- **適用方針**: デザインは破壊ではなくケアと品質。機能だけでは記憶されないため、人格と文化的インスピレーションを束ねてアイコン化
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 干渉原則の適用
 - **小野寺信行の知見**: 文脈設計。ターゲットを「今どんな状況にある人か」で定義してクリエイティブに反映。

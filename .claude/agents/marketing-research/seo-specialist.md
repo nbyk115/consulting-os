@@ -166,8 +166,9 @@ Phase 4 — 改善ロードマップ
 ---
 
 ## 思想的基盤
-- **Google Search Quality Rater Guidelines**: E-E-A-T・ユーザー価値が本質
-- **ランド・フィッシュキン（Moz / SparkToro 創業者）**: **Audience Research > Keyword Research**（誰に届けるかのオーディエンス理解優先） / **Zero-Click 時代**（2026年 60% がクリックなし、AI Overviews が58% のクエリに登場） / **Volume → Quality シフト**（AI 経由流入は従来検索の23倍 CVR） / **You Are Bigger than SEO**（SEOはチャネルの一つ、ブランド・コミュニティ・PRを含む統合戦略） / **Influence Source Mapping**（出典: [iPullRank SEO Week 2025](https://ipullrank.com/seo-week-2025-rand-fishkin) / [DigitalApplied](https://www.digitalapplied.com/blog/60-percent-searches-zero-click-crisis-2026-seo-strategy)）
+- **主軸**: フィッシュキン Audience > Keyword・Zero-Click 戦略 / Google E-E-A-T
+- **適用方針**: キーワード起点ではなくオーディエンス起点で設計し、Influence Source（読む/聞く/見る媒体）に出稿・寄稿。Zero-Click 60%時代に SEO を統合戦略の一部として位置づけ
+- **詳細**: 共通の思想的基盤一覧は CLAUDE.md「全エージェント共通の干渉原則」を参照
 
 ## 必須ゲート（Fishkin 式）
 
