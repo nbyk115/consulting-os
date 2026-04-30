@@ -2,8 +2,7 @@
 
 ## システム概要
 **コンサル・サービス開発・プロダクト・クリエイティブ・グローバル・マーケティング特化の6本柱マルチエージェントOS**
-34名のエージェントが連携し、提案から実装・コンテンツ・海外展開・マーケティングまでを一気通貫で担う。
-**自己進化機能搭載**: エージェントが自らの成果を評価し、スキルファイルをA/Bテストで自動改善する。
+30名のエージェントが連携し、提案から実装・コンテンツ・海外展開・マーケティングまでを一気通貫で担う。
 
 ---
 
@@ -13,7 +12,9 @@
 複数部門にまたがる場合は、連携フローに従って順次起動する。
 
 ### 🔴 Consulting（コンサルティング）
-**トリガー**: 戦略, 提案, 分析, KPI, 競合, 事業, 商談, リード, 予測, レポート, 計画, PL, 粗利, 市場, SWOT, ポジショニング, AI導入, 顧客フォロー, LTV, チャーン, 法務, コンプライアンス, 契約
+**トリガー**: 戦略, 提案, 分析, KPI, 競合, 事業, 商談, リード, 予測, レポート, 計画, PL, 粗利, 市場, SWOT, ポジショニング, 顧客フォロー, LTV, チャーン, 法務, コンプライアンス, 契約
+
+> **AI 関連案件**は `strategy-lead`（戦略・ROI 試算）+ `ai-engineer`（実装）のペアで起動。専任エージェントは廃止（2026年AI前提化により陳腐化）。
 
 | エージェント | ファイル | 起動条件 |
 |---|---|---|
@@ -22,7 +23,6 @@
 | proposal-writer | `.claude/agents/consulting/proposal-writer.md` | 提案書・ピッチデック・クライアント資料 |
 | lead-qualifier | `.claude/agents/consulting/lead-qualifier.md` | 案件評価・ヒアリング設計・クロージング |
 | kpi-analytics | `.claude/agents/consulting/kpi-analytics.md` | KPIツリー・ダッシュボード・予測モデル |
-| ai-consultant | `.claude/agents/consulting/ai-consultant.md` | AI導入戦略・ROI試算・業務適用設計 |
 | client-success | `.claude/agents/consulting/client-success.md` | 顧客成功・LTV最大化・リテンション |
 | legal-compliance-checker | `.claude/agents/consulting/legal-compliance-checker.md` | 法務・コンプラ・契約チェック |
 
@@ -59,11 +59,9 @@
 | creative-director | `.claude/agents/creative/creative-director.md` 🎨 | 方針策定・ブリーフ・デザインレビュー |
 | ux-designer | `.claude/agents/creative/ux-designer.md` 🎨 | UXフロー・Figma仕様・LP設計 |
 | frontend-dev | `.claude/agents/creative/frontend-dev.md` 🎨 | Figma→HTML・コンポーネント生成 |
-| content-strategist | `.claude/agents/creative/content-strategist.md` | ブログ・LP・SNS・ホワイトペーパー |
-| campaign-planner | `.claude/agents/creative/campaign-planner.md` | 施策設計・コンテンツカレンダー・KPI |
-| brand-guardian | `.claude/agents/creative/brand-guardian.md` | トーン統一・ガイドライン・品質チェック |
-| agentic-content | `.claude/agents/creative/agentic-content.md` | AIO/GEO対策・AIに選ばれる/推薦されるコンテンツ設計・AI Shopping対応 |
-| growth-hacker | `.claude/agents/creative/growth-hacker.md` | グロースハック・A/Bテスト・ファネル最適化 |
+| content-strategist | `.claude/agents/creative/content-strategist.md` | ブログ・LP・SNS・ホワイトペーパー・AIO/GEO（旧agentic-content機能を吸収） |
+| brand-guardian | `.claude/agents/creative/brand-guardian.md` | トーン統一・日本語字形・反証ゲート（機械的品質検証） |
+| growth-hacker | `.claude/agents/creative/growth-hacker.md` | グロースハック・A/Bテスト・ファネル最適化・施策カレンダー（旧campaign-planner機能を吸収） |
 
 ### 🔵 Global（グローバル）
 **トリガー**: 海外, グローバル, 国際, 翻訳, ローカライズ, GTM, 市場参入, 海外展開, 越境, クロスボーダー, 海外ニュース, 海外事例, 規制動向, 多言語, i18n
@@ -73,10 +71,9 @@
 
 | エージェント | ファイル | 起動条件 |
 |---|---|---|
-| gtm-consultant | `.claude/agents/global/gtm-consultant.md` | Go-to-Market戦略・海外市場参入・ローカライズ戦略 |
-| global-journalist | `.claude/agents/global/global-journalist.md` | 海外ニュース分析・メディアリサーチ・国際情勢構造化 |
-| global-business | `.claude/agents/global/global-business.md` | 海外事業運営・クロスボーダー取引・国際パートナーシップ |
-| business-translator | `.claude/agents/global/business-translator.md` | 多言語翻訳・ローカライゼーション・トランスクリエーション |
+| gtm-consultant | `.claude/agents/global/gtm-consultant.md` | Go-to-Market戦略・海外市場参入・ローカライズ・現地オペレーション（旧global-business機能を吸収） |
+| global-journalist | `.claude/agents/global/global-journalist.md` | 海外ニュース分析・CAGE距離一次情報・メディアリサーチ |
+| business-translator | `.claude/agents/global/business-translator.md` | トランスクリエーション特化・文化適合・ブランド整合レビュー（単純翻訳はMCP委譲） |
 
 ### 🟡 Marketing & Research（マーケティング&リサーチ）
 **トリガー**: 広告, SEM, PPC, SEO, テクニカルSEO, Search Console, Google Ads, toprank, キーワードリサーチ, SNS広告, ソーシャル広告, メディアバイイング, ROAS, アトリビューション, GA4, CDP, CRM, MA, マーケティングオートメーション, ナーチャリング, メールマーケ, インフルエンサー, PR, プレスリリース, メディアリレーション, 広報, 危機管理, 消費者調査, 市場調査, セグメンテーション, ペルソナ, 価格調査, コンジョイント, ブランドトラッキング, チャネルミックス, マーテク, リターゲティング, Cookie廃止
@@ -101,8 +98,7 @@
 
 | ファイル | パス | 用途 |
 |---|---|---|
-| consulting-playbook | `.claude/skills/consulting-playbook.md` | 提案・戦略・商談の標準手法（小野寺×佐藤統合） |
-| digital-sales-intelligence | `.claude/skills/digital-sales-intelligence.md` | CPC/CPA変革・コンテクスチュアル・グローバルAM |
+| consulting-playbook | `.claude/skills/consulting-playbook.md` | 提案・戦略・商談の標準手法（小野寺×佐藤統合・旧digital-sales-intelligence吸収） |
 | revenue-growth-framework | `.claude/skills/revenue-growth-framework.md` | PL思考・プロダクトバリュー変革・複利成長 |
 | engineering-playbook | `.claude/skills/engineering-playbook.md` | 開発プロセス・技術標準・Claude Code活用 |
 | creative-playbook | `.claude/skills/creative-playbook.md` | デザイン・コンテンツ・Figma MCP |
@@ -120,10 +116,8 @@
 | cybersecurity-playbook | `.claude/skills/cybersecurity-playbook.md` | OWASP Top 10・シークレット管理・認証認可・AI固有セキュリティ |
 | marketing-research-playbook | `.claude/skills/marketing-research-playbook.md` | マーケティング戦略・チャネル選定・データ分析・リサーチ・PR |
 | global-expansion-playbook | `.claude/skills/global-expansion-playbook.md` | グローバル展開・市場評価・ローカライズ・現地オペレーション |
-| claude-subconscious | `.claude/skills/claude-subconscious.md` | セッション間メモリ・コンテキスト蓄積・ファイルベースメモリ |
-| agent-evaluation | `.claude/skills/agent-evaluation.md` | 自己評価・フィードバックループ・自動改善・品質スコアリング |
+| agent-evaluation | `.claude/skills/agent-evaluation.md` | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 | falsification-check | `.claude/skills/falsification-check.md` | 反証モード実行・ハルシネーション検証・3ラベル分類・出力前チェック |
-| skill-evolution | `.claude/skills/skill-evolution.md` | スキルA/Bテスト・バージョン管理・自動採用・ロールバック |
 | video-use | `.claude/skills/video-use` (external) | 動画編集自動化・字幕・色補正・アニメーション挿入 |
 | hyperframes | external (`npx skills add heygen-com/hyperframes`) | HTML→MP4 動画生成（VSL・SNS縦動画・モーショングラフィックス）。要望時に導入 |
 | toprank | external ([nowork-studio/toprank](https://github.com/nowork-studio/toprank)) | Search Console + Google Ads + テクニカルSEO監査を Claude Code 内で完結。**自社サイト分析のみ**。要望時に導入 |
@@ -134,7 +128,7 @@
 - **SKILL.md は 500 行以下を目標**: 超えたら `<skill-name>/SKILL.md` + `<skill-name>/references/<topic>.md` に分離（制約・品質基準・テンプレ・具体例を参照ファイルへ）
 - **分割タイミング**: 「**問題が顕在化したスキルだけ分割**」。先回り分割は禁止（外科的変更原則）
 - **必須6要素**（Khairallah）: 役割 / 文脈 / 制約 / 形式 / 品質基準 / 具体例 — 既存 CLAUDE.md・反証モード・各エージェント禁止事項で部分カバー済みのため、スキルでは不足分のみ書く
-- **現状監視対象**: claude-code-ops（799行）/ creative-playbook（572行）/ cybersecurity-playbook（516行）— 精度低下を感じたら `references/` 分離
+- **現状監視対象**: claude-code-ops（838行・規律違反・**次回分離対象**）/ creative-playbook（572行）/ cybersecurity-playbook（516行）— 精度低下を感じたら `references/` 分離
 
 ---
 
@@ -142,15 +136,12 @@
 
 | コマンド | パス | 用途 |
 |---|---|---|
-| /refactor-clean | `.claude/commands/refactor-clean.md` | デッドコード除去・console.log削除・不要ファイル検出 |
 | /tdd | `.claude/commands/tdd.md` | テスト駆動開発サイクル（Red→Green→Refactor） |
-| /codemap | `.claude/commands/codemap.md` | コードマップ自動生成・更新 |
 | /security-scan | `.claude/commands/security-scan.md` | セキュリティスキャン（OWASP・シークレット・CVE） |
 | /review-pr | `.claude/commands/review-pr.md` | PR自動レビュー（5軸評価） |
 | /check-hallucination | `.claude/commands/check-hallucination.md` | ハルシネーション反証（クレーム抽出→3ラベル分類→修正提案） |
 | /analyze | `.claude/commands/analyze.md` | 第一原理分解クイック版 |
 | /review-agent-essence | `.claude/commands/review-agent-essence.md` | エージェント本質レビュー（設計の矛盾・形骸化・過剰を検出） |
-| /evolve | `.claude/commands/evolve.md` | スキル進化サイクル実行（診断→原因分析→改善→記録） |
 
 ---
 
@@ -222,7 +213,7 @@
 ### 🔪 外科的変更（Surgical Change Principle）
 - **依頼の範囲を超えない** / 隣接物を勝手に直さない / 削除判断は保守的に / 形式の尊重 / 差分を最小化（1タスク1目的） / 探索と改変を分ける
 - **違反検知**: diff/変更量が依頼の10倍以上 → 停止して報告 / 「ついでに」「せっかくなので」が出たら即中断 / 変更理由を1行で説明できない編集は巻き戻す
-- **フレームワーク = 明確に書かれた規律**。34エージェント・22スキル ≠ 良いフレームワーク。**書かれた規律を全員が実行できて初めてフレームワーク**
+- **フレームワーク = 明確に書かれた規律**。30エージェント・19スキル ≠ 良いフレームワーク。**書かれた規律を全員が実行できて初めてフレームワーク**
 
 ### 🔗 反証モード連動（全変更に必須）
 1. **変数/定数の削除**: 全参照箇所を grep で列挙してから削除（参照が1つでも残ってたら削除禁止）
@@ -235,7 +226,7 @@
 
 ## 🔺 反証モード — 全エージェント・全スキル必須（トリプルチェック）
 
-> **全アウトプットは反証モードのトリプルチェックを通過しなければ最終出力としない。** 全34エージェント / 全22スキル / 例外なし。
+> **全アウトプットは反証モードのトリプルチェックを通過しなければ最終出力としない。** 全30エージェント / 全19スキル / 例外なし。
 
 3ステップ:
 - **Step 1 自己反証**: 反論3つ / 確証バイアスチェック
@@ -255,19 +246,11 @@
 
 ---
 
-## 🔄 自己進化システム
+## 🔄 自己評価（軽量版）
 
-3本柱:
-- **自己評価**: `.claude/skills/agent-evaluation.md`（25点満点 × 5項目）
-- **A/Bテスト**: `.claude/skills/skill-evolution.md`（1テスト=1変数、5回比較）
-- **進化実行**: `/evolve` コマンド（診断→原因分析→改善→記録）
-
-### 進化ログ運用ルール（形骸化防止）
-- **書くタイミング**: スキル/エージェント変更時 / 新ツール採用却下時 / 判断パターン定着時（3案件以上）/ 反証で致命的問題発見時
-- **書く責任者**: 変更実行者本人（連携時は起点）
-- **必須項目**: 日付 / 変更内容 / 根拠 / 期待効果 / 反証結果
-- **形式**: `evolution-log.md` + `evolution-log.jsonl` 両方
-- **週次レビュー**: `strategy-lead` が週末点検、Level 3（構造変更）は要承認
+- **チェックリスト**: `.claude/skills/agent-evaluation.md`（変更時セルフレビュー）
+- **進化ログ**: `evolution-log.md` に必要時のみ追記（変更内容 / 根拠 / 反証結果）。**4週間更新ゼロなら archive**
+- **A/Bテスト・スキル進化システムは廃止**（5ヶ月稼働ゼロで形骸化、2026-04-30）
 
 ### コスト最適化（Advisor Strategy）
 Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳細は `.claude/skills/claude-code-ops.md`「Advisor Strategy」参照**。
@@ -279,7 +262,7 @@ Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳
 ### コンテキスト管理（最重要）
 - **MCPは全てデフォルト無効**、有効化は最大5〜6個、`alwaysLoad` は2-3個まで（GitHub・Figma 等 daily-use のみ）
 - **CLIで代替できるならMCP不要**（`gh` / `curl` で十分なら導入しない）
-- **長セッションでは `/compact`** / **重要決定は `/btw` でメモ化** / **コードマップ `/codemap` 活用**
+- **長セッションでは `/compact`** / **重要決定は `/btw` でメモ化**
 
 ### 4つの自動化軸の使い分け
 | 軸 | トリガー | 用途 |
