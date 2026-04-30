@@ -259,6 +259,15 @@ Opus をアドバイザー、Sonnet/Haiku を実行役にペアリング。**詳
 
 ## Claude Code 運用鉄則（核心のみ）
 
+### バージョン情報（2026-04-30 時点）
+**Claude Code v2.1.122** リリース（2026-04-29）— 安全性とワークフロー両面で進化:
+- **危険操作の事前確認機能**: rm -rf / git push --force / DB drop 等の操作前にネイティブ確認プロンプト → settings.json `permissions.deny` と二重防御
+- **Bedrock tier 選択**: `default / flex / priority` 切替可能（コスト vs SLA トレードオフ）。`AWS_BEDROCK_TIER=flex` 等で指定。Advisor Strategy（Opus アドバイザー + Sonnet/Haiku 実行）と組み合わせ最適
+- **PR URL セッション復帰**: GitHub PR URL を貼るだけでセッション再開・前回コンテキスト自動復元 → 長期 PR レビューに有効
+- **CLI 変更 18件 / システムプロンプト変更 2件** — 詳細は `claude --version` 後に release notes 確認
+
+> 採用判断: 危険操作確認は**自動採用**（Layer 1 settings.deny を補完）。Bedrock tier は実需発生時。PR URL 復帰は GitHub MCP との併用で標準化。
+
 ### コンテキスト管理（最重要）
 - **MCPは全てデフォルト無効**、有効化は最大5〜6個、`alwaysLoad` は2-3個まで（GitHub・Figma 等 daily-use のみ）
 - **CLIで代替できるならMCP不要**（`gh` / `curl` で十分なら導入しない）

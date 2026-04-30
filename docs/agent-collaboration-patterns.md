@@ -26,9 +26,9 @@ service-dev/tech-lead → service-dev/fullstack-dev → creative/frontend-dev
 
 ## パターン4: コンテンツマーケティング戦略を立てたい
 ```
-consulting/kpi-analytics → creative/content-strategist → creative/agentic-content
-     （KPI設計）                （コンテンツ戦略）            （AIO最適化）
-📘 digital-sales-intelligence → creative-playbook → prompt-engineering
+consulting/kpi-analytics → creative/content-strategist → marketing-research/seo-specialist
+     （KPI設計）                （コンテンツ戦略・AIO/GEO吸収）  （SEO最適化）
+📘 consulting-playbook → creative-playbook → prompt-engineering
 ```
 
 ## パターン5: 新規事業の参入判断をしたい
@@ -40,10 +40,11 @@ consulting/competitive-analyst → consulting/strategy-lead → consulting/kpi-a
 
 ## パターン6: AI導入コンサルを提案したい
 ```
-consulting/ai-consultant → service-dev/ai-engineer → consulting/proposal-writer
-     （導入戦略・ROI）         （技術検証）              （提案書化）
+consulting/strategy-lead → service-dev/ai-engineer → consulting/proposal-writer
+   （導入戦略・ROI・PL試算）   （技術検証・PoC）         （提案書化）
 📘 prompt-engineering → engineering-playbook → consulting-playbook
 ```
+> 旧 ai-consultant は2026年AI前提化により廃止。strategy-lead が戦略・ROI、ai-engineer が技術検証を担う。
 
 ## パターン7: SaaSの解約率を下げたい
 ```
@@ -98,16 +99,16 @@ global/business-translator → creative/brand-guardian → creative/content-stra
 
 ## パターン15: 海外拠点を設立したい
 ```
-global/global-business → consulting/legal-compliance-checker → consulting/kpi-analytics
-     （オペレーション設計）        （現地法規制チェック）            （コスト試算）
-📘 revenue-growth-framework → consulting-playbook
+global/gtm-consultant → consulting/legal-compliance-checker → consulting/kpi-analytics
+   （Post-Entry節: 現地運営・パートナー）  （現地法規制チェック）       （コスト試算）
+📘 global-expansion-playbook → revenue-growth-framework → consulting-playbook
 ```
 
 ## パターン16: 広告ROAS改善・チャネルミックス最適化
 ```
 marketing-research/marketing-director → marketing-research/performance-marketer → marketing-research/marketing-analyst
           （全体戦略・予算配分）              （広告運用最適化）                    （アトリビューション分析）
-📘 digital-sales-intelligence → revenue-growth-framework → marketing-research-playbook
+📘 consulting-playbook → revenue-growth-framework → marketing-research-playbook
 ```
 
 ## パターン17: リード獲得→ナーチャリング→商談化パイプライン構築
