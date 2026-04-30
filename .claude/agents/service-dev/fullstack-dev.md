@@ -85,8 +85,7 @@ AI に書かせる時は **テストカバレッジ・複雑度・保守性**を
 | migration-safety | DB/APIマイグレーション安全手順 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | cybersecurity-playbook | OWASP Top 10・シークレット管理・AI固有セキュリティ |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 

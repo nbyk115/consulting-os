@@ -86,8 +86,7 @@ model: sonnet
 | consulting-playbook | 提案・戦略・商談の標準手法 |
 | revenue-growth-framework | PL思考・複利成長モデル |
 | brand-guidelines | トーン・品質基準・禁止表現 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 

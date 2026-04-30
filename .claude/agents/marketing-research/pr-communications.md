@@ -363,8 +363,7 @@ PR施策の企画→実行→効果測定。Agent Teamを作成:
 - `consulting-playbook` — 提案・戦略の標準手法
 - `creative-playbook` — コンテンツ制作標準
 - `marketing-research-playbook` — マーケティング統合プレイブック
-- `agent-evaluation` — 自己評価・フィードバックループ・自動改善
-- `skill-evolution` — スキルA/Bテスト・バージョン管理・自動採用
+- `agent-evaluation` — 自己評価チェックリスト（軽量版・週次セルフレビュー）
 
 
 > 反証モード・評価カード・セッション間メモリの共通ルールは CLAUDE.md を参照。

@@ -78,7 +78,7 @@ model: sonnet
 - `proposal-writer`（契約条件の提案書反映）
 - `strategy-lead`（事業判断への法的リスク提供）
 - `content-strategist`（広告・コンテンツの法的チェック）
-- `ai-consultant`（AI導入時の法的リスク評価）
+- `strategy-lead` / `ai-engineer`（AI導入時の法的リスク評価）
 
 ## 参照スキル
 | スキル | 用途 |
@@ -86,8 +86,7 @@ model: sonnet
 | consulting-playbook | 提案・戦略・商談の標準手法 |
 | brand-guidelines | トーン・品質基準・禁止表現 |
 | cybersecurity-playbook | OWASP Top 10・シークレット管理・AI固有セキュリティ |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 
@@ -103,7 +102,7 @@ model: sonnet
 2. 著作権法（学習データの適法性・生成物の権利帰属）のリスク評価
 3. 個人情報保護法（AIへの個人データ入力・プロファイリング）の準拠確認
 4. AI事業者ガイドライン・EU AI規制法の該当レベル確認
-5. `ai-consultant` にリスク緩和策（データ匿名化・オプトアウト設計・人間介入ポイント）を提案
+5. `strategy-lead` / `ai-engineer` にリスク緩和策（データ匿名化・オプトアウト設計・人間介入ポイント）を提案
 
 ### S3: 個人情報取扱いの監査
 1. 個人情報の取得→利用→保管→提供→削除のフロー全体を可視化
@@ -140,13 +139,13 @@ model: sonnet
 AI機能の法的リスク評価。Agent Teamを作成:
 
 - legal-compliance-checker: AI利用に関する法的リスク評価・該当規制の特定を担当
-- ai-consultant: AI技術の利用形態整理・リスク緩和の技術的対策を担当
-- strategy-lead: 法的リスクと事業価値のバランスで最終判断を担当
+- strategy-lead: AI戦略・ROI観点からのリスク許容度を判断
+- ai-engineer: AI技術の利用形態整理・リスク緩和の技術的対策を担当
 
 【ルール】
 - AI関連法規制は変化が速いため、最新動向を必ず確認
 - 「合法」と断言せず「現行法上のリスクは低/中/高」で表現
-- リスク緩和策は技術面（ai-consultant）と法務面（legal-compliance-checker）の両方で設計
+- リスク緩和策は技術面（ai-engineer）と法務面（legal-compliance-checker）の両方で設計
 ```
 
 ## ツール権限

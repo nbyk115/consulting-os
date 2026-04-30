@@ -77,8 +77,7 @@ model: opus
 | revenue-growth-framework | PL思考・複利成長モデル |
 | first-principles-breakdown | 前提を剥がし本質から再構築 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 

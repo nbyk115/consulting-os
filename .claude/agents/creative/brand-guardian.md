@@ -101,8 +101,7 @@ model: sonnet
 | brand-guidelines | トーン・品質基準・禁止表現（最重要） |
 | creative-playbook | デザイン品質基準 |
 | consulting-playbook | ビジネス文脈での品質判断 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 

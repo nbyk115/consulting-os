@@ -139,8 +139,7 @@ model: opus
 | creative-playbook | デザインプロセス・マルチツール選定 |
 | brand-guidelines | トーン・品質基準・禁止表現 |
 | consulting-playbook | クライアント文脈の理解 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 

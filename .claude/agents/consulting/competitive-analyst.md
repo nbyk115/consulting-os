@@ -99,11 +99,9 @@ model: sonnet
 | スキル | 用途 |
 |---|---|
 | consulting-playbook | 提案・戦略・商談の標準手法 |
-| digital-sales-intelligence | CPC/CPA変革・コンテクスチュアル分析 |
 | first-principles-breakdown | 前提を剥がし本質から再構築 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 
@@ -125,7 +123,7 @@ model: sonnet
 ### S3: 価格競争への対応
 1. ポーターの判断分岐: まず「差別化で戦うか、コストリーダーシップで戦うか、セグメント特化するか」を決定
 2. 競合の価格構造・原価構造を推定
-2. `digital-sales-intelligence` で顧客の価格感度・スイッチングコストを分析
+2. `consulting-playbook` で顧客の価格感度・スイッチングコストを分析
 3. 価格以外の差別化要素（サービス品質・ブランド・スイッチングコスト）を洗い出し
 4. `kpi-analytics` に値下げ時のPLシミュレーションを依頼
 5. 「価格で戦う/価値で戦う/セグメント分け」の判断を提示

@@ -137,8 +137,7 @@ Discovery で**先に**潰すべき4リスク:
 | first-principles-breakdown | 課題の本質分解・PMF検証 |
 | prompt-engineering | AI機能のプロダクト判断時に参照 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 
@@ -161,7 +160,7 @@ Discovery で**先に**潰すべき4リスク:
 1. `consulting-playbook` で市場セグメントを定義
 2. `competitive-analyst` に競合ポジショニングを確認
 3. ローンチ計画: β→限定公開→一般公開の3段階
-4. `campaign-planner` にローンチキャンペーンを依頼
+4. `growth-hacker` にローンチキャンペーンを依頼
 
 ### S4: 解約率悪化への対応
 1. `feedback-synthesizer` に解約者VOCを緊急分析依頼

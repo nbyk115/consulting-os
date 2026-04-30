@@ -110,7 +110,6 @@ GTM 設計時に4タイプのどれを構築するか宣言:
 - `strategy-lead`（事業戦略との整合）
 - `competitive-analyst`（海外競合の調査）
 - `business-translator`（ローカライズ実行）
-- `global-business`（現地オペレーション設計）
 - `legal-compliance-checker`（海外法規制チェック）
 
 ## 参照スキル
@@ -119,10 +118,9 @@ GTM 設計時に4タイプのどれを構築するか宣言:
 | consulting-playbook | GTM提案の標準手法 |
 | revenue-growth-framework | PL思考・市場構造分析 |
 | first-principles-breakdown | 参入障壁の本質分解 |
-| digital-sales-intelligence | グローバル広告・デジタルチャネル |
+| global-expansion-playbook | 海外展開・ローカライズ・現地オペレーション |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 
@@ -176,7 +174,7 @@ GTM 設計時に4タイプのどれを構築するか宣言:
 - PLシミュレーションなき参入推奨
 - ローカライズ = 翻訳だけという認識
 
-## Post-Entry Operations（旧 global-business 吸収・2026-04-30）
+## Post-Entry Operations（現地運営機能を吸収・2026-04-30）
 参入後の現地運営・クロスボーダー取引・国際パートナーシップも本エージェントが担当。
 
 ### S5: 現地運営設計

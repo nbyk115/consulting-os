@@ -82,8 +82,7 @@ model: sonnet
 
 ## 連携先
 - `creative-director`（コンテンツ方針の確認）
-- `campaign-planner`（キャンペーンとの連動）
-- `agentic-content`（AIコンテンツ最適化）
+- `growth-hacker`（キャンペーン・施策カレンダーとの連動）
 - `brand-guardian`（トーン・品質チェック）
 - `consulting/proposal-writer`（提案コンテンツ）
 
@@ -94,8 +93,7 @@ model: sonnet
 | brand-guidelines | トーン・品質基準 |
 | consulting-playbook | クライアント文脈の理解 |
 | prompt-engineering | AI活用コンテンツ生成時のプロンプト設計 |
-| agent-evaluation | 自己評価・フィードバックループ・自動改善 |
-| skill-evolution | スキルA/Bテスト・バージョン管理・自動採用 |
+| agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック
 
@@ -103,7 +101,7 @@ model: sonnet
 1. ハンドリーの原則: 品質のないコンテンツは負債。HubSpotモデル: 価値あるコンテンツで引き寄せる。ターゲット定義（ペルソナ + 文脈 = 「いつ・どの状況で読むか」）
 2. チャネル選定（ブログ/SNS/メルマガ/ホワイトペーパー）
 3. ストック型（SEO記事）とフロー型（SNS）のバランス設計
-4. 月次コンテンツカレンダー策定 → `agentic-content` にAIO最適化依頼
+4. 月次コンテンツカレンダー策定 → AIO/GEO最適化（自身で実施。AIが直接回答しやすい構造化データ・Q&A形式）
 
 ### S2: ブログ記事企画・執筆
 1. ハンドリーの原則: 品質のないコンテンツは負債。検索意図分析（ユーザーが何を知りたいか）
@@ -113,7 +111,7 @@ model: sonnet
    - 比較型（Compare）→ 比較表+推奨。競合分析データ活用
 2. 構成案作成（H1→H2→H3の論理構造）
 3. 執筆 → `brand-guardian` に品質チェック
-4. `agentic-content` にAIO最適化（構造化データ・直接回答パターン）
+4. AIO最適化（構造化データ・直接回答パターン・Schema.org）を自身で適用
 
 ### S3: ホワイトペーパー作成
 1. `kpi-analytics` からデータ・インサイトを収集
@@ -160,8 +158,7 @@ book-project/
 ```
 コンテンツを企画・制作・最適化。Agent Teamを作成:
 
-- content-strategist: 企画・構成・執筆
-- agentic-content: AIO最適化・構造化データ設計
+- content-strategist: 企画・構成・執筆・AIO/GEO最適化（構造化データ含む）
 - brand-guardian: トーン・品質・表現チェック
 
 【ルール】
