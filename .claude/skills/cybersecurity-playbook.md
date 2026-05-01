@@ -428,13 +428,18 @@ npm install --auditlevel=high
 
 ---
 
-## 9.5 Claude Code 多層防御（Multi-Layer Defense）
+## 9.5 Claude Code 多層防御（Multi-Layer Defense — 3層）
 
-> **Claude Code 環境では、モデルの「善意の判断ミス」が直接的なシステム操作につながる。** 単一層の制約では Opus 4.7+ 級モデルが「ユーザーの意図を汲んで」ルールを柔軟解釈するリスクがある。2層で防御する。
+> **「信頼」ではなく「制御」で固める。** モデル判断 → 技術ブロック → Git 物理ブロックの3層で防御。Layer 1+2 は Claude Code 経由のみ守る → 人間が手動 `git add` した瞬間にすり抜ける。Layer 0 で Git レベル物理ブロック。
 
 ### 防御アーキテクチャ
 
 ```
+Layer 0: Git pre-commit/pre-push hook（最終物理ブロック）
+├─ Gitleaks で全 commit/push を機械検査
+├─ Claude Code 経由でも手動 git add でも同じく阻止
+└─ 新リポジトリ作成時に初日タスク化
+
 Layer 1: CLAUDE.md（意図レベル）
 ├─ 自然言語で禁止事項を明示
 ├─ モデルの「判断」に依存する層
@@ -445,8 +450,13 @@ Layer 2: settings.json（技術レベル）
 ├─ モデルの判断に関係なく実行を阻止
 └─ リスク: deny リストに無いパターンはすり抜ける
 
-両方を組み合わせ → モデルの判断ミスを技術的にキャッチ
+3層を組み合わせ → モデル判断ミス + 手動コミットすり抜けを物理的にキャッチ
 ```
+
+### Layer 0: Git pre-commit/pre-push hook（最終物理ブロック）
+- **Gitleaks 必須導入**（[gitleaks/gitleaks](https://github.com/gitleaks/gitleaks)、24M+ docker pulls / MIT / 無料）
+- 全 ConsultingOS プロジェクト + クライアント案件リポジトリで pre-commit hook 必須
+- 設定: `brew install gitleaks` + `.git/hooks/pre-commit` or `pre-commit` framework / GitHub Actions の `gitleaks-action`
 
 ### Layer 1: CLAUDE.md に記載すべきルール（意図レベル）
 

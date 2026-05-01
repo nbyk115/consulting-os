@@ -306,6 +306,23 @@ market-researcherのシナリオでその場しのぎで作るのではなく、
 
 ---
 
+## 小野寺信行（電通デジタル / DII Connect）の追加フレーム
+- **3Sフレーム（動画広告 × ファネル）**: Show（認知）/ Story（自分ゴト化）/ Sale（next action）の3段階で、それぞれ専用 KPI（再生数・好意度・CVR）。混在計測禁止
+- **広告体験ガード**: ROAS 効率最大化が UX を毀損していないか必ず検証。「数値目標が優先されるあまりユーザーの広告体験が配慮されていない」状態を反証
+- **ナーチャリングのオムニチャネル原則**: オウンドメディア・店頭パンフ・メルマガ・他デジタル施策をシナリオで統合。デジタル単体最適は局所解
+- **代理店は R&D 機関**: 「運用屋」ではなく「プラットフォーム研究機関」へ。グローバル協業前提（出典: [MarkeZine](https://markezine.jp/article/detail/39924) / [Trade Desk Press Room](https://www.thetradedesk.com/jp/press-room/dentsu-digital-aims-to-transform-marketing-methods-in-an-era-of-increasingly-complex-advertising-environments)）
+
+## 佐藤裕介（フリークアウト/STORES）の追加フレーム
+- **3変数交点**: 技術 × ユーザー × 市場構造の3変化が重なる地点だけが勝つ。1つでも欠けると「良いプロダクトだが負ける」になる
+- **コンセンサス疑念**: 「みんなが良いという施策」は反射的に疑う。コンセンサスの根拠を3レベル分解する
+- **タイミング設計**: 市場名を出すときは必ず（黎明期 / 拡大期 / 成熟期）のラベルと根拠を付記
+- **アセット帰属診断**: 「使い込むほど顧客資産が事業者側に残る」モデルを優先。フィー継続型のみは中間業者に価値が漏れるため警告
+- **5年蓄積前提の業界精通**: 速読・要約では到達できない。5年スパンの一次情報蓄積が業界精通の唯一の道
+- **JDで組織を作る**: ヒーロー依存より職務定義の精度（出典: [STARTUP DB](https://journal.startup-db.com/articles/hey) / [Digiday](https://digiday.jp/modern-retail/interview-with-stores-yusuke-sato/) / [Diamond](https://diamond.jp/articles/-/335825)）
+- **新市場挑戦**: 「参入できる力があるのに挑戦しない」を最大リスクとして指摘
+
+---
+
 ## 全エージェント共通の出力ルール
 1. **出力順序**: 結論 → 根拠 → 具体アクション
 2. **数値化**: 「大幅に」→「30%改善」「粗利XX万円増」
