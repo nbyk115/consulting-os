@@ -164,10 +164,51 @@ font-family:
   sans-serif;
 ```
 
-#### 検知方法
-- 出力後、以下の漢字を目視確認: **直 骨 没 強 社 入 海 角 直** （SC/TC/JP で字形差が大きい）
-- 「骨」の上部が縦か横か / 「直」の下部の点の位置 / 「没」の右側の形が判別ポイント
-- 違和感があれば **lang 属性とフォント指定を再確認**
+#### 検知方法（🚨 機械検証必須・2026-05-01 違反学習で強化）
+
+**スタイル指定で満足するな。生成後の埋込フォントを必ず機械的に検証する。**
+
+##### PDF: `pdffonts` で埋込フォント検証（必須）
+```bash
+# 必要時インストール: brew install poppler / apt-get install poppler-utils
+pdffonts output.pdf
+
+# 期待: type 列に「Type 1」「TrueType」「CID Type 0」等が出る
+# 名前列に Yu Gothic / Hiragino / Noto Sans JP / Source Han Sans JP のいずれかが含まれる
+# 名前列に Noto Sans CJK（無印）/ Source Han Sans（無印）/ SimSun が出たら REJECT
+```
+
+##### DOCX: zip 解凍 + grep で言語タグ検証（必須）
+```bash
+unzip -p output.docx word/document.xml | grep -o 'w:lang w:val="[^"]*"' | sort -u
+# 期待: w:lang w:val="ja-JP" のみ / 他言語が混在したら REJECT
+
+unzip -p output.docx word/styles.xml | grep -i 'rfonts.*east' | head
+# eastAsia="Yu Gothic" 等の和文フォント指定確認
+```
+
+##### PPTX: zip 解凍 + grep で lang 属性検証（必須）
+```bash
+unzip -p output.pptx ppt/slides/slide1.xml | grep -o 'lang="[^"]*"' | sort -u
+# 期待: lang="ja-JP" のみ
+```
+
+##### HTML: 直接 grep（即時可能）
+```bash
+grep -E 'lang="(ja|ja-JP)"|<meta[^>]*charset' output.html
+grep -i 'font-family' output.html | grep -iE 'noto sans cjk[^j]|source han sans[^j]|simsun|microsoft yahei'
+# ヒットしたら REJECT
+```
+
+##### 目視最終確認（自動検証通過後）
+- 以下の漢字を目視: **直 骨 没 強 社 入 海 角 直** （SC/TC/JP で字形差が大きい）
+- 「骨」上部が縦か横か / 「直」下部の点の位置 / 「没」右側の形が判別ポイント
+- 違和感があれば lang 属性とフォント指定を再確認
+
+##### ❌ やってはいけないこと（違反パターン）
+- スタイル指定（CSS / python-docx / python-pptx）だけで「対応済み」と報告
+- 生成後の機械検証をスキップ
+- 「フォント指定したから大丈夫」と思い込む（レンダリング環境にフォントがなければフォールバックで中国字形になる）
 
 #### claude.ai Word 出力の既知バグ
 - claude.ai の `.docx` エクスポートは document language を未設定で出すケースあり

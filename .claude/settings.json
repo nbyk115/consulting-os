@@ -66,6 +66,10 @@
           {
             "type": "command",
             "command": "echo \"$CLAUDE_TOOL_INPUT\" | .claude/hooks/evolution-log.sh"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pdf|*.docx|*.pptx) echo \"🇯🇵 日本語字形検証必須: $file 生成後に pdffonts（PDF）/ unzip -p ... | grep w:lang（DOCX）/ unzip -p ... | grep lang（PPTX）で埋込フォント・ロケールを必ず機械検証してください。スタイル指定だけで満足は規律違反（2026-05-01 違反学習）\" ;; esac"
           }
         ]
       }

@@ -52,7 +52,7 @@
 7. **NEVER**: main への直接 push。必ず feature branch + PR 経由。
 8. **IMPORTANT**: UI 制作時は必ずプロジェクトルートの `DESIGN.md` を参照（色・フォント・余白・コンポーネント全て準拠）。
 9. **IMPORTANT**: マーケ / セールス / コンテンツ制作時は必ず `ICP.md` を参照（ペルソナ・利用文脈・非ターゲット）。
-10. **NEVER**: 日本語出力で `Noto Sans CJK`（無印）・`Source Han Sans`（無印）・`SimSun` 等の中国字形フォールバックを使用。HTML / DOCX / PPTX / PDF は `lang="ja"` / `ja-JP` 必須。
+10. **NEVER**: 日本語出力で `Noto Sans CJK`（無印）・`Source Han Sans`（無印）・`SimSun` 等の中国字形フォールバックを使用。HTML / DOCX / PPTX / PDF は `lang="ja"` / `ja-JP` 必須。**生成後は `pdffonts` / unzip+grep 等で実際の埋込フォントを必ず検証**（スタイル指定だけで満足しない・2026-05-01 違反学習）。詳細: `.claude/skills/brand-guidelines.md`
 11. **YOU MUST**: 英語出力（LinkedIn・海外向けコメント・グローバル提案・英文メール・X/Twitter 等）には必ず日本語訳を併記。例外: ユーザーが「英語のみ」「訳不要」と明示指定した場合のみ。
 12. **YOU MUST**: 1 コミット = 1 目的。複数変更の混在禁止。「ついで」「せっかくなので」が出たら即中断。
 13. **NEVER**: 形骸化ルールを CLAUDE.md / スキルに追加。Boris #3 ruthlessly edit — 追加は削除と 1 セット。

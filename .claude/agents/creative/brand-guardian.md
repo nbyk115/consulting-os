@@ -28,12 +28,24 @@ model: sonnet
 
 ## 機械的検証チェックリスト（主観排除）
 
-### 日本語字形チェック（最優先 / 中国フォント禁則）
+### 日本語字形チェック（最優先 / 中国フォント禁則・2026-05-01 強化）
+**スタイル指定だけで通過させない。生成後の埋込フォントを機械検証してから REJECT/PASS 判定。**
+
+#### スタイル指定チェック（事前）
 - [ ] HTML: `<html lang="ja">` 指定があるか
 - [ ] DOCX/PPTX/PDF: `ja-JP` ロケール指定があるか
 - [ ] フォント指定が `Noto Sans CJK JP` / `Source Han Sans JP` / `Hiragino Sans` / `Yu Gothic` のいずれかで、**無印（JP/TC/SC のサフィックスなし）を使用していない**
 - [ ] `SimSun` / `SimHei` / `Microsoft YaHei` 等の中国字形フォールバックが含まれていない
-- [ ] 詳細は `.claude/skills/brand-guidelines.md` の「日本語字形禁則」を引用すること
+
+#### 埋込フォント機械検証（事後・必須）
+- [ ] **PDF**: `pdffonts output.pdf` を実行し、埋込フォント名に Yu Gothic / Hiragino / Noto Sans JP / Source Han Sans JP のいずれかが含まれることを確認
+- [ ] **DOCX**: `unzip -p output.docx word/document.xml | grep 'w:lang w:val="ja-JP"'` で日本語ロケール埋込を確認
+- [ ] **PPTX**: `unzip -p output.pptx ppt/slides/slide1.xml | grep 'lang="ja-JP"'` で確認
+- [ ] **HTML**: `grep 'lang="ja"' output.html` で確認
+- [ ] 埋込側に Noto Sans CJK（無印）/ Source Han Sans（無印）/ SimSun が出たら **即 REJECT**
+- [ ] スタイル指定だけで「対応済み」と判定したら **規律違反**（2026-05-01 違反パターン）
+
+詳細は `.claude/skills/brand-guidelines.md` の「日本語字形禁則」「検知方法」セクションを引用すること。
 
 ### 禁止表現フィルタ（機械検出）
 - 「業界No.1」「No.1」「業界唯一」（根拠なき最上級）
