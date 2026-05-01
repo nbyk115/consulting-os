@@ -70,6 +70,14 @@
           {
             "type": "command",
             "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pdf|*.docx|*.pptx) echo \"🇯🇵 日本語字形検証必須: $file 生成後に pdffonts（PDF）/ unzip -p ... | grep w:lang（DOCX）/ unzip -p ... | grep lang（PPTX）で埋込フォント・ロケールを必ず機械検証してください。スタイル指定だけで満足は規律違反（2026-05-01 違反学習）\" ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pptx|*.pdf) echo \"📐 ページ収まり検証必須: $file のテキスト・表・画像がページシート内に収まっているか確認（pdfinfo/python-pptx の auto_size 等で検証）。はみ出しは規律違反（2026-05-01 学習）\" ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.txt|*.html) if echo \"$content\" | grep -q '\\*\\*'; then echo \"⚠️ Markdown 太字 ** 検出: $file。CLAUDE.md ハードルール 16 違反の可能性。「」or 大文字キーワードで代替を検討（2026-05-01 学習）\"; fi ;; esac"
           }
         ]
       }

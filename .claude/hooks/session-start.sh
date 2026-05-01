@@ -37,6 +37,7 @@ fi
 MESSAGES+=("🔺 反証モード厳守: 全応答末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。短文・端的回答でも省略禁止（圧縮版2-3行は可）")
 MESSAGES+=("📊 出典管理3ラベル: 出典なし具体数値（X割/X%/金額/年次予測）の断言禁止。FACT/INFERENCE/SPECULATION を明示")
 MESSAGES+=("🇯🇵 日本語字形検証: PDF/DOCX/PPTX 生成時はスタイル指定だけで満足せず、pdffonts/unzip+grep で埋込フォント・ロケールを機械検証必須（2026-05-01 違反学習）")
+MESSAGES+=("📝 出力フォーマット規律（2026-05-01 学習）: Markdown 太字 ** 禁止／一文中改行禁止／表は Word/PPT で中央揃え／PPT/PDF はページ収まり必須／出力直前に佐藤裕介 W チェック（内容＋形式）必須")
 
 # 4. 再評価カレンダー期限チェック（evolution-log.md の「再評価カレンダー」セクションから）
 if [ -f "$EVOLUTION_LOG" ] && grep -q "## 再評価カレンダー" "$EVOLUTION_LOG"; then
