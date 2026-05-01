@@ -5,6 +5,20 @@
 
 ---
 
+## 再評価カレンダー
+
+> SessionStart hook が期限到達時に自動通知。形式: `- YYYY-MM-DD: 再評価対象 / 判断軸`
+
+- 2026-08-01: agentic-content 削除の妥当性 / AI Shopping 急変動向の影響を検証（6ヶ月後）
+- 2026-08-01: Reply Guy / Comment-as-Strategy / 12-18ヶ月寿命前提のため陳腐化チェック（6ヶ月後）
+- 2026-08-01: content-strategist への AIO/GEO 統合の専門深掘り低下リスク評価（6ヶ月後）
+- 2026-08-01: gtm-consultant Post-Entry節（S5-S7）スコープ広すぎ問題 / global-ops 専任復活判断（6ヶ月後）
+- 2026-11-01: claude-code-ops 以外の巨大スキル（creative-playbook 572行 / cybersecurity-playbook 516行）の精度低下シグナル確認（6ヶ月後）
+- 2026-11-01: Product 部門 2名体制の構造的薄さ / 案件痛みの顕在化チェック（6ヶ月後）
+- 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
+
+---
+
 ## 2026-05-01: 反証モード規律違反（端的化要求での省略 + 出典なし数値断言）
 
 ### 違反内容
