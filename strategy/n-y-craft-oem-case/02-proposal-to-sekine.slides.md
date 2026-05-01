@@ -7,8 +7,9 @@ header: "N.Y.CRAFT 専用 コンサルOS 構築・運用パートナーシップ
 footer: "2026.04 | Confidential | v2"
 lang: ja
 style: |
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
   section {
-    font-family: "Yu Gothic", "游ゴシック", "Hiragino Sans", "Noto Sans JP", "Meiryo", sans-serif;
+    font-family: "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN", "IPAGothic", "Meiryo", "メイリオ", sans-serif;
     background-color: #FAFAF7;
     color: #0A0A0A;
     padding: 50px 60px;
