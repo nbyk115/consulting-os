@@ -129,8 +129,25 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 <div class="sub">
 これは「ゼロから作る事業計画」ではない。<br>
-既に動いている OS の上にレバレッジをかける投資。
+既に動いている OS の上に、AGI 移行期のウィンドウで、共同事業者として一緒にレバレッジをかける投資。
 </div>
+
+---
+
+# 0. AGI / ASI マクロ前提 — なぜ「2026-2028 の窓」か
+
+[FACT / Dario Amodei「Machines of Loving Grace」2024-10] Anthropic CEO: 「強力な AI（powerful AI）は早ければ <span class="accent">2026 年</span>にも到来し得る」/ Sam Altman「The Gentle Singularity」2025-06: 「我々はすでにイベントホライズンを越えた」。
+
+[INFERENCE / Metaculus 2026-02 + 80,000 Hours] 業界中央値 AGI 50% 確率 = <span class="accent">2033 年</span>に収束、過去 6 年で「2060-2070 → 2033」へ急圧縮。
+
+| 2026-2028 のウィンドウ | 内容 |
+|---|---|
+| <span class="accent">資本構造の不可逆移動</span> | ファウンデーションモデル → アプリケーション層への資本集中（Q2 2026 エージェント特化 206 億ドル流入）|
+| <span class="accent">SMB 実装の壁</span> | エージェント本番稼働 22%・パイロット 54% = 32 ポイントの実装ギャップ → ConsultingOS が埋める領域 |
+| <span class="accent">AGI 到達前の最終 OS 構築機会</span> | この 2-3 年が先行者が市場 OS を確立できる最後の非汎用 AGI 期間（[SPECULATION] AGI タイムラインの前提に依存）|
+| Anthropic 立ち位置 | [FACT] 2025-05 に <span class="accent">ASL-3 史上初発動</span>、safety + capability の制度的両立 = ConsultingOS が乗るスタックの規制耐性 |
+
+「Anthropic Dario Amodei が 2026-2027 を `powerful AI` 到来時期と見ている。今ここに OS を持っている者と持っていない者の格差は不可逆」。
 
 ---
 
@@ -166,6 +183,20 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 ---
 
+# 2.5 Why You / Why Now / Why This OS（30 秒 Governing Thought）
+
+「水野さんでなければならない理由・今でなければならない理由・この OS でなければならない理由」を 1 枚に凝縮。
+
+| 軸 | 内容 |
+|---|---|
+| <span class="accent">Why You（水野さん）</span> | 13 年 AI マーケ実務 × 個人投資家ネットワーク × ジーニー人脈。軸 A 金融 AI 主軸クライアント + 軸 B 紹介ルート両方の「最初の 12 ヶ月の火種」。小野寺の方法論体系化との補完関係 = 知見の結晶 |
+| <span class="accent">Why Now（2026-2028）</span> | AGI 移行期の最終 OS 構築機会（Dario Amodei 2026-2027 powerful AI 到来予測 + Gartner 2026 末 40% エンタープライズ採用）。Anthropic ASL-3 + Claude Sonnet 4.6 で技術基盤完成 |
+| <span class="accent">Why This OS（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（Gartner 警告 40% キャンセルリスク回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
+
+「3 軸どれが欠けてもこの投資は成立しない、3 軸が同時に揃った瞬間が今」= 共同事業者として一緒に大きくする提案。
+
+---
+
 # 3. ConsultingOS 構築コスト相当（無形資産価値）
 
 | 構成要素 | 試算 |
@@ -179,7 +210,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 | evolution-log / 反証モード | 30-80 万円 |
 | 合計 | <span class="accent">500-1,300 万円相当（控えめ 800 万）</span> |
 
-外注実勢では 1,000-1,500 万円帯になる可能性も高いが、ピッチでは控えめ「800 万円相当」で統一。
+外注実勢 1,000-1,500 万円帯（INFERENCE: 業界相場感・個人見立て）の可能性も高いが、ピッチでは控えめ「800 万円相当」で統一。
 
 ---
 
@@ -194,7 +225,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 | 5 | 補完関係 | 水野さん 13 年実務 × 小野寺の方法論体系化 = 知見の結晶 |
 | 6 | ゼロから作れない | OS 構築 + 受注実績 + 体系化を新規で揃えるには 2-3 年と数千万円 |
 
-通常エンジェル投資（成功率 5-10%）と違い、<span class="accent">既に完成し検証済の OS にレバレッジをかける</span>投資。
+通常エンジェル投資（成功率 5-10% [INFERENCE: CB Insights / Kauffman Foundation 等の業界通説]）と違い、<span class="accent">既に完成し検証済の OS にレバレッジをかける</span>投資。
 
 ---
 
@@ -222,8 +253,8 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 ### 補強ファクト
 
-- McKinsey State of AI 2025: AI 高パフォーマー（EBIT 5% 超改善）は <span class="accent">わずか 5.5%</span>、残り 94.5% は「導入したが価値創出できていない」= ConsultingOS の導入支援需要は巨大
-- Gartner 警告: 「2027 年末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span>」(コスト超過・価値不明確・リスク管理不備が主因) → ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動設計</span> でこのリスク回避済 = 構造的差別化
+- [FACT / McKinsey State of AI 2025] AI 高パフォーマー（EBIT 5% 超改善）は <span class="accent">わずか 5.5%</span>、残り 94.5% は「導入したが価値創出できていない」 → [INFERENCE] ConsultingOS の導入支援需要は巨大
+- [FACT / Gartner プレスリリース 2025-06-25] 「2027 年末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span>」(コスト超過・価値不明確・リスク管理不備が主因) → [INFERENCE] ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動設計</span>でこのリスク回避済 = 構造的差別化
 
 ---
 
@@ -285,7 +316,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 | 標準ケース | 8 社契約（紹介 6 + 新規 2）合計売上 <span class="accent">480 万円</span>（粗利率 70%）|
 | LTV/CAC | <span class="accent">15-60 倍</span>（紹介経由 CAC 3-8 万）|
 
-「関係資産フル活用 = CAC 大幅圧縮」が水野さん出資の意味そのもの。
+「関係資産フル活用 = CAC 紹介経由 3-8 万円（直接新規比 1/5-1/10 圧縮）」が水野さん出資の意味そのもの。
 
 ---
 
@@ -295,7 +326,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 |---|---|
 | 商品 | <span class="accent">月額サブスク AI 占い Web サービス（占い師ゼロ・完全自動化）</span> |
 | ブランド | AI 占い独自体験ブランド（即時性・パーソナライズ・無限回答・低価格・匿名性）|
-| 集客 | <span class="accent">女の子の口コミのみ（販促コストゼロ）</span> |
+| 集客 | <span class="accent">主軸: 口コミ（Phase 1 検証中）+ SEO 内製（コスト最小）</span>[INFERENCE: Phase 1 50 ユーザー獲得時点で有効性判断]|
 | 技術スタック | Claude API + Supabase + Stripe / Komoju + Vercel |
 | 内製エージェント | ai-engineer / content-strategist / brand-guardian / fullstack-dev |
 | 粗利率 | <span class="accent">90-95%</span>（AI API + サーバー費のみ）|
@@ -394,7 +425,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 標準（軸 A 3 + 軸 B 8 + 軸 C 80 ユーザー）| 1,080 万 | 866-871 万 | −129〜−134 万 | 9-10 ヶ月 |
 | 悲観（軸 A 水野さんのみ + 軸 B 3 + 軸 C 30 ユーザー）| 605 万 | 510 万 | −490 万 | 18+ ヶ月 |
 
-期待値（確率配分）= 売上 <span class="accent">1,300-1,400 万</span> / 粗利 1,050-1,130 万。標準ケースを 20-30% 上回る。
+期待値（確率配分）= 売上 <span class="accent">1,300-1,400 万</span> / 粗利 1,050-1,130 万（[SPECULATION] 個人見立て・感度分析の期待値算出、第三者検証なし）。標準ケースを 20-30% 上回る。
 
 ---
 
@@ -444,7 +475,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | リファラル網 | CAC 圧縮 100-300 万 |
 | 合計ストック残高 | <span class="accent">800-1,500 万円相当</span> |
 
-「1000 万投下 → 18 ヶ月で粗利 866-871 万 + ストック 800-1,500 万 = <span class="accent">投下 1.6-2.4 倍の価値創出</span>」。
+「1000 万投下 → 18 ヶ月で粗利 866-871 万 + ストック 800-1,500 万 = <span class="accent">投下 1.6-2.4 倍の価値創出</span>」（[SPECULATION] ストック残高は推定値、各構成要素は経験則 INFERENCE）。
 
 ---
 
@@ -456,6 +487,32 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 休職 1 ヶ月で Phase 1 の決定的加速。<br>
 主要悲観要因 4 つは構造的に解消済。実現性スコア 8.4 / 10。
 </div>
+
+---
+
+# 18.5 Phase 1 Go / No-Go ゲート基準（出資契約に明記）
+
+「1000 万円拠出後 3 ヶ月で何を達成すれば Phase 2 へ進むか」を事前合意。3 つ未達なら段階拠出の 2 回目（300 万円）を停止し、軸絞り込み判断。
+
+| # | Go 基準（Phase 1 末・3 ヶ月） | 未達時 No-Go アクション |
+|---|---|---|
+| 1 | <span class="accent">軸 A 環境構築 50 万円受領完了</span>（水野さん本人案件着手）| 軸 A 量産モデル仕様の見直し、水野さん本人 only に縮退 |
+| 2 | <span class="accent">軸 B 紹介経由 1 件以上着金</span>（N.Y.CRAFT 関根さん経由）| 軸 B 範囲を直接新規営業に再配分 |
+| 3 | <span class="accent">軸 C MVP 公開 + 課金フロー稼働</span>（よるのことば AI サブスク）| 軸 C を Phase 3 以降の延期 |
+
+達成 = Phase 2 拠出継続、2 つ未達 = 軸絞り込み MTG、3 つ未達 = 残金返金協議も含む撤退判断。
+
+---
+
+# 18.6 Objection Handling — 投資家想定反論への先回り回答
+
+| 想定反論 | 回答 |
+|---|---|
+| 「副業状態で本当に動けるのか」| Phase 1 で休職 1 ヶ月確保 + レベシェアパートナー 3 領域（プロデューサー / 営業 / 海外）でスループット補完。月次売上 200 万到達まで副業継続が経済合理性最大 |
+| 「30 エージェントと言うが Hotice 月 5 万のみ。スケール証拠がない」| 認める。だからこそ Phase 1 Go/No-Go ゲート 3 基準で段階検証。「まず 1 件売る → 検証 → 拡大」の規律 |
+| 「ROI 1.2-1.86 倍は預金に毛が生えた程度では」| 純粋経済 ROI はそのとおり。ただし水野さん受領の AI サービス価値 350 万 + コミュニティ価値 + 知的資産化を含めた総合価値で 2.35-4.0 倍。経済 ROI 単独追求なら他の運用が有利と透明開示 |
+| 「Anthropic 依存リスクは」| Claude API + MCP は標準化、技術的移行障壁は低い。マルチプロバイダ戦略は Phase 3 以降検討。当面は Anthropic safety-first 立ち位置を活用 |
+| 「失敗時の Exit は」| (a) OS 自体の売却検討（外注 800 万円相当の流動性）/ (b) 軸 A 単独契約 350 万への切替で関係性維持 / (c) 段階拠出での損失限定 |
 
 ---
 
@@ -512,7 +569,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 悲観 | 5-10% |
 | 撤退 | 1-2% |
 
-24 ヶ月完全回収確度 <span class="accent">85-90%</span>、36 ヶ月 4-6 倍リターン確度 50-60%。
+24 ヶ月完全回収確度 <span class="accent">85-90%</span>、36 ヶ月 4-6 倍リターン確度 50-60%（[SPECULATION] シナリオ感度分析による個人見立て・水野さんとの検証前提、第三者検証なし）。
 
 ---
 

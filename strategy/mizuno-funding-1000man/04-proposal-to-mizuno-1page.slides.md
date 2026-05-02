@@ -86,6 +86,10 @@ style: |
 | 検証実績 | <span class="accent">Hotice 月 5 万 × 3 ヶ月</span>受注済 |
 | 凄み | 30 エージェント・22 スキル・7 層防御稼働中、ゼロから 2-3 年・数千万円のコストを買える |
 
+## AGI / ASI マクロ（30 秒 Governing Thought）
+
+[FACT / Dario Amodei「Machines of Loving Grace」2024-10] Anthropic CEO: 「強力な AI は早ければ <span class="accent">2026 年</span>到来し得る」/ AGI 業界中央値 50% 確率 = <span class="accent">2033 年</span>に収束（Metaculus 2026-02、過去 6 年で 2060 → 2033）/ Anthropic ASL-3 史上初発動 = safety + capability 制度的両立。<span class="accent">2026-2028 が AGI 到達前の最終 OS 構築機会</span>（[SPECULATION] AGI タイムライン前提依存）。
+
 ## なぜ「今」か（5 ファクト）
 
 - AI エージェント市場 <span class="accent">CAGR 41-46%</span>、2030 年 約 420-530 億ドル（約 6-8 兆円）[INFERENCE / MarketsandMarkets / Grand View / BCC]
@@ -100,10 +104,10 @@ style: |
 |---|---|---|
 | A. フレームワーク | LangChain / AutoGen | 組み立てキット、品質は購入者持ち |
 | B. エンタープライズ | MS Copilot Studio | Microsoft 365 前提、中小過剰 |
-| C. <span class="accent">ConsultingOS</span> | 公開情報では競合不在 | <span class="accent">導入支援込み・一気通貫・中堅中小特化</span> |
+| C. <span class="accent">ConsultingOS</span> | 公開情報では競合不在（INFERENCE）| <span class="accent">導入支援込み・一気通貫・中堅中小特化</span> |
 
-McKinsey: AI 高パフォーマー <span class="accent">5.5% のみ</span>、94.5% は導入支援需要。
-Gartner: 2027 末までに 40% プロジェクトキャンセル → ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動</span>でリスク回避済。
+[FACT / McKinsey State of AI 2025] AI 高パフォーマー <span class="accent">5.5% のみ</span>、94.5% は導入支援需要。
+[FACT / Gartner 2025-06-25] 2027 末までに 40% プロジェクトキャンセル → [INFERENCE] ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動</span>でリスク回避済。
 
 ## 事業計画（コア 3 軸 + 軸 D プロデュース業）
 
@@ -159,18 +163,15 @@ Gartner: 2027 末までに 40% プロジェクトキャンセル → ConsultingO
 |---|---|
 | 計画整合 / 数値現実性 / 実行可能性 / 障害物予見 / 撤退ゲート | 平均 <span class="accent">8.4 / 10</span> |
 | 標準ケース達成確率 | <span class="accent">55-60%</span> |
-| 24 ヶ月完全回収確度 | 85-90% |
+| 24 ヶ月完全回収確度 | 85-90%（[SPECULATION] 個人見立て）|
 
 主要悲観要因（副業規定 / N.Y.CRAFT 正式化 / スループット / ペイメント審査）は解消 / 並走実行項目に降格済。残存は水野さん競業避止のみ（軸 A 領域外で影響限定）。
 
-## MTG アジェンダ
+## MTG アジェンダ + Phase 1 Go/No-Go
 
-1. OS が 1000 万円貼る価値（前提・凄み）
-2. なぜ今 + 競合空白（5 ファクト + 3 レイヤー）
-3. 事業計画 + PL + 実現性 8.4/10
-4. <span class="accent">控えめ ROI 透明開示</span>
-5. 出資形態 3 候補から選択協議
-6. 水野さんの実動機確認 + Phase ゲート方式合意
+1. AGI 移行期 + OS 1000 万円貼る価値（前提）/ 2. Why You/Now/This OS / 3. 事業計画 + PL
+4. <span class="accent">控えめ ROI 透明開示</span>（純粋 1.2-1.86x / 総合 2.35-4.0x）/ 5. 出資形態 3 候補
+6. <span class="accent">Phase 1 Go/No-Go 3 基準</span>: 軸 A 環境構築 50 万受領 / 軸 B 紹介 1 件着金 / 軸 C MVP 課金稼働 → 3 つ未達なら段階拠出 2 回目停止
 
 </div>
 
