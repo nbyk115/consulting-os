@@ -125,6 +125,20 @@ graph LR
 
 成果物は [`examples/hotice-sales-deck/`](./examples/hotice-sales-deck/) に格納。sales-deck-designer + brand-guardian + claude-design-handoff スキル経由で制作。佐藤裕介モード（具体性・ハルシネーション検出・競合比較表）+ 日本語字形禁則 + 出力フォーマット規律を全適用。
 
+## 自社事業（進行中プロジェクト）
+
+ConsultingOS の運用検証を兼ねた自社プロジェクト。クライアント案件と分離して管理。
+
+| 事業 | 性質 | 状態 | 主要活用エージェント / スキル |
+|---|---|---|---|
+| よるのことば | 占いサービス（Web）| 進行中 | content-strategist + ux-designer + frontend-dev + `/website-audit` + brand-guardian |
+| わんちゃん成長日記 | iOS アプリ化検討（Web PoC 先行推奨）| 計画中 | tech-lead + fullstack-dev + ai-engineer + Claude Code iOS 実機テスト |
+
+注意:
+- よるのことば（占いサービス）は景品表示法 / 占い表現規制（「当たる」断言禁止）の `legal-compliance-checker` 事前審査必須
+- わんちゃん成長日記は佐藤裕介流プロトタイプ・ファースト原則で「Web PoC → SaaS 化 → アプリ化」の段階的検証を推奨
+- ICP.md ペルソナ A（25-35 歳女性・スマホ占い主要利用層）と「よるのことば」が完全整合 = 既存 ICP 仮説の検証機会
+
 ## 構成サマリ
 
 | 項目 | 値 |
