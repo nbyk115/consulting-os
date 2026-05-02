@@ -32,6 +32,44 @@
 
 ---
 
+## 2026-05-02: Layer 0 機密スキャン物理化（cybersecurity-playbook 形骸化解消）
+
+### トリガー
+ユーザーから Theo セキュリティ警告（Claude Code 経由 commit による情報漏洩リスク 10 項目）の対応状況確認を依頼。確認の結果、cybersecurity-playbook 行 487-489 で「Gitleaks 必須導入」と明記されているのに `.gitleaks.toml` / `.pre-commit-config.yaml` / `.githooks/` が全て不存在 = 形骸化規律違反を発見。CLAUDE.md ハードルール 13「形骸化ルール禁止」に該当。
+
+### 構造的原因
+- 規律はドキュメント（cybersecurity-playbook）に書いたが物理層で実装されていない
+- Gitleaks のインストールはユーザー環境依存と判断して放置
+- 実装の責任所在が曖昧
+
+### 是正措置
+1. `.githooks/pre-commit` 新規作成: AWS / Anthropic / OpenAI / GitHub Token / PEM 秘密鍵 / .env 誤コミット / ハードコードパスワードを grep 検出（依存ゼロ、Gitleaks 併用可能）
+2. `.githooks/commit-msg` 新規作成: コミットメッセージへの機密情報・会話文脈混入をブロック（Theo 警告「プロンプト/会話文脈混入リスク」への直接対応）
+3. `.githooks/setup.sh` 新規作成: `core.hooksPath = .githooks` を自動設定
+4. `cybersecurity-playbook.md` Layer 0 記述を物理化反映に更新（実装済を明記）
+
+### 検証
+- パターン検出テスト 3 件成功: Anthropic key / AWS key / PEM 秘密鍵 すべて grep で検出確認済
+- `bash .githooks/setup.sh` 実行成功、`core.hooksPath = .githooks` 設定確認済
+
+### 反証結果
+✅ Step 1: 「Gitleaks インストール必須で全部依存」反論 → grep ベースの簡易実装で依存ゼロ、Gitleaks 併用は推奨だが必須ではない / 「Theo 警告 10 項目全部対応」反論 → Public リポ確認 / 履歴書き換え対応はモデル側依存のまま、commit 時点での物理ブロックが最優先で外科的
+✅ Step 2: 動作テストで Anthropic / AWS / PEM 3 パターンの検出を機械検証済 / `.githooks/` ディレクトリ + 3 ファイル（pre-commit / commit-msg / setup.sh）作成済
+✅ Step 3: cybersecurity-playbook の Layer 0 形骸化を物理層で解消、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- ターミナル直接実行は `.githooks/pre-commit` で防御可能だが、`git commit --no-verify` で迂回可能
+- パターン検出は grep ベースで誤検知 / 検出漏れ可能性、Gitleaks 併用で精度向上推奨
+- Public リポジトリ設定確認は依然モデル側依存、GitHub API 経由の物理確認は別 PR で検討
+- 既存 commit 履歴の遡及スキャンは未実施、`/security-scan` コマンドで対応必要
+
+### 関連参照
+- `.githooks/pre-commit` / `.githooks/commit-msg` / `.githooks/setup.sh`
+- `.claude/skills/cybersecurity-playbook.md` Layer 0 セクション
+- 出典: Theo X 投稿セキュリティ警告 / cybersecurity-playbook 既存規律の物理化
+
+---
+
 ## 2026-05-02: Anthropic 開発速度 7 要因の取捨選択（既存内包 5 + 新規 2 + 取り込み禁止 2）
 
 ### トリガー

@@ -484,9 +484,11 @@ Layer 2: settings.json（技術レベル）
 ```
 
 ### Layer 0: Git pre-commit/pre-push hook（最終物理ブロック）
-- **Gitleaks 必須導入**（[gitleaks/gitleaks](https://github.com/gitleaks/gitleaks)、24M+ docker pulls / MIT / 無料）
-- 全 ConsultingOS プロジェクト + クライアント案件リポジトリで pre-commit hook 必須
-- 設定: `brew install gitleaks` + `.git/hooks/pre-commit` or `pre-commit` framework / GitHub Actions の `gitleaks-action`
+- **本リポジトリ実装済**: `.githooks/pre-commit` + `.githooks/commit-msg`（依存ゼロ・grep ベース、Gitleaks 併用可能）
+- 初回セットアップ: `bash .githooks/setup.sh` で `core.hooksPath = .githooks` 自動設定
+- 検知パターン: AWS / Anthropic / OpenAI / GitHub Token / PEM 秘密鍵 / .env 誤コミット / ハードコードパスワード / 環境変数ハードコード / commit message 機密混入
+- **Gitleaks 併用推奨**（[gitleaks/gitleaks](https://github.com/gitleaks/gitleaks)、MIT / 無料）: `brew install gitleaks` または GitHub Actions `gitleaks-action`、本リポの `.githooks/pre-commit` は gitleaks がインストール済なら追加実行
+- クライアント案件リポジトリでも同 `.githooks/` をコピーして pre-commit hook 必須化
 
 ### Layer 1: CLAUDE.md に記載すべきルール（意図レベル）
 
