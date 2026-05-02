@@ -165,6 +165,7 @@
 | 金融 AI 環境構築支援（投資助言業登録後）| 50-150 万円スポット + 月次 15-50 万円 | 継続 | strategy-lead + ai-engineer + legal-compliance-checker |
 | OSS CRM 環境構築支援 | 30-80 万円スポット + 月次運用 3-10 万円 | 継続 | crm-ma-strategist + tech-lead + infra-devops（候補ツール: Cordys CRM / Twenty / EspoCRM / SuiteCRM、要件で選定）|
 | Web サイト採点 + 改善提案 | スポット 5-15 万円（採点のみ）/ 30-80 万円（改善実装込み）/ 月次 3-8 万円（継続改善）| 両方 | creative-director + ux-designer + frontend-dev + brand-guardian + content-strategist + seo-specialist（`/website-audit` スキル活用）|
+| Instagram チャンネル運営支援（インフルエンサーマーケ）| 設計 30-80 万円 + 月次運用 10-30 万円 | 継続 | social-media-strategist + content-strategist + seo-specialist + growth-hacker + brand-guardian（ニッチ選定 / アイデンティティ設計 / 90 日カレンダー / Reels 脚本 / SEO + カバー / 収益化スタック / クロスプラットフォーム再利用）|
 
 10 社契約で月 30-80 万円継続収入、Hotice 案件（月 5 万 × 3 ヶ月）と同類だが対象セグメントを拡張。法務・金融 AI は法規制審査が先行ボトルネック（legal-compliance-checker による要否判定必須）。
 
