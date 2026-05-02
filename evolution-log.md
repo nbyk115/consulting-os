@@ -32,6 +32,49 @@
 
 ---
 
+## 2026-05-02: Anthropic 開発速度 7 要因の取捨選択（既存内包 5 + 新規 2 + 取り込み禁止 2）
+
+### トリガー
+ユーザーから Anthropic 異次元開発速度（90日120機能 / 1日5PR / 10日 Cowork 構築）の構造分析記事の取り込み判断を依頼。
+
+### 判定: 既存内包メイン + 新規 2 項目のみ取り込み
+
+#### 7 要因の取捨選択
+| # | 要因 | 判定 |
+|---|---|---|
+| 1 | AI が AI を作る再帰構造 | 既存内包（evolution-log 自己進化サイクル）|
+| 2 | 未公開モデルアクセス | 取り込み不可能（Anthropic 固有）|
+| 3 | PRD 廃止 → プロトタイプ | 部分取り込み（プロトタイプ・ファースト原則を consulting-playbook 追記）|
+| 4 | PM「定義」→「評価」（Taste at Speed）| 新規取り込み（consulting-playbook 追記）|
+| 5 | 全員 Builder | 既存内包（30 エージェント運用）|
+| 6 | 1 人で 3-8 AI 並行 | 既存内包（Boris worktree / claude-code-ops セクション 10）|
+| 7 | 超高速フィードバック | 既存内包（SDK Phase 1 PoC）|
+
+#### 新規取り込み 2 項目
+1. プロトタイプ・ファースト原則 + Taste at Speed → consulting-playbook 追記
+2. 次のモデル前提設計 → claude-code-ops/SKILL.md SDK 化セクション追記
+
+#### 取り込み禁止 2 項目
+- 「PRD 完全廃止」: B2B コンサル案件の正式提案書は商品そのもの、廃止禁止
+- 「95% 自動化は不十分」: SDK Phase 6 商品化検討時の参考、現状実需未顕在化で取り込み不要
+
+### 反証結果
+✅ Step 1: 「7 要因全部取り込み」反論 → 記事自体が「Anthropic 構造は再現不可能」明記、ConsultingOS 規模では不要 / 「Taste at Speed は反証 Step 3 で十分」反論 → プロトタイプ評価視点は明示価値あり、特に proposal-writer / product-manager で活用
+✅ Step 2: 7 要因のうち 5 つは既存スキル / hook / agent definition で内包確認、機械検証可能
+✅ Step 3: 2 ファイル追記（consulting-playbook + claude-code-ops/SKILL.md）の外科的変更、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- 「次のモデル前提設計」は CLAUDE.md「先回り設定禁止」と慎重整合必要、ユースケース顕在化したものに限定適用と明記済
+- Taste at Speed 強化は反証モード Step 3 と運用上の差が微妙、PoC で検証必要
+- Anthropic 数値（90日120機能等）は本 OS で機械検証不可、SPECULATION
+
+### 関連参照
+- consulting-playbook.md「成果物プレビュー」セクション内
+- claude-code-ops/SKILL.md SDK 化セクション
+- 出典: Anthropic Claude Code チーム開発プロセス記事 / Cat Wu Lenny's Podcast / Pragmatic Engineer Boris Cherny インタビュー
+
+---
+
 ## 2026-05-02: N.Y.CRAFT OEM 案件統合 + Substack-mcp 推奨 + 動画生成ツール保留
 
 ### トリガー

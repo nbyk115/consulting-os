@@ -94,6 +94,9 @@ Claude Code SDK + GitHub Actions で、対話的運用から本番自動化（St
 
 → 専用サーバー / デプロイパイプライン / 監視基盤 / 認証 / コスト管理は不要、既存 GitHub Actions Runner で完結。
 
+### 次のモデル前提設計（2026-05-02 学習）
+現モデルの能力で完全に動作する設計に固執するのではなく、半年〜1 年後のモデル能力で完璧に動くことを前提にプロダクトを設計する。指数関数的に進化する LLM 環境では、設計時の制約は出荷時に消えている可能性が高い。出典: Anthropic Claude Code チーム + Cat Wu 氏 Lenny's Podcast。注意: 「先回り設定禁止」（CLAUDE.md ハードルール）と整合させ、ユースケースが顕在化したものに限定適用。
+
 → 詳細（claude -p / パイプ / --output-format JSON / 権限管理 / セッション永続化 / ペルソナ差し替え / Issue → PR 自動化 / 商業機会）は `references/sdk-automation.md` 参照。
 
 ---
