@@ -63,6 +63,8 @@
 - **重視するもの**: 反証モード、引用ソースの厳密さ、`first-principles-breakdown`
 - **避けたいもの**: ハルシネーション、空疎な提案
 
+> **自社事業による検証中**: 「よるのことば」（占いサービス）が ICP のスマホ占い主要利用層仮説と完全整合、運用知見を Persona B（マーケ）/ Persona C（クリエイティブ）にもフィードバック予定（README 自社事業セクション参照）
+
 ### Persona B: マーケティング責任者（事業会社 CMO / 代理店プランナー）
 - **使用シーン**: チャネル戦略 / SEO / 広告運用 / GEO 設計
 - **起点エージェント**: `marketing-director` / `seo-specialist` / `agentic-content`（GEO）
