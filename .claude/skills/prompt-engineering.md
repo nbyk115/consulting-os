@@ -377,9 +377,8 @@ RAGパイプラインの精度を改善。Agent Teamを作成:
 
 ## 適用エージェント
 - `service-dev/ai-engineer` — RAG・エージェント設計でのプロンプト実装
-- `consulting/ai-consultant` — クライアントへのAI導入時のプロンプト設計支援
-- `creative/agentic-content` — AIに選ばれるコンテンツ設計のプロンプト最適化
-- `creative/content-strategist` — LLMを使ったコンテンツ生成のプロンプト品質
+- `consulting/strategy-lead` + `service-dev/ai-engineer` — クライアントへのAI導入時のプロンプト設計支援（戦略 + 技術検証ペア）
+- `creative/content-strategist` — LLMを使ったコンテンツ生成・AIO/GEO設計のプロンプト品質
 
 
 

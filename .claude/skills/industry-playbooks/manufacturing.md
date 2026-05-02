@@ -182,7 +182,6 @@
 ## 関連エージェント
 - `strategy-lead`: 製造業戦略（ポーター 5フォース / 業界構造分析）
 - `kpi-analytics`: OEE / 歩留まり / 在庫日数等の指標設計
-- `gtm-consultant`: グローバル展開（ホフマン / ゲマワット CAGE）
-- `global-business`: 海外拠点・サプライチェーン（ホフステード）
+- `gtm-consultant`: グローバル展開・海外拠点・サプライチェーン（ホフマン / ゲマワット CAGE / ホフステード・Post-Entry節）
 - `legal-compliance-checker`: PL 法 / 外為法 / 環境規制
 - `infra-devops`: スマートファクトリー / IoT 基盤（ハイタワー Day-2 / ヴォーゲルス Frugal Architect）

@@ -193,12 +193,11 @@
 **商談プロセスのグローバル適用:**
 - Phase 1（リード精査）: 海外案件は`gtm-consultant`が市場評価を先行
 - Phase 2（課題分析）: `global-journalist`が現地市場の最新動向を提供
-- Phase 3（戦略立案）: 現地の商習慣・意思決定構造を`global-business`が補完
+- Phase 3（戦略立案）: 現地の商習慣・意思決定構造を`gtm-consultant`（Post-Entry節）が補完
 
 ### グローバル連携先
-- `gtm-consultant` — 市場参入戦略・GTM設計
+- `gtm-consultant` — 市場参入戦略・GTM設計・現地オペレーション・商習慣（Post-Entry）
 - `global-journalist` — 現地市場リサーチ・国際動向
-- `global-business` — 現地オペレーション・商習慣
 - `business-translator` — ローカライゼーション・トランスクリエーション
 
 ---

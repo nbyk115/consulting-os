@@ -336,7 +336,7 @@ npm install --auditlevel=high
 |---|---|
 | `consulting/strategy-lead` | フレームワーク選定・経営層向けセキュリティ戦略立案 |
 | `consulting/legal-compliance-checker` | ISMS/個人情報保護法/GDPR 整合性確認 |
-| `consulting/ai-consultant` | AI導入時のガバナンス設計（NIST AI RMFとの接続） |
+| `consulting/strategy-lead` + `service-dev/ai-engineer` | AI導入時のガバナンス設計（NIST AI RMFとの接続・戦略 + 技術検証ペア） |
 | `consulting/kpi-analytics` | セキュリティ投資対効果・残留リスクの定量化 |
 | `marketing-research/marketing-director` | 1stParty データ運用の適法性・信頼構築 |
 

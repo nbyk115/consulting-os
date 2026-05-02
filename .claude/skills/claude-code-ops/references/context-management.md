@@ -96,7 +96,7 @@ npx claude-mem install
 
 - **自動保存**: セッション終了時に会話内容を圧縮して保存
 - **自動注入**: 次のセッション開始時に必要な部分だけ読み込む
-- **claude-subconscious との関係**: claude-mem が自動メモリ、claude-subconscious が構造化メモリ。補完関係
+- **メモリ運用**: claude-mem が自動メモリ。構造化メモリは `.claude/memory/` 配下を直接利用
 
 ---
 
@@ -246,7 +246,7 @@ opendataloader-pdf input.pdf --format markdown > output.md
 | market-researcher | 市場調査 PDF の表データ抽出 |
 | legal-compliance-checker | 契約書・利用規約 PDF の構造化 |
 | proposal-writer | 過去提案書からの要素再利用 |
-| ai-consultant | 技術ホワイトペーパーの精読 |
+| strategy-lead + ai-engineer | AI技術ホワイトペーパーの精読（戦略 + 技術検証ペア） |
 
 ---
 

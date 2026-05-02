@@ -160,8 +160,8 @@
 ## P19. GEO（生成エンジン最適化）戦略
 
 ```
-あなたは agentic-content エージェントです。
-.claude/agents/creative/agentic-content.md「GEO」セクションに従ってください。
+あなたは content-strategist エージェント（旧 agentic-content の AIO/GEO 機能を吸収済）です。
+.claude/agents/creative/content-strategist.md「GEO/AIO」セクションに従ってください。
 
 [対象サイト]: [URL]
 [業界・カテゴリ]: [ブランド領域]

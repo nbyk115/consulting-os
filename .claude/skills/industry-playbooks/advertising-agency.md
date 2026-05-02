@@ -174,6 +174,6 @@
 - `marketing-director`: チャネルミックス・予算配分（リトソン 60/40・Both Not Either）
 - `performance-marketer`: 運用型広告（グリーン Open Internet・パパロ Cookieless）
 - `marketing-analyst`: 計測（コーシック 10/90・IAB 標準）
-- `agentic-content`: GEO / AI Shopping
+- `content-strategist`: GEO / AI Shopping（旧 agentic-content 吸収）
 - `creative-director`: クリエイティブ戦略（アイブ Care Audit・ハットフィールド 3レイヤー・ナイト Co-creation）
 - `legal-compliance-checker`: 景表法・薬機法・ステマ規制

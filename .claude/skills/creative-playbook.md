@@ -555,10 +555,9 @@ Layer 3: 検証（破っても通さない）
 - `creative/creative-director` — デザイン方針・レビュー
 - `creative/ux-designer` — UX/UI設計
 - `creative/frontend-dev` — フロントエンド実装
-- `creative/content-strategist` — コンテンツ制作
-- `creative/campaign-planner` — キャンペーンクリエイティブ
+- `creative/content-strategist` — コンテンツ制作・AIO/GEO最適化
+- `creative/growth-hacker` — キャンペーン施策カレンダー・グロース実装
 - `creative/brand-guardian` — 品質チェック
-- `creative/agentic-content` — AIO最適化
 
 
 

@@ -9,7 +9,7 @@
 | **SaaS / B2B** | `saas.md` | strategy-lead / product-manager / marketing-director |
 | **D2C / EC** | `d2c.md` | marketing-director / performance-marketer / growth-hacker |
 | **広告代理店** | `advertising-agency.md` | marketing-director / proposal-writer |
-| **製造業** | `manufacturing.md` | strategy-lead / global-business |
+| **製造業** | `manufacturing.md` | strategy-lead / gtm-consultant |
 | **金融** | `finance.md` | legal-compliance-checker / strategy-lead |
 
 ## 使い方
