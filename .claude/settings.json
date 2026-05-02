@@ -87,6 +87,11 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": ".claude/hooks/statusline.sh",
+    "padding": 0
+  },
   "permissions": {
     "deny": [
       "Bash(*> .env*)",
