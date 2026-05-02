@@ -9,6 +9,12 @@
 
 > SessionStart hook が期限到達時に自動通知。形式: `- YYYY-MM-DD: 再評価対象 / 判断軸`
 
+### 即時 TODO（次回セッションで自動通知）
+
+- 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
+
+### 中期再評価
+
 - 2026-08-01: agentic-content 削除の妥当性 / AI Shopping 急変動向の影響を検証（6ヶ月後）
 - 2026-08-01: Reply Guy / Comment-as-Strategy / 12-18ヶ月寿命前提のため陳腐化チェック（6ヶ月後）
 - 2026-08-01: content-strategist への AIO/GEO 統合の専門深掘り低下リスク評価（6ヶ月後）
@@ -20,7 +26,89 @@
 - 2026-11-01: SeeCost / 複数 LLM プロバイダ（ChatGPT + Claude + Gemini 並走）統合管理の実需顕在化チェック（6 ヶ月後）
 - 2026-11-01: automate-faceless-content / 動画運用案件（YouTube / TikTok / IG Shorts）顕在化次第、11 モジュール中の独自要素抽出判断（6 ヶ月後）
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
+- 2026-11-01: n8n / 複数案件並行 + 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化チェック（公式 Claude Code コネクタ対応で取り込み準備済・最有力候補）
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
+
+---
+
+## 2026-05-02: OSS 10 ツール + n8n 公式 Claude Code コネクタ判定（推奨 1 / 保留 8 / 対象外 1 / n8n 格上げ）
+
+### トリガー
+ユーザーから「10 個無料オープンソース AI ツール」+ n8n 公式 Claude Code コネクタの取り込み判断を依頼。「佐藤裕介にまかせる」指示で実装。
+
+### 判定結果
+
+| # | ツール | 判定 | 根拠 |
+|---|---|---|---|
+| 1 | Fooocus | 保留 | 既存 Puppeteer + stock 代替可、画像生成案件未顕在化 |
+| 2 | ComfyUI | 保留 | 同上 |
+| 3 | Ollama | 推奨 | ICP.md 痛み「機密情報を Cloud LLM に流せない」への直接応答 |
+| 4 | OpenVoice | 保留 | B2B コンサル軸と距離、なりすまし悪用倫理懸念 |
+| 5 | Penpot | 保留 | Figma MCP 運用中、切替実需なし |
+| 6 | AppFlowy | 保留 | ConsultingOS はファイルベース運用、Notion 系不要 |
+| 7 | n8n | 保留・最有力候補 | 公式 Claude Code コネクタ対応で取り込み準備済、複数案件並行 / 月次定期業務顕在化次第即導入 |
+| 8 | Cal.com | 保留 | 商談数増加時に lead-qualifier で検討 |
+| 9 | Supabase | 保留 | クライアント案件で DB 必要時のみ |
+| 10 | Cline | 対象外 | Claude Code が ConsultingOS の前提、切替は OS 再設計 |
+
+### 取り込み実装（Ollama のみ）
+1. `.claude/agents/service-dev/ai-engineer.md` 技術スタック表に「ローカル LLM（機密案件）: Ollama」追加
+2. `README.md` 外部参照リソースに「ローカル LLM」セクション新設、Ollama を ICP.md 痛みへの回答として明示
+3. n8n は最有力候補として README 外部参照に格上げ記載、再評価カレンダー 2026-11-01 に追加
+
+### n8n 格上げの根拠
+公式 Claude Code コネクタ（LLM 専用設計 + TypeScript SDK + MCP 対応）で取り込みコストが大幅低下。ConsultingOS の SDK Phase 2-5 戦略との親和性高い。実需（複数案件並行 / 月次定期業務）顕在化時に最速で導入可能な状態を保持。
+
+### 反証結果
+✅ Step 1: 「10 個全部組み込みで OS 強化」反論 → 19 スキル汚染 + 形骸化リスク + 既存運用との重複、ruthlessly edit 違反 / 「Ollama も保留で十分」反論 → ICP.md の明記された痛みに直接応答するため取り込み価値が他 9 個と質的に異なる
+✅ Step 2: 各ツール GitHub URL は投稿で提示済 = FACT、ICP.md セクション 2 に「機密性の高いクライアント情報を Cloud LLM に丸投げできない」を機械検証済 / n8n 公式 Claude Code コネクタは X 投稿で確認、n8n 2.18.5 以降の動作は本 OS で未検証
+✅ Step 3: ai-engineer.md 1 行追加 / README 2 セクション追記 / evolution-log 判定記録の外科的変更のみ、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- Ollama は技術スタック表に明示するのみ、実際のローカル LLM オペレーション設計（モデル選定 / リソース見積もり / セキュリティ監査）は別途必要
+- n8n 公式コネクタは新機能のため安定性 SPECULATION、本格導入前に PoC 必須
+- 保留 8 個は再評価カレンダー対象だが、案件問い合わせ次第で前倒し再評価可能
+- Cline 対象外判定は Claude Code が前提という現状次第、Anthropic 戦略変更で再評価の余地
+
+### 関連参照
+- `.claude/agents/service-dev/ai-engineer.md` 技術スタック表
+- README.md「外部参照リソース」セクション
+- 出典: ユーザー提示「10 個無料オープンソース AI ツール」投稿 + n8n 公式 X 投稿（Claude Code コネクタ）
+
+---
+
+## 2026-05-02: Claude Code 無料化（NVIDIA API + GLM-4.7 マッピング）取り込み禁止判定
+
+### トリガー
+ユーザーから X 投稿「Claude Code を完全無料で動かす方法（NVIDIA API + GLM-4.7 マッピング）」の取り込み判断を依頼。
+
+### 判断: 取り込み禁止（Scrapling 同類）
+
+### 禁止理由
+1. Anthropic ToS 違反確実（非公式・proxy 経由でモデル偽装は禁止行為）
+2. Anthropic アカウント BAN リスク（検出時 ConsultingOS 全機能停止）
+3. 機密情報流出リスク（クライアント情報が智譜 AI / GLM-4.7 = 中国発モデルに流れる、米中緊張下で重大）
+4. 機能互換性は SPECULATION（Skills / Hooks / Agent SDK は Claude モデル前提）
+5. クライアント案件不可（情報漏洩 + コンプライアンス違反、legal-compliance-checker と矛盾）
+
+### 合法代替
+- Anthropic 公式 API（従量課金で規約遵守）
+- Claude Code Pro/Max プラン（定額制で予測可能）
+- Ollama（機密案件のローカル LLM、ToS リスクなし）
+
+### 反証結果
+✅ Step 1: 「コスト削減で PL 改善」反論 → BAN 1 回で ConsultingOS 全停止 = 削減ベネフィット < 停止リスク、佐藤裕介流 PL 思考でも禁止判定
+✅ Step 2: 投稿で「もちろん非公式・自己責任」と明記、ToS 違反は事実 / GLM-4.7 = 智譜 AI（中国 Zhipu）公式情報で確認可能
+✅ Step 3: 既存 Anthropic 公式 API + Pro/Max プランで合法代替可能、Scrapling と同パターンで禁止判定
+
+🔺 残存リスク:
+- 個人開発・実験環境では使用許容範囲の可能性、ただし ConsultingOS のクライアント案件で線引き困難
+- GLM-4.7 自体の性能評価は本判定対象外（モデル品質ではなくマッピングの規約違反性が問題）
+- Anthropic 側の検出能力は不明、検出されない期間がある可能性だが規律違反は規律違反
+
+### 関連参照
+- evolution-log: Scrapling 取り込み禁止判定（2026-05-02）と同パターン
+- 出典: ユーザー提示の X 投稿「Claude Code を完全無料で動かす方法」/ Anthropic Terms of Service
 
 ---
 
