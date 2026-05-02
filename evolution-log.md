@@ -29,6 +29,81 @@
 - 2026-11-01: n8n / 複数案件並行 + 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化チェック（公式 Claude Code コネクタ対応で取り込み準備済・最有力候補）
 - 2026-11-01: Editframe（HTML/CSS → MP4）/ B2B デッキの動画版商品ライン拡張案件チェック、Hotice 後続案件で需要顕在化次第即取り込み
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
+- 2027-05-01: Camofox Browser / 法的リスク再評価（Scrapling と同タイミング、bot 偽装ツールの法解釈 1 年後再判定）
+
+---
+
+## 2026-05-02: GitHub トレンド 10 リソース判定 + Camofox 取り込み禁止 + ジーニー案件金融 AI ツール群整理
+
+### トリガー
+ユーザーから GitHub トレンド 10 リソースの取り込み判断を依頼（AutoHedge / build-your-own-openclaw / Map Anything / three-man-team / Camofox / Vibe-Trading / Claude Ads / LibreChat / Open Higgsfield AI / Fincept Terminal）。
+
+### 判定結果
+
+| 区分 | リソース | 数 |
+|---|---|---|
+| 取り込み禁止 | Camofox Browser | 1 |
+| 注目（ジーニー案件用）| AutoHedge | 1 |
+| 保留 | Vibe-Trading / Claude Ads / Open Higgsfield AI / Fincept Terminal | 4 |
+| 対象外 | build-your-own-openclaw / Map Anything / three-man-team / LibreChat | 4 |
+
+### 1. Camofox Browser 取り込み禁止判定
+
+判定理由（Scrapling と同パターン）:
+- Cloudflare 検知回避 + C++ レベル bot 偽装 = ToS 違反確実
+- 不正アクセス禁止法 3 条「アクセス制御機能の回避」グレー
+- legal-compliance-checker / cybersecurity-playbook / CLAUDE.md ハードルール 5 と矛盾
+- クライアント案件で訴訟リスク
+- 合法代替: WebSearch / WebFetch / Firecrawl で十分
+
+### 2. ジーニー役員株独立支援案件向け金融 AI ツール群（5 ツール集合）
+
+| ツール | 用途 | 状態 |
+|---|---|---|
+| Dexter（直前判定）| 株式分析・投資ロジック構築 | 注目 |
+| TradingAgents（直前判定）| マルチエージェント取引フレーム（LangGraph）| 保留・案件候補 |
+| AutoHedge | 自律ヘッジファンドシミュレーション（4 エージェント協調）| 注目 |
+| Vibe-Trading | テキスト → トレーディング戦略変換（64 機能 + 29 スウォーム）| 保留 |
+| Fincept Terminal | Bloomberg 代替（CFA レベル分析 + 20+ AI 投資家エージェント + 100+ データコネクタ）| 保留 |
+
+ジーニー役員案件正式化時の評価フロー:
+1. legal-compliance-checker 審査（投資助言代理業登録要否判定）
+2. 商品形態決定（環境構築支援 / 月次運用支援 / 助言業登録後の助言提供 等）
+3. 5 ツールから最適 2-3 個を PoC 選定
+
+### 3. 対象外 4 リソースの理由
+
+- build-your-own-openclaw: 既に 30 エージェント運用、マルチエージェント構築ガイドは内包済
+- Map Anything（Meta 3D）: 3D は ICP 外（B2B コンサル軸）
+- three-man-team: 30 エージェント + Boris 9 規律で内包
+- LibreChat: Claude Code が ConsultingOS 前提、UI 切替不要
+
+### 累計判定状況（33 リソース）
+
+| 区分 | 数 |
+|---|---|
+| 推奨（取り込み済）| 4 |
+| 最有力候補 | 2 |
+| 保留 | 16 |
+| 対象外 | 6 |
+| 注目（特定案件用）| 2（Dexter / AutoHedge）|
+| 禁止 | 5（Scrapling / GLM-4.7 / 1日500通 / YouTube パクリ / **Camofox**）|
+
+### 反証結果
+✅ Step 1: 「Bloomberg 代替 Fincept Terminal は即取り込み」反論 → ICP 外（金融特化）、ジーニー案件正式化前は実需仮説段階 / 「Camofox は技術的価値で取り込み」反論 → ToS 違反 + 訴訟リスク、Scrapling と同パターンで禁止判定が一貫
+✅ Step 2: 各リソース GitHub URL で実在確認可能、Camofox の C++ 検知回避は記事明記で ToS 違反該当 / 金融ツール 5 集合は本セッション累積判定で確認可能
+✅ Step 3: 禁止 1 件追加 + ジーニー案件向け 5 ツール整理、README 外部参照表 1 行追加 + evolution-log 判定記録のみの外科的変更
+
+🔺 残存リスク:
+- AutoHedge / Vibe-Trading / Fincept Terminal の品質は本 OS で未検証、ジーニー案件正式化時に PoC 必須
+- Camofox 禁止判定は法的解釈次第で 1 年後再評価対象（Scrapling と同タイミング）
+- Open Higgsfield AI は動画 / 画像生成案件で実需顕在化次第、Editframe / Remotion と統合再評価
+- Claude Ads は performance-marketer 自動化候補だがクライアント機密データ流通リスクで要審査
+- ジーニー役員案件の正式化はユーザー側営業活動次第、本判定は実需仮説段階
+
+### 関連参照
+- README.md「外部参照リソース」取り込み禁止表
+- 出典: ユーザー提示 GitHub トレンド 10 リソース投稿
 
 ---
 
