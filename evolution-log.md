@@ -21,6 +21,50 @@
 
 ---
 
+## 2026-05-02: 公式知見 12 項目のうち 3 項目を実機能実装（ドキュメント追記から実装へ）
+
+### トリガー
+ユーザー指摘「実装できた？すべきものは」で、claude-code-ops/SKILL.md へのドキュメント追記のみで実機能実装が未着手だった構造的限界を是正。佐藤裕介モードで「実装すべき・即可能」3 項目に絞って実機能化。
+
+### 実装内容（3 項目）
+
+#### 1. status line 常時表示（ClaudeCodeStudio Tip 12）
+- `.claude/hooks/statusline.sh` 新規作成
+- branch / context% / cost / model 4 項目を画面下部に常時表示
+- main / master ブランチで `🚫main直接編集禁止` 警告（ハードルール 7 連動）
+- context 30% 超で `⚠️/compact推奨` 警告（Thariq 氏 30-40 万トークン context rot 連動）
+- `.claude/settings.json` に `statusLine` 設定登録
+- 動作テスト: 通常 5%・警告閾値 35%・main ブランチ警告すべて確認済
+
+#### 2. エージェント使うべき 4 条件ゲート（Hannah & Jeremy #2）
+- `docs/agent-routing.md` 冒頭に Step 0「4 条件ゲート（前段判定）」を追加
+- 複雑性 / 価値 / ツール / エラー検知の 4 条件、1 つでも NO ならエージェント起動不要
+- ルーティング判定ツリー Step 1 の前段で形骸化エージェント起動を防止
+
+#### 3. Interleaved Thinking 統合（Hannah & Jeremy #7）
+- `.claude/commands/check-hallucination.md` に「Interleaved Thinking 活用」セクション追加
+- ツール実行直後（WebFetch / WebSearch 後）の thinking ブロックで信頼性評価・出典 3 ラベル先行判別を必須化
+- ハルシネーション率を構造的に低減
+
+### 反証結果
+✅ Step 1: 「3 項目だけでは少ない」反論 → 残り 9 項目はドキュメントで完結 / 実需未顕在化で先送り（先回り設定禁止・佐藤裕介流 ruthlessly edit）
+✅ Step 2: statusline.sh は通常・警告閾値・main ブランチで動作テスト済 / agent-routing.md と check-hallucination.md は外科的追記のみ
+✅ Step 3: settings.json への statusLine 追加は最小差分、既存 hook と非干渉 / docs / commands の追記は既存構造と整合
+
+🔺 残存リスク:
+- statusline.sh は Claude Code 起動時に有効、ターミナル直接実行では効かない
+- 4 条件ゲート Step 0 は判定がモデル依存、物理ブロック不可（ルーティングは判断問題）
+- Interleaved Thinking は Claude 4 系新機能、モデルダウングレード時に動作変化
+- 残り 9 項目（worktree / /batch / Claude インタビュー / eval 段階開始 / コンパクション 19 万 / Issue→実装 / Chrome 拡張 / --bare / thinking block 計画立て）はドキュメントで完結または実需未顕在化で別 PR
+
+### 関連参照
+- `.claude/hooks/statusline.sh`
+- `.claude/settings.json` statusLine
+- `docs/agent-routing.md` Step 0
+- `.claude/commands/check-hallucination.md` Interleaved Thinking セクション
+
+---
+
 ## 2026-05-02: 認識誤りの訂正（「商業実績ゼロ」発言の事実誤認）
 
 ### 違反内容
