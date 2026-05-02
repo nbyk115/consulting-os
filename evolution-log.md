@@ -27,7 +27,62 @@
 - 2026-11-01: automate-faceless-content / 動画運用案件（YouTube / TikTok / IG Shorts）顕在化次第、11 モジュール中の独自要素抽出判断（6 ヶ月後）
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
 - 2026-11-01: n8n / 複数案件並行 + 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化チェック（公式 Claude Code コネクタ対応で取り込み準備済・最有力候補）
+- 2026-11-01: Claude Code 対応動画生成ツール / 動画案件顕在化チェック（automate-faceless-content と統合判定、npm 一発で取り込みコスト低い前提）
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
+
+---
+
+## 2026-05-02: N.Y.CRAFT OEM 案件統合 + Substack-mcp 推奨 + 動画生成ツール保留
+
+### トリガー
+ユーザーから 3 件の判断を依頼:
+1. claude/oem-sales-strategy-gVMWp ブランチのマージ判定 → (A) ConsultingOS に統合
+2. nanameru/substack-mcp の取り込み判定 → 佐藤裕介にまかせる
+3. Claude Code / Codex / Cursor 対応動画生成ツール
+
+### 1. N.Y.CRAFT OEM 案件統合（cherry-pick 16 ファイル）
+
+claude/oem-sales-strategy-gVMWp ブランチから案件成果物のみ main に取り込み:
+- strategy/n-y-craft-oem-case/（10 ファイル）: Sekine 氏向け提案 v5 + 5 形式（md / html / pdf / pptx / slides.md）+ 価格設計 + 商談プレイブック
+- strategy/oem-side-business/（5 ファイル）: OEM 副業戦略汎用フレーム
+- .gitignore（新規）
+
+これは Hotice 案件（月 5 万 × 3 ヶ月 = 15 万円受注済）に続く ConsultingOS の商業実績候補。最終 commit は 2026-05-02（v5 footer rerender）まで段階的進化。
+
+### 2. Substack-mcp 推奨取り込み（外部参照）
+
+- 用途: The Ad Signal 等のニュースレター自動投稿
+- 実装:
+  - README.md「コンテンツ運用」セクション新設、注意点（Codex MCP 依存 / レート制限）明記
+  - content-strategist のコンテンツ種別表に「Substack / ニュースレター」追加（substack-mcp 参照）
+- 判定理由: The Ad Signal で実需顕在化済、ConsultingOS 集客チャネル自動化で PL 直結
+
+### 3. 動画生成ツール保留
+
+- ツール: Claude Code / Codex / Cursor 対応（npm 一発インストール、対話型 GUI 自動構築）
+- 判定: 保留
+- 根拠:
+  - 動画案件未顕在化（Hotice = B2B デッキ / The Ad Signal = ニュースレター）
+  - automate-faceless-content と同類で先送り済
+  - npm 一発取り込みでコスト低いが先回り設定リスク
+- 再評価: 2026-11-01 カレンダーに追加
+
+### 反証結果
+✅ Step 1: 「3 件すべて統合で OS 強化」反論 → 動画生成は実需未顕在化、保留が外科的 / Substack-mcp は本体取り込みではなく外部参照 + 1 行誘導が適切
+✅ Step 2: N.Y.CRAFT 16 ファイルは git diff --diff-filter=A で機械検証済、既存 main と非干渉 / Substack-mcp は GitHub URL で実在確認、注意点（Codex MCP / レート制限）は投稿者明記 / 動画生成ツールは X 投稿で確認
+✅ Step 3: 1 PR 2 commit（OEM 案件 / Substack + 動画判定）で論理単位分離、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- N.Y.CRAFT 案件のクライアント機密情報（Sekine 氏 / 価格・契約内容）が Public リポなら情報漏洩リスク、要確認
+- Substack-mcp は nanameru 氏の OSS、メンテナンス継続性 SPECULATION
+- Codex MCP（OpenAI）依存はサムネ生成のみ、Claude 系代替が望ましい
+- 動画生成ツールは保留判定だが npm 一発で導入コスト低い、案件問い合わせ次第で前倒し可能
+- README 商業実績表への N.Y.CRAFT 案件追加は受注状態（受注済 / 提案中 / 進行中）情報待ちで別 commit
+
+### 関連参照
+- strategy/n-y-craft-oem-case/ 10 ファイル + strategy/oem-side-business/ 5 ファイル
+- README.md「コンテンツ運用」セクション + 取り込み非推奨・保留表
+- .claude/agents/creative/content-strategist.md コンテンツ種別表
 
 ---
 
