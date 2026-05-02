@@ -106,7 +106,7 @@
 | ルーティング判定ツリー / ハンドオフプロトコル | `docs/agent-routing.md` |
 | 18 のエージェント連携パターン | `docs/agent-collaboration-patterns.md` |
 | 反証モード詳細プロセス・部門別チェック重点 | `.claude/skills/falsification-check.md` |
-| セキュリティ 3 層防御（Layer 0 Gitleaks / Layer 1 / Layer 2）詳細 | `.claude/skills/cybersecurity-playbook.md` |
+| セキュリティ 3 層防御（Layer 0 Gitleaks / Layer 1 / Layer 2）詳細 + GitHub アカウントセキュリティ（MFA / PAT 最小権限・90 日ローテーション / Branch protection / Secret Scanning） | `.claude/skills/cybersecurity-playbook.md` |
 | 佐藤裕介・小野寺信行の知見・3S フレーム・3 変数交点・アセット帰属診断 | `.claude/skills/consulting-playbook.md` |
 | Boris Cherny 流 9 規律詳細 | `.claude/skills/claude-code-ops/references/boris-cherny-9-rules.md` |
 | Claude Code 運用（Hooks / Monitor / Routines / Cowork / Advisor Strategy） | `.claude/skills/claude-code-ops/SKILL.md` |

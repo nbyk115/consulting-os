@@ -83,10 +83,40 @@
 ## 3. シークレット管理
 
 ### 鉄則
-- **ハードコード絶対禁止**: APIキー・トークン・パスワードをコードに書かない
-- **環境変数で管理**: `.env`ファイルは`.gitignore`に必ず追加
-- **ローテーション**: シークレットは90日ごとにローテーション
-- **最小権限**: APIキーは必要最小限のスコープで発行
+- ハードコード絶対禁止: APIキー・トークン・パスワードをコードに書かない
+- 環境変数で管理: `.env`ファイルは`.gitignore`に必ず追加
+- ローテーション: シークレットは90日ごとにローテーション
+- 最小権限: APIキーは必要最小限のスコープで発行
+
+### 🚨 GitHub アカウント・リポジトリセキュリティ（2026-05-01 マネーフォワード事案学習）
+
+参考: 2026 年 5 月のマネーフォワード GitHub 不正アクセス事案では、認証情報漏洩 → リポジトリ不正アクセス → ソースコード/関連ファイル閲覧コピー → 個人情報 370 件流出（氏名 + クレカ下 4 桁）という経路で被害が拡大した（出典: [日本経済新聞](https://www.nikkei.com/article/DGXZQOUB012UA0R00C26A5000000/) / [株式会社一創](https://www.issoh.co.jp/tech/details/11988/)）。同種の被害を防ぐため以下の規律を徹底する。
+
+#### GitHub 認証情報の管理
+- IMPORTANT: GitHub アカウント MFA（多要素認証）必須。Authenticator アプリまたはハードウェアキー（YubiKey 等）を有効化
+- IMPORTANT: Personal Access Token（PAT）は Fine-grained PAT を使用、Classic PAT は新規発行禁止
+- IMPORTANT: PAT のスコープは最小権限（読み取りのみ / 特定リポジトリのみ）
+- IMPORTANT: PAT 有効期限は最長 90 日、満了前にローテーション
+- NEVER: PAT / SSH 秘密鍵 / OAuth トークンを `.env` 以外に保存
+- IMPORTANT: SSH 鍵はパスフレーズ付き、漏洩時即無効化のため鍵管理表（鍵 ID / 用途 / 発行日 / 有効期限）を `.claude/memory/` に保管
+
+#### リポジトリ運用
+- IMPORTANT: クライアント案件・機密情報を含むリポジトリはプライベート設定必須
+- IMPORTANT: 公開リポジトリでは個人情報 / 顧客データ / 内部 URL / 内部メールアドレスを含めない
+- IMPORTANT: GitHub Secret Scanning + Dependabot を全リポジトリで有効化
+- IMPORTANT: Branch protection rules: main ブランチへの直接 push 禁止、PR レビュー必須、Squash and merge 限定
+- IMPORTANT: リポジトリアクセス権を四半期ごとに棚卸し、退職者・案件離脱者は即剥奪
+- NEVER: コミット履歴に過去シークレットを残置（誤コミット時は git filter-repo + force push + 同シークレット即ローテーション）
+
+#### 監視・検知
+- IMPORTANT: GitHub 監査ログ（Audit Log）を月次レビュー、異常 IP / 異常時間帯のアクセスを検知
+- IMPORTANT: 不審なリポジトリクローン / fork / 大量 API 呼び出しは即調査
+- IMPORTANT: GitHub Security Advisories を有効化、依存関係の脆弱性通知を受信
+
+#### Claude Code 利用時の固有規律
+- NEVER: Claude Code から GitHub MCP 経由で書き込み操作（push / merge / delete）を承認なしに実行
+- IMPORTANT: GitHub MCP の認証トークンも Fine-grained PAT、最小権限・短期間ローテーション
+- IMPORTANT: Claude Code セッションログに GitHub PAT が出力されていないか週次確認
 
 ### 検知パターン（/security-scan用）
 ```bash
