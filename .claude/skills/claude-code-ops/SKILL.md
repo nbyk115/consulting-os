@@ -272,6 +272,87 @@ ConsultingOS の現状（単一リポ / Hotice 1 件受注 / SDK Phase 1 PoC 段
 - 保留項目は evolution-log の再評価カレンダー対象、実需出現時に再判定
 - 「使えそう」「便利そう」は形骸化トリガー、即却下
 
+---
+
+## 11. ClaudeCodeStudio 30 Tips（実需ベース取捨選択）
+
+ClaudeCodeStudio 独自調査記事（2026-04-23 時点・Boris X 投稿 + Anthropic 公式 Docs + GitHub Action 一次情報）30 Tips を ConsultingOS と照合。佐藤裕介モードで 4 項目のみ取り込み（13 項目は既存内包・13 項目は研究プレビュー or 実需未顕在化）。
+
+### 11.1 取り込み 4 項目（既存規律と相補的）
+
+#### Tip 12: status line で context% / cost / branch を常時表示
+
+- 用途: 反証チェック忘れ防止 / main 直接 push 早期検知 / コンパクション発火タイミング把握
+- 実需: ConsultingOS の 6 層防御は通知タイミングが応答時のみ、status line で常時可視化することで規律徹底度向上
+- 設定例: `/statusline show model name, git branch, context percentage, cost`
+- 推奨表示: branch / context% / cost の 3 つから開始
+- 適用判断: ユーザー側 PC 環境次第、本 OS は推奨設定をドキュメント化のみ
+
+#### Tip 15: Claude にインタビューさせる（Let Claude interview you）
+
+- 用途: 仕様曖昧時のヒアリング設計、proposal-writer / product-manager / lead-qualifier で活用
+- 実需: クライアント案件の初期ヒアリングで仕様の穴を実装前に埋める、Hotice 案件のような B2B 案件で受注精度向上
+- プロンプト例: 「いきなり実装に入らず、要件を引き出すために 5-10 個質問してから進めて」
+- 出典: Anthropic 公式 Docs「Let Claude interview you」
+
+#### Tip 13: Chrome 拡張でフロントエンド作業を加速
+
+- 用途: ログイン状態共有 + スクリーンショット比較で UI 崩れ検出
+- 実需: Hotice 案件のセールスデッキ HTML/CSS のような視覚成果物検証で必須
+- Borisの公式推奨: 「Use the Chrome extension for frontend work」
+- 限界: アクセシビリティ・体感速度はスクリーンショットでは測れない、Lighthouse / e2e と併用必要
+
+#### Tip 23: GitHub Issue → 実装直結
+
+- 用途: SDK Phase 5「Issue → PR 完全自動化」の前段、現状は Issue 内容を人間が読んで Claude に渡す
+- 実需: 単一リポ運用だが Issue ベースの案件管理が顕在化したら活用、Hotice 後続案件で実需出る可能性
+- リスク: プロンプトインジェクション、外部入力の検証必須
+- ロードマップ: SDK Phase 5 で自動化検討、現時点は手動運用
+
+### 11.2 既存内包 13 項目（重複追加禁止）
+
+| Tip | 内包先 |
+|---|---|
+| Tip 1: Plan Mode で「調べる」と「実装する」を分ける | CLAUDE.md ハードルール 14 / Boris 9 規律 #1 |
+| Tip 2: Claude 自身に検証させる（自己検証） | claude-code-ops 8 章 / Boris 9 規律 #2 |
+| Tip 3: 3〜5 本 git worktree 並列 | セクション 10.1（Boris 公式機能取り込み済） |
+| Tip 4: CLAUDE.md ruthlessly edit | CLAUDE.md ハードルール 13 / Boris 9 規律 #3 |
+| Tip 5: 毎日繰り返す作業の skills 化 | 19 スキル運用中 |
+| Tip 6: settings.json チーム共通設定 git 管理 | 既に運用中 |
+| Tip 7: permissions allow/ask/deny | settings.json で運用中、`.env` deny 済 |
+| Tip 9: subagents 役割分担 | 30 エージェント・6 部門で運用中 |
+| Tip 10: PostToolUse hook 整形・検査自動化 | 5 hook で運用中（PDF / DOCX 字形検証 hook 等） |
+| Tip 16: CLAUDE.md と auto memory 役割分け | 既存運用、CLAUDE.md にルール / evolution-log に学習 |
+| Tip 18: 文脈管理（compact / clear / btw）| references/context-management.md セクション「セッション管理 5 つの術」|
+| Tip 21: claude -p 非対話モード | SDK Phase 1 で活用中（claude-code-action@v1）|
+| Tip 26: GitHub Action @claude メンション | SDK Phase 1 で実装済（.github/workflows/claude-pr-review.yml）|
+| Tip 24: hooks zero exceptions 強制 | 6 層防御の PreToolUse hook 物理ブロック |
+
+### 11.3 保留 13 項目（研究プレビュー or 実需未顕在化）
+
+| Tip | 保留理由 |
+|---|---|
+| Tip 8: --add-dir 複数フォルダ | 単一リポ運用、Boris セクション 10.2 で保留判定済 |
+| Tip 11: PR コメントで CLAUDE.md 更新（@claude タグ）| SDK Phase 2 候補、現状 PR 自動レビューのみ |
+| Tip 14: CLI 経由データ分析（bq CLI 等）| marketing-analyst の実需顕在化次第、現状は read-only 運用 |
+| Tip 17: パス別ルール / monorepo | 単一リポなので部分適用、monorepo 化時に再検討 |
+| Tip 19: /rewind と checkpoint | references/context-management.md で言及済、深掘り運用は実需次第 |
+| Tip 20: MCP サーバー外部接続 | minimal MCP（GitHub・Figma）で運用中、追加は CLAUDE.md コンテキスト管理ルールで制限 |
+| Tip 22: claude -p ファイル単位 fan-out | /batch（セクション 10.1）で代替可能 |
+| Tip 25: /simplify 並列レビュー | review-agent-essence / /review-pr で代替済、重複追加禁止 |
+| Tip 27: Code Review / Ultrareview | 研究プレビュー機能、/review-pr で代替 |
+| Tip 28: Routines / /schedule | Boris セクション 10.2 で保留判定済 |
+| Tip 29: Ultraplan | 研究プレビュー機能、Plan Mode で代替 |
+| Tip 30: Remote Control | 研究プレビュー機能、単一 PC 運用で不要 |
+| 番外: Stop hook days at a time 運用 | 長時間動作実績なし、1-2 時間 soak test から段階開始 |
+
+### 11.4 取捨選択の判断軸（再掲・佐藤裕介流）
+
+- 「30 Tips 全部試す」は典型的失敗パターン、コンセンサス追従で形骸化
+- ConsultingOS は既に Plan Mode / 自己検証 / CLAUDE.md / permissions / subagents / 文脈管理を運用中、Tip 1-2-4-7-9-18 は内包済
+- 新規取り込みは「現状の弱点を補強するか」「実需顕在化済か」で判定
+- 研究プレビュー機能は仕様変更リスク、商用案件には未投入
+
 
 | Ver | 日付 | 変更内容 |
 |---|---|---|
@@ -282,3 +363,4 @@ ConsultingOS の現状（単一リポ / Hotice 1 件受注 / SDK Phase 1 PoC 段
 | 2.0.0 | 2026-04-30 | SKILL.md 200行化 + references/ 4分割（advisor / hooks-monitor-routines / context-management / boris-cherny-9-rules） |
 | 2.1.0 | 2026-05-02 | Anthropic Applied AI チーム公式知見 5 項目追加（4 条件ゲート / thinking block 計画 / Interleaved Thinking / コンパクション運用 / eval 段階開始）。残り 9 項目は既存内包で重複追加禁止 |
 | 2.2.0 | 2026-05-02 | Boris Cherny 公式 Claude Code 機能 3 項目取り込み（worktree -w / /batch / --bare）。5 項目は実需顕在化次第保留（/loop /schedule / teleport / /branch / /voice / --add-dir）|
+| 2.3.0 | 2026-05-02 | ClaudeCodeStudio 30 Tips から 4 項目取り込み（status line / Interview ファースト / Chrome 拡張 / Issue→実装直結）。13 項目は既存内包、13 項目は研究プレビュー or 実需未顕在化で保留 |
