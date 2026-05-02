@@ -220,6 +220,7 @@ consulting-os/
 | Cline | 対象外 | Claude Code が ConsultingOS の前提、切替は OS 再設計レベル |
 | [Editframe](https://editframe.com)（@editframe / Claude Code 対応動画生成）| 保留・最有力候補 | HTML/CSS → MP4 ブラウザレンダリング = Hotice デッキ Puppeteer パイプラインと親和性高、sales-deck-designer の動画版商品ライン拡張候補。npm create @editframe@latest で取り込みコスト極低 |
 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 取り込み禁止 | Cloudflare 突破 + bot 偽装は ToS 違反 / 不正アクセス禁止法 3 条のグレー / `legal-compliance-checker` と矛盾。合法代替は WebSearch / WebFetch / Firecrawl |
+| Camofox Browser | 取り込み禁止 | Cloudflare 検知回避ヘッドレスブラウザ、C++ レベル bot 偽装。Scrapling と同類で ToS 違反 + 不正アクセス禁止法 3 条グレー。クライアント案件で訴訟リスク |
 | Claude Code 無料化（NVIDIA + GLM-4.7） | 取り込み禁止 | Anthropic ToS 違反 + アカウント BAN リスク + 機密情報流出（中国発モデル）+ クライアント案件不可 |
 
 ## 詳細参照
