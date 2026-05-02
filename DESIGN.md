@@ -10,6 +10,7 @@
 - **更新責任者**: `creative-director`（プロジェクト開始時にドラフト → 各フェーズで更新）
 - **整合チェッカー**: `brand-guardian`（DESIGN.md ↔ `brand-guidelines.md` の整合）
 - **新規プロジェクト**: このテンプレートを `<project>/DESIGN.md` にコピー → 上書きカスタマイズ
+- **外部参照（案件単位）**: [refero.design](https://styles.refero.design/) — 2,000+ プロダクトの構造化された色・タイポ・スペーシング・レイアウト。類似プロダクトを照合してデザイン判断の根拠化に活用（全部取り込み禁止、必要部分のみ引用）
 
 ---
 
