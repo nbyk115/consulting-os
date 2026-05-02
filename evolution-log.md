@@ -9,6 +9,12 @@
 
 > SessionStart hook が期限到達時に自動通知。形式: `- YYYY-MM-DD: 再評価対象 / 判断軸`
 
+### 即時 TODO（次回セッションで自動通知）
+
+- 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
+
+### 中期再評価
+
 - 2026-08-01: agentic-content 削除の妥当性 / AI Shopping 急変動向の影響を検証（6ヶ月後）
 - 2026-08-01: Reply Guy / Comment-as-Strategy / 12-18ヶ月寿命前提のため陳腐化チェック（6ヶ月後）
 - 2026-08-01: content-strategist への AIO/GEO 統合の専門深掘り低下リスク評価（6ヶ月後）
@@ -148,6 +154,40 @@
 - `.claude/settings.json` statusLine
 - `docs/agent-routing.md` Step 0
 - `.claude/commands/check-hallucination.md` Interleaved Thinking セクション
+
+---
+
+## 2026-05-02: Claude Code 無料化（NVIDIA API + GLM-4.7 マッピング）取り込み禁止判定
+
+### トリガー
+ユーザーから X 投稿「Claude Code を完全無料で動かす方法（NVIDIA API + GLM-4.7 マッピング）」の取り込み判断を依頼。
+
+### 判断: 取り込み禁止（Scrapling 同類）
+
+### 禁止理由
+1. Anthropic ToS 違反確実（非公式・proxy 経由でモデル偽装は禁止行為）
+2. Anthropic アカウント BAN リスク（検出時 ConsultingOS 全機能停止）
+3. 機密情報流出リスク（クライアント情報が智譜 AI / GLM-4.7 = 中国発モデルに流れる、米中緊張下で重大）
+4. 機能互換性は SPECULATION（Skills / Hooks / Agent SDK は Claude モデル前提）
+5. クライアント案件不可（情報漏洩 + コンプライアンス違反、legal-compliance-checker と矛盾）
+
+### 合法代替
+- Anthropic 公式 API（従量課金で規約遵守）
+- Claude Code Pro/Max プラン（定額制で予測可能）
+
+### 反証結果
+✅ Step 1: 「コスト削減で PL 改善」反論 → BAN 1 回で ConsultingOS 全停止 = 削減ベネフィット < 停止リスク、佐藤裕介流 PL 思考でも禁止判定
+✅ Step 2: 投稿で「もちろん非公式・自己責任」と明記、ToS 違反は事実 / GLM-4.7 = 智譜 AI（中国 Zhipu）公式情報で確認可能
+✅ Step 3: 既存 Anthropic 公式 API + Pro/Max プランで合法代替可能、Scrapling と同パターンで禁止判定
+
+🔺 残存リスク:
+- 個人開発・実験環境では使用許容範囲の可能性、ただし ConsultingOS のクライアント案件で線引き困難
+- GLM-4.7 自体の性能評価は本判定対象外（モデル品質ではなくマッピングの規約違反性が問題）
+- Anthropic 側の検出能力は不明、検出されない期間がある可能性だが規律違反は規律違反
+
+### 関連参照
+- evolution-log: Scrapling 取り込み禁止判定（2026-05-02）と同パターン
+- 出典: ユーザー提示の X 投稿「Claude Code を完全無料で動かす方法」/ Anthropic Terms of Service
 
 ---
 
