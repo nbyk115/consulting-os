@@ -201,6 +201,10 @@ consulting-os/
 
 - [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills): 1,100+ Agent Skills コレクション。特に注目は Anthropic 公式 17（docx / pptx / xlsx / pdf / brand-guidelines 比較対象 / skill-creator / mcp-builder / frontend-design / webapp-testing 等）。本体取り込みは案件実需顕在化次第。
 
+### ハルシネーション減少（推奨・即活用可能）
+
+- [Context7](https://github.com/upstash/context7): 公式ドキュメントから最新 API・使用例をリアルタイム取得するプラグイン。`ai-engineer` / `tech-lead` / `fullstack-dev` がライブラリコード生成時に活用、古いバージョンに基づく出力を構造的に防止。`/check-hallucination` + Interleaved Thinking + 出典 3 ラベル（FACT/INFERENCE/SPECULATION）と相補的。インストール: Claude Code 内で `/plugin marketplace add upstash/context7` または `claude.com/plugins/context7`
+
 ### Anthropic 公式 6 スキル（OS 拡張時の規律強化）
 
 - [anthropics/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator): SKILL.md 設計の本家ガイド、19 スキル拡張時の作法統一に活用

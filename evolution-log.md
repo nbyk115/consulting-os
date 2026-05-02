@@ -33,6 +33,38 @@
 
 ---
 
+## 2026-05-02: Context7 推奨追加（ハルシネーション減少強化）
+
+### トリガー
+直前判定で「公式マーケット 36 プラグインの中で唯一の新規価値」として識別した Context7 を実装。
+
+### 取り込み内容
+- README 外部参照に「ハルシネーション減少（推奨・即活用可能）」セクション新設
+- Context7（upstash/context7）を 1 行追加
+- 活用エージェント: ai-engineer / tech-lead / fullstack-dev
+- 既存規律との相補性: /check-hallucination + Interleaved Thinking + 出典 3 ラベル（FACT/INFERENCE/SPECULATION）
+
+### 判定理由
+- 公式 / コミュニティ 36 プラグインの中で ConsultingOS の弱点（ライブラリコードハルシネーション）を構造的に補強する唯一の新規価値
+- /plugin marketplace add で取り込みコスト極低
+- 既存 ConsultingOS 規律（出典 3 ラベル / 反証モード）と矛盾せず補完的
+
+### 反証結果
+✅ Step 1: 「Anthropic 公式 6 スキルで十分」反論 → 公式 6 はスキル設計 / Office 系 / MCP 構築が主、ライブラリコードのリアルタイム最新性は Context7 のみ提供
+✅ Step 2: Context7 は GitHub URL（upstash/context7）+ Claude 公式マーケット claude.com/plugins/context7 で実在確認可能、Upstash 提供 = 信頼性高い
+✅ Step 3: README 1 セクション追加の最小差分、CLAUDE.md は触らず（115 行死守）
+
+🔺 残存リスク:
+- Context7 の検索精度は本 OS で未検証、初回利用で動作確認推奨
+- Upstash の継続性は SPECULATION（OSS プラグインの一般リスク）
+- 既存 WebSearch + 出典 3 ラベルとの使い分け基準は未定義、運用で調整
+
+### 関連参照
+- README.md「ハルシネーション減少」セクション
+- 出典: 公式マーケット claude.com/plugins/context7
+
+---
+
 ## 2026-05-02: Audit + Level Up スキル新設 + Hot Cache 概念追加（Nate Herk's AI OS から取り込み 3 項目）
 
 ### トリガー
