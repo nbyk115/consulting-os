@@ -58,7 +58,8 @@
 13. **NEVER**: 形骸化ルールを CLAUDE.md / スキルに追加。Boris #3 ruthlessly edit — 追加は削除と 1 セット。
 14. **IMPORTANT**: 全変更前に反証モード Step 1-3（自己反証 / 構造反証 / 実用反証）を実行。変数 / 定数削除は全参照を grep 列挙してから（参照が 1 つでも残れば削除禁止）。
 15. **IMPORTANT**: ファイル削除・force push・DB drop 等の不可逆操作はユーザー承認必須（Claude Code v2.1.122 事前確認 + settings.json `permissions.deny` で二重防御）。
-16. **YOU MUST**: 出力フォーマット遵守（2026-05-01 学習）。① 太字記法 `**` 禁止（強調は「」or 大文字英語キーワード IMPORTANT/NEVER 等で代替）／ ② 一文中の改行禁止（句読点での改行 NG、変な改行を防ぐ）／ ③ 表は Word/PowerPoint で中央揃え必須／ ④ PPT/PDF はページシート内に必ず収める（はみ出し禁止・収まらない場合はページ分割可）／ ⑤ 出力直前に佐藤裕介 W チェック（1 回目内容、2 回目形式・字形・収まり・規律）を必ず実施。詳細: `.claude/skills/brand-guidelines.md`
+16. **YOU MUST**: 出力フォーマット遵守（2026-05-01 学習）。① 太字記法 `**` 禁止（強調は「」or 大文字英語キーワード IMPORTANT/NEVER 等で代替）／ ② 一文中の改行禁止（句読点での改行 NG、変な改行を防ぐ）／ ③ 表は Word/PowerPoint で中央揃え必須／ ④ PPT/PDF はページシート内に必ず収める（はみ出し禁止・収まらない場合はページ分割可）／ ⑤ 出力直前に佐藤裕介 W チェック（1 回目内容、2 回目形式・字形・規律）を必ず実施。詳細: `.claude/skills/brand-guidelines.md`
+17. **YOU MUST**: ConsultingOS 起動が全業務の標準（2026-05-02 水野さんピッチ単独作成違反学習）。assistant の役割は「タスク受領 → 関連エージェント並列起動 → 出力統合 → 反証 → 書き込み」のオーケストレーター。執筆者ではない。原則: 全ての業務（提案・戦略・コード・デザイン・マーケ・調査・分析・コンテンツ）で関連エージェント最低 1 名以上を起動、判断 / 統合 / 出力責任を持つ。例外: ① 軽微な確認（ファイル読み込み・git status 等）／ ② シンプルなコマンド実行（typecheck / lint）／ ③ ユーザー質問への即答（事実回答 1-2 文）／ ④ 形式修正（typo / インデント / リネーム）。「自分で書いた方が早い」「単独で完結」が出たら即停止 = ConsultingOS の存在意義違反として evolution-log 記録義務。詳細: `docs/agent-routing.md` / `docs/agent-collaboration-patterns.md`
 
 ---
 
