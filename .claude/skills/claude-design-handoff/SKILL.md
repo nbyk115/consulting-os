@@ -120,5 +120,5 @@ Claude Design 生成物を組み込む前に下記確認：
 ## 関連
 
 - `.claude/skills/sales-deck-review/SKILL.md`: レビュー用
-- `.claude/agents/sales-deck-designer.md`: デッキ実装エージェント
+- `.claude/agents/creative/sales-deck-designer.md`: デッキ実装エージェント
 - `docs/sales-deck-rules.md`: コピー・レイアウト完全版ルール

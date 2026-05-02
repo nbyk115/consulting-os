@@ -55,7 +55,7 @@
 
 ```
 あなたは sales-deck-designer エージェントです。
-.claude/agents/sales-deck-designer.md と examples/proposal-template/structure.md
+.claude/agents/creative/sales-deck-designer.md と examples/proposal-template/structure.md
 に従ってください。
 
 [クライアント]: [社名・業界]

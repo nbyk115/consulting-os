@@ -29,7 +29,7 @@
 | `.claude/agents/consulting/` | 戦略・提案・KPI・法務（7 名: strategy-lead / competitive-analyst / proposal-writer / lead-qualifier / kpi-analytics / client-success / legal-compliance-checker）。AI 案件は strategy-lead + ai-engineer ペア |
 | `.claude/agents/service-dev/` | 実装・AI・インフラ（4 名: tech-lead / fullstack-dev / ai-engineer / infra-devops）。Claude Code 自体が実行エンジン |
 | `.claude/agents/product/` | プロダクト・VOC（2 名: product-manager / feedback-synthesizer） |
-| `.claude/agents/creative/` | デザイン・コンテンツ・グロース（6 名: creative-director / ux-designer / frontend-dev / content-strategist / brand-guardian / growth-hacker）。Figma MCP 対応に 🎨 |
+| `.claude/agents/creative/` | デザイン・コンテンツ・グロース（7 名: creative-director / ux-designer / frontend-dev / content-strategist / brand-guardian / growth-hacker / sales-deck-designer）。Figma MCP 対応に 🎨 |
 | `.claude/agents/global/` | GTM・現地・翻訳（3 名: gtm-consultant / global-journalist / business-translator） |
 | `.claude/agents/marketing-research/` | 統括・広告・SEO・分析・CRM/MA・SNS・調査・PR（8 名: marketing-director / performance-marketer / seo-specialist / marketing-analyst / crm-ma-strategist / social-media-strategist / market-researcher / pr-communications） |
 | `.claude/skills/` | 19 スキル（consulting-playbook / revenue-growth-framework / engineering-playbook / creative-playbook / brand-guidelines / falsification-check / claude-code-ops / cybersecurity-playbook / marketing-research-playbook / global-expansion-playbook / debug-methodology 他）。SKILL.md は 500 行以下、超過時 references/ 分離 |

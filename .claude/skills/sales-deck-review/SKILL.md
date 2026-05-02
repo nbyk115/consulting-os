@@ -72,4 +72,4 @@ description: B2B (特に代理店／エンタープライズ向け) セールス
 ## 関連ドキュメント
 
 - `/docs/sales-deck-rules.md` — 完全版ルール
-- `/.claude/agents/sales-deck-designer.md` — デザイン実装担当エージェント
+- `/.claude/agents/creative/sales-deck-designer.md` — デザイン実装担当エージェント
