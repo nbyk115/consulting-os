@@ -21,6 +21,65 @@
 
 ---
 
+## 2026-05-02: Claude Code SDK Phase 1 着手（PR 自動レビュー）
+
+### トリガー
+Anthropic Sid Bidasaria（Claude Code Engineering Lead）公式動画で公開された Claude Code SDK + GitHub Actions の運用ナレッジ 14 項目を学習。
+
+### 学習内容
+- Claude Code SDK は headless mode（画面なし裏側）で動作、ターミナル / CI/CD 直接組み込み可能
+- 基本コマンド `claude -p` で対話なし一発実行、`--allowed-tools` で権限制御
+- パイプ連携で `cat error.log | claude -p "..."` のような流れ作業可能
+- `--output-format JSON` で本番運用化（インフラ部品として組み込み可能）
+- `--system-prompt` でペルソナを 1 フラグ差し替え
+- session ID で会話永続化、デプロイ跨ぎでもコンテキスト保持
+- Anthropic 公式 3 層アーキテクチャ: L1 SDK / L2 Base Action / L3 PR Action
+- GitHub Action は 60 秒で本番投入、専用インフラ不要
+- Issue → ToDo → 編集 → PR の完全自動化が可能
+
+### 商業機会（FACT/SPECULATION 混在）
+英語圏フリーランスで「SDK + GitHub Action 構成のクライアント環境向け実装」を月 $5K / $10K / $25K で受注（個人ブログ・X 投稿ベース、業界調査により幅あり）。日本市場でほぼ未開拓。
+
+### 実装内容（本 PR で着手）
+1. `.github/workflows/claude-pr-review.yml` 新規作成
+   - anthropics/claude-code-action@v1 を使用
+   - PR 作成・更新時に /review-pr スキル（5 軸評価）を自動実行
+   - `--allowed-tools read` で最小権限
+2. `.claude/skills/claude-code-ops/references/sdk-automation.md` 新規作成
+   - 1-14 項目の知見統合
+   - Phase 1-6 の進化ロードマップ明示
+3. `.claude/skills/claude-code-ops/SKILL.md` に SDK 化セクション追記
+   - 60 秒本番投入フロー
+   - 3 層アーキテクチャ
+   - references/sdk-automation.md への誘導
+
+### Phase 別ロードマップ
+| Phase | 内容 | 着手判断 |
+|---|---|---|
+| Phase 1: PR 自動レビュー | 本 PR | 着手済 |
+| Phase 2: 月次 review-agent-essence 自動実行 | 実需確認後 | 保留 |
+| Phase 3: 朝の競合巡回 | 実需確認後 | 保留 |
+| Phase 4: クライアント問い合わせトリアージ | SaaS 化検討時 | 保留 |
+| Phase 5: Issue → PR 完全自動化 | 実需確認後（権限慎重） | 保留 |
+| Phase 6: クライアント案件向け実装サービス商品化 | クライアント問い合わせ後 | 保留 |
+
+### 反証結果
+✅ Step 1: 「Phase 1-6 全部着手すべき」反論 → 先回り増員禁止、Phase 1 のみ着手で実需確認後に拡張
+✅ Step 2: anthropics/claude-code-action@v1 は Anthropic 公式・GitHub 上で実在確認済（FACT）
+✅ Step 3: `--allowed-tools read` のみで本 PoC は読み取り専用、書き込み権限拡張は別 PR で慎重に
+
+🔺 残存リスク:
+- ANTHROPIC_API_KEY のセットアップはユーザーが GitHub Secrets で実施（CLAUDE.md ハードルール 3 遵守）
+- Claude Code Action の挙動は Anthropic 側のアップデートで変化、v1 固定で安定運用
+- 「月 $25K」等の商業機会数字は SPECULATION（個人体験ベース）
+- 自動コードレビューの精度はクライアント案件で検証必要、本 PoC は ConsultingOS 内部運用のみ
+
+### 関連参照
+- [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action)
+- `.claude/skills/claude-code-ops/references/sdk-automation.md`
+
+---
+
 ## 2026-05-02: main 直接 push 規律違反（CLAUDE.md ハードルール 7 違反）
 
 ### 違反内容
