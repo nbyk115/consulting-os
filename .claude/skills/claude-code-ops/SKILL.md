@@ -160,7 +160,118 @@ Claude Code SDK + GitHub Actions で、対話的運用から本番自動化（St
 
 ---
 
-## バージョン履歴
+## 9. Anthropic Applied AI チーム公式知見（Hannah & Jeremy）
+
+ConsultingOS 既存規律と相補的な 5 項目のみ取り込み（残り 9 項目は既存内包・コンセンサス追従回避）。
+
+### 9.1 エージェント使うべき 4 条件（ルーティング前段ゲート）
+
+agent-routing.md の判定前に必ず確認。1 つでも NO ならエージェント不要・別手段で解決。
+
+| 条件 | 判定 |
+|---|---|
+| タスクが複雑（人間が手順を順番に書き出せないレベル） | YES → 進む / NO → 単発スクリプト・コマンドで十分 |
+| 価値が高い（粗利インパクト・時間節約） | YES → 進む / NO → 形骸化リスク、エージェント不要 |
+| 必要なツールを AI に渡せる | YES → 進む / NO → ツール整備が先 |
+| エラーが検知・修正可能（取り返しがつく） | YES → 進む / NO → 物理ブロック層必須 |
+
+### 9.2 thinking block で計画を先に立てさせる（反証モード Step 1 強化）
+
+extended thinking の最初のブロックで以下を明示させる。
+
+- いくつツールを使うか先に決める
+- どんなソースを当たるか先に書く
+- 成功条件を先に定義する
+- 「答えが見つかったら検索を止めていい」「シンプルな質問は 5 ツール以下、複雑なら 10〜15 まで」を明文化
+
+これで暴走停止 + 反証 Step 1 の自己反証が深化。
+
+### 9.3 Interleaved Thinking 活用（ハルシネーション検出強化）
+
+Claude 4 のツール呼び出し間思考機能。`/check-hallucination` の補完として常用。
+
+- ツール実行直後の thinking で「結果が信頼できるか」を毎回問う
+- 出典 3 ラベル（FACT / INFERENCE / SPECULATION）の判別を thinking 内で先行実施
+- ウェブ検索結果の盲信を防止（特に WebFetch / WebSearch 後）
+
+### 9.4 コンパクション運用詳細（19 万トークン自動圧縮）
+
+`/compact` の運用ナレッジ補強。
+
+- 自動発火: 約 19 万トークン到達時に自動コンパクション
+- 動作: 全コンテキストを「濃いけど正確な要約」に圧縮、新 Claude に継承
+- 副作用: 圧縮で失われやすい情報 → 重要決定は `/btw` でメモ化、外部ファイル（evolution-log / docs/）に書き出す
+- 24 時間運用の鍵: コンパクション + 外部ファイル + サブエージェント委譲の 3 点セット
+
+### 9.5 eval の段階的開始（過剰自動化回避）
+
+`/tdd` `/review-pr` `agent-evaluation.md` の評価軸補強。
+
+- Phase 1: 手動テスト数件（最初から数百件の自動テストを作るな）
+- Phase 2: LLM as Judge + rubric（採点基準表）で半自動化
+- Phase 3: 最終状態チェック（TauBench 流）「DB が正しく更新されたか」だけ見る
+- 競プロ問題で実コーディング能力を測ろうとしない（現実的タスクで測る）
+
+### 既存内包で取り込み不要の 9 項目
+
+Hannah & Jeremy の 14 項目のうち以下は既に ConsultingOS に内包済（重複追加禁止）。
+
+| 項目 | 内包先 |
+|---|---|
+| エージェント定義 = ループ | CLAUDE.md / 30 エージェント前提 |
+| エージェントの気持ちで考えろ | brand-guidelines / 同僚エンジニアテスト |
+| 新卒インターン指示 | agent definition の作法に内包 |
+| ツール選択の指示が 9 割 | docs/agent-routing.md |
+| 副作用注意 | 反証モード Step 2 |
+| 外部ファイル + サブエージェント | references/context-management.md / Task tool |
+| Claude を Claude にさせろ | 冗長性禁止規律 / 最小プロンプト原則 |
+| 良いツールの条件 | brand-guardian REJECT 基準 |
+| まとめ（要約） | 取り込み不要 |
+
+---
+
+## 10. Boris Cherny 公式 Claude Code 機能（実需ベース取捨選択）
+
+ConsultingOS の現状（単一リポ / Hotice 1 件受注 / SDK Phase 1 PoC 段階）と照合し、実需顕在化済の 3 項目のみ取り込み。残り 5 項目は先回り設定リスクで保留。
+
+### 10.1 取り込み 3 項目（実需顕在化済）
+
+#### git worktree 並列開発（claude -w）
+
+- 用途: examples/ 配下の複数案件を同時並行で進める / 反証モードの「2 案検討」を別 worktree で並列実行
+- 実需: Hotice 案件成果物 examples/hotice-sales-deck/ と次案件を並行する場合に必須
+- 推奨運用: 3〜5 worktree 同時実行（Boris 推奨値）/ 各 worktree は独立ブランチ（`feature/<案件名>`）
+- リスク: Git 規律違反（main 直接 push）が worktree でも発生しうるため PreToolUse hook 物理ブロック層を全 worktree で適用
+
+#### /batch（大規模変更 worktree 分散）
+
+- 用途: 30 エージェント全員の definition 一括更新 / 19 スキル全体への横断変更
+- 実需: CLAUDE.md スリム化第 2 弾（369 → 358）のような全体改修で活用可能
+- 推奨運用: ruthlessly edit と組み合わせ「追加は削除と 1 セット」を全 worktree で徹底
+
+#### --bare（SDK 起動 10 倍高速化）
+
+- 用途: SDK Phase 1 PoC（claude-code-action@v1）の起動時間短縮
+- 実需: GitHub Actions 内での Claude Code 起動コスト削減、ユニット時間短縮
+- 推奨運用: .github/workflows/ の Claude Code 起動時に `--bare` 標準化
+
+### 10.2 保留 5 項目（先回り設定リスク・実需顕在化次第）
+
+| 機能 | 保留理由 |
+|---|---|
+| /loop, /schedule（24 時間運用） | Hotice 1 件受注のみ、24 時間運用の実需未顕在化。複数案件並行 + 月次定期業務が顕在化してから導入 |
+| claude --teleport（デバイス間転送） | 単一 PC 環境前提、複数デバイス運用の実需なし |
+| /branch（セッションフォーク） | 反証モード Step 1（自己反証）で代替可能、過剰機能 |
+| /voice（音声入力） | 個人環境依存、ConsultingOS の規律徹底にメリット薄 |
+| --add-dir（複数リポアクセス） | 単一リポ運用、現状不要 |
+
+### 10.3 取捨選択の判断軸（佐藤裕介流）
+
+- 「Boris 公式紹介」「Anthropic 公式」だからといって全部取り込まない（コンセンサス疑念）
+- 実需顕在化済 = ストック資産化に直結するもののみ採用
+- 保留項目は evolution-log の再評価カレンダー対象、実需出現時に再判定
+- 「使えそう」「便利そう」は形骸化トリガー、即却下
+
 
 | Ver | 日付 | 変更内容 |
 |---|---|---|
@@ -169,3 +280,5 @@ Claude Code SDK + GitHub Actions で、対話的運用から本番自動化（St
 | 1.2.0 | 2026-04-12 | 4層アーキテクチャ・Hook exit code仕様・Plan Mode追加 |
 | 1.3.0 | 2026-04-12 | OpenDataLoader PDF追加 |
 | 2.0.0 | 2026-04-30 | SKILL.md 200行化 + references/ 4分割（advisor / hooks-monitor-routines / context-management / boris-cherny-9-rules） |
+| 2.1.0 | 2026-05-02 | Anthropic Applied AI チーム公式知見 5 項目追加（4 条件ゲート / thinking block 計画 / Interleaved Thinking / コンパクション運用 / eval 段階開始）。残り 9 項目は既存内包で重複追加禁止 |
+| 2.2.0 | 2026-05-02 | Boris Cherny 公式 Claude Code 機能 3 項目取り込み（worktree -w / /batch / --bare）。5 項目は実需顕在化次第保留（/loop /schedule / teleport / /branch / /voice / --add-dir）|

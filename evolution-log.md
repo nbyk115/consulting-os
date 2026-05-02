@@ -21,6 +21,48 @@
 
 ---
 
+## 2026-05-02: Anthropic Applied AI + Boris Cherny 公式知見の取捨選択統合（コンセンサス疑念で 22 項目 → 8 項目へ厳選）
+
+### トリガー
+ユーザーから 2 つの公式情報源（① Hannah & Jeremy / Anthropic Applied AI チーム 14 項目 / ② Boris Cherny 公式 Claude Code 機能 8 項目）を提示され、ConsultingOS への取り込み判断を依頼された。
+
+### 佐藤裕介モードでの取捨選択
+全 22 項目を全部取り込まず（コンセンサス追従回避・ruthlessly edit）、ConsultingOS の現状（単一リポ / Hotice 1 件受注 / SDK Phase 1 PoC）と相補的な 8 項目のみ取り込み。残り 14 項目は既存内包または先回り設定リスクで保留。
+
+### 取り込み 8 項目（claude-code-ops/SKILL.md セクション 9・10）
+
+#### Anthropic Applied AI チーム公式知見（5 項目）
+1. エージェント使うべき 4 条件（ルーティング前段ゲート）
+2. thinking block で計画を先に立てさせる（反証 Step 1 強化）
+3. Interleaved Thinking 活用（ハルシネーション検出強化）
+4. コンパクション運用詳細（19 万トークン自動圧縮）
+5. eval の段階的開始（手動 → LLM as Judge → 最終状態チェック）
+
+#### Boris Cherny 公式機能（3 項目）
+1. git worktree 並列開発（claude -w）
+2. /batch（大規模変更 worktree 分散）
+3. --bare（SDK 起動 10 倍高速化）
+
+### 保留 14 項目
+- Hannah & Jeremy 9 項目: 既存内包（エージェント定義 / 気持ちで考えろ / 新卒インターン指示 / ツール選択 / 副作用注意 / 外部ファイル + サブエージェント / Claude を Claude にさせろ / 良いツール条件 / まとめ）
+- Boris 5 項目: 実需未顕在化（/loop /schedule / teleport / /branch / /voice / --add-dir）
+
+### 反証結果
+✅ Step 1: 「Anthropic / Boris 公式だから全部取り込むべき」反論 → コンセンサス疑念、公式 ≠ ConsultingOS にとって最適、現状実需と相補性で取捨選択
+✅ Step 2: 既存 SKILL.md の重複検証で 9 項目内包確認、Boris 5 項目は実需未顕在化を明示
+✅ Step 3: SKILL.md 171 行 → 284 行、500 行制限内、references/ 分離不要
+
+🔺 残存リスク:
+- Boris の 5 保留項目（特に /loop /schedule）は複数案件並行・月次定期業務が顕在化したら再評価必要、再評価カレンダー対象
+- Hannah & Jeremy の eval 段階開始（9.5）はクライアント案件で検証必要、本 OS 内部運用のみで未検証
+- Interleaved Thinking（9.3）は Claude 4 系新機能、モデル変更時に動作変化リスク
+
+### 関連参照
+- `.claude/skills/claude-code-ops/SKILL.md` セクション 9・10
+- 出典: Anthropic Applied AI チーム Hannah & Jeremy 動画 / Boris Cherny Claude Code 機能紹介
+
+---
+
 ## 2026-05-02: 規律違反防止の物理ブロック層強化（モデル側依存の構造的限界対策）
 
 ### トリガー
