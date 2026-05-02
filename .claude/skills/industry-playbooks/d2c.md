@@ -126,6 +126,6 @@
 - `marketing-director`: チャネルミックス・予算配分
 - `performance-marketer`: 広告運用（Jeff Green / パパロ規律）
 - `growth-hacker`: CVR / F2 転換改善（Sean Ellis 規律）
-- `agentic-content`: GEO / AI Shopping 対応
+- `content-strategist`: GEO / AI Shopping 対応（旧 agentic-content 吸収）
 - `legal-compliance-checker`: 薬機法・景表法・特商法
 - `client-success`: サブスク D2C のチャーン低減（Lincoln Murphy 規律）

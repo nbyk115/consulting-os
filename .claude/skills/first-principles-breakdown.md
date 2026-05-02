@@ -70,7 +70,7 @@
 | strategy-lead | 「この市場で勝てる構造は何か」を前提ゼロから分析 |
 | competitive-analyst | 「本当の競合は誰か」を顧客の乗換行動データから再定義 |
 | product-manager | 「本当に必要な機能は何か」を利用データから再構築 |
-| ai-consultant | 「AIを入れるべきか」をROI数値から判断（技術トレンドに流されない） |
+| strategy-lead + ai-engineer | 「AIを入れるべきか」をROI数値から判断（戦略 + 技術検証ペア・技術トレンドに流されない） |
 | growth-hacker | 「何がグロースのレバーか」をファネルデータから特定 |
 | kpi-analytics | 「追うべきKPIは正しいか」を事業目的から再定義 |
 | legal-compliance-checker | 「このリスクは本当にリスクか」を法令の条文から検証 |
@@ -159,7 +159,7 @@ Step 3: 真理からの再構築
 |---|---|
 | gtm-consultant | 「日本で売れた＝海外でも売れる」を前提ゼロから検証 |
 | global-journalist | 「この市場は成長している」を現地データで事実確認 |
-| global-business | 「日本式オペレーションが最適」を現地の商習慣から再検証 |
+| gtm-consultant (Post-Entry) | 「日本式オペレーションが最適」を現地の商習慣から再検証 |
 | business-translator | 「直訳で伝わる」を文化コンテクストから再定義 |
 
 ---

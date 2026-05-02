@@ -229,12 +229,11 @@ LTV/CAC: __ 倍（目標: 3倍以上）
 **新市場参入判断（§6拡張）:**
 - 「参入できる力があるのに挑戦しない」は海外市場でも最大リスク
 - ただし海外はブレイクイーブンを18-36ヶ月で見積もる
-- `gtm-consultant`が市場評価、`global-business`がオペレーション設計を担当
+- `gtm-consultant`が市場評価・オペレーション設計（Post-Entry節含む）を一気通貫で担当
 
 ### グローバル連携先
-- `global/gtm-consultant` — 海外GTM戦略・市場参入判断
+- `global/gtm-consultant` — 海外GTM戦略・市場参入判断・現地コスト構造・商習慣・オペレーション（Post-Entry）
 - `global/global-journalist` — 現地市場データ・成長率・競合情報
-- `global/global-business` — 現地コスト構造・商習慣・オペレーション
 - `consulting/legal-compliance-checker` — 現地規制・外資規制チェック
 
 ---

@@ -191,7 +191,7 @@ jobs:
 |---|---|---|---|
 | **金融時系列**（ローソク足・株価・バリュエーション） | **TradingView Lightweight Charts** | 40KB・リアルタイム対応・Apache 2.0 | strategy-lead (M&A) / competitive-analyst / kpi-analytics (バリュエーション) |
 | **汎用ダッシュボード**（棒・折線・円） | **Recharts** (React) / **Chart.js** | Reactとの統合が簡単・DESIGN.md準拠しやすい | kpi-analytics / marketing-analyst / client-success |
-| **高度な可視化**（ネットワーク図・サンキー・地図） | **D3.js** | 表現力最大・カスタマイズ無制限 | market-researcher / global-business |
+| **高度な可視化**（ネットワーク図・サンキー・地図） | **D3.js** | 表現力最大・カスタマイズ無制限 | market-researcher / gtm-consultant |
 | **BIツール風**（クロス集計・ピボット・大量データ） | **Apache ECharts** | 軽量・中国系ライブラリだが品質高 | marketing-analyst / performance-marketer |
 | **時系列大量データ**（秒間数千点） | **uPlot** / **Plotly** | 軽量・高速描画 | infra-devops (監視) / growth-hacker (A/Bテスト) |
 | **ヒートマップ・ファネル**（CVR分析） | **Recharts** + カスタム | ファネル専用ライブラリより柔軟 | growth-hacker / feedback-synthesizer |

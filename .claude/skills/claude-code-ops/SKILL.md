@@ -104,7 +104,7 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 | 2 | Routing | `CLAUDE.md` スマートルーティング判定ツリー |
 | 3 | Parallelization | `/fork` / `git worktree` / Agent Teams / 反証モード Step 2 |
 | 4 | Orchestrator-Workers | `strategy-lead` / `marketing-director` 起点の連携、Agent Teams 3-5名 |
-| 5 | Evaluator-Optimizer | 反証モード3段階 + `agent-evaluation.md` + `skill-evolution.md` + `/advisor opus` |
+| 5 | Evaluator-Optimizer | 反証モード3段階 + `agent-evaluation.md` + `/advisor opus` |
 
 ### ConsultingOS 独自拡張
 | # | パターン | 実装箇所 |
