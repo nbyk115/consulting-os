@@ -58,7 +58,7 @@
 13. **NEVER**: 形骸化ルールを CLAUDE.md / スキルに追加。Boris #3 ruthlessly edit — 追加は削除と 1 セット。
 14. **IMPORTANT**: 全変更前に反証モード Step 1-3（自己反証 / 構造反証 / 実用反証）を実行。変数 / 定数削除は全参照を grep 列挙してから（参照が 1 つでも残れば削除禁止）。
 15. **IMPORTANT**: ファイル削除・force push・DB drop 等の不可逆操作はユーザー承認必須（Claude Code v2.1.122 事前確認 + settings.json `permissions.deny` で二重防御）。
-16. **YOU MUST**: 出力フォーマット遵守（2026-05-01 学習）。① 太字記法 `**` 禁止（強調は「」or 大文字英語キーワード IMPORTANT/NEVER 等で代替）／ ② 一文中の改行禁止（句読点での改行 NG、変な改行を防ぐ）／ ③ 表は Word/PowerPoint で中央揃え必須／ ④ PPT/PDF はページシート内に必ず収める（はみ出し禁止）／ ⑤ 出力直前に佐藤裕介 W チェック（1 回目内容、2 回目形式・字形・収まり・規律）を必ず実施。詳細: `.claude/skills/brand-guidelines.md`
+16. **YOU MUST**: 出力フォーマット遵守（2026-05-01 学習）。① 太字記法 `**` 禁止（強調は「」or 大文字英語キーワード IMPORTANT/NEVER 等で代替）／ ② 一文中の改行禁止（句読点での改行 NG、変な改行を防ぐ）／ ③ 表は Word/PowerPoint で中央揃え必須／ ④ PPT/PDF はページシート内に必ず収める（はみ出し禁止・収まらない場合はページ分割可）／ ⑤ 出力直前に佐藤裕介 W チェック（1 回目内容、2 回目形式・字形・収まり・規律）を必ず実施。詳細: `.claude/skills/brand-guidelines.md`
 
 ---
 
@@ -112,4 +112,8 @@
 | Claude Code 運用（Hooks / Monitor / Routines / Cowork / Advisor Strategy） | `.claude/skills/claude-code-ops/SKILL.md` |
 | 自己評価チェックリスト | `.claude/skills/agent-evaluation.md` |
 | ブランドガイドライン・日本語字形禁則 | `.claude/skills/brand-guidelines.md` |
+| Claude Design ハンドオフ（artifact / SVG / HTML / PPTX 取込み） | `.claude/skills/claude-design-handoff/` |
+| B2B セールス資料の佐藤裕介モードレビュー | `.claude/skills/sales-deck-review/` |
+| 業界別プレイブック（SaaS / D2C / 広告代理店 / 製造業 / 金融） | `.claude/skills/industry-playbooks/` |
+| プロンプトテンプレ集（30 本） | `.claude/skills/prompt-templates/` |
 | 進化ログ・規律違反記録 | `evolution-log.md` |

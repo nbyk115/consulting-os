@@ -28,12 +28,12 @@
 - PPT/PDF でページシートからのはみ出しを事前検証していなかった
 - 出力直前のクオリティチェック（佐藤裕介 W チェック）が形骸化
 
-### 是正措置（5層防御）
-1. CLAUDE.md ハードルール 16 新設: 出力フォーマット規律 5 項目を明文化
-2. brand-guidelines.md「出力フォーマット規律」セクション新設: 5 項目の詳細手順
-3. brand-guardian.md 機械検証チェックリスト強化: `**` 検出・改行検証・中央揃え・収まり・W チェック実施確認
-4. hooks 強化（prompt-rules.sh / session-start.sh / PostToolUse）: 毎ターン・開始時・PPT/PDF 生成検出時にリマインダー
-5. 本ログで違反パターン恒久記録
+### 是正措置（5層防御 = 意図 / 手順 / 検証 / 物理 / 記録）
+1. 意図: CLAUDE.md ハードルール 16 新設で出力フォーマット規律 5 項目を明文化
+2. 手順: brand-guidelines.md「出力フォーマット規律」セクション新設で 5 項目の詳細手順を提供
+3. 検証: brand-guardian.md 機械検証チェックリスト強化（`**` 検出・改行検証・中央揃え・収まり・W チェック実施確認）
+4. 物理: hooks 強化（prompt-rules.sh / session-start.sh / PostToolUse）で毎ターン・開始時・PPT/PDF 生成検出時にリマインダー
+5. 記録: 本ログで違反パターンを恒久記録
 
 ### 反証結果
 ✅ Step 1: 「`**` は標準 Markdown だから使うべき」反論 → コンサル納品物の美観・環境互換性を優先、規律遵守
@@ -54,12 +54,12 @@
 - **違反パターン**: CLAUDE.md ハードルール10「日本語字形禁則」が存在するにもかかわらず、**スタイル指定（CSS / python-docx / python-pptx での font-family / lang 設定）だけで「対応済み」と判定**し、生成後の埋込フォントを機械検証していなかった
 - **結果リスク**: レンダリング環境にフォント不在の場合、フォールバックで中国字形が混入する可能性。スタイル指定 ≠ 実際の埋込
 
-### 是正措置（5層防御）
-1. **CLAUDE.md ハードルール10 強化**: 「生成後は `pdffonts` / unzip+grep で実際の埋込フォントを必ず検証」を追記
-2. **brand-guidelines.md 検知方法セクション強化**: PDF（pdffonts）/ DOCX（unzip+grep w:lang）/ PPTX（unzip+grep lang）/ HTML（grep）の機械検証コマンドを全形式分明示
-3. **brand-guardian.md 機械検証チェックリスト強化**: スタイル指定チェック + 埋込フォント機械検証の2段ゲート化
-4. **session-start.sh + prompt-rules.sh** にリマインダー追加: PDF/DOCX/PPTX 生成時は必ず埋込検証
-5. **evolution-log 記録**（本セクション）: 違反パターンの恒久記録
+### 是正措置（5層防御 = 意図 / 手順 / 検証 / 物理 / 記録）
+1. 意図: CLAUDE.md ハードルール10 強化で「生成後は `pdffonts` / unzip+grep で実際の埋込フォントを必ず検証」を追記
+2. 手順: brand-guidelines.md 検知方法セクション強化で PDF（pdffonts）/ DOCX（unzip+grep w:lang）/ PPTX（unzip+grep lang）/ HTML（grep）の機械検証コマンドを全形式分明示
+3. 検証: brand-guardian.md 機械検証チェックリスト強化でスタイル指定チェック + 埋込フォント機械検証の 2 段ゲート化
+4. 物理: session-start.sh + prompt-rules.sh にリマインダー追加で PDF/DOCX/PPTX 生成時は必ず埋込検証
+5. 記録: evolution-log（本セクション）で違反パターンを恒久記録
 
 ### 反証結果
 ✅ Step 1: 「機械検証は冗長」反論 → 中国字形混入はクライアント納品物として致命傷、コスト対効果で正当化
