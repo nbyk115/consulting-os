@@ -161,6 +161,7 @@
 | AI 化顧問（業務 AI 推進伴走）| 月 10-30 万円 | 継続 | strategy-lead + ai-engineer |
 | 法務 AI 環境構築支援 | 30-80 万円スポット + 月次運用 5-15 万円 | 継続 | legal-compliance-checker + tech-lead + ai-engineer |
 | 金融 AI 環境構築支援（投資助言業登録後）| 50-150 万円スポット + 月次 15-50 万円 | 継続 | strategy-lead + ai-engineer + legal-compliance-checker |
+| OSS CRM 環境構築支援 | 30-80 万円スポット + 月次運用 3-10 万円 | 継続 | crm-ma-strategist + tech-lead + infra-devops（候補ツール: Cordys CRM / Twenty / EspoCRM / SuiteCRM、要件で選定）|
 
 10 社契約で月 30-80 万円継続収入、Hotice 案件（月 5 万 × 3 ヶ月）と同類だが対象セグメントを拡張。法務・金融 AI は法規制審査が先行ボトルネック（legal-compliance-checker による要否判定必須）。
 

@@ -215,6 +215,10 @@ consulting-os/
 
 - [willchen96/mike](https://github.com/willchen96/mike): OSS 法律 AI プラットフォーム（Next.js + Express + Supabase + R2/S3 + LibreOffice DOC/DOCX→PDF 変換）。本体取り込みはフルスタック実装で OS スコープ外、ICP.md 商品ライン候補「法務 AI 環境構築支援」として記録、案件問い合わせ次第で個別評価
 
+### CRM（保留・案件候補）
+
+- [1Panel-dev/CordysCRM](https://github.com/1Panel-dev/CordysCRM): OSS CRM（リード獲得 → 商機 → 契約 → 回収のクローズドループ、ロールベース権限、Docker ワンクリック / セルフホスト）。本体取り込みはフルスタック実装で OS スコープ外、N.Y.CRAFT 案件受注後にクライアント要件ヒアリング → ツール選定（候補: Cordys CRM / Twenty / EspoCRM / SuiteCRM 等）。中国系オフィスプラットフォーム（企業微信 / DingTalk / Feishu）連携前提のため、日本市場では要件次第
+
 ### ローカル LLM（機密案件向け）
 
 - [Ollama](https://github.com/ollama/ollama): ChatGPT のローカル代替、ネット不要・API 料金不要。ICP.md セクション 2「機密性の高いクライアント情報を Cloud LLM に丸投げできない」痛みへの回答。`ai-engineer` / `strategy-lead` が機密案件提案時の選択肢として参照。
