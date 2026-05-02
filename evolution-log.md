@@ -9,6 +9,12 @@
 
 > SessionStart hook が期限到達時に自動通知。形式: `- YYYY-MM-DD: 再評価対象 / 判断軸`
 
+### 即時 TODO（次回セッションで自動通知）
+
+- 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
+
+### 中期再評価
+
 - 2026-08-01: agentic-content 削除の妥当性 / AI Shopping 急変動向の影響を検証（6ヶ月後）
 - 2026-08-01: Reply Guy / Comment-as-Strategy / 12-18ヶ月寿命前提のため陳腐化チェック（6ヶ月後）
 - 2026-08-01: content-strategist への AIO/GEO 統合の専門深掘り低下リスク評価（6ヶ月後）
