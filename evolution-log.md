@@ -15,6 +15,7 @@
 
 ### 中期再評価
 
+- 2026-08-02: brand-guidelines §5.5 単位整合性ルールの実効性検証（3 ヶ月後、違反再発有無の確認・水野さんピッチ単位錯誤事例対応）
 - 2026-08-01: agentic-content 削除の妥当性 / AI Shopping 急変動向の影響を検証（6ヶ月後）
 - 2026-08-01: Reply Guy / Comment-as-Strategy / 12-18ヶ月寿命前提のため陳腐化チェック（6ヶ月後）
 - 2026-08-01: content-strategist への AIO/GEO 統合の専門深掘り低下リスク評価（6ヶ月後）
@@ -30,6 +31,67 @@
 - 2026-11-01: Editframe（HTML/CSS → MP4）/ B2B デッキの動画版商品ライン拡張案件チェック、Hotice 後続案件で需要顕在化次第即取り込み
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
 - 2027-05-01: Camofox Browser / 法的リスク再評価（Scrapling と同タイミング、bot 偽装ツールの法解釈 1 年後再判定）
+
+---
+
+## 2026-05-02: 数値単位錯誤事例 — 投資家ピッチでハルシネーション発生（重大学習）
+
+### トリガー
+
+水野さん向け 1000 万円エンジェル出資ピッチデッキ（02-proposal-to-mizuno.slides.md）スライド 5「Why Now 市場トレンド」作成時、market-researcher サブエージェント出力をベースに「2030 年 42-53 億ドル」と記述。ユーザーから「ハルシネーションがないようにね」指摘で /check-hallucination 実施、420-530 億ドル（$42-53 billion）が正解と発覚。
+
+### 失敗構造（5 層）
+
+| 層 | 内容 |
+|---|---|
+| Layer 1 | market-researcher の summary 文「42-52 億米ドル（約 6.3-7.8 兆円）」と detail table「MarketsandMarkets 526.2 億ドル」が内部矛盾、サブエージェント自身の単位整合性チェック失敗 |
+| Layer 2 | assistant が summary をテーブル値と突き合わせず機械的にコピー（$42B × 150 = 6.3 兆円 の換算式を頭で回せば即発見できた）|
+| Layer 3 | 自動 pre-write hallucination guard 不在、CLAUDE.md ハードルール 14（反証 Step 1-3）は手動依存 |
+| Layer 4 | 単位整合性ルール（億 / billion / 兆円 / USD / JPY）が brand-guidelines に明文化されていなかった |
+| Layer 5 | サブエージェント出力の機械検証なし、出典 URL の二次検証も未実施 |
+
+### 構造的解決策（実装済）
+
+| 対策 | 実装 |
+|---|---|
+| 1. 単位整合性ルール明文化 | `brand-guidelines.md` §5.5 追加（クロスチェック手順 5 項目 + 単位対応表 + 違反検知ルール）|
+| 2. evolution-log への学習記録 | 本エントリ |
+| 3. 再発防止 | サブエージェント出力引用時は summary vs table 突き合わせ必須化（規律として明記）|
+
+### 自動化候補（次フェーズ）
+
+- PostToolUse hook: 「億ドル」「billion」「兆円」を含む書き込み時に警告ログ出力
+- pre-commit hook: 投資家向け資料（strategy/ 配下）の数値抽出 + 単位整合性チェック
+
+### 影響範囲
+
+- 02-proposal-to-mizuno.slides.md: 修正済（420-530 億ドル）
+- 03-proposal-to-mizuno-condensed.slides.md: 正しい数値で記述済
+- README.md（strategy/mizuno-funding-1000man）: 影響なし（数値出典別）
+
+### 反証結果
+
+Step 1 自己反証: 「サブエージェントの責任」「自動化欠落の責任」と矮小化せず assistant の検証漏れを一義的責任として明示 / 自動 pre-write guard はコスト（毎書き込み LLM 呼び出し）が高いので運用判断必要、まず単位整合性ルール明文化が現実的。
+
+Step 2 構造反証: market-researcher 出力 summary vs table 矛盾は事実 FACT、検証漏れも事実 FACT、CLAUDE.md ハードルール 14 違反は事実 FACT、再発防止策 3 つは即実装可能 INFERENCE。
+
+Step 3 実用反証: brand-guidelines §5.5 追加で類似ケース（億 / billion / 兆円 単位錯誤）は構造的に防げる、ただし他の単位錯誤パターン（人月 / 工数 / 時間 vs 日数 / 率 vs 比率）は別途学習積み上げ必要。
+
+### 残存リスク
+
+- Case A の他の数値（CAGR 41-46% / VC 64 億 / 実現性確率 55-60% / Phase 別月次売上）に同様の単位錯誤が潜む可能性、全数値の追加検証推奨
+- 自動化（hook 化）は次フェーズ、当面は手動規律
+- サブエージェント出力の信頼性は構造的に確保困難、引用時の機械検証必須化で対応
+
+### 再評価カレンダー追加
+
+- 2026-08-02: brand-guidelines §5.5 単位整合性ルールの実効性検証（3 ヶ月後、違反再発有無の確認）
+
+### 関連参照
+
+- `.claude/skills/brand-guidelines.md` §5.5 — 数値・単位整合性ルール
+- `.claude/skills/falsification-check.md` — 反証モード本体
+- `.claude/commands/check-hallucination.md` — ハルシネーション反証コマンド
 
 ---
 
