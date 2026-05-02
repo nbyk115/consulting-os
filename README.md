@@ -219,6 +219,14 @@ consulting-os/
 
 - [1Panel-dev/CordysCRM](https://github.com/1Panel-dev/CordysCRM): OSS CRM（リード獲得 → 商機 → 契約 → 回収のクローズドループ、ロールベース権限、Docker ワンクリック / セルフホスト）。本体取り込みはフルスタック実装で OS スコープ外、N.Y.CRAFT 案件受注後にクライアント要件ヒアリング → ツール選定（候補: Cordys CRM / Twenty / EspoCRM / SuiteCRM 等）。中国系オフィスプラットフォーム（企業微信 / DingTalk / Feishu）連携前提のため、日本市場では要件次第
 
+### AI OS 設計の参考実装
+
+- [nateherkai/AIS-OS](https://github.com/nateherkai/AIS-OS): Claude Code OS テンプレート（$3M/yr 個人事業の運営フレーム）。Three Ms / Four Cs フレーム本体は ConsultingOS の佐藤裕介流 + Boris 9 規律で内包済、Audit + Level Up + Hot Cache の構造概念のみ取り込み（`/audit` `/level-up` スキル + claude-code-ops Hot Cache セクション）
+
+### Claude Code 操作 UI（保留・モバイル運用強化候補）
+
+- [siteboon/claudecodeui](https://github.com/siteboon/claudecodeui): Claude Code の Web UI（レスポンシブ、デスクトップ / タブレット / モバイル）+ チャット + Shell + ファイルブラウザ + Git エクスプローラー + セッション管理。ターミナル + GitHub アプリで本セッション完結可能なため実需未顕在化、モバイル運用を強化したい場合の選択肢として記録
+
 ### ローカル LLM（機密案件向け）
 
 - [Ollama](https://github.com/ollama/ollama): ChatGPT のローカル代替、ネット不要・API 料金不要。ICP.md セクション 2「機密性の高いクライアント情報を Cloud LLM に丸投げできない」痛みへの回答。`ai-engineer` / `strategy-lead` が機密案件提案時の選択肢として参照。
