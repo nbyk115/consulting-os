@@ -17,7 +17,10 @@
 - 2026-08-01: GitHub Secret Scanning / Dependabot / Audit Log 月次レビューの実施率確認
 - 2026-11-01: claude-code-ops 以外の巨大スキル（creative-playbook 572行 / cybersecurity-playbook 516行）の精度低下シグナル確認（6ヶ月後）
 - 2026-11-01: Product 部門 2名体制の構造的薄さ / 案件痛みの顕在化チェック（6ヶ月後）
+- 2026-11-01: SeeCost / 複数 LLM プロバイダ（ChatGPT + Claude + Gemini 並走）統合管理の実需顕在化チェック（6 ヶ月後）
+- 2026-11-01: automate-faceless-content / 動画運用案件（YouTube / TikTok / IG Shorts）顕在化次第、11 モジュール中の独自要素抽出判断（6 ヶ月後）
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
+- 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
 
 ---
 
