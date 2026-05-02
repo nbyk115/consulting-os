@@ -4,7 +4,7 @@ theme: default
 size: 16:9
 paginate: true
 header: "N.Y.CRAFT × ConsultingOS パートナーシップ提案"
-footer: "2026.04 | Confidential | v6"
+footer: "2026.04 | Confidential | v7"
 lang: ja
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -161,7 +161,7 @@ style: |
 
 属人化された経営知見を「規律ある専門家チーム」として再現する<br>30 の AI エージェントから成る事業 OS
 
-<p class="neutral">2026.04 / v6</p>
+<p class="neutral">2026.04 / v7</p>
 
 ---
 
@@ -640,34 +640,29 @@ Phase 1 スコープ縮小（業界プレイブック新設を Phase 2 送り／
 
 # リファレンス第 1 号 — N.Y.CRAFT 側のメリット
 
-本プロジェクトを ConsultingOS の他社展開における第 1 事例として位置付けることで、N.Y.CRAFT 側に発信機会と価格メリットが生まれます。
+<blockquote class="small" style="margin-bottom:14px;">
+当社（提供者）は<strong>裏方に徹し対外的には一切表に出ません</strong>。本プロジェクトは<strong>完全に N.Y.CRAFT 様の取り組み</strong>として、自由に発信していただけます。
+</blockquote>
 
-<div class="grid-2" style="margin-top:14px;">
+## N.Y.CRAFT 様が得るもの
+
+<div class="grid-2">
 <div>
 
-## N.Y.CRAFT が得るもの
-
-<strong>「規律ある事業 OS 採用 第 1 社」としてリリース可能</strong><br>
-<span class="small">プレスリリース・業界誌・カンファレンス登壇等</span>
+<strong>自社事例として自由に発信可能</strong><br>
+<span class="small">「AI 事業 OS 導入の先進企業」として、プレスリリース・業界誌・カンファレンス登壇等を N.Y.CRAFT 名義で実施可能。当社名・OS 名の開示義務なし</span>
 
 <strong>先進的経営の対外発信材料</strong><br>
-<span class="small">中堅・中小企業向け営業時のブランディング強化</span>
-
-<strong>プロジェクトフィーの大幅圧縮</strong><br>
-<span class="small">標準 102 万 → 50 万（約 50% 圧縮）</span>
+<span class="small">中堅・中小企業向け営業時のブランディング強化、競合との差別化材料</span>
 
 </div>
 <div>
 
-## こちら側にいただきたい協力
+<strong>プロジェクトフィー大幅圧縮</strong><br>
+<span class="small">標準 102 万 → 50 万（約 50% 圧縮）。第 1 号として導入ハードルを下げています</span>
 
-N.Y.CRAFT 名出しでの事例公開・共同プレスリリース
-
-構築プロセス・成果のケーススタディ化
-
-他社展開時のリファレンスコール協力（年 2 回まで）
-
-学習ログの匿名データを他案件に活用する権利
+<strong>広報の自由度</strong><br>
+<span class="small">共同プレスリリースや当社への参照は不要。N.Y.CRAFT 様の判断で発信内容・タイミング・チャネルを完全コントロール可能</span>
 
 </div>
 </div>
