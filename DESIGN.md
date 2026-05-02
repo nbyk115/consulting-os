@@ -11,6 +11,7 @@
 - **整合チェッカー**: `brand-guardian`（DESIGN.md ↔ `brand-guidelines.md` の整合）
 - **新規プロジェクト**: このテンプレートを `<project>/DESIGN.md` にコピー → 上書きカスタマイズ
 - **外部参照（案件単位）**: [refero.design](https://styles.refero.design/) — 2,000+ プロダクトの構造化された色・タイポ・スペーシング・レイアウト。類似プロダクトを照合してデザイン判断の根拠化に活用（全部取り込み禁止、必要部分のみ引用）
+- **標準準拠**: Google [DESIGN.md オープン標準](https://github.com/google-labs-code/design.md) と互換可能な構造で運用（カラートークンに自然言語記述付与・WCAG 検証セクション・ポータビリティ）。AI エージェントによる読み取り精度向上 + プロジェクト間移行容易性
 
 ---
 
@@ -128,7 +129,35 @@ font-family:
 
 ---
 
-## 7. やってはいけないこと
+## 7. アクセシビリティ検証（WCAG 2.1 準拠ベース）
+
+> 出典: Google DESIGN.md オープン標準の WCAG 検証思想を ConsultingOS に適用（2026-05-02）。大企業案件 / 公共系案件で必須。
+
+### 必須チェック項目（AA レベル）
+- 文字色 vs 背景色のコントラスト比 4.5:1 以上（通常テキスト）/ 3:1 以上（大文字 18pt 以上）
+- インタラクティブ要素（ボタン・リンク）は 24x24px 以上のタッチ領域
+- フォーカス表示が明確（outline / box-shadow で視認可能）
+- 画像には代替テキスト（alt 属性）必須、装飾画像は alt=""
+- 色のみで情報を伝えない（色覚多様性配慮、形状 / テキスト併用）
+- 動画 / 音声には字幕 or 文字起こし
+
+### 検証ツール
+- `axe DevTools`（Chrome 拡張）
+- `Lighthouse` Accessibility 監査
+- WAVE Web Accessibility Evaluation Tool
+- VoiceOver / NVDA でスクリーンリーダー確認
+
+### ConsultingOS 内蔵の参考実装
+Hotice デッキは AA 相当でレビュー済（Accent #E60012 vs Background #FAFAF7 = コントラスト 5.8:1）。
+
+### エージェント運用
+- `creative-director` がプロジェクト開始時に WCAG 適用レベル（A / AA / AAA）を決定
+- `frontend-dev` が実装時に検証ツールで機械チェック
+- `brand-guardian` が納品前に最終 REJECT 判定
+
+---
+
+## 8. やってはいけないこと
 
 > hotice deck 実装で発生した事故から確定したアンチパターン
 
@@ -142,13 +171,13 @@ font-family:
 
 ---
 
-## 8. デザイントークンのエクスポート（推奨）
+## 9. デザイントークンのエクスポート（推奨）
 
 将来的には `design-tokens.json` で一元管理し、HTML / DOCX / PPTX 全てが参照する設計に発展させる。現状は本ファイルが正本。
 
 ---
 
-## 9. ConsultingOS 内蔵の参照実装
+## 10. ConsultingOS 内蔵の参照実装
 
 | 実装 | パス | 用途 |
 |---|---|---|
@@ -159,7 +188,7 @@ font-family:
 
 ---
 
-## 10. 更新履歴
+## 11. 更新履歴
 
 | 日付 | 変更 |
 |---|---|
