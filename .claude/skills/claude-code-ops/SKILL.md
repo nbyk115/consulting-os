@@ -75,6 +75,29 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 
 ---
 
+## SDK 化・自動化（「AIを使う」から「AIで出荷する」への分岐）
+
+Claude Code SDK + GitHub Actions で、対話的運用から本番自動化（Stage 1 → Stage 2-3）への移行が可能。
+
+### Anthropic 公式 3 層アーキテクチャ
+| Layer | 役割 | 用途 |
+|---|---|---|
+| L1: SDK | 生のプログラマブルアクセス | フルカスタム実装 |
+| L2: Base Action | SDK をクリーンな API に包んだ層 | カスタム workflow |
+| L3: PR Action（claude-code-action） | コメント・整形・GitHub UX 全部込み | 即本番投入 |
+
+### 60 秒本番投入フロー
+1. ターミナルで `/install-github-app` → GitHub App + Secrets 自動セットアップ
+2. `.github/workflows/*.yml` に `anthropics/claude-code-action@v1` 記述
+3. ANTHROPIC_API_KEY を GitHub Secrets に登録
+4. PR 作成 → 自動レビュー実行
+
+→ 専用サーバー / デプロイパイプライン / 監視基盤 / 認証 / コスト管理は不要、既存 GitHub Actions Runner で完結。
+
+→ 詳細（claude -p / パイプ / --output-format JSON / 権限管理 / セッション永続化 / ペルソナ差し替え / Issue → PR 自動化 / 商業機会）は `references/sdk-automation.md` 参照。
+
+---
+
 ## ショートカット早見表
 
 | キー | 機能 |
