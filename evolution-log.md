@@ -17,7 +17,187 @@
 - 2026-08-01: GitHub Secret Scanning / Dependabot / Audit Log 月次レビューの実施率確認
 - 2026-11-01: claude-code-ops 以外の巨大スキル（creative-playbook 572行 / cybersecurity-playbook 516行）の精度低下シグナル確認（6ヶ月後）
 - 2026-11-01: Product 部門 2名体制の構造的薄さ / 案件痛みの顕在化チェック（6ヶ月後）
+- 2026-11-01: SeeCost / 複数 LLM プロバイダ（ChatGPT + Claude + Gemini 並走）統合管理の実需顕在化チェック（6 ヶ月後）
+- 2026-11-01: automate-faceless-content / 動画運用案件（YouTube / TikTok / IG Shorts）顕在化次第、11 モジュール中の独自要素抽出判断（6 ヶ月後）
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
+- 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
+
+---
+
+## 2026-05-02: 外部参照リソース 5 件の佐藤裕介モード取捨選択（推奨 2 / 保留 2 / 禁止 1）
+
+### トリガー
+ユーザーから 5 件の外部リソース（refero.design / SeeCost / awesome-agent-skills / automate-faceless-content / Scrapling）の取り込み判断を順次依頼。「コンサル OS が強くなるなら やって」の指示に基づき、佐藤裕介流コンセンサス疑念 + ruthlessly edit + PL 思考で取捨選択。
+
+### 判断結果
+
+| リソース | 判断 | 根拠 |
+|---|---|---|
+| refero.design | 推奨（DESIGN.md + README 参照追記）| Hotice 案件で実需証明済、フロントエンド案件のデザイン根拠化に直結 |
+| awesome-agent-skills | 推奨（README 参照追記）| Anthropic 公式 17 スキル（docx/pptx/xlsx/pdf 等）が Hotice 案件の Office 系納品物で実需直結 |
+| SeeCost | 保留 | 単一プロバイダ（Anthropic）運用で複数 LLM 統合管理の実需未顕在化、statusline.sh で session 単位 cost 表示済 |
+| automate-faceless-content | 保留 | 動画案件未顕在化 + 既存 social-media-strategist / content-strategist と機能重複 + プラットフォーム寿命 12-18 ヶ月 + 11 モジュール全部取り込みは ruthlessly edit 違反 |
+| Scrapling | 取り込み禁止 | Cloudflare 突破 + bot 偽装は ToS 違反、不正アクセス禁止法 3 条グレー、legal-compliance-checker / cybersecurity-playbook / CLAUDE.md ハードルール 5 と矛盾、合法代替は WebSearch / WebFetch / Firecrawl |
+
+### 判断軸（佐藤裕介流）
+
+1. PL 直結性: 案件実需顕在化済か（Hotice 案件以降の継続パイプラインで使われるか）
+2. アセット帰属: ストック資産化するか、12-18 ヶ月で陳腐化しないか
+3. 既存重複: 30 エージェント・19 スキル運用中、追加は重複検証コスト発生
+4. 法的・倫理リスク: 合法・ToS 遵守・クライアント保護の前提を破らないか
+5. ruthlessly edit: 「無料だから入れる」「すごいから入れる」はコンセンサス追従、追加は削除と 1 セット
+
+### 反証結果
+✅ Step 1: 「Scrapling は技術的に圧倒的、ToS 違反でも一部用途では許容」反論 → ConsultingOS のクライアント案件で線引きは困難、訴訟 1 件の損害 > 速度ベネフィット / 「automate-faceless-content は無料だから損なし」反論 → 既存スキル汚染と重複検証コスト発生、ストレージ無料 ≠ 運用無料
+✅ Step 2: 5 件すべて URL 確認可能（refero.design / seecost.watch / GitHub 3 リポ）/ Hotice 実需は examples/hotice-sales-deck/ で機械検証済 / 法的リスクは不正アクセス禁止法 3 条「アクセス制御機能の回避」該当
+✅ Step 3: README 外部参照セクション新設 + DESIGN.md 1 行追記 + evolution-log 判断記録の 3 ファイル外科的変更のみ、本体取り込みは案件実需顕在化次第
+
+🔺 残存リスク:
+- automate-faceless-content の GitHub URL は本投稿に明示なし、内容詳細未確認のため判断は SPECULATION 寄り
+- Scrapling の法的判断は最終的に弁護士確認必要、本判断は法務助言ではない
+- awesome-agent-skills 1,100+ の個別レビュー未実施、Anthropic 公式 17 のみ表面確認
+- SeeCost / automate-faceless-content は 6-12 ヶ月後の再評価カレンダー対象（複数プロバイダ統合 / 動画案件顕在化次第）
+
+### 関連参照
+- README.md「外部参照リソース」セクション
+- DESIGN.md「役割と運用」セクションの「外部参照」項
+- 出典: ユーザー提示の 5 件公開リソース URL
+
+---
+
+## 2026-05-02: Anthropic Applied AI + Boris Cherny 公式知見の取捨選択統合（コンセンサス疑念で 22 項目 → 8 項目へ厳選）
+
+### トリガー
+ユーザーから 2 つの公式情報源（① Hannah & Jeremy / Anthropic Applied AI チーム 14 項目 / ② Boris Cherny 公式 Claude Code 機能 8 項目）を提示され、ConsultingOS への取り込み判断を依頼された。
+
+### 佐藤裕介モードでの取捨選択
+全 22 項目を全部取り込まず（コンセンサス追従回避・ruthlessly edit）、ConsultingOS の現状（単一リポ / Hotice 1 件受注 / SDK Phase 1 PoC）と相補的な 8 項目のみ取り込み。残り 14 項目は既存内包または先回り設定リスクで保留。
+
+### 取り込み 8 項目（claude-code-ops/SKILL.md セクション 9・10）
+
+#### Anthropic Applied AI チーム公式知見（5 項目）
+1. エージェント使うべき 4 条件（ルーティング前段ゲート）
+2. thinking block で計画を先に立てさせる（反証 Step 1 強化）
+3. Interleaved Thinking 活用（ハルシネーション検出強化）
+4. コンパクション運用詳細（19 万トークン自動圧縮）
+5. eval の段階的開始（手動 → LLM as Judge → 最終状態チェック）
+
+#### Boris Cherny 公式機能（3 項目）
+1. git worktree 並列開発（claude -w）
+2. /batch（大規模変更 worktree 分散）
+3. --bare（SDK 起動 10 倍高速化）
+
+### 保留 14 項目
+- Hannah & Jeremy 9 項目: 既存内包（エージェント定義 / 気持ちで考えろ / 新卒インターン指示 / ツール選択 / 副作用注意 / 外部ファイル + サブエージェント / Claude を Claude にさせろ / 良いツール条件 / まとめ）
+- Boris 5 項目: 実需未顕在化（/loop /schedule / teleport / /branch / /voice / --add-dir）
+
+### 反証結果
+✅ Step 1: 「Anthropic / Boris 公式だから全部取り込むべき」反論 → コンセンサス疑念、公式 ≠ ConsultingOS にとって最適、現状実需と相補性で取捨選択
+✅ Step 2: 既存 SKILL.md の重複検証で 9 項目内包確認、Boris 5 項目は実需未顕在化を明示
+✅ Step 3: SKILL.md 171 行 → 284 行、500 行制限内、references/ 分離不要
+
+🔺 残存リスク:
+- Boris の 5 保留項目（特に /loop /schedule）は複数案件並行・月次定期業務が顕在化したら再評価必要、再評価カレンダー対象
+- Hannah & Jeremy の eval 段階開始（9.5）はクライアント案件で検証必要、本 OS 内部運用のみで未検証
+- Interleaved Thinking（9.3）は Claude 4 系新機能、モデル変更時に動作変化リスク
+
+### 関連参照
+- `.claude/skills/claude-code-ops/SKILL.md` セクション 9・10
+- 出典: Anthropic Applied AI チーム Hannah & Jeremy 動画 / Boris Cherny Claude Code 機能紹介
+
+---
+
+## 2026-05-02: 公式知見 12 項目のうち 3 項目を実機能実装（ドキュメント追記から実装へ）
+
+### トリガー
+ユーザー指摘「実装できた？すべきものは」で、claude-code-ops/SKILL.md へのドキュメント追記のみで実機能実装が未着手だった構造的限界を是正。佐藤裕介モードで「実装すべき・即可能」3 項目に絞って実機能化。
+
+### 実装内容（3 項目）
+
+#### 1. status line 常時表示（ClaudeCodeStudio Tip 12）
+- `.claude/hooks/statusline.sh` 新規作成
+- branch / context% / cost / model 4 項目を画面下部に常時表示
+- main / master ブランチで `🚫main直接編集禁止` 警告（ハードルール 7 連動）
+- context 30% 超で `⚠️/compact推奨` 警告（Thariq 氏 30-40 万トークン context rot 連動）
+- `.claude/settings.json` に `statusLine` 設定登録
+- 動作テスト: 通常 5%・警告閾値 35%・main ブランチ警告すべて確認済
+
+#### 2. エージェント使うべき 4 条件ゲート（Hannah & Jeremy #2）
+- `docs/agent-routing.md` 冒頭に Step 0「4 条件ゲート（前段判定）」を追加
+- 複雑性 / 価値 / ツール / エラー検知の 4 条件、1 つでも NO ならエージェント起動不要
+- ルーティング判定ツリー Step 1 の前段で形骸化エージェント起動を防止
+
+#### 3. Interleaved Thinking 統合（Hannah & Jeremy #7）
+- `.claude/commands/check-hallucination.md` に「Interleaved Thinking 活用」セクション追加
+- ツール実行直後（WebFetch / WebSearch 後）の thinking ブロックで信頼性評価・出典 3 ラベル先行判別を必須化
+- ハルシネーション率を構造的に低減
+
+### 反証結果
+✅ Step 1: 「3 項目だけでは少ない」反論 → 残り 9 項目はドキュメントで完結 / 実需未顕在化で先送り（先回り設定禁止・佐藤裕介流 ruthlessly edit）
+✅ Step 2: statusline.sh は通常・警告閾値・main ブランチで動作テスト済 / agent-routing.md と check-hallucination.md は外科的追記のみ
+✅ Step 3: settings.json への statusLine 追加は最小差分、既存 hook と非干渉 / docs / commands の追記は既存構造と整合
+
+🔺 残存リスク:
+- statusline.sh は Claude Code 起動時に有効、ターミナル直接実行では効かない
+- 4 条件ゲート Step 0 は判定がモデル依存、物理ブロック不可（ルーティングは判断問題）
+- Interleaved Thinking は Claude 4 系新機能、モデルダウングレード時に動作変化
+- 残り 9 項目（worktree / /batch / Claude インタビュー / eval 段階開始 / コンパクション 19 万 / Issue→実装 / Chrome 拡張 / --bare / thinking block 計画立て）はドキュメントで完結または実需未顕在化で別 PR
+
+### 関連参照
+- `.claude/hooks/statusline.sh`
+- `.claude/settings.json` statusLine
+- `docs/agent-routing.md` Step 0
+- `.claude/commands/check-hallucination.md` Interleaved Thinking セクション
+
+---
+
+## 2026-05-02: 商業展開ナレッジ統合（Damian Player + マネジメント記憶構造化）
+
+### トリガー
+ユーザーから 2 つの公開ナレッジ（Damian Player ひとり社長プレイブック + マネジメント記憶構造化フレーム）の取り込み判断を依頼。両方とも商業展開可能性が高く、Hotice 案件（月 5 万 × 3 ヶ月）に続く商品ライン候補。
+
+### 取り込み内容
+
+#### Damian Player から盗む 3 要素
+1. ターゲット業種リスト（日本ひとり社長向け）→ ICP.md セクション 9.1 追加
+   - リフォーム / 外壁塗装 / エアコンクリーニング / 不用品回収 / 害虫駆除 / 歯科 / 整体 / 士業 / 葬儀社
+   - 判定軸: ★4.0 以上 + レビュー 20 件以上 + ホームページ無し or 古い
+2. 「成果物プレビュー営業」の方法論明文化 → consulting-playbook 新セクション
+   - AI で 1 時間で完成形を作って見せる
+   - 「ご提案させてください」方式の禁止
+   - 佐藤裕介流 3 変数交点の実装パターン
+3. 商品ラインナップ候補 → ICP.md セクション 9.2 追加
+   - Web 制作 8-25 万円 / 月次レビュー返信代行 月 3-8 万円 / マネジメント記憶構造化支援 月 5-15 万円 / サイト保守 月 1.5-5 万円 / AI 化顧問 月 10-30 万円
+
+#### Damian Player から取り込み禁止
+- 1 日 500 通自動コールドメール（特定電子メール法違反）
+- ToS 違反スクレイピング（不正アクセス禁止法 3 条グレー、Scrapling と同類）
+
+#### マネジメント記憶構造化から盗む 2 要素
+1. 3 記憶類型の分離原則 → consulting-playbook に新セクション追加
+   - エピソード記憶（時系列ログ）/ 意味記憶（知識・ルール）/ 手続き記憶（ワークフロー）
+   - 同一ファイル混在禁止、AI 検索精度低下の防止
+2. 月次顧問契約パッケージ化（管理職向け）→ ICP.md 商品ライン候補に追加
+   - 1on1 記録 → 月次振り返り → 半期評価 の自然積み上げ設計
+
+### 既存構造との整合
+ConsultingOS は既に 3 記憶類型に近い構造（CLAUDE.md = 意味 / evolution-log = エピソード / skills = 手続き）を運用中。本取り込みは「明示化 + 商品化前提の整理」が主目的。
+
+### 反証結果
+✅ Step 1: 「Damian の 1 日 500 通も成果が出ているなら取り込みでは」反論 → 日本では特定電子メール法違反、ConsultingOS のクライアントを訴訟リスクに晒す / 「マネジメント記憶は既存内包で追加不要」反論 → 明示化することで client-success の月次顧問契約商品化が可能、形骸化リスクは商品化案件で実需検証
+✅ Step 2: Damian 5 要点は X 投稿 + 全文和訳記事で実在確認、商品ライン価格帯は日本市場目安として記事内明記 / マネジメント記憶構造化は note.com の hatakejp 氏記事を参照する形で公開、3 記憶類型は認知科学の標準分類
+✅ Step 3: ICP.md に Secondary ICP 候補と商品ラインを 1 セクション追加、consulting-playbook に営業手法 + 3 記憶類型を 2 セクション追加、CLAUDE.md は触らず（115 行死守）
+
+🔺 残存リスク:
+- 商品ラインナップ価格帯は SPECULATION（業界調査により幅あり）、実需検証で要更新
+- 3 記憶類型分離原則は AI 検索精度向上の主張だが、本 OS で機械検証未実施（既存運用は経験則ベース）
+- ターゲット業種リストは記事ベースで日本市場の実証データなし、最初の 1-2 案件で検証必要
+- 月次顧問契約 10 社で月 30-80 万円は他者事例ベース、Hotice モデル（月 5 万 × 3 ヶ月）の継続契約獲得実績はまだ 1 件のみ
+
+### 関連参照
+- ICP.md セクション 9（商業展開ナレッジ）
+- .claude/skills/consulting-playbook.md「成果物プレビュー営業」「マネジメント記憶構造化」セクション
+- 出典: Damian Player ひとり社長プレイブック / マネジメント記憶構造化フレーム（hatakejp note.com 記事ベース）
 
 ---
 

@@ -189,6 +189,26 @@ consulting-os/
     └── hotice-sales-deck/     クライアント案件サンプル
 ```
 
+## 外部参照リソース
+
+> 佐藤裕介モードで取捨選択。本体取り込みは案件実需顕在化次第、現状は参照リンクのみ記録。
+
+### デザイン
+
+- [refero.design](https://styles.refero.design/): 2,000+ DESIGN.md ライブラリ。最高の製品の構造化された色・タイポグラフィ・スペーシング・レイアウトを照合。フロントエンド案件で参照、`DESIGN.md` から誘導。
+
+### スキルライブラリ
+
+- [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills): 1,100+ Agent Skills コレクション。特に注目は Anthropic 公式 17（docx / pptx / xlsx / pdf / brand-guidelines 比較対象 / skill-creator / mcp-builder / frontend-design / webapp-testing 等）。本体取り込みは案件実需顕在化次第。
+
+### 取り込み非推奨・保留（判断記録）
+
+| リソース | 判断 | 理由 |
+|---|---|---|
+| [SeeCost](https://seecost.watch) | 保留 | 単一プロバイダ運用で実需未顕在化、`statusline.sh` で session 単位 cost 表示済 |
+| automate-faceless-content（GitHub）| 保留 | 動画案件未顕在化 + 既存 social-media-strategist / content-strategist と機能重複 + プラットフォーム寿命 12-18 ヶ月 |
+| [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 取り込み禁止 | Cloudflare 突破 + bot 偽装は ToS 違反 / 不正アクセス禁止法 3 条のグレー / `legal-compliance-checker` と矛盾。合法代替は WebSearch / WebFetch / Firecrawl |
+
 ## 詳細参照
 
 - [`CLAUDE.md`](./CLAUDE.md): 司令塔・ハードルール 16
