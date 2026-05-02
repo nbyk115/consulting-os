@@ -201,6 +201,20 @@ consulting-os/
 
 - [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills): 1,100+ Agent Skills コレクション。特に注目は Anthropic 公式 17（docx / pptx / xlsx / pdf / brand-guidelines 比較対象 / skill-creator / mcp-builder / frontend-design / webapp-testing 等）。本体取り込みは案件実需顕在化次第。
 
+### Anthropic 公式 6 スキル（OS 拡張時の規律強化）
+
+- [anthropics/skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator): SKILL.md 設計の本家ガイド、19 スキル拡張時の作法統一に活用
+- [anthropics/mcp-builder](https://github.com/anthropics/skills): 自社業務 MCP 化案件 / SDK Phase 拡張時の設計ガイド
+- [anthropics/docx + pptx + xlsx + pdf](https://github.com/anthropics/skills): Office 文書 AI 生成・編集、Hotice 案件 + N.Y.CRAFT 案件で実需直結（既存 Puppeteer + python-pptx と並列、案件特性で使い分け）
+
+### デザイン標準準拠
+
+- [Google DESIGN.md オープン標準](https://github.com/google-labs-code/design.md): カラートークン自然言語記述 + WCAG 検証 + ポータビリティの AI エージェント向けデザイン標準。ConsultingOS の DESIGN.md は本標準と互換可能な構造で運用（2026-05-02 統合）
+
+### 法務 AI（保留・案件候補）
+
+- [willchen96/mike](https://github.com/willchen96/mike): OSS 法律 AI プラットフォーム（Next.js + Express + Supabase + R2/S3 + LibreOffice DOC/DOCX→PDF 変換）。本体取り込みはフルスタック実装で OS スコープ外、ICP.md 商品ライン候補「法務 AI 環境構築支援」として記録、案件問い合わせ次第で個別評価
+
 ### ローカル LLM（機密案件向け）
 
 - [Ollama](https://github.com/ollama/ollama): ChatGPT のローカル代替、ネット不要・API 料金不要。ICP.md セクション 2「機密性の高いクライアント情報を Cloud LLM に丸投げできない」痛みへの回答。`ai-engineer` / `strategy-lead` が機密案件提案時の選択肢として参照。
