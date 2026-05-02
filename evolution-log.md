@@ -33,6 +33,77 @@
 
 ---
 
+## 2026-05-02: Audit + Level Up スキル新設 + Hot Cache 概念追加（Nate Herk's AI OS から取り込み 3 項目）
+
+### トリガー
+ユーザーから Nate Herk's Claude Code OS（$3M/yr 個人事業の運営フレーム）の取り込み判断を依頼 + 「佐藤裕介判断に任せる」で実装承認。
+
+### 取り込み判定
+- Three Ms / Four Cs フレーム本体: ConsultingOS の佐藤裕介流 + Boris 9 規律で内包済、新規取り込み不要
+- 7 ドメイン: 6 部門で代替済
+- リポ構造 / claude.md / Skills 二層: 既存運用済
+- Karpathy Wiki: 直前判定済（Markdown ベース運用で内包）
+- POC マインドセット: consulting-playbook プロトタイプ・ファースト原則で内包済（PR #15）
+- **新規取り込み 3 項目**: Audit + Level Up + Hot Cache の構造概念
+
+### 実装内容（OS 強化）
+
+#### 1. /audit スキル新設（.claude/skills/audit/SKILL.md）
+ConsultingOS 独自 5 軸 × 各 20 点 = 100 点満点でスコアリング:
+- 軸 1: 規律遵守度（CLAUDE.md ハードルール 16 + Boris 9 規律）
+- 軸 2: 反証モード徹底度（Step 1-3 + 残存リスク完全実施率）
+- 軸 3: 出典管理度（FACT/INFERENCE/SPECULATION 3 ラベル明示率）
+- 軸 4: 構造資産度（30 エージェント / 19 スキル / 7 層防御の運用密度・形骸化検出）
+- 軸 5: 商品ライン進行度（8 商品候補の実需顕在化率）
+
+週次（金曜軽量）/ 月次（第 1 金曜詳細）運用推奨。
+
+#### 2. /level-up スキル新設（.claude/skills/level-up/SKILL.md）
+佐藤裕介流に再構築した 5 質問:
+- Q1: 反復作業の発見（自動化候補）
+- Q2: 営業様式の検証（成果物プレビュー転換）
+- Q3: PL 思考の徹底度（PL に落とせない施策の検出）
+- Q4: アセット帰属診断（既存案件知見の再利用）
+- Q5: 形骸化検出（30 エージェント / 19 スキルの未使用リソース）
+
+/audit → /level-up の連続運用で OS 改善ループの自己強化。
+
+#### 3. Hot Cache 概念追加（claude-code-ops/SKILL.md）
+クライアント案件ディレクトリに `_hot.md`（500 トークン以内）配置で context rot 対策:
+- 進行中タスク 3 件 / 直近意思決定 3 件 / 次のアクション 1 件 / 残存リスク 1-2 件
+- セッション再開時に最初に読み込み
+- 完了タスクは `decisions.md`（append-only）に移動
+
+### 取り込み除外
+- Onboarding skill（7 質問）: ICP.md / DESIGN.md テンプレートコピー方式で代替済
+- Decisions ログ専用ファイル: evolution-log で代替可能、二重管理回避
+
+### 追加判定: Claude Code UI（siteboon/claudecodeui）
+- Web UI（レスポンシブ + チャット + Shell + ファイルブラウザ + Git）
+- ターミナル + GitHub アプリで本セッション完結可能、実需未顕在化
+- 判定: 保留・モバイル運用強化候補として README 外部参照記録のみ
+
+### 反証結果
+✅ Step 1: 「Three Ms / Four Cs フレーム取り込み」反論 → 佐藤裕介流 + Boris 9 規律で機能重複、独自フレーム維持が外科的 / 「Decisions ログ新規作成」反論 → evolution-log で代替可能、二重管理は形骸化リスク
+✅ Step 2: Nate Herk's AIS-OS は GitHub URL 実在確認、5 軸 / 5 質問は ConsultingOS の既存規律（CLAUDE.md ハードルール 16 / 佐藤裕介流 8 セクション / 商品ライン 8 候補）と整合可能
+✅ Step 3: 5 ファイル変更（audit/SKILL.md 新規 + level-up/SKILL.md 新規 + claude-code-ops/SKILL.md + README + evolution-log）、CLAUDE.md は触らず（115 行死守）
+
+🔺 残存リスク:
+- /audit スコアリングは初回運用で基準調整必要、PoC で精度検証
+- Hot Cache は案件単位の任意実装、本体には設置せず形骸化リスク回避
+- 5 質問の有効性は本 OS で未検証、初回 /level-up 実施で精度確認
+- Nate Herk の $3M/yr 主張は本人発信で SPECULATION、フレーム自体の有効性は別評価
+- Claude Code UI は実需未顕在化、6 ヶ月後の再評価対象
+
+### 関連参照
+- `.claude/skills/audit/SKILL.md` 新規
+- `.claude/skills/level-up/SKILL.md` 新規
+- `.claude/skills/claude-code-ops/SKILL.md` Hot Cache セクション
+- README.md 外部参照「AI OS 設計の参考実装」「Claude Code 操作 UI」
+- 出典: Nate Herk's AI OS framework（X 投稿 + GitHub `nateherkai/AIS-OS`）
+
+---
+
 ## 2026-05-02: OS 強化統合 + Cordys CRM 判定（PR #15 + #16 統合記録）
 
 ### トリガー
