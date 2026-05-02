@@ -21,6 +21,47 @@
 
 ---
 
+## 2026-05-02: セッション管理 5 つの術 統合（Thariq 氏 Anthropic 公式ナレッジ）
+
+### トリガー
+Anthropic 社員 Thariq Shihipar（@trq212）の X 投稿「Claude Code セッション管理と 100 万トークンコンテキスト」が 54 万ビューでバズ。context rot（コンテキスト腐敗）概念と 5 つの選択肢（Continue / /rewind / /clear / /compact / Subagents）の判断基準を ConsultingOS に統合。
+
+### 学習内容（FACT 寄り・公式情報源）
+- Claude Code コンテキストウィンドウは 100 万トークン
+- 30-40 万トークンから context rot（コンテキスト腐敗）が観察される（タスク依存・厳密ルールではない）
+- 毎ターンが「分岐点」: Continue / /rewind / /clear / /compact / Subagents の 5 択
+- /rewind は最も過小評価されている機能、失敗試行のトークン浪費削減に必須
+- /compact vs /clear は「コントロール vs 手軽さ」のトレードオフ
+- /compact が失敗するのは context rot で「最も知性が低い状態」のモデルが要約するから、余裕のあるうちに自分から実行
+- サブエージェント判断基準は「ツール出力は後でまた必要か？結論だけあればいいか？」
+
+### 是正措置（外科的・お金かからない増強）
+1. `references/context-management.md` に「セッション管理 5 つの術（Thariq 氏公式）」セクション新設
+   - context rot 概念
+   - 5 つの選択肢と判断基準表
+   - /rewind 過小評価機能の解説
+   - /compact vs /clear 比較表
+   - サブエージェント判断基準
+   - ConsultingOS での適用シナリオ
+2. `claude-code-ops/SKILL.md` に context-management.md への誘導文を「セッション管理 5 つの術」も含むと明記
+3. evolution-log.md に学習記録（本セクション）
+
+### 反証結果
+✅ Step 1: 「既存の /compact / /rewind 言及で十分」反論 → 既存は機能名のみで判断基準と context rot 概念がない、Thariq 氏ナレッジで質的に強化
+✅ Step 2: 出典は Anthropic 社員公式 X 投稿 + 54 万ビュー = FACT 寄り、ハルシネーションリスク低
+✅ Step 3: 既存 references/context-management.md への外科的追記のみ、新規ファイル作成なし、追加コストゼロ
+
+🔺 残存リスク:
+- 30-40 万トークン目安は Thariq 氏個人見解で SPECULATION 寄り、タスクにより変動
+- /rewind 多用は学習記録が消えるためトレードオフ
+- セッション管理規律の実行はモデル側依存、5 層防御 hook では物理ブロック不可
+
+### 関連参照
+- 出典: [Thariq Shihipar @trq212 X 投稿](https://x.com/trq212/status/2044548257058328723)
+- `.claude/skills/claude-code-ops/references/context-management.md`「セッション管理 5 つの術」セクション
+
+---
+
 ## 2026-05-02: Claude Code SDK Phase 1 着手（PR 自動レビュー）
 
 ### トリガー

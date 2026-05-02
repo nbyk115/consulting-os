@@ -42,7 +42,7 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 - **`alwaysLoad` は 2-3 個まで**（GitHub・Figma 等 daily-use のみ）
 - **CLI で代替できるなら MCP 不要**（`gh` / `curl` で十分なら導入しない）
 - **タスク単位で ON/OFF**、使い終わったら即オフ
-- 詳細・Optional MCP リスト・導入判断フローは `references/context-management.md` 参照
+→ 詳細・Optional MCP リスト・導入判断フローは `references/context-management.md` 参照（**セッション管理 5 つの術 / context rot / /rewind / /compact vs /clear / サブエージェント判断基準も同ファイル**）
 
 ---
 
