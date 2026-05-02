@@ -23,6 +23,7 @@ AI, LLM, Claude API, RAG, エージェント, プロンプト, 埋め込み, ベ
 | 用途 | 技術 |
 |---|---|
 | LLM API | Claude API (Anthropic SDK) |
+| ローカル LLM（機密案件）| Ollama（ICP.md 「Cloud LLM に流せない」痛みへの回答） |
 | RAG | LlamaIndex / LangChain |
 | ベクトルDB | Pinecone / pgvector / Qdrant |
 | Embedding | Voyage AI / OpenAI Embeddings |

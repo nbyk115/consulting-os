@@ -201,13 +201,21 @@ consulting-os/
 
 - [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills): 1,100+ Agent Skills コレクション。特に注目は Anthropic 公式 17（docx / pptx / xlsx / pdf / brand-guidelines 比較対象 / skill-creator / mcp-builder / frontend-design / webapp-testing 等）。本体取り込みは案件実需顕在化次第。
 
+### ローカル LLM（機密案件向け）
+
+- [Ollama](https://github.com/ollama/ollama): ChatGPT のローカル代替、ネット不要・API 料金不要。ICP.md セクション 2「機密性の高いクライアント情報を Cloud LLM に丸投げできない」痛みへの回答。`ai-engineer` / `strategy-lead` が機密案件提案時の選択肢として参照。
+
 ### 取り込み非推奨・保留（判断記録）
 
 | リソース | 判断 | 理由 |
 |---|---|---|
 | [SeeCost](https://seecost.watch) | 保留 | 単一プロバイダ運用で実需未顕在化、`statusline.sh` で session 単位 cost 表示済 |
 | automate-faceless-content（GitHub）| 保留 | 動画案件未顕在化 + 既存 social-media-strategist / content-strategist と機能重複 + プラットフォーム寿命 12-18 ヶ月 |
+| [n8n](https://github.com/n8n-io/n8n)（公式 Claude Code コネクタ対応）| 保留・最有力候補 | 複数案件並行 / 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化次第即導入候補。LLM 専用設計 + TypeScript SDK + MCP 対応で SDK Phase 2-5 と高い親和性 |
+| Fooocus / ComfyUI / Penpot / AppFlowy / Cal.com / Supabase / OpenVoice | 保留 | 各案件で実需顕在化次第個別評価（10 ツール判定で抽出） |
+| Cline | 対象外 | Claude Code が ConsultingOS の前提、切替は OS 再設計レベル |
 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 取り込み禁止 | Cloudflare 突破 + bot 偽装は ToS 違反 / 不正アクセス禁止法 3 条のグレー / `legal-compliance-checker` と矛盾。合法代替は WebSearch / WebFetch / Firecrawl |
+| Claude Code 無料化（NVIDIA + GLM-4.7） | 取り込み禁止 | Anthropic ToS 違反 + アカウント BAN リスク + 機密情報流出（中国発モデル）+ クライアント案件不可 |
 
 ## 詳細参照
 
