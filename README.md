@@ -205,6 +205,10 @@ consulting-os/
 
 - [Ollama](https://github.com/ollama/ollama): ChatGPT のローカル代替、ネット不要・API 料金不要。ICP.md セクション 2「機密性の高いクライアント情報を Cloud LLM に丸投げできない」痛みへの回答。`ai-engineer` / `strategy-lead` が機密案件提案時の選択肢として参照。
 
+### コンテンツ運用（Substack / ニュースレター）
+
+- [nanameru/substack-mcp](https://github.com/nanameru/substack-mcp): Substack 自動投稿 MCP Skill。`content-strategist` / `pr-communications` が The Ad Signal 等のニュースレター運用時に活用。Claude Code の定期実行と組み合わせて運用工数削減。注意: サムネ生成が Codex MCP（OpenAI）依存のため、Anthropic 中心方針を維持する場合は Claude 系ツールでサムネ生成代替を検討。Substack レート制限の制御必須。
+
 ### 取り込み非推奨・保留（判断記録）
 
 | リソース | 判断 | 理由 |
@@ -214,6 +218,7 @@ consulting-os/
 | [n8n](https://github.com/n8n-io/n8n)（公式 Claude Code コネクタ対応）| 保留・最有力候補 | 複数案件並行 / 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化次第即導入候補。LLM 専用設計 + TypeScript SDK + MCP 対応で SDK Phase 2-5 と高い親和性 |
 | Fooocus / ComfyUI / Penpot / AppFlowy / Cal.com / Supabase / OpenVoice | 保留 | 各案件で実需顕在化次第個別評価（10 ツール判定で抽出） |
 | Cline | 対象外 | Claude Code が ConsultingOS の前提、切替は OS 再設計レベル |
+| [Editframe](https://editframe.com)（@editframe / Claude Code 対応動画生成）| 保留・最有力候補 | HTML/CSS → MP4 ブラウザレンダリング = Hotice デッキ Puppeteer パイプラインと親和性高、sales-deck-designer の動画版商品ライン拡張候補。npm create @editframe@latest で取り込みコスト極低 |
 | [D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling) | 取り込み禁止 | Cloudflare 突破 + bot 偽装は ToS 違反 / 不正アクセス禁止法 3 条のグレー / `legal-compliance-checker` と矛盾。合法代替は WebSearch / WebFetch / Firecrawl |
 | Claude Code 無料化（NVIDIA + GLM-4.7） | 取り込み禁止 | Anthropic ToS 違反 + アカウント BAN リスク + 機密情報流出（中国発モデル）+ クライアント案件不可 |
 

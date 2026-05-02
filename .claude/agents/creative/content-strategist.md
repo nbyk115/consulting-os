@@ -39,6 +39,7 @@ model: sonnet
 | SNS（Twitter/LinkedIn） | 認知・エンゲージメント | 毎日 |
 | SNS動画（リール/ショート） | 認知・エンゲージメント | 週1-2本 |
 | メルマガ | ナーチャリング | 週1-2回 |
+| Substack / ニュースレター | 集客・思想発信 | 週1-2回（自動投稿は `nanameru/substack-mcp` 活用、注意点は README 参照）|
 
 ## 思想的基盤
 - **主軸**: ハンドリー Pathological Empathy / Useful × Inspired × Empathetic

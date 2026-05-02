@@ -27,7 +27,110 @@
 - 2026-11-01: automate-faceless-content / 動画運用案件（YouTube / TikTok / IG Shorts）顕在化次第、11 モジュール中の独自要素抽出判断（6 ヶ月後）
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
 - 2026-11-01: n8n / 複数案件並行 + 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化チェック（公式 Claude Code コネクタ対応で取り込み準備済・最有力候補）
+- 2026-11-01: Editframe（HTML/CSS → MP4）/ B2B デッキの動画版商品ライン拡張案件チェック、Hotice 後続案件で需要顕在化次第即取り込み
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
+
+---
+
+## 2026-05-02: Anthropic 開発速度 7 要因の取捨選択（既存内包 5 + 新規 2 + 取り込み禁止 2）
+
+### トリガー
+ユーザーから Anthropic 異次元開発速度（90日120機能 / 1日5PR / 10日 Cowork 構築）の構造分析記事の取り込み判断を依頼。
+
+### 判定: 既存内包メイン + 新規 2 項目のみ取り込み
+
+#### 7 要因の取捨選択
+| # | 要因 | 判定 |
+|---|---|---|
+| 1 | AI が AI を作る再帰構造 | 既存内包（evolution-log 自己進化サイクル）|
+| 2 | 未公開モデルアクセス | 取り込み不可能（Anthropic 固有）|
+| 3 | PRD 廃止 → プロトタイプ | 部分取り込み（プロトタイプ・ファースト原則を consulting-playbook 追記）|
+| 4 | PM「定義」→「評価」（Taste at Speed）| 新規取り込み（consulting-playbook 追記）|
+| 5 | 全員 Builder | 既存内包（30 エージェント運用）|
+| 6 | 1 人で 3-8 AI 並行 | 既存内包（Boris worktree / claude-code-ops セクション 10）|
+| 7 | 超高速フィードバック | 既存内包（SDK Phase 1 PoC）|
+
+#### 新規取り込み 2 項目
+1. プロトタイプ・ファースト原則 + Taste at Speed → consulting-playbook 追記
+2. 次のモデル前提設計 → claude-code-ops/SKILL.md SDK 化セクション追記
+
+#### 取り込み禁止 2 項目
+- 「PRD 完全廃止」: B2B コンサル案件の正式提案書は商品そのもの、廃止禁止
+- 「95% 自動化は不十分」: SDK Phase 6 商品化検討時の参考、現状実需未顕在化で取り込み不要
+
+### 反証結果
+✅ Step 1: 「7 要因全部取り込み」反論 → 記事自体が「Anthropic 構造は再現不可能」明記、ConsultingOS 規模では不要 / 「Taste at Speed は反証 Step 3 で十分」反論 → プロトタイプ評価視点は明示価値あり、特に proposal-writer / product-manager で活用
+✅ Step 2: 7 要因のうち 5 つは既存スキル / hook / agent definition で内包確認、機械検証可能
+✅ Step 3: 2 ファイル追記（consulting-playbook + claude-code-ops/SKILL.md）の外科的変更、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- 「次のモデル前提設計」は CLAUDE.md「先回り設定禁止」と慎重整合必要、ユースケース顕在化したものに限定適用と明記済
+- Taste at Speed 強化は反証モード Step 3 と運用上の差が微妙、PoC で検証必要
+- Anthropic 数値（90日120機能等）は本 OS で機械検証不可、SPECULATION
+
+### 関連参照
+- consulting-playbook.md「成果物プレビュー」セクション内
+- claude-code-ops/SKILL.md SDK 化セクション
+- 出典: Anthropic Claude Code チーム開発プロセス記事 / Cat Wu Lenny's Podcast / Pragmatic Engineer Boris Cherny インタビュー
+
+---
+
+## 2026-05-02: N.Y.CRAFT OEM 案件統合 + Substack-mcp 推奨 + 動画生成ツール保留
+
+### トリガー
+ユーザーから 3 件の判断を依頼:
+1. claude/oem-sales-strategy-gVMWp ブランチのマージ判定 → (A) ConsultingOS に統合
+2. nanameru/substack-mcp の取り込み判定 → 佐藤裕介にまかせる
+3. Claude Code / Codex / Cursor 対応動画生成ツール
+
+### 1. N.Y.CRAFT OEM 案件統合（cherry-pick 16 ファイル）
+
+claude/oem-sales-strategy-gVMWp ブランチから案件成果物のみ main に取り込み:
+- strategy/n-y-craft-oem-case/（10 ファイル）: Sekine 氏向け提案 v5 + 5 形式（md / html / pdf / pptx / slides.md）+ 価格設計 + 商談プレイブック
+- strategy/oem-side-business/（5 ファイル）: OEM 副業戦略汎用フレーム
+- .gitignore（新規）
+
+これは Hotice 案件（月 5 万 × 3 ヶ月 = 15 万円受注済）に続く ConsultingOS の商業実績候補。最終 commit は 2026-05-02（v5 footer rerender）まで段階的進化。
+
+### 2. Substack-mcp 推奨取り込み（外部参照）
+
+- 用途: The Ad Signal 等のニュースレター自動投稿
+- 実装:
+  - README.md「コンテンツ運用」セクション新設、注意点（Codex MCP 依存 / レート制限）明記
+  - content-strategist のコンテンツ種別表に「Substack / ニュースレター」追加（substack-mcp 参照）
+- 判定理由: The Ad Signal で実需顕在化済、ConsultingOS 集客チャネル自動化で PL 直結
+
+### 3. Editframe 保留・最有力候補（詳細判明で格上げ）
+
+- ツール: [Editframe](https://editframe.com) / @editframe（2026-05-02 ステルスから登場）
+- インストール: `npm create @editframe@latest`
+- 機能: HTML/CSS → MP4 ブラウザレンダリング、フレームワーク非依存、DOM + Canvas、クラウドストリーミングプレビュー + API レンダリング
+- 判定: 保留・最有力候補（n8n と同格付け、当初保留から 1 段階格上げ）
+- 格上げ根拠:
+  - HTML/CSS → MP4 = Hotice デッキの Puppeteer パイプライン（既存 ConsultingOS スタック）と親和性高
+  - sales-deck-designer の動画版商品ライン拡張候補（B2B デッキ → 動画化）
+  - npm 一発で取り込みコスト極低
+- 保留継続根拠:
+  - 動画案件未顕在化（Hotice = HTML デッキ / The Ad Signal = ニュースレター）
+  - 本日登場で本番品質 SPECULATION
+- 再評価: 2026-11-01 カレンダー（Hotice 後続案件で動画化需要顕在化次第即取り込み）
+
+### 反証結果
+✅ Step 1: 「3 件すべて統合で OS 強化」反論 → 動画生成は実需未顕在化、保留が外科的 / Substack-mcp は本体取り込みではなく外部参照 + 1 行誘導が適切
+✅ Step 2: N.Y.CRAFT 16 ファイルは git diff --diff-filter=A で機械検証済、既存 main と非干渉 / Substack-mcp は GitHub URL で実在確認、注意点（Codex MCP / レート制限）は投稿者明記 / 動画生成ツールは X 投稿で確認
+✅ Step 3: 1 PR 2 commit（OEM 案件 / Substack + 動画判定）で論理単位分離、CLAUDE.md は触らず
+
+🔺 残存リスク:
+- N.Y.CRAFT 案件のクライアント機密情報（Sekine 氏 / 価格・契約内容）が Public リポなら情報漏洩リスク、要確認
+- Substack-mcp は nanameru 氏の OSS、メンテナンス継続性 SPECULATION
+- Codex MCP（OpenAI）依存はサムネ生成のみ、Claude 系代替が望ましい
+- 動画生成ツールは保留判定だが npm 一発で導入コスト低い、案件問い合わせ次第で前倒し可能
+- README 商業実績表への N.Y.CRAFT 案件追加は受注状態（受注済 / 提案中 / 進行中）情報待ちで別 commit
+
+### 関連参照
+- strategy/n-y-craft-oem-case/ 10 ファイル + strategy/oem-side-business/ 5 ファイル
+- README.md「コンテンツ運用」セクション + 取り込み非推奨・保留表
+- .claude/agents/creative/content-strategist.md コンテンツ種別表
 
 ---
 
