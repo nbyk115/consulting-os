@@ -1,0 +1,38 @@
+#!/bin/bash
+# commit-msg hook: コミットメッセージへの機密情報・会話文脈混入をブロック
+# 2026-05-02: Theo セキュリティ警告対応（プロンプト/会話文脈混入リスク）
+
+set -e
+
+MSG_FILE="$1"
+MSG=$(cat "$MSG_FILE")
+VIOLATIONS=()
+
+# 1. API key パターン
+if echo "$MSG" | grep -qE 'sk-ant-[a-zA-Z0-9_\-]{20,}|sk-[a-zA-Z0-9]{30,}|AKIA[0-9A-Z]{16}|ghp_[a-zA-Z0-9]{30,}'; then
+  VIOLATIONS+=("API Key パターンが commit message に混入")
+fi
+
+# 2. 環境変数キーワードと値の組み合わせ
+if echo "$MSG" | grep -qE '(ANTHROPIC|OPENAI|CLAUDE|AWS|GITHUB)_API_KEY\s*=\s*[a-zA-Z0-9_\-]{15,}'; then
+  VIOLATIONS+=("環境変数ハードコードが commit message に混入")
+fi
+
+# 3. PEM 秘密鍵
+if echo "$MSG" | grep -qE 'BEGIN (RSA |EC |DSA |OPENSSH |PGP )?PRIVATE KEY'; then
+  VIOLATIONS+=("PEM 秘密鍵が commit message に混入")
+fi
+
+if [ ${#VIOLATIONS[@]} -gt 0 ]; then
+  echo "" >&2
+  echo "🚫 commit ブロック: コミットメッセージに機密情報の可能性を検出" >&2
+  echo "" >&2
+  for v in "${VIOLATIONS[@]}"; do
+    echo "  - $v" >&2
+  done
+  echo "" >&2
+  echo "対応: コミットメッセージから機密情報を削除してください" >&2
+  exit 1
+fi
+
+exit 0
