@@ -33,6 +33,57 @@
 
 ---
 
+## 2026-05-02: OS 強化統合 + Cordys CRM 判定（PR #15 + #16 統合記録）
+
+### トリガー
+ユーザーから複数リソース判定依頼（Google DESIGN.md / Anthropic 公式 6 スキル / Mike 法律 AI / Cordys CRM）。佐藤裕介判断で「コンサル OS として必要なもの」を OS 強化として実装、案件ベース要素は商品化候補として記録。
+
+### PR #15 で実装済（OS 強化）
+1. DESIGN.md Google 標準準拠宣言 + WCAG 2.1 AA セクション 7 新設（コントラスト / タッチ領域 / フォーカス / alt / 色覚多様性 / 字幕 + 検証ツール 4 種 + エージェント運用役割分担）
+2. README 外部参照に Anthropic 公式 6 スキル明示（skill-creator / mcp-builder / docx + pptx + xlsx + pdf）
+3. README 外部参照に Mike 法務 AI 保留・案件候補記録
+4. ICP.md 商品ライン候補に法務 AI / 金融 AI を 2 商品追加
+
+### PR #16（本セクション）で追加
+1. Cordys CRM 判定（保留・案件候補）→ N.Y.CRAFT 受注後に評価
+2. ICP.md 商品ライン候補に「OSS CRM 環境構築支援」追加（汎用、候補ツール明記: Cordys CRM / Twenty / EspoCRM / SuiteCRM）
+3. README 外部参照に Cordys CRM 1 行追加
+4. 中国系プラットフォーム連携（企業微信 / DingTalk / Feishu）前提のため、日本市場では要件次第と注記
+
+### Cordys CRM 判定理由
+- N.Y.CRAFT は OEM 提案中（受注未確定）= CRM 需要は仮説段階
+- 中国系オフィス連携は日本市場で実用性限定
+- 中国製 OSS（1Panel-dev）の継続性 SPECULATION
+- Mike と同パターン: フルスタック実装で本体取り込み破壊的、商品化候補記録のみが外科的
+
+### 案件ベース vs OS 強化の最終整理
+
+| OS 強化（即実装済）| 案件ベース（実需待ち）|
+|---|---|
+| Google DESIGN.md 標準準拠 | Mike 本体取り込み |
+| WCAG セクション | Cordys CRM 本体取り込み |
+| Anthropic 公式 6 スキル明示 | typefully / composio |
+| 商品ライン候補 7 → 8 商品（CRM 追加）| 動画系 6 リソース集合 |
+|  | 金融 AI 5 ツール集合（ジーニー案件）|
+
+### 反証結果
+✅ Step 1: 「Cordys CRM 即取り込み」反論 → N.Y.CRAFT 受注未確定 + 中国系プラットフォーム前提で日本市場限定、商品化候補記録が外科的 / 「特定ツール固定」反論 → 「OSS CRM 環境構築支援」として汎用化、要件で選定が外科的
+✅ Step 2: Cordys CRM は GitHub URL（1Panel-dev/CordysCRM）で実在確認、N.Y.CRAFT 案件状態は examples/ + strategy/ で機械検証可能
+✅ Step 3: 3 ファイル変更（README / ICP / evolution-log）、CLAUDE.md は触らず（115 行死守）
+
+🔺 残存リスク:
+- Cordys CRM の実装品質は本 OS で未検証、N.Y.CRAFT 受注後に PoC 必須
+- 中国製 OSS の継続性は SPECULATION、依存ライブラリ（MaxKB 等）の安定性も同様
+- 商品ライン候補 8 商品のうち実需顕在化済は Hotice モデル（Web 制作）のみ、他 7 商品は仮説段階
+- N.Y.CRAFT 受注確定は別議題、ユーザー側営業活動次第
+
+### 関連参照
+- PR #15: feat(os) Google DESIGN.md 標準準拠 + WCAG + Anthropic 公式 6 スキル + 法務 AI 商品化候補（commit ad08388）
+- PR #16: 本 PR
+- ICP.md セクション 9.2 商品ラインナップ候補（8 商品）
+
+---
+
 ## 2026-05-02: GitHub トレンド 10 リソース判定 + Camofox 取り込み禁止 + ジーニー案件金融 AI ツール群整理
 
 ### トリガー
