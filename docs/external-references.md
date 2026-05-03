@@ -92,6 +92,29 @@
 | Microsoft Copilot Studio | [microsoft.com](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio) | エンタープライズ層（Microsoft 365 前提）|
 | ConsultingOS（自社）| 本リポジトリ | 中堅中小特化・導入支援込み（公開情報では競合不在 INFERENCE）|
 
+## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
+
+| リソース | URL | 判定 | 用途 |
+|---|---|---|---|
+| 大企業向け事業戦略 20 ステップ | （ユーザー提示画像）| 対象外（参照のみ）| MBA 標準・consulting-playbook 既存スキルで 80% カバー |
+| みるぼん流スモールビジネス 4 ステップ | [miruboon.com](https://miruboon.com/)（SPECULATION: URL 要確認）| 注目（取り込み済）| 単独事業者向け実践フレーム・consulting-playbook §スモールビジネス即活用 4 ステップ に統合済 |
+| 銀行審査部が嫌う事業計画書 3 共通点 | [野村幸司 中小企業診断士](https://x.gd/lYeAY)（SPECULATION: 短縮 URL）| 注目（取り込み済）| DSCR 計算・返済シミュレーション・kpi-analytics 連携・consulting-playbook §銀行審査部 3 共通点 に統合済 |
+| 爆速で事業計画書を作る方法（Genspark + Claude + Marp）| ユーザー提示記事 | 注目 | 既存 sales-deck-designer + claude-design-handoff + Marp フローと整合、Genspark は外部リサーチツール候補（URL 集約のみ）|
+| 新規事業計画書の書き方ガイド（onlystory.co.jp）| [onlystory.co.jp](https://onlystory.co.jp/service/column/new-business-plan/)（SPECULATION: 完全 URL 要確認）| 対象外（参照のみ）| 公開コンセンサス・consulting-playbook で 80% カバー |
+| Peter Thiel "Zero to One"（Secret Thesis 論）| [Amazon](https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296) | 推奨参照 | 新規事業の Secret Thesis 思想的基盤・佐藤裕介流の判断軸の理論的裏付け |
+
+## 11. 新規事業 / 企業 / M&A 責任体制
+
+ConsultingOS の <span style="color:red">新規事業 / 企業 / M&A 責任者 = 佐藤裕介流</span>（既存 strategy-lead を主軸として強化、新エージェント新設は形骸化リスク回避）。
+
+| 領域 | 主担当エージェント | 連携 |
+|---|---|---|
+| 新規事業立ち上げ | strategy-lead（佐藤裕介流主軸）| product-manager / competitive-analyst / market-researcher / kpi-analytics |
+| 既存企業の事業再構築 | strategy-lead | competitive-analyst / kpi-analytics / legal-compliance-checker |
+| M&A（買収 / 売却 / 統合）| strategy-lead | legal-compliance-checker / kpi-analytics（DSCR・バリュエーション）/ proposal-writer（IM 作成）|
+
+詳細: `consulting-playbook.md` §新規事業 / 企業 / M&A の責任者 = 佐藤裕介流
+
 ---
 
 ## 運用ルール
