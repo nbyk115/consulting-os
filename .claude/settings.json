@@ -82,6 +82,18 @@
           {
             "type": "command",
             "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.txt|*.html) if echo \"$content\" | grep -q '\\*\\*'; then echo \"⚠️ Markdown 太字 ** 検出: $file。CLAUDE.md ハードルール 16 違反の可能性。「」or 大文字キーワードで代替を検討（2026-05-01 学習）\"; fi ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) if echo \"$content\" | grep -qE '^[^<].*<br>' && ! echo \"$content\" | grep -qE 'class=\"(sub|meta)\"|cover'; then echo \"⚠️ <br> 本文使用検出: $file。brand-guidelines §5.6 違反の可能性。<br> はカバー/section-divider 装飾のみ許容、本文は空行で段落分割（2026-05-03 学習）\"; fi ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) hits=$(echo \"$content\" | grep -E '(Gartner|McKinsey|BCG|Anthropic|Dario Amodei|Sam Altman|Metaculus|MarketsandMarkets|TechCrunch|Prosus|総務省|プレスリリース|公式リリース)' | grep -v 'http\\|](') ; if [ -n \"$hits\" ]; then echo \"⚠️ 出典 URL 不付与検出: $file。brand-guidelines §5.7 違反の可能性。出典名は markdown ハイパーリンク [出典名](URL) 形式で記載必須（2026-05-03 学習）\"; fi ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in strategy/*/*.slides.md|strategy/*/*.md|examples/*/*.slides.md) echo \"📋 ConsultingOS 起動チェック: $file は案件成果物。ハードルール 17 で関連エージェント最低 1 名以上の並列起動が必須。「自分で書いた方が早い」モード発動なら即停止 = ConsultingOS 存在意義違反として evolution-log 記録義務（2026-05-02 学習）\" ;; esac"
           }
         ]
       }
