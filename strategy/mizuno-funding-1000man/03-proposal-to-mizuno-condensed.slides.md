@@ -3,256 +3,258 @@ marp: true
 theme: default
 size: 16:9
 paginate: true
-header: "ConsultingOS × 水野敦紹 様 ｜ 1000 万円エンジェル出資ご提案（Light）"
-footer: "2026.05 ｜ Confidential ｜ v1"
+header: ""
+footer: "ConsultingOS × 水野敦紹 様 ｜ 2026.05 ｜ Confidential"
 lang: ja
 style: |
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Inter:wght@700;900&display=swap');
   section {
-    font-family: "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN", "IPAGothic", "Meiryo", sans-serif;
-    background-color: #FAFAF7;
-    color: #0A0A0A;
-    padding: 40px 56px;
-    font-size: 19px;
+    font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Meiryo UI", sans-serif;
+    background-color: #0A0A0A;
+    color: #FAFAF7;
+    padding: 56px 80px;
+    font-size: 22px;
     line-height: 1.5;
   }
   h1 {
-    color: #0A0A0A;
-    border-bottom: 3px solid #E60012;
-    padding-bottom: 8px;
-    font-size: 30px;
-    margin-top: 0;
-    margin-bottom: 18px;
+    color: #FAFAF7;
+    border-bottom: 3px solid #FF3B30;
+    padding-bottom: 12px;
+    font-size: 42px;
+    font-weight: 900;
+    margin: 0 0 28px 0;
   }
-  h2 {
-    color: #1A1A1A;
-    font-size: 21px;
-    margin-top: 12px;
-    margin-bottom: 6px;
-  }
-  p, li, td, th { font-size: 17px; }
-  table { margin: 8px auto; border-collapse: collapse; text-align: center; }
-  th { background-color: #0A0A0A; color: #FAFAF7; padding: 5px 9px; text-align: center; font-weight: 700; }
-  td { border: 1px solid #E5E5E5; padding: 4px 9px; text-align: center; vertical-align: middle; }
+  h2 { color: #FAFAF7; font-size: 28px; margin: 16px 0 8px 0; font-weight: 700; }
+  p, li { color: #FAFAF7; font-size: 22px; line-height: 1.6; }
+  li { margin-bottom: 8px; }
+  strong { color: #FF3B30; font-weight: 700; }
+  a { color: #00D4FF; text-decoration: underline; }
+  table { margin: 16px auto; border-collapse: collapse; width: 100%; }
+  th { background-color: #FF3B30; color: #FAFAF7; padding: 10px 14px; text-align: center; font-weight: 700; font-size: 18px; }
+  td { border: 1px solid #333333; padding: 10px 14px; text-align: center; font-size: 18px; color: #FAFAF7; }
   td:first-child { text-align: left; font-weight: 600; }
-  ul, ol { margin: 4px 0; padding-left: 22px; }
-  li { margin-bottom: 2px; }
-  blockquote { border-left: 4px solid #E60012; padding: 4px 14px; color: #1A1A1A; background-color: #F2F2EE; margin: 8px 0; }
-  .accent { color: #E60012; font-weight: 700; }
-  .neutral { color: #666666; }
-  .small { font-size: 14px; }
-  .hero { font-size: 40px; font-weight: 700; line-height: 1.3; }
-  .sub { font-size: 21px; color: #666666; margin-top: 14px; }
+  blockquote { border-left: 4px solid #FF3B30; padding: 12px 20px; color: #FAFAF7; background-color: #1A1A1A; margin: 16px 0; font-size: 22px; }
+  .hero-xl { font-family: "Inter", "Noto Sans JP", sans-serif; font-size: 120px; font-weight: 900; line-height: 1; color: #FF3B30; letter-spacing: -0.03em; display: block; }
+  .hero-l  { font-family: "Inter", "Noto Sans JP", sans-serif; font-size: 72px; font-weight: 900; line-height: 1.1; color: #FAFAF7; letter-spacing: -0.02em; display: block; }
+  .hero-m  { font-size: 44px; font-weight: 700; line-height: 1.2; color: #FAFAF7; }
+  .unit { font-size: 32px; font-weight: 400; color: #8E8E93; vertical-align: super; margin-left: 6px; }
+  .accent { color: #FF3B30; font-weight: 700; }
+  .cyan { color: #00D4FF; font-weight: 700; }
+  .neutral { color: #8E8E93; }
+  .small { font-size: 16px; color: #8E8E93; }
+  .kpi-row { display: flex; gap: 24px; margin: 24px 0; justify-content: center; }
+  .kpi-block { display: flex; flex-direction: column; align-items: center; background: #1A1A1A; border-left: 4px solid #FF3B30; border-radius: 4px; padding: 28px 36px; min-width: 220px; }
+  .kpi-label { font-size: 14px; color: #8E8E93; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+  .roadmap { display: flex; gap: 0; margin: 32px 0 0 0; }
+  .rm-step { flex: 1; padding: 10px 14px; font-size: 13px; color: #8E8E93; border-bottom: 3px solid #333333; text-align: center; }
+  .rm-step.active { color: #FAFAF7; border-bottom: 3px solid #FF3B30; font-weight: 900; }
+  .gov-thought { background: #FF3B30; color: #FAFAF7; padding: 10px 18px; font-size: 18px; font-weight: 700; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
   section.cover {
-    background-color: #0A0A0A; color: #FAFAF7; padding: 80px 80px;
+    background-color: #0A0A0A;
+    padding: 120px 100px;
+    text-align: left;
   }
-  section.cover h1 { color: #FAFAF7; border-bottom: 3px solid #E60012; font-size: 42px; padding-bottom: 16px; }
-  section.cover .sub { color: #B0B0B0; font-size: 21px; }
-  section.cover .meta { color: #B0B0B0; font-size: 16px; margin-top: 60px; }
+  section.cover h1 {
+    color: #FAFAF7;
+    border-bottom: none;
+    font-size: 52px;
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+  section.cover .sub { color: #8E8E93; font-size: 26px; line-height: 1.5; }
+  section.cover .meta { color: #8E8E93; font-size: 17px; margin-top: 80px; }
+  section.kpi-hero {
+    background: radial-gradient(ellipse at center, #1A1A1A 0%, #0A0A0A 80%);
+    text-align: center;
+    padding: 80px;
+  }
 ---
 
 <!-- _class: cover -->
 
-# 1000 万円という<br>「OS にレバレッジをかける投資」のご提案
+# 1,000 万円で<br><span class="accent">AI × トレード × OS</span> の<br>交点に乗る
 
 <div class="sub">
-ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
-そこに 1000 万円を投じる ＝ 1,800 万円相当の事業基盤へのアクセス
+共同事業者として、AGI 移行期の最終 OS 構築機会を一緒に。<br>
+ConsultingOS = 既に動き、既に売れている事業基盤（800 万円相当）。
 </div>
 
 <div class="meta">
 水野敦紹 様 御中<br>
 小野寺信行（個人事業主 / ConsultingOS 所有者）<br>
-2026 年 5 月 ｜ GW 明け MTG 用 ｜ 圧縮版（10 スライド）
+2026 年 5 月 ｜ GW 明け MTG 用
 </div>
 
 ---
 
-# 1. ピッチの本質 — OS 自体に 1000 万円相当の価値
+<!-- _class: kpi-hero -->
 
-| 観点 | 内容 |
+# 機会の本質
+
+<div class="kpi-row">
+  <div class="kpi-block">
+    <span class="kpi-label">既存資産</span>
+    <span class="hero-l">800<span class="unit">万円</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">投資</span>
+    <span class="hero-l">1,000<span class="unit">万円</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">事業基盤</span>
+    <span class="hero-l">1,800<span class="unit">万円</span></span>
+  </div>
+</div>
+
+<blockquote>
+ゼロから作る 2-3 年・数千万円を、1,000 万円で買える唯一の機会。<br>
+Hotice 受注実績 = PMF 検証済 / N.Y.CRAFT 関根さん紹介 = 動作中の流入チャネル。
+</blockquote>
+
+---
+
+# Why You / Why Now / Why This OS
+
+| 軸 | 中身 |
 |---|---|
-| 既存無形資産 | ConsultingOS 構築コスト相当 約 <span class="accent">800 万円</span>（外注実勢 1,000-1,500 万 [INFERENCE: 業界相場・個人見立て]）|
-| 投資 | 1,000 万円 |
-| 事業基盤合計 | 約 <span class="accent">1,800 万円相当</span> |
-| 投資回収 | 24 ヶ月で完全回収、36 ヶ月で売上 4,800-8,500 万 |
-| 検証実績 | <span class="accent">Hotice 案件 月 5 万 × 3 ヶ月受注済</span> |
+| <span class="accent">Why You</span> | 水野さん 13 年 AI マーケ実務 × 個人投資家ネット × ジーニー人脈 = 軸 A・軸 B の最初の火種 |
+| <span class="accent">Why Now</span> | AGI 移行期（[Dario Amodei](https://www.darioamodei.com/essay/machines-of-loving-grace) 2026-2027 powerful AI + [Gartner](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) 2026 末 40% 採用）|
+| <span class="accent">Why This OS</span> | Hotice 受注済 + 体系化済 + 7 層防御 + 中堅中小特化（公開情報では競合不在 [INFERENCE]）|
 
-「ゼロから作る 2-3 年・数千万円」を 1000 万円で買える唯一の機会。
+3 軸どれが欠けても投資成立せず。3 軸が同時に揃った瞬間が今。
 
 ---
 
-# 1.5 Why You / Why Now / Why This OS（30 秒 Governing Thought）
+# AGI 移行期 ｜ なぜ「今」か
 
-| 軸 | 内容 |
-|---|---|
-| <span class="accent">Why You</span> | 水野さん 13 年実務 × 個人投資家ネット × ジーニー人脈 = 軸 A・軸 B の最初の火種 |
-| <span class="accent">Why Now</span> | AGI 移行期（Dario Amodei「2026-2027 powerful AI」+ Gartner 2026 末 40% 採用）の最終 OS 構築機会 |
-| <span class="accent">Why This OS</span> | 既に動き売れている + 体系化済 + 7 層防御 + 中堅中小特化（公開情報では競合不在 [INFERENCE]）|
+<div class="kpi-row">
+  <div class="kpi-block">
+    <span class="kpi-label">AGI 業界中央値</span>
+    <span class="hero-l">2033<span class="unit">年</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">エンタープライズ採用</span>
+    <span class="hero-l">40<span class="unit">%</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">日本業務統合率</span>
+    <span class="hero-l">7<span class="unit">%</span></span>
+  </div>
+</div>
 
-3 軸どれが欠けても投資成立せず、3 軸が同時に揃った瞬間が今 = 共同事業者として一緒に大きくする提案。
-
----
-
-# 2. なぜ「今」か — AGI / ASI マクロ + AI エージェント市場 5 ファクト
-
-[FACT / Dario Amodei「Machines of Loving Grace」2024-10] Anthropic CEO: 「強力な AI（powerful AI）は早ければ <span class="accent">2026 年</span>到来し得る」。AGI 業界中央値 50% 確率 = 2033 年（Metaculus 2026-02、過去 6 年で「2060-2070 → 2033」へ急圧縮）。Anthropic は 2025-05 に <span class="accent">ASL-3 史上初発動</span>、safety + capability 制度的両立。
-
-| # | ファクト | ラベル | 出典 |
-|---|---|---|---|
-| 1 | AI エージェント市場 <span class="accent">CAGR 41-46%</span>、2030 年に約 420-530 億ドル（約 6-8 兆円）| INFERENCE | MarketsandMarkets / Grand View / BCC / MarkNtel（2025）|
-| 2 | Gartner: <span class="accent">2026 末にエンタープライズアプリの 40%</span> が AI エージェント搭載（2025 は 5% 未満）| FACT | Gartner 2025-08-26 |
-| 3 | <span class="accent">日本の業務統合率 7%</span>（世界 13%）= 巨大空白市場 | FACT | BCG AI at Work 2025 |
-| 4 | 2025 VC 投資 <span class="accent">64 億ドル超</span>、2026 +142.6% 加速（LangChain $1.25B）| INFERENCE | Prosus / Tracxn / TechCrunch |
-| 5 | Claude Sonnet 4.6 / Code が <span class="accent">1M トークン・MCP</span> 正式サポート、技術基盤完成 | MIXED | Anthropic 公式 2026 |
-
-「<span class="accent">爆発的普及期の入口</span>、ConsultingOS はそのウィンドウに先行している」。
+- [FACT] [Dario Amodei「Machines of Loving Grace」](https://www.darioamodei.com/essay/machines-of-loving-grace) 2024-10: 「powerful AI は早ければ <span class="accent">2026 年</span>到来し得る」
+- [INFERENCE] [Metaculus 2026-02 + 80,000 Hours](https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/): AGI 50% 確率中央値 = 2033 年（過去 6 年で 2060→2033 へ急圧縮）
+- [FACT] [Anthropic ASL-3 史上初発動](https://www.anthropic.com/news/activating-asl3-protections) 2025-05: safety + capability の制度的両立
+- [FACT] [BCG AI at Work 2025](https://codezine.jp/news/detail/21866): 日本の AI エージェント業務統合率 7%（世界 13%）= 巨大空白市場
 
 ---
 
-# 3. 競合 3 レイヤー + ConsultingOS 空白ポジション
+# AI エージェント市場 5 ファクト
+
+| # | ファクト | 出典 |
+|---|---|---|
+| 1 | 市場 <span class="accent">CAGR 41-46%</span>、2030 年 約 420-530 億ドル（約 6-8 兆円）| [INFERENCE] [MarketsandMarkets](https://www.marketsandmarkets.com/PressReleases/ai-agents.asp) 526 / [Grand View](https://www.prnewswire.com/news-releases/ai-agents-market-size-to-hit-50-31-billion-by-2030-at-cagr-45-8---grand-view-research-inc-302447060.html) 503 / [BCC](https://www.bccresearch.com/pressroom/ait/ai-agents-market-to-grow-433-annually) 483 / MarkNtel 427 億ドル |
+| 2 | <span class="accent">2026 末にエンタープライズアプリ 40% が AI エージェント搭載</span>（2025 は 5% 未満）| [FACT] [Gartner 2025-08-26](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) |
+| 3 | 日本 AI 業務統合率 <span class="accent">7%</span>（世界 13%）= 巨大空白市場 | [FACT] [BCG AI at Work 2025](https://codezine.jp/news/detail/21866) |
+| 4 | 2025 VC 投資 <span class="accent">64 億ドル超</span>、2026 +142.6% 加速（[LangChain $1.25B](https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/) ユニコーン）| [INFERENCE] [Prosus](https://www.business-standard.com/companies/start-ups/agentic-ai-startups-attract-2-8-billion-vc-funding-2025-prosus-125080501059_1.html) / Tracxn |
+| 5 | [Claude Sonnet 4.6 / Code](https://www.anthropic.com/news/claude-sonnet-4-6) が 1M トークン・MCP 正式サポート、技術基盤完成 | [FACT] Anthropic 2026 |
+
+爆発的普及期の入口が今まさに開く。<span class="accent">ConsultingOS はそのウィンドウに先行</span>。
+
+---
+
+# 競合 3 レイヤー ｜ ConsultingOS 空白ポジション
 
 | レイヤー | 代表 | 制約 |
 |---|---|---|
-| A. フレームワーク層 | LangChain / AutoGen / CrewAI | 「組み立てキット」、設計・品質・ガバナンスは購入者持ち |
-| B. エンタープライズ層 | Microsoft Copilot Studio / Azure AI Foundry | Microsoft 365 前提、価格・SLA が中小に過剰 |
-| C. <span class="accent">ConsultingOS</span> | （公開情報では競合ほぼ不在）| <span class="accent">導入支援込み・Claude Code ネイティブ・一気通貫・中堅中小特化</span> |
+| A. フレームワーク | LangChain / AutoGen / CrewAI | 「組み立てキット」、品質は購入者持ち |
+| B. エンタープライズ | Microsoft Copilot Studio | Microsoft 365 前提、中小過剰 |
+| C. <span class="accent">ConsultingOS</span> | 公開情報では競合ほぼ不在 [INFERENCE] | <span class="accent">導入支援込み・一気通貫・中堅中小特化</span> |
 
-[FACT / McKinsey State of AI 2025] AI 高パフォーマー 5.5% のみ = 残り 94.5% は導入支援需要。
-[FACT / Gartner プレスリリース 2025-06-25] 2027 末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span>（コスト超過・価値不明確・リスク管理不備）→ [INFERENCE] ConsultingOS は受注実績 + 7 層防御 + PL 連動でリスク回避済。
+[FACT] [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai): AI 高パフォーマー <span class="accent">5.5% のみ</span>、94.5% は導入支援需要
 
----
-
-# 4. 事業計画 — コア 3 軸 + 軸 D プロデュース業
-
-```
-コア事業（Phase 1-3）
-├─ 軸 A: 金融 AI（水野さん向け 350 万 + 量産 150 万 = 500 万）
-├─ 軸 B: B2B 新規（N.Y.CRAFT + 水野さん紹介・8 社 480 万）
-└─ 軸 C: AI 完全自動化サブスク（よるのことば・100 万・粗利率 90-95%）
-
-拡張事業（Phase 3-5+）
-└─ 軸 D: プロデュース業（D-1 アパレル / D-2 地方創生 / D-3 PR /
-         D-4 企画 / D-5 ブランドプロデュース）
-```
-
-ConsultingOS = 単一事業ではなく <span class="accent">事業創出基盤</span>。30 エージェントの組み合わせで領域問わず適用可能。
+[FACT] [Gartner 2025-06-25](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027): 2027 末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span> → ConsultingOS は受注実績 + 7 層防御 + PL 連動でリスク回避済
 
 ---
 
-# 5. 18 ヶ月 PL + 中長期
+<!-- _class: kpi-hero -->
 
-| 期間 | 売上 | 粗利 | 営業利益 |
-|---|---|---|---|
-| 18 ヶ月（標準）| 1,080 万 | 866-871 万 | <span class="accent">−129〜−134 万</span>（87% 回収）|
-| 24 ヶ月（コア + D 一部）| 1,600-2,000 万 | 1,200-1,400 万 | <span class="accent">完全回収 + 黒字</span> |
-| 36 ヶ月（D 加算）| 4,800-8,500 万 | 3,800-6,800 万 | 4-6 倍リターン |
-| 60 ヶ月（D 主軸化）| 10,000-22,000 万 | 8,000-17,500 万 | 1-2 億規模 |
+# 18 ヶ月 PL ｜ 標準ケース
 
-期待値（確率配分）= 標準 1,080 万を 20-30% 上回る <span class="accent">1,300-1,400 万</span>。
+<div class="kpi-row">
+  <div class="kpi-block">
+    <span class="kpi-label">売上</span>
+    <span class="hero-l">1,080<span class="unit">万</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">粗利率</span>
+    <span class="hero-l">80<span class="unit">%</span></span>
+  </div>
+  <div class="kpi-block">
+    <span class="kpi-label">完全回収</span>
+    <span class="hero-l">24<span class="unit">ヶ月</span></span>
+  </div>
+</div>
+
+<blockquote>
+36 ヶ月: 売上 4,800-8,500 万 [SPECULATION] / 60 ヶ月: 1-2 億規模 [SPECULATION] = プロデュース業主軸化。<br>
+期待値（確率配分）= 標準を 20-30% 上回る <span class="accent">1,300-1,400 万</span>。
+</blockquote>
 
 ---
 
-# 6. 1000 万円配分（最終版）
+<!-- _class: kpi-hero -->
 
-| 用途 | 金額 | 性質 |
+# 投資の非対称性
+
+| 軸 | 内容 |
+|---|---|
+| <span class="cyan">ダウンサイド</span> | 元本 1,000 万 + 利息 5-8% で IRR 5-15% / 軸 A 自身受領 350 万 / 共同事業者ポジション |
+| <span class="accent">アップサイド</span> | 共同事業価値 <span class="accent">2.35-4.0 倍</span>（[SPECULATION] 個人見立て）/ OS 構造的アクセス権 / 3 軸（AI × トレード × OS）の最初の出資者 |
+
+<blockquote>
+金融トレード単独レバレッジから <span class="accent">3 軸レバレッジ</span>への転換。<br>
+4 重交点（AI × 営業 OS × 既存チャネル × Hotice PMF）= 他で組成不可。
+</blockquote>
+
+---
+
+# 出資形態 3 候補（株式持分構造は時期尚早）
+
+| 形態 | 36 ヶ月 ROI |
+|---|---|
+| A. 利益分配（30%）| 0.45-0.75x |
+| B. 融資（年利 5-8%）| 1.15-1.24x |
+| <span class="accent">C. ハイブリッド（融資 + アドバイザリー + AI サービス）</span> | <span class="accent">1.68-1.86x</span> ← 推奨 |
+
+C 内訳: 元本 + 利息 1,150 万 + アドバイザリー 180-360 万 + 金融 AI サービス自身受領 350 万 = 1,680-1,860 万
+
+「ラフに出すよ」スタンスを尊重、株式化は時期尚早として現時点では考えない（実績次第で長期検討）。
+
+---
+
+# Phase 1 Go/No-Go ゲート（出資契約に明記）
+
+| # | Go 基準（3 ヶ月以内） | 達成効果 |
 |---|---|---|
-| ツール / SaaS | 175 万 | Claude Code Max + AI API + デザイン系 |
-| インフラ | 40 万 | ホスティング・DB・自社サイト |
-| 営業活動 | 265 万 | 海外出張 2 回 140 + 国内 95 + プロデュース業仕込み 30 |
-| 法人運営 + 法人化 | 125 万 | 税理士 + 社保 + 合同会社 LLC |
-| マーケ投資 | 50 万 | Phase 別段階投入 |
-| 業務委託 | 30 万 | 経理 + パートナー関係構築（実働は全レベシェア）|
-| 案件・プロダクト開発 | 160 万 | 軸 A 環境構築・軸 C 開発・軸 B 紹介手数料 |
-| プロデュース業仕込み | <span class="accent">155 万</span> | 軸 D 5 領域種まき + パートナー網 |
-| 合計 | <span class="accent">1,000 万</span> | |
+| 1 | <span class="accent">軸 A 環境構築 50 万円受領完了</span>（水野さん本人案件着手）| 確定収益の床 |
+| 2 | <span class="accent">軸 B 紹介経由 1 件以上着金</span>（N.Y.CRAFT 関根さん経由）| 紹介ルート稼働確認 |
+| 3 | <span class="accent">軸 C MVP 公開 + 課金フロー稼働</span>（よるのことば AI サブスク）| ストック資産の起点 |
 
-「単身完結 + レベシェア（プロデューサー / 営業 / 海外）」= 制作系は OS 内製、固定費膨張なし。
+3 つ未達 → 段階拠出 2 回目（300 万円）停止 + 軸絞り込み or 撤退協議
+
+実現性スコア <span class="accent">8.4 / 10</span> / 標準ケース達成確率 <span class="accent">55-60%</span> / 24 ヶ月完全回収確度 85-90%（[SPECULATION] 個人見立て）
 
 ---
 
-# 7. 控えめ ROI 透明開示（佐藤裕介流）
+<!-- _class: kpi-hero -->
 
-### 純粋経済 ROI で見ると「微妙」
+# 等価交換のご提案
 
-| 提示 ROI | 数値 |
-|---|---|
-| 控えめ ROI（融資 + アドバイザリー + 金融 AI サービス）| <span class="accent">1.2-1.86 倍</span>（36 ヶ月）|
-| 自身の金融トレード | 年利 10-30%（上回る可能性）|
+<div style="font-size: 56px; font-weight: 900; line-height: 1.3; margin: 60px 0;">
+先生として導いていただく代わりに、<br>
+<span class="accent">OS の構造的アクセス権を提供</span>します。
+</div>
 
-### しかし水野さん実動機の総合価値で見れば妥当
-
-| 価値源 | 36 ヶ月相当 |
-|---|---|
-| 経済 ROI（控えめ）| 1,200-1,860 万 |
-| 自身のトレード AI 環境構築 | 350 万 |
-| 知的資産化 + AI 業界新ポジション + コミュニティ権威 | 800-数千万 |
-| 「先生」関係維持 + 共同進化 | 数値化困難・本質的 |
-| <span class="accent">総合価値合計</span> | <span class="accent">2,350-4,000 万 = 2.35-4.0 倍</span> |
-
----
-
-# 8. 出資形態 3 候補（株式持分構造は時期尚早）
-
-### A. 利益分配（30%）— 36 ヶ月 0.45-0.75x
-
-### B. 融資（年利 5-8%）— 36 ヶ月 1.15-1.24x
-
-### C. ハイブリッド（融資 + アドバイザリー）— <span class="accent">推奨</span>
-
-| 価値源 | 36 ヶ月累計 |
-|---|---|
-| 元本 + 利息（年利 5%）| 1,150 万 |
-| アドバイザリー報酬（月 5-10 万 × 36）| 180-360 万 |
-| 金融 AI サービス自身受領分 | 350 万 |
-| 合計 | <span class="accent">1,680-1,860 万 = 1.68-1.86x</span> |
-
-「ラフに出すよ」スタンスを尊重、株式化等の正式構造は時期尚早。
-
----
-
-# 8.5 Objection Handling + Phase 1 Go/No-Go ゲート
-
-### 想定反論への先回り
-
-| 想定 Q | 回答 |
-|---|---|
-| 副業で本当に動けるか | 休職 1 ヶ月 + レベシェア 3 領域でスループット補完、月次 200 万まで副業継続が経済合理性最大 |
-| Hotice 月 5 万のみでスケール証拠は | Phase 1 Go/No-Go 3 基準で段階検証、「まず 1 件売る → 検証 → 拡大」 |
-| ROI 1.2-1.86 倍は薄い | 純粋経済 ROI はそのとおり、総合価値 2.35-4.0 倍 + 透明開示で長期信頼優先 |
-| 失敗時 Exit | OS 売却 / 軸 A 単独契約切替 / 段階拠出損失限定 |
-
-### Phase 1（3 ヶ月）Go/No-Go ゲート（出資契約に明記）
-
-1. 軸 A 環境構築 50 万円受領完了 / 2. 軸 B 紹介経由 1 件以上着金 / 3. 軸 C MVP 公開 + 課金フロー稼働
-
-3 つ未達 → 段階拠出 2 回目（300 万）停止 + 軸絞り込み or 撤退協議。
-
----
-
-# 9. 実現性 8.4 / 10 + リスク管理
-
-| 観点 | スコア |
-|---|---|
-| 計画の論理整合 / 数値現実性 / 実行可能性 / 障害物予見 / 撤退ゲート | 平均 <span class="accent">8.4 / 10</span> |
-| 標準ケース達成確率 | <span class="accent">55-60%</span> |
-| 24 ヶ月完全回収確度 | 85-90%（[SPECULATION] 個人見立て）|
-
-主要悲観要因（副業規定 / N.Y.CRAFT 正式化 / スループット / ペイメント審査）は解消済 / 並走実行項目に降格。残存リスクは水野さん競業避止のみ（軸 A 金融 AI は領域外で影響限定的）。
-
----
-
-# 10. 結論 + GW 明け MTG アジェンダ
-
-> <span class="accent hero">既に動いていて、既に売れている OS に、レバレッジをかけてください。</span>
-
-### MTG アジェンダ
-
-1. 前提共有: OS 自体が 1000 万円貼る価値（既に動き、既に売れている）
-2. なぜ今 + 競合空白ポジション（5 ファクト + 3 レイヤー）
-3. 事業計画 + 18 ヶ月 PL + 中長期 + 実現性 8.4/10
-4. <span class="accent">控えめ ROI 透明開示</span>（純粋 1.2-1.86x / 総合 2.35-4.0x）
-5. 出資形態 3 候補から選択協議
-6. Phase ゲート方式での進捗管理 + 水野さんの実動機確認
-
-「アンダープロミス・オーバーデリバー」で長期信頼関係を積み上げる。
+GW 明け MTG で出資形態 3 候補のどれかを仮決めしてください。
+条件の細部は後から決められます。<span class="accent">最初の意思表示だけ今日</span>。
