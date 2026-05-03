@@ -108,17 +108,22 @@ style: |
 
 <!-- _class: cover -->
 
-# 1000 万円という<br>「OS にレバレッジをかける投資」のご提案
+# 1000 万円「OS にレバレッジをかける投資」のご提案
 
 <div class="sub">
-ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
+
+ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤
+
 そこに 1000 万円を投じる ＝ 1,800 万円相当の事業基盤へのアクセス
+
 </div>
 
 <div class="meta">
-水野敦紹 様 御中<br>
-小野寺信行（個人事業主 / ConsultingOS 所有者）<br>
-2026 年 5 月 ｜ GW 明け MTG 用 ｜ v2（控えめ ROI 透明開示版）
+
+水野敦紹 様 御中 ／ 小野寺信行（個人事業主 / ConsultingOS 所有者）
+
+2026 年 5 月 ｜ GW 明け MTG 用 ｜ v3（5 部門並列レビュー再構築版）
+
 </div>
 
 ---
@@ -128,26 +133,25 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 # Act 1 ｜ なぜ 1000 万円「貼る価値」があるのか
 
 <div class="sub">
-これは「ゼロから作る事業計画」ではない。<br>
-既に動いている OS の上に、AGI 移行期のウィンドウで、共同事業者として一緒にレバレッジをかける投資。
+これは「ゼロから作る事業計画」ではない。既に動いている OS の上に、AGI 移行期のウィンドウで、共同事業者として一緒にレバレッジをかける投資。
 </div>
 
 ---
 
 # 0. AGI / ASI マクロ前提 — なぜ「2026-2028 の窓」か
 
-[FACT / Dario Amodei「Machines of Loving Grace」2024-10] Anthropic CEO: 「強力な AI（powerful AI）は早ければ <span class="accent">2026 年</span>にも到来し得る」/ Sam Altman「The Gentle Singularity」2025-06: 「我々はすでにイベントホライズンを越えた」。
+[FACT / [Dario Amodei「Machines of Loving Grace」](https://www.darioamodei.com/essay/machines-of-loving-grace) 2024-10] Anthropic CEO: 「強力な AI（powerful AI）は早ければ <span class="accent">2026 年</span>にも到来し得る」/ [Sam Altman「The Gentle Singularity」](https://blog.samaltman.com/the-gentle-singularity) 2025-06: 「我々はすでにイベントホライズンを越えた」。
 
-[INFERENCE / Metaculus 2026-02 + 80,000 Hours] 業界中央値 AGI 50% 確率 = <span class="accent">2033 年</span>に収束、過去 6 年で「2060-2070 → 2033」へ急圧縮。
+[INFERENCE / [80,000 Hours / Metaculus](https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/) 2026-02] 業界中央値 AGI 50% 確率 = <span class="accent">2028-2033 年レンジ（変動中）</span>、過去 6 年で「2060-2070 → 2030 前後」へ急圧縮。
 
 | 2026-2028 のウィンドウ | 内容 |
 |---|---|
-| <span class="accent">資本構造の不可逆移動</span> | ファウンデーションモデル → アプリケーション層への資本集中（Q2 2026 エージェント特化 206 億ドル流入）|
+| <span class="accent">資本構造の不可逆移動</span> | ファウンデーションモデル → アプリケーション層への資本集中（[Q1 2026 全 VC 297-330 億ドル / うち AI 80%](https://kpmg.com/xx/en/media/press-releases/2026/04/global-vc-investment-surges-to-record-330-9-billion-dollar-in-q1-26.html)、過去最高記録）|
 | <span class="accent">SMB 実装の壁</span> | エージェント本番稼働 22%・パイロット 54% = 32 ポイントの実装ギャップ → ConsultingOS が埋める領域 |
 | <span class="accent">AGI 到達前の最終 OS 構築機会</span> | この 2-3 年が先行者が市場 OS を確立できる最後の非汎用 AGI 期間（[SPECULATION] AGI タイムラインの前提に依存）|
-| Anthropic 立ち位置 | [FACT] 2025-05 に <span class="accent">ASL-3 史上初発動</span>、safety + capability の制度的両立 = ConsultingOS が乗るスタックの規制耐性 |
+| OS 基盤提供元の立場 | [FACT] [2025-05 ASL-3 史上初発動](https://www.anthropic.com/news/activating-asl3-protections)、safety + capability の制度的両立 = ConsultingOS が乗るスタックの規制耐性 |
 
-「Anthropic Dario Amodei が 2026-2027 を `powerful AI` 到来時期と見ている。今ここに OS を持っている者と持っていない者の格差は不可逆」。
+「[Dario Amodei「Machines of Loving Grace」](https://www.darioamodei.com/essay/machines-of-loving-grace) が 2026-2027 を `powerful AI` 到来時期と見ている。今ここに OS を持っている者と持っていない者の格差は不可逆」。
 
 ---
 
@@ -190,8 +194,8 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 | 軸 | 内容 |
 |---|---|
 | <span class="accent">Why You（水野さん）</span> | 13 年 AI マーケ実務 × 個人投資家ネットワーク × ジーニー人脈。軸 A 金融 AI 主軸クライアント + 軸 B 紹介ルート両方の「最初の 12 ヶ月の火種」。小野寺の方法論体系化との補完関係 = 知見の結晶 |
-| <span class="accent">Why Now（2026-2028）</span> | AGI 移行期の最終 OS 構築機会（Dario Amodei 2026-2027 powerful AI 到来予測 + Gartner 2026 末 40% エンタープライズ採用）。Anthropic ASL-3 + Claude Sonnet 4.6 で技術基盤完成 |
-| <span class="accent">Why This OS（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（Gartner 警告 40% キャンセルリスク回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
+| <span class="accent">Why Now（2026-2028）</span> | AGI 移行期の最終 OS 構築機会（[Dario Amodei](https://www.darioamodei.com/essay/machines-of-loving-grace) 2026-2027 powerful AI 到来予測 + [Gartner 2026 末 40% 採用](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)）。[Anthropic ASL-3](https://www.anthropic.com/news/activating-asl3-protections) + [Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6) で技術基盤完成 |
+| <span class="accent">Why This OS（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（[Gartner 警告 40% キャンセルリスク](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) 回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
 
 「3 軸どれが欠けてもこの投資は成立しない、3 軸が同時に揃った瞬間が今」= 共同事業者として一緒に大きくする提案。
 
@@ -233,11 +237,11 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 | # | ファクト | ラベル | 出典 |
 |---|---|---|---|
-| 1 | AI エージェント市場 <span class="accent">CAGR 41-46%</span>、2030 年に約 <span class="accent">420-530 億ドル</span>（約 6-8 兆円）| INFERENCE | MarketsandMarkets 526 億ドル / Grand View 503 億ドル / BCC 483 億ドル / MarkNtel 427 億ドル（2025）|
-| 2 | Gartner: <span class="accent">2026 年末にエンタープライズアプリの 40% が AI エージェント搭載</span>（2025 は 5% 未満）| FACT | Gartner プレスリリース 2025-08-26 |
-| 3 | <span class="accent">日本の AI エージェント業務統合率 7%</span>（世界平均 13% / 日本の生成 AI 日常活用率 51% vs 世界 72%）= 巨大空白市場 | FACT | BCG AI at Work 2025 / 総務省情報通信白書 2025 |
-| 4 | 2025 年 VC 投資 <span class="accent">64 億ドル超</span>、2026 年は <span class="accent">前年比 +142.6%</span> ペース加速中（LangChain $1.25B ユニコーン化）| INFERENCE | Prosus / Tracxn / TechCrunch 2025 |
-| 5 | Claude Sonnet 4.6 / Code が <span class="accent">1M トークン・マルチエージェント・MCP コネクタ</span> 正式サポート（技術仕様 = FACT、「動く OS の基盤が整った」は INFERENCE）| MIXED | Anthropic 公式リリース 2026 |
+| 1 | AI エージェント市場 <span class="accent">CAGR 41-46%</span>、2030 年に約 <span class="accent">430-530 億ドル</span>（約 6-8 兆円）| INFERENCE | [MarketsandMarkets](https://www.marketsandmarkets.com/PressReleases/ai-agents.asp) 526 億ドル / [Grand View](https://www.prnewswire.com/news-releases/ai-agents-market-size-to-hit-50-31-billion-by-2030-at-cagr-45-8---grand-view-research-inc-302447060.html) 503 億ドル / [BCC](https://www.bccresearch.com/pressroom/ait/ai-agents-market-to-grow-433-annually) 483 億ドル / [MarkNtel](https://www.marknteladvisors.com/press-release/ai-agent-market-size) 427 億ドル（2025）|
+| 2 | Gartner: <span class="accent">2026 年末にエンタープライズアプリの 40% が AI エージェント搭載</span>（2025 は 5% 未満）| FACT | [Gartner プレスリリース 2025-08-26](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025) |
+| 3 | <span class="accent">日本の AI エージェント業務統合率 7%</span>（世界平均 13% / 日本の個人 AI 利用率 <span class="accent">27%</span> vs 米 69%・中国 81%）= 巨大空白市場 | FACT | [BCG AI at Work 2025](https://codezine.jp/news/detail/21866) / [総務省 令和 7 年版情報通信白書](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html) |
+| 4 | <span class="accent">Q1 2026 グローバル VC 投資 297-330 億ドル / うち AI 80%（242 億ドル）</span>記録更新（[LangChain $1.25B](https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/) ユニコーン化）| FACT | [KPMG Venture Pulse Q1 2026](https://kpmg.com/xx/en/media/press-releases/2026/04/global-vc-investment-surges-to-record-330-9-billion-dollar-in-q1-26.html) / [Crunchbase](https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/) |
+| 5 | Claude Sonnet 4.6 / Code が <span class="accent">1M トークン・マルチエージェント・MCP コネクタ</span> 正式サポート（技術仕様 = FACT、「動く OS の基盤が整った」は INFERENCE）| MIXED | [Anthropic Sonnet 4.6 公式](https://www.anthropic.com/news/claude-sonnet-4-6) / [Anthropic ASL-3](https://www.anthropic.com/news/activating-asl3-protections) |
 
 「<span class="accent">AI エージェント爆発的普及期の入口が今まさに開く</span>、ConsultingOS はそのウィンドウに先行している」。
 
@@ -253,8 +257,10 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 ### 補強ファクト
 
-- [FACT / McKinsey State of AI 2025] AI 高パフォーマー（EBIT 5% 超改善）は <span class="accent">わずか 5.5%</span>、残り 94.5% は「導入したが価値創出できていない」 → [INFERENCE] ConsultingOS の導入支援需要は巨大
-- [FACT / Gartner プレスリリース 2025-06-25] 「2027 年末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span>」(コスト超過・価値不明確・リスク管理不備が主因) → [INFERENCE] ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動設計</span>でこのリスク回避済 = 構造的差別化
+- [FACT / [McKinsey State of AI 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)] AI 高パフォーマー（EBIT 5% 超改善）は <span class="accent">わずか 5.5%</span>、残り 94.5% は「導入したが価値創出できていない」 → [INFERENCE] ConsultingOS の導入支援需要は巨大
+- [FACT / [Gartner プレスリリース 2025-06-25](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)] 「2027 年末までに <span class="accent">40% 以上のエージェント AI プロジェクトがキャンセル</span>」(コスト超過・価値不明確・リスク管理不備が主因) → [INFERENCE] ConsultingOS は <span class="accent">受注実績 + 7 層防御 + PL 連動設計</span>でこのリスク回避済 = 構造的差別化
+- [FACT / [Gartner 2026-01-15](https://www.gartner.com/en/newsroom/press-releases/2026-01-15-gartner-predicts-60-percent-of-brands-will-use-agentic-ai-to-deliver-streamlined-one-to-one-interactions-by-2028)] 2028 年までに <span class="accent">60% のブランドがエージェント AI で 1 対 1 顧客対応</span> → 軸 C / 軸 D の市場需要根拠
+- [FACT / [IDC Japan 2026](https://www.idc.com/resource-center/blog/7x-growth-in-just-three-years-japans-ai-infrastructure-will-surge-past-5-5-billion-in-2026-idc-reveals/)] 日本の AI インフラ支出 2026 年に <span class="accent">55 億ドル超</span>、2022-2025 で 7 倍成長
 
 ---
 
@@ -263,7 +269,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 # Act 2 ｜ 1000 万円のレバレッジ
 
 <div class="sub">
-コア 3 軸（金融 AI / B2B / Web サービス）+<br>
+コア 3 軸（金融 AI / B2B / Web サービス）+
 軸 D プロデュース業 5 領域（アパレル / 地方創生 / PR / 企画 / ブランド）
 </div>
 
@@ -393,7 +399,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 # Act 3 ｜ 数字（PL とリターン）
 
 <div class="sub">
-標準ケースで売上 1,080 万 / 粗利 866-871 万。<br>
+標準ケースで売上 1,080 万 / 粗利 866-871 万。
 24 ヶ月完全回収、36 ヶ月で売上 4,800-8,500 万。
 </div>
 
@@ -484,7 +490,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 # Act 4 ｜ 実行とリスク管理
 
 <div class="sub">
-休職 1 ヶ月で Phase 1 の決定的加速。<br>
+休職 1 ヶ月で Phase 1 の決定的加速。
 主要悲観要因 4 つは構造的に解消済。実現性スコア 8.4 / 10。
 </div>
 
@@ -511,7 +517,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 「副業状態で本当に動けるのか」| Phase 1 で休職 1 ヶ月確保 + レベシェアパートナー 3 領域（プロデューサー / 営業 / 海外）でスループット補完。月次売上 200 万到達まで副業継続が経済合理性最大 |
 | 「30 エージェントと言うが Hotice 月 5 万のみ。スケール証拠がない」| 認める。だからこそ Phase 1 Go/No-Go ゲート 3 基準で段階検証。「まず 1 件売る → 検証 → 拡大」の規律 |
 | 「IRR 5-15% で投資判断するか」| コンサバ前提の融資ベース IRR。それに自身受領 AI サービス 350 万 + コミュニティ価値 + 知的資産化 = 共同事業価値 <span class="accent">2.35-4.0 倍</span>に転換。金融トレード単独レバレッジから 3 軸（AI × トレード × OS）レバレッジへの転換 |
-| 「Anthropic 依存リスクは」| Claude API + MCP は標準化、技術的移行障壁は低い。マルチプロバイダ戦略は Phase 3 以降検討。当面は Anthropic safety-first 立ち位置を活用 |
+| 「[Anthropic](https://www.anthropic.com/) 依存リスクは」| Claude API + MCP は標準化、技術的移行障壁は低い。マルチプロバイダ戦略は Phase 3 以降検討。当面は [safety-first 立ち位置](https://www.anthropic.com/news/activating-asl3-protections) を活用 |
 | 「失敗時の Exit は」| (a) OS 自体の売却検討（外注 800 万円相当の流動性）/ (b) 軸 A 単独契約 350 万への切替で関係性維持 / (c) 段階拠出での損失限定 |
 
 ---
@@ -578,7 +584,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 # Act 5 ｜ なぜ「投資する価値」があるのか
 
 <div class="sub">
-純粋経済 ROI は微妙。<br>
+純粋経済 ROI は微妙。
 ただし総合価値で見れば妥当 — 透明開示します。
 </div>
 
@@ -602,7 +608,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 知的資産化 + AI 業界新ポジション + コミュニティ権威 | 800 万-数千万 |
 | <span class="accent">合計総合価値</span> | <span class="accent">2,350-4,000 万 = 2.35-4.0 倍</span> |
 
-金融トレード単独レバレッジから <span class="accent">3 軸（AI × トレード × OS）レバレッジ</span>への転換。<br>
+金融トレード単独レバレッジから <span class="accent">3 軸（AI × トレード × OS）レバレッジ</span>への転換。
 4 重交点（AI × 営業 OS × 既存チャネル × Hotice PMF）= 他で組成不可。
 
 | 実動機 | 1000 万円換算価値 |
@@ -693,3 +699,4 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 規律 | アンダープロミス・オーバーデリバー / Phase ゲート方式 / 透明開示 |
 
 GW 明けの MTG で、出資条件を協議させてください。
+

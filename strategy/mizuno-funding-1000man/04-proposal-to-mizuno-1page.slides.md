@@ -56,7 +56,7 @@ style: |
 # 1,000 万円エンジェル出資ご提案 ｜ 1 ページサマリ
 
 <div class="gov-thought">
-1,000 万円で AI × トレード × OS の交点に乗る<br>
+1,000 万円で AI × トレード × OS の交点に乗る
 共同事業者として、AGI 移行期の最終 OS 構築機会を一緒に
 </div>
 
@@ -100,8 +100,8 @@ style: |
 
 - 市場 <strong>CAGR 41-46%</strong>、2030 年 約 420-530 億ドル（約 6-8 兆円）[INFERENCE / [MarketsandMarkets](https://www.marketsandmarkets.com/PressReleases/ai-agents.asp)]
 - [FACT / [Gartner 2025-08-26](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)] 2026 末にエンタープライズアプリ <strong>40%</strong> が AI エージェント搭載
-- [FACT / [BCG AI at Work 2025](https://codezine.jp/news/detail/21866)] 日本 AI 業務統合率 <strong>7%</strong>（世界 13%）= 巨大空白市場
-- 2025 VC 投資 <strong>64 億ドル超</strong>、2026 +142.6% 加速（[LangChain $1.25B](https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/) ユニコーン）
+- [FACT / [BCG](https://codezine.jp/news/detail/21866) / [総務省令和 7 年](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112210.html)] 日本 AI 業務統合率 <strong>7%</strong>（世界 13% / 個人 AI 利用率 <strong>27%</strong> vs 米 69%）= 巨大空白市場
+- [FACT / [KPMG Q1 2026](https://kpmg.com/xx/en/media/press-releases/2026/04/global-vc-investment-surges-to-record-330-9-billion-dollar-in-q1-26.html)] Q1 2026 グローバル VC <strong>297-330 億ドル / うち AI 80%</strong> 過去最高（[LangChain $1.25B](https://techcrunch.com/2025/10/21/open-source-agentic-startup-langchain-hits-1-25b-valuation/) ユニコーン）
 - [Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6) 1M トークン・MCP 正式サポート
 
 ## 競合 3 レイヤー + 空白ポジション
@@ -110,7 +110,7 @@ style: |
 |---|---|
 | A. フレームワーク（LangChain）| 組み立てキット、品質は購入者持ち |
 | B. エンタープライズ（MS Copilot Studio）| Microsoft 365 前提、中小過剰 |
-| C. <strong>ConsultingOS</strong> | 公開情報では競合不在（INFERENCE）<br>導入支援込み・一気通貫・中堅中小特化 |
+| C. <strong>ConsultingOS</strong> | 公開情報では競合不在（INFERENCE）／ 導入支援込み・一気通貫・中堅中小特化 |
 
 [FACT / [McKinsey 2025](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai)] AI 高パフォーマー <strong>5.5% のみ</strong>、94.5% は導入支援需要。
 [FACT / [Gartner 2025-06-25](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)] 2027 末に 40% プロジェクトキャンセル → ConsultingOS は受注実績 + 7 層防御 + PL 連動でリスク回避済。
@@ -169,4 +169,5 @@ style: |
 
 </div>
 
-<p class="footer">出典: 全数値に出典 + FACT/INFERENCE/SPECULATION ラベル付与（口頭で都度提示可）。詳細版: 02-proposal-to-mizuno（21 スライド）/ 圧縮版: 03-proposal-to-mizuno-condensed（10 スライド）。</p>
+<p class="footer">出典: 全数値に出典 + FACT/INFERENCE/SPECULATION ラベル付与。詳細版: 02-proposal-to-mizuno（21+ スライド）/ 圧縮版: 03-proposal-to-mizuno-condensed（10 スライド）。5 部門並列起動（CLAUDE.md ハードルール 17）。</p>
+
