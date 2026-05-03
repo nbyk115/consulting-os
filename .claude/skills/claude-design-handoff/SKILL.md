@@ -117,8 +117,60 @@ Claude Design 生成物を組み込む前に下記確認：
 3. **余白**：画像上に CSS でテキストを重ねる場合、画像内のコントラストが十分か
 4. **トンマナ**：editorial / modernist の一貫性
 
+## URL → DESIGN.md 内製抽出フロー（2026-05-03 学習）
+
+任意 Web サイトから DESIGN.md を抽出する場合の標準フロー。frontend-dev 評価で aura.build はフォワード生成（テキスト/画像 → UI）専用で URL → DESIGN.md 抽出機能はないことが判明、代わりに OSS の Dembrandt + Claude Code 内製化を採用。
+
+### 推奨アーキテクチャ
+
+```
+[対象 URL]
+   ↓ Dembrandt（OSS / MIT）https://github.com/dembrandt/dembrandt
+   ↓ Playwright + Chromium で開き、SPA Hydration を 8-24 秒待機
+   ↓ getComputedStyle() で全要素を走査
+   ↓ 色・タイポグラフィ・スペーシング・ボーダー・シャドウ・コンポーネント抽出
+[DESIGN.md + W3C DTCG JSON + Brand Guide PDF]
+   ↓ Claude Code スクリプトでラップ
+[brand-guidelines 整合チェック（brand-guardian 起動）]
+   ↓
+[案件 DESIGN.md として配置]
+```
+
+### 実装手順
+
+```bash
+# 1. Dembrandt インストール
+git clone https://github.com/dembrandt/dembrandt && cd dembrandt && npm install
+
+# 2. 対象 URL から DESIGN.md 抽出（SPA は --slow フラグ）
+node bin/dembrandt.js --url https://example.com --output ./design.md --slow
+
+# 3. brand-guardian で字形・禁止表現・抽象表現チェック
+# 4. 案件レベル DESIGN.md として strategy/<案件>/DESIGN.md に配置
+```
+
+### 制約と回避策
+
+| 制約 | 回避策 |
+|---|---|
+| 動的 CSS-in-JS（styled-components / emotion）未対応 | Playwright `--slow` で hydration 待機延長 |
+| 認証必須サイト | Cookie 注入（Playwright 標準）|
+| Canvas / WebGL レンダリング | 解析不能、別途 Vision AI 必要 |
+| ToS 違反リスク（他社サイト商用分析）| クライアント案件は legal-compliance-checker 事前審査 |
+
+### 競合ツール比較
+
+| ツール | 入力 | DESIGN.md 出力 | 価格 | 採否 |
+|---|---|---|---|---|
+| Dembrandt | URL | 直接出力 | OSS / MIT 無料 | 推奨 |
+| html.to.design | URL（Chrome 拡張）| Figma レイヤー（97% 精度）| 月 12 回無料 | 注目 |
+| Superposition | URL | CSS / SCSS / Figma | 無料 | 注目 |
+| aura.build | テキスト / 画像 | UI 生成（フォワード）| 不明 | 機能ミスマッチ |
+
 ## 関連
 
 - `.claude/skills/sales-deck-review/SKILL.md`: レビュー用
 - `.claude/agents/creative/sales-deck-designer.md`: デッキ実装エージェント
 - `docs/sales-deck-rules.md`: コピー・レイアウト完全版ルール
+- `docs/external-references.md`: 外部リソース URL 集約（デザイン抽出系含む）
+- [Dembrandt GitHub](https://github.com/dembrandt/dembrandt)（OSS / MIT・URL → DESIGN.md 直接出力）
