@@ -138,7 +138,22 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤
 
 ---
 
-# 0. AGI / ASI マクロ前提 — なぜ「2026-2028 の窓」か
+# 0. Phase 0「登りたい山」（孫正義流）
+
+> [INFERENCE / [志高く 孫正義正伝](https://www.j-n.co.jp/books/978-4-408-33972-6/)] 「山を決める前に施策を語ってはいけない。山が決まらなければ、どんな計画も彷徨と同じ」
+
+| 問い | 小野寺の山 | 水野さんとの共同言語 |
+|---|---|---|
+| 10 年後の山 | AGI 移行期に「日本中堅中小のコンサル OS 基盤」を持つ唯一のオペレーター | MTG 当日に合意する |
+| この山は 10 年後も存在するか | はい（AGI 後も OS 設計・実装ギャップは残る・[INFERENCE]）| — |
+| この計画は「動くための理由」か | はい（Phase 1-6 の行動起点として機能）| — |
+| 書き直し前提ゲート | Phase 3 末（12M）に山の定義を水野さんと再確認 | — |
+
+「山を共有するから、1000 万円の意味が変わる。水野さんの山（独立トレーダー × AI × 知識資本化）と小野寺の山（ConsultingOS = プロデュース業 OS）の交点が、この投資の本質」。
+
+---
+
+# 0.5 AGI / ASI マクロ前提 — なぜ「2026-2028 の窓」か
 
 [FACT / [Dario Amodei「Machines of Loving Grace」](https://www.darioamodei.com/essay/machines-of-loving-grace) 2024-10] Anthropic CEO: 「強力な AI（powerful AI）は早ければ <span class="accent">2026 年</span>にも到来し得る」/ [Sam Altman「The Gentle Singularity」](https://blog.samaltman.com/the-gentle-singularity) 2025-06: 「我々はすでにイベントホライズンを越えた」。
 
@@ -202,7 +217,30 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤
 
 ---
 
-# 2.5 3 つの必然性 ｜ 補完 × タイミング × 対象（30 秒 Governing Thought）
+# 2.5 プロトタイプ・ファースト ｜ 体験してから数字を見てください（Dorsey 流）
+
+> [FACT / [Sequoia Capital - Square Founding Moments](https://www.sequoiacap.com/article/square-founding-moments/)] 「計画より先に体験がある。Twitter も Square も、ピッチ前に動くものがあった」
+
+MTG 当日 2 分: 以下のいずれかを実演
+
+- ConsultingOS エージェント起動（水野さん向け金融 AI 提案書を目の前で生成）
+- よるのことば AI 画面（課金フロー操作体験）
+- ConsultingOS 30 エージェント構成図（手描きスケッチ風）
+
+### 削ったリスト（提案から外した要素）
+
+| 削除済 | 理由 |
+|---|---|
+| 自社紹介から始める構成 | 体験より先に語ると説得力 0（Dorsey 削除原則）|
+| 機能一覧スライド | 投資家が見るのは「何ができるか」でなく「何の山に登るか」|
+| 競合比較表（4x4 マトリックス）| 既存「競合 3 レイヤー」で代替済 |
+| TAM/SAM/SOM 計算 | 水野さんは数字より思想で判断する投資家層（[INFERENCE]）|
+
+「残したのは『山・体験・数字・必然性』の 4 点のみ」（Dorsey + 佐藤裕介 統合判断）。
+
+---
+
+# 2.6 3 つの必然性 ｜ 補完 × タイミング × 対象（30 秒 Governing Thought）
 
 「水野さんでなければならない理由・今でなければならない理由・この OS でなければならない理由」を 1 枚に凝縮。
 
@@ -225,6 +263,22 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤
 | <span class="accent">対象の必然性（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（[Gartner 警告 40% キャンセルリスク](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) 回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
 
 「3 軸どれが欠けてもこの投資は成立しない、3 軸が同時に揃った瞬間が今」= 共同事業者として一緒に大きくする提案。
+
+---
+
+# 2.7 KSF Secret Thesis ｜ 業界コンセンサスと違うが正しい仮説（みるぼん流）
+
+> [INFERENCE / [Peter Thiel "Zero to One"](https://www.amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296)] Secret Thesis = 「業界コンセンサスと違うが正しい仮説」を 1 文で言語化
+
+| コンセンサス（業界一般の見方）| Private Thesis（ConsultingOS の仮説）|
+|---|---|
+| AI エージェント導入はツール選定の問題 | OS 設計・品質管理・反証ループがなければ本番稼働しない |
+| 後から参入しても追いつける | 検証済 OS × 受注実績 × 体系化ドキュメントは時間で積み上がる |
+| 中小にエンタープライズ品質は不要 | 中小こそ 7 層防御 + 自己進化が必要（[Gartner 40% キャンセルリスク](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027)回避）|
+
+「<span class="accent">AI エージェント導入は技術問題でなくガバナンス問題</span>であり、検証済 OS を持つ事業者が公開情報範囲では先行優位を確立できる」[INFERENCE]。
+
+仮説が正しければ、ConsultingOS は 2026 年時点で先行優位を持つ。正しくなければ Phase 3 末（12M）に撤退判断（Huang 流 + 撤退ゲート整合）。
 
 ---
 
@@ -464,6 +518,7 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 | 粗利 | 866-871 万 |
 | 総支出（1000 万配分） | 1,000 万 |
 | 営業利益 | <span class="accent">−129〜−134 万</span>（1000 万の 87% 回収）|
+| 返済財源（DSCR 参考）| 36 ヶ月時点 DSCR 1.5-1.7（粗利ベース・[INFERENCE]）= 銀行基準 1.2-1.5 倍を超過。ハイブリッド形態（融資 + アドバイザリー）想定 |
 
 ---
 
@@ -737,15 +792,24 @@ ConsultingOS 30 エージェントの組み合わせで領域問わず適用、<
 
 ---
 
-# 25. GW 明け MTG プレイブック
+# 25. GW 明け MTG プレイブック（4 思想展開順）
 
-### 議題
+### 60 分の進行（Phase 0 → 1 → 2 → 3 順序逆転禁止）
 
-1. 前提共有: OS 自体が 1000 万円貼る価値 / 2. 関係性の本質 / 3. 1000 万円の使途
-4. 事業計画（コア 3 軸 + 軸 D 5 領域）/ 5. 18 ヶ月 PL + 中長期 + 実現性 8.4/10
-6. <span class="accent">透明開示（純粋 ROI 微妙、総合価値で妥当）</span>
-7. 出資契約条件 6 項目 / 8. 副業継続 + 競業避止 + 利益相反の透明開示
-9. Phase ゲート方式での進捗管理合意 / 10. 水野さんの実動機確認
+| 時間 | 思想 | アクション | スライド |
+|---|---|---|---|
+| 0-5 分 | <span class="accent">孫正義 Phase 0</span> | 「私が登りたい山」1 文を提示、水野さんの山を確認 | 0 |
+| 5-15 分 | <span class="accent">Huang Phase 1</span> | Huang テスト 3 点を口頭確認 | 2.4 |
+| 15-25 分 | Dorsey + KSF | プロトタイプ 2 分実演 + 削ったリスト + Secret Thesis | 2.5 / 2.7 |
+| 25-50 分 | <span class="accent">佐藤裕介 Phase 2</span> | PL・受注ルート・撤退ゲート・KPI ダッシュボードを数字で語る | 9.5 / 14 / 18.5-19.5 |
+| 50-60 分 | 全思想統合 | 出資形態 3 候補から選択、Phase 1 Go/No-Go 合意 | 23 |
+
+### 禁止事項（4 兼務ルール）
+
+- 山を決める前に PL を出す（孫正義流違反）
+- Huang テスト未充足で数字へ進む
+- デモなしで機能一覧を語る（Dorsey 流違反）
+- 感情判断のみで大型投資判断（佐藤裕介流違反 + WeWork 反例）
 
 ### リアリティチェック（断られた場合）
 
