@@ -29,6 +29,7 @@
 - 2027-05-01: 規制動向（EU AI Act / 米 FTC エージェント取引責任）大枠固まり予測 / OS 反映判断（1年後）
 - 2026-11-01: n8n / 複数案件並行 + 月次定期業務（レビュー返信代行 / SEO 巡回 / 競合監視）顕在化チェック（公式 Claude Code コネクタ対応で取り込み準備済・最有力候補）
 - 2026-11-01: Editframe（HTML/CSS → MP4）/ B2B デッキの動画版商品ライン拡張案件チェック、Hotice 後続案件で需要顕在化次第即取り込み
+- 2026-11-01: Sarvesh Shrivastava 20 SEO Patterns / ローカル SEO・GBP 案件顕在化次第、Patterns 1-8（GBP 系）/ 9-13（Page-2 goldmine + GSC 実務）/ 14-16（被リンク + NAP + 4 段階意図分類）/ 17-20（エンティティ + コンテンツギャップ + 月次レポ）から該当パターンのみ部分採用判断（20 全件取り込みは過剰、main 既存 seo-specialist agent はテクニカル SEO 中心でローカル SEO operational depth 不足を確認済 2026-05-02）。出典: https://x.com/bloggersarvesh/status/2036068241936896421
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
 - 2027-05-01: Camofox Browser / 法的リスク再評価（Scrapling と同タイミング、bot 偽装ツールの法解釈 1 年後再判定）
 
