@@ -34,6 +34,69 @@
 
 ---
 
+## 2026-05-03: 規律違反 3 連発 — デザイン部門未稼働 + 改行ルール無視 + 出典 URL 不付与（重大学習・全レイヤー強化）
+
+### トリガー
+
+水野さんピッチデッキ初版作成（5/2 の commit 6a65808）で以下 3 件の規律違反が同時発生。ユーザー指摘 3 連続で発覚:
+1. 「コンサル OS 起動してるのにデザイン部門がどうしなかったのは何で」
+2. 「改行や出典ソースを無視したのは何で」
+3. 「再発を徹底的に無くして」「全コードセッション、claude.ai チャットにも適用してね」
+
+### 失敗構造
+
+| 違反 | 直接原因 | 構造原因 |
+|---|---|---|
+| デザイン部門未稼働（creative-director / sales-deck-designer / ux-designer 未起動） | 「自分で書いた方が早い」モード発動 | ハードルール 17（ConsultingOS 起動全業務標準）が main 統合前で規律未確立 |
+| `<br>` タグ本文使用 + 句読点後改行 | 「カバー / divider 装飾」と勝手に例外扱い | brand-guidelines に `<br>` 許容範囲未明文化 |
+| 出典 URL ハイパーリンク不付与 | 「投資家ピッチで URL は見栄え悪い」と勝手に判断 | WebSearch tool description のみで brand-guidelines / CLAUDE.md 未昇格 |
+
+### 構造的解決策（全レイヤー強化・実装済）
+
+| レイヤー | 対策 | 実装 |
+|---|---|---|
+| プロジェクト規律 | brand-guidelines §5.6 改行・`<br>` 許容範囲明文化 | `.claude/skills/brand-guidelines.md` |
+| プロジェクト規律 | brand-guidelines §5.7 出典 URL ハイパーリンク必須化 | `.claude/skills/brand-guidelines.md` |
+| プロジェクト規律 | evolution-log 重大学習記録 | 本エントリ |
+| 自動検知 | PostToolUse hook 追加（`<br>` 本文使用 + 出典名 URL 不付与）| `.claude/settings.json` |
+| Git 規律 | pre-commit hook 追加（出典 URL 必須化検証）| `.githooks/pre-commit` |
+| ユーザーレベル適用 | `~/.claude/CLAUDE.md` に転記（全 Claude Code セッション適用）| ユーザー手動設定（手順提示）|
+| Claude.ai chat 適用 | カスタムインストラクション転記用テンプレ提供 | `docs/claude-ai-discipline-template.md` |
+
+### 自動化実装詳細
+
+- PostToolUse Edit/Write フック: `.md` / `.slides.md` 書き込み後に違反パターン検出 → 警告ログ
+- pre-commit フック: コミット前に投資家向け資料の数値整合性 + 出典 URL チェック → 違反時 commit ブロック
+
+### 反証結果
+
+Step 1 自己反証: 「自動化は OS の重さを増す」反論 → 警告ログのみで commit ブロックは pre-commit でのみ実行、開発体験への影響限定 / 「ユーザーレベル CLAUDE.md は本人責任」反論 → 手順を docs に明記、case-by-case 適用可。
+
+Step 2 構造反証: PostToolUse hook + pre-commit hook + brand-guidelines + evolution-log の 4 層防御で再発確率は構造的に大幅低減 / ただし claude.ai chat レベルは Claude Code とは別環境、規律強制は不可、テンプレ提供で間接適用。
+
+Step 3 実用反証: hook 実装後に既存ファイル全数走査で違反検出件数を測定（ベースライン取得）、3 ヶ月後（2026-08-03）に違反再発率を再評価 / 自動化が形骸化しないか定期 audit 必要。
+
+### 残存リスク
+
+- claude.ai chat への規律強制は技術的に不可、ユーザー手動転記に依存
+- ユーザーレベル `~/.claude/CLAUDE.md` の更新もユーザー手動依存
+- hook 実装後も「assistant が hook を回避するパス」を見つけるリスク、定期審査必要
+- 「自分で書いた方が早い」モード検知は assistant 自律依存、外部ガード未実装
+
+### 再評価カレンダー追加
+
+- 2026-08-03: hook 自動検知の実効性検証（3 ヶ月後、違反再発件数 + 開発体験への影響評価）
+
+### 関連参照
+
+- `.claude/skills/brand-guidelines.md` §5.6 §5.7 — 改行・出典 URL 規律
+- `.claude/settings.json` — PostToolUse hook
+- `.githooks/pre-commit` — pre-commit hook
+- `docs/claude-ai-discipline-template.md` — claude.ai chat 用テンプレ
+- `~/.claude/CLAUDE.md` — ユーザーレベル全セッション適用（手動設定）
+
+---
+
 ## 2026-05-02: assistant 単独作成違反 — AI エージェント OS 売る提案を単独で書く致命的失敗（重大学習）
 
 ### トリガー
