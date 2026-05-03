@@ -62,7 +62,7 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤<br>
 
 <div class="meta">
 水野敦紹 様 御中<br>
-小野寺信行（電通デジタル / DII Connect）<br>
+小野寺信行（個人事業主 / ConsultingOS 所有者）<br>
 2026 年 5 月 ｜ GW 明け MTG 用 ｜ 圧縮版（10 スライド）
 </div>
 

@@ -70,7 +70,7 @@ style: |
 
 # 1000 万円エンジェル出資ご提案 ｜ 1 ページサマリ
 
-<p class="meta">水野敦紹 様 御中 ／ 小野寺信行（電通デジタル ／ DII Connect）／ 2026 年 5 月 GW 明け MTG 用</p>
+<p class="meta">水野敦紹 様 御中 ／ 小野寺信行（個人事業主 ／ ConsultingOS 所有者）／ 2026 年 5 月 GW 明け MTG 用</p>
 
 <div class="grid">
 
