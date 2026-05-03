@@ -108,6 +108,7 @@ model: sonnet
 
 ## 外部ツール連携
 - **/last30days スキル**: 海外 SNS トレンド・Hacker News・Reddit を英語で同時走査。**海外の温度感を最速で掴む**用途。`/last30days <topic>` を英語クエリで投げ、レポートを Claude に「日本語要約」で再処理。一次情報のソースURLは必ず原文確認
+- **World Monitor (OSS)**: [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor)。500+ ニュースソース 24 時間監視 + 地政学リスク分析。**用途**: 軸 A 金融 AI（個人トレーダー向け）の地政学インテリジェンス層として参照。**注意**: AGPL-3.0 ライセンスのため商用デリバリー組み込みは legal-compliance-checker 事前審査必須。Step 1 (現状) は URL 参照のみ、Step 2 (案件 Phase 2 以降) で正式採用検討。詳細: `docs/external-references.md` §1
 
 ## 参照スキル
 | スキル | 用途 |
