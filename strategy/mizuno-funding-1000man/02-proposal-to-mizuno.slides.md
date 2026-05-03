@@ -187,15 +187,42 @@ ConsultingOS = 既に完成した 800-1,300 万円相当の事業基盤
 
 ---
 
-# 2.5 Why You / Why Now / Why This OS（30 秒 Governing Thought）
+# 2.4 Huang テスト 3 点（NVIDIA CEO Jensen Huang 流・思考深度の証明）
+
+> 「事業計画は財務予測でなく『解くべき問題・未充足ニーズ・防御困難性』の 3 点圧縮」
+> [Acquired Podcast 2023-10](https://www.acquired.fm/episodes/jensen-huang)
+
+| # | 問い | 本案件の回答 |
+|---|---|---|
+| 1 | 解くべき問題は何か | 中堅中小の AI 導入 32 ポイント実装ギャップ + 個人トレーダーの金融 AI 環境構築需要 |
+| 2 | なぜ今か（未充足ニーズのタイミング）| AGI 移行期 2026-2028 の最終 OS 構築機会（[Dario Amodei](https://www.darioamodei.com/essay/machines-of-loving-grace) + [Anthropic ASL-3](https://www.anthropic.com/news/activating-asl3-protections) で技術基盤完成、SMB 本番稼働 22% / パイロット 54%）|
+| 3 | みんなが良いと思った時に飽和しない理由 | OS 構築 + Hotice 受注実績 + N.Y.CRAFT 紹介経由 + 13 年 AI マーケ実務（水野さん）= 4 重交点で他組成不可 |
+
+3 点全て 1 文で答えられる = 考え抜いた起業家の証明（Huang テスト合格）。
+
+---
+
+# 2.5 3 つの必然性 ｜ 補完 × タイミング × 対象（30 秒 Governing Thought）
 
 「水野さんでなければならない理由・今でなければならない理由・この OS でなければならない理由」を 1 枚に凝縮。
 
+### 経営者背景（小野寺信行）
+
+| 項目 | 内容 |
+|---|---|
+| 立場 | 個人事業主 / ConsultingOS 所有者 |
+| 実績 | Hotice 案件 月 5 万 × 3 ヶ月受注済（PMF 検証完了）+ N.Y.CRAFT 連携稼働中 |
+| ConsultingOS 構築実績 | 30 エージェント・22 スキル・7 層防御（外注換算 800 万円相当）+ 6 部門連携 |
+| 思想的基盤 | 4 兼務（佐藤裕介 PL 規律 / Dorsey 削除設計 / 孫正義 山を決める / Jensen Huang 思考深度）|
+| 運営前提 | <span class="accent">単独運営継続</span>（人員増やす計画なし）。OS 内製化で制作系を完全自動化、必要時のみレベシェアパートナー（プロデューサー / 営業 / 海外）を起用する可能性 |
+
+### 3 つの必然性 ｜ 補完 × タイミング × 対象
+
 | 軸 | 内容 |
 |---|---|
-| <span class="accent">Why You（水野さん）</span> | 13 年 AI マーケ実務 × 個人投資家ネットワーク × ジーニー人脈。軸 A 金融 AI 主軸クライアント + 軸 B 紹介ルート両方の「最初の 12 ヶ月の火種」。小野寺の方法論体系化との補完関係 = 知見の結晶 |
-| <span class="accent">Why Now（2026-2028）</span> | AGI 移行期の最終 OS 構築機会（[Dario Amodei](https://www.darioamodei.com/essay/machines-of-loving-grace) 2026-2027 powerful AI 到来予測 + [Gartner 2026 末 40% 採用](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)）。[Anthropic ASL-3](https://www.anthropic.com/news/activating-asl3-protections) + [Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6) で技術基盤完成 |
-| <span class="accent">Why This OS（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（[Gartner 警告 40% キャンセルリスク](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) 回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
+| <span class="accent">出資者の必然性（水野さん × 小野寺の補完）</span> | 13 年 AI マーケ実務 × 個人投資家ネットワーク × ジーニー人脈。軸 A 金融 AI 主軸クライアント + 軸 B 紹介ルート両方の「最初の 12 ヶ月の火種」。小野寺の方法論体系化との補完関係 = 知見の結晶 |
+| <span class="accent">タイミングの必然性（2026-2028）</span> | AGI 移行期の最終 OS 構築機会（[Dario Amodei](https://www.darioamodei.com/essay/machines-of-loving-grace) 2026-2027 powerful AI 到来予測 + [Gartner 2026 末 40% 採用](https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025)）。[Anthropic ASL-3](https://www.anthropic.com/news/activating-asl3-protections) + [Claude Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6) で技術基盤完成 |
+| <span class="accent">対象の必然性（ConsultingOS）</span> | 既に動き既に売れている（Hotice 受注実績）+ 体系化済（CLAUDE.md / ICP.md 等）+ 7 層防御（[Gartner 警告 40% キャンセルリスク](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) 回避済）+ 中堅中小特化（公開情報では競合不在 INFERENCE）|
 
 「3 軸どれが欠けてもこの投資は成立しない、3 軸が同時に揃った瞬間が今」= 共同事業者として一緒に大きくする提案。
 

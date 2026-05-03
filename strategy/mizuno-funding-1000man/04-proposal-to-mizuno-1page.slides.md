@@ -89,7 +89,7 @@ style: |
 
 ゼロから作る 2-3 年・数千万円を、1,000 万円で買える唯一の機会。Hotice 受注実績 = PMF 検証済 / N.Y.CRAFT 関根さん紹介 = 動作中の流入チャネル / 30 エージェント・22 スキル・7 層防御稼働中。
 
-## Why Now（AGI マクロ）
+## タイミングの必然性（AGI マクロ）
 
 - [FACT] [Dario Amodei「Machines of Loving Grace」](https://www.darioamodei.com/essay/machines-of-loving-grace) 2024-10: powerful AI は早ければ <strong>2026 年</strong>到来し得る
 - [INFERENCE] [80,000 Hours / Metaculus](https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/): AGI 50% 確率中央値 = <strong>2033 年</strong>（過去 6 年で 2060→2033 へ急圧縮）
