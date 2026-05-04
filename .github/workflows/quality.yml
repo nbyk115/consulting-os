@@ -1,0 +1,134 @@
+name: ConsultingOS Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    name: Markdown Lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Markdown Lint
+        uses: DavidAnson/markdownlint-cli2-action@v18
+        with:
+          globs: |
+            CLAUDE.md
+            DESIGN.md
+            ICP.md
+            docs/**/*.md
+            .claude/agents/**/*.md
+            .claude/skills/**/*.md
+            .claude/commands/**/*.md
+            examples/**/*.md
+          config: |
+            {
+              "default": true,
+              "MD013": false,
+              "MD033": false,
+              "MD036": false,
+              "MD041": false,
+              "MD025": false,
+              "MD024": false,
+              "MD034": false,
+              "MD040": false,
+              "MD029": false
+            }
+        continue-on-error: true
+
+  link-check:
+    runs-on: ubuntu-latest
+    name: Markdown Link Check
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Markdown Link Check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/workflows/mlc-config.json'
+          folder-path: 'CLAUDE.md, DESIGN.md, ICP.md, docs, .claude/agents, .claude/skills, examples'
+        continue-on-error: true
+
+  agent-section-check:
+    runs-on: ubuntu-latest
+    name: Agent Required Section Check
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required sections in agent files
+        run: |
+          REQUIRED_SECTIONS=("## 役割" "## 思想的基盤" "## 連携先")
+          FAILED=0
+
+          for f in $(find .claude/agents -name "*.md" -type f); do
+            for section in "${REQUIRED_SECTIONS[@]}"; do
+              if ! grep -qF "$section" "$f"; then
+                echo "❌ Missing section '$section' in $f"
+                FAILED=1
+              fi
+            done
+          done
+
+          if [ "$FAILED" -eq 1 ]; then
+            echo "::error::Some agent files are missing required sections"
+            exit 1
+          fi
+
+          echo "✅ All agent files have required sections"
+
+  skill-size-check:
+    runs-on: ubuntu-latest
+    name: Skill File Size Check
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Warn on oversized skill files
+        run: |
+          # 800行超えで警告（公式推奨は500行、現状監視対象は3件）
+          for f in $(find .claude/skills -maxdepth 2 -name "*.md" -type f); do
+            lines=$(wc -l < "$f")
+            if [ "$lines" -gt 800 ]; then
+              echo "::warning::$f is $lines lines (consider references/ split)"
+            fi
+          done
+
+  claude-md-size-check:
+    runs-on: ubuntu-latest
+    name: CLAUDE.md Size Check
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check CLAUDE.md size
+        run: |
+          # 公式推奨: 200行未満。OS規模上 400行以下を目標
+          lines=$(wc -l < CLAUDE.md)
+          echo "CLAUDE.md is $lines lines"
+
+          if [ "$lines" -gt 500 ]; then
+            echo "::error::CLAUDE.md is $lines lines (>500 = 肥大化、ruthlessly edit が必要)"
+            exit 1
+          fi
+
+          if [ "$lines" -gt 400 ]; then
+            echo "::warning::CLAUDE.md is $lines lines (>400 = 監視対象、削減を検討)"
+          fi
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    name: Gitleaks (Secret Scan)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Gitleaks Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true

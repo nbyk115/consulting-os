@@ -1,0 +1,1887 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hotice｜再構成ドラフト v0.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#E60012;
+    --ink:#0A0A0A;
+    --sub:#5A5A5A;
+    --line:#E6E6E6;
+    --bg:#F7F6F3;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#111;color:var(--ink);font-family:"Noto Sans JP","Inter",system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+  .nav{position:fixed;top:16px;left:16px;z-index:50;background:rgba(0,0,0,.72);color:#fff;padding:10px 14px;border-radius:10px;font-size:12px;line-height:1.6;backdrop-filter:blur(8px)}
+  .nav a{color:#fff;text-decoration:none;opacity:.72;margin-right:10px}
+  .nav a:hover{opacity:1;color:#FF4D5E}
+  .nav .pdf{margin-left:8px;padding:4px 10px;background:#E60012;color:#fff !important;border-radius:6px;opacity:1 !important;font-weight:700}
+  .deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:70px 12px 80px}
+  .slideWrap{
+    width:1280px;max-width:100%;aspect-ratio:1280/720;
+    position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45);
+    overflow:hidden;background:var(--bg);
+    container-type:inline-size;
+  }
+  .slide{
+    width:1280px;height:720px;background:var(--bg);color:var(--ink);
+    position:absolute;top:0;left:0;overflow:hidden;
+    transform-origin:top left;
+    transform:scale(calc(100cqw / 1280px));
+    word-break:auto-phrase;
+    line-break:strict;
+    overflow-wrap:break-word;
+  }
+  .slide p, .slide div, .slide li, .slide td, .slide th, .slide span{word-break:auto-phrase;line-break:strict}
+  .slide .frame{position:absolute;inset:0;padding:44px 60px 52px;display:flex;flex-direction:column}
+  .tag{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:700;text-transform:uppercase}
+  .tag::before{content:"";display:inline-block;width:22px;height:2px;background:var(--red);vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+  .h1{font-size:34px;font-weight:800;letter-spacing:-.01em;line-height:1.3;margin-top:6px;word-break:auto-phrase;overflow-wrap:break-word}
+  .h1 em{font-style:normal;color:var(--red)}
+  .sub{font-size:13px;color:var(--sub);margin-top:6px;line-height:1.7}
+  .page{position:absolute;bottom:20px;right:28px;font-size:10px;letter-spacing:.2em;color:#999}
+  .brand{position:absolute;bottom:20px;left:28px;font-size:10px;letter-spacing:.22em;color:#999}
+  .rule{height:2px;background:var(--ink);width:36px;margin:14px 0 20px}
+
+  /* Slide A: exec numbers */
+  .kpiGrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:0;margin-top:28px;border-top:1px solid var(--ink);border-left:1px solid var(--ink);flex:1}
+  .kpi{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:26px 24px;background:var(--white);position:relative;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+  .kpi .label{font-size:11px;letter-spacing:.16em;color:var(--sub);font-weight:600}
+  .kpi .num{font-family:"Inter",sans-serif;font-weight:900;letter-spacing:-.04em;line-height:.95}
+  .kpi .num.xl{font-size:110px}
+  .kpi .num.l{font-size:84px}
+  .kpi .num.m{font-size:64px}
+  .kpi .foot{font-size:12px;color:var(--sub);line-height:1.6}
+  .kpi .unit{font-size:24px;color:var(--ink);font-weight:700;margin-left:4px}
+  .kpi.red{background:var(--red);color:#fff}
+  .kpi.red .label,.kpi.red .foot{color:#fff;opacity:.85}
+  .kpi.red .unit{color:#fff}
+  .kpi.dark{background:var(--ink);color:#fff}
+  .kpi.dark .label,.kpi.dark .foot{color:#fff;opacity:.7}
+  .kpi.dark .unit{color:#fff}
+  .footnote{margin-top:auto;padding-top:14px;font-size:11px;color:#888;line-height:1.7}
+
+  /* P4: KPI evolution visual timeline */
+  .kpiEvo{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;margin-top:14px;align-items:stretch}
+  .kpiEvo-item{background:#fff;border:1px solid var(--line);border-left:3px solid #CCC;padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+  .kpiEvo-item.active{border-left-color:var(--red);background:#FFF5F6;box-shadow:0 6px 16px rgba(230,0,18,.08)}
+  .kpiEvo-item .kpiEvo-era{font-family:"Inter",sans-serif;font-weight:900;font-size:14px;color:#999;letter-spacing:.04em}
+  .kpiEvo-item.active .kpiEvo-era{color:var(--red)}
+  .kpiEvo-item .kpiEvo-kpi{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.4;margin-top:2px}
+  .kpiEvo-item .kpiEvo-note{font-size:10.5px;color:#888;font-weight:700;letter-spacing:.04em}
+  .kpiEvo-item.active .kpiEvo-note{color:var(--red)}
+  .kpiEvo-arrow{display:flex;align-items:center;justify-content:center;font-family:"Inter",sans-serif;font-size:18px;font-weight:900;color:#CCC}
+
+  /* Slide B: AI thesis */
+  .bCols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:16px}
+  .col{background:var(--white);padding:0 0 16px;border-top:3px solid var(--ink);display:flex;flex-direction:column;overflow:hidden}
+  .col .pad{margin-top:auto}
+  .col .viz{height:96px;position:relative;background:#0A0A0A;display:grid;grid-template-columns:auto 1fr;gap:18px;padding:0 18px;align-items:center}
+  .col:nth-child(2) .viz{background:#2a2a2a}
+  .col.active .viz{background:var(--red)}
+  .col .vizL{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+  .col .vizL .vizEra{color:#fff;font-family:"Inter",sans-serif;font-weight:900;font-size:40px;letter-spacing:-.04em;line-height:1}
+  .col .vizL .vizYear{color:rgba(255,255,255,.6);font-family:"Inter",sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.08em}
+  .col.active .vizL .vizYear{color:rgba(255,255,255,.8)}
+  .col .vizR{text-align:right}
+  .col .vizR .vizCap{color:rgba(255,255,255,.7);font-family:"Inter",sans-serif;font-weight:800;font-size:10px;letter-spacing:.26em;line-height:1}
+  .col.active .vizR .vizCap{color:rgba(255,255,255,.85)}
+  .col .vizR .vizPhrase{color:#fff;font-weight:900;font-size:17px;letter-spacing:-.005em;margin-top:6px;line-height:1.35}
+  .col .pad{padding:14px 16px 0}
+  .col.active{border-top-color:var(--red);background:#fff}
+  .col .era{font-size:11px;letter-spacing:.18em;color:#999;font-weight:700}
+  .col h3{font-size:18px;font-weight:800;margin-top:4px;line-height:1.35}
+  .col .active-tag{color:var(--red)}
+  .col p{font-size:11.5px;color:var(--sub);line-height:1.7;margin-top:6px}
+  .col ul{list-style:none;margin-top:8px}
+  .col li{font-size:11.5px;line-height:1.65;padding:5px 0;border-bottom:1px dashed #eee;color:var(--ink)}
+  .col li::before{content:"→ ";color:var(--red);font-weight:700}
+  .thesis{margin-top:12px;padding:12px 18px;background:var(--ink);color:#fff;display:flex;align-items:center;gap:16px}
+  .thesis .t-tag{font-size:10px;letter-spacing:.24em;color:#FF7A86;font-weight:700;white-space:nowrap}
+  .thesis .t-body{font-size:17px;font-weight:700;line-height:1.5}
+  .thesis .t-body em{font-style:normal;color:#FF7A86}
+
+  /* Slide C: competitive */
+  table.comp{width:100%;border-collapse:collapse;margin-top:14px;font-size:11.5px;background:#fff;table-layout:fixed}
+  table.comp col.axis{width:13%}
+  table.comp col.us{width:17%}
+  table.comp col.comp{width:14%}
+  table.comp th,table.comp td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle;line-height:1.55;word-break:auto-phrase;overflow-wrap:break-word}
+  table.comp thead th{background:var(--ink);color:#fff;font-weight:700;font-size:11px;letter-spacing:.05em;border-bottom:none;padding:10px 10px}
+  table.comp thead th.us{background:var(--red)}
+  table.comp td.dim{text-align:left;font-weight:700;background:#FAFAFA;color:var(--ink);white-space:nowrap}
+  table.comp td.us{background:#FFF1F2;font-weight:700;color:var(--red)}
+  table.comp td.us.num{font-family:"Inter",sans-serif}
+  .score{display:inline-flex;gap:3px}
+  .score span{width:8px;height:8px;border-radius:50%;background:#E8E8E8}
+  .score span.on{background:var(--ink)}
+  .us .score span.on{background:var(--red)}
+  .cBottom{margin-top:auto;padding-top:12px;display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:center}
+  .cClaim{background:var(--red);color:#fff;padding:12px 18px;font-size:13.5px;font-weight:700;line-height:1.55}
+  .cClaim em{font-style:normal;background:#fff;color:var(--red);padding:2px 8px;margin:0 2px;border-radius:2px}
+  .cNote{font-size:10.5px;color:#888;line-height:1.65;padding:4px 0}
+
+  .sheetHead{display:flex;justify-content:space-between;align-items:flex-end}
+  .pageno{display:none}
+
+  /* Slide P2 (Who we are) */
+  .whoHero{margin-top:20px;display:grid;grid-template-columns:1.45fr 1fr;gap:0;border-top:1px solid var(--ink)}
+  .whoHero .left{padding:24px 32px 22px 0;border-right:1px solid var(--ink)}
+  .whoHero .right{padding:18px 0 18px 32px;display:flex;flex-direction:column;justify-content:space-between}
+  .whoHero .lead{font-size:24px;font-weight:800;line-height:1.45;letter-spacing:-.005em}
+  .whoHero .lead em{font-style:normal;color:var(--red)}
+  .whoHero .lead .mark{background:linear-gradient(transparent 60%, #FFD9DD 60%);padding:0 2px}
+  .whoHero .leadFoot{font-size:12.5px;color:var(--sub);line-height:1.85;margin-top:14px}
+  .whoHero .verbs{margin-top:16px;display:flex;gap:6px;flex-wrap:wrap}
+  .whoHero .verbs span{font-size:10.5px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ink);padding:5px 9px;border-radius:999px}
+  .whoStat{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center;border-bottom:1px dashed #D8D6D1;padding:8px 0}
+  .whoStat:last-child{border-bottom:none}
+  .whoStat .n{font-family:"Inter",sans-serif;font-weight:900;font-size:46px;letter-spacing:-.04em;line-height:1;color:var(--ink);text-align:right}
+  .whoStat .n.red{color:var(--red)}
+  .whoStat .n .u{font-size:18px;font-weight:800;margin-left:2px}
+  .whoStat .meta .lab{font-size:10px;letter-spacing:.18em;color:#888;font-weight:700}
+  .whoStat .meta .desc{font-size:12.5px;color:var(--ink);line-height:1.5;margin-top:3px;font-weight:500}
+  .biz{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--ink)}
+  .biz .b{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);border-top:1px solid var(--ink);padding:14px 16px;background:#fff;display:flex;flex-direction:column;gap:4px}
+  .biz .b .num{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:800;color:var(--red);letter-spacing:.1em}
+  .biz .b .ttl{font-size:13.5px;font-weight:800;line-height:1.4}
+  .biz .b .dsc{font-size:11px;color:var(--sub);line-height:1.65}
+
+  /* Slide P1 (Cover) */
+  .cover{background:var(--red);color:#fff;position:relative;overflow:hidden}
+  .cover::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 80% at 100% 0%, rgba(0,0,0,.18) 0%, transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(255,255,255,.10) 0%, transparent 50%);pointer-events:none}
+  .cover .frame{padding:60px 80px;display:flex;flex-direction:column;justify-content:space-between;height:100%;position:relative;z-index:2}
+  .cover .top{display:flex;justify-content:space-between;align-items:flex-start;font-size:11px;letter-spacing:.22em;font-weight:700;opacity:.9}
+  .cover .top .l::before{content:"";display:inline-block;width:24px;height:2px;background:#fff;vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+  .cover .mid{display:flex;flex-direction:column;gap:24px;margin-top:30px}
+  .cover .word{font-family:"Inter","Noto Sans JP",sans-serif;font-weight:900;font-size:148px;letter-spacing:-.055em;line-height:.9;margin-left:-6px}
+  .cover .word .dot{display:inline-block;width:16px;height:16px;border-radius:50%;background:#fff;vertical-align:top;margin:26px 0 0 -6px}
+  .cover .hr{width:80px;height:2px;background:#fff;opacity:.6}
+  .cover .tag{font-size:30px;font-weight:700;letter-spacing:-.005em;line-height:1.55;max-width:900px;color:#fff !important;text-transform:none !important}
+  .cover .tag::before{content:none !important}
+  .cover .tag em{font-style:normal;background:#fff;color:var(--red);padding:0 10px;margin:0 2px;border-radius:2px;font-weight:900}
+  .cover .subtag{font-size:14px;letter-spacing:.02em;opacity:.9;line-height:1.85;max-width:720px;font-weight:500}
+  .cover .bot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.35);padding-top:18px}
+  .cover .bot .l{font-size:11px;letter-spacing:.14em;font-weight:600;line-height:1.8;opacity:.92}
+  .cover .bot .l b{display:block;font-size:13px;letter-spacing:.06em;margin-bottom:3px;font-weight:800;opacity:1}
+  .cover .bot .r{text-align:right;font-size:11px;letter-spacing:.18em;font-weight:700;opacity:.85;line-height:1.8}
+  .cover .ch{position:absolute;font-family:"Inter",sans-serif;font-weight:900;color:rgba(255,255,255,.07);font-size:420px;letter-spacing:-.08em;line-height:.8;right:-20px;bottom:-80px;pointer-events:none;user-select:none;z-index:1}
+
+  /* Slide P2 (Executive Summary) */
+  .xs{display:grid;grid-template-columns:1.1fr 1fr;gap:0;margin-top:18px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .xs > div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 22px;background:#fff;min-height:170px}
+  .xs .ttl{font-size:10.5px;letter-spacing:.18em;color:var(--red);font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .xs .ttl .n{font-family:"Inter",sans-serif;font-size:11px;color:#999;letter-spacing:.05em}
+  .xs .lead{font-size:18px;font-weight:800;line-height:1.5;color:var(--ink)}
+  .xs .lead em{font-style:normal;color:var(--red)}
+  .xs .sub{font-size:12px;color:var(--sub);line-height:1.75;margin-top:8px}
+  .xs .numBig{font-family:"Inter",sans-serif;font-weight:900;font-size:48px;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:4px}
+  .xs .numBig.red{color:var(--red)}
+  .xs .numBig .u{font-size:20px;font-weight:800;margin-left:3px}
+  .xs .numRow{display:flex;gap:22px;margin-top:6px;align-items:flex-end}
+  .xs .numCol{flex:1}
+  .xs .numCol .k{font-family:"Inter",sans-serif;font-weight:900;font-size:30px;letter-spacing:-.02em;line-height:1}
+  .xs .numCol .k.red{color:var(--red)}
+  .xs .numCol .kLab{font-size:10.5px;color:#888;letter-spacing:.08em;font-weight:700;margin-top:5px}
+  .xs .ask{background:var(--ink) !important;color:#fff}
+  .xs .ask .ttl{color:#FF7A86}
+  .xs .ask .lead{color:#fff}
+  .xs .ask .sub{color:#ccc}
+  .xs .src{font-size:10px;color:#aaa;margin-top:8px;line-height:1.6}
+
+  /* Slide P3 (Market) */
+  .mkt{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .mkt .card{background:#fff;padding:16px 20px;border-top:3px solid var(--ink);position:relative;min-height:auto}
+  .mkt .card.jp{border-top-color:var(--red)}
+  .mkt .card h3{font-size:15px;font-weight:800;letter-spacing:.02em}
+  .mkt .card .region{font-family:"Inter",sans-serif;font-size:10.5px;letter-spacing:.22em;color:#888;font-weight:700}
+  .mkt .card h3 em{font-style:normal;color:var(--red)}
+  .mkt .hero{margin-top:14px}
+  .mkt .hero .n{font-family:"Inter",sans-serif;font-weight:900;font-size:62px;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .mkt .hero .n.red{color:var(--red)}
+  .mkt .hero .n .u{font-size:22px;font-weight:800;margin-left:2px}
+  .mkt .hero .desc{font-size:12.5px;color:var(--sub);line-height:1.7;margin-top:6px}
+  .mkt .hero .desc b{color:var(--ink)}
+  /* bar chart (Japan) */
+  .bars{margin-top:14px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:140px;padding-top:42px;border-bottom:1px solid var(--ink)}
+  .bars .bar{background:#F0EDE6;border-top:3px solid var(--ink);position:relative;height:var(--h);transition:.2s}
+  .bars .bar.accent{background:var(--red);border-top-color:#7A0007}
+  .bars .bar::before{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:800;font-size:11.5px;color:var(--ink);letter-spacing:-.01em;white-space:nowrap}
+  .bars .bar.accent::before{color:var(--red);font-weight:900;font-size:13px;top:-24px}
+  .bars .bar::after{content:attr(data-y);position:absolute;top:-38px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-weight:700;font-size:10px;color:#999;letter-spacing:.04em;white-space:nowrap}
+  .bars .bar.accent::after{color:var(--red);font-weight:800}
+  /* global line/bars */
+  .gBars{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .gBars .g{background:#FAFAFA;border:1px solid #EEE;padding:12px 14px}
+  .gBars .g .lab{font-size:10px;letter-spacing:.14em;color:#888;font-weight:700}
+  .gBars .g .v{font-family:"Inter",sans-serif;font-weight:900;font-size:28px;letter-spacing:-.02em;margin-top:4px}
+  .gBars .g .v.red{color:var(--red)}
+  .gBars .g .d{font-size:11px;color:var(--sub);margin-top:4px;line-height:1.5}
+  .trendList{margin-top:14px}
+  .trendList .li{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:8px 0;border-bottom:1px dashed #ddd;align-items:baseline}
+  .trendList .li:last-child{border-bottom:none}
+  .trendList .li .pct{font-family:"Inter",sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;color:var(--red);text-align:right}
+  .trendList .li .txt{font-size:12px;color:var(--ink);line-height:1.55}
+  .trendList .li .txt b{font-weight:800}
+  .trendList .li .txt .s{color:#999;font-size:10.5px;margin-left:4px}
+  .mktThesis{margin-top:12px;padding:10px 16px;background:var(--ink);color:#fff;display:flex;gap:14px;align-items:center}
+  .mktThesis .t{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap}
+  .mktThesis .b{font-size:12.5px;font-weight:700;line-height:1.5}
+  .mktThesis .b em{font-style:normal;color:#FF7A86}
+  .srcLine{font-size:10px;color:#777;margin-top:auto;padding-top:10px;line-height:1.75}
+  .srcLine a{color:var(--red);text-decoration:underline;text-underline-offset:2px;font-weight:700}
+  .srcLine a:hover{opacity:.7}
+
+  /* Slide P5 (Agency 3 Pains) */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .pain{background:#fff;padding:0;display:flex;flex-direction:column;border:1px solid var(--line);position:relative;overflow:hidden;min-height:320px}
+  .pain .idx{position:absolute;top:12px;right:14px;font-family:"Inter",sans-serif;font-weight:900;font-size:80px;color:#F3EFE8;letter-spacing:-.05em;line-height:.9;z-index:0;pointer-events:none}
+  .pain > *{position:relative;z-index:1}
+  .pain .head{padding:16px 20px 0;display:flex;flex-direction:column;gap:2px}
+  .pain .pk{font-size:10.5px;letter-spacing:.22em;color:var(--red);font-weight:800}
+  .pain .pt{font-size:18px;font-weight:900;line-height:1.35;margin-top:4px;letter-spacing:-.005em}
+  .pain .pt em{font-style:normal;background:linear-gradient(transparent 62%, #FFD9DD 62%);padding:0 2px}
+  .pain .body{padding:10px 20px 6px;font-size:12px;color:var(--sub);line-height:1.7;min-height:70px}
+  .pain .proof{margin-bottom:14px}
+  .pain .body b{color:var(--ink)}
+  .pain .proof{margin:0 20px;padding:10px 14px;background:#FAFAFA;border-left:3px solid var(--ink);display:flex;gap:14px;align-items:center}
+  .pain .proof .pn{font-family:"Inter",sans-serif;font-weight:900;font-size:22px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap;flex:0 0 80px;text-align:left}
+  .pain .proof .ps{font-size:11px;color:var(--sub);line-height:1.6;flex:1}
+  .pain .proof .ps b{color:var(--ink);font-weight:800}
+  .pain .proof .ps b{color:var(--ink)}
+  .pain .ans{margin-top:auto;padding:12px 20px 14px;background:var(--red);color:#fff;display:flex;flex-direction:column;gap:3px}
+  .pain .ans .ak{font-size:10px;letter-spacing:.22em;font-weight:800;opacity:.9}
+  .pain .ans .av{font-size:13.5px;font-weight:800;line-height:1.55}
+  .pain .ans .av em{font-style:normal;background:#fff;color:var(--red);padding:0 6px;border-radius:2px}
+  .sato{margin-top:14px;background:var(--ink);color:#fff;padding:12px 20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+  .sato .sk{font-size:10px;letter-spacing:.26em;font-weight:800;color:#FF7A86;line-height:1.5;white-space:nowrap;border-right:1px solid rgba(255,255,255,.3);padding-right:22px}
+  .sato .sv{font-size:13px;font-weight:700;line-height:1.65}
+  .sato .sv em{font-style:normal;color:#FF7A86}
+  .sato .sv .big{font-size:16px;font-weight:900}
+
+  /* Slide Why-hotice (P8a) */
+  .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:22px;border-top:1px solid var(--ink);border-left:1px solid var(--ink);flex:1}
+  .why3 .c{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:22px 24px;background:#fff;display:flex;flex-direction:column;gap:10px;position:relative}
+  .why3 .c .num{font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--red)}
+  .why3 .c .why{font-size:12px;color:#888;font-weight:700;letter-spacing:.08em;margin-top:-4px}
+  .why3 .c .big{font-family:"Inter",sans-serif;font-weight:900;font-size:64px;letter-spacing:-.035em;line-height:.95;color:var(--ink);margin:6px 0 4px}
+  .why3 .c .big.red{color:var(--red)}
+  .why3 .c .big .u{font-size:22px;font-weight:800;margin-left:2px}
+  .why3 .c .ttl{font-size:18px;font-weight:900;line-height:1.45;letter-spacing:-.005em}
+  .why3 .c .ttl em{font-style:normal;background:linear-gradient(transparent 60%, #FFD9DD 60%);padding:0 2px}
+  .why3 .c .body{font-size:12.5px;color:var(--sub);line-height:1.75}
+  .why3 .c .body b{color:var(--ink)}
+  .why3 .c .cmp{margin-top:auto;padding-top:10px;border-top:1px dashed #ddd;font-size:11px;color:#888;line-height:1.65}
+  .why3 .c .cmp b{color:var(--ink)}
+  .frame2x2{margin-top:10px;display:grid;grid-template-columns:auto 1fr 1fr;gap:0;border:1px solid var(--ink)}
+  .frame2x2 > *{padding:8px 14px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:11.5px;line-height:1.5}
+  .frame2x2 > *:nth-child(3n){border-right:none}
+  .frame2x2 > *:nth-last-child(-n+3){border-bottom:none}
+  .frame2x2 .hd{background:var(--ink);color:#fff;font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  .frame2x2 .hd.us{background:var(--red)}
+  .frame2x2 .axis{background:#FAFAFA;font-weight:800;font-size:11.5px}
+  .frame2x2 .cell b{font-weight:800;color:var(--ink)}
+  .frame2x2 .cell.us{background:#FFF1F2}
+  .frame2x2 .cell.us b{color:var(--red)}
+
+  /* Slide Amazon EC (P13) */
+  .ama{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin-top:20px}
+  .amaLeft{background:#fff;padding:24px 28px;border-top:4px solid var(--red);display:flex;flex-direction:column;gap:14px}
+  .amaLeft .lead{font-size:19px;font-weight:800;line-height:1.45;letter-spacing:-.005em}
+  .amaLeft .lead em{font-style:normal;color:var(--red)}
+  .amaKpi{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .amaKpi > div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 16px}
+  .amaKpi .kn{font-family:"Inter",sans-serif;font-weight:900;font-size:38px;letter-spacing:-.025em;line-height:.95;color:var(--ink)}
+  .amaKpi .kn.red{color:var(--red)}
+  .amaKpi .kn .u{font-size:16px;font-weight:800;margin-left:2px}
+  .amaKpi .kl{font-size:10.5px;letter-spacing:.12em;color:#888;font-weight:700;margin-top:2px;text-transform:uppercase}
+  .amaKpi .kd{font-size:11.5px;color:var(--sub);line-height:1.55;margin-top:6px}
+  .amaRight{background:var(--ink);color:#fff;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+  .amaRight h4{font-size:12px;letter-spacing:.18em;color:#FF7A86;font-weight:800}
+  .brandG{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .brandG span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:10px 8px;text-align:center;font-weight:800;font-size:12.5px;letter-spacing:.03em;color:#fff}
+  .amaRight .ws{margin-top:auto;font-size:12px;line-height:1.75;color:#ddd;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+  .amaRight .ws em{font-style:normal;color:#FF7A86;font-weight:700}
+  .amaSato{margin-top:16px;padding:14px 20px;background:var(--red);color:#fff;font-size:14px;font-weight:700;line-height:1.55}
+  .amaSato em{font-style:normal;background:#fff;color:var(--red);padding:0 8px;border-radius:2px}
+
+  /* Slide P7 (Translator) */
+  .trFlow{display:flex;align-items:stretch;gap:0;margin-top:22px;background:#fff;padding:20px;border:1px solid var(--line)}
+  .trFlow .node{flex:1;padding:16px 14px;display:flex;flex-direction:column;justify-content:center;gap:6px;text-align:center;position:relative;min-height:120px}
+  .trFlow .node.brand{background:#FAFAFA;border:1px solid var(--line);position:static;bottom:auto;left:auto;font-size:inherit;letter-spacing:normal;color:inherit}
+  .trFlow .node.us{background:var(--red);color:#fff;border:1px solid var(--red);box-shadow:0 10px 24px rgba(230,0,18,.22);z-index:2}
+  .trFlow .node.creator{background:#FAFAFA;border:1px solid var(--line)}
+  .trFlow .node.user{background:#0A0A0A;color:#fff;border:1px solid #0A0A0A}
+  .trFlow .node .ico{font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;opacity:.7}
+  .trFlow .node.us .ico{color:#FFD9DD;opacity:1}
+  .trFlow .node .lab{font-size:16px;font-weight:900;line-height:1.3;margin-top:2px}
+  .trFlow .node .sub{font-size:11.5px;line-height:1.55;color:var(--sub);margin-top:4px}
+  .trFlow .node.us .sub,.trFlow .node.user .sub{color:rgba(255,255,255,.9)}
+  .trFlow .arrow{display:flex;align-items:center;padding:0 10px;color:var(--ink);font-family:"Inter",sans-serif;font-weight:900;font-size:22px}
+  .trCards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+  .trCard{background:#fff;border:1px solid var(--line);display:grid;grid-template-columns:1fr 44px 1fr;overflow:hidden;min-height:128px}
+  .trCard .b{padding:16px 18px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+  .trCard .b.before{background:#F5F2EC}
+  .trCard .b.after{background:var(--red);color:#fff}
+  .trCard .tag{font-size:10px;letter-spacing:.22em;font-weight:800;color:#888}
+  .trCard .b.before .tag{color:#888}
+  .trCard .b.after .tag{color:#FFD9DD}
+  .trCard .tag::before{display:none}
+  .trCard .txt{font-size:13.5px;font-weight:800;line-height:1.55;letter-spacing:-.005em}
+  .trCard .b.before .txt{color:var(--ink)}
+  .trCard .b.after .txt{color:#fff}
+  .trCard .bridge{display:flex;align-items:center;justify-content:center;background:transparent;color:var(--red);font-weight:900;font-size:18px;line-height:1}
+  .trSato{margin-top:16px;padding:14px 20px;background:var(--ink);color:#fff;font-size:14px;font-weight:700;line-height:1.6;display:flex;gap:18px;align-items:center}
+  .trSato .k{font-size:10px;letter-spacing:.24em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.3);padding-right:18px}
+  .trSato em{font-style:normal;color:#FF7A86}
+
+  /* Slide P9 (Global) */
+  .glb{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;margin-top:14px}
+  .regionWrap{background:#0A0A0A;color:#fff;padding:18px 22px;display:flex;flex-direction:column;gap:10px}
+  .regionWrap h4{font-size:11px;letter-spacing:.2em;color:#FF7A86;font-weight:800}
+  .regionHero{display:flex;gap:16px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:10px;margin-bottom:4px}
+  .regionHero .big{font-family:"Inter",sans-serif;font-weight:900;font-size:50px;letter-spacing:-.035em;line-height:1;color:#fff}
+  .regionHero .big .u{font-size:19px;font-weight:800;margin-left:2px;color:#FF7A86}
+  .regionHero .lab{font-size:12px;color:#ccc;line-height:1.55}
+  .regionHero .lab b{color:#fff}
+  .regionGroup{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.1)}
+  .regionGroup:last-child{border-bottom:none}
+  .regionGroup .gn{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.2em;color:#FF7A86;font-weight:800;line-height:1.4}
+  .regionGroup .gt{display:flex;flex-wrap:wrap;gap:5px 6px}
+  .regionGroup .gt span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:4px 9px;font-size:11.5px;font-weight:700;color:#fff;letter-spacing:.03em}
+  .regionGroup .gt span.hq{background:var(--red);border-color:var(--red)}
+  .glbStats{display:flex;flex-direction:column;gap:14px}
+  .glbStat{background:#fff;padding:16px 20px;border-left:4px solid var(--red);display:flex;gap:16px;align-items:center}
+  .glbStat .n{font-family:"Inter",sans-serif;font-weight:900;font-size:28px;letter-spacing:-.02em;line-height:1;color:var(--ink);flex:0 0 130px;text-align:left;white-space:nowrap}
+  .glbStat .n .u{font-size:14px;font-weight:800;margin-left:2px}
+  .glbStat .n.red{color:var(--red)}
+  .glbStat .n .u{font-size:14px;font-weight:800;margin-left:2px}
+  .glbStat .txt{font-size:12px;color:var(--sub);line-height:1.6}
+  .glbStat .txt b{color:var(--ink);font-weight:800;font-size:13px;display:block;margin-bottom:2px}
+  .tierBox{background:#fff;padding:14px 18px;border:1px solid var(--line)}
+  .tierBox h5{font-size:11px;letter-spacing:.18em;color:var(--red);font-weight:800}
+  .tierRow{display:grid;grid-template-columns:60px 1fr auto;gap:10px;padding:6px 0;border-bottom:1px dashed #eee;align-items:center;font-size:11.5px}
+  .tierRow:last-child{border-bottom:none}
+  .tierRow .tn{font-family:"Inter",sans-serif;font-weight:900;font-size:14px;color:var(--ink)}
+  .tierRow .tc{color:var(--sub);line-height:1.5}
+  .tierRow .tv{font-family:"Inter",sans-serif;font-weight:800;color:var(--red);font-size:12px;letter-spacing:-.01em}
+
+  /* Slide P10 (Speed x Quality) */
+  .sqHero{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+  .sqCard{background:#fff;padding:16px 22px;border-top:4px solid var(--ink);display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
+  .sqCard.red{border-top-color:var(--red)}
+  .sqCard .lb{font-size:10.5px;letter-spacing:.22em;color:#888;font-weight:800}
+  .sqCard h3{font-size:17px;font-weight:900;letter-spacing:-.005em;line-height:1.35}
+  .sqCard h3 em{font-style:normal;color:var(--red)}
+  .sqCard .v{font-family:"Inter",sans-serif;font-weight:900;font-size:56px;letter-spacing:-.03em;line-height:1;align-self:center;white-space:nowrap}
+  .sqCard .sqR{display:flex;flex-direction:column;gap:4px}
+  .sqCard .v.red{color:var(--red)}
+  .sqCard .v .u{font-size:22px;font-weight:800;margin-left:2px}
+  .sqCard .d{font-size:11.5px;color:var(--sub);line-height:1.65;margin-top:4px}
+  .sqCard .d b{color:var(--ink)}
+  /* Timeline */
+  .tl{margin-top:12px;background:#fff;padding:14px 18px;border:1px solid var(--line)}
+  .tl h4{font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:800;margin-bottom:12px}
+  .tlGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+  .tlStep{background:#FAFAFA;border-top:2px solid var(--red);padding:10px 12px 11px;display:flex;flex-direction:column;gap:3px;position:relative}
+  .tlStep.start{border-top-color:var(--ink);background:#F5F2EC}
+  .tlStep .w{font-family:"Inter",sans-serif;font-weight:900;font-size:12.5px;color:var(--ink);letter-spacing:-.01em}
+  .tlStep .ph{font-family:"Inter",sans-serif;font-size:9.5px;letter-spacing:.22em;color:var(--red);font-weight:800;margin-top:2px}
+  .tlStep .ta{font-size:12px;font-weight:800;color:var(--ink);line-height:1.4;margin-top:4px}
+  .tlStep .td{font-size:11px;color:var(--sub);line-height:1.6;margin-top:2px}
+  .tlStep:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:"Inter",sans-serif;font-weight:900;font-size:13px;color:var(--red);z-index:2}
+  /* Compare row */
+  .cmpRow{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cmpBox{padding:10px 16px;display:flex;flex-direction:column;gap:3px}
+  .cmpBox.them{background:#F5F2EC}
+  .cmpBox.us{background:var(--red);color:#fff}
+  .cmpBox .t{font-size:10.5px;letter-spacing:.18em;font-weight:800}
+  .cmpBox.them .t{color:#888}
+  .cmpBox.us .t{color:#FFD9DD}
+  .cmpBox .v{font-family:"Inter",sans-serif;font-weight:900;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+  .cmpBox .d{font-size:11.5px;line-height:1.55;margin-top:3px}
+  .cmpBox.them .d{color:var(--sub)}
+  .cmpBox.us .d{color:#fff;opacity:.95}
+
+  /* Slide P16 (Partnership Models) */
+  .pm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+  .pmCard{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;min-height:380px}
+  .pmCard .hd{padding:18px 22px;background:#FAFAFA;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+  .pmCard .hd .k{font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:.22em;color:var(--red)}
+  .pmCard .hd .t{font-size:20px;font-weight:900;letter-spacing:-.005em;line-height:1.3}
+  .pmCard .hd .t em{font-style:normal;color:var(--red)}
+  .pmCard .bd{padding:16px 22px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .pmCard .bd .row{display:grid;grid-template-columns:80px 1fr;gap:12px;font-size:12px;padding:8px 0;border-bottom:1px dashed #eee}
+  .pmCard .bd .row:last-child{border-bottom:none}
+  .pmCard .bd .row .k{font-weight:800;color:#888;font-size:10.5px;letter-spacing:.1em}
+  .pmCard .bd .row .v{color:var(--ink);line-height:1.65}
+  .pmCard .bd .row .v b{font-weight:800}
+  .pmCard.featured .hd{background:var(--red);color:#fff;border-bottom-color:var(--red)}
+  .pmCard.featured .hd .k{color:#FFD9DD}
+  .pmCard.featured .hd .t{color:#fff}
+  .pmCard.featured .hd .t em{background:#fff;color:var(--red);padding:0 8px;border-radius:2px}
+  .pmCard.featured{border:1px solid var(--red);box-shadow:0 10px 24px rgba(230,0,18,.12)}
+  .pmFoot{margin-top:16px;padding:14px 20px;background:var(--ink);color:#fff;display:flex;gap:16px;align-items:center}
+  .pmFoot .k{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.3);padding-right:14px}
+  .pmFoot .v{font-size:13.5px;font-weight:700;line-height:1.55}
+  .pmFoot em{font-style:normal;color:#FF7A86}
+
+  /* Slide P17 (Pricing/Team/Delivery) */
+  .pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:22px}
+  .pgCol{background:#fff;padding:22px 24px;border-top:4px solid var(--ink);display:flex;flex-direction:column;gap:10px;min-height:340px}
+  .pgCol.red{border-top-color:var(--red)}
+  .pgCol h3{font-size:16px;font-weight:900;line-height:1.35}
+  .pgCol h3 em{font-style:normal;color:var(--red)}
+  .pgCol .ic{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.2em;color:#888;font-weight:800}
+  .pgRow{display:grid;grid-template-columns:90px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed #eee;font-size:12px;line-height:1.65;align-items:baseline}
+  .pgRow:last-child{border-bottom:none}
+  .pgRow .t{font-weight:800;color:#888;font-size:10.5px;letter-spacing:.08em}
+  .pgRow .d{color:var(--ink)}
+  .pgRow .d b{color:var(--red);font-weight:900}
+  .pgNote{margin-top:auto;font-size:11px;color:#999;line-height:1.7;padding-top:10px;border-top:1px solid #EAEAEA}
+
+  /* Slide P18 (CTA) */
+  .cta{background:var(--red);color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(120% 80% at 100% 0%, rgba(0,0,0,.2) 0%, transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, rgba(255,255,255,.08) 0%, transparent 50%);pointer-events:none}
+  .cta .frame{padding:64px 80px;display:flex;flex-direction:column;justify-content:space-between;height:100%;position:relative;z-index:2}
+  .cta .top{font-size:11px;letter-spacing:.22em;font-weight:700;opacity:.85}
+  .cta .top::before{content:"";display:inline-block;width:24px;height:2px;background:#fff;vertical-align:middle;margin-right:10px;transform:translateY(-3px)}
+  .cta h1{font-size:68px;font-weight:900;line-height:1.1;letter-spacing:-.02em}
+  .cta h1 em{font-style:normal;color:#fff}
+  .cta .lead{font-size:18px;font-weight:600;line-height:1.75;max-width:820px;margin-top:20px;opacity:.95}
+  .ctaSteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .ctaStep{background:rgba(0,0,0,.18);padding:16px 18px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.14)}
+  .ctaStep .n{font-family:"Inter",sans-serif;font-weight:900;font-size:32px;letter-spacing:-.03em;line-height:1;color:#FFD9DD}
+  .ctaStep .t{font-size:15px;font-weight:800;line-height:1.35;margin-top:8px}
+  .ctaStep .d{font-size:12px;line-height:1.7;margin-top:6px;opacity:.9}
+  .ctaBot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid rgba(255,255,255,.35);padding-top:18px;margin-top:20px}
+  .ctaBot .contact{font-size:12.5px;line-height:1.85;font-weight:500}
+  .ctaBot .contact b{font-size:14px;font-weight:800;letter-spacing:.04em;display:block;margin-bottom:4px}
+  .ctaBot .contact a{color:#fff;text-decoration:underline}
+  .ctaBot .r{text-align:right;font-size:11px;letter-spacing:.18em;font-weight:700;opacity:.8;line-height:1.8}
+
+  /* Case Study Slides (P12/P14/P15) */
+  .caseMeta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:12px;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+  .caseMeta > div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:9px 14px;background:#fff}
+  .caseMeta .lab{font-size:10px;letter-spacing:.18em;color:#888;font-weight:800;margin-bottom:3px}
+  .caseMeta .val{font-size:13px;font-weight:800;color:var(--ink);line-height:1.4}
+  .caseMeta .val.red{color:var(--red)}
+  .caseBody{display:grid;grid-template-columns:1.1fr 1fr;gap:14px;margin-top:12px}
+  .caseCol{background:#fff;padding:14px 18px;display:flex;flex-direction:column;gap:6px}
+  .caseCol.left{border-left:4px solid var(--red)}
+  .caseCol.right{background:#0A0A0A;color:#fff;border-left:4px solid #FF7A86}
+  .caseCol h4{font-size:10.5px;letter-spacing:.2em;font-weight:800;color:var(--red)}
+  .caseCol.right h4{color:#FF7A86}
+  .caseCol .phase{display:flex;flex-direction:column;gap:3px;padding-bottom:7px;border-bottom:1px dashed #eee;margin-bottom:7px}
+  .caseCol .phase:last-child{border-bottom:none;margin-bottom:0}
+  .caseCol.right .phase{border-bottom-color:rgba(255,255,255,.15)}
+  .caseCol .phase .pl{font-size:10.5px;color:#888;letter-spacing:.1em;font-weight:800}
+  .caseCol.right .phase .pl{color:#FF7A86}
+  .caseCol .phase .pv{font-size:13.5px;color:var(--ink);line-height:1.75;font-weight:500}
+  .caseCol.right .phase .pv{color:#fff;font-weight:400}
+  .caseCol .phase .pv b{font-weight:800;color:var(--red)}
+  .caseCol.right .phase .pv b{color:#FF7A86}
+  .caseResult{margin-top:auto}
+  .caseResult .rn{font-family:"Inter",sans-serif;font-weight:900;font-size:36px;letter-spacing:-.03em;line-height:1}
+  .caseResult .rl{font-size:11px;color:#ccc;letter-spacing:.1em;font-weight:700;margin-top:5px;text-transform:uppercase}
+  .caseResult .rd{font-size:12px;line-height:1.65;margin-top:6px;color:#ddd}
+  .caseNote{margin-top:auto;padding:8px 14px;background:#F5F2EC;font-size:10.5px;color:#666;line-height:1.6}
+  .caseNote b{color:var(--ink)}
+
+  /* Slide P2 (NEW: hotice とは — clean company intro) */
+  .intro{display:flex;flex-direction:column;gap:14px;margin-top:14px;flex:1}
+  .introKpi{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink);border-left:1px solid var(--ink);border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);flex-shrink:0}
+  .introKpi > div{padding:14px 18px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;background:#fff}
+  .introKpi > div:last-child{border-right:none}
+  .introKpi .lb{font-family:"Inter",sans-serif;font-size:10px;letter-spacing:.22em;color:#888;font-weight:800}
+  .introKpi .vl{font-family:"Inter",sans-serif;font-weight:900;font-size:42px;letter-spacing:-.03em;line-height:1;color:var(--ink);margin-top:4px}
+  .introKpi .vl.red{color:var(--red)}
+  .introKpi .vl .u{font-size:18px;font-weight:800;margin-left:2px}
+  .introKpi .dc{font-size:11px;color:var(--sub);line-height:1.55;margin-top:4px}
+  .introSvc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1}
+  .introSvc > div{background:#fff;padding:18px 20px;border-left:3px solid var(--red);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+  .introSvc > div::after{content:attr(data-n);position:absolute;right:-6px;bottom:-24px;font-family:"Inter",sans-serif;font-weight:900;font-size:92px;color:#F3EFE8;letter-spacing:-.05em;line-height:.85;z-index:0;pointer-events:none}
+  .introSvc > div > *{position:relative;z-index:1}
+  .introSvc .sk{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.22em;color:var(--red);font-weight:800}
+  .introSvc .st{font-size:16px;font-weight:900;line-height:1.4;letter-spacing:-.005em}
+  .introSvc .sd{font-size:12px;color:var(--sub);line-height:1.7}
+  .introBrands{background:var(--ink);color:#fff;padding:14px 20px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-top:auto}
+  .introBrands .bk{font-size:10px;letter-spacing:.22em;color:#FF7A86;font-weight:800;white-space:nowrap;border-right:1px solid rgba(255,255,255,.25);padding-right:18px}
+  .introBrands .bv{font-size:14.5px;font-weight:800;letter-spacing:.06em;line-height:1.7;color:#fff}
+  .introBrands .bv span{display:inline-block;margin:0 10px 0 0;opacity:.95}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <b>hotice｜再構成ドラフト v0.4（全18P）</b><br>
+  <a href="#cover">P1</a>
+  <a href="#p2">P2</a>
+  <a href="#p3">P3</a>
+  <a href="#s2">P4</a>
+  <a href="#p5">P5</a>
+  <a href="#p7">P6</a>
+  <a href="#s3">P7</a>
+  <a href="#p8a">P8</a>
+  <a href="#p9">P9</a>
+  <a href="#p10">P10</a>
+  <a href="#s1">P11</a>
+  <a href="#p12">P12</a>
+  <a href="#p13">P13</a>
+  <a href="#p14">P14</a>
+  <a href="#p15">P15</a>
+  <a href="#p16">P16</a>
+  <a href="#p17">P17</a>
+  <a href="#p18">P18</a>
+  <a class="pdf" href="hotice-deck.pdf" target="_blank">PDF ↓</a>
+</div>
+
+<div class="deck">
+
+<div class="slideWrap"><section class="slide cover" id="cover">
+  <div class="ch">2026</div>
+  <div class="frame">
+    <div class="top">
+      <div class="l">GLOBAL INFLUENCER MARKETING COMPANY ｜ AGENCY PARTNER BRIEF</div>
+      <div class="r">v 0.1</div>
+    </div>
+
+    <div class="mid">
+      <div class="word">hotice</div>
+      <div class="hr"></div>
+      <div class="tag">
+        <em>"買いたい"</em>を、売上に変える。
+      </div>
+      <div class="subtag">
+        hoticeは、<b>日本発のグローバル・インフルエンサーマーケティング会社</b>。<br>
+        認知で終わらせない。ROASで測る ── 25,000名×10カ国のネットワークで、売上まで設計します。
+      </div>
+    </div>
+
+    <div class="bot">
+      <div class="l">
+        <b>hotice株式会社</b>
+        東京都渋谷区渋谷3-17-4 山口ビル新館4階<br>
+        Casting ／ Operation ／ Paid Media ／ Event &amp; Production
+      </div>
+      <div class="r">
+        Company &amp; Service Profile<br>
+        April 2026 Edition
+      </div>
+    </div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p2">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Who is hotice ｜ 会社紹介</div>
+        <div class="h1"><em>"買いたい"</em>を、売上に変える。<br>日本発のグローバル・インフルエンサーマーケティング会社。</div>
+        <div class="sub">2021年創業、東京・渋谷拠点。<b>日英中バイリンガル精鋭20名</b>と、国内外 25,000名＋ のインフルエンサーネットワーク。キャスティング／ソーシャル運用／広告配信／イベント制作まで一気通貫。</div>
+      </div>
+      <div class="pageno">P2</div>
+    </div>
+
+    <div class="intro">
+      <!-- Company at a glance (4 numbers) -->
+      <div class="introKpi">
+        <div>
+          <div class="lb">FOUNDED</div>
+          <div class="vl red">2021</div>
+          <div class="dc">創業4年。東京・渋谷拠点</div>
+        </div>
+        <div>
+          <div class="lb">TEAM</div>
+          <div class="vl">20<span class="u">名</span></div>
+          <div class="dc">平均30代・日英中バイリンガル</div>
+        </div>
+        <div>
+          <div class="lb">GLOBAL</div>
+          <div class="vl red">10<span class="u">カ国+</span></div>
+          <div class="dc">APAC＋米欧豪、現地事務所NW保有</div>
+        </div>
+        <div>
+          <div class="lb">NETWORK</div>
+          <div class="vl">25,000<span class="u">名+</span></div>
+          <div class="dc">海外インフルエンサー、国内5,000名</div>
+        </div>
+      </div>
+
+      <!-- Service lineup (4 cards) -->
+      <div class="introSvc">
+        <div>
+          <div class="sk">01 ─ CASTING</div>
+          <div class="st">キャスティング</div>
+          <div class="sd">国内外 25,000名超のインフルエンサーネットワーク。1,000名と個別契約済で、ブランド特性に合う最適な人選を最短アサイン</div>
+        </div>
+        <div>
+          <div class="sk">02 ─ OPERATION</div>
+          <div class="st">ソーシャルアカウント運用・コンサル</div>
+          <div class="sd">YouTube／Instagram／TikTok／X のアカウント開設から日常運用・投稿制作まで代行</div>
+        </div>
+        <div>
+          <div class="sk">03 ─ PAID MEDIA</div>
+          <div class="st">ソーシャル広告運用代行</div>
+          <div class="sd">目的・ターゲットに合わせた広告設計。Amazon アフィリエイトの活用で売上直結の訴求</div>
+        </div>
+        <div>
+          <div class="sk">04 ─ EVENT</div>
+          <div class="st">イベント・クリエイティブ制作</div>
+          <div class="sd">イベント企画・運営から撮影・動画編集まで、クリエイティブも内製</div>
+        </div>
+      </div>
+
+      <!-- Clients -->
+      <div class="introBrands">
+        <div class="bk">SELECTED<br>CLIENTS</div>
+        <div class="bv">
+          <span>P&amp;G様</span><span>資生堂様</span><span>Calbee様</span><span>MIXI様</span><span>SEGA様</span><span>SONY様</span><span>GU様</span><span>Pokémon様</span><span>他多数</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P2 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p3">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Market ｜ 市場の現在地</div>
+        <div class="h1">日本は <em>5年で 2倍</em>、グローバルは <em>$32B</em>。<br>インフルエンサーマーケティングは、<em>主流</em>へ。</div>
+        <div class="sub">日本市場は2029年に1,645億円（2024年比1.9倍）。代理店予算の再配分が加速している。</div>
+      </div>
+      <div class="pageno">P3</div>
+    </div>
+
+    <div class="mkt">
+      <!-- JAPAN -->
+      <div class="card jp">
+        <div class="region">JAPAN ／ 国内市場</div>
+        <h3>2024 <em>860億円</em> → 2029 <em>1,645億円</em></h3>
+        <div class="hero">
+          <div class="n red">1,150<span class="u">億円</span></div>
+          <div class="desc"><b>2026年予測</b>。2024年比で約 <b>1.34倍</b>。5年後の2029年には <b>1.9倍</b> へ到達する見込み。</div>
+        </div>
+        <div style="text-align:right;font-size:10px;color:#999;font-family:'Inter',sans-serif;letter-spacing:.1em;margin-top:8px">単位：億円</div>
+        <div class="bars">
+          <div class="bar" data-v="860" data-y="2024" style="--h:50px"></div>
+          <div class="bar" data-v="1,021" data-y="2025" style="--h:60px"></div>
+          <div class="bar accent" data-v="1,150" data-y="2026" style="--h:68px"></div>
+          <div class="bar" data-v="1,285" data-y="2027" style="--h:76px"></div>
+          <div class="bar" data-v="1,450" data-y="2028" style="--h:85px"></div>
+          <div class="bar" data-v="1,645" data-y="2029" style="--h:96px"></div>
+        </div>
+      </div>
+
+      <!-- GLOBAL -->
+      <div class="card">
+        <div class="region">GLOBAL ／ 世界市場</div>
+        <h3>2026年 <em>$32.55B</em>／米国単独 $12.17B</h3>
+        <div class="gBars">
+          <div class="g">
+            <div class="lab">GLOBAL 2026</div>
+            <div class="v red">$32.55B</div>
+            <div class="d">eMarketer / Statista 予測</div>
+          </div>
+          <div class="g">
+            <div class="lab">USA 2026</div>
+            <div class="v">$12.17B</div>
+            <div class="d">世界最大市場</div>
+          </div>
+        </div>
+        <div class="trendList">
+          <div class="li"><div class="pct">91%</div><div class="txt">CMO が <b>「ブランドは共創で築かれる」</b> と回答（前年比 +14pt）</div></div>
+          <div class="li"><div class="pct">79%</div><div class="txt">マーケターが <b>生成AIコンテンツへの投資拡大</b> を予定（2023年 70% →）</div></div>
+          <div class="li"><div class="pct">92%</div><div class="txt">マーケターが <b>ミドル × マイクロ</b> のインフルエンサーを併用（中規模＋小規模）</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mktThesis">
+      <div class="t">HOTICE'S<br>TAKE</div>
+      <div class="b">
+        市場はまだ <em>二桁成長</em>、かつ <em>予算が既存広告から流入</em> している局面。<br>
+        代理店にとっての論点は "やるか否か" ではなく "どのパートナーと組むか"。
+      </div>
+    </div>
+
+    <div class="srcLine">出典（クリックで一次ソースへ）：
+      <a href="https://influencermarketing-company.com/influencer-column/market-size/" target="_blank">サイバー・バズ×デジタルインファクト 2024</a>（日本市場 860→1,645億円）／
+      <a href="https://www.statista.com/outlook/amo/advertising/influencer-advertising/worldwide" target="_blank">Statista Influencer Advertising Outlook 2026</a>（グローバル $32.55B・米国 $12.17B）／
+      <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank">Dentsu Creative 2025 CMO Report "Agents of Reinvention"</a>（CMOの91%・+14pt・1,950名調査）／
+      <a href="https://digiday.com/marketing/in-graphic-detail-how-ai-is-going-to-shape-influencer-marketing-next-year/" target="_blank">DigiDay "How AI is going to shape influencer marketing next year"</a>（79% AI投資・92% macro+micro）</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P3 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="s2">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Evolution ｜ Influencer Marketing 3.0</div>
+        <div class="h1">インフルエンサーマーケは、<em>3.0時代</em>へ。<br>勝ち筋は "量"から"質"、そして<em>"実装力"</em>に。</div>
+        <div class="sub">フォロワー数で買う時代（1.0）→ エンゲージメントで選ぶ時代（2.0）→ 実装力で勝つ時代（3.0）へ。</div>
+      </div>
+      <div class="pageno">P4</div>
+    </div>
+
+
+    <div class="bCols">
+      <div class="col">
+        <div class="viz">
+          <div class="vizL">
+            <div class="vizEra">1.0</div>
+            <div class="vizYear">〜 2020</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">MASS REACH</div>
+            <div class="vizPhrase">フォロワー数で買う時代</div>
+          </div>
+        </div>
+        <div class="pad">
+          <p>リーチ至上主義の時代。芸能人・メガインフルエンサー中心で、単発投稿で認知を取る。</p>
+          <ul>
+            <li>フォロワー数＝価値</li>
+            <li>単発・読み切り型 PR 投稿</li>
+            <li>KPI は <b>リーチ／インプレッション</b></li>
+            <li>代理店側もスポット起用が中心</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="viz">
+          <div class="vizL">
+            <div class="vizEra">2.0</div>
+            <div class="vizYear">2021 – 2024</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">ENGAGEMENT</div>
+            <div class="vizPhrase">エンゲージメントで選ぶ時代</div>
+          </div>
+        </div>
+        <div class="pad">
+          <p>マイクロ／ナノインフルエンサー台頭。"信頼と共感" が価値を持ち、ステマ規制（2023年）で品質管理も必須化。</p>
+          <ul>
+            <li>マイクロ／ナノが主役化</li>
+            <li>継続起用・パートナーシップ化</li>
+            <li>KPI は <b>エンゲージメント率</b></li>
+            <li><b>92%</b> が macro＋micro を両方活用<span style="color:#aaa">※2</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col active">
+        <div class="viz">
+          <div class="vizL">
+            <div class="vizEra">3.0</div>
+            <div class="vizYear">2025 →</div>
+          </div>
+          <div class="vizR">
+            <div class="vizCap">OUTCOME</div>
+            <div class="vizPhrase">実装力で勝つ時代</div>
+          </div>
+        </div>
+        <div class="pad">
+          <p>認知で終わらず、<b>売上（ROAS）</b> で評価される時代。AI 普及で <b>"本物の人のおすすめ"</b> にプレミアが付き、<b>実行できる相手</b> との組み方が勝敗を分ける。</p>
+          <ul>
+            <li>KPI は <b>ROAS／購買コンバージョン</b></li>
+            <li><b>91%</b>（前年比+14pt）が「ブランド＝共創で築かれる」<span style="color:#aaa">※1</span></li>
+            <li><b>90%</b> が "インフルエンサー＞既存広告" と認識<span style="color:#aaa">※1</span></li>
+            <li><b>79%</b> が生成AIコンテンツ投資拡大<span style="color:#aaa">※2</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="thesis">
+      <div class="t-tag">HOTICE'S<br>TAKE</div>
+      <div class="t-body">
+        2.0 までは "誰に頼むか" の話。3.0 は <em>"どう実装するか"</em> の話。<br>
+        これからの代理店様に必要なのは、<em>実行を任せられる相手</em>との連携 ── hotice がその一翼を担えれば幸いです。
+      </div>
+    </div>
+
+    <div class="footnote">※1 <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank" style="color:var(--red);font-weight:700;text-decoration:underline">Dentsu Creative 2025 CMO Report "Agents of Reinvention"</a>（世界14市場・1,950名のCMOサーベイ）／ ※2 <a href="https://digiday.com/marketing/in-graphic-detail-how-ai-is-going-to-shape-influencer-marketing-next-year/" target="_blank" style="color:var(--red);font-weight:700;text-decoration:underline">DigiDay "How AI is going to shape influencer marketing next year"</a></div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P4 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p5">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Why hotice ｜ パートナー選定の論点</div>
+        <div class="h1">代理店が抱える <em>パートナー陣</em> の中で、<br>hotice が果たすべき <em>役割</em> とは。</div>
+        <div class="sub">代理店の論点は <b>"誰を増やすか"</b> ではなく <b>"何を任せるか"</b>。hotice は、他パートナーと補完する <b>3つの役割</b> を担えます。</div>
+      </div>
+      <div class="pageno">P5</div>
+    </div>
+
+    <div class="pains">
+      <!-- ROLE 1 : ROAS direct -->
+      <div class="pain">
+        <div class="idx">01</div>
+        <div class="head">
+          <div class="pk">WHERE ／ 成果直結が要る案件</div>
+          <div class="pt"><em>ROAS訴求</em>・EC売上を<br>取りに行きたい時に。</div>
+        </div>
+        <div class="body">
+          ブランドKPIが <b>ROAS／購買</b> へ移行中。リーチ型だけでは届かない成果型で応えるパートナーを。
+        </div>
+        <div class="proof">
+          <div class="pn">600%</div>
+          <div class="ps">hotice の <b>Amazon アフィリエイト施策</b> 年間平均ROAS（単月最大 20,000%）。</div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ROLE</div>
+          <div class="av"><em>ROAS直結</em> 案件の <em>成果型パートナー</em>。</div>
+        </div>
+      </div>
+
+      <!-- ROLE 2 : Global -->
+      <div class="pain">
+        <div class="idx">02</div>
+        <div class="head">
+          <div class="pk">WHERE ／ グローバル案件</div>
+          <div class="pt">インバウンド・APAC を<br><em>現地稼働でスムーズに</em>。</div>
+        </div>
+        <div class="body">
+          資生堂様・カネボウ様・Samsung様等で<b>インバウンド・APAC需要</b>が拡大。多国対応できるパートナーが必要。
+        </div>
+        <div class="proof">
+          <div class="pn">10カ国+</div>
+          <div class="ps">hotice の稼働国。日英中対応 ＋ 現地オペで <b>直接実装</b>。</div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ROLE</div>
+          <div class="av"><em>海外・APAC</em> 案件の <em>現地稼働パートナー</em>。</div>
+        </div>
+      </div>
+
+      <!-- ROLE 3 : Speed / white-label -->
+      <div class="pain">
+        <div class="idx">03</div>
+        <div class="head">
+          <div class="pk">WHERE ／ 短納期・ホワイトラベル</div>
+          <div class="pt"><em>短納期</em> ＆ <em>御社名義</em> で<br>動かしたい時に。</div>
+        </div>
+        <div class="body">
+          短納期・機密案件は業界標準では取りづらい。<b>ホワイトラベル対応</b>できるパートナーが必要。
+        </div>
+        <div class="proof">
+          <div class="pn">2週間</div>
+          <div class="ps">hotice の最短デリバリー。ホワイトラベルで <b>御社名義のまま対応可</b>。</div>
+        </div>
+        <div class="ans">
+          <div class="ak">HOTICE'S ROLE</div>
+          <div class="av">急ぎ・機密案件の <em>機動パートナー</em>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sato">
+      <div class="sk">THE TAKE</div>
+      <div class="sv">
+        代理店各社はすでに <span class="big">実装パートナーを拡充中</span>。<br>
+        その中で hotice を選ぶ意味は <em>ROAS直結 × グローバル10カ国 × 短納期2週間 × ホワイトラベル</em> ── <em>この4点セットが1社で揃う稀有な存在</em>だから。
+      </div>
+    </div>
+
+    <div class="srcLine">出典（クリックで一次ソースへ）：
+      <a href="https://influencermarketing-company.com/influencer-column/market-size/" target="_blank">サイバー・バズ×デジタルインファクト 2024</a>（日本IM市場 1.9倍成長）／
+      <a href="https://www.dentsu.com/uk/en/media-and-investors/dentsu-creative-2025-cmo-report-pr" target="_blank">Dentsu Creative 2025 CMO Report</a>（代理店協業モデル転換）／
+      <a href="https://digiday.com/media/from-vibes-to-data-why-some-brands-use-predictive-tech-to-vet-creators/" target="_blank">DigiDay "Brands are turning to predictive models"</a>（成果型の潮流）／ hotice 自社実績</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P5 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p7">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Positioning ｜ hotice is a Translator</div>
+        <div class="h1">hotice が売っているのは、<em>"翻訳"</em>。<br>ブランドの〈機能〉を、ユーザーの〈体験〉に変える。</div>
+        <div class="sub">スペック／ブランドメッセージだけでは、もう人は動かない。クリエイターの視点を通して「自分ごと化」できる言葉に変換するのが、われわれの価値。</div>
+      </div>
+      <div class="pageno">P6</div>
+    </div>
+
+    <!-- Flow: Brand → hotice → Creator → User -->
+    <div class="trFlow">
+      <div class="node brand">
+        <div class="ico">BRAND</div>
+        <div class="lab">企業・ブランド</div>
+        <div class="sub">機能・スペック・訴求点</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node us">
+        <div class="ico">HOTICE</div>
+        <div class="lab">翻訳者</div>
+        <div class="sub">意図を外さず、言葉と見せ方を組み換え</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node creator">
+        <div class="ico">CREATOR</div>
+        <div class="lab">クリエイター</div>
+        <div class="sub">自分の言葉／日常に落とす</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="node user">
+        <div class="ico">USER</div>
+        <div class="lab">ユーザー</div>
+        <div class="sub">共感・信頼・購買</div>
+      </div>
+    </div>
+
+    <!-- 3 translation examples -->
+    <div class="trCards">
+      <div class="trCard">
+        <div class="b before">
+          <div class="tag">BRAND SAYS ／ 機能</div>
+          <div class="txt">最大 -30dB のノイキャン</div>
+        </div>
+        <div class="bridge">▶︎</div>
+        <div class="b after">
+          <div class="tag">USER HEARS ／ 体験</div>
+          <div class="txt">寝るとき定番。騒音で起きない</div>
+        </div>
+      </div>
+      <div class="trCard">
+        <div class="b before">
+          <div class="tag">BRAND SAYS ／ 機能</div>
+          <div class="txt">8K／HDR10+／120Hz 対応</div>
+        </div>
+        <div class="bridge">▶︎</div>
+        <div class="b after">
+          <div class="tag">USER HEARS ／ 体験</div>
+          <div class="txt">リビングが映画館になる</div>
+        </div>
+      </div>
+      <div class="trCard">
+        <div class="b before">
+          <div class="tag">BRAND SAYS ／ 機能</div>
+          <div class="txt">独自成分でシミ予防・肌強化</div>
+        </div>
+        <div class="bridge">▶︎</div>
+        <div class="b after">
+          <div class="tag">USER HEARS ／ 体験</div>
+          <div class="txt">朝5分で完結する時短ケア</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trSato">
+      <div class="k">THE TAKE</div>
+      <div>
+        良い広告は <em>情報</em> を正しく伝える。良いインフルエンサー施策は <em>意味</em> を<br>ユーザーの言葉に書き換える ── そこが hotice の職能。
+      </div>
+    </div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P6 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="s3">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Landscape ｜ 代理店パートナー比較</div>
+        <div class="h1">代理店が <em>hotice を組む理由</em> を、6社比較で。</div>
+        <div class="sub">hoticeは <em>ROAS直結 × グローバル × 協業柔軟性</em> の交差点。代理店のパートナー陣の中で、他社では埋めにくい役割を担います。</div>
+      </div>
+      <div class="pageno">P7</div>
+    </div>
+
+    <table class="comp">
+      <colgroup>
+        <col class="axis">
+        <col class="us">
+        <col class="comp">
+        <col class="comp">
+        <col class="comp">
+        <col class="comp">
+        <col class="comp">
+      </colgroup>
+      <thead>
+        <tr>
+          <th style="text-align:left">比較軸</th>
+          <th class="us">hotice</th>
+          <th>CARTA<br><span style="font-weight:400;font-size:9.5px;opacity:.75">ドコモ子会社</span></th>
+          <th>AnyMind</th>
+          <th>UUUM<br><span style="font-weight:400;font-size:9.5px;opacity:.75">2025/1上場廃止</span></th>
+          <th>BitStar</th>
+          <th>TORIHADA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="dim">稼働マーケット<br><span style="font-weight:400;color:#888;font-size:10.5px">国数／拠点</span></td>
+          <td class="us num">アジア＋欧米<br><span style="color:#888;font-size:10.5px">複数市場稼働</span></td>
+          <td>国内中心</td>
+          <td>15拠点 / 45+国地域<br><span style="color:#888;font-size:10.5px">AnyTag DBカバレッジ</span></td>
+          <td>国内中心</td>
+          <td>日本＋インドネシア<br><span style="color:#888;font-size:10.5px">2024進出</span></td>
+          <td>国内中心</td>
+        </tr>
+        <tr>
+          <td class="dim">稼働ベース規模<br><span style="font-weight:400;color:#888;font-size:10.5px">実稼働／累計DB／非公表</span></td>
+          <td class="us num">稼働 25,000+<br><span style="color:#888;font-size:10.5px">アジア圏・直リレ 1,000名</span></td>
+          <td>非公表</td>
+          <td>DB 100万+<br><span style="color:#888;font-size:10.5px">ツール上の登録数</span></td>
+          <td>非公表</td>
+          <td>累計DB 400万+<br><span style="color:#888;font-size:10.5px">稼働数は非公表</span></td>
+          <td>所属 5,000+</td>
+        </tr>
+        <tr>
+          <td class="dim">言語対応<br><span style="font-weight:400;color:#888;font-size:10.5px">バイリンガル体制</span></td>
+          <td class="us">日・英・中・韓 対応</td>
+          <td>日本語中心</td>
+          <td>英・日・APAC各国語</td>
+          <td>日本語中心</td>
+          <td>日・英（拡張中）</td>
+          <td>日本語中心</td>
+        </tr>
+        <tr>
+          <td class="dim">ホワイトラベル<br><span style="font-weight:400;color:#888;font-size:10.5px">公式提供の有無</span></td>
+          <td class="us">◎ 公式提供<br><span style="color:#888;font-size:10.5px">御社 100% クレジット維持</span></td>
+          <td>総合代理店ブランド前面<br><span style="color:#888;font-size:10.5px">自社クレジットで動く</span></td>
+          <td>SaaS・直販中心<br><span style="color:#888;font-size:10.5px">協業もあり（自社名義）</span></td>
+          <td>所属タレント名で起用<br><span style="color:#888;font-size:10.5px">HIKAKIN 等 名前前提</span></td>
+          <td>AI 分析・協業が主軸</td>
+          <td>キャスティング特化</td>
+        </tr>
+        <tr>
+          <td class="dim">短納期への対応<br><span style="font-weight:400;color:#888;font-size:10.5px">急ぎ案件の受け皿</span></td>
+          <td class="us">最短 2週間<br><span style="color:#888;font-size:10.5px">1,000名と直接契約済みのため即時起用可</span></td>
+          <td>4〜8週（大手標準）</td>
+          <td>SaaS即時／実装1〜2ヶ月</td>
+          <td>1〜2ヶ月</td>
+          <td>3〜4週</td>
+          <td>1ヶ月前後</td>
+        </tr>
+        <tr>
+          <td class="dim">インフルエンサー<br>領域の強み<br><span style="font-weight:400;color:#888;font-size:10.5px">2024-2026 公表から</span></td>
+          <td class="us"><b>インバウンド × 成果型実装</b><br><span style="color:#888;font-size:10.5px">日本在住外国人CR<br>× アジア4拠点連携</span></td>
+          <td><b>ソーシャル外への二次拡散</b><br><span style="color:#888;font-size:10.5px">自社広告網 PORTO 経由で<br>投稿を外部媒体へ拡散配信</span></td>
+          <td><b>多国 × AI 運用のSaaS</b><br><span style="color:#888;font-size:10.5px">8プラットフォーム横断<br>／業界賞受賞</span></td>
+          <td><b>国内トップYouTuber人脈</b><br><span style="color:#888;font-size:10.5px">HIKAKIN 等 約200組<br>と専属契約</span></td>
+          <td><b>データ × AIの客観選定</b><br><span style="color:#888;font-size:10.5px">150万PR投稿実績<br>× AI推薦特許 2件</span></td>
+          <td><b>TikTok／縦型動画特化</b><br><span style="color:#888;font-size:10.5px">TikTok公認MCN<br>9,000組提携</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cNote" style="margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:10.5px;color:#888;line-height:1.75">※ 2026年4月時点・公開情報ベース（各社公式サイト／IR／プレス）。AnyMind: AnyTag／UUUM: JPX・FreakOut HD完全子会社・2025/1上場廃止／CARTA: 2025/9〜ドコモ51%子会社・電通GはJV持分／BitStar: Indonesia進出2024。標準リードタイムは各社非公表。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P7 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p8a">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Why hotice ｜ 代理店が hotice を選ぶ理由</div>
+        <div class="h1">hoticeの強みは、<br><em>スピード × 成果 × 協業</em> の <em>3点セット</em>。</div>
+        <div class="sub">AnyMindなどのプラットフォーム型とは用途が違う。<b>スポット・機動・ROAS直結・代理店協業</b> が要る場面では hotice が第一候補になる。</div>
+      </div>
+      <div class="pageno">P8</div>
+    </div>
+
+    <div class="why3">
+      <!-- REASON 1 : SPEED -->
+      <div class="c">
+        <div class="num">REASON 01</div>
+        <div class="why">SPEED ／ 速さ</div>
+        <div class="big red">2<span class="u">週間</span></div>
+        <div class="ttl">決定→投稿まで <em>最短2週間</em>。<br>機動案件でも崩れない体制。</div>
+        <div class="body"><b>1,000名のクリエイターと直接契約済</b>で新規交渉が不要。意思決定は中1日、契約書もテンプレ化済。<br><span style="color:#888;font-size:11px">※ 条件：〜15名・国内・契約済クリエイター。大規模／多国／新規起用は 4-8週。</span></div>
+        <div class="cmp"><b>他社比較：</b>業界標準は1〜2ヶ月、急ぎ案件は断られるか品質が落ちる</div>
+      </div>
+
+      <!-- REASON 2 : PERFORMANCE -->
+      <div class="c">
+        <div class="num">REASON 02</div>
+        <div class="why">PERFORMANCE ／ 成果</div>
+        <div class="big">600<span class="u">%</span></div>
+        <div class="ttl">平均ROAS <em>600%</em>。<br>「リーチ」ではなく「売上」で勝負。</div>
+        <div class="body">Amazon EC訴求を中心に累計1,000投稿超。ガジェット／家電／美容領域で <b>過去50億円の販売データ</b> を元に、結果を出すクリエイターをアサイン。</div>
+        <div class="cmp"><b>他社比較：</b>大手はリーチ型中心、ROAS 連続運用の実績は hotice が豊富</div>
+      </div>
+
+      <!-- REASON 3 : PARTNERSHIP -->
+      <div class="c">
+        <div class="num">REASON 03</div>
+        <div class="why">PARTNERSHIP ／ 協業</div>
+        <div class="big red">10<span class="u">カ国+</span></div>
+        <div class="ttl"><em>ホワイトラベル</em>で、<br>御社名義で前面に立てる。</div>
+        <div class="body">代理店の外部実装レイヤーとして設計。提案・PM常駐・レポートまで <b>御社名義で対応可</b>。APAC＋米欧豪10カ国+で、グローバル案件も一気通貫。</div>
+        <div class="cmp"><b>他社比較：</b>UUUM／AnyMindは直販優先、国内中堅は国内のみ</div>
+      </div>
+    </div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P8 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p9">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Strength 01 ｜ Global Implementation</div>
+        <div class="h1"><em>現地パートナーとの密連携 × 日本チームによる品質管理</em>で、<br>グローバル案件の<em>品質</em>を落とさない。</div>
+        <div class="sub">各市場の現地ネットワークと密に連携して <b>現地文化・商習慣に根ざした投稿</b> を設計。加えて日本側で <b>品質管理・投稿前チェック・レポーティング</b> まで一貫対応 ── 文化を外さず、ブランドセーフティも守る二重レイヤー体制。</div>
+      </div>
+      <div class="pageno">P9</div>
+    </div>
+
+    <div class="glb">
+      <!-- REGION GRID -->
+      <div class="regionWrap">
+        <h4>— ACTIVE MARKETS / 稼働マーケット</h4>
+        <div class="regionHero">
+          <div class="big">10<span class="u">カ国+</span></div>
+          <div class="lab"><b>現地稼働 × 日本側の品質管理</b> の二重レイヤー。<br>現地文化への深い理解と、日本基準の品質ゲートを同時に担保。</div>
+        </div>
+        <div class="regionGroup">
+          <div class="gn">HQ ／ 本社</div>
+          <div class="gt">
+            <span class="hq">日本 ● 東京</span>
+          </div>
+        </div>
+        <div class="regionGroup">
+          <div class="gn">APAC ／ 近隣市場</div>
+          <div class="gt">
+            <span>韓国</span>
+            <span>台湾</span>
+            <span>中国</span>
+            <span>香港</span>
+            <span>タイ</span>
+            <span>ベトナム</span>
+            <span>フィリピン</span>
+            <span>シンガポール</span>
+            <span>インドネシア</span>
+          </div>
+        </div>
+        <div class="regionGroup">
+          <div class="gn">AMERICAS ／ 米州</div>
+          <div class="gt">
+            <span>アメリカ</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT STATS + TIERS -->
+      <div class="glbStats">
+        <div class="glbStat">
+          <div class="n red">25,000<span class="u">名+</span></div>
+          <div class="txt"><b>海外インフルエンサーDB</b>提案可能な海外クリエイター総数（日本含む）</div>
+        </div>
+        <div class="glbStat">
+          <div class="n">1,000<span class="u">名</span></div>
+          <div class="txt"><b>直接リレーション</b>hotice が個別契約・定期稼働しているコア層</div>
+        </div>
+        <div class="glbStat">
+          <div class="n red">日英中韓<span class="u"></span></div>
+          <div class="txt"><b>バイリンガル対応</b>現地語での交渉・撮影同行・レポーティング</div>
+        </div>
+
+        <div class="tierBox">
+          <h5>— ACTIVE USE CASES / 活用パターン</h5>
+          <div class="tierRow"><div class="tn">01</div><div class="tc"><b>インバウンド集客</b><br><span style="color:#888;font-size:10.5px">台湾・韓国・タイ起点で空港／都心POS売上UP</span></div><div class="tv">資生堂様</div></div>
+          <div class="tierRow"><div class="tn">02</div><div class="tc"><b>APACキャンペーン</b><br><span style="color:#888;font-size:10.5px">ブランド統一訴求の多国同時投下</span></div><div class="tv">Samsung様</div></div>
+          <div class="tierRow"><div class="tn">03</div><div class="tc"><b>越境EC</b><br><span style="color:#888;font-size:10.5px">現地CR × 海外ECモールで販売促進</span></div><div class="tv">多数クライアント実績有</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="srcLine">出典：hotice 自社ネットワーク（2024年12月時点）／稼働実績ベース。提携MCN・事務所名は個別にご相談ください。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P9 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p10">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Strength 02 ｜ Speed × Quality</div>
+        <div class="h1">最短 <em>2週間</em> で、事故率 <em>0件</em>。<br>スピードと品質を、両立させる。</div>
+        <div class="sub">20名の少数精鋭＋バイリンガル体制＋1,000名との直接リレーション。意思決定から投稿まで、<b>間に挟まるレイヤーをゼロ</b>にする設計。</div>
+      </div>
+      <div class="pageno">P10</div>
+    </div>
+
+    <div class="sqHero">
+      <div class="sqCard red">
+        <div class="v red">2<span class="u">週間</span></div>
+        <div class="sqR">
+          <div class="lb">SPEED ／ スピード</div>
+          <h3>決定→投稿までの <em>最短納期</em>。</h3>
+          <div class="d">フラット組織 × 少数精鋭で、営業〜PM〜ディレクションの <b>判断が中1日で完結</b>。短納期案件にも専任体制で対応。</div>
+        </div>
+      </div>
+      <div class="sqCard">
+        <div class="v">0<span class="u">件</span></div>
+        <div class="sqR">
+          <div class="lb">QUALITY ／ 品質</div>
+          <h3>過去5年、<em>重大事故ゼロ</em>の運用実績。</h3>
+          <div class="d">炎上・権利問題・PR違反を徹底フィルタ。ステマ規制（2023年）以降も即応するレギュレーション反映の <b>事故検知プロセスを内製</b>。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl">
+      <h4>— 最短2週間の内訳 ／ Typical 2-Week Timeline</h4>
+      <div class="tlGrid">
+        <div class="tlStep start">
+          <div class="w">Day 0–2</div>
+          <div class="ph">BRIEF</div>
+          <div class="ta">ブリーフ＆人選</div>
+          <div class="td">ターゲット・KPI・予算のヒアリング／1stキャスティング提案</div>
+        </div>
+        <div class="tlStep">
+          <div class="w">Day 3–6</div>
+          <div class="ph">CREATIVE</div>
+          <div class="ta">確定＆コンセプト</div>
+          <div class="td">クリエイター最終決定／投稿シナリオ作成</div>
+        </div>
+        <div class="tlStep">
+          <div class="w">Day 7–10</div>
+          <div class="ph">PRODUCTION</div>
+          <div class="ta">撮影・編集・確認</div>
+          <div class="td">撮影／ブランド確認／修正反映</div>
+        </div>
+        <div class="tlStep">
+          <div class="w">Day 11–14</div>
+          <div class="ph">LAUNCH</div>
+          <div class="ta">投稿＆速報</div>
+          <div class="td">ソーシャル投稿／48hで実績スナップショット送付</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmpRow">
+      <div class="cmpBox them">
+        <div class="t">業界一般</div>
+        <div class="v">1〜2ヶ月</div>
+        <div class="d">大手・中堅は多層PM体制でリードタイム長め。急ぎ案件は断られるか、品質が落ちる</div>
+      </div>
+      <div class="cmpBox us">
+        <div class="t">HOTICE</div>
+        <div class="v">2週間</div>
+        <div class="d">最短は業界の約 <b>1/3〜1/4</b>。さらに事故率 0件を維持 ── スピードを取りにいくほど、品質管理が重要</div>
+      </div>
+    </div>
+
+    <div class="srcLine">出典：hotice 自社実績（2021-2024 全案件の平均デリバリーおよび重大事故カウント）／業界ベンチマークは公開情報およびヒアリング。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P10 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="s1">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Proof ｜ 2024 Performance</div>
+        <div class="h1">数字で示す、<em>hoticeの現在地</em>。</div>
+        <div class="sub">年間売上創出・ROAS・運用規模。代理店様の稟議にそのまま使える粒度で。</div>
+      </div>
+      <div class="pageno">P11</div>
+    </div>
+
+    <div class="kpiGrid">
+      <div class="kpi red">
+        <div class="label">ANNUAL GMV CREATED ／ 年間売上創出</div>
+        <div>
+          <span class="num l">¥5B<span class="unit">+</span></span>
+        </div>
+        <div class="foot">2024年 hotice経由で発生したブランド側売上（Amazon / EC / 直販 合算）</div>
+      </div>
+      <div class="kpi">
+        <div class="label">MAX ROAS ／ 最大ROAS</div>
+        <div>
+          <span class="num l" style="color:var(--red)">20,000<span class="unit" style="color:var(--red)">%</span></span>
+        </div>
+        <div class="foot">Amazonセール訴求・ガジェット案件の単月ピーク</div>
+      </div>
+      <div class="kpi dark">
+        <div class="label">AVG ROAS ／ 平均ROAS</div>
+        <div>
+          <span class="num l">600<span class="unit">%</span></span>
+        </div>
+        <div class="foot">Amazon アフィリエイト施策の加重平均（年間）</div>
+      </div>
+
+      <div class="kpi">
+        <div class="label">INFLUENCER NETWORK ／ 提案可能規模</div>
+        <div>
+          <span class="num m">25,000<span class="unit">名+</span></span>
+        </div>
+        <div class="foot">海外25,000名／国内5,000名。うち1,000名の個人と直接リレーション</div>
+      </div>
+      <div class="kpi">
+        <div class="label">GLOBAL REACH ／ 稼働国数</div>
+        <div>
+          <span class="num m">10<span class="unit">カ国+</span></span>
+        </div>
+        <div class="foot">APAC中心＋米・欧・豪。現地事務所ネットワークと提携</div>
+      </div>
+      <div class="kpi">
+        <div class="label">AMAZON POSTS ／ 累計投稿</div>
+        <div>
+          <span class="num m">1,000<span class="unit">件+</span></span>
+        </div>
+        <div class="foot">月20〜100名規模で運用。ECモール訴求の実装数は業界随一</div>
+      </div>
+    </div>
+
+    <div class="footnote">※ 数字は2024年1月〜12月の自社実績。ROASは各案件のクライアント計測値に基づく加重平均。案件別の内訳は P12〜15 のケーススタディ参照。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P11 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p12">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Case 01 ｜ 資生堂様 × hotice ／ インバウンド</div>
+        <div class="h1">資生堂様 免税事業の<em>訪日客</em>を、<br>台湾・韓国・タイから<em>呼び込む</em>。</div>
+        <div class="sub">羽田空港「SHISEIDO HANEDA BOUTIQUE」への訪日客誘致。主要アジア3市場の現地インフルエンサーを起用、渡航〜撮影まで全コーディネート。</div>
+      </div>
+      <div class="pageno">P12</div>
+    </div>
+
+    <div class="caseMeta">
+      <div><div class="lab">CLIENT</div><div class="val red">資生堂様 ／ ザ・ギンザ（免税事業）</div></div>
+      <div><div class="lab">INDUSTRY</div><div class="val">化粧品・トラベルリテール</div></div>
+      <div><div class="lab">MARKETS</div><div class="val">台湾 ／ 韓国 ／ タイ</div></div>
+      <div><div class="lab">FORMAT</div><div class="val">グローバル・インバウンド実装</div></div>
+    </div>
+
+    <div class="caseBody">
+      <div class="caseCol left">
+        <h4>— APPROACH ／ 打ち手</h4>
+        <div class="phase">
+          <div class="pl">01 ── KPI / TARGETING</div>
+          <div class="pv">羽田空港ブティックの<b>訪日客認知拡大</b>。免税購買実績上位国を狙う。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">02 ── CASTING</div>
+          <div class="pv">台湾・韓国・タイの <b>美容／トラベル系</b> インフルエンサーを厳選。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">03 ── EXECUTION</div>
+          <div class="pv">航空券・ホテル・撮影まで <b>全旅程コーディネート</b>、現地語スタッフ同行。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">04 ── DELIVERY</div>
+          <div class="pv">各国SNSで訪日体験コンテンツを配信。</div>
+        </div>
+      </div>
+
+      <div class="caseCol right">
+        <h4>— RESULT ／ 成果</h4>
+        <div class="caseResult">
+          <div class="rn" style="color:#fff">3<span style="font-size:20px;font-weight:800;margin-left:4px">カ国</span></div>
+          <div class="rl">主要アジア市場 同時展開</div>
+          <div class="rd">台湾・韓国・タイの免税購買実績上位国を、単発キャンペーンではなく<b style="color:#FF7A86">現地語×現地文脈×現地導線</b>で同時に攻める。</div>
+        </div>
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2)">
+          <div class="phase">
+            <div class="pl">認知</div>
+            <div class="pv">主要アジア市場での <b>店舗認知向上</b> に貢献</div>
+          </div>
+          <div class="phase">
+            <div class="pl">決め手</div>
+            <div class="pv">現地インフルエンサーに加え <b>hoticeの全旅程アテンド体制</b> が決め手になった</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caseNote"><b>※ 出典</b>：hotice 公式プレスリリース（PR TIMES #115672「アジア圏インフルエンサー25,000名超キャスティング」）／ SHISEIDO HANEDA BOUTIQUE 公式。定量数値は当社実績に基づく定性整理。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P12 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p13">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Specialization ｜ Amazon EC × hotice</div>
+        <div class="h1">Amazonセール訴求なら、<br><em>Amazonセール案件の実績とノウハウ</em>で hotice へ。</div>
+        <div class="sub">プライムデー／ブラックフライデー／年末商戦など、<b>短期集中 × ROAS直結</b>のセール案件は、競合が手薄な空白帯。ここで hoticeは4年連続の実装実績を積んでいる。</div>
+      </div>
+      <div class="pageno">P13</div>
+    </div>
+
+    <div class="ama">
+      <!-- LEFT : NUMBERS -->
+      <div class="amaLeft">
+        <div class="lead">"Amazon EC × インフルエンサー" の<br><em>Amazonセール案件での実装経験</em>。</div>
+        <div class="amaKpi">
+          <div>
+            <div class="kn red">20,000<span class="u">%</span></div>
+            <div class="kl">MAX ROAS ／ 最大</div>
+            <div class="kd">ガジェット案件・単月ピーク</div>
+          </div>
+          <div>
+            <div class="kn">600<span class="u">%</span></div>
+            <div class="kl">AVG ROAS ／ 年間平均</div>
+            <div class="kd">全Amazon案件加重平均</div>
+          </div>
+          <div>
+            <div class="kn">1,000<span class="u">件+</span></div>
+            <div class="kl">AMAZON POSTS ／ 累計投稿</div>
+            <div class="kd">国内インフルエンサーによる訴求</div>
+          </div>
+          <div>
+            <div class="kn">20-100<span class="u">名/月</span></div>
+            <div class="kl">MONTHLY SCALE ／ 月次運用規模</div>
+            <div class="kd">同時並走可能なキャスティング</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT : BRANDS + WHITESPACE -->
+      <div class="amaRight">
+        <h4>過去実装ブランド様（ガジェット／家電中心）</h4>
+        <div class="brandG">
+          <span>JBL様</span>
+          <span>SHARP様</span>
+          <span>LENOVO様</span>
+          <span>DYSON様</span>
+          <span>SONY様</span>
+          <span>SHARK様</span>
+          <span>PHILIPS様</span>
+          <span>NOTHING様</span>
+          <span>+ more</span>
+        </div>
+        <div class="ws">
+          <em>なぜ Amazon 日本 × インフルエンサーは hotice なのか</em><br>
+          ・Amazon 日本プログラム（2023/7開始）を<em>初期から継続運用</em>、累計 <b>1,000 投稿超</b><br>
+          ・ガジェット／家電／美容 ブランドで、<b>月 20〜100名のインフルエンサー</b> を同時並行で運用した経験<br>
+          ・これまで <b>50億円超の販売</b> を生み出した実績から、<em>どの商品・価格帯・時期に どのタイプのインフルエンサーが売れるか</em> を把握<br>
+          ・プライムデー／ブラックフライデー／年末商戦 の <b>運用テンプレート</b> を保有<br>
+          ・平均 ROAS 600%、単月最大 20,000% の実績を<em>クライアント別に保持</em>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="srcLine">出典：hotice 自社実績（2021-2024・累計1,000投稿超・月20-100名運用）／
+      <a href="https://affiliate.amazon.co.jp/influencers" target="_blank">Amazonインフルエンサープログラム 公式</a>（日本2023年7月開始）</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P13 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p14">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Case 02 ｜ グローバル新業態カフェ ／ 新店OPEN</div>
+        <div class="h1">大阪・福岡の新店開業、<br>初動は<em>地域密着インフルエンサー</em>で押し上げる。</div>
+        <div class="sub">グローバルアパレル発のカフェ新業態による大阪・福岡の初出店／国内複数店舗目。開業プレイベントに地域特化のインフルエンサーを動員し、ソーシャル起点で初週動員を押し上げる。</div>
+      </div>
+      <div class="pageno">P14</div>
+    </div>
+
+    <div class="caseMeta">
+      <div><div class="lab">CLIENT</div><div class="val red">グローバル新業態カフェ<span style="font-weight:500;color:#999;font-size:10px">（社名開示は口頭で）</span></div></div>
+      <div><div class="lab">INDUSTRY</div><div class="val">F&amp;B／ライフスタイル</div></div>
+      <div><div class="lab">MARKETS</div><div class="val">大阪 ／ 福岡（国内）</div></div>
+      <div><div class="lab">FORMAT</div><div class="val">イベント＋ソーシャル動員</div></div>
+    </div>
+
+    <div class="caseBody">
+      <div class="caseCol left">
+        <h4>— APPROACH ／ 打ち手</h4>
+        <div class="phase">
+          <div class="pl">01 ── INSIGHT</div>
+          <div class="pv">開業初週の <b>ソーシャル体験投稿</b> が長期来店の起点になる。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">02 ── CASTING</div>
+          <div class="pv">地域別に <b>ローカルインフルエンサー 約50名</b> をアサイン。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">03 ── EXECUTION</div>
+          <div class="pv">開業前内覧で <b>世界観×メニュー×空間</b> を体験投稿、hotice が統一管理。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">04 ── DELIVERY</div>
+          <div class="pv">オープン初週に投稿集中、来店導線と連携。</div>
+        </div>
+      </div>
+
+      <div class="caseCol right">
+        <h4>— RESULT ／ 成果</h4>
+        <div class="caseResult">
+          <div class="rn" style="color:#fff">~50<span style="font-size:20px;font-weight:800;margin-left:4px">名/地域</span></div>
+          <div class="rl">プレイベント動員</div>
+          <div class="rd">大阪・福岡それぞれ同規模のローカル・ボリュームを同時投下。<b style="color:#FF7A86">オープン当日から ソーシャルで話題の店</b> に。</div>
+        </div>
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2)">
+          <div class="phase">
+            <div class="pl">認知</div>
+            <div class="pv">地域オーディエンスに対する <b>新店オープン直後のソーシャル話題化</b>に貢献</div>
+          </div>
+          <div class="phase">
+            <div class="pl">決め手</div>
+            <div class="pv">新店OPEN案件では <b>地域別に人選基準を変える</b> ことがプレイベント動員の鍵</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caseNote"><b>※ 注</b>：クライアント実名はミーティング時に口頭で共有いたします。数値・施策範囲は当社実績に基づく概算。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P14 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p15">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Case 03 ｜ 急成長ウェルネスD2C ／ 短納期3週間</div>
+        <div class="h1">上場D2Cの短納期リクエストを、<em>3週間</em>で完遂。<br>ジャンル横断で30名を同時展開。</div>
+        <div class="sub">急成長中のウェルネスD2C（上場企業）による短納期キャンペーン。子育て・フィットネス・ペット等のジャンル別にインフルエンサーを並走アサインし、3週間で投稿まで完了。</div>
+      </div>
+      <div class="pageno">P15</div>
+    </div>
+
+    <div class="caseMeta">
+      <div><div class="lab">CLIENT</div><div class="val red">急成長ウェルネスD2C<span style="font-weight:500;color:#999;font-size:10px">（上場企業・社名非開示）</span></div></div>
+      <div><div class="lab">INDUSTRY</div><div class="val">ウェルネス／スリープ／生活用品</div></div>
+      <div><div class="lab">MARKETS</div><div class="val">国内</div></div>
+      <div><div class="lab">FORMAT</div><div class="val">短納期・ジャンル横断</div></div>
+    </div>
+
+    <div class="caseBody">
+      <div class="caseCol left">
+        <h4>— APPROACH ／ 打ち手</h4>
+        <div class="phase">
+          <div class="pl">01 ── CONSTRAINT</div>
+          <div class="pv">ブランド側事情で <b>1ヶ月未満の短納期</b>。業界標準（1〜2ヶ月）では不可能。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">02 ── CASTING</div>
+          <div class="pv"><b>子育て／フィットネス／ペット</b> のジャンル別 Tribe × 各10名 × 計30名体制。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">03 ── EXECUTION</div>
+          <div class="pv">多重並列化 ＋ バイリンガルPMが <b>日次で30名進行管理</b>。</div>
+        </div>
+        <div class="phase">
+          <div class="pl">04 ── DELIVERY</div>
+          <div class="pv"><b>3週間で全員投稿完了</b>、違反ゼロを担保。</div>
+        </div>
+      </div>
+
+      <div class="caseCol right">
+        <h4>— RESULT ／ 成果</h4>
+        <div class="caseResult">
+          <div class="rn" style="color:#fff">3<span style="font-size:20px;font-weight:800;margin-left:4px">週間</span></div>
+          <div class="rl">決定 → 全員投稿完了</div>
+          <div class="rd">業界標準（1〜2ヶ月）の <b style="color:#FF7A86">約1/3〜1/4</b> で、30名規模・3ジャンル横断のキャンペーンを事故ゼロで完遂。</div>
+        </div>
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.2)">
+          <div class="phase">
+            <div class="pl">認知</div>
+            <div class="pv">子育て・フィットネス・ペット層へ<b>3週間で同時に届けた</b></div>
+          </div>
+          <div class="phase">
+            <div class="pl">決め手</div>
+            <div class="pv">上場企業の短納期案件は <b>"少数精鋭＋並列運用"</b> の体制でのみ受けられる</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caseNote"><b>※ 注</b>：上場企業のフェアディスクロージャーを配慮しクライアント実名は非開示。面談時に口頭共有いたします。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P15 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p16">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Engagement ｜ 代理店との3つの組み方</div>
+        <div class="h1">代理店様との組み方は、<em>3つのパターン</em>。<br>御社の状況に合わせてお選びいただけます。</div>
+        <div class="sub">稟議・クレジット・人員の状況に応じて、フロント露出度と実装関与度を柔軟に設計。いずれも御社名義で前面対応が可能。</div>
+      </div>
+      <div class="pageno">P16</div>
+    </div>
+
+    <div class="pm">
+      <!-- MODE 01 : Co-proposal (PRE-PITCH) -->
+      <div class="pmCard">
+        <div class="hd">
+          <div class="k">MODE 01 ／ ピッチ段階から</div>
+          <div class="t">共同提案型</div>
+        </div>
+        <div class="bd">
+          <div class="row"><div class="k">タイミング</div><div class="v"><b>案件獲得前</b>（新規ピッチ・コンペ段階）から参画</div></div>
+          <div class="row"><div class="k">範囲</div><div class="v">企画書作成からプレゼン同席・受注後の実装まで</div></div>
+          <div class="row"><div class="k">露出</div><div class="v"><b>御社 × hotice の連名</b> で開示</div></div>
+          <div class="row"><div class="k">ベスト</div><div class="v">インフルエンサー専門性を <b>ピッチで武器化</b> したい新規案件</div></div>
+        </div>
+      </div>
+
+      <!-- MODE 02 : White-label (FEATURED) -->
+      <div class="pmCard featured">
+        <div class="hd">
+          <div class="k">MODE 02 ／ ご要望最多・推奨</div>
+          <div class="t"><em>ホワイトラベル</em>型</div>
+        </div>
+        <div class="bd">
+          <div class="row"><div class="k">タイミング</div><div class="v"><b>案件獲得後</b>に丸ごと委任</div></div>
+          <div class="row"><div class="k">範囲</div><div class="v"><b>戦略＋実装</b> すべて（企画から投稿まで）</div></div>
+          <div class="row"><div class="k">露出</div><div class="v"><b>御社名義のみ</b>。hotice は完全裏方</div></div>
+          <div class="row"><div class="k">ベスト</div><div class="v">売上 <b>100% 計上</b> を維持しつつ戦略ごと委任</div></div>
+        </div>
+      </div>
+
+      <!-- MODE 03 : Execution Vendor -->
+      <div class="pmCard">
+        <div class="hd">
+          <div class="k">MODE 03 ／ 受注後・実装のみ</div>
+          <div class="t">実行サポート型</div>
+        </div>
+        <div class="bd">
+          <div class="row"><div class="k">タイミング</div><div class="v"><b>企画が固まってから</b>実装段階で参画</div></div>
+          <div class="row"><div class="k">範囲</div><div class="v"><b>実装のみ</b>（キャスティング〜撮影〜納品）</div></div>
+          <div class="row"><div class="k">露出</div><div class="v"><b>協力会社</b>として開示可</div></div>
+          <div class="row"><div class="k">ベスト</div><div class="v">企画は御社、<b>実装リソースが不足</b>した案件</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pmFoot">
+      <div class="k">THE TAKE</div>
+      <div class="v">
+        いずれのモードも、<em>御社名義で前面に立てる</em> 設計。代理店内のクレジット・稟議構造に合わせて、後から切替も可能です。
+      </div>
+    </div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P16 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide" id="p17">
+  <div class="frame">
+    <div class="sheetHead">
+      <div>
+        <div class="tag">Operations ｜ 料金・体制・納期</div>
+        <div class="h1">稟議で使える、<em>現実的な予算感</em>。</div>
+        <div class="sub">金額・体制・リードタイムの3軸で、目安レンジを開示。最終見積は案件ヒアリング後に確定します。</div>
+      </div>
+      <div class="pageno">P17</div>
+    </div>
+
+    <div class="pg">
+      <!-- PRICING -->
+      <div class="pgCol red">
+        <div class="ic">01 — PRICING</div>
+        <h3>料金レンジ（<em>案件規模別</em>）</h3>
+        <div class="pgRow"><div class="t">スポット</div><div class="d"><b>1案件 300万〜</b><br>5-15名／単発ソーシャル投稿</div></div>
+        <div class="pgRow"><div class="t">月次運用</div><div class="d"><b>月 500-2,000万</b><br>Amazon／EC訴求・20-100名/月</div></div>
+        <div class="pgRow"><div class="t">グローバル</div><div class="d"><b>別途見積</b><br>多国同時・現地撮影込</div></div>
+        <div class="pgRow"><div class="t">イベント</div><div class="d"><b>別途見積</b><br>新店OPEN・フェス等</div></div>
+        <div class="pgNote">※ 金額は税抜、制作・クリエイター費・運用費込のガイドレンジ。代理店マージンは別途協議。</div>
+      </div>
+
+      <!-- TEAM -->
+      <div class="pgCol">
+        <div class="ic">02 — TEAM</div>
+        <h3>専任体制（<em>案件別</em>）</h3>
+        <div class="pgRow"><div class="t">PM</div><div class="d"><b>1名常駐</b><br>進行管理・レポーティング</div></div>
+        <div class="pgRow"><div class="t">キャスター</div><div class="d"><b>1-2名</b><br>人選・交渉・契約</div></div>
+        <div class="pgRow"><div class="t">ディレクター</div><div class="d"><b>1名</b><br>シナリオ・撮影・演出</div></div>
+        <div class="pgRow"><div class="t">グローバル</div><div class="d"><b>日英中</b>対応可<br>バイリンガル優先アサイン</div></div>
+        <div class="pgNote">※ 御社のPM／営業が前面の場合、hoticeチームは裏方ロールで稼働。</div>
+      </div>
+
+      <!-- DELIVERY -->
+      <div class="pgCol red">
+        <div class="ic">03 — DELIVERY</div>
+        <h3>納期目安（<em>決定 → 投稿</em>）</h3>
+        <div class="pgRow"><div class="t">短納期</div><div class="d"><b>2週間</b><br>小規模・日本国内中心</div></div>
+        <div class="pgRow"><div class="t">標準</div><div class="d"><b>3-4週間</b><br>20名規模まで</div></div>
+        <div class="pgRow"><div class="t">大規模</div><div class="d"><b>6-8週間</b><br>100名規模／多国同時</div></div>
+        <div class="pgRow"><div class="t">レポート</div><div class="d"><b>48h 速報</b> ＋<br>2週後 <b>最終レポート</b></div></div>
+        <div class="pgNote">※ 短納期モードは事前キャパ確保が必要。初期ヒアリング時にご相談ください。</div>
+      </div>
+    </div>
+
+    <div class="srcLine">出典：hotice 自社実績（2024年実施の全案件レンジ）／ 金額・体制は代表的なガイド値で、案件内容により増減します。</div>
+
+    <div class="brand">hotice</div>
+    <div class="page">P17 / 18</div>
+  </div>
+</section></div>
+
+<div class="slideWrap"><section class="slide cta" id="p18">
+  <div class="frame">
+    <div class="top">LET'S TALK ｜ 次のステップ</div>
+
+    <div>
+      <h1><em>"買いたい"</em>を、<br>売上まで一緒に届けましょう。</h1>
+      <div class="lead">
+        御社のインフルエンサー施策を <em>裏で動かす実行部隊</em> として、お役に立ちます。<br>
+        一度のミーティングで、具体的な組み方と初期案件の当て先をご提案します。
+      </div>
+    </div>
+
+    <div class="ctaSteps">
+      <div class="ctaStep">
+        <div class="n">01</div>
+        <div class="t">初回MTG</div>
+        <div class="d">直近のKOL領域の課題ヒアリング ＋ hotice 活用シナリオのご提案</div>
+      </div>
+      <div class="ctaStep">
+        <div class="n">02</div>
+        <div class="t">初期案件の当て込み</div>
+        <div class="d">ホワイトラベル／共同提案／実行支援、どれで組むか合意</div>
+      </div>
+      <div class="ctaStep">
+        <div class="n">03</div>
+        <div class="t">2週間でパイロット</div>
+        <div class="d">小規模案件でオペレーション体感→本格提携へ</div>
+      </div>
+    </div>
+
+    <div class="ctaBot">
+      <div class="contact">
+        <b>hotice株式会社</b>
+        東京都渋谷区渋谷3-17-4 山口ビル新館4階<br>
+        Contact: <a href="https://hotice.jp">hotice.jp</a> ／ 代表：趙 無極 ／ COO：加藤 一輝 ／ GM：木村 健介
+      </div>
+      <div class="r">
+        Thank you.<br>
+        April 2026
+      </div>
+    </div>
+  </div>
+</section></div>
+
+
+
+<!-- =========================================================
+  SLIDE COVER : P1 表紙
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P2 : EXECUTIVE SUMMARY
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P3 : MARKET STATE OF PLAY
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P5 : AGENCY 3 PAINS
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P7 : TRANSLATOR POSITIONING
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P9 : GLOBAL IMPLEMENTATION
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P10 : SPEED x QUALITY
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P8a : WHY HOTICE  (3つの理由 + 選び方フレーム)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P13 : AMAZON EC CASE  (特化領域)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P12 : CASE 1 — SHISEIDO INBOUND (VERIFIED)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P14 : CASE 2 — NEW STORE LAUNCH (ANON)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P15 : CASE 3 — WELLNESS D2C SPEED (ANON)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P16 : PARTNERSHIP MODELS (3 patterns)
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P17 : PRICING / TEAM / DELIVERY
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE P18 : CTA / CLOSING
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE 0 : WHO WE ARE  （原P2 → 新P6 案）
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE 1 : EXEC SUMMARY / PROOF
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE 2 : AI ERA THESIS
+========================================================= -->
+
+<!-- =========================================================
+  SLIDE 3 : COMPETITIVE COMPARISON
+========================================================= -->
+
+</div>
+</body>
+</html>
