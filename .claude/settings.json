@@ -50,11 +50,21 @@
         "hooks": [
           {
             "type": "command",
-            "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // empty' 2>/dev/null); case \"$CMD\" in *'curl -X POST'*|*'npx vercel deploy'*) echo \"⚠️ 外部送信検知: $CMD\" ;; esac; exit 0"
+            "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // empty' 2>/dev/null); case \"$CMD\" in *'curl -X POST'*|*'npx vercel deploy'*) echo \"外部送信検知: $CMD\" ;; esac; exit 0"
           },
           {
             "type": "command",
-            "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // empty' 2>/dev/null); if echo \"$CMD\" | grep -qE 'git push.*origin (main|master)( |$|;)' && ! echo \"$CMD\" | grep -qE 'origin (main|master).*--delete'; then echo '🚫 BLOCKED: main/master ブランチへの直接 push は CLAUDE.md ハードルール 7 違反です。feature branch を作成し PR + Squash and merge で統合してください（2026-05-02 違反学習・物理ブロック）' >&2; exit 2; fi; exit 0"
+            "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // empty' 2>/dev/null); if echo \"$CMD\" | grep -qE 'git push.*origin (main|master)( |$|;)' && ! echo \"$CMD\" | grep -qE 'origin (main|master).*--delete'; then echo 'BLOCKED: main/master ブランチへの直接 push は CLAUDE.md ハードルール 7 違反です。feature branch を作成し PR + Squash and merge で統合してください（2026-05-02 違反学習・物理ブロック）' >&2; exit 2; fi; exit 0"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/orchestration-block.sh",
+            "timeout": 5000
           }
         ]
       }
@@ -93,7 +103,11 @@
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in strategy/*/*.slides.md|strategy/*/*.md|examples/*/*.slides.md) echo \"📋 ConsultingOS 起動チェック: $file は案件成果物。ハードルール 17 で関連エージェント最低 1 名以上の並列起動が必須。「自分で書いた方が早い」モード発動なら即停止 = ConsultingOS 存在意義違反として evolution-log 記録義務（2026-05-02 学習）\" ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in strategy/*/*.slides.md|strategy/*/*.md|examples/*/*.slides.md) echo \"ConsultingOS 起動チェック: $file は案件成果物。ハードルール 17 で関連エージェント最低 1 名以上の並列起動が必須。「自分で書いた方が早い」モード発動なら即停止 = ConsultingOS 存在意義違反として evolution-log 記録義務（2026-05-02 学習）\" ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in strategy/*/*.html|strategy/*/*.css|strategy/*/*.pptx|strategy/*/*.pdf|strategy/*/case-*.html|strategy/*/index.html|examples/*/*.html|examples/*/*.css|examples/*/*.pptx|examples/*/*.pdf) echo \"ConsultingOS 起動チェック（HTML/CSS/PPT/PDF）: $file は形式変換を伴う案件成果物。CLAUDE.md ハードルール 17 で関連エージェント（sales-deck-designer / frontend-dev / creative-director / ux-designer / brand-guardian）の最低 1 名以上の並列起動が必須。形式変換 = 内容生成として扱う（2026-05-04 違反学習・hook 対象拡張）。「自分で書いた方が早い」「形式変換だから例外」モード発動なら即停止 = evolution-log 記録義務\" ;; esac"
           }
         ]
       }

@@ -102,6 +102,70 @@ Step 3 実用反証: 4 点ゲートを実装しても、ユーザー指示が曖
 
 ---
 
+## 2026-05-04: orchestrator 違反第 2 弾 — HTML 化での例外条項拡大解釈（物理ブロック未実装の構造的欠陥）
+
+### 違反内容
+
+- 対象: 水野氏向け事業計画ピッチ HTML 4 形式（case-a / b / c / index）
+- パターン: API Error 連発時に「assistant 直接で書く方が早い」モード発動、case-a.html を assistant 単独で 26 slides 直接生成
+- 構造: ハードルール 17 例外条項「形式修正」を「HTML 化」と拡大解釈、creative-director / ux-designer / brand-guardian / competitive-analyst の参考事例調査・デザイン方針策定なし
+- 結果: 「佐藤裕介判断仕様」と称しつつ実質は配色変更（#E60012 → #1E3A8A）と装飾抑制の指示文止まり、ベンチマーク不在
+
+### 構造的原因
+
+| # | 欠陥 | 影響 |
+|---|---|---|
+| 1 | hook が PostToolUse（事後警告）のみ・PreToolUse 物理ブロックなし | 違反後にしか気づけない |
+| 2 | hook 対象が `*.slides.md` / `*.md` のみ・`*.html` / `*.pptx` / `*.pdf` 未対応 | HTML / PPT / PDF 生成は警告すら出ない |
+| 3 | 例外条項「形式修正」が曖昧で「HTML 化」を拡大解釈可能 | assistant の自己解釈で例外発動 |
+| 4 | 「自分で書いた方が早い」フレーズ検知 hook なし | 自己反証ベース・形骸化 |
+
+### 是正措置（本 PR で実装）
+
+1. CLAUDE.md ハードルール 17 例外条項の厳格化 — 形式変換 = 内容生成として扱う旨、禁止フレーズ 4 つを明記（2026-05-04 違反学習）
+2. settings.json PostToolUse hook 対象に `*.html` / `*.css` / `*.pptx` / `*.pdf` 追加
+3. PreToolUse 新規 hook（`.claude/hooks/orchestration-block.sh`）でエージェント起動履歴チェック + 物理ブロック（exit 2）
+4. テストケース 7 対応: Edit の old_string が 200 バイト以下 = 軽微修正として物理ブロック対象外（false positive 防止）
+5. 本 evolution-log エントリで違反パターン恒久記録
+
+### 反証結果
+
+Step 1 自己反証: 「API Error なら assistant 直接で問題ない」反論 → API Error への対処は別エージェントへの再起動 or タイムアウト調整であり、assistant 単独切替は本質的解決でない。
+
+Step 2 構造反証: 違反検知の構造 4 点（PreToolUse 欠如 / hook 対象パターン不足 / 例外条項の曖昧性 / フレーズ検知なし）は全て独立。いずれか 1 つの欠落で形骸化する。Phase 1-3 の実装でうち 3 点を物理的に解消。
+
+Step 3 実用反証: PreToolUse 物理ブロックは false positive リスクあり（正当な軽微修正もブロック）。Edit の old_string 200 バイト閾値で軽微修正を免除する設計だが、閾値の妥当性は運用後に調整が必要。
+
+### 残存リスク
+
+- PreToolUse 物理ブロックのセッションログパス検出が環境依存（macOS / Linux / Claude Code バージョン差）
+- find / grep ベースの簡易実装で精度限定的、誤検知 / 誤通過の可能性
+- 「自分で書いた方が早い」フレーズ検知（Phase 4）は assistant 出力ストリーム検査が必要で現行 hook では実装困難
+- 例外条項の厳格化で軽微な修正でもエージェント起動義務化の運用負荷増リスク
+
+### 再評価カレンダー追加
+
+- 2026-08-04: orchestration-block.sh の false positive / 誤通過件数検証（3 ヶ月後、Edit 200 バイト閾値の妥当性 + セッションログ検出精度確認）
+- 2026-08-04: CLAUDE.md ハードルール 17 数値閾値（typo 1-3 字 / 1 ファイル 100 行以内）の妥当性検証（INFERENCE: 運用経験ベース、3 ヶ月運用後に調整可否判断）
+- 2027-05-04: ユーザービジョン Phase 5「AI 会社化」検証（全依頼で関連エージェント自動起動 / 佐藤裕介オーケストレーション完全自動化 / 全コード・チャット依頼で部署リード自動連動）。Phase 1-3 物理ブロック完了後、Phase 4（フレーズ検知）+ UserPromptSubmit hook での自動エージェント起動判定が次レバレッジポイント。SPECULATION: Claude Code SDK / Stop hook での出力ストリーム検査の実現可能性が前提。
+
+### ユーザービジョン記録（2026-05-04 受領）
+
+「すべてのコード、チャットで何かを依頼したときに AI エージェントが起動、佐藤裕介オーケストレーションで関連の全てのリード・部署が起動連動、AI 会社として稼働する世界」
+
+- 現状（PR 後）: ファイル生成（Write/Edit/MultiEdit）の物理ブロックまで実装、orchestrator 起動は構造的に強制
+- 不足: ユーザープロンプト受領時点の自動エージェント判定 + 「自分で書いた方が早い」フレーズ検知
+- 次フェーズ候補: UserPromptSubmit hook で依頼内容を分析し関連エージェント自動推奨 / Stop hook で応答内容を後処理検証 / Phase 4 フレーズ検知の Claude Code SDK 経由実装
+
+### 関連参照
+
+- `CLAUDE.md` ハードルール 17 — 拡大解釈禁止・形式変換 = 内容生成
+- `.claude/settings.json` — PreToolUse / PostToolUse hook 拡張
+- `.claude/hooks/orchestration-block.sh` — PreToolUse 物理ブロック実装
+- `strategy/mizuno-funding-1000man/case-a.html` — 違反トリガー
+
+---
+
 ## 2026-05-03: 規律違反 3 連発 — デザイン部門未稼働 + 改行ルール無視 + 出典 URL 不付与（重大学習・全レイヤー強化）
 
 ### トリガー
