@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case B 圧縮版 10 slides — ConsultingOS 1000 万円エンジェル出資</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #0A0A0A;
+  --bg: #FAFAF7;
+  --accent: #1E3A8A;
+  --warning: #B91C1C;
+  --neutral-100: #F2F2EE;
+  --neutral-300: #D4D4D0;
+  --neutral-500: #5A5A5A;
+  --neutral-700: #374151;
+  --white: #FFFFFF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: #1F2937;
+  color: var(--primary);
+  font-family: "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
+    "Noto Sans JP", "Meiryo", "メイリオ", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.nav {
+  position: fixed; top: 16px; left: 16px; z-index: 50;
+  background: rgba(0,0,0,0.78); color: #fff;
+  padding: 10px 14px; font-size: 11px;
+  letter-spacing: 0.05em; font-family: "Inter", "Noto Sans JP", sans-serif;
+}
+.nav a { color: #fff; text-decoration: none; opacity: 0.7; margin-right: 14px; }
+.nav a:hover { opacity: 1; }
+.nav a.active { opacity: 1; color: #93C5FD; }
+.deck {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 24px; padding: 70px 12px 80px;
+}
+.slide-label {
+  align-self: flex-start;
+  color: #6B7280; font-size: 11px;
+  font-family: "Inter", sans-serif;
+  margin-left: calc((100% - 1280px) / 2);
+  padding-left: 2px;
+}
+.slideWrap {
+  width: 1280px;
+  max-width: 100%;
+  aspect-ratio: 1280/720;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  overflow: hidden;
+  background: var(--bg);
+  container-type: inline-size;
+}
+.slide {
+  width: 1280px; height: 720px;
+  background: var(--bg); color: var(--primary);
+  position: absolute; top: 0; left: 0;
+  overflow: hidden;
+  transform-origin: top left;
+  transform: scale(calc(100cqw / 1280px));
+}
+.slide, .slide * { word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; }
+
+/* Cover */
+.cover {
+  background: #0A0A2A;
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 64px 80px;
+  position: relative;
+}
+.cover-bar {
+  position: absolute; left: 0; top: 0; width: 6px; height: 100%;
+  background: var(--accent);
+}
+.cover-eyebrow {
+  font-size: 11px; color: #8899BB; letter-spacing: 0.12em;
+  font-family: "Inter", sans-serif; margin-bottom: 20px; text-transform: uppercase;
+}
+.cover-h1 { font-size: 46px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 18px; max-width: 840px; }
+.cover-sub { font-size: 19px; color: #B0BCD4; line-height: 1.55; max-width: 720px; margin-bottom: 40px; }
+.cover-meta { display: flex; gap: 44px; }
+.meta-item { display: flex; flex-direction: column; gap: 3px; }
+.meta-lbl { font-size: 10px; color: #6677AA; letter-spacing: 0.1em; text-transform: uppercase; font-family: "Inter", sans-serif; }
+.meta-val { font-size: 13px; color: #CCD5E8; font-weight: 600; }
+
+/* Standard slide */
+.std { padding: 36px 60px 44px; display: flex; flex-direction: column; }
+.slide-hd {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 14px; border-bottom: 1.5px solid var(--neutral-300);
+  margin-bottom: 18px;
+}
+.slide-hd-left { display: flex; flex-direction: column; gap: 3px; }
+.slide-tag {
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); font-family: "Inter", sans-serif; font-weight: 700;
+}
+.slide-title { font-size: 26px; font-weight: 700; color: var(--primary); line-height: 1.25; }
+.slide-pg { font-size: 11px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
+.key-msg {
+  background: var(--neutral-100); border-left: 4px solid var(--accent);
+  padding: 11px 16px; margin-bottom: 18px;
+  font-size: 13px; font-weight: 600; color: var(--primary); line-height: 1.6;
+}
+.slide-body { flex: 1; }
+
+/* Labels */
+.lf, .li, .ls {
+  display: inline-block; font-size: 8px; font-family: "Inter", sans-serif;
+  font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; vertical-align: middle; margin-left: 3px;
+}
+.lf { background: #DBEAFE; color: #1E3A8A; }
+.li { background: #F3F4F6; color: #374151; border: 1px solid #D1D5DB; }
+.ls { background: #FFF7ED; color: #9A3412; border: 1px solid #FDBA74; }
+
+/* Tables */
+.tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
+.tbl th {
+  background: var(--neutral-100); padding: 7px 11px;
+  text-align: left; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--neutral-700); font-weight: 700;
+  border-bottom: 1.5px solid var(--neutral-300); border-right: 1px solid var(--neutral-300);
+}
+.tbl th:last-child { border-right: none; }
+.tbl td {
+  padding: 8px 11px; color: var(--primary);
+  border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300);
+  vertical-align: top; line-height: 1.5;
+}
+.tbl td:last-child { border-right: none; }
+.tbl tr:last-child td { border-bottom: none; }
+.caption { font-size: 10px; color: var(--neutral-500); font-family: "Inter", sans-serif; margin-top: 6px; }
+
+/* 3 column */
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.col-blk { background: var(--neutral-100); padding: 13px 15px; border-top: 3px solid var(--accent); }
+.col-blk-title { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--neutral-700); margin-bottom: 9px; }
+.col-blk-body { font-size: 11px; color: var(--primary); line-height: 1.55; }
+.col-blk-body li { list-style: none; padding-left: 12px; position: relative; margin-bottom: 5px; }
+.col-blk-body li::before { content: "–"; position: absolute; left: 0; color: var(--neutral-500); }
+
+/* Phase row */
+.phase-row { display: flex; gap: 0; margin-bottom: 14px; }
+.phase-item { flex: 1; padding: 11px 13px; background: var(--neutral-100); border-right: 1px solid var(--neutral-300); }
+.phase-item:last-child { border-right: none; }
+.phase-item.active { background: #EFF6FF; border-top: 3px solid var(--accent); }
+.phase-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--neutral-500); margin-bottom: 4px; }
+.phase-ttl { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 3px; }
+.phase-det { font-size: 10px; color: var(--neutral-700); line-height: 1.5; }
+
+/* Compare grid */
+.cmp { display: grid; grid-template-columns: 150px 1fr 1fr; font-size: 11px; border: 1px solid var(--neutral-300); }
+.cmp-hd { background: var(--neutral-100); padding: 8px 11px; font-weight: 700; font-size: 10px; color: var(--primary); border-bottom: 1.5px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); }
+.cmp-hd:last-child { border-right: none; }
+.cmp-lbl { background: var(--neutral-100); padding: 7px 11px; font-size: 10px; font-weight: 600; color: var(--neutral-700); border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); }
+.cmp-cel { padding: 7px 11px; color: var(--primary); border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); line-height: 1.5; }
+.cmp-cel.rec { background: #EFF6FF; }
+.cmp-cel:last-child { border-right: none; }
+
+/* Ask */
+.ask-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--neutral-300); }
+.ask-item:last-of-type { border-bottom: none; }
+.ask-num { font-size: 18px; font-weight: 700; color: var(--accent); font-family: "Inter", sans-serif; min-width: 26px; padding-top: 2px; }
+.ask-ttl { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
+.ask-dsc { font-size: 11px; color: var(--neutral-700); line-height: 1.55; }
+
+/* Next steps */
+.next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 14px; }
+.next-step { padding: 11px 13px; border: 1px solid var(--neutral-300); background: var(--white); }
+.ns-num { font-size: 9px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; font-family: "Inter", sans-serif; margin-bottom: 4px; }
+.ns-ttl { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 3px; }
+.ns-dt { font-size: 10px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
+
+/* Info boxes */
+.ib { padding: 10px 14px; font-size: 11px; line-height: 1.65; margin-top: 11px; }
+.ib-n { background: var(--neutral-100); color: var(--neutral-700); }
+.ib-w { background: #FEF2F2; border-left: 4px solid var(--warning); color: var(--warning); }
+
+/* Footer */
+.slide-ft {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 30px;
+  background: var(--neutral-100); border-top: 1px solid var(--neutral-300);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 60px;
+}
+.ft-txt { font-size: 9px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
+
+.divider { height: 1px; background: var(--neutral-300); margin: 12px 0; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="./index.html">資料ハブ</a>
+  <a href="./case-a.html">Case A 詳細 26</a>
+  <a href="./case-b.html" class="active">Case B 圧縮 10</a>
+  <a href="./case-c.html">Case C 1 ページ</a>
+  <a href="./00-business-plan-master.md">マスター</a>
+  <a href="./04-mtg-playbook.md">MTG プレイブック</a>
+</nav>
+
+<main class="deck">
+
+<!-- B01 -->
+<div class="slide-label">B01 / 10</div>
+<div class="slideWrap">
+<div class="slide cover">
+  <div class="cover-bar"></div>
+  <div class="cover-eyebrow">ConsultingOS — Angel Investment Pitch / Case B（圧縮版 10 slides）</div>
+  <div class="cover-h1">AI 駆動コンサル基盤 OS 起動</div>
+  <div class="cover-sub">ConsultingOS = 6 部門 30 エージェントが連携する Claude Code ネイティブ OS。1000 万円で商用化へ。</div>
+  <div class="cover-meta">
+    <div class="meta-item"><span class="meta-lbl">MTG</span><span class="meta-val">2026-05-07</span></div>
+    <div class="meta-item"><span class="meta-lbl">対象</span><span class="meta-val">水野氏（個人投資家）</span></div>
+    <div class="meta-item"><span class="meta-lbl">形式</span><span class="meta-val">30 秒判断用 圧縮版</span></div>
+    <div class="meta-item"><span class="meta-lbl">起案日</span><span class="meta-val">2026-05-04</span></div>
+    <div class="meta-item"><span class="meta-lbl">起案</span><span class="meta-val">ConsultingOS</span></div>
+  </div>
+</div>
+</div>
+
+<!-- B02 -->
+<div class="slide-label">B02 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">Why Now</span>
+      <h2 class="slide-title">今この交点にしか勝機はない</h2>
+    </div>
+    <span class="slide-pg">B02</span>
+  </div>
+  <div class="key-msg">技術 × ユーザー × 市場構造の 3 変数が 2026 年初頭に重なった。先行者優位の窓は 6 ヶ月以内に固まる。<span class="ls">SPECULATION</span></div>
+  <div class="slide-body">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:130px">変数</th>
+          <th>内容</th>
+          <th style="width:110px">ラベル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600">技術変化</td>
+          <td>Claude Code MCP の登場でエージェントに職務定義と規律を与えることが初めて可能になった。Opus 4.7 / SDK 化が実装コストを低下させた。</td>
+          <td><span class="lf">FACT</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">ユーザー変化</td>
+          <td>中堅中小事業者の AI リテラシーが急上昇し、「AI を使ったコンサル」への受容障壁が下がりつつある。</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">市場構造変化</td>
+          <td>コンサル人月単価の高止まりが継続（公開料金体系より）。SME が大手コンサルに依頼できない構造的空白が拡大。</td>
+          <td><span class="lf">FACT</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ib ib-n">3 変数全ての交点が同時に成立する期間は短い。1 変数でも欠けると「良いプロダクトだが負ける」シナリオになる。先行者優位の窓は 6 ヶ月以内に固まるとみる。<span class="ls">SPECULATION</span>（類似 OSS 事例からの類推）</div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 5「4 思想統合・3 変数交点」</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B03 -->
+<div class="slide-label">B03 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">差別化構造</span>
+      <h2 class="slide-title">品質・セキュリティ・自己進化の 3 軸</h2>
+    </div>
+    <span class="slide-pg">B03</span>
+  </div>
+  <div class="key-msg">反証モード（品質）/ 3 層防御（セキュリティ）/ フロー × ストック（自己進化）の 3 軸が差別化の構造的根拠。</div>
+  <div class="slide-body">
+    <div class="three-col">
+      <div class="col-blk">
+        <div class="col-blk-title">反証モード（品質）</div>
+        <div class="col-blk-body">
+          <ul>
+            <li>全出力に FACT / INFERENCE / SPECULATION の 3 ラベルを強制付与</li>
+            <li>Step 1-3 の自己反証プロセスを構造化</li>
+            <li>brand-guardian による機械的品質ゲート</li>
+            <li>属人依存なしの判断品質設計</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-blk">
+        <div class="col-blk-title">3 層セキュリティ防御</div>
+        <div class="col-blk-body">
+          <ul>
+            <li>Layer 0: Gitleaks 静的検知（シークレット漏洩防止）</li>
+            <li>Layer 1: CLAUDE.md Hard Rules 17 項目</li>
+            <li>Layer 2: Stop Hook による実行時ブロック</li>
+            <li>機密案件対応の多層設計</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-blk">
+        <div class="col-blk-title">フロー × ストック（自己進化）</div>
+        <div class="col-blk-body">
+          <ul>
+            <li>examples/ 蓄積型の知識資産設計</li>
+            <li>evolution-log.md による学習記録</li>
+            <li>使えば使うほど参入障壁が高まる構造<span class="li">INFERENCE</span></li>
+            <li>コードコピーでは再現困難</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ib ib-n">上記 3 軸の複合依存（CLAUDE.md / ICP.md / DESIGN.md / 反証ゲート）が模倣障壁として機能する。<span class="li">INFERENCE</span></div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 8「Secret Thesis 3 点」</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B04 -->
+<div class="slide-label">B04 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">競合分析</span>
+      <h2 class="slide-title">4 カテゴリと差別化が分離</h2>
+    </div>
+    <span class="slide-pg">B04</span>
+  </div>
+  <div class="key-msg">単発プロンプト / 個別ツール / 大手コンサル / 自前 LLM の 4 カテゴリとの差別化軸が非重複。agency-swarm は L3 代表で 4.3k Stars。<span class="lf">FACT</span></div>
+  <div class="slide-body">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:105px">レイヤー</th>
+          <th style="width:190px">代表</th>
+          <th>ConsultingOS の対抗軸</th>
+          <th style="width:115px">ラベル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600">L1 大手コンサル</td>
+          <td>マッキンゼー / BCG / アクセンチュア</td>
+          <td>属人化解消不可 / SME 届かず / 実装薄い → コンサル能力そのものを OS 化</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">L2 個別 AI ツール</td>
+          <td>Cursor / GitHub Copilot / Claude Code</td>
+          <td>経営判断・複数部門連携なし → IDE 層は基盤として活用、判断規律層を載せる</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">L3 マルチエージェント</td>
+          <td>agency-swarm 4.3k Stars / AutoGen / CrewAI</td>
+          <td>コンサル業務固有規律なし / エンジニア工数必要 → 垂直統合 vs 汎用、即日導入 vs 工数</td>
+          <td><span class="lf">FACT</span>（Stars数）<span class="li">INFERENCE</span>（差別化）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">L4 自前構築</td>
+          <td>内製 LLM / 自社プロンプト集</td>
+          <td>構築コスト 3-6 ヶ月 / 規律維持属人化 → install.sh 即日導入で代替</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="caption">agency-swarm Stars 4.3k: 2026-05-04 GitHub 直接確認済。AutoGen / CrewAI / LangGraph の Stars 数は MTG 前追加検証推奨（現状未検証）。</div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 8「競合分析 4 レイヤー」/ 05-corrections-and-fact-check.md § 1</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B05 -->
+<div class="slide-label">B05 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">判断品質設計</span>
+      <h2 class="slide-title">4 思想ゲートが判断精度を上げる</h2>
+    </div>
+    <span class="slide-pg">B05</span>
+  </div>
+  <div class="key-msg">孫正義 → Huang → 佐藤裕介 → Dorsey の 4 段階ゲートを全案件に適用。属人化しない判断品質を設計で担保する。<span class="li">INFERENCE</span></div>
+  <div class="slide-body">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th style="width:65px">段階</th>
+          <th style="width:125px">思想</th>
+          <th>役割</th>
+          <th style="width:175px">MTG 内タイミング</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600; text-align:center">Phase 0</td>
+          <td style="font-weight:600">孫正義</td>
+          <td>山の定義・1 文化（10 年後に立つ山を先に決める）</td>
+          <td>0-5 分（フレーム設定）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; text-align:center">Phase 1</td>
+          <td style="font-weight:600">Jensen Huang</td>
+          <td>解くべき問題 / 未充足ニーズのタイミング / 防御困難性の 3 点圧縮（Go/No-Go ゲート）</td>
+          <td>5-15 分</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; text-align:center">Phase 2</td>
+          <td style="font-weight:600">佐藤裕介</td>
+          <td>3 変数交点 + PL + アセット帰属（PL は山が先、逆順禁止）</td>
+          <td>15-30 分（構造証明）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600; text-align:center">Phase 3</td>
+          <td style="font-weight:600">Dorsey</td>
+          <td>削ぎ落とし + プロトタイプ + Fess Up Early（隠蔽なし開示）</td>
+          <td>30-55 分（Ask + Q&A）</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ib ib-n">4 思想は CLAUDE.md に書き込まれた構造。誰が ConsultingOS を起動しても同一の判断プロセスが実行される。<span class="li">INFERENCE</span></div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 5 / 04-mtg-playbook.md § 1</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B06 -->
+<div class="slide-label">B06 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">財務計画</span>
+      <h2 class="slide-title">ブレイクイーブン 7-10 ヶ月</h2>
+    </div>
+    <span class="slide-pg">B06</span>
+  </div>
+  <div class="key-msg">標準シナリオ: 月次売上 50-80 万 / 月次固定費 30 万 / 営業 CF カバレッジ 1.7-2.7 倍。ブレイクイーブン 7-10 ヶ月目。<span class="li">INFERENCE</span></div>
+  <div class="slide-body">
+    <table class="tbl" style="font-size:11px">
+      <thead>
+        <tr>
+          <th style="width:140px">指標</th>
+          <th>楽観</th>
+          <th>基本（標準）</th>
+          <th>悲観</th>
+          <th>致命</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600">前提条件</td>
+          <td>紹介 3 件/Q、軸 A 登録 6 ヶ月、軸 B 並行</td>
+          <td>紹介 1-2 件/Q、軸 A 登録 12 ヶ月</td>
+          <td>紹介ゼロ、軸 A 登録 18 ヶ月遅延</td>
+          <td>軸 A 不可、紹介ゼロ、軸 C のみ</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">月次売上（安定後）</td>
+          <td>120-180 万</td>
+          <td>50-80 万</td>
+          <td>20-40 万</td>
+          <td>10-20 万</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">月次固定費</td>
+          <td>35 万</td>
+          <td>30 万</td>
+          <td>25 万</td>
+          <td>12-15 万（最小構成）</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">CF カバレッジ比率</td>
+          <td>3.4-5.1 倍</td>
+          <td>1.7-2.7 倍</td>
+          <td>0.8-1.6 倍</td>
+          <td>0.7-1.4 倍</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">ブレイクイーブン到達</td>
+          <td>4-6 ヶ月目</td>
+          <td>7-10 ヶ月目</td>
+          <td>14-20 ヶ月目</td>
+          <td>到達困難</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="caption">全数値 INFERENCE（実績データなし）。ランウェイ: 1000 万円のみ・売上ゼロ前提で標準構成 29-36 ヶ月 / 最小構成 67-83 ヶ月。<span class="li">INFERENCE</span></div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 7「数値計画 7-3 ストレステスト 4 シナリオ」</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B07 -->
+<div class="slide-label">B07 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">ロードマップ</span>
+      <h2 class="slide-title">2026 年 9 月に受注 3-5 件目標</h2>
+    </div>
+    <span class="slide-pg">B07</span>
+  </div>
+  <div class="key-msg">Phase 0 → Phase 1a SaaS β（6 月）→ Phase 1c 受注 3-5 件（9 月）の 3 マイルストーンで計測。<span class="li">INFERENCE</span></div>
+  <div class="slide-body">
+    <div class="phase-row">
+      <div class="phase-item active">
+        <div class="phase-lbl">Phase 0 / 現在</div>
+        <div class="phase-ttl">OSS 公開済</div>
+        <div class="phase-det">30 エージェント・19 スキル・6 コマンド稼働中。SDK Phase 1 PoC 完了。<span class="lf">FACT</span></div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-lbl">Phase 1a / 0-3 ヶ月</div>
+        <div class="phase-ttl">SaaS β 実装</div>
+        <div class="phase-det">install スクリプト化。モデル ID 環境変数化（Opus 切替を 1 行で対応）。</div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-lbl">Phase 1b / 3-6 ヶ月</div>
+        <div class="phase-ttl">マルチテナント基盤</div>
+        <div class="phase-det">クライアント単位 settings.json + memory + evolution-log 分離。SOC2 Type1 想定。</div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-lbl">Phase 1c / 6-12 ヶ月</div>
+        <div class="phase-ttl">軸 A 金融 AI 起動</div>
+        <div class="phase-det">投資助言業登録完了後。監査ログ 7 年保存（金商法準拠想定）。<span class="li">INFERENCE</span></div>
+      </div>
+    </div>
+    <table class="tbl" style="font-size:11px">
+      <thead>
+        <tr>
+          <th style="width:75px">Phase</th>
+          <th style="width:95px">期間</th>
+          <th>軸 A（金融 AI）</th>
+          <th>軸 B（OSS CRM / 法務 AI）</th>
+          <th style="width:75px">ラベル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Phase 1</td><td>0-3 ヶ月</td><td>規制申請準備（停止）</td><td>主軸・即収益化</td><td><span class="li">INFERENCE</span></td></tr>
+        <tr><td>Phase 2</td><td>3-6 ヶ月</td><td>申請着手・体制構築</td><td>CF 確立</td><td><span class="li">INFERENCE</span></td></tr>
+        <tr><td>Phase 3</td><td>6-12 ヶ月</td><td>登録完了・受注開始</td><td>既存顧客クロスセル</td><td><span class="li">INFERENCE</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 2「軸 A/B/C ポートフォリオ」/ § 10「技術ロードマップ」</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B08 -->
+<div class="slide-label">B08 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">リスク開示</span>
+      <h2 class="slide-title">リスク 5 点を先出し、対応策あり</h2>
+    </div>
+    <span class="slide-pg">B08</span>
+  </div>
+  <div class="key-msg">楽観 / 基本 / 悲観の 3 シナリオ + API 変動・競合模倣・規制・採用難・1 名属人化の 5 リスクと対応策を事前開示。</div>
+  <div class="slide-body">
+    <table class="tbl" style="font-size:11px">
+      <thead>
+        <tr>
+          <th style="width:22px">#</th>
+          <th style="width:165px">リスク</th>
+          <th style="width:55px">確率</th>
+          <th>対応策</th>
+          <th style="width:85px">ラベル</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center;font-weight:600">1</td>
+          <td>Anthropic API 価格改定</td>
+          <td style="color:var(--warning);font-weight:600">中</td>
+          <td>モデル使い分け / キャッシュ率 70-80% / クライアント請求の価格連動条項</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:600">2</td>
+          <td>競合の模倣・OSS フォーク</td>
+          <td style="color:var(--warning);font-weight:600">中</td>
+          <td>5 年蓄積の evolution-log・スキル群が本体（コードコピーで再現困難）</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:600">3</td>
+          <td>投資助言業登録不認可</td>
+          <td style="color:var(--neutral-700);font-weight:600">低-中</td>
+          <td>環境構築・教育の登録不要範囲で先行受注 / 登録は Phase 2 並行</td>
+          <td><span class="li">INFERENCE</span> / 弁護士確認待ち</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:600">4</td>
+          <td>1 名兼務体制の属人化</td>
+          <td style="color:var(--warning);font-weight:600">中</td>
+          <td>4 思想を OS に書き込み / 顧問 or 業務委託で 4 思想分散（要協議）</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td style="text-align:center;font-weight:600">5</td>
+          <td>採用難</td>
+          <td style="color:var(--neutral-700);font-weight:600">中</td>
+          <td>Phase 2 まで採用不要 / Phase 3 からジュニア 1 名を段階的に追加</td>
+          <td><span class="li">INFERENCE</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ib ib-w">弁護士確認待ち: 投資助言業登録要否 / AGPL-3.0 SaaS 提供時のソース開示義務範囲 / J-KISS 契約書ドラフト 等 計 6 項目。MTG 前日（2026-05-06）までに優先 3 項目を確認推奨。</div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 11「リスクサマリー」/ 05-corrections-and-fact-check.md § 4</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B09 -->
+<div class="slide-label">B09 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">出資条件</span>
+      <h2 class="slide-title">出資条件は J-KISS 推奨</h2>
+    </div>
+    <span class="slide-pg">B09</span>
+  </div>
+  <div class="key-msg">J-KISS（1000 万円規模で普及・法務コスト 20-50 万円）vs 普通株（経営関与希望時）の 2 案。バリュエーションキャップ 1 億円候補（要協議）。<span class="li">INFERENCE</span></div>
+  <div class="slide-body">
+    <div class="cmp">
+      <div class="cmp-hd">項目</div>
+      <div class="cmp-hd" style="background:#EFF6FF">J-KISS（推奨）</div>
+      <div class="cmp-hd">普通株</div>
+
+      <div class="cmp-lbl">概要</div>
+      <div class="cmp-cel rec">後ろ倒しバリュエーション / 500 Startups Japan テンプレート活用</div>
+      <div class="cmp-cel">シンプル / 最初期のシード向け信頼ベース</div>
+
+      <div class="cmp-lbl">法務コスト</div>
+      <div class="cmp-cel rec">弁護士コスト 20-50 万円程度 <span class="li">INFERENCE</span></div>
+      <div class="cmp-cel">司法書士のみで設立可能（最低）</div>
+
+      <div class="cmp-lbl">投資家保護</div>
+      <div class="cmp-cel rec">バリュエーションキャップ + ディスカウント設定可</div>
+      <div class="cmp-cel">弱い</div>
+
+      <div class="cmp-lbl">議決権</div>
+      <div class="cmp-cel rec">なし（経営関与不可）</div>
+      <div class="cmp-cel">あり（経営関与希望時に推奨）</div>
+
+      <div class="cmp-lbl">1000 万円規模慣行</div>
+      <div class="cmp-cel rec">500-3000 万円エンジェルで最普及 <span class="li">INFERENCE</span></div>
+      <div class="cmp-cel">シード最初期</div>
+    </div>
+    <div class="ib ib-n">バリュエーションキャップ: 時価総額 1 億円候補（要協議）。水野氏が経営関与を希望する場合は普通株 or 種類株で再設計。弁護士確認後に最終決定。<span class="li">INFERENCE</span></div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 9-4「出資契約形態」/ 05-corrections-and-fact-check.md § 4</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+<!-- B10 -->
+<div class="slide-label">B10 / 10</div>
+<div class="slideWrap">
+<div class="slide std">
+  <div class="slide-hd">
+    <div class="slide-hd-left">
+      <span class="slide-tag">Ask</span>
+      <h2 class="slide-title">Ask 1000 万円で何が動くか</h2>
+    </div>
+    <span class="slide-pg">B10</span>
+  </div>
+  <div class="key-msg">軸 A 投資助言業登録 + クライアント環境向け SaaS β 実装の 2 用途のみ。これ以外は使わない（Dorsey 削ぎ落とし）。用途配分は詳細版 Case A p.16 参照。<span class="li">INFERENCE</span></div>
+  <div class="slide-body">
+    <div class="ask-item">
+      <div class="ask-num">A</div>
+      <div>
+        <div class="ask-ttl">軸 A 投資助言業登録</div>
+        <div class="ask-dsc">弁護士費用 + 体制整備 + 申請費用 + Phase 2 までの法務顧問費用。登録期間 6-13 ヶ月想定（金融庁公式資料ベース）。<span class="li">INFERENCE</span> / 弁護士確認待ち</div>
+      </div>
+    </div>
+    <div class="ask-item">
+      <div class="ask-num">B</div>
+      <div>
+        <div class="ask-ttl">クライアント環境向け SaaS β 実装</div>
+        <div class="ask-dsc">install スクリプト + 監査ログ基盤 + マルチテナント分離。オフィス・採用・広告は Phase 2 以降。<span class="li">INFERENCE</span></div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="ns-num">STEP 01</div>
+        <div class="ns-ttl">バリュエーション詳細確認</div>
+        <div class="ns-dt">2026-05-08 まで</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-num">STEP 02</div>
+        <div class="ns-ttl">弁護士による契約ドラフト</div>
+        <div class="ns-dt">2026-05-10 まで</div>
+      </div>
+      <div class="next-step">
+        <div class="ns-num">STEP 03</div>
+        <div class="ns-ttl">Phase 1 開始合意</div>
+        <div class="ns-dt">2026-05-14 まで</div>
+      </div>
+    </div>
+    <div class="ib ib-w" style="margin-top:10px">弁護士確認待ち: 投資助言業登録要否・AGPL-3.0 範囲・J-KISS 契約書ドラフト等（計 6 項目）。詳細版 Case A p.20-22 参照。</div>
+  </div>
+  <div class="slide-ft">
+    <span class="ft-txt">参照: 00-business-plan-master.md § 12「Ask」/ § 13「次回アクション」</span>
+    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+
+</main>
+
+<!--
+【反証チェック結果】
+
+Step 1（自己反証）:
+- B08 でリスク開示を先出しした構造は水野氏（銀行審査部出身）向けに適切だが、
+  10 枚中 1 枚をリスクに割いたことで「ネガティブ印象が先行する」逆効果リスクが存在。
+  対策: B08 の各リスク項目に必ず対応策を並記（実装済）。
+- A19「体制スライド」を省略しており、「誰がやるか」を水野氏が最初に問う場合は
+  B07 と差し替えを検討（MTG 前ヒアリング推奨）。
+
+Step 2（構造反証）:
+- 10 枚は Why Now / 差別化 / 財務 / リスク / Ask を網羅しており MECE 観点で核心抽出の品質を確保。
+- 軸 A 規制詳細・AGPL ライセンス詳細は Case A の付録参照前提。Q&A で対応必須。
+- 全数値 INFERENCE で水野氏の「根拠なき楽観」判定リスクあり。口頭での「実測前」補強必須。
+
+Step 3（実用反証）:
+- 1280×720 スライド構造を container-type: inline-size + CSS scale() で実装。
+  スケーリングは transform-origin: top left 設定済で行揃え崩れ防止。
+- ナビゲーションバーで全資料へのアクセスが可能。
+
+残存リスク:
+- A19 体制スライドの省略（即決型でない水野氏向けに差替え必要の可能性）
+- 軸 A 規制詳細・AGPL ライセンス詳細は Case A 付録参照前提
+- 水野氏の意思決定スタイル未確認
+- 弁護士確認待ち 6 項目が MTG 前に完了しない場合の対応未定
+- AutoGen / CrewAI / LangGraph の Stars 数未検証（MTG 前追加確認推奨）
+-->
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水野氏 1000 万円エンジェル出資 MTG（2026-05-07）— 資料ハブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #1E3A8A;
+    --warning: #B91C1C;
+    --neutral-100: #F2F2EE;
+    --neutral-300: #D4D4D0;
+    --neutral-500: #5A5A5A;
+    --neutral-700: #374151;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--primary);
+    font-family: "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
+      "Noto Sans JP", "Meiryo", "メイリオ", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  /* Header */
+  .site-header {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 28px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+  }
+
+  .site-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .site-meta {
+    font-size: 13px;
+    color: var(--neutral-500);
+    margin-top: 14px;
+    line-height: 1.75;
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+  }
+
+  /* Label legend */
+  .legend {
+    background: var(--neutral-100);
+    padding: 14px 20px;
+    margin-bottom: 40px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--neutral-700);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .legend-title { font-weight: 700; color: var(--primary); font-size: 12px; }
+
+  .label {
+    display: inline-block;
+    font-size: 9px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 3px;
+  }
+
+  .label-fact { background: var(--accent); color: var(--white); }
+  .label-inference { background: var(--neutral-700); color: var(--white); }
+  .label-speculation { background: var(--neutral-500); color: var(--white); }
+
+  /* Section title */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--neutral-500);
+    margin: 40px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--neutral-300);
+    font-family: "Inter", sans-serif;
+  }
+
+  /* Card grid */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--neutral-300);
+    border-left: 4px solid var(--accent);
+    padding: 22px 26px;
+    text-decoration: none;
+    color: var(--primary);
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6px;
+    transition: border-left-color 0.15s, box-shadow 0.15s;
+  }
+
+  .card:hover {
+    border-left-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  }
+
+  .card:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .card-num {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--neutral-700);
+    line-height: 1.7;
+    margin-top: 2px;
+  }
+
+  .card-use {
+    font-size: 11px;
+    color: var(--neutral-500);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding-top: 12px;
+    border-top: 1px dashed var(--neutral-300);
+    font-family: "Inter", "Noto Sans JP", sans-serif;
+    margin-top: auto;
+  }
+
+  .card-use::before {
+    content: "推奨: ";
+    color: var(--neutral-300);
+  }
+
+  /* Footer */
+  .site-footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1.5px solid var(--neutral-300);
+  }
+
+  .footer-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--neutral-500);
+    font-family: "Inter", sans-serif;
+    margin-bottom: 12px;
+  }
+
+  .footer-body {
+    font-size: 12px;
+    color: var(--neutral-500);
+    line-height: 1.85;
+  }
+
+  .footer-warning {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #FEF2F2;
+    border-left: 4px solid var(--warning);
+    font-size: 12px;
+    color: var(--warning);
+    line-height: 1.7;
+  }
+
+  .footer-legal {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--neutral-100);
+    font-size: 11px;
+    color: var(--neutral-700);
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+<main class="container">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="eyebrow">CONFIDENTIAL — 水野氏 / 2026-05-07 想定 MTG</div>
+    <h1 class="site-title">水野氏 1000 万円エンジェル出資 MTG（2026-05-07）</h1>
+    <div class="site-meta">
+      起案日 2026-05-04 / 起案 ConsultingOS（6 部門並列レビュー版 Phase 1-3 全エージェント統合）<br>
+      ブランチ claude/mizuno-funding-pitch-KheGN / 佐藤裕介判断 配色仕様適用（--accent: #1E3A8A / --warning: #B91C1C）
+    </div>
+  </header>
+
+  <!-- Label legend -->
+  <div class="legend">
+    <span class="legend-title">数値ラベル規律</span>
+    <span><span class="label label-fact">FACT</span> 出典確認済の事実</span>
+    <span><span class="label label-inference">INFERENCE</span> 業界相場・既存資料からの推定（幅あり）</span>
+    <span><span class="label label-speculation">SPECULATION</span> 仮説・幅大の予測（要検証）</span>
+    <span style="color:var(--neutral-500)">全出力の数値に 3 ラベルのいずれかを明示（ConsultingOS 反証モード適用）</span>
+  </div>
+
+  <!-- Section: Pitch decks -->
+  <div class="section-title">ピッチ資料 3 形式</div>
+  <div class="card-grid">
+    <a class="card" href="./case-a.html">
+      <div class="card-num">Case A</div>
+      <div class="card-title">詳細版 26 slides</div>
+      <div class="card-desc">26 slides の章立てで全要素を網羅。Why Now / 軸 A B C ポートフォリオ / 4 思想統合 / Phase 0-4 ロードマップ / リスク 5 点 / Ask / 次のアクション。弁護士確認待ち詳細を p.20-22 に収録。</div>
+      <div class="card-use">詳細検討（60 分 MTG 想定）</div>
+    </a>
+    <a class="card" href="./case-b.html">
+      <div class="card-num">Case B</div>
+      <div class="card-title">圧縮版 10 slides</div>
+      <div class="card-desc">Case A 26 slides から「水野氏が 30 秒で判断する核心 10 枚」を抽出。Why Now / 差別化 3 軸 / 財務 4 シナリオ / リスク先出し / Ask の 4 象限を 1280×720 で網羅。</div>
+      <div class="card-use">30 秒判断・即決スタイル</div>
+    </a>
+    <a class="card" href="./case-c.html">
+      <div class="card-num">Case C</div>
+      <div class="card-title">1 ページサマリ</div>
+      <div class="card-desc">1280×720 の 1 枚レイアウト（最上段 H1 / 中段 3 カラム / 最下段 Ask + 連絡先）+ メール本文（クリップボードコピーボタン付き）。担当者名・メール・電話を記入してから送信。</div>
+      <div class="card-use">メール送付・事前共有</div>
+    </a>
+  </div>
+
+  <!-- Section: Reference documents -->
+  <div class="section-title">参照資料（Markdown）</div>
+  <div class="card-grid">
+    <a class="card" href="./00-business-plan-master.md">
+      <div class="card-num">Doc 00</div>
+      <div class="card-title">事業計画マスター</div>
+      <div class="card-desc">13 章の全体構造の根拠資料。strategy-lead / kpi-analytics / legal-compliance-checker / competitive-analyst / ai-engineer の出力を統合。山 A 推奨・4 兼務体制・ストレステスト 4 シナリオ収録。</div>
+      <div class="card-use">全体構造の根拠</div>
+    </a>
+    <a class="card" href="./04-mtg-playbook.md">
+      <div class="card-num">Doc 04</div>
+      <div class="card-title">MTG プレイブック</div>
+      <div class="card-desc">60 分タイムテーブル + 4 思想展開順序（孫正義 → Huang → 佐藤裕介 → Dorsey）+ Q&amp;A 想定問答 10 問 + Fess Up Early 規律 3 パターン + 弁護士依頼スケジュール（5/06 期限）。</div>
+      <div class="card-use">MTG 当日の手元タイムテーブル + Q&amp;A 10 問</div>
+    </a>
+    <a class="card" href="./05-corrections-and-fact-check.md">
+      <div class="card-num">Doc 05</div>
+      <div class="card-title">事実検証ログ</div>
+      <div class="card-desc">引き継ぎ誤情報訂正（agency-agents → agency-swarm 4.3k Stars FACT）+ FACT / INFERENCE / SPECULATION 分類サマリー + W チェックリスト + MTG 当日持参物リスト。</div>
+      <div class="card-use">FACT 検証 + W チェック持参物</div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-section-title">反証チェック結果 + 残存リスク</div>
+    <div class="footer-body">
+      Step 1（自己反証）: index.html は全 6 ファイルへのナビゲーションハブとして機能する。Case A は別エージェント sales-deck-designer が担当中のため case-a.html は外部リンクとして配置（現時点で未生成の場合は 404）。<br>
+      Step 2（構造反証）: ピッチ資料 3 形式（A / B / C）+ 参照資料 3 件（Doc 00 / 04 / 05）の計 6 リンクで、MTG に必要な全情報への誘導を網羅。配色は佐藤裕介判断仕様（#1E3A8A 紺 / #B91C1C 警告 / gradient 禁止）で統一済。<br>
+      Step 3（実用反証）: Markdown ファイル（.md）はブラウザで直接開くと整形なしで表示される。GitHub Pages 等のレンダリング環境で確認推奨。HTML ファイルは単独で完結する自己完結型。
+    </div>
+    <div class="footer-warning">
+      残存リスク: Case A（case-a.html）は sales-deck-designer 担当で本実装には含まれない / Case C メール本文の担当者名・メール・電話が未確定（要記入）/ 弁護士確認待ち 6 項目が MTG 前（2026-05-06）までに完了しない場合の対応未定 / 全財務数値が INFERENCE（実測ベース未到達）
+    </div>
+    <div class="footer-legal">
+      出典: Anthropic 公式 pricing FACT（2026-04 時点）/ ICP.md 9.2 商品ラインナップ INFERENCE / 金融商品取引法第 28 条第 3 項 FACT / AGPL-3.0 Section 13 FACT / agency-swarm GitHub 4.3k Stars FACT（2026-05-04 検証）/ 各所 INFERENCE 数値は業界調査により幅あり。<br>
+      配色仕様: --primary #0A0A0A / --bg #FAFAF7 / --accent #1E3A8A（信頼の紺）/ --warning #B91C1C（控えめ赤・リスク欄のみ）/ gradient 禁止 / badge 禁止 / 大型カラー数字禁止。フォント: Yu Gothic / 游ゴシック / Hiragino Sans / Noto Sans JP（lang="ja"）+ Inter。<br>
+      弁護士確認待ち項目: 6 点（投資助言業登録要否 / AGPL-3.0 SaaS 提供時ソース開示義務範囲 / J-KISS 契約書ドラフト / 下請法適用可否 / Cordys CRM ライセンス特定 / 紹介手数料覚書ドラフト）。
+    </div>
+  </footer>
+
+</main>
+
+<!--
+【反証チェック結果】
+
+Step 1（自己反証）:
+- index.html は全資料への入口として機能するが、
+  case-a.html が sales-deck-designer 担当で未生成の場合はリンク切れになる。
+  ナビゲーション上の表記として「別エージェント担当中」の状態を考慮済。
+- フッターに弁護士確認待ち項目を明示したが、item 数（6 点）は 05-corrections-and-fact-check.md と整合確認済。
+
+Step 2（構造反証）:
+- ピッチ資料 3 形式（A / B / C）と参照資料 3 件（Doc 00 / 04 / 05）の計 6 リンクが
+  MTG に必要な全情報への誘導として MECE を確保。
+- 01-pitch-case-a.slides.md / 02-pitch-case-b.slides.md / 03-pitch-case-c.md は
+  HTML 版（case-b.html / case-c.html）に統合済のため個別リンクは省略。
+
+Step 3（実用反証）:
+- Markdown ファイルは GitHub Pages 等のレンダリング環境でのみ整形表示される。
+  ローカルファイルアクセスでは生テキスト表示になる点を許容（MTG 持参時は PDF / 印刷推奨）。
+- 全ファイルは単独 HTML で完結する自己完結型設計。外部 CDN 依存は Google Fonts のみ。
+
+残存リスク:
+- case-a.html 未生成の場合はリンク切れ（sales-deck-designer 担当・本実装外）
+- Case C メール本文の担当者名・メール・電話が未確定
+- 弁護士確認待ち 6 項目の MTG 前完了可否
+- Markdown ファイルのブラウザ直接閲覧時の整形なし問題
+-->
+
+</body>
+</html>

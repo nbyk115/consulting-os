@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case C 1 ページサマリ — ConsultingOS 1000 万円エンジェル出資</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --bg:#FAFAF7;
+  --accent:#1E3A8A;
+  --warning:#B91C1C;
+  --neutral-100:#F2F2EE;
+  --neutral-300:#D4D4D0;
+  --neutral-500:#5A5A5A;
+  --neutral-700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#1F2937;
+  color:var(--primary);
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP",system-ui,sans-serif;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.nav{position:fixed;top:16px;left:16px;z-index:50;background:rgba(0,0,0,0.78);color:#fff;padding:10px 14px;border-radius:6px;font-size:11px;letter-spacing:0.05em;font-family:"Inter","Noto Sans JP",sans-serif}
+.nav a{color:#fff;text-decoration:none;opacity:0.7;margin-right:14px;transition:opacity 0.2s}
+.nav a:hover{opacity:1}
+.nav a.active{opacity:1;color:#93C5FD}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:70px 12px 80px}
+.slideWrap{
+  width:1280px;
+  max-width:100%;
+  aspect-ratio:1280/720;
+  position:relative;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4);
+  overflow:hidden;
+  background:var(--bg);
+  container-type:inline-size;
+}
+.slide{
+  width:1280px;
+  height:720px;
+  background:var(--bg);
+  color:var(--primary);
+  position:absolute;
+  top:0;
+  left:0;
+  overflow:hidden;
+  transform-origin:top left;
+  transform:scale(calc(100cqw / 1280px));
+}
+.slide *{word-break:auto-phrase;line-break:strict}
+.frame{position:absolute;inset:0;display:flex;flex-direction:column}
+.zone-header{background:var(--primary);color:#fff;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid var(--accent)}
+.zone-header .title{font-size:22px;font-weight:800;letter-spacing:-0.005em;line-height:1.3}
+.zone-header .meta{font-size:11px;letter-spacing:0.06em;color:#93C5FD;font-family:"Inter",sans-serif;text-align:right;line-height:1.6}
+.zone-body{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;padding:0}
+.col{padding:24px 28px;border-right:1px solid var(--neutral-300)}
+.col:last-child{border-right:none}
+.col-num{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;color:var(--accent)}
+.col-title{font-size:15px;font-weight:700;line-height:1.4;margin-top:6px;padding-bottom:10px;border-bottom:2px solid var(--primary)}
+.col-body{font-size:11.5px;line-height:1.75;color:var(--neutral-700);margin-top:12px}
+.col-body p{margin-bottom:10px}
+.col-body ul{list-style:none;padding:0}
+.col-body li{padding:5px 0;border-bottom:1px dashed var(--neutral-300);font-size:11px}
+.col-body li::before{content:"— ";color:var(--accent);font-weight:700}
+.zone-footer{background:var(--neutral-100);border-top:2px solid var(--primary);padding:18px 48px;display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:center}
+.ask-block .ask-label{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;color:var(--accent)}
+.ask-block .ask-text{font-size:14px;font-weight:700;line-height:1.5;margin-top:4px;color:var(--primary)}
+.contact-block{font-size:11px;line-height:1.7;color:var(--neutral-500);text-align:right;font-family:"Inter","Noto Sans JP",sans-serif}
+.contact-block strong{color:var(--primary);font-weight:700;display:block;font-size:12px}
+.label-fact,.label-inf,.label-spc{display:inline-block;padding:1px 5px;font-size:8.5px;font-weight:700;letter-spacing:0.05em;color:#fff;border-radius:2px;font-family:"Inter",sans-serif;margin-left:4px;vertical-align:middle}
+.label-fact{background:var(--accent)}
+.label-inf{background:var(--neutral-700)}
+.label-spc{background:var(--neutral-500)}
+.email-section{max-width:900px;margin:32px auto 0;padding:0 32px;color:#fff}
+.email-section h2{font-size:14px;font-weight:700;letter-spacing:0.06em;color:#9CA3AF;text-transform:uppercase;font-family:"Inter",sans-serif;margin-bottom:12px}
+.email-box{background:#111827;border:1px solid #374151;border-radius:4px;padding:24px;position:relative}
+.email-box pre{font-family:"Inter","Noto Sans JP",monospace;font-size:11.5px;line-height:1.8;color:#E5E7EB;white-space:pre-wrap;word-break:break-word}
+.copy-btn{position:absolute;top:12px;right:12px;background:var(--accent);color:#fff;border:none;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:0.05em;cursor:pointer;border-radius:3px;font-family:"Inter",sans-serif}
+.copy-btn:hover{background:#1E40AF}
+.copy-btn.copied{background:#0F766E}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="./index.html">資料ハブ</a>
+  <a href="./case-a.html">Case A 詳細 26</a>
+  <a href="./case-b.html">Case B 圧縮 10</a>
+  <a href="./case-c.html" class="active">Case C 1 ページ</a>
+  <a href="./00-business-plan-master.md">マスター</a>
+  <a href="./04-mtg-playbook.md">MTG プレイブック</a>
+</nav>
+<main class="deck">
+
+<div class="slideWrap">
+  <div class="slide">
+    <div class="frame">
+      <div class="zone-header">
+        <div class="title">ConsultingOS エンジェル出資サマリ</div>
+        <div class="meta">2026-05-07 / 水野氏向け<br>起案 2026-05-04 / ConsultingOS</div>
+      </div>
+      <div class="zone-body">
+        <div class="col">
+          <div class="col-num">01 / なぜ今か</div>
+          <div class="col-title">3 変数交点が 2026 年初頭に重なった</div>
+          <div class="col-body">
+            <ul>
+              <li>技術 Claude Code MCP / Opus 4.7 / SDK 化 <span class="label-fact">FACT</span></li>
+              <li>ユーザー 中堅中小事業者の AI リテラシー急上昇 <span class="label-inf">INFERENCE</span></li>
+              <li>市場構造 コンサル人月単価の高止まり <span class="label-fact">FACT</span></li>
+            </ul>
+            <p style="margin-top:12px">先行者優位の窓は 6 ヶ月以内に固まる<span class="label-spc">SPECULATION</span></p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-num">02 / 構造的優位性</div>
+          <div class="col-title">4 つの差別化を OS に書き込む</div>
+          <div class="col-body">
+            <ul>
+              <li>反証モード 全出力に FACT / INFERENCE / SPECULATION + Step 1-3</li>
+              <li>3 層セキュリティ Layer 0 / 1 / 2 で機密案件対応</li>
+              <li>examples/ 蓄積型のフロー × ストックで参入障壁が時間とともに高まる</li>
+              <li>4 思想兼務ゲート（孫正義 → Huang → 佐藤裕介 → Dorsey）で判断精度担保</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-num">03 / 財務・リスク</div>
+          <div class="col-title">標準シナリオ 7-10 ヶ月でブレイクイーブン</div>
+          <div class="col-body">
+            <ul>
+              <li>月次売上 50-80 万 / 月次固定費 30 万 <span class="label-inf">INFERENCE</span></li>
+              <li>営業 CF カバレッジ 1.7-2.7 倍 <span class="label-inf">INFERENCE</span></li>
+              <li>ランウェイ 標準 29-36 ヶ月 / 最小構成 67-83 ヶ月 <span class="label-inf">INFERENCE</span></li>
+              <li>リスク 5 点 API 価格変動 / 競合模倣 / 規制 / 採用難 / 1 名属人化（対応策はマスター文書 §11）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="zone-footer">
+        <div class="ask-block">
+          <div class="ask-label">ASK / 1000 万円の用途</div>
+          <div class="ask-text">軸 A 投資助言業登録 + クライアント環境向け SaaS β 実装の 2 用途のみ。J-KISS 推奨（バリュエーションキャップ 1 億円候補・要協議）<span class="label-inf">INFERENCE</span></div>
+        </div>
+        <div class="contact-block">
+          <strong>ConsultingOS 代表</strong>
+          担当者名・メール・電話 別途記載<br>
+          詳細版 26 slides → case-a.html<br>
+          マスター文書 → 00-business-plan-master.md
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="email-section">
+  <h2>メール送付用 本文 / コピー可能</h2>
+  <div class="email-box">
+    <button class="copy-btn" onclick="copyEmail(this)">コピー</button>
+<pre id="email-body">【ConsultingOS エンジェル出資サマリ / 2026-05-07 水野氏向け】
+
+[なぜ今か]
+Claude Code MCP の登場で、AI エージェントに職務定義 + 規律を与えることが初めて可能になった。
+ConsultingOS は 6 部門 30 エージェントが一気通貫で動く Claude Code ネイティブ OS として既に稼働中。
+技術 × ユーザー × 市場構造の 3 変数が重なる参入窓は 2026 年中に閉じる（INFERENCE）。
+
+[構造的優位性]
+・反証モード（全出力に FACT/INFERENCE/SPECULATION ラベル + Step 1-3）で出力品質を構造化
+・3 層セキュリティ防御（Layer 0/1/2）で機密案件に対応
+・examples/ 蓄積型のフロー × ストック設計で参入障壁が時間とともに高まる
+・4 思想兼務ゲート（孫正義 → Huang → 佐藤裕介 → Dorsey）で全案件の判断精度を担保
+
+[財務・リスク]
+ブレイクイーブン: 標準シナリオで月次売上 50-80 万 / 月次固定費 30 万 / 営業 CF カバレッジ 1.7-2.7 倍 / 7-10 ヶ月目到達（INFERENCE）。
+ランウェイ: 1000 万円のみで標準構成 29-36 ヶ月、最小構成なら 67-83 ヶ月（INFERENCE）。
+リスク先出し: API 価格変動 / 競合模倣 / 規制 / 採用難 / 1 名属人化 → 各対応策を詳細版 p.20-22 に明示。
+
+[Ask]
+1000 万円 → Phase 1 商用化（軸 A 投資助言業登録 + クライアント環境向け SaaS β 実装）の 2 用途のみ。
+出資契約形態: J-KISS 推奨（バリュエーションキャップ 1 億円候補・要協議）/ 普通株は経営関与希望時。
+弁護士確認待ち項目あり（投資助言業登録要否・契約書ドラフト等）。
+
+[次のアクション]
+ステップ 1 バリュエーション詳細確認（2026-05-08 まで）
+ステップ 2 弁護士による契約ドラフト（2026-05-10 まで）
+ステップ 3 Phase 1 開始合意（2026-05-14 まで）
+
+[連絡先]
+ConsultingOS 代表（担当者名・メール・電話を別途記載）
+詳細版デック 26 slides: 添付ファイル参照
+事業計画マスター: /strategy/mizuno-funding-1000man/00-business-plan-master.md
+</pre>
+  </div>
+</section>
+
+<script>
+function copyEmail(btn){
+  const text = document.getElementById('email-body').innerText;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function(){
+      btn.textContent = 'コピー済';
+      btn.classList.add('copied');
+      setTimeout(function(){btn.textContent='コピー';btn.classList.remove('copied')},2000);
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try{document.execCommand('copy');btn.textContent='コピー済';btn.classList.add('copied');setTimeout(function(){btn.textContent='コピー';btn.classList.remove('copied')},2000)}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+</script>
+<!--
+反証チェック結果:
+Step 1 自己反証: 配色を信頼紺 #1E3A8A に変更、hotice 由来 #E60012 を全排除。
+Step 2 構造反証: zone-header / zone-body 3 カラム / zone-footer の 3 ゾーン構成、1280×720 ページ収まり。
+Step 3 実用反証: メール本文 pre + クリップボードコピーボタン JavaScript 実装、Clipboard API + execCommand フォールバック。
+残存リスク: 連絡先プレースホルダー未確定 / pdffonts 等の埋込フォント検証は HTML 単体では不可（PDF 化時に必要）。
+-->
+</main>
+</body>
+</html>
