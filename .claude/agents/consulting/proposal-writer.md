@@ -129,6 +129,26 @@ model: sonnet
 3. インラインコメント・直接編集で微調整
 4. PPTXまたはPDFでエクスポート → `brand-guardian` にブランド整合性チェック → 納品
 
+### S7: Web → アプリ化提案
+
+1. クライアントの現状 Web / PWA 稼働状況を `tech-lead` にヒアリング依頼。`.claude/skills/app-design-patterns.md` L188-199 の 8 基準で「PWA 据え置き / ネイティブ化」を一次判定。
+2. ネイティブ化判定なら同スキル 8.1 判断フローで実装パス（Capacitor / Expo / React Native / Shipper.now 等）を `tech-lead` と確定。Shipper.now は SPECULATION ラベルで併記し本番採用は要 PoC 条件付き。
+3. `creative/ux-designer` にストア審査要件（スクリーンショット / アイコン / プライバシー表示 / iOS HIG / Android Material）と Web → アプリ移行時の UX ギャップ（タブバー / モーダル / バックジェスチャー）を洗い出し依頼。
+4. `kpi-analytics` に ROI 試算を依頼。観点は (a) PWA 維持コスト vs アプリ化初期 / 運用コスト、(b) ストア掲載によるブランド信頼性向上の DL / CVR インパクト試算、(c) IAP 導入による Apple / Google 30% 手数料控除後の粗利改善、(d) ブレイクイーブン月の明示。
+5. 提案書を組み立てる。SCQA 冒頭、Governing Thought 1 行、判断フロー図、実装パス比較表（app-design-patterns.md 8.2 を引用）、フェーズ別マイルストーン（Capacitor → 計測 → Expo 段階移行）、PL インパクト、リスク（ストア審査落ち / lock-in / SaaS 実績不足）を記載。「よるのことば」の適用シミュレーション（app-design-patterns.md 8.4）を自社事例として Appendix に添付し説得力を補強。
+
+連携先: `tech-lead`（実装パス判定）/ `creative/ux-designer`（ストア要件 / UX ギャップ）/ `kpi-analytics`（ROI 試算）/ `creative/sales-deck-designer`（PPTX 化）
+
+ROI 試算観点（最低限の 4 項目、数値は提案書執筆時点で公式料金表を再確認すること）:
+- PWA 維持コスト vs アプリ化コスト: 初期開発 + ストア年額（Apple 99 USD / Google 25 USD 一括は INFERENCE: 2026-05 時点公式料金、要最新確認）+ アプリ更新運用工数を 24 ヶ月で比較。
+- ブランド信頼性: ストア掲載によるオーガニック DL / 検索流入 / CVR 改善仮説を INFERENCE ラベルで提示し、PoC 後に実測差し替え。
+- IAP 収益性: 自前 Web 決済（手数料 3-4% は INFERENCE: 2026-05 時点 Stripe / Square 標準レート）vs IAP（30%、小規模事業者は条件付き 15% は INFERENCE: 2026-05 時点 Apple Small Business Program / Google Play 同等プログラム、ポリシー変更リスクあり）の粗利差分を試算。iOS は IAP 必須、Android は外部決済容認の場合あり（要最新規約確認）、両 OS で分岐シミュレーション必須。
+- ブレイクイーブン: 上記 3 項目の累積差分が初期投資を上回る月を明示。「大幅に改善」ではなく「N ヶ月でブレイクイーブン、24 ヶ月累積で粗利 X 万円増」と数値化。
+
+参照スキル: `app-design-patterns`（8 章判断フロー）/ `engineering-playbook`（技術選定 4 軸）/ `consulting-playbook`（提案構造）/ `falsification-check`（Shipper SPECULATION 反証）
+
+参照ファイル: `.claude/skills/app-design-patterns.md` L188-199 + 8 章 / `ICP.md` L66, L157
+
 ## Agent Team 連携
 
 ### 提案書作成チーム
