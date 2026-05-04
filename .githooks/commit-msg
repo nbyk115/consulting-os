@@ -35,4 +35,16 @@ if [ ${#VIOLATIONS[@]} -gt 0 ]; then
   exit 1
 fi
 
+# 4. 反証チェック規律警告（CLAUDE.md ハードルール 1・2026-05-03 audit 100/100 達成施策）
+ADDED_LINES=$(git diff --cached --numstat 2>/dev/null | awk '{sum+=$1} END {print sum+0}')
+TOUCHED_PATHS=$(git diff --cached --name-only 2>/dev/null | grep -E '^(docs|strategy|examples)/' | head -1)
+if [ -n "$TOUCHED_PATHS" ] && [ "$ADDED_LINES" -ge 50 ]; then
+  if ! echo "$MSG" | grep -qE '反証|Step 1|Step 2|Step 3|残存リスク|FACT|INFERENCE|SPECULATION'; then
+    echo "" >&2
+    echo "⚠️  推奨: 大型コミット（${ADDED_LINES} 行追加）かつ docs/strategy/examples 配下変更に反証チェック / 出典 3 ラベル言及なし（CLAUDE.md ハードルール 1）" >&2
+    echo "    対応推奨: 反証 Step 1-3 / 残存リスク / FACT/INFERENCE/SPECULATION ラベルを含める" >&2
+    echo "    緊急回避: 警告のみ・コミット許可" >&2
+  fi
+fi
+
 exit 0

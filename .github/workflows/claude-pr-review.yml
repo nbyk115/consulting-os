@@ -10,7 +10,23 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  check-secrets:
+    runs-on: ubuntu-latest
+    outputs:
+      has_anthropic_key: ${{ steps.check.outputs.has_anthropic_key }}
+    steps:
+      - id: check
+        run: |
+          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "has_anthropic_key=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_anthropic_key=false" >> $GITHUB_OUTPUT
+            echo "ℹ️  ANTHROPIC_API_KEY 未設定: claude-pr-review はスキップ（PR をブロックしない）" >&2
+          fi
+
   review:
+    needs: check-secrets
+    if: needs.check-secrets.outputs.has_anthropic_key == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
