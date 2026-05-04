@@ -32,6 +32,8 @@
 - 2026-11-01: Sarvesh Shrivastava 20 SEO Patterns / ローカル SEO・GBP 案件顕在化次第、Patterns 1-8（GBP 系）/ 9-13（Page-2 goldmine + GSC 実務）/ 14-16（被リンク + NAP + 4 段階意図分類）/ 17-20（エンティティ + コンテンツギャップ + 月次レポ）から該当パターンのみ部分採用判断（20 全件取り込みは過剰、main 既存 seo-specialist agent はテクニカル SEO 中心でローカル SEO operational depth 不足を確認済 2026-05-02）。出典: https://x.com/bloggersarvesh/status/2036068241936896421
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
 - 2027-05-01: Camofox Browser / 法的リスク再評価（Scrapling と同タイミング、bot 偽装ツールの法解釈 1 年後再判定）
+- 2026-06-04: Shipper.now 1 ヶ月実績確認 / `.claude/skills/app-design-patterns.md` §8.3 SPECULATION ラベル更新判断（公開 1 ヶ月後、ストア審査通過事例 / 独立検証データ / lock-in 事例の有無で FACT 化または非推奨化、よるのことば PoC 着手判断と連動）
+- 2026-08-04: `.claude/skills/app-design-patterns.md` §8 + `.claude/agents/consulting/proposal-writer.md` S7 の IAP 手数料公式料金確認（3 ヶ月後、Apple Small Business Program / Google Play 手数料の 2026-Q3 時点規約変更チェック、INFERENCE → FACT 格上げ または再 INFERENCE 化）
 
 ---
 
