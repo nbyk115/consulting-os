@@ -37,6 +37,72 @@
 
 ---
 
+## 2026-05-04: Phase 5-1 + Phase 4 強化実装完了 — UserPromptSubmit 自動推奨 + 物理ブロック対象拡張
+
+### トリガー
+
+ユーザー指示「これでどこでもどんな依頼でも OS が連動稼働する？確実に」「ではそうして / 正真正銘の AI エージェント会社をつくって」を受け、Phase 5 設計（PR #35）の実装着手。Phase 4（PR #34）の物理ブロックは対象パターンが strategy/*/*.html|css|pptx|pdf に限定されていたため、AI 会社化の実演として「全依頼で関連エージェント自動推奨 + 形式変換全般で物理ブロック」を実装する。
+
+### 実装内容（4 変更）
+
+1. 新規 `.claude/hooks/recommend-agents.sh`（111 行、chmod 755）: UserPromptSubmit hook で stdin から prompt 取得 → TSV ベースのキーワードマッチング → 上位 6 件の関連エージェントを推奨表示。環境変数 CONSULTINGOS_AGENT_ENFORCEMENT=off|suggest|warn|block で段階制御。block モードでも UserPromptSubmit では exit 2 しない（PreToolUse の orchestration-block.sh に物理ブロック責務一元化）
+2. 新規 `.claude/agents.routing.tsv`（30 行 + ヘッダ）: 30 agents 全網羅、優先度別（10=consulting / 20=service-dev / 30=product / 40=creative / 50=global / 60=marketing-research）、衝突キーワード分離（「分析」「LP」「LTV」「GTM」「NPS」「リテンション」「ファネル」を agent 固有語で修飾）
+3. 既存 `.claude/hooks/orchestration-block.sh` 拡張: 対象パターンに strategy/*/*.docx|md / examples/*/*.docx|md を追加（戦略文書 / Markdown 案件成果物も物理ブロック対象に）
+4. 既存 `.claude/settings.json` 統合: UserPromptSubmit.hooks 配列に recommend-agents.sh を追加（既存 prompt-rules.sh と並走、Strangler Fig 適用）
+
+### 動作テスト 4 ケース結果
+
+| ケース | 入力 | 出力 | 判定 |
+|---|---|---|---|
+| 1 LP 制作 | 「新サービスのLPを作りたい。コンバージョン最適化も含めて」 | frontend-dev 推奨 | PASS |
+| 2 短文スキップ | 「hi」（10 文字未満） | 出力なし、通過 | PASS |
+| 3 法務 | 「利用規約とプライバシーポリシーのレビューをお願いします」 | legal-compliance-checker + feedback-synthesizer 推奨 | PASS（feedback-synthesizer は「レビュー」誤マッチ、suggest モード許容範囲） |
+| 4 戦略 + 競合 + KPI | 「3年中期戦略の競合分析とKPI設計を提案書にまとめたい」 | competitive-analyst / kpi-analytics / proposal-writer / strategy-lead / tech-lead の 5 件推奨 | PASS |
+
+### 連携エージェント実行記録
+
+- ai-engineer: 30 agents TSV 完成形 + 衝突キーワード分離設計
+- infra-devops: recommend-agents.sh 実装（途中 API レート制限で中断、ファイルは作成済み）
+- brand-guardian: 規律検証 PASS + 削除候補確定（browser-automation.md、参照 1 件のみ）
+
+### ハードルール 13 削除セット
+
+新規 2 ファイル追加（recommend-agents.sh + agents.routing.tsv）に対する削除セット候補:
+- 削除候補: `.claude/skills/browser-automation.md`（参照 1 件のみ = `.claude/skills/cybersecurity-playbook.md` L404）
+- 状態: 本 PR では実施せず、ユーザー承認後の別 PR で削除実施（ハードルール 15 不可逆操作はユーザー承認必須を優先）
+- 同時処置必須: cybersecurity-playbook.md L404「browser-automation.md と併用」の 1 行も同 PR で削除（ハードルール 14 抵触回避）
+
+### 反証結果
+
+Step 1 自己反証: recommend-agents.sh 初版は awk 内 system() で grep 呼び出ししたが prompt 引数のエスケープ問題で出力空、bash の while + grep に書き換えで動作確認。テストファースト不徹底の自己診断、次回は単体テスト → 実装の TDD 順序徹底必要。
+Step 2 構造反証: orchestration-block.sh 拡張は保守的案 A 採用（strategy/*/*.docx|md 追加）。積極的案 B（プロジェクトルート以下全 .html / .pptx / .pdf）は false positive リスク高、Phase 5-1 の suggest 運用 4 週間後に再評価。
+Step 3 実用反証: 動作テスト 4 ケースで Test 3 の feedback-synthesizer 誤マッチを確認、suggest モードでは assistant の最終判断で許容、block 移行時には TSV 修正必要。
+
+### 残存リスク
+
+1. agents.routing.tsv は CLAUDE.md / agent-routing.md / 各 agent 定義との 4 重管理リスク、2026-08-04 再評価カレンダーで誤検知率 + 衝突キーワード追加要否確認
+2. Phase 5-3（Stop hook 応答内容検証 / 禁止フレーズ検知）は Claude Code SDK 仕様未確認、本 PR には含めず Phase 5 全体未完了
+3. Phase 5-4（自動エージェント起動）は Phase 5-1 〜 5-3 完了後、本 PR 後も「推奨表示」止まりで「自動稼働」には未到達
+4. browser-automation.md 削除は別 PR、ハードルール 13 厳密遵守は本 PR では未達（ハードルール 15 優先で許容）
+5. recommend-agents.sh の awk → bash 書き換え修正は単体テスト不徹底の表れ、次回 hook 実装は TDD 必須
+
+### 再評価カレンダー追加
+
+- 2026-08-04: recommend-agents.sh 誤検知率測定（4 週間 suggest 運用後、誤検知率 5% 未満で warn 移行判断）
+- 2026-08-04: agents.routing.tsv 衝突キーワード追加要否（ユーザープロンプト 100 件以上の蓄積で誤マッチパターン分析）
+- 2026-06-01: browser-automation.md 削除別 PR 化判断（ユーザー承認後）
+
+### 関連参照
+
+- `.claude/hooks/recommend-agents.sh`（新規、111 行）
+- `.claude/agents.routing.tsv`（新規、30 agents 全網羅）
+- `.claude/hooks/orchestration-block.sh`（対象パターン拡張）
+- `.claude/settings.json`（UserPromptSubmit hooks 配列に recommend-agents.sh 追加）
+- PR #34（orchestration 物理ブロック Phase 1-3、本 PR の前提）
+- PR #35（Phase 5「AI 会社化」設計完了、本 PR の設計起点）
+
+---
+
 ## 2026-05-04: orchestration 欠陥事例 — エージェント起動前ファイル存在確認の省略（前提検証ゲート未実装）
 
 ### トリガー
