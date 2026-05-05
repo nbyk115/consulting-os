@@ -19,6 +19,21 @@
             "timeout": 5000
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/session-start-reminder.sh",
+            "timeout": 8000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/score-os-health.sh",
+            "timeout": 10000
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
