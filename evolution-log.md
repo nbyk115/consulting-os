@@ -47,7 +47,7 @@
 
 ### 違反 1: em ダッシュ / en ダッシュ使用（brand-guidelines.md L119 既定ルール無視）
 
-- 該当: Expert Network 回答ドラフトで「—」を 6 箇所以上使用 (Q1 / Q5 expertise highlight 含む)
+- 該当: Expert Network 回答ドラフトで em-dash 文字 (U+2014) を 6 箇所以上使用 (Q1 / Q5 expertise highlight 含む)
 - 既存ルール: brand-guidelines.md L119 で禁止済 (代替: コロン / カンマ / ピリオド / セミコロン)
 - 違反原因: CLAUDE.md ハードルール 16 から brand-guidelines への参照のみで CLAUDE.md 本体に明示記載なし、出力直前の佐藤裕介 W チェック (規律 16 ⑤) でダッシュ検査が形骸化
 - 構造改善: ハードルール 16 ⑥ として CLAUDE.md 本体にダッシュ禁止を昇格、AI 文章バレ対策の最重要シグナルと明示、適用範囲をクライアント納品物 / Expert Network 回答 / メール / SNS / セールス資料 / GitHub PR / コミットメッセージ / アシスタント応答すべてに拡張
