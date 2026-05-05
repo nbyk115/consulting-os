@@ -85,7 +85,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); if [ -n \"$file\" ]; then case \"$file\" in *.ts|*.tsx|*.js|*.jsx) npx prettier --write \"$file\" 2>/dev/null;; esac; fi"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); if [ -n \"$file\" ] && command -v prettier >/dev/null 2>&1; then case \"$file\" in *.ts|*.tsx|*.js|*.jsx) prettier --write \"$file\" 2>/dev/null;; esac; fi"
           },
           {
             "type": "command",
@@ -148,6 +148,10 @@
       "Bash(sudo *)",
       "Read(*credentials*)",
       "Read(*secret*)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(*/.env)",
+      "Read(*/.env.*)",
       "Read(.env*)"
     ]
   }
