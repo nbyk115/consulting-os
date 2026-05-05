@@ -37,7 +37,8 @@ TRANSCRIPT_PATH=$(echo "$STDIN_INPUT" | jq -r '.transcript_path // .transcriptPa
 # transcript の最終 assistant message を取得
 LATEST_RESPONSE=""
 if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
-  LATEST_RESPONSE=$(jq -r 'select(.type == "assistant") | .message.content[]? | select(.type == "text") | .text' "$TRANSCRIPT_PATH" 2>/dev/null | tail -100)
+  # 2026-05-05 M7 修正: 長文応答（コンサル納品物等）の前半に禁止フレーズがある場合の検出漏れ防止
+  LATEST_RESPONSE=$(jq -r 'select(.type == "assistant") | .message.content[]? | select(.type == "text") | .text' "$TRANSCRIPT_PATH" 2>/dev/null | tail -300)
 fi
 
 # transcript アクセス失敗時は通過（false positive 防止、SDK 仕様変更時の互換性確保）
