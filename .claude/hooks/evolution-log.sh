@@ -74,8 +74,11 @@ if ! grep -q "^## $DATE$" "$LOG_MD"; then
   echo "## $DATE" >> "$LOG_MD"
 fi
 
-# エントリ追記（重複防止: 直近10件以内に同じ path があればスキップ）
-LAST_10=$(tail -20 "$LOG_MD" | grep -c "$REL_PATH" || echo 0)
+# エントリ追記（重複防止: 直近20行以内に同じ path があればスキップ）
+# 2026-05-05 C4 修正: grep -c が set -e + 0 ヒット時に exit 1 → || echo 0 と本来出力が連結
+# 対応: -F でリテラル化、2>/dev/null でエラー抑制、空文字時のデフォルト値設定
+LAST_10=$(tail -20 "$LOG_MD" | grep -cF "$REL_PATH" 2>/dev/null || true)
+LAST_10=${LAST_10:-0}
 if [ "$LAST_10" -lt 1 ]; then
   echo "- [$CATEGORY] \`$REL_PATH\` modified ($TOOL_NAME at $TIMESTAMP)" >> "$LOG_MD"
 fi

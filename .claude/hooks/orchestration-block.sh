@@ -32,8 +32,14 @@ if [ "$TOOL_NAME" = "Edit" ]; then
   fi
 fi
 
+# プロジェクトルート検出（case 判定の前に移動 — 2026-05-05 C1 修正）
+ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo "$(pwd)")
+
+# 絶対パス対応: ROOT を剥がして相対化（Claude Code は絶対パスを渡す）
+REL_FILE="${FILE#$ROOT/}"
+
 # 対象パターン判定（Phase 4 強化 2026-05-04: docx / md も対象に追加）
-case "$FILE" in
+case "$REL_FILE" in
   strategy/*/*.html|strategy/*/*.css|strategy/*/*.pptx|strategy/*/*.pdf|\
   strategy/*/*.docx|strategy/*/*.md|\
   strategy/*/case-*.html|strategy/*/index.html|\
@@ -44,9 +50,6 @@ case "$FILE" in
     exit 0
     ;;
 esac
-
-# プロジェクトルート検出
-ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo "$(pwd)")
 
 # エージェント起動履歴チェック（Claude Code projects ディレクトリ内の最近5分セッション）
 # パス候補: ~/.claude/projects/<encoded-path>/ 配下の *.jsonl
