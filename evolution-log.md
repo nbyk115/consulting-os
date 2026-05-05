@@ -39,7 +39,126 @@
 
 ---
 
-## 2026-05-05: 全エージェント連携ジャッジ — 残存リスク + 保留課題 9 件の佐藤裕介流最終判定
+## 2026-05-05: Anthropic + Blackstone / H&F / Goldman Sachs $1.5B JV 戦略学習 + Dario Amodei 思考トラッカー新設
+
+### トリガー
+
+ユーザーから Fortune 記事 (https://fortune.com/2026/05/04/anthropic-claude-consulting-industry-joint-venture-blackstone-goldman-sachs/) と「Anthropic の狙いはコンサル業界そのもの。AI 導入テンプレートを各社にコピペ展開、McKinsey / Bain の仕事を完全に内製化、AI スタートアップ GTM が金融×コンサル両方を飲み込む」との指摘 + 「ダリオの思考も常に最新にしてね」を受領。並列起動 3 名 (competitive-analyst / strategy-lead / market-researcher) で脅威評価 + 戦略応答 + Dario 思考最新化を実施。
+
+### 確定事実 (FACT, BusinessWire 2026-05-03)
+
+Anthropic + Blackstone + Hellman & Friedman + Goldman Sachs が $1.5B 規模のエンタープライズ AI サービス会社設立を発表。Claude を PE ポートフォリオ企業群に直接展開する戦略を公式化。出典: https://www.businesswire.com/news/home/20260503427206/en/Anthropic-Partners-with-Blackstone-Hellman-Friedman-and-Goldman-Sachs-to-Launch-Enterprise-AI-Services-Firm
+
+### 戦略判断 (両エージェント整合)
+
+直接競合度 3/10 (Fortune 500 × 大型 JV vs ConsultingOS の SMB / 単独事業者 / 代理店 ICP は重ならない、INFERENCE)。ただし Enterprise 層 (月 30-100 万) の「汎用 AI 導入支援」名目案件は直撃対象、再定義必須。
+
+推奨ポジション: サブセット化 50% 主軸 + 補完化 35% サブのハイブリッド。直接対決 5% 不採用、JV パートナー化 10% 不採用 (ConsultingOS の資産が Anthropic 帰属化するリスク)。
+
+Secret Thesis: コンサルの本質はテンプレ実装ではなくクライアント固有文脈の翻訳と規律の運用継続。後者は標準化できないため、文脈密着型 OSS と小ロット運用支援が長期で複利優位 (INFERENCE)。
+
+### 1 年以内アクション 5 つ (priority order)
+
+1. PL 成果連動型料金モデル設計 (3M): 「AI を使うこと」ではなく業務成果へのフィー紐付け
+2. 「コンサル」言語パージ → 「AI 駆動経営 OS」統一 (1M): カテゴリ脱出を完了
+3. Anthropic テンプレート挫折後の SMB 受け皿パッケージ設計 (Q3): セカンドバウンス獲得、Anthropic と非競合
+4. OSS Core GitHub コントリビューター戦略: Anthropic が参照する OSS の管理者ポジション
+5. anthropic-watch ルーティン設計: Anthropic 公式リリース・JV 動向・Fortune 500 向けテンプレートのリリース情報を四半期定点観測
+
+### 6 ヶ月ロードマップ (strategy-lead)
+
+- 業界別プレイブック 5 → 8 (医療 / 士業 / 物流追加)
+- brand-guidelines / falsification-check の OSS 完全公開 + 英語 README
+- 規律監査オプション設計 (Enterprise +20-30 万 / 月、SPECULATION、kpi-analytics 確定要)
+- evolution-log の公開資産化 (5 年蓄積の証跡)
+
+### Dario 思考最新化 (新規ファイル設置)
+
+`.claude/skills/references/dario-amodei-thinking-tracker.md` を新設、四半期更新ルール (次回 2026-08)。主要発言ソース 8 件 + 主要エッセイ 2 本 (Machines of Loving Grace 2024-10 / The Urgency of Interpretability 2025-04) + RSP / AGI 2026-2027 タイムライン / 中国 AI 輸出管理 / BX-GS JV を時系列整理。ConsultingOS 戦略示唆 5 項目 (FACT / INFERENCE / SPECULATION ラベル付き) を抽出。CLAUDE.md References 表に登録。
+
+### 反証結果
+
+Step 1 自己反証: WebFetch が Fortune ペイウォール 403 のため記事原文未確認、ユーザー要約 + URL 引用で代替、JV 詳細仕様 (持分比率 / GA 時期 / ARR 目標) は SPECULATION 区域残存。BusinessWire 経由で $1.5B 規模は FACT 確定。
+Step 2 構造反証: 「直接競合度 3/10」は Anthropic 標的が Fortune 500 のみの前提、SMB 水平展開シナリオでは 5/10 まで上昇可能性あり、四半期定点観測でモニタリング必須。
+Step 3 実用反証: Secret Thesis 「規律 + 文脈翻訳が複利優位」は未検証仮説、3M 以内に 5 社ヒアリングで市場検証必要、PL 成果連動モデルも SMB の計測インフラ未整備が制約となるため計測環境整備をセット提案する設計が前提。
+
+### 残存リスク
+
+1. Anthropic JV の SMB 降下速度 (定点観測必須、3 ヶ月単位)
+2. Anthropic 自体が日本語対応 + Claude Skills で規律機能を内製化する逆襲シナリオ (確率 30%、SPECULATION)
+3. 5 年蓄積前提の複利効果が出るまでの 1-2 年は赤字許容覚悟が必要
+4. WebFetch 403 のため Bloomberg / Reuters / Anthropic 公式 PR の代替ソース取得を 24 時間以内に試行推奨
+
+### 再評価カレンダー追加
+
+- 2026-08-05: Dario thinking tracker 四半期更新 (次回主要発言・エッセイ・JV 進捗の追補)
+- 2026-08-05: Anthropic JV の SMB 降下速度評価 (3 ヶ月後、Fortune 500 限定継続か水平展開か判定)
+- 2026-08-05: ConsultingOS Secret Thesis 「規律 + 文脈翻訳が複利優位」の市場検証 (5 社ヒアリング結果反映)
+- 2026-11-05: PL 成果連動型料金モデルパイロット 3 社実装結果評価 (6 ヶ月後)
+
+### 関連参照
+
+- `.claude/skills/references/dario-amodei-thinking-tracker.md` (新設)
+- `CLAUDE.md` References 表 (Dario tracker 行追加)
+- `.claude/skills/consulting-playbook.md` (Secret Thesis / 3 変数交点 / アセット帰属診断)
+- `.claude/skills/falsification-check.md`
+- 出典: Fortune 2026-05-04 (ペイウォール) / BusinessWire 2026-05-03 (一次ソース)
+
+---
+
+## 2026-05-05: 違反学習 3 件 (Expert Network 回答セッション): ダッシュ使用 / 文数指示無視 / エージェント選定ミス + ハードルール 16 ⑥⑦ 追加 + agent-routing 強化
+
+### トリガー
+
+電通デジタル小野寺信行氏ペルソナでの Expert Network スクリーニング回答ドラフト中に 3 違反が発生。ユーザー指摘「ダッシュ含まれてるよ、ルールで禁じたよね」「一文でだせといったよねベストを」「これどの部もんがやってるん？小野寺信行として回答するんだよね」を受け、構造的原因と再発防止を OS ルール側に反映。
+
+### 違反 1: em ダッシュ / en ダッシュ使用（brand-guidelines.md L119 既定ルール無視）
+
+- 該当: Expert Network 回答ドラフトで em-dash 文字 (U+2014) を 6 箇所以上使用 (Q1 / Q5 expertise highlight 含む)
+- 既存ルール: brand-guidelines.md L119 で禁止済 (代替: コロン / カンマ / ピリオド / セミコロン)
+- 違反原因: CLAUDE.md ハードルール 16 から brand-guidelines への参照のみで CLAUDE.md 本体に明示記載なし、出力直前の佐藤裕介 W チェック (規律 16 ⑤) でダッシュ検査が形骸化
+- 構造改善: ハードルール 16 ⑥ として CLAUDE.md 本体にダッシュ禁止を昇格、AI 文章バレ対策の最重要シグナルと明示、適用範囲をクライアント納品物 / Expert Network 回答 / メール / SNS / セールス資料 / GitHub PR / コミットメッセージ / アシスタント応答すべてに拡張
+
+### 違反 2: ユーザー指定の文数指示無視
+
+- 該当: ユーザーが「ベストな文 1 つにして」「一文でだせといった」と指示したのに 2 bullet で出力
+- 既存ルール: 該当ルールなし
+- 違反原因: エージェント標準フォーマット (FACT / INFERENCE 分類 + bullet 化 + 反証ラベル) を優先し、ユーザー形式制約を下位扱いした
+- 構造改善: ハードルール 16 ⑦ として「ユーザー指定の形式制約 (文数 / 個数 / 文字数 / bullet 数 / 言語) は最優先、エージェント標準フォーマット・既定の bullet 化・推奨構造より上位」を新設
+
+### 違反 3: エージェント選定ミス (Global Platform Japan GTM で performance-marketer 単独起動)
+
+- 該当: 電通デジタル DDGC / DJIB / DII の越境ビジネス案件 (Global Platform Japan GTM + 戦略アライアンス + 共同 R&D) で performance-marketer のみ起動、gtm-consultant 不在
+- 既存ルール: agent-routing.md Step 2e に「海外市場参入・GTM → gtm-consultant」はあるが、Global Platform's Japan GTM (海外発媒体の日本上陸) ケースの specific routing なし
+- 違反原因: META / OpenAI 広告のキーワードに反応し performance-marketer に流れた、GTM 主軸の判断を見落とし
+- 構造改善: agent-routing.md Step 2e に「グローバルプラットフォームの日本上陸 GTM・代理店戦略アライアンス・共同 R&D = gtm-consultant 主担当 + performance-marketer 補助 (媒体・計測スタック評価) + competitive-analyst 補助 (日本市場ポジショニング) + legal-compliance-checker (NDA・MNPI 該当判定)」を追加、電通デジタル DDGC / DJIB / DII 型案件・Expert Network 回答もこのルートに明記
+
+### 反証結果
+
+Step 1 自己反証: 3 違反は「規律確認の形骸化 + 形式 vs 内容の優先順位逆転 + キーワード反応型ルーティング」の 3 つの構造問題に起因。今回の OS 更新で全て構造側に押し戻し。
+Step 2 構造反証: ハードルール 16 が ⑤ から ⑦ まで 7 項目に拡張、肥大化リスクあり。Boris #3 ruthlessly edit 観点で削除候補は現時点なし (全項目アクティブ運用中)、3 ヶ月後再評価で形骸化チェック。
+Step 3 実用反証: 次回 Expert Network 回答時に W チェックで「ダッシュ検査」「文数遵守」「routing 確認」の 3 点が機械的に作動するか、claude-code-ops の orchestration-block.sh への組込み余地を 2026-08-05 に検討。
+
+### 残存リスク
+
+1. 既存 evolution-log 内のダッシュ使用箇所 (今日のエントリも含む過去エントリ) は未修正、新規ルールは前向きにのみ適用
+2. agent-routing.md は明文化したが UserPromptSubmit hook での自動 routing 検出は未実装 (Phase 5-1 で対応予定)
+3. Expert Network ペルソナ回答時の「実キャリア確認 + first-person 視点統一」のチェックリストは未整備、次違反発生時に追加検討
+
+### 再評価カレンダー追加
+
+- 2026-08-05: ハードルール 16 ⑥⑦ の運用形骸化チェック (3 ヶ月後、ダッシュ検出 / 文数遵守違反の再発有無)
+- 2026-08-05: agent-routing.md Global Platform Japan GTM ルート使用実績の確認 (Expert Network 案件 / 越境 GTM 案件で gtm-consultant 主担当起動の実数)
+
+### 関連参照
+
+- `CLAUDE.md` ハードルール 16 (⑥⑦ 追加)
+- `docs/agent-routing.md` Step 2e (Global Platform Japan GTM ルート追加)
+- `.claude/skills/brand-guidelines.md` L119 (ダッシュ禁止既定ルール)
+
+---
+
+## 2026-05-05: 全エージェント連携ジャッジ: 残存リスク + 保留課題 9 件の佐藤裕介流最終判定
 
 ### トリガー
 

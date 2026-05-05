@@ -86,6 +86,7 @@
 ├─ 海外ニュース・動向調査 → gtm-consultant + market-researcher（global-journalist 機能吸収 PR #48）
 ├─ 海外拠点・オペレーション・パートナーシップ → gtm-consultant（Post-Entry節吸収）
 ├─ 翻訳・ローカライズ → gtm-consultant（L1-L5 ローカライズ統括）+ ハードルール 11「英語出力に日本語訳併記必須」（business-translator 廃止 PR #48）
+├─ グローバルプラットフォームの日本上陸 GTM・代理店戦略アライアンス・共同 R&D → gtm-consultant（主担当 / GTM 設計）+ performance-marketer（補助 / 媒体・計測スタック評価）+ competitive-analyst（補助 / 日本市場ポジショニング）+ legal-compliance-checker（NDA・上場会社 MNPI 該当判定）。電通デジタル / DDGC / DJIB / DII 型の越境ビジネス案件・Expert Network 回答もこのルートを使う（2026-05-05 違反学習：performance-marketer 単独起動は誤）
 └─ 海外法規制チェック → legal-compliance-checker + gtm-consultant
 ```
 
@@ -173,9 +174,9 @@
 
 全エージェントの出力に以下を必ず含める（含まない出力は assistant が再起動 or 単独切替判断）:
 
-1. 参照ファイルパス — 判定根拠とした実ファイルの絶対パス（複数なら全て列挙）
+1. 参照ファイルパス: 判定根拠とした実ファイルの絶対パス（複数なら全て列挙）
 2. 反証チェック Step 1-3 + 残存リスク（短文時は 2-3 行圧縮可、完全省略禁止）
-3. 出典 3 ラベル — 数値・年次予測・予測値には FACT / INFERENCE / SPECULATION ラベル明示
+3. 出典 3 ラベル: 数値・年次予測・予測値には FACT / INFERENCE / SPECULATION ラベル明示
 4. 結論 → 根拠 → 具体アクションの順序
 
 ### 出力検証ゲート（assistant 受領後の機械的確認）
