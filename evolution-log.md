@@ -37,6 +37,63 @@
 
 ---
 
+## 2026-05-05: Phase 6 商品化準備 — Anthropic 公式エコシステム互換性訴求セクション追加 + graphify 再評価
+
+### トリガー
+
+ユーザー指示「即実装、増強、クオリティ向上につながるものは着実に取り組んで。佐藤裕介オーケストレーション稼働して判断ね」を受け、3 連続業界トレンド評価（Skills 67 選 / Khairallah 40 features / Agent Stack）の差別化軸を Phase 6 商品化準備として明文化。
+
+### 実装内容
+
+1. README.md に「Anthropic 公式エコシステム + ConsultingOS 規律レイヤー」セクション追加（57 行）
+   - 「素材 vs 料理」「フレームワーク vs 規律ある組織 OS」のメタファー定義
+   - 対照テーブル: Anthropic 公式 10 機能 × ConsultingOS が追加する規律レイヤーの 1 対 1 対応
+   - Phase 6 商品化時のセールス訴求軸として活用可能
+
+### graphify 再評価（数日前評価との差分検証）
+
+ユーザー言及「これはすでに検討した？」を受け、新情報（GitHub リポジトリ実物）で再評価:
+
+| 評価軸 | 前回判断 | 今回再評価 |
+|---|---|---|
+| 出典信頼性 | X ポスト 1 件のみ（SPECULATION）| Stars 40k + 73 リリース + MIT License = 大規模採用済み（FACT） |
+| 業界標準化 | 不明 | tree-sitter + Knowledge Graph + RAG = 業界標準路線 |
+| マルチプラットフォーム | 不明 | Claude Code / Codex / OpenCode / Cursor / Gemini CLI 対応 = ベンダーロックイン低 |
+| メディア解析範囲 | Read tool で十分 | 25 言語コード + SQL / R / Shell / docs / papers / images / videos = ConsultingOS の Read 範囲超え |
+| ConsultingOS 業務直結 | service-dev 部門のみ | 同左、ConsultingOS 自体の codebase 理解（30 agents 関係性 / hook 連動）にも有用 |
+
+判定変更: 即実装は依然反対（現業務 daily-use ではない、ハードルール 14 先回り禁止）、Phase 6 商品化時の「補完ツール訴求」候補に格上げ
+
+### 連携エージェント実行記録
+
+- competitive-analyst: README.md「Anthropic 公式エコシステム + ConsultingOS 規律レイヤー」セクション設計 + 直接書き込み完了
+- tech-lead: orchestration-block.sh Path-Specific Rules 代替拡張案（背景実行中、別 PR で統合予定）
+
+### 反証結果
+
+Step 1 自己反証: 「素材 vs 料理」メタファーは INFERENCE、Anthropic 公式が後発で機能拡充する場合に ConsultingOS の規律レイヤーが追いつかなくなるリスク。
+Step 2 構造反証: 同じツール（graphify）を 2 回評価する行為自体が context 浪費、評価カレンダー登録 + 即答仕組みが必要。
+Step 3 実用反証: 「即実装、増強、クオリティ向上」のうち即実装は README 拡張のみ、orchestration-block.sh 拡張は別 PR で 1 PR 1 目的維持。
+
+### 残存リスク
+
+1. Anthropic 公式が後発で機能拡充する場合、ConsultingOS の規律レイヤーが追いつかなくなる
+2. graphify 連携の実機検証は Phase 6 着手前に PoC 1 案件で実施必要
+3. README 対照テーブルの 10 機能対応は実装ベースの自己評価、第三者検証なし
+
+### 再評価カレンダー追加
+
+- 2026-08-05: graphify 連携の Phase 6 商品化時 PoC 着手判断（補完ツール訴求軸として整理）
+- 2026-11-05: Anthropic 公式機能拡充の差分検証（ConsultingOS 規律レイヤーの相対優位性確認）
+
+### 関連参照
+
+- `README.md`（Anthropic 公式エコシステム + ConsultingOS 規律レイヤーセクション追加）
+- `evolution-log.md` 2026-05-05「調査チームナレッジ統合」エントリ（Skills 67 選評価との連動）
+- PR #34-#38（物理化実装の根拠）
+
+---
+
 ## 2026-05-05: 調査チームナレッジ統合 — 日本 AI 市場 5 層構造 + Vertical AI 戦略 + Anthropic Skills 67 選評価
 
 ### トリガー
