@@ -116,4 +116,6 @@
 | B2B セールス資料の佐藤裕介モードレビュー | `.claude/skills/sales-deck-review/` |
 | 業界別プレイブック（SaaS / D2C / 広告代理店 / 製造業 / 金融） | `.claude/skills/industry-playbooks/` |
 | プロンプトテンプレ集（30 本） | `.claude/skills/prompt-templates/` |
+| Meta / Zuckerberg 広告プロダクト・Instagram 戦略・主要発言 (2024-2026) | `.claude/skills/references/marketing-research-playbook-meta-zuckerberg.md` |
+| Dario Amodei 思考トラッカー (Machines of Loving Grace / Urgency of Interpretability / RSP / AGI 2026-2027 タイムライン / BX-GS JV $1.5B / 2024-2026) | `.claude/skills/references/dario-amodei-thinking-tracker.md` |
 | 進化ログ・規律違反記録 | `evolution-log.md` |
