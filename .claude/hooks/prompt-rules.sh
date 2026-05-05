@@ -1,7 +1,15 @@
 #!/bin/bash
 # UserPromptSubmit hook: 毎ターン強制ルール注入 + 短文化要求検知時の規律強化
 
-USER_PROMPT="${CLAUDE_USER_PROMPT:-}"
+# 2026-05-05 C2 修正: stdin の JSON から prompt 抽出（v2.x 仕様対応）
+STDIN_INPUT=$(cat 2>/dev/null || true)
+USER_PROMPT=""
+if [ -n "$STDIN_INPUT" ]; then
+  USER_PROMPT=$(echo "$STDIN_INPUT" | jq -r '.prompt // empty' 2>/dev/null || true)
+fi
+if [ -z "$USER_PROMPT" ]; then
+  USER_PROMPT="${CLAUDE_USER_PROMPT:-}"
+fi
 
 # 短文化要求検知（規律省略誘惑が発生しやすいパターン）
 SHORT_REQUEST_DETECTED=""
