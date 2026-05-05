@@ -37,6 +37,73 @@
 
 ---
 
+## 2026-05-05: Phase 5-3 Stop hook 応答内容検証実装 — 禁止フレーズ + 反証チェック未付与の物理検知
+
+### トリガー
+
+ユーザー指示「運用しつつじゃおそい、まずは形作って実運用しながら改修。佐藤裕介ならそうする。70 点でも経験を取りに行く」を受け、Phase 5-3 を SDK 仕様確認待ちの慎重論から「70 点で出して実運用しながら改修」に方針転換。assistant の前回応答「Phase 5-3 SDK 仕様確認 → 実装」は絞り込み錯覚の別バリエーション = 「慎重論錯覚」と自己診断。
+
+### 実装内容（2 変更）
+
+1. 新規 `.claude/hooks/stop-validator.sh`（115 行、chmod 755）
+   - Stop hook で stdin から transcript_path 取得 → 最新 assistant 応答を jq で抽出
+   - 禁止フレーズ 5 種検知（自分で書いた方が早い / assistant 直接で書く方が早い / 単独で完結 / 並列起動さえすれば完了 / 形式変換だから例外）
+   - 反証チェック未付与検知（【反証チェック結果】/ Step 1-3 のいずれもなければ違反）
+   - 環境変数 CONSULTINGOS_STOP_ENFORCEMENT=off|warn|block（default: warn、誤検知率検証後 block 移行判断）
+   - transcript アクセス失敗時は exit 0 で通過（false positive 防止 + SDK 仕様変更時の互換性）
+   - SPECULATION ラベル明示（Claude Code Stop hook 仕様未確認、検証期日 2026-05-12）
+
+2. 既存 `.claude/settings.json` Stop hook 配列に stop-validator.sh 追加（既存 echo 警告と並走）
+
+### 動作テスト 3 ケース全 PASS
+
+| ケース | 入力 | 出力 | 判定 |
+|---|---|---|---|
+| 1 反証チェック付き | 「【反証チェック結果】Step 1-3...」含む | 出力なし、exit 0 | PASS |
+| 2 反証未付与 | 「これは反証なしの応答です」 | warn 出力、exit 0 | PASS |
+| 3 禁止フレーズ | 「自分で書いた方が早いと思いました」 | フレーズ検出 + warn 出力、exit 0 | PASS |
+
+### 連携エージェント実行記録
+
+- brand-guardian: 規律検証（4 件指摘 = REJECT-1 settings.json 未登録 / REJECT-2 chmod 未実行 / REJECT-3 SPECULATION ラベル明示 / REVISE 削除候補検討）→ assistant が 4 件すべて修正
+- assistant: 70 点実装方針で stop-validator.sh 直接 Write、テスト → 修正 → コミットの TDD サイクル
+
+### ハードルール 13 削除セット（前回 PR と統合）
+
+新規 1 ファイル追加（stop-validator.sh）に対する削除候補:
+- 削除候補: `.claude/skills/browser-automation.md`（前回 PR でも指摘、参照 1 件のみ）
+- 状態: 本 PR では未実施、ユーザー承認後の別 PR で削除（ハードルール 15 不可逆操作優先、PR #36 と同じ扱い）
+- 累積: PR #36 + 本 PR で計 3 ファイル新規追加 → 削除 1 件で対応、debt 蓄積中、次 PR で必ず削除実施
+
+### 反証結果
+
+Step 1 自己反証: 「Phase 5-3 は SDK 仕様確認待ち」と前回回答した判断は慎重論錯覚 = 絞り込み錯覚の別形態、佐藤裕介流「70 点で出す」と整合せず。ユーザー指摘で方針転換、即実装着手は正しい修正。
+Step 2 構造反証: SDK 仕様未確認のまま実装したが、フォールバック（exit 0）で false positive 防止 + 互換性確保、最悪ケースは形骸化（hook が常に通過）で「壊れない」設計。
+Step 3 実用反証: 動作テスト 3 ケースで疑似 transcript 経由の検知は機能、実機セッションでの transcript_path 受け渡しは 2026-05-12 までに soak test で確認、結果を evolution-log 追記予定。
+
+### 残存リスク
+
+1. transcript_path が Stop hook stdin に渡されない場合、hook が形骸化（常に exit 0 通過）→ 2026-05-12 までに soak test 必須
+2. 禁止フレーズ false positive リスク（「単独で完結」が正常文脈で検出される等）→ warn モードで 4 週間運用後に block 移行判断
+3. ハードルール 13 累積債務（3 ファイル追加 vs 削除 0）→ 次 PR で browser-automation.md 削除必須
+4. Phase 5-4（推奨 → 自動起動）未実装、本 PR 後も「警告のみ」止まり、「完全自動連動」未達
+5. SDK 仕様変更（Stop hook stdin フォーマット変更）リスク、フォールバックで動作継続するが検知不能になる可能性
+
+### 再評価カレンダー追加
+
+- 2026-05-12: stop-validator.sh の実機 soak test（transcript_path 受け渡しの実動作確認、stderr ログで判定）
+- 2026-06-05: 禁止フレーズ false positive 率測定（4 週間 warn 運用後、5% 未満で block 移行判断）
+- 2026-08-05: Phase 5-4 着手判断（hook から Task tool 自動呼び出しの SDK 仕様確認、可能なら実装、不可能なら代替アーキテクチャ設計）
+
+### 関連参照
+
+- `.claude/hooks/stop-validator.sh`（新規、115 行）
+- `.claude/settings.json`（Stop hook 配列に stop-validator.sh 追加）
+- PR #36（Phase 5-1 + Phase 4 強化、本 PR の前提）
+- `evolution-log.md` 2026-05-04 Phase 5-1 エントリ（連続実装記録）
+
+---
+
 ## 2026-05-04: Phase 5-1 + Phase 4 強化実装完了 — UserPromptSubmit 自動推奨 + 物理ブロック対象拡張
 
 ### トリガー
