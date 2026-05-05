@@ -1,4 +1,4 @@
-# Marketing & Research Playbook — マーケティング&リサーチ統合プレイブック
+# Marketing & Research Playbook: マーケティング&リサーチ統合プレイブック
 
 ## 概要
 Marketing & Research部門の全エージェントが参照する共通ナレッジベース。戦略フレームワーク・チャネル選定・データ分析・リサーチ手法・PR手法の標準を定義する。
@@ -63,15 +63,15 @@ Positioning（差別化ポジショニング）
 
 ### ファネル設計
 ```
-TOFU（Top of Funnel）— 認知・興味
+TOFU（Top of Funnel）: 認知・興味
   チャネル: SEO / PR / SNS / ディスプレイ広告 / 動画
   KPI: リーチ / インプレッション / ブランド認知率
 
-MOFU（Middle of Funnel）— 検討・比較
+MOFU（Middle of Funnel）: 検討・比較
   チャネル: コンテンツマーケ / メール / リターゲティング / ウェビナー
   KPI: エンゲージメント / MQL / コンテンツDL数
 
-BOFU（Bottom of Funnel）— 購買・決定
+BOFU（Bottom of Funnel）: 購買・決定
   チャネル: SEM / LP / CRM / セールス連携
   KPI: SQL / CV数 / CPA / CVR
 ```
@@ -406,3 +406,7 @@ ULSSAS（SNS時代）
 ハードルール 13 遵守のため、§9 日本 AI 市場構造分析（5 層モデル + Vertical AI 戦略 + 経産省 2040 年推計）+ バージョン履歴を分離（2026-05-05 PR #49）。
 
 詳細: [`.claude/skills/references/marketing-research-playbook-japan-ai.md`](references/marketing-research-playbook-japan-ai.md)
+
+§Meta / Zuckerberg 広告プロダクト戦略・Instagram 戦略・主要発言ソース（2024-2026）も同様に分離（2026-05-05 追加）。performance-marketer / social-media-strategist / market-researcher / marketing-director が参照、Meta 広告運用案件・代理店戦略レビュー・Expert Network 回答時の知識ベース。
+
+詳細: [`.claude/skills/references/marketing-research-playbook-meta-zuckerberg.md`](references/marketing-research-playbook-meta-zuckerberg.md)
