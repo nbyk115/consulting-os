@@ -2,7 +2,7 @@
 
 - **Version**: 1.0.0
 - **Author**: strategy-lead orchestrator
-- **Scope**: 全 34 エージェント・全 22 スキル共通
+- **Scope**: 全 31 エージェント・全 26 スキル（直下 18 + サブディレクトリ 8）共通
 - **関連**: `CLAUDE.md` §🔺 反証モード / `.claude/commands/check-hallucination.md`
 
 ---
