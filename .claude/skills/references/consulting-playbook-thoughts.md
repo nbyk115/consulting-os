@@ -1,3 +1,5 @@
+> 注記（2026-05-05 PR #53 追加）: 本ファイルは consulting-playbook.md から PR #49 で分離したエピソード記憶（思想統合の経緯記録）です。記載エージェント名には PR #48 で廃止済みのもの（lead-qualifier / global-journalist / business-translator / crm-ma-strategist）を含みますが、過去の意思決定経緯として保持しています。現役エージェントの最新一覧は CLAUDE.md Architecture Map を参照してください。
+
 ## 銀行審査部の事業計画書 3 共通点（2026-05-03 中小企業診断士 野村幸司氏記事より取り込み）
 
 `strategy-lead` + `proposal-writer` + `kpi-analytics` + `legal-compliance-checker` 連携で、銀行融資申請・事業計画書作成・投資家ピッチで失敗を構造的に防ぐチェックリスト。
