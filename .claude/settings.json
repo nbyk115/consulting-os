@@ -44,7 +44,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '🔺【完了前チェック・3項目】(1) 末尾に【反証チェック結果】Step 1-3 + 残存リスク を付けたか？短文・端的回答でも省略禁止（圧縮版2-3行は可） (2) 出典なし具体数値（X割/X%/金額/年次予測）を断言していないか？FACT/INFERENCE/SPECULATION の3ラベルを明示したか？出典なしは『業界調査により幅あり』『個人見立て』と明記 (3) brand-guidelines準拠か（日本語字形・禁止表現・禁止フレーズ）'"
+            "command": "echo 'IMPORTANT:【完了前チェック・3項目】(1) 末尾に【反証チェック結果】Step 1-3 + 残存リスク を付けたか？短文・端的回答でも省略禁止（圧縮版2-3行は可） (2) 出典なし具体数値（X割/X%/金額/年次予測）を断言していないか？FACT/INFERENCE/SPECULATION の3ラベルを明示したか？出典なしは『業界調査により幅あり』『個人見立て』と明記 (3) brand-guidelines準拠か（日本語字形・禁止表現・禁止フレーズ）'"
           },
           {
             "type": "command",
@@ -93,23 +93,23 @@
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pdf|*.docx|*.pptx) echo \"🇯🇵 日本語字形検証必須: $file 生成後に pdffonts（PDF）/ unzip -p ... | grep w:lang（DOCX）/ unzip -p ... | grep lang（PPTX）で埋込フォント・ロケールを必ず機械検証してください。スタイル指定だけで満足は規律違反（2026-05-01 違反学習）\" ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pdf|*.docx|*.pptx) echo \"REQUIRED: 日本語字形検証必須: $file 生成後に pdffonts（PDF）/ unzip -p ... | grep w:lang（DOCX）/ unzip -p ... | grep lang（PPTX）で埋込フォント・ロケールを必ず機械検証してください。スタイル指定だけで満足は規律違反（2026-05-01 違反学習）\" ;; esac"
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pptx|*.pdf) echo \"📐 ページ収まり検証必須: $file のテキスト・表・画像がページシート内に収まっているか確認（pdfinfo/python-pptx の auto_size 等で検証）。はみ出しは規律違反（2026-05-01 学習）\" ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in *.pptx|*.pdf) echo \"LAYOUT: ページ収まり検証必須: $file のテキスト・表・画像がページシート内に収まっているか確認（pdfinfo/python-pptx の auto_size 等で検証）。はみ出しは規律違反（2026-05-01 学習）\" ;; esac"
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.txt|*.html) if echo \"$content\" | grep -q '\\*\\*'; then echo \"⚠️ Markdown 太字 ** 検出: $file。CLAUDE.md ハードルール 16 違反の可能性。「」or 大文字キーワードで代替を検討（2026-05-01 学習）\"; fi ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.txt|*.html) if echo \"$content\" | grep -q '\\*\\*'; then echo \"WARNING: Markdown 太字 ** 検出: $file。CLAUDE.md ハードルール 16 違反の可能性。「」or 大文字キーワードで代替を検討（規律定義書 .claude/ 配下は例外、外部出力のみ厳格適用）\"; fi ;; esac"
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) if echo \"$content\" | grep -qE '^[^<].*<br>' && ! echo \"$content\" | grep -qE 'class=\"(sub|meta)\"|cover'; then echo \"⚠️ <br> 本文使用検出: $file。brand-guidelines §5.6 違反の可能性。<br> はカバー/section-divider 装飾のみ許容、本文は空行で段落分割（2026-05-03 学習）\"; fi ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) if echo \"$content\" | grep -qE '^[^<].*<br>' && ! echo \"$content\" | grep -qE 'class=\"(sub|meta)\"|cover'; then echo \"WARNING: <br> 本文使用検出: $file。brand-guidelines §5.6 違反の可能性。<br> はカバー/section-divider 装飾のみ許容、本文は空行で段落分割（2026-05-03 学習）\"; fi ;; esac"
           },
           {
             "type": "command",
-            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) hits=$(echo \"$content\" | grep -E '(Gartner|McKinsey|BCG|Anthropic|Dario Amodei|Sam Altman|Metaculus|MarketsandMarkets|TechCrunch|Prosus|総務省|プレスリリース|公式リリース)' | grep -v 'http\\|](') ; if [ -n \"$hits\" ]; then echo \"⚠️ 出典 URL 不付与検出: $file。brand-guidelines §5.7 違反の可能性。出典名は markdown ハイパーリンク [出典名](URL) 形式で記載必須（2026-05-03 学習）\"; fi ;; esac"
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in *.md|*.slides.md) hits=$(echo \"$content\" | grep -E '(Gartner|McKinsey|BCG|Anthropic|Dario Amodei|Sam Altman|Metaculus|MarketsandMarkets|TechCrunch|Prosus|総務省|プレスリリース|公式リリース)' | grep -v 'http\\|](') ; if [ -n \"$hits\" ]; then echo \"WARNING: 出典 URL 不付与検出: $file。brand-guidelines §5.7 違反の可能性。出典名は markdown ハイパーリンク [出典名](URL) 形式で記載必須（2026-05-03 学習）\"; fi ;; esac"
           },
           {
             "type": "command",
