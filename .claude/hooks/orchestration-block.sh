@@ -59,11 +59,13 @@ esac
 
 # エージェント起動履歴チェック（Claude Code projects ディレクトリ内の最近5分セッション）
 # パス候補: ~/.claude/projects/<encoded-path>/ 配下の *.jsonl
+# 2026-05-05 F-CRIT-1 修正: フォールバック ${HOME}/.claude/projects（プロジェクト全体走査）削除
+# 別プロジェクトの履歴を拾う false negative リスク解消、PROJECT_HASH 厳格化 + ハイフン先頭バリアント追加
 PROJECT_HASH=$(echo "$ROOT" | tr '/' '-' | sed 's/^-//')
 SESSION_DIRS=(
   "${HOME}/.claude/projects/${PROJECT_HASH}"
+  "${HOME}/.claude/projects/-${PROJECT_HASH}"
   "${HOME}/.claude/projects/$(basename "$ROOT")"
-  "${HOME}/.claude/projects"
 )
 
 RECENT_AGENT=""
