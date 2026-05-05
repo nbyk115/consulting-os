@@ -39,7 +39,59 @@
 
 ---
 
-## 2026-05-05: 全エージェント連携ジャッジ — 残存リスク + 保留課題 9 件の佐藤裕介流最終判定
+## 2026-05-05: 違反学習 3 件 (Expert Network 回答セッション): ダッシュ使用 / 文数指示無視 / エージェント選定ミス + ハードルール 16 ⑥⑦ 追加 + agent-routing 強化
+
+### トリガー
+
+電通デジタル小野寺信行氏ペルソナでの Expert Network スクリーニング回答ドラフト中に 3 違反が発生。ユーザー指摘「ダッシュ含まれてるよ、ルールで禁じたよね」「一文でだせといったよねベストを」「これどの部もんがやってるん？小野寺信行として回答するんだよね」を受け、構造的原因と再発防止を OS ルール側に反映。
+
+### 違反 1: em ダッシュ / en ダッシュ使用（brand-guidelines.md L119 既定ルール無視）
+
+- 該当: Expert Network 回答ドラフトで「—」を 6 箇所以上使用 (Q1 / Q5 expertise highlight 含む)
+- 既存ルール: brand-guidelines.md L119 で禁止済 (代替: コロン / カンマ / ピリオド / セミコロン)
+- 違反原因: CLAUDE.md ハードルール 16 から brand-guidelines への参照のみで CLAUDE.md 本体に明示記載なし、出力直前の佐藤裕介 W チェック (規律 16 ⑤) でダッシュ検査が形骸化
+- 構造改善: ハードルール 16 ⑥ として CLAUDE.md 本体にダッシュ禁止を昇格、AI 文章バレ対策の最重要シグナルと明示、適用範囲をクライアント納品物 / Expert Network 回答 / メール / SNS / セールス資料 / GitHub PR / コミットメッセージ / アシスタント応答すべてに拡張
+
+### 違反 2: ユーザー指定の文数指示無視
+
+- 該当: ユーザーが「ベストな文 1 つにして」「一文でだせといった」と指示したのに 2 bullet で出力
+- 既存ルール: 該当ルールなし
+- 違反原因: エージェント標準フォーマット (FACT / INFERENCE 分類 + bullet 化 + 反証ラベル) を優先し、ユーザー形式制約を下位扱いした
+- 構造改善: ハードルール 16 ⑦ として「ユーザー指定の形式制約 (文数 / 個数 / 文字数 / bullet 数 / 言語) は最優先、エージェント標準フォーマット・既定の bullet 化・推奨構造より上位」を新設
+
+### 違反 3: エージェント選定ミス (Global Platform Japan GTM で performance-marketer 単独起動)
+
+- 該当: 電通デジタル DDGC / DJIB / DII の越境ビジネス案件 (Global Platform Japan GTM + 戦略アライアンス + 共同 R&D) で performance-marketer のみ起動、gtm-consultant 不在
+- 既存ルール: agent-routing.md Step 2e に「海外市場参入・GTM → gtm-consultant」はあるが、Global Platform's Japan GTM (海外発媒体の日本上陸) ケースの specific routing なし
+- 違反原因: META / OpenAI 広告のキーワードに反応し performance-marketer に流れた、GTM 主軸の判断を見落とし
+- 構造改善: agent-routing.md Step 2e に「グローバルプラットフォームの日本上陸 GTM・代理店戦略アライアンス・共同 R&D = gtm-consultant 主担当 + performance-marketer 補助 (媒体・計測スタック評価) + competitive-analyst 補助 (日本市場ポジショニング) + legal-compliance-checker (NDA・MNPI 該当判定)」を追加、電通デジタル DDGC / DJIB / DII 型案件・Expert Network 回答もこのルートに明記
+
+### 反証結果
+
+Step 1 自己反証: 3 違反は「規律確認の形骸化 + 形式 vs 内容の優先順位逆転 + キーワード反応型ルーティング」の 3 つの構造問題に起因。今回の OS 更新で全て構造側に押し戻し。
+Step 2 構造反証: ハードルール 16 が ⑤ から ⑦ まで 7 項目に拡張、肥大化リスクあり。Boris #3 ruthlessly edit 観点で削除候補は現時点なし (全項目アクティブ運用中)、3 ヶ月後再評価で形骸化チェック。
+Step 3 実用反証: 次回 Expert Network 回答時に W チェックで「ダッシュ検査」「文数遵守」「routing 確認」の 3 点が機械的に作動するか、claude-code-ops の orchestration-block.sh への組込み余地を 2026-08-05 に検討。
+
+### 残存リスク
+
+1. 既存 evolution-log 内のダッシュ使用箇所 (今日のエントリも含む過去エントリ) は未修正、新規ルールは前向きにのみ適用
+2. agent-routing.md は明文化したが UserPromptSubmit hook での自動 routing 検出は未実装 (Phase 5-1 で対応予定)
+3. Expert Network ペルソナ回答時の「実キャリア確認 + first-person 視点統一」のチェックリストは未整備、次違反発生時に追加検討
+
+### 再評価カレンダー追加
+
+- 2026-08-05: ハードルール 16 ⑥⑦ の運用形骸化チェック (3 ヶ月後、ダッシュ検出 / 文数遵守違反の再発有無)
+- 2026-08-05: agent-routing.md Global Platform Japan GTM ルート使用実績の確認 (Expert Network 案件 / 越境 GTM 案件で gtm-consultant 主担当起動の実数)
+
+### 関連参照
+
+- `CLAUDE.md` ハードルール 16 (⑥⑦ 追加)
+- `docs/agent-routing.md` Step 2e (Global Platform Japan GTM ルート追加)
+- `.claude/skills/brand-guidelines.md` L119 (ダッシュ禁止既定ルール)
+
+---
+
+## 2026-05-05: 全エージェント連携ジャッジ: 残存リスク + 保留課題 9 件の佐藤裕介流最終判定
 
 ### トリガー
 
