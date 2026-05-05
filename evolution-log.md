@@ -245,7 +245,7 @@ OS 構成最終: エージェント 27 / スキル 26 / docs 4 / hook 7（致命
 ユーザー言及「FDE 役割変化 OpenAI / Ramp / 元 Palantir パネル」に対する評価:
 - ConsultingOS 既存実装と整合: 8 観点中 7 つで上位互換（佐藤裕介 + 小野寺知見 + 6 部門分業）
 - 補完価値あり 1 件: forward-deployed-engineer エージェント候補（既存 service-dev + client-success 連動で代替可能、専任追加は実需顕在化まで保留）
-- メタ観察: FDE モデル（人手 1 人多役務）vs ConsultingOS モデル（30 エージェント分業）の対比、Phase 6 商品化訴求軸「FDE 採用不要、AI エージェント連動で代替」候補
+- メタ観察: FDE モデル（人手 1 人多役務）vs ConsultingOS モデル（27 エージェント分業）の対比、Phase 6 商品化訴求軸「FDE 採用不要、AI エージェント連動で代替」候補
 
 ### 連携エージェント実行記録
 

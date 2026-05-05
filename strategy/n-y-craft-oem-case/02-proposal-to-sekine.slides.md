@@ -241,7 +241,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 <div class="grid-2">
 <div>
 
-## 6 部門・30 エージェント
+## 6 部門・27 エージェント
 
 | 部門 | 人数 | 役割 |
 |---|:---:|---|
@@ -255,7 +255,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 </div>
 <div>
 
-## 19 スキル ＋ ハードルール ＋ 継続改善
+## 26 スキル ＋ ハードルール ＋ 継続改善
 
 <strong>プレイブック・テンプレ群</strong><br>
 コンサル / クリエイティブ / エンジニア各分野<br>業界プレイブック 5 業界 / プロンプトテンプレ 30 本
@@ -292,7 +292,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# 思想的基盤 — 30 名のエージェントが拠って立つ知見
+# 思想的基盤: 27 名のエージェントが拠って立つ知見
 
 <div class="grid-2">
 <div>
@@ -466,8 +466,8 @@ A 社情報を入力（業界・規模・課題）<br>
 
 | OS の構成要素 | 関根さんver 化の中身 |
 |---|---|
-| 30 エージェント | 関根さんの判断ロジック・成功/失敗パターンを各エージェントに組込み |
-| 19 スキル（プレイブック） | 営業／組織／マネジメントの関根さんメソッドを独自スキルとして体系化 |
+| 27 エージェント | 関根さんの判断ロジック・成功/失敗パターンを各エージェントに組込み |
+| 26 スキル（プレイブック） | 営業／組織／マネジメントの関根さんメソッドを独自スキルとして体系化 |
 | 業界プレイブック | <span class="accent">中堅・中小企業／レガシービジネス向けプレイブックを新設</span>（既存 5 業界に追加） |
 | 顧客像定義書 / ブランド基盤書 | N.Y.CRAFT の顧客像・ブランド基盤を全エージェント共通参照に |
 | 反証モード（品質ガード） | 関根さん流の「絶対外しちゃダメ」をチェックリストに組込み |
@@ -491,7 +491,7 @@ A 社情報を入力（業界・規模・課題）<br>
 <div class="role-box center-os">
 <strong>関根さんver<br>ConsultingOS</strong><br>
 <span class="small">中核</span><br><br>
-<span class="small">30 エージェント ×<br>19 スキル ×<br>反証モード</span>
+<span class="small">27 エージェント ×<br>26 スキル ×<br>反証モード</span>
 </div>
 <div class="role-arrow">←</div>
 <div class="role-box">

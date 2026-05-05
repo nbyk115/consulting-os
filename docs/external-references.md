@@ -72,7 +72,7 @@
 
 | リソース | URL | 判定 | 用途 |
 |---|---|---|---|
-| Claude Design 60 プロンプト集 | （ユーザー提供画像） | 取り込まない | 既存 30 エージェント・22 スキルで 70-90% カバー |
+| Claude Design 60 プロンプト集 | （ユーザー提供画像） | 取り込まない | 既存 27 エージェント・26 スキルで 70-90% カバー |
 | Graph Sensei | [amix-design.com](https://amix-design.com/asoboad/) | 対象外 | Marp + CSS + SVG で代替可能 |
 
 ## 8. AI 論文検索ツール（無料代替）
