@@ -38,3 +38,10 @@
   "tool": "Edit",
   "action": "modified"
 }
+{
+  "timestamp": "2026-05-05T08:50:33Z",
+  "category": "agent",
+  "path": ".claude/agents/test/foo.md",
+  "tool": "Edit",
+  "action": "modified"
+}
