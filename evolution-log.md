@@ -37,6 +37,65 @@
 
 ---
 
+## 2026-05-05: 調査チームナレッジ統合 — MUFG 高圧経済政策 + 経産省 2040 年就業構造推計 + FDE 役割評価
+
+### トリガー
+
+ユーザー指示「MUFG による人手不足の実状と高圧経済政策についてはGW中必読のレポート。これは？調査チーム」+「FDE 役割変化の panel 評価依頼」を受け、2 ソースを並行統合。
+
+### 統合内容
+
+1. `.claude/skills/marketing-research-playbook.md` §9.4 業界別求人倍率データを SPECULATION → FACT 格上げ（53 行追加）
+   - 経産省「2040 年の就業構造推計（改訂版）」2026 年 3 月公表データ統合
+   - AI・ロボット利活用人材需要 782 万人 / 供給 443 万人 / 不足 339 万人（FACT、複数出典）
+   - 事務職余剰 440 万人（FACT）/ AI 関連求人倍率 IT・通信 3.35 倍（doda 2025 年度、FACT）
+   - AI エンジニア平均年収: 日本全体平均 478 万円より 31-71% 高（FACT）
+   - MUFG 試算研究所「人手不足の実状と高圧経済政策」言及（URL 完全版未取得、要追記プレースホルダ）
+
+2. `ICP.md` §9.1 Vertical AI 適合度に「2040 年人材需給ポジション」観点追記（17 行）
+   - 高適合 + 不足セクター = ConsultingOS 提供価値最大（士業 / 歯科の専門領域）
+   - 余剰セクター（事務職）= 業務再設計支援需要
+
+### FDE（Forward Deployed Engineer）役割評価
+
+ユーザー言及「FDE 役割変化 OpenAI / Ramp / 元 Palantir パネル」に対する評価:
+- ConsultingOS 既存実装と整合: 8 観点中 7 つで上位互換（佐藤裕介 + 小野寺知見 + 6 部門分業）
+- 補完価値あり 1 件: forward-deployed-engineer エージェント候補（既存 service-dev + client-success 連動で代替可能、専任追加は実需顕在化まで保留）
+- メタ観察: FDE モデル（人手 1 人多役務）vs ConsultingOS モデル（30 エージェント分業）の対比、Phase 6 商品化訴求軸「FDE 採用不要、AI エージェント連動で代替」候補
+
+### 連携エージェント実行記録
+
+- market-researcher: marketing-research-playbook.md + ICP.md 統合書き込み完了
+- assistant: FDE 評価レポート + evolution-log 統合記録
+
+### 反証結果
+
+Step 1 自己反証: MUFG レポート完全 URL 未取得、ユーザー提供省略形 URL のみ、本文内容は ユーザー提供テキスト + 経産省データ補完で構成、SPECULATION ラベル必須。
+Step 2 構造反証: 経産省 2040 推計データは複数出典（日経 / Ledge.ai / IT トレンド）で FACT 化済み、業界別求人倍率の SPECULATION → FACT 格上げ妥当。
+Step 3 実用反証: FDE 評価は Phase 6 商品化訴求軸として有効、ただし forward-deployed-engineer エージェント追加は実需顕在化（エンタープライズ案件 1 社受注）まで保留が筋。
+
+### 残存リスク
+
+1. MUFG レポート完全 URL 未取得、ユーザー手動補完必要
+2. 経産省データは 2026 年 3 月公表版、2027 年改訂で数値変動の可能性
+3. FDE 役割評価は 8 観点中 7 つで上位互換と判定したが、顧客信頼構築（FDE の人的価値）は AI で代替不可、ハイブリッド設計が現実的
+4. ConsultingOS の AI エージェント分業精度は実機ベンチマーク未実施、SPECULATION
+
+### 再評価カレンダー追加
+
+- 2026-08-05: MUFG レポート完全 URL + 本文内容確認（SPECULATION → FACT 格上げ）
+- 2026-08-05: forward-deployed-engineer エージェント追加判断（エンタープライズ案件 1 社受注時）
+- 2027-03-05: 経産省 2040 推計データの再公表確認（2027 年改訂版で数値更新）
+
+### 関連参照
+
+- `.claude/skills/marketing-research-playbook.md` §9.4（経産省 2040 推計統合）
+- `ICP.md` §9.1（人材需給ポジション追記）
+- 出典: https://www.nikkei.com/article/DGXZQOUA1948E0Z10C25A5000000/ / https://ledge.ai/articles/2040_ai_robot_human_resources_shortage_meti
+- MUFG: https://www.tr.mufg.jp/shisan-ken/（完全 URL は要ユーザー補完）
+
+---
+
 ## 2026-05-05: Phase 6 商品化準備 — Anthropic 公式エコシステム互換性訴求セクション追加 + graphify 再評価
 
 ### トリガー
