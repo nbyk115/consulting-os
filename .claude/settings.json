@@ -65,6 +65,11 @@
           {
             "type": "command",
             "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // empty' 2>/dev/null); if echo \"$CMD\" | grep -qE 'git push.*origin (main|master)( |$|;)' && ! echo \"$CMD\" | grep -qE 'origin (main|master).*--delete'; then echo 'BLOCKED: main/master ブランチへの直接 push は CLAUDE.md ハードルール 7 違反です。feature branch を作成し PR + Squash and merge で統合してください（2026-05-02 違反学習・物理ブロック）' >&2; exit 2; fi; exit 0"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/reality-check.sh",
+            "timeout": 5000
           }
         ]
       },
@@ -74,6 +79,11 @@
           {
             "type": "command",
             "command": ".claude/hooks/orchestration-block.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/reality-check.sh",
             "timeout": 5000
           }
         ]

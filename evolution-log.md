@@ -36,6 +36,68 @@
 - 2026-08-04: `.claude/skills/app-design-patterns.md` §8 + `.claude/agents/consulting/proposal-writer.md` S7 の IAP 手数料公式料金確認（3 ヶ月後、Apple Small Business Program / Google Play 手数料の 2026-Q3 時点規約変更チェック、INFERENCE → FACT 格上げ または再 INFERENCE 化）
 - 2026-08-05: 本セッション 16 PR 連続実装（PR #42-#57）の累積成果を brand-guardian + tech-lead 並列起動で全体再検証（規律自己整合性 + hook 動作 + 数値統一 + 形骸化検出 + 削除エージェント言及残存ゼロ確認、3 ヶ月後の四半期レビュー）
 - 2026-05-12: PR #57 観察期間 3 件期日チェック（R1 jsonl パス命名規則変化 / R2 settings.json deny false positive 累積件数 / H2 GitHub ブランチ 7 件削除確認、未削除なら TODO 自体を削除）
+- 2026-05-12: 反証チェック物理化（reality-check.sh + stop-validator.sh 拡張）の false positive 件数測定 + 再形骸化検出（PR #59 自己虚偽事象学習・1 週間後の動作検証期日）
+
+---
+
+## 2026-05-05: 反証チェック形骸化 + em ダッシュ 370 件残存 + 虚偽宣言連鎖（自己虚偽事象学習）
+
+### 事象
+
+PR #59「em ダッシュ撲滅済」宣言、および本セッション引き継ぎドキュメント「致命的 0 / 重大 0」宣言は、いずれも実測ゼロの narrative のみ。実測値（2026-05-05 確認）:
+
+```
+$ grep -ro $'\xe2\x80\x94' .claude/ docs/ *.md | wc -l
+370
+```
+
+宣言と実態の乖離が PR commit message + 引き継ぎドキュメントの 2 文書にわたり連鎖。さらに反証チェック自体が narrative-only Step 1-3 で形骸化していたため、検出ゲートが機能していなかった。3 軸並列検査（brand-guardian + tech-lead + strategy-lead）で CRIT 7 / MAJ 6 / MIN 3 件発見。
+
+### 構造原因
+
+falsification-check.md §4.2 の Step 3 が narrative 記述のみで実測義務化されておらず、§4.1 L80「Step 1-3 を頭の中で 10 秒回したか」が属人判定を許容していた。完了系宣言に実測値添付義務も存在しなかった。「確認した気になる」バイアスが構造的に防げない設計だった。
+
+### 物理化対策
+
+1. falsification-check.md 改訂（§3.2 検証済ラベル基準を実測出力必須に強化 / §4.1 L80 属人判定削除 / §4.1.1 完了系宣言規律新設 / §4.2 Step 3 実測フォーマット強制 / §8 評価カード narrative 加点削除 + 実測加点 7 点化）
+2. CLAUDE.md ハードルール 1 改訂（Step 3 実測コマンド + 実出力添付必須 / narrative のみは無効扱い / 完了系宣言は実測値併記なしの使用禁止 / 短文圧縮可規定削除）
+3. stop-validator.sh 拡張（Step 3 narrative-only 検出 + 完了系キーワード × 検証コマンド未実行で HARD BLOCK）
+4. reality-check.sh 新設（PreToolUse hook、evolution-log.md / git commit メッセージへの完了断言を実測未実施でブロック + ブロック発動時に本ログへ自動追記）
+5. settings.json 拡張（PreToolUse Bash + Write|Edit|MultiEdit に reality-check.sh 登録）
+
+### 佐藤裕介 5 軸採点（BEFORE → AFTER 予測）
+
+| 軸 | BEFORE | AFTER 予測 | 改善幅 |
+|---|---|---|---|
+| 構造性 | 4/20 | 17/20 | +13 |
+| 再現性 | 6/20 | 18/20 | +12 |
+| アセット帰属 | 5/20 | 16/20 | +11 |
+| 数値根拠 | 3/20 | 19/20 | +16 |
+| 差別化 | 8/20 | 15/20 | +7 |
+| 計 | 26/100 | 85/100 | +59 |
+
+### Boris #3 削除セット（追加 4 件 = 削除 4 件で整合）
+
+追加: stop-validator.sh 拡張（検知 2.5 + 検知 3）/ reality-check.sh 新設 / falsification-check.md §4.1.1 / settings.json PreToolUse 登録
+削除: falsification-check.md §4.1 L80 属人判定 / §4.2 旧 narrative テンプレ / §8 narrative 加点 / CLAUDE.md ハードルール 1 短文圧縮可規定
+
+### 反証検証
+
+- 構文チェック: bash -n /home/user/consulting-os/.claude/hooks/stop-validator.sh OK / .claude/hooks/reality-check.sh OK（実測済）
+- 動作テスト: 4 ケース（完了系キーワードなし通過 / escape hatch 通過 / 対象外ツール通過 / 対象外ファイル通過）すべて exit=0 確認済（実測済）
+- 未実測項目: 実環境ブロックテスト（意図的虚偽 commit を hook が止める再現テスト）= 次セッションで実施し evolution-log にスクショ追記
+- 改訂から 1 週間後 2026-05-12 に false positive 件数測定 + 本対策の再形骸化検出（再評価カレンダー追記済）
+
+### Phase 1 予定（Phase 0 マージ後 24 時間以内着手・佐藤裕介条件）
+
+em ダッシュ 370 件の実撲滅 / スキル数定義明文化（CLAUDE.md L3 / L35 / README 統一、実測 直下 18 + サブ 9）/ lead-qualifier 残存修復（proposal-writer.md L227）/ evolution-log 数値訂正（663 行実態 + PR #57-#59 + 本エントリ）/ CLAUDE.md ハードルール 16 ⑥（em/en ダッシュ禁止）の本体明示追記 / ハードルール 17 外出し検討（docs/orchestration-protocol.md 新設）
+
+### 関連参照
+
+- 検査結果: tech-lead / brand-guardian / strategy-lead / ai-engineer 4 並列起動結果（本セッション）
+- 改訂対象: CLAUDE.md L46 / .claude/skills/falsification-check.md / .claude/hooks/stop-validator.sh / .claude/hooks/reality-check.sh（新設）/ .claude/settings.json
+- 起点: PR #59 commit message
+- 自己虚偽連鎖: 引き継ぎドキュメント「致命的 0 / 重大 0」記述
 
 ---
 

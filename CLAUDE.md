@@ -43,7 +43,7 @@
 
 ## 3. Hard Rules
 
-1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。短文・端的・スクリーニング・1 行回答でも省略禁止（短文時は 2-3 行圧縮可）。
+1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。Step 3 実用反証は実測コマンド + 実出力添付必須（narrative のみは無効扱い）。完了系宣言（撲滅 / ゼロ / 0 件 / 完了 / 修復済 / 統一済 / 致命的 0 / 全件処理 / 残存ゼロ）は実測値併記なしの使用禁止。省略・形骸化禁止（2026-05-05 PR #59 自己虚偽事象学習・物理化）。詳細: `.claude/skills/falsification-check.md`
 2. **YOU MUST**: 出典なし具体数値（X 割 / X% / 金額 / 年次予測）の断言禁止。FACT / INFERENCE / SPECULATION の 3 ラベルを明示。
 3. **NEVER**: `.env` / `credentials` / `secrets` / API キーを読み取り・出力・コミット。
 4. **NEVER**: `git push --force` / `git reset --hard` / `rm -rf` / `chmod 777` / `--dangerously-skip-permissions` を実行。
