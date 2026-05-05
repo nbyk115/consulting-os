@@ -151,16 +151,16 @@ Step 3: 真理からの再構築
 
 **グローバル版Step 5拡張（真理からの再構築）:**
 - 再構築時に`gtm-consultant`が現地市場の真理を補完
-- `global-journalist`が現地データ・事例でStep 3の検証精度を向上
+- `market-researcher`が現地データ・事例でStep 3の検証精度を向上
 - PLインパクトは為替・現地コスト込みで`kpi-analytics`が算出
 
 ### エージェント別の追加適用例
 | エージェント | グローバル文脈での第一原理の使い方 |
 |---|---|
 | gtm-consultant | 「日本で売れた＝海外でも売れる」を前提ゼロから検証 |
-| global-journalist | 「この市場は成長している」を現地データで事実確認 |
+| market-researcher | 「この市場は成長している」を現地データで事実確認 |
 | gtm-consultant (Post-Entry) | 「日本式オペレーションが最適」を現地の商習慣から再検証 |
-| business-translator | 「直訳で伝わる」を文化コンテクストから再定義 |
+| content-strategist | 「直訳で伝わる」を文化コンテクストから再定義 |
 
 ---
 

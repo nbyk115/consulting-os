@@ -40,7 +40,7 @@
 ├─ 法務・契約 → legal-compliance-checker
 ├─ ユーザーの声 → feedback-synthesizer
 ├─ 技術的調査 → tech-lead
-├─ 海外動向・国際情勢 → global-journalist
+├─ 海外動向・国際情勢 → gtm-consultant + market-researcher（global-journalist 機能吸収 PR #48）
 ├─ 消費者調査・セグメンテーション → market-researcher
 └─ マーケティングデータ・アトリビューション → marketing-analyst
 ```
@@ -62,7 +62,7 @@
 ├─ 売上・事業 → strategy-lead
 ├─ CVR・ファネル → growth-hacker
 ├─ 顧客維持・LTV → client-success
-├─ リード・商談 → lead-qualifier
+├─ リード・商談 → proposal-writer（MEDDPICC 資格化）+ client-success（期待値引き継ぎ）（lead-qualifier 機能統合 PR #48）
 ├─ AI導入・DX → strategy-lead + ai-engineer（ペア起動・専任agent廃止）
 ├─ キャンペーン・施策カレンダー → growth-hacker + content-strategist
 └─ 海外市場・グローバル展開 → gtm-consultant
@@ -83,9 +83,9 @@
 ```
 何をグローバルに？
 ├─ 海外市場参入・GTM → gtm-consultant
-├─ 海外ニュース・動向調査 → global-journalist
+├─ 海外ニュース・動向調査 → gtm-consultant + market-researcher（global-journalist 機能吸収 PR #48）
 ├─ 海外拠点・オペレーション・パートナーシップ → gtm-consultant（Post-Entry節吸収）
-├─ 翻訳・ローカライズ → business-translator（トランスクリエーション特化）
+├─ 翻訳・ローカライズ → gtm-consultant（L1-L5 ローカライズ統括）+ ハードルール 11「英語出力に日本語訳併記必須」（business-translator 廃止 PR #48）
 └─ 海外法規制チェック → legal-compliance-checker + gtm-consultant
 ```
 
@@ -96,7 +96,7 @@
 ├─ 広告運用・SEM/PPC・ROAS → performance-marketer
 ├─ テクニカルSEO・サイト構造・CWV → seo-specialist
 ├─ GA4・アトリビューション・CDP → marketing-analyst
-├─ CRM・MA・ナーチャリング・メール → crm-ma-strategist
+├─ CRM・MA・ナーチャリング・メール → client-success（ナーチャリング・LTV）+ marketing-director（MA 戦略承認）（crm-ma-strategist 機能分散 PR #48）
 ├─ SNS戦略・コミュニティ・インフルエンサー → social-media-strategist
 ├─ 消費者調査・セグメンテーション・価格 → market-researcher
 └─ PR・広報・メディアリレーション → pr-communications

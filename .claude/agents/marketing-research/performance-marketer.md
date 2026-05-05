@@ -223,7 +223,7 @@ model: sonnet
 - `marketing-director`（チャネルミックス・予算配分の方針）
 - `marketing-analyst`（アトリビューション・ROI分析）
 - `seo-specialist`（ペイド×オーガニックの統合戦略）
-- `crm-ma-strategist`（リード獲得後のナーチャリング連携）
+- `client-success`（リード獲得後のナーチャリング連携）
 - `creative-director`（広告クリエイティブの方針）
 
 ## 外部ツール連携

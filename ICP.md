@@ -167,7 +167,7 @@ Vertical AI 適合度の評価軸（出典: 自民党 AI・web3 小委員会 第
 | AI 化顧問（業務 AI 推進伴走）| 月 10-30 万円 | 継続 | strategy-lead + ai-engineer |
 | 法務 AI 環境構築支援 | 30-80 万円スポット + 月次運用 5-15 万円 | 継続 | legal-compliance-checker + tech-lead + ai-engineer |
 | 金融 AI 環境構築支援（投資助言業登録後）| 50-150 万円スポット + 月次 15-50 万円 | 継続 | strategy-lead + ai-engineer + legal-compliance-checker |
-| OSS CRM 環境構築支援 | 30-80 万円スポット + 月次運用 3-10 万円 | 継続 | crm-ma-strategist + tech-lead + infra-devops（候補ツール: Cordys CRM / Twenty / EspoCRM / SuiteCRM、要件で選定）|
+| OSS CRM 環境構築支援 | 30-80 万円スポット + 月次運用 3-10 万円 | 継続 | client-success + tech-lead + infra-devops（候補ツール: Cordys CRM / Twenty / EspoCRM / SuiteCRM、要件で選定）|
 | Web サイト採点 + 改善提案 | スポット 5-15 万円（採点のみ）/ 30-80 万円（改善実装込み）/ 月次 3-8 万円（継続改善）| 両方 | creative-director + ux-designer + frontend-dev + brand-guardian + content-strategist + seo-specialist（`/website-audit` スキル活用）|
 | Instagram チャンネル運営支援（インフルエンサーマーケ）| 設計 30-80 万円 + 月次運用 10-30 万円 | 継続 | social-media-strategist + content-strategist + seo-specialist + growth-hacker + brand-guardian（ニッチ選定 / アイデンティティ設計 / 90 日カレンダー / Reels 脚本 / SEO + カバー / 収益化スタック / クロスプラットフォーム再利用）|
 

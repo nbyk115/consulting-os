@@ -308,7 +308,7 @@ pip install notebooklm-py
 
 | エージェント | 用途 |
 |---|---|
-| global-journalist | 海外ニュース 100 記事を一括投入 → 要約取得 |
+| market-researcher | 海外ニュース 100 記事を一括投入 → 要約取得 |
 | market-researcher | 業界レポート 10 本を一括分析 |
 | competitive-analyst | 競合 IR/プレスリリースを一括処理 |
 | content-strategist | 長文執筆時の参考資料を蓄積 |
@@ -348,7 +348,7 @@ opendataloader-pdf input.pdf --format markdown > output.md
 | エージェント | 活用場面 |
 |---|---|
 | competitive-analyst | 競合の annual report / IR 資料 |
-| global-journalist | WEF / McKinsey / Edelman 等の長文レポート |
+| market-researcher | WEF / McKinsey / Edelman 等の長文レポート |
 | market-researcher | 市場調査 PDF の表データ抽出 |
 | legal-compliance-checker | 契約書・利用規約 PDF の構造化 |
 | proposal-writer | 過去提案書からの要素再利用 |

@@ -388,7 +388,7 @@ ClaudeCodeStudio 独自調査記事（2026-04-23 時点・Boris X 投稿 + Anthr
 
 #### Tip 15: Claude にインタビューさせる（Let Claude interview you）
 
-- 用途: 仕様曖昧時のヒアリング設計、proposal-writer / product-manager / lead-qualifier で活用
+- 用途: 仕様曖昧時のヒアリング設計、proposal-writer / product-manager / proposal-writer で活用
 - 実需: クライアント案件の初期ヒアリングで仕様の穴を実装前に埋める、Hotice 案件のような B2B 案件で受注精度向上
 - プロンプト例: 「いきなり実装に入らず、要件を引き出すために 5-10 個質問してから進めて」
 - 出典: Anthropic 公式 Docs「Let Claude interview you」

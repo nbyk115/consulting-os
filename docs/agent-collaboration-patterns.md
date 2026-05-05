@@ -78,24 +78,27 @@ product/feedback-synthesizer → product/product-manager → service-dev/tech-le
 
 ## パターン12: SaaSプロダクトを海外展開したい
 ```
-global/gtm-consultant → global/global-journalist → consulting/kpi-analytics
-     （GTM戦略設計）         （現地市場リサーチ）         （PL試算）
+global/gtm-consultant → marketing-research/market-researcher → consulting/kpi-analytics
+     （GTM戦略設計）          （現地市場リサーチ）                    （PL試算）
 📘 revenue-growth-framework → first-principles-breakdown → consulting-playbook
 ```
+※ 2026-05-05 PR #48: global-journalist 廃止、機能を gtm-consultant + market-researcher に吸収
 
 ## パターン13: 海外規制変更のインパクトを分析したい
 ```
-global/global-journalist → consulting/legal-compliance-checker → consulting/strategy-lead
-     （情報収集・構造化）          （法的影響評価）                  （事業判断）
+marketing-research/market-researcher → consulting/legal-compliance-checker → consulting/strategy-lead
+        （海外規制動向収集・構造化）                （法的影響評価）                    （事業判断）
 📘 first-principles-breakdown → consulting-playbook
 ```
+※ 2026-05-05 PR #48: global-journalist 廃止、海外情報収集は market-researcher が代替
 
 ## パターン14: マーケティング資料を多言語展開したい
 ```
-global/business-translator → creative/brand-guardian → creative/content-strategist
-     （トランスクリエーション）      （ブランド整合確認）        （現地コンテンツ戦略）
-📘 brand-guidelines → creative-playbook
+global/gtm-consultant → creative/brand-guardian → creative/content-strategist
+   （ローカライズ統括 L1-L5）  （ブランド整合確認）        （現地コンテンツ戦略）
+📘 brand-guidelines → creative-playbook → global-expansion-playbook
 ```
+※ 2026-05-05 PR #48: business-translator 廃止。翻訳はハードルール 11「英語出力に日本語訳併記必須」+ gtm-consultant が担当
 
 ## パターン15: 海外拠点を設立したい
 ```
@@ -113,10 +116,11 @@ marketing-research/marketing-director → marketing-research/performance-markete
 
 ## パターン17: リード獲得→ナーチャリング→商談化パイプライン構築
 ```
-marketing-research/crm-ma-strategist → consulting/lead-qualifier → creative/content-strategist
-       （MA設計・スコアリング）            （商談化基準・SLA）         （ナーチャリングコンテンツ）
+marketing-research/marketing-director → consulting/client-success → creative/content-strategist
+        （MA戦略承認・全体設計）          （ナーチャリング・LTV・期待値管理）  （ナーチャリングコンテンツ）
 📘 marketing-research-playbook → consulting-playbook → creative-playbook
 ```
+※ 2026-05-05 PR #48: crm-ma-strategist + lead-qualifier 廃止。機能は marketing-director + client-success + proposal-writer に分散吸収
 
 ## パターン18: PR・広報戦略で認知拡大したい
 ```

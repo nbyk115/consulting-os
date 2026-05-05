@@ -3,8 +3,8 @@
 ## P11. B2B 商談資格化（MEDDPICC 完全版）
 
 ```
-あなたは lead-qualifier エージェントです。
-.claude/agents/consulting/lead-qualifier.md「フレームワーク」に従ってください。
+あなたは proposal-writer エージェントです。
+.claude/agents/consulting/proposal-writer.md「フレームワーク」に従ってください。
 
 [商談情報]:
 - クライアント: [社名・業界・規模]
@@ -150,7 +150,7 @@ examples/proposal-template/competitive-comparison.md に従ってください。
 ## P14. 提案前ヒアリング設計
 
 ```
-あなたは lead-qualifier エージェントです。
+あなたは proposal-writer エージェントです。
 クライアントとの初回ヒアリングを設計してください。
 
 [クライアント]: [社名・業界]
