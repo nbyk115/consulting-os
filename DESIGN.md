@@ -188,8 +188,179 @@ Hotice デッキは AA 相当でレビュー済（Accent #E60012 vs Background #
 
 ---
 
-## 11. 更新履歴
+## 11. AI エージェント対応設計原則
+
+> 出典: Google web.dev「AI エージェント対応サイトの作り方」https://web.dev/articles/ai-agent-site-ux?hl=ja（2026-05-05 ConsultingOS 統合）
+> 担当エージェント: `ux-designer` / `frontend-dev` / `brand-guardian`
+> AIO / LLMO 文脈: `seo-specialist` が GEO 設計と連携して参照
+> ICP 接続: Persona C（クリエイティブディレクター）が LP / セールス資料を発注する際に `frontend-dev` への必須チェックリストとして活用
+
+---
+
+### 11.1 設計思想——「人間にわかりやすい = AI にわかりやすい」
+
+FACT: AI エージェントは Web サイトを 3 つの読み取り方法で認識する。
+- スクリーンショット（視覚的構造）
+- HTML ソース（セマンティクス）
+- アクセシビリティツリー（aria / role / label 等）
+
+この 3 層すべてで「何がクリック可能か」「次に何をすべきか」が明確なサイトが、AI エージェントによる自動操作の精度を最大化する。裏を返せば、ホバー依存の UI・`<div>` ボタン・ラベルのない入力欄は、人間にも AI にも等しく不親切な設計ミスである。
+
+ConsultingOS の佐藤裕介流「構造で売る」原則と完全に一致する。構造が明示されていない UI は、AI エージェントにとっても「読めない提案書」と同義。セマンティック HTML = 自己説明する構造設計。
+
+---
+
+### 11.2 CTA 配置ルール
+
+| ルール | 実装指針 | 違反例 |
+|---|---|---|
+| 初期表示で見える位置に配置 | ページ読み込み直後に CTA がビューポート内に存在すること。スクロール後にしか現れない設計は AI に無視される可能性がある | ヒーローセクションの CTA が画像下に隠れている |
+| ホバー依存禁止 | `hover` 状態でのみ表示される CTA ・ナビゲーションは AI に認識されない | `.cta { display: none; } .parent:hover .cta { display: block; }` |
+| スクロール依存禁止 | JavaScript で `scroll` イベント後に出現する floating CTA はデフォルト表示にする | スクロール 500px 後に表示されるチャットウィジェット |
+| 固定配置は aria-label 必須 | `position: sticky / fixed` の CTA は aria-label で目的を明示 | sticky ヘッダーの「お問い合わせ」ボタンに aria-label なし |
+
+---
+
+### 11.3 インタラクティブ要素のセマンティクス
+
+#### ボタン・リンクの実装規律
+
+FACT（web.dev 原文より）: AI エージェントはアクセシビリティツリーを走査してクリック可能要素を特定する。`<button>` と `<a>` は明確に認識される。`<div>` はデフォルトで認識されない。
+
+- 使用: `<button>` — フォーム送信・モーダル開閉・JavaScript アクション
+- 使用: `<a href="...">` — ページ遷移・外部リンク
+- 禁止: `<div onclick="...">` — クリックハンドラーのみの div ボタン
+- やむを得ない場合: `role="button" tabindex="0" cursor: pointer` を全属性セットで付与（INFERENCE: これで AI 認識率が改善する可能性があるが、`<button>` への書き換えが本命）
+
+```html
+<!-- 禁止 -->
+<div onclick="submitForm()">送信</div>
+
+<!-- 推奨 -->
+<button type="submit">送信</button>
+
+<!-- やむを得ない場合（既存コードベース移行途中） -->
+<div role="button" tabindex="0" style="cursor: pointer;" onclick="submitForm()">送信</div>
+```
+
+---
+
+### 11.4 フォーム設計規律
+
+すべての入力フィールドに `<label for="...">` を紐付ける。`placeholder` は label の代替にならない（スクリーンリーダーでも AI でも、placeholder はフォーカス後に消えるため認識精度が低下する）。
+
+```html
+<!-- 禁止 -->
+<input type="email" placeholder="メールアドレスを入力">
+
+<!-- 推奨 -->
+<label for="email">メールアドレス</label>
+<input type="email" id="email" name="email" placeholder="example@domain.com">
+```
+
+フォームラベル設計チェックリスト（`frontend-dev` 実装時・`brand-guardian` 検証時に使用）:
+- [ ] 全 input / select / textarea に `<label for="...">` が存在するか
+- [ ] `id` と `for` が一致しているか
+- [ ] aria-label / aria-labelledby の代替を使う場合は理由を明示しているか
+- [ ] エラーメッセージは `aria-describedby` で入力欄と紐付いているか
+
+---
+
+### 11.5 モーダル・オーバーレイの実装規律
+
+透明・半透明のオーバーレイが DOM に残存したまま非表示になっている実装（`opacity: 0; pointer-events: none` 等）は、AI エージェントがクリック可能領域を誤認識する原因になる。
+
+禁止パターン:
+- `display: block; opacity: 0` でオーバーレイを残存させる（DOM に存在するため AI が操作不能と誤認）
+- z-index 競合により本来のインタラクティブ要素の上に透明レイヤーが乗る
+
+推奨パターン:
+```css
+/* 非表示時は display: none で DOM から見えなくする */
+.modal-overlay { display: none; }
+.modal-overlay.is-active { display: flex; }
+```
+
+```javascript
+// pointer-events: none だけでは不十分
+// aria-hidden="true" と display: none を組み合わせる
+overlay.style.display = 'none';
+overlay.setAttribute('aria-hidden', 'true');
+```
+
+---
+
+### 11.6 タッチ / クリック領域のサイズ規律
+
+FACT（web.dev 原文より）: CTA 要素は 8×8px 以上が必須。ただし ConsultingOS では WCAG 2.1 AA 基準（セクション 7 準拠）の 24×24px を最低ラインとし、モバイル向けには 44×44px（Apple HIG 準拠）を推奨する。
+
+| デバイス | 最低タッチ領域 | 推奨タッチ領域 | 根拠 |
+|---|---|---|---|
+| デスクトップ | 24×24px | 36×36px | WCAG 2.1 AA |
+| モバイル | 44×44px | 48×48px | Apple HIG / Material Design |
+| AI エージェント認識下限（web.dev） | 8×8px | — | FACT（原文仕様）|
+
+実装例:
+```css
+/* 視覚的に小さいアイコンボタンでもタッチ領域を確保 */
+.icon-button {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+---
+
+### 11.7 セマンティック HTML チェックリスト（納品前必須）
+
+`frontend-dev` が実装時に自己チェック、`brand-guardian` が納品前に最終確認する。
+
+#### AI エージェント認識チェック
+- [ ] ページ読み込み直後（JS 実行前）に主要 CTA が DOM に存在するか
+- [ ] すべてのインタラクティブ要素が `<button>` / `<a>` / 適切な role 属性で実装されているか
+- [ ] 透明オーバーレイ・残存モーダルが存在しないか（DevTools Accessibility タブで確認）
+- [ ] フォームの全フィールドに label が紐付いているか
+- [ ] CTA の最小サイズが 24×24px 以上か（モバイルは 44×44px 以上か）
+
+#### アクセシビリティツリー検証手順
+1. Chrome DevTools → Elements → Accessibility タブを開く
+2. 主要 CTA 要素を選択 → Role / Name / Description が表示されることを確認
+3. Role が "generic" のままなら `<button>` または role 属性で修正が必要
+
+---
+
+### 11.8 AIO / LLMO 連携（seo-specialist との接続）
+
+AI エージェント対応 UI の設計は、検索エンジンの AI Overview（AIO）および LLM によるサイト参照（LLMO: LLM Optimization）の精度とも直接連動する（INFERENCE: AI エージェントと検索クローラーは同様の HTML 解析手法を使う部分があるが、完全同一ではない。2026-05-05 時点での個人評価）。
+
+`seo-specialist` と連携すべき設計判断:
+- ページの主要コンテンツが `<main>` タグ内に収まっているか（クローラー / AI ともに認識精度向上）
+- ナビゲーションが `<nav>` / `<header>` / `<footer>` の適切なランドマークで構造化されているか
+- FAQ は `<details>` / `<summary>` もしくは Schema.org `FAQPage` 構造化データを使用しているか
+- 構造化データ（JSON-LD）が AI エージェントの意図解釈を補助しているか
+
+ConsultingOS の `seo-specialist` が GEO（Generative Engine Optimization）設計を行う際は、本セクションを実装標準として参照する。
+
+---
+
+### 11.9 エージェント別責任分担
+
+| エージェント | 責務 |
+|---|---|
+| `ux-designer` | CTA 配置・フォーム構造・モーダル設計の時点でセクション 11.2〜11.5 を適用。ワイヤーフレーム段階で「AI に見える設計か」を確認する |
+| `frontend-dev` | セクション 11.3〜11.7 のチェックリストを実装完了時に自己実行。DevTools Accessibility タブで検証 |
+| `brand-guardian` | 納品前レビューで 11.7 チェックリスト全項目を確認。REJECT 権限あり |
+| `seo-specialist` | GEO 設計フェーズで 11.8 の構造化データ要件と連携 |
+| `creative-director` | プロジェクト開始時に「AI エージェント対応レベル」を A（完全対応）/ B（部分対応）/ C（非対応）で定義し、制作チームに伝達 |
+
+---
+
+## 12. 更新履歴
 
 | 日付 | 変更 |
 |---|---|
 | 2026-04-29 | 初版作成（hotice deck の実装知見を統合） |
+| 2026-05-05 | セクション 11 追加——AI エージェント対応設計原則（出典: Google web.dev、ICP Persona C 接続、AIO/LLMO 連携） |
