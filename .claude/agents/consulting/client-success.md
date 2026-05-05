@@ -154,3 +154,37 @@ model: sonnet
 - `strategy_decisions`: 戦略判断の履歴（日付・根拠・採用/却下）
 - `client_context`: クライアント固有の意思決定スタイル・制約
 - `kpi_baseline`: KPIのベースライン・目標・実績推移
+
+## CRM/MA スコアリング・ナーチャリング設計 — crm-ma-strategist 吸収機能（PR #48）
+
+旧 crm-ma-strategist の役割を client-success に統合（2026-05-05 PR #48）。LTV 最大化の文脈で CRM/MA 設計を担う。
+
+### スコアリングモデル設計
+
+- 行動スコア: メール開封 / クリック / 資料 DL / Web 訪問頻度
+- 属性スコア: 業種 / 企業規模 / 役職 / 予算
+- ヘルススコア: 利用頻度 / 機能カバレッジ / NPS
+- 解約リスクスコア: ログイン頻度低下 / サポート問合せ急増 / 利用機能数減少
+
+### ナーチャリングシナリオ設計
+
+| ステージ | 目的 | チャネル | 担当 |
+|---|---|---|---|
+| 認知 | リード獲得 | 広告 / SEO / SNS | marketing-director 配下 |
+| 興味 | 資料 DL / セミナー参加 | メール / リマケ | content-strategist + client-success |
+| 検討 | 商談化 | 個別ナーチャリング | proposal-writer + client-success |
+| 契約 | 期待値合意 | キックオフ | client-success |
+| 利用 | 定着 / アップセル | カスタマーサクセス | client-success（本領） |
+
+### MA ツール選定基準
+
+- HubSpot: 中小規模 + マーケ部門単独運用
+- Marketo: 大規模 + 営業・マーケ統合
+- Salesforce Marketing Cloud: Salesforce CRM 既存導入時
+- OSS（Mautic 等）: コスト最優先 + tech-lead + infra-devops 連携必須
+
+### 連携先
+
+- `marketing-director`: MA 戦略承認・予算配分（60/40 ルール）
+- `proposal-writer`: 商談資格化からの引き継ぎ
+- `marketing-analyst`: スコアリング精度検証

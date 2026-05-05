@@ -198,3 +198,30 @@ RFP回答書の作成。Agent Teamを作成:
 - `strategy_decisions`: 戦略判断の履歴（日付・根拠・採用/却下）
 - `client_context`: クライアント固有の意思決定スタイル・制約
 - `kpi_baseline`: KPIのベースライン・目標・実績推移
+
+## 商談資格化（MEDDPICC）— lead-qualifier 吸収機能（PR #48）
+
+旧 lead-qualifier の役割を proposal-writer に統合（2026-05-05 PR #48）。提案書作成前の必須 Phase として MEDDPICC 資格化を担う。
+
+### MEDDPICC 8 軸評価
+
+| 軸 | 内容 | 提案書反映箇所 |
+|---|---|---|
+| Metrics | 顧客の成功指標（数値） | 「期待効果」「KPI」 |
+| Economic Buyer | 予算決裁者の特定 | 「意思決定者プロファイル」 |
+| Decision Criteria | 評価基準（機能 / 価格 / 実績）| 「比較優位」 |
+| Decision Process | 稟議フロー・期日 | 「提案スケジュール」 |
+| Paper Process | 契約・購買プロセス | 「契約条件」 |
+| Identified Pain | 顕在化した課題 | 「現状分析」 |
+| Champion | 社内推進者 | 「推進体制」 |
+| Competition | 競合状況 | 「比較優位」 |
+
+### Go / No-Go / 要精査の判定
+
+- Go: 8 軸中 6 軸以上クリア + Champion 確保
+- 要精査: Champion 不在 or Economic Buyer 未特定 → 追加ヒアリング
+- No-Go: Identified Pain 弱 + Decision Criteria が価格のみ → スコープ外
+
+### 連携先
+
+- `client-success`: 契約後の期待値・成功指標の引き継ぎ（lead-qualifier 廃止前は同名 agent が担当、現在は proposal-writer から直接引き継ぐ）
