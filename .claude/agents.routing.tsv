@@ -4,7 +4,7 @@
 10	proposal-writer	提案書|提案資料|RFP|提案|見積|企画書|プレゼン資料|提案作成|提案書作成|ソリューション提案|顧客提案	sales-deck-designer,kpi-analytics,strategy-lead
 10	kpi-analytics	KPI|指標|メトリクス|ダッシュボード|レポート|分析|数値|実績|目標|OKR|ROI|LTV|CAC|チャーン|コンバージョン率|ARR|MRR	strategy-lead
 10	client-success	顧客成功|CS|カスタマーサクセス|オンボーディング|解約|チャーン防止|更新|アップセル|クロスセル|顧客満足|NPS|顧客維持|LTV向上	feedback-synthesizer
-10	legal-compliance-checker	法務|契約|規約|コンプライアンス|法令|規制|GDPR|個人情報|利用規約|NDA|秘密保持|知的財産|著作権|ライセンス|リーガル
+10	legal-compliance-checker	法務|契約|規約|コンプライアンス|法令|規制|GDPR|個人情報|利用規約|NDA|秘密保持|知的財産|著作権|ライセンス|リーガル	strategy-lead,proposal-writer
 20	tech-lead	アーキテクチャ|設計|技術選定|システム設計|技術負債|コードレビュー|テスト設計|API設計|スキーマ|DB設計|マイクロサービス|モノレポ|技術方針|ADR	ai-engineer,fullstack-dev
 20	fullstack-dev	実装|コーディング|バグ|デバッグ|フロントエンド|バックエンド|API|React|Next.js|TypeScript|Python|SQL|データベース|CRUD|認証|エラー修正	tech-lead
 20	ai-engineer	AI|LLM|RAG|プロンプト|ファインチューニング|ChatGPT|Claude|GPT|Gemini|Anthropic|OpenAI|ベクトル|埋め込み|エージェント実装|AIパイプライン|モデル評価	tech-lead,strategy-lead
@@ -15,7 +15,7 @@
 40	ux-designer	UX|UI|ユーザー体験|ワイヤーフレーム|プロトタイプ|ユーザビリティ|アクセシビリティ|情報設計|IA|ユーザーフロー|インタラクション|Figma	frontend-dev,brand-guardian
 40	frontend-dev	HTML|CSS|LP|ランディングページ|Webサイト|静的サイト|コンポーネント|レスポンシブ|アニメーション|Tailwind|SCSS|デザイン実装|Web制作	ux-designer,brand-guardian
 40	content-strategist	コンテンツ|記事|ブログ|コピー|ライティング|コンテンツ戦略|SEOコンテンツ|キャッチコピー|ナラティブ|ストーリー|オウンドメディア	seo-specialist,brand-guardian
-40	brand-guardian	ブランドガイドライン|トーン統一|表記揺れ|字形|禁止表現|ブランド品質|品質チェック|フォント|ブランド規律|日本語品質
+40	brand-guardian	ブランドガイドライン|トーン統一|表記揺れ|字形|禁止表現|ブランド品質|品質チェック|フォント|ブランド規律|日本語品質	content-strategist,creative-director
 40	growth-hacker	CVR|グロース|グロースハック|A/Bテスト|改善施策|施策カレンダー|ファネル改善|リテンション|ウイルス係数|Kファクター|MAU|DAU	content-strategist,frontend-dev
 40	sales-deck-designer	セールスデック|営業資料|スライド|プレゼン|PPTX|PDF|提案スライド|デッキ|資料デザイン|セールス資料|ピッチ|pitch	proposal-writer,brand-guardian
 50	gtm-consultant	海外展開|グローバル|GTM|市場参入|海外市場|輸出|越境EC|ローカライズ戦略|海外拠点|パートナーシップ|グローバル戦略|進出	competitive-analyst,market-researcher

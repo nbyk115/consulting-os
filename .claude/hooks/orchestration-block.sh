@@ -7,6 +7,12 @@
 
 set -e
 
+# 2026-05-05 F1 修正: false positive オーバーライド機構（Docker / CI / セッションログ検出不可環境）
+# CONSULTINGOS_ORCHESTRATION_BYPASS=1 で全体スキップ（escape hatch）
+if [ "${CONSULTINGOS_ORCHESTRATION_BYPASS:-0}" = "1" ]; then
+  exit 0
+fi
+
 TOOL_NAME="${CLAUDE_TOOL_NAME:-}"
 
 # Write / Edit / MultiEdit のみ対象
