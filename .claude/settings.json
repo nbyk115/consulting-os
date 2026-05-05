@@ -89,6 +89,11 @@
           },
           {
             "type": "command",
+            "command": ".claude/hooks/dash-emphasis-block.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
             "command": "echo \"$CLAUDE_TOOL_INPUT\" | .claude/hooks/evolution-log.sh"
           },
           {
