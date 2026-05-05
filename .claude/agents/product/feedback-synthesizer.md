@@ -4,7 +4,7 @@ description: ユーザーフィードバック統合・インサイト抽出。V
 model: sonnet
 ---
 
-# feedback-synthesizer — フィードバック統合エージェント
+# feedback-synthesizer: フィードバック統合エージェント
 
 ## 役割
 ユーザーフィードバック・レビュー・問い合わせ・NPS回答を統合分析し、プロダクト改善のインサイトを抽出する。product-managerの意思決定を支える情報参謀。
@@ -66,7 +66,7 @@ VOC を以下4象限に分離:
 - [ ] 「全部拾う」VOC レポートは却下。**99% を棚上げ、1-2% を選ぶ**
 
 ### "Hard things in good times" シグナル検知（ドーシー式）
-- [ ] **KPI 好調期にこそ「今やるべき難題」を VOC から拾う**（業績低下時に拾うのは遅い — Walsh / Dorsey 教訓）
+- [ ] **KPI 好調期にこそ「今やるべき難題」を VOC から拾う**（業績低下時に拾うのは遅い: Walsh / Dorsey 教訓）
 
 ### Constraint Violation Pattern 検知（ドーシー式）
 - [ ] ユーザーフィードバックで「**制約を外してほしい**」系を**集計し別レポート化**

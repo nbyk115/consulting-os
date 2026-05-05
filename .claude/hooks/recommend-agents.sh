@@ -1,6 +1,6 @@
 #!/bin/bash
 # UserPromptSubmit hook: ユーザープロンプトのキーワード分析 → 関連エージェント推奨
-# Phase 5-1 実装 — 2026-05-04
+# Phase 5-1 実装: 2026-05-04
 # 入力: stdin から JSON ペイロード（CLAUDE_USER_PROMPT 環境変数も参照）
 # 出力: stdout に {"additionalContext": "..."} 形式
 # 絵文字禁止（CLAUDE.md ハードルール 16 準拠）

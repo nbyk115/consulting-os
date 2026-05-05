@@ -169,7 +169,7 @@
    - 機能要望（Functional Job）
    - 感情ノイズ（Stable pattern noise）
    - 構造的不満（Behavioral signal）
-   - 一時的不満（Occasion noise — 重み付けを下げる）
+   - 一時的不満（Occasion noise: 重み付けを下げる）
 
 2. 3次元 Job 分類（クリステンセン）
    - Functional Job: 機能的用事

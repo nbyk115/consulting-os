@@ -5,7 +5,7 @@ allowed-tools: Read, Grep, Glob
 model: opus
 ---
 
-# /level-up — ConsultingOS 5 質問レバレッジ発見スキル
+# /level-up: ConsultingOS 5 質問レバレッジ発見スキル
 
 ## 起動方法
 `/level-up` または「次のレバレッジ点を見つけて」と自然言語で指示。
@@ -67,9 +67,9 @@ PL に落とせない施策（粗利インパクト / ブレイクイーブン /
 - 5 質問すべてに「施策不要」と回答可能（形骸化施策の追加禁止）
 
 ## 関連
-- `/audit` — 5 軸自己評価（本スキルの前段）
-- `consulting-playbook.md` — 「成果物プレビュー営業」「PL 思考」「アセット優先原則」
-- `CLAUDE.md` ハードルール 13 — 形骸化ルール禁止
+- `/audit`: 5 軸自己評価（本スキルの前段）
+- `consulting-playbook.md`: 「成果物プレビュー営業」「PL 思考」「アセット優先原則」
+- `CLAUDE.md` ハードルール 13: 形骸化ルール禁止
 
 ## 出典
 Nate Herk's AI OS framework（Level Up 5 questions）から構造概念を取り込み、ConsultingOS の佐藤裕介流（PL 思考 / 成果物プレビュー / アセット帰属診断 / ruthlessly edit）に再構築（2026-05-02）。

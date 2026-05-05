@@ -1,4 +1,4 @@
-# Falsification Check — 反証・ハルシネーション検証スキル
+# Falsification Check: 反証・ハルシネーション検証スキル
 
 - **Version**: 1.0.0
 - **Author**: strategy-lead orchestrator

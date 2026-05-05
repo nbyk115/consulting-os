@@ -1,4 +1,4 @@
-# ConsultingOS — コンサルティング・プレイブック
+# ConsultingOS: コンサルティング・プレイブック
 
 ## 概要
 コンサルティング部門の全エージェントが参照する標準手法・フレームワーク・思考原則。
@@ -6,7 +6,7 @@
 
 ---
 
-## 1. 指標変革 —「CPA至上主義」からの脱却
+## 1. 指標変革 -「CPA至上主義」からの脱却
 
 ### 小野寺メソッド: 指標を疑う
 クライアントが「CPA改善したい」と言っても、即座にCPA施策に走らない。
@@ -47,7 +47,7 @@
 
 ---
 
-## 3. PL思考 — 全提案を数字で語る
+## 3. PL思考: 全提案を数字で語る
 
 > **詳細フレームワーク → `revenue-growth-framework.md` §1**
 
@@ -196,13 +196,13 @@
 - Phase 3（戦略立案）: 現地の商習慣・意思決定構造を`gtm-consultant`（Post-Entry節）が補完
 
 ### グローバル連携先
-- `gtm-consultant` — 市場参入戦略・GTM設計・現地オペレーション・商習慣（Post-Entry）
-- `market-researcher` — 現地市場リサーチ・国際動向
-- `content-strategist` — ローカライゼーション・トランスクリエーション
+- `gtm-consultant`: 市場参入戦略・GTM設計・現地オペレーション・商習慣（Post-Entry）
+- `market-researcher`: 現地市場リサーチ・国際動向
+- `content-strategist`: ローカライゼーション・トランスクリエーション
 
 ---
 
-## 10. イノベーションのジレンマ — 破壊される前に破壊する
+## 10. イノベーションのジレンマ: 破壊される前に破壊する
 
 > **佐藤裕介の「プロダクトバリュー2年陳腐化」の構造的根拠がクリステンセンのイノベーションのジレンマ。**
 > 既存顧客の声を聞き、利益率の高いセグメントに投資する「正しい経営」をしているうちに、ローエンドから破壊者に市場を奪われる。
@@ -243,7 +243,7 @@
 
 ---
 
-## 11. ICP.md — プロジェクト固有のターゲット憲法
+## 11. ICP.md: プロジェクト固有のターゲット憲法
 
 > **CLAUDE.md（行動）/ DESIGN.md（見た目）/ ICP.md（ターゲット）の三位一体で中央参照。**
 
@@ -257,7 +257,7 @@ market-researcherのシナリオでその場しのぎで作るのではなく、
 ### ICP.mdの必須セクション
 
 ```markdown
-# ICP.md — [プロジェクト名]
+# ICP.md: [プロジェクト名]
 
 ## Primary ICP（主要ターゲット）
 | 項目 | 内容 | Why |
@@ -286,12 +286,12 @@ market-researcherのシナリオでその場しのぎで作るのではなく、
 ```
 
 ### 適用エージェント（ICP.md自動参照）
-- `market-researcher` — ペルソナ更新時の根拠データとして
-- `marketing-director` — チャネルミックス判断の基準
-- `performance-marketer` — オーディエンス設計の起点
-- `content-strategist` — コンテンツトーン判定
-- `proposal-writer` — 提案書のターゲティング節の出典
-- `product-manager` — 機能優先順位判断の基準
+- `market-researcher`: ペルソナ更新時の根拠データとして
+- `marketing-director`: チャネルミックス判断の基準
+- `performance-marketer`: オーディエンス設計の起点
+- `content-strategist`: コンテンツトーン判定
+- `proposal-writer`: 提案書のターゲティング節の出典
+- `product-manager`: 機能優先順位判断の基準
 
 ### メンテナンス
 - 四半期ごとに `market-researcher` がICP.mdを見直し
@@ -435,9 +435,9 @@ ConsultingOS は既に類似構造を運用中（CLAUDE.md = 意味 / evolution-
 
 - 銀行審査部の事業計画書 3 共通点（中小企業診断士 野村幸司氏知見）
 - 新規事業 / 企業 / M&A の責任者 = 佐藤裕介流
-- Jack Dorsey 流 — 削除設計と体験ファースト
-- 孫正義流 —「登りたい山」と「動くための計画」
-- Jensen Huang 流 — 思考深度の証明と「倒産 30 日前」マインド
+- Jack Dorsey 流: 削除設計と体験ファースト
+- 孫正義流 -「登りたい山」と「動くための計画」
+- Jensen Huang 流: 思考深度の証明と「倒産 30 日前」マインド
 - 4 思想兼務体制の運用順序
 
 詳細: [`.claude/skills/references/consulting-playbook-thoughts.md`](references/consulting-playbook-thoughts.md)

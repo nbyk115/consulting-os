@@ -1,4 +1,4 @@
-# Boris Cherny 流 9 規律 — 全エージェント徹底
+# Boris Cherny 流 9 規律: 全エージェント徹底
 
 > **Anthropic 内 Claude Code 開発リードの Boris Cherny が提唱する運用規律。ConsultingOS 全 34 エージェントに適用。**
 

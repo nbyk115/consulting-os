@@ -1,4 +1,4 @@
-# App Design Patterns — モバイルアプリ設計標準
+# App Design Patterns: モバイルアプリ設計標準
 
 ## 概要
 モバイルアプリ（iOS/Android/クロスプラットフォーム）に特化した設計パターン・UXガイドライン・技術選定基準。

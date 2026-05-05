@@ -32,8 +32,8 @@
 ### Primary（事業 KPI）
 | 指標 | 定義 | 一般的な目安（要最新確認） |
 |---|---|---|
-| **ARR** | 年間経常収益 | — |
-| **MRR** | 月間経常収益 | — |
+| **ARR** | 年間経常収益 |: |
+| **MRR** | 月間経常収益 |: |
 | **NRR** | Net Revenue Retention（既存顧客の年間収益維持率） | 100% 以上が健全、120% 超で Best in class とされることが多い |
 | **GRR** | Gross Revenue Retention（チャーン控除後の収益維持） | 90% 以上が一般的な健全水準 |
 | **CAC** | Customer Acquisition Cost | 業種・チャネルにより大きく変動 |

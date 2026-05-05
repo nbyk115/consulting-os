@@ -35,9 +35,9 @@
 
 ### Secondary
 - **CPC / CPM**: 広告効率（プラットフォーム・カテゴリで大きく変動）
-- **ROAS**: 広告費対売上比 — ただし **Walled Garden の自申告は構造的バイアス**あり（Jeff Green 規律: Independent Measurement で検証）
+- **ROAS**: 広告費対売上比: ただし **Walled Garden の自申告は構造的バイアス**あり（Jeff Green 規律: Independent Measurement で検証）
 - **送料売上比**: カテゴリ・物流戦略で変動
-- **粗利率**: カテゴリで大きく変動（コスメ・アパレル・食品で全く異なる）— **Shopify Reports / 業界別レポート**で確認
+- **粗利率**: カテゴリで大きく変動（コスメ・アパレル・食品で全く異なる）- **Shopify Reports / 業界別レポート**で確認
 
 ---
 
