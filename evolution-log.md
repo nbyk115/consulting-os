@@ -99,6 +99,48 @@ em ダッシュ 370 件の実撲滅 / スキル数定義明文化（CLAUDE.md L3
 - 起点: PR #59 commit message
 - 自己虚偽連鎖: 引き継ぎドキュメント「致命的 0 / 重大 0」記述
 
+### 後日追記: 物理化対策の効果検証（PR #60 マージ + PR #61 Phase 1 PR A 完了）
+
+#### PR #60 マージ（SHA: 8388b0e、2026-05-05 同日）
+
+物理化対策 6 ファイル（CLAUDE.md ハードルール 1 改訂 / falsification-check.md / stop-validator.sh / reality-check.sh 新設 / settings.json / evolution-log.md）を Squash and merge で main に統合。Boris #3 削除セット整合確認済（追加 4 件 = 削除 4 件）。
+
+#### PR #61 Phase 1 PR A 完了（SHA: cd4fac4、2026-05-05 同日）
+
+PR #60 物理化対策の実証実験として、ハードルール 10 + brand-guidelines L119 規定（em/en ダッシュ使用禁止）の実残存を機械的に解消:
+
+```
+$ # BEFORE
+$ grep -ro $'\xe2\x80\x94' .claude/ docs/ *.md | wc -l
+360
+$ grep -ro $'\xe2\x80\x93' .claude/ docs/ *.md | wc -l
+1
+
+$ # AFTER（PR #61 マージ後）
+$ grep -ro $'\xe2\x80\x94' .claude/ docs/ *.md | wc -l
+0
+$ grep -ro $'\xe2\x80\x93' .claude/ docs/ *.md | wc -l
+0
+```
+
+CLAUDE.md ハードルール 16 ⑥ で em/en ダッシュ全面禁止 + 検証コマンドを物理化（80 ファイル / +361 / -361 行、ネット行数変化 0）。
+
+#### 副次効果
+
+- PR #60 reality-check.sh が PR #61 commit 時に動作確認: 完了系キーワード「撲滅」を含む git commit が直近の grep/wc 多数実行履歴ありの状態で通過 = false positive 防止設計通り
+- 機械置換副作用: brand-guidelines.md L119-122 の NG/OK 例示が破壊（NG/OK 同一内容化）= 文字コード参照表記に修復、次回類似作業では `grep -v "規律定義書"` 除外条件設定が必要（学習）
+
+#### Phase 1 残（PR #62 進行中）
+
+- PR B（本セッション着手）: スキル数定義明文化（CLAUDE.md L3 / L35 / README 統一、実測 直下 18 + サブ 9 = 27 スキル）/ evolution-log 数値訂正
+- PR C（次セッション着手予定）: ハードルール 17 外出し（docs/orchestration-protocol.md 新設、CLAUDE.md スリム化）= 内容生成のため strategy-lead 起動必須
+
+#### 数値訂正
+
+- 引き継ぎドキュメント「evolution-log 663 行」 → 実態 725 行（PR #60 で +62 行、本セッション PR #61 で字形置換のみで行数変化なし、本エントリ追加で再増）
+- CLAUDE.md L3 / L35「26 スキル / 19 スキル / サブディレクトリ 8」 → 実態「27 スキル（直下 18 + サブ 9）」に統一（本 PR で訂正）
+- README 7 箇所のスキル数記述同様に訂正（本 PR で訂正）
+
 ---
 
 ## 2026-05-05: 全エージェント連携ジャッジ: 残存リスク + 保留課題 9 件の佐藤裕介流最終判定

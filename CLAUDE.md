@@ -1,6 +1,6 @@
 # ConsultingOS: 司令塔
 
-コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・26 スキル（直下 18 + サブディレクトリ 8）で提案から実装・海外展開・マーケまで一気通貫。
+コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・27 スキル（直下 18 + サブディレクトリ 9）で提案から実装・海外展開・マーケまで一気通貫。
 
 ---
 
@@ -32,7 +32,7 @@
 | `.claude/agents/creative/` | デザイン・コンテンツ・グロース（7 名: creative-director / ux-designer / frontend-dev / content-strategist / brand-guardian / growth-hacker / sales-deck-designer）。Figma MCP 対応 |
 | `.claude/agents/global/` | GTM・現地（1 名: gtm-consultant）。global-journalist は機能を gtm-consultant + market-researcher に吸収（PR #48）、business-translator はハードルール 11「英語出力に日本語訳併記必須」で代替 |
 | `.claude/agents/marketing-research/` | 統括・広告・SEO・分析・SNS・調査・PR（7 名: marketing-director / performance-marketer / seo-specialist / marketing-analyst / social-media-strategist / market-researcher / pr-communications）。crm-ma-strategist 削除: CRM/MA 機能は client-success と marketing-director に分散吸収（PR #48）|
-| `.claude/skills/` | 19 スキル（consulting-playbook / revenue-growth-framework / engineering-playbook / creative-playbook / brand-guidelines / falsification-check / claude-code-ops / cybersecurity-playbook / marketing-research-playbook / global-expansion-playbook / debug-methodology 他）。SKILL.md は 500 行以下、超過時 references/ 分離 |
+| `.claude/skills/` | 27 スキル（直下 18: consulting-playbook / revenue-growth-framework / engineering-playbook / creative-playbook / brand-guidelines / falsification-check / cybersecurity-playbook / marketing-research-playbook / global-expansion-playbook / debug-methodology 他、サブ 9: claude-code-ops / claude-design-handoff / sales-deck-review / website-audit / audit / level-up / industry-playbooks / prompt-templates / references）。SKILL.md は 500 行以下、超過時 references/ 分離 |
 | `.claude/commands/` | 6 コマンド（tdd / security-scan / review-pr / check-hallucination / analyze / review-agent-essence） |
 | `docs/` | ルーティング判定（agent-routing.md）・連携パターン（agent-collaboration-patterns.md） |
 | `evolution-log.md` | 規律違反記録 / 再評価カレンダー（4 週間更新ゼロなら archive） |
