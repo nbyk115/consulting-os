@@ -68,10 +68,55 @@ if ! printf '%s' "$LATEST_RESPONSE" | grep -qE '反証チェック結果|Step 1.
   HAS_FALSIFICATION="no"
 fi
 
+# --- 検知 2.5: 反証 Step 3 narrative-only 検出（2026-05-05 PR #59 自己虚偽事象学習）---
+# Step 3「実用反証」セクションを抽出し、コマンド実行痕跡（$ プレフィックス / 検証コマンド名 /
+# 数値結果 / file:line 形式）が含まれない場合 = 形骸化警告（warn のみ、ブロックなし）
+STEP3_BLOCK=$(printf '%s' "$LATEST_RESPONSE" | awk '
+  /Step 3|実用反証/ { capture=1 }
+  capture { print }
+  /残存リスク|^---$|^## / && capture && NR>1 { capture=0 }
+' 2>/dev/null | head -50)
+
+STEP3_NARRATIVE_ONLY="no"
+if [ "$HAS_FALSIFICATION" = "yes" ] && [ -n "$STEP3_BLOCK" ]; then
+  if ! printf '%s' "$STEP3_BLOCK" | grep -qE '(\$\s|grep |wc |find |test |git log|git diff|pdffonts|unzip |jq |awk |sed |[0-9]+ 件|[0-9]+ 行|[a-zA-Z0-9_./-]+:[0-9]+)' 2>/dev/null; then
+    STEP3_NARRATIVE_ONLY="yes"
+  fi
+fi
+
+# --- 検知 3: 完了系キーワード × 検証コマンド未実行（HARD BLOCK・PR #59 虚偽再発防止）---
+# 完了断言時、transcript を遡り検証コマンド実行ログがなければ exit 2
+COMPLETION_CLAIM="no"
+if printf '%s' "$LATEST_RESPONSE" | grep -qE '撲滅|残存ゼロ|致命的 0|全件処理|統一済|修復済' 2>/dev/null; then
+  COMPLETION_CLAIM="yes"
+fi
+
+# 例外: ユーザーが「強制マージ」「検証スキップ」「実測なし許可」明示時は通過
+USER_OVERRIDE="no"
+if [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
+  RECENT_USER=$(jq -r 'select(.type == "user") | .message.content // empty' "$TRANSCRIPT_PATH" 2>/dev/null | tail -20)
+  if printf '%s' "$RECENT_USER" | grep -qE '強制マージ|検証スキップ|実測なし許可' 2>/dev/null; then
+    USER_OVERRIDE="yes"
+  fi
+fi
+
+VERIFICATION_MISSING="no"
+if [ "$COMPLETION_CLAIM" = "yes" ] && [ "$USER_OVERRIDE" = "no" ] && [ -n "$TRANSCRIPT_PATH" ] && [ -f "$TRANSCRIPT_PATH" ]; then
+  RECENT_BASH=$(jq -r 'select(.type == "assistant") | .message.content[]? | select(.type == "tool_use" and .name == "Bash") | .input.command // empty' "$TRANSCRIPT_PATH" 2>/dev/null | tail -30)
+  if ! printf '%s' "$RECENT_BASH" | grep -qE '(^|[ /;|&])(grep|wc|find|test|git log|git diff|pdffonts|unzip)' 2>/dev/null; then
+    VERIFICATION_MISSING="yes"
+  fi
+fi
+
 # --- 結果判定 ---
 HAS_VIOLATION="no"
-if [ -n "$DETECTED_PHRASES" ] || [ "$HAS_FALSIFICATION" = "no" ]; then
+HARD_BLOCK="no"
+if [ -n "$DETECTED_PHRASES" ] || [ "$HAS_FALSIFICATION" = "no" ] || [ "$STEP3_NARRATIVE_ONLY" = "yes" ]; then
   HAS_VIOLATION="yes"
+fi
+if [ "$VERIFICATION_MISSING" = "yes" ]; then
+  HAS_VIOLATION="yes"
+  HARD_BLOCK="yes"
 fi
 
 if [ "$HAS_VIOLATION" = "no" ]; then
@@ -88,11 +133,24 @@ if [ -n "$DETECTED_PHRASES" ]; then
 fi
 
 if [ "$HAS_FALSIFICATION" = "no" ]; then
-  WARNING_MSG="${WARNING_MSG}反証チェック未付与検出（CLAUDE.md ハードルール 1）: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。短文・端的回答でも省略禁止（圧縮版 2-3 行は可）。"$'\n'
+  WARNING_MSG="${WARNING_MSG}反証チェック未付与検出（CLAUDE.md ハードルール 1）: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。省略・形骸化禁止。"$'\n'
+fi
+
+if [ "$STEP3_NARRATIVE_ONLY" = "yes" ]; then
+  WARNING_MSG="${WARNING_MSG}反証 Step 3 形骸化検出: 実用反証セクションにコマンド出力痕跡が見当たりません。\$ プレフィックス / grep / wc / find / git log / 数値結果 / file:line を必ず添付してください（PR #59 em ダッシュ虚偽 370 件残存事象の再発防止・falsification-check.md §4.2）。"$'\n'
+fi
+
+if [ "$VERIFICATION_MISSING" = "yes" ]; then
+  WARNING_MSG="${WARNING_MSG}[HARD BLOCK] 完了系キーワード（撲滅 / 残存ゼロ / 致命的 0 / 全件処理 / 統一済 / 修復済）を検出しましたが、直近 30 ターン以内に grep / wc / find / test / git log / git diff / pdffonts / unzip 等の検証コマンド実行ログが見つかりません。完了断言には実測コマンド + 結果添付必須（PR #59 em ダッシュ虚偽 370 件残存事象の再発防止）。検証コマンドを実行してから再度応答するか、ユーザー承認下で「強制マージ」「検証スキップ」「実測なし許可」明示で通過してください。"$'\n'
 fi
 
 # --- 出力 ---
 echo "$WARNING_MSG" >&2
+
+# HARD_BLOCK は ENFORCEMENT モードに関わらず block（虚偽再発防止が最優先）
+if [ "$HARD_BLOCK" = "yes" ]; then
+  exit 2
+fi
 
 if [ "$ENFORCEMENT" = "block" ]; then
   exit 2
