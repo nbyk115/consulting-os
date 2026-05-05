@@ -37,6 +37,65 @@
 
 ---
 
+## 2026-05-05: 調査チームナレッジ統合 — 日本 AI 市場 5 層構造 + Vertical AI 戦略 + Anthropic Skills 67 選評価
+
+### トリガー
+
+ユーザー指示「自民党 AI 委員会で発表された AI エージェント最前線と日本の勝ち筋を調査チームナレッジに加えて」+「Anthropic Skills 67 選はこのへんは？」を受け、2 ソースを並行統合。
+
+### 統合内容
+
+1. `.claude/skills/marketing-research-playbook.md` に「日本 AI 市場構造分析（5 層モデル + Vertical AI 戦略）」セクション追加（94 行）
+   - 出典: 自民党 AI・web3 小委員会 第 7 回会合（2026-03-10）柴田直樹氏（NSV WolfCapital）「AI エージェント最前線と日本の勝ち筋」
+   - 5 層構造: GPU → データセンター → LLM → 汎用アプリ → Vertical AI
+   - 日本注力レイヤー: Vertical AI 集中、政策措置（R&D 税制優遇 + リスキリング支援）
+   - 日本発 AI エージェントの世界勝ち筋 2 つ: 課題先進国 + 新卒一括採用 OJT 業界知見蓄積
+   - 業界別求人倍率データは note 記事 WebFetch 403 で原文未取得、SPECULATION ラベル + 要追記プレースホルダ
+2. `ICP.md` §9.1 ターゲット業種テーブルに「Vertical AI 適合度」列追加（16 行変更）
+   - 5 業種を業界知見蓄積度 × Vertical AI 学習データ生成可能性で高 / 中 / 低評価
+   - 高: 士業事務所 / 中: リフォーム + 歯科 / 低: クリーニング + 葬儀
+
+### Anthropic Skills 67 選評価（PR #38 マージ後の判断記録）
+
+ユーザー提示の Mr. Buzzoni 氏「Claude Skills 67 選」に対し選別評価:
+- 重複多数（TDD / Code Review / Brand Guidelines / Marketing Skills / Claude SEO / Frontend Design / API Doc Generator / Git Guardrails / Systematic Debugging / Stochastic Multi-Agent Consensus）= 取り込み不要
+- ConsultingOS が上位互換: Git Guardrails（settings.json deny + orchestration-block.sh）/ Multi-Agent Consensus（PR #35 で 15 名総動員）
+- 補完価値あり 2 件: Skill Creator（Phase 6 商品化トリガーで取り込み）/ Model-chat Debate（Phase 5-2 連動推奨の精度向上候補）
+- メタ観察: ConsultingOS は Anthropic 公式 Skills が後から提供した機能の多くを「規律ある OS として統合」する形で先行実装、Phase 6 商品化時に「Anthropic 公式互換 + 上位レイヤー規律」を訴求可能
+
+### 連携エージェント実行記録
+
+- market-researcher: 統合内容設計（marketing-research-playbook.md + ICP.md）、Vertical AI 適合度 5 業種評価
+- assistant: 統合実装 + 評価カレンダー登録 + Skills 67 選判断記録
+
+### 反証結果
+
+Step 1 自己反証: WebFetch 403 で note 記事原文未取得、ユーザー提供テキスト + WebSearch 補完情報のみで実装、業界別求人倍率の具体数値は SPECULATION ラベル必須。
+Step 2 構造反証: 既存ファイル 2 件拡張のみ（新規ファイル追加なし）、ハードルール 13 違反なし、Boris #3 ruthlessly edit と整合。
+Step 3 実用反証: market-researcher 単独起動は orchestrator 規律最低限、competitive-analyst / strategy-lead 連動が望ましいが context 圧迫リスク回避優先。「やった？」指摘で評価カレンダー登録の宣言と実装の乖離を自己診断、即修正。
+
+### 残存リスク
+
+1. note 記事原文の業界別求人倍率データ未取得、ユーザー手動補完 or 別セッションで再 WebFetch 試行
+2. Vertical AI 適合度評価は market-researcher 個人見立て、5 業種の実態調査で検証必要
+3. Anthropic Skills 67 選の機能差は名称比較のみで判定、Skill Creator 取り込み時に実機能差判明可能性
+4. 「宣言と実装の乖離」（評価カレンダー登録を宣言したが実装していなかった）は orchestrator 規律違反、今後は宣言時点で即実装かタスク化
+
+### 再評価カレンダー追加
+
+- 2026-08-05: Anthropic 公式 Skills マーケットプレイス出品要否判断（ConsultingOS 19 skills の SKILL.md + npx 互換形式への移行判断、Phase 6 商品化トリガーと連動）
+- 2026-08-05: Vertical AI 適合度評価の実態検証（士業 / リフォーム / 歯科 各 1 社ヒアリング、評価軸の妥当性確認）
+- 2026-11-05: 5 層構造分析の業界別求人倍率データ実値取得（厚労省データ参照 + note 記事原文確認、SPECULATION → FACT 格上げ）
+
+### 関連参照
+
+- `.claude/skills/marketing-research-playbook.md`（日本 AI 市場構造分析セクション追加）
+- `ICP.md` §9.1（Vertical AI 適合度列追加）
+- 出典: https://note.com/akihisa_shiozaki/n/n3bbe75fa841c（塩崎彰久議員 note、自民党 AI・web3 小委員会 第 7 回会合）
+- PR #36 / #37 / #38（Phase 5 完成、本ナレッジ統合は商品化フェーズ準備）
+
+---
+
 ## 2026-05-05: Phase 5 完成 — Phase 5-2 連動推奨 + Phase 5-4 強い推奨化 + browser-automation.md 削除（ハードルール 13 債務解消）
 
 ### トリガー
