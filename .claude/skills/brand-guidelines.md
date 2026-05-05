@@ -461,7 +461,7 @@ AI文章バレ対策:
 - Tailwindのconfig形式で書くとfrontend-devが即活用できる
 
 ## 適用エージェント
-- 全31エージェントが本ガイドラインを遵守
+- 全27エージェントが本ガイドラインを遵守
 - `creative/brand-guardian` が最終品質ゲートとして判定
 - `creative/creative-director` がDESIGN.md生成・管理を担当
 
