@@ -32,11 +32,13 @@ if [ "$TOOL_NAME" = "Edit" ]; then
   fi
 fi
 
-# 対象パターン判定
+# 対象パターン判定（Phase 4 強化 2026-05-04: docx / md も対象に追加）
 case "$FILE" in
   strategy/*/*.html|strategy/*/*.css|strategy/*/*.pptx|strategy/*/*.pdf|\
+  strategy/*/*.docx|strategy/*/*.md|\
   strategy/*/case-*.html|strategy/*/index.html|\
-  examples/*/*.html|examples/*/*.css|examples/*/*.pptx|examples/*/*.pdf)
+  examples/*/*.html|examples/*/*.css|examples/*/*.pptx|examples/*/*.pdf|\
+  examples/*/*.docx|examples/*/*.md)
     ;;
   *)
     exit 0

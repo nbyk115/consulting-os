@@ -29,6 +29,11 @@
             "type": "command",
             "command": ".claude/hooks/prompt-rules.sh",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/recommend-agents.sh",
+            "timeout": 5000
           }
         ]
       }
