@@ -233,7 +233,7 @@ LTV/CAC: __ 倍（目標: 3倍以上）
 
 ### グローバル連携先
 - `global/gtm-consultant` — 海外GTM戦略・市場参入判断・現地コスト構造・商習慣・オペレーション（Post-Entry）
-- `global/global-journalist` — 現地市場データ・成長率・競合情報
+- `global/market-researcher` — 現地市場データ・成長率・競合情報
 - `consulting/legal-compliance-checker` — 現地規制・外資規制チェック
 
 ---
@@ -243,7 +243,7 @@ LTV/CAC: __ 倍（目標: 3倍以上）
 - `consulting/competitive-analyst` — 市場構造分析
 - `consulting/kpi-analytics` — PL思考の数値分析
 - `consulting/proposal-writer` — 数値根拠の提案書
-- `consulting/lead-qualifier` — 再現性ある商談設計
+- `consulting/proposal-writer` — 再現性ある商談設計
 - `service-dev/tech-lead` — プロダクトバリュー進化の技術設計
 - `global/gtm-consultant` — 海外市場のPL試算・成長設計
 

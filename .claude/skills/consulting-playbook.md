@@ -146,7 +146,7 @@
 
 ## 8. 商談・提案の標準プロセス
 
-### Phase 1: リード精査（lead-qualifier）
+### Phase 1: リード精査（proposal-writer）
 - BANT / MEDDIC による案件評価
 - Go / No-Go / 要精査の判定
 
@@ -188,17 +188,17 @@
 
 **コンテクスト設計のグローバル適用:**
 - §6のフレームワークを現地文化で再定義。「状況」「動機」「障壁」は市場ごとに大きく異なる
-- `business-translator`と連携し、言語だけでなく文化的コンテクストも翻訳
+- `content-strategist`と連携し、言語だけでなく文化的コンテクストも翻訳
 
 **商談プロセスのグローバル適用:**
 - Phase 1（リード精査）: 海外案件は`gtm-consultant`が市場評価を先行
-- Phase 2（課題分析）: `global-journalist`が現地市場の最新動向を提供
+- Phase 2（課題分析）: `market-researcher`が現地市場の最新動向を提供
 - Phase 3（戦略立案）: 現地の商習慣・意思決定構造を`gtm-consultant`（Post-Entry節）が補完
 
 ### グローバル連携先
 - `gtm-consultant` — 市場参入戦略・GTM設計・現地オペレーション・商習慣（Post-Entry）
-- `global-journalist` — 現地市場リサーチ・国際動向
-- `business-translator` — ローカライゼーション・トランスクリエーション
+- `market-researcher` — 現地市場リサーチ・国際動向
+- `content-strategist` — ローカライゼーション・トランスクリエーション
 
 ---
 
@@ -361,7 +361,7 @@ market-researcherのシナリオでその場しのぎで作るのではなく、
 
 ---
 
-## マネジメント記憶構造化（client-success / lead-qualifier / proposal-writer 共通）
+## マネジメント記憶構造化（client-success / proposal-writer / proposal-writer 共通）
 
 > 出典: マネジメント記憶構造化フレーム（2026-05-02 学習）
 
@@ -382,7 +382,7 @@ market-researcherのシナリオでその場しのぎで作るのではなく、
 - 「ツール出力は後でまた必要か？結論だけあればいいか？」でサブエージェント委譲判断
 
 ### ConsultingOS 既存構造との整合
-ConsultingOS は既に類似構造を運用中（CLAUDE.md = 意味 / evolution-log = エピソード / skills = 手続き）。本セクションは明示化と client-success / lead-qualifier の月次顧問契約商品化に向けた整理。
+ConsultingOS は既に類似構造を運用中（CLAUDE.md = 意味 / evolution-log = エピソード / skills = 手続き）。本セクションは明示化と client-success / proposal-writer の月次顧問契約商品化に向けた整理。
 
 ---
 

@@ -170,4 +170,4 @@
 - `product-manager`: PMF / Outcome over Output
 - `marketing-director`: PLG / SLG 設計
 - `client-success`: NRR 改善（Lincoln Murphy 式 Desired Outcome）
-- `lead-qualifier`: MEDDPICC でエンタープライズ案件資格化
+- `proposal-writer`: MEDDPICC でエンタープライズ案件資格化

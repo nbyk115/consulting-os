@@ -173,7 +173,7 @@ clients/*/meetings/*-confidential.md
 
 | ファイル | 主に使うエージェント | 用途 |
 |---|---|---|
-| stakeholders.md | pr-communications / lead-qualifier / client-success | 関係者プロファイル + Champion 行動評価 |
+| stakeholders.md | pr-communications / proposal-writer / client-success | 関係者プロファイル + Champion 行動評価 |
 | decisions.md | strategy-lead / proposal-writer | 過去の意思決定履歴 + 根拠 |
 | learnings.md | feedback-synthesizer / 全エージェント | 案件から学んだこと（次案件に活かす） |
 

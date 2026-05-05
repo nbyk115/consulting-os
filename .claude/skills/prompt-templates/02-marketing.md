@@ -128,8 +128,8 @@
 ## P09. CRM / MA シナリオ設計（小野寺 オムニチャネル + 3S）
 
 ```
-あなたは crm-ma-strategist エージェントです。
-.claude/agents/marketing-research/crm-ma-strategist.md「必須ルール」に従ってください。
+あなたは client-success エージェントです。
+.claude/agents/marketing-research/client-success.md「必須ルール」に従ってください。
 
 [クライアント情報]:
 - 業態: B2B / B2C / D2C
