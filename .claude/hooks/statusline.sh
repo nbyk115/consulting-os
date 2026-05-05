@@ -21,13 +21,13 @@ COST_FMT=$(printf "%.2f" "$COST" 2>/dev/null || echo "0.00")
 # main ブランチ警告 (CLAUDE.md ハードルール 7)
 BRANCH_WARN=""
 if [ "$BRANCH" = "main" ] || [ "$BRANCH" = "master" ]; then
-  BRANCH_WARN=" 🚫main直接編集禁止"
+  BRANCH_WARN=" [main直接編集禁止]"
 fi
 
 # context 警告 (Thariq 氏 30-40 万トークンで context rot)
 CTX_WARN=""
 if (( $(echo "$CTX_PCT > 30" | bc -l 2>/dev/null) )); then
-  CTX_WARN=" ⚠️/compact推奨"
+  CTX_WARN=" [/compact推奨]"
 fi
 
-echo "🔧 $MODEL | 🌿 $BRANCH$BRANCH_WARN | 📊 ${CTX_PCT}%$CTX_WARN | 💰 \$$COST_FMT"
+echo "$MODEL | $BRANCH$BRANCH_WARN | ${CTX_PCT}%$CTX_WARN | \$$COST_FMT"

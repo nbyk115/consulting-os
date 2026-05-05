@@ -65,7 +65,7 @@ PRIMARY_AGENTS=$(
     if [ -z "$agent" ] || [ -z "$pattern" ]; then
       continue
     fi
-    if printf '%s' "$USER_PROMPT" | grep -qiE -- "$pattern" 2>/dev/null; then
+    if printf '%s' "$USER_PROMPT" | tr '\n' ' ' | grep -qiE -- "$pattern" 2>/dev/null; then
       printf '%s\t%s\t%s\n' "$priority" "$agent" "$secondary"
     fi
   done < "$TSV" | sort -t$'\t' -k1,1n
