@@ -1,6 +1,6 @@
-# clients/ — クライアント案件管理
+# clients/ : クライアント案件管理
 
-> 全クライアント案件のディレクトリ。**機密性の高い情報を含むため、Layer 0/1/2 セキュリティ規律を厳守**。
+> 全クライアント案件のディレクトリ。機密性の高い情報を含むため、Layer 0/1/2 セキュリティ規律を厳守。
 
 ---
 
@@ -30,7 +30,7 @@ clients/
         └── learnings.md              # 学んだこと（次案件に活かす知見）
 ```
 
-**並列で `.claude/memory/clients/<client-slug>/` も作成**:
+並列で `.claude/memory/clients/<client-slug>/` も作成:
 - 各エージェントが参照するメモリ（`competitor-watch.md` / `market-data.md` / `evolution-log.md`）
 - gitignore 対象。ローカルのみ
 
@@ -50,7 +50,7 @@ clients/*/deliverables/*/raw/
 ```
 
 ### Gitleaks 強化（Layer 0）
-- クライアント案件リポジトリでは **必ず gitleaks pre-commit hook 導入**
+- クライアント案件リポジトリでは 必ず gitleaks pre-commit hook 導入
 - `.gitleaksignore` でクライアント名・固有表現を除外（誤検知防止）
 
 ### CLAUDE.md にクライアント名を直接書かない（Layer 1）
@@ -59,7 +59,7 @@ clients/*/deliverables/*/raw/
 - 案件中の作業時のみ「現在は `<client-slug>` 案件」と参照
 
 ### settings.json（Layer 2）強化
-- `permissions.deny` に `Read(clients/**/contracts/**)` を必要に応じて追加
+- `permissions.deny` に `Read(clients//contracts/)` を必要に応じて追加
 - クライアント機密データへの誤読み出しを物理ブロック
 
 ---
@@ -99,18 +99,18 @@ git commit -m "feat(clients): start <client-name> engagement"
 # <クライアント名> 案件
 
 ## 基本情報
-- **正式名称**: 株式会社○○
-- **業界**: SaaS / D2C / 広告代理店 / etc.
-- **規模**: 売上 ○○億 / 従業員 ○○名
-- **連絡担当**: ○○様（部署 / 役職）
-- **契約形態**: 月額顧問 / プロジェクト単発 / 成果報酬 / etc.
-- **契約期間**: YYYY-MM-DD 〜 YYYY-MM-DD
+- 正式名称: 株式会社○○
+- 業界: SaaS / D2C / 広告代理店 / etc.
+- 規模: 売上 ○○億 / 従業員 ○○名
+- 連絡担当: ○○様（部署 / 役職）
+- 契約形態: 月額顧問 / プロジェクト単発 / 成果報酬 / etc.
+- 契約期間: YYYY-MM-DD 〜 YYYY-MM-DD
 
 ## 案件スコープ
-- **目的**: <1-2行>
-- **成果物**: <提案書 / LP / セールスデッキ / etc.>
-- **KPI**: <定量指標>
-- **予算**: <非公開推奨、口頭共有のみ>
+- 目的: <1-2行>
+- 成果物: <提案書 / LP / セールスデッキ / etc.>
+- KPI: <定量指標>
+- 予算: <非公開推奨、口頭共有のみ>
 
 ## 関係者（→ stakeholders.md で詳細）
 - Economic Buyer: ○○氏（CEO / CMO / CTO）
@@ -160,10 +160,10 @@ clients/*/meetings/*-confidential.md
 
 ## 命名規則
 
-- **クライアント slug**: 小文字ハイフン区切り、英数字のみ（例: `hotice`, `dentsu-digital`, `acme-corp`）
-- **日付**: ファイル名の日付は `YYYYMMDD` 形式
-- **議事録**: `meetings/YYYYMMDD-<topic>.md`（例: `meetings/20260420-kickoff.md`）
-- **納品物バージョン**: ディレクトリ名に日付（例: `proposal-20260420/`、`deck-20260425/`）
+- クライアント slug: 小文字ハイフン区切り、英数字のみ（例: `hotice`, `dentsu-digital`, `acme-corp`）
+- 日付: ファイル名の日付は `YYYYMMDD` 形式
+- 議事録: `meetings/YYYYMMDD-<topic>.md`（例: `meetings/20260420-kickoff.md`）
+- 納品物バージョン: ディレクトリ名に日付（例: `proposal-20260420/`、`deck-20260425/`）
 
 ---
 

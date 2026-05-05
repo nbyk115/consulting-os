@@ -159,7 +159,7 @@ style: |
 
 # N.Y.CRAFT × ConsultingOS<br>パートナーシップ ご提案
 
-属人化された経営知見を「規律ある専門家チーム」として再現する<br>30 の AI エージェントから成る事業 OS
+属人化された経営知見を「規律ある専門家チーム」として再現する<br>27 の AI エージェントから成る事業 OS
 
 <p class="neutral">2026.04 / v5</p>
 
@@ -236,7 +236,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# ConsultingOS とは — 30 の AI エージェントから成る事業 OS
+# ConsultingOS とは : 27 の AI エージェントから成る事業 OS
 
 <div class="grid-2">
 <div>
@@ -279,7 +279,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 | 観点 | 普通の Claude Code | ConsultingOS（AI エージェント OS） |
 |---|---|---|
 | 性格 | エンジニア向けコード支援ツール | <span class="accent">事業オペレーティングシステム</span> |
-| 担い手 | 単一の AI が応答 | 30 のエージェントが <span class="accent">役割分担して連携</span> |
+| 担い手 | 単一の AI が応答 | 27 のエージェントが <span class="accent">役割分担して連携</span> |
 | 業界知識 | 汎用 | 5 業界別プレイブック ＋ N.Y.CRAFT 専用版を新設 |
 | 品質保証 | なし（プロンプト次第） | 反証モード + 規律ルールで <span class="accent">機械的に弾く</span> |
 | 思想的基盤 | なし | 著名コンサル・経営者の <span class="accent">実証知見を組込み</span> |
@@ -349,7 +349,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — NotebookLM 時代</span>
+<span class="label before">Before : NotebookLM 時代</span>
 
 スペシャリストが資料作成に着手<br>
 ↓<br>
@@ -365,7 +365,7 @@ NotebookLM で過去資料を検索<br>
 
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After : 関根さんver OS</span>
 
 「業界・課題・予算」を入力<br>
 ↓<br>
@@ -389,7 +389,7 @@ NotebookLM で過去資料を検索<br>
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — 今までのやり方</span>
+<span class="label before">Before : 今までのやり方</span>
 
 A 社訪問・課題ヒアリング<br>
 ↓<br>
@@ -404,7 +404,7 @@ A 社訪問・課題ヒアリング<br>
 <div class="small neutral">関根さん依存で量産できない</div>
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After : 関根さんver OS</span>
 
 A 社情報を入力（業界・規模・課題）<br>
 ↓<br>
