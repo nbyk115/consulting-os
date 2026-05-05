@@ -1,4 +1,4 @@
-# コンテキスト管理 詳細 — MCP・ツール・メモリ
+# コンテキスト管理 詳細: MCP・ツール・メモリ
 
 > **コンテキストウィンドウは命。MCP を入れすぎると 200k のコンテキストが実質 70k まで縮小する。**
 
@@ -254,10 +254,10 @@ pip install code-review-graph
 ```
 
 ### 対応エージェント
-- `tech-lead` — コードレビュー・技術負債分析
-- `fullstack-dev` — 大規模リファクタリング時の影響範囲特定
-- `frontend-dev` — コンポーネント依存関係の把握
-- `infra-devops` — Infrastructure as Code の依存関係分析
+- `tech-lead`: コードレビュー・技術負債分析
+- `fullstack-dev`: 大規模リファクタリング時の影響範囲特定
+- `frontend-dev`: コンポーネント依存関係の把握
+- `infra-devops`: Infrastructure as Code の依存関係分析
 
 ---
 

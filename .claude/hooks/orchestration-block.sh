@@ -3,7 +3,7 @@
 # 対象: strategy/*/*.html|*.pptx|*.pdf / examples/*/*.html|*.pptx|*.pdf
 # 直近5分以内にエージェント（sales-deck-designer/frontend-dev/creative-director/ux-designer/brand-guardian）
 # の起動履歴がなければ stderr に警告 + exit 2 で物理ブロック
-# 2026-05-04 違反学習 — orchestration 物理ブロック実装
+# 2026-05-04 違反学習: orchestration 物理ブロック実装
 
 set -e
 
@@ -38,7 +38,7 @@ if [ "$TOOL_NAME" = "Edit" ]; then
   fi
 fi
 
-# プロジェクトルート検出（case 判定の前に移動 — 2026-05-05 C1 修正）
+# プロジェクトルート検出（case 判定の前に移動: 2026-05-05 C1 修正）
 ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo "$(pwd)")
 
 # 絶対パス対応: ROOT を剥がして相対化（Claude Code は絶対パスを渡す）

@@ -1,4 +1,4 @@
-# API Design Patterns — API設計標準
+# API Design Patterns: API設計標準
 
 ## 原則
 **「APIは契約。一度公開したら簡単には変えられない。」**
@@ -207,15 +207,15 @@ Response:
 
 ### 認可パターン
 ```python
-# RBAC（ロールベース）— シンプルなケース
+# RBAC（ロールベース）- シンプルなケース
 @require_role("admin")
 def delete_user(user_id): ...
 
-# ABAC（属性ベース）— 複雑なケース
+# ABAC（属性ベース）- 複雑なケース
 @require_permission("orders:read", resource_owner=True)
 def get_order(order_id): ...
 
-# マルチテナント — 必ずテナント境界をチェック
+# マルチテナント: 必ずテナント境界をチェック
 def get_users(tenant_id):
     # テナントIDがリクエスト元と一致するか必ず検証
     assert current_user.tenant_id == tenant_id
@@ -302,8 +302,8 @@ GET /api/v1/users?fields=id,name,email
 
 ### 両方使うパターン
 ```
-内部API（BFF向け）: GraphQL — フロントの柔軟性重視
-外部API（パートナー向け）: REST — シンプルさ・ドキュメント性重視
+内部API（BFF向け）: GraphQL: フロントの柔軟性重視
+外部API（パートナー向け）: REST: シンプルさ・ドキュメント性重視
 ```
 
 ---
@@ -348,10 +348,10 @@ GET /api/v1/users?fields=id,name,email
 ---
 
 ## 適用エージェント
-- `service-dev/tech-lead` — API設計方針の策定・レビュー
-- `service-dev/fullstack-dev` — API実装
-- `service-dev/ai-engineer` — AI機能APIの設計（ストリーミング等）
-- `creative/frontend-dev` — APIの呼び出し側の設計
+- `service-dev/tech-lead`: API設計方針の策定・レビュー
+- `service-dev/fullstack-dev`: API実装
+- `service-dev/ai-engineer`: AI機能APIの設計（ストリーミング等）
+- `creative/frontend-dev`: APIの呼び出し側の設計
 
 
 
@@ -362,4 +362,4 @@ GET /api/v1/users?fields=id,name,email
 
 | Ver | 日付 | 変更内容 | 根拠 | 効果 |
 |---|---|---|---|---|
-| 1.0.0 | 2026-03-25 | 初版 | — | ベースライン |
+| 1.0.0 | 2026-03-25 | 初版 |: | ベースライン |

@@ -1,4 +1,4 @@
-# Migration Safety — DB/APIマイグレーション安全手順
+# Migration Safety: DB/APIマイグレーション安全手順
 
 ## 概要
 データベーススキーマ変更・API破壊的変更を「ゼロダウンタイム・ゼロデータロス」で実行するための手順書。
@@ -215,9 +215,9 @@ CREATE INDEX CONCURRENTLY idx_users_email ON users(email);
 ---
 
 ## 適用エージェント
-- `service-dev/tech-lead` — マイグレーション方針判断・リスク評価
-- `service-dev/fullstack-dev` — マイグレーション実装・アプリ側対応
-- `service-dev/infra-devops` — バックアップ・モニタリング・実行
+- `service-dev/tech-lead`: マイグレーション方針判断・リスク評価
+- `service-dev/fullstack-dev`: マイグレーション実装・アプリ側対応
+- `service-dev/infra-devops`: バックアップ・モニタリング・実行
 
 
 
@@ -228,5 +228,5 @@ CREATE INDEX CONCURRENTLY idx_users_email ON users(email);
 
 | Ver | 日付 | 変更内容 | 根拠 | 効果 |
 |---|---|---|---|---|
-| 1.0.0 | 2026-03-25 | 初版 | — | ベースライン |
+| 1.0.0 | 2026-03-25 | 初版 |: | ベースライン |
 | 1.1.0 | 2026-04-12 | §5.5 Shift Left + 段階的ロールアウト追加 | addyosmani/agent-skills "shipping-and-launch" | 本番事故の早期検知・段階的リリースの原則化 |

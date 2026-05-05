@@ -1,4 +1,4 @@
-## 9.5 Claude Code 多層防御（Multi-Layer Defense — 3層）
+## 9.5 Claude Code 多層防御（Multi-Layer Defense: 3層）
 
 > **「信頼」ではなく「制御」で固める。** モデル判断 → 技術ブロック → Git 物理ブロックの3層で防御。Layer 1+2 は Claude Code 経由のみ守る → 人間が手動 `git add` した瞬間にすり抜ける。Layer 0 で Git レベル物理ブロック。
 

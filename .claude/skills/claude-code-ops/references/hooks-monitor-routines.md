@@ -1,4 +1,4 @@
-# Hooks / Monitor / Routines 詳細 — 4 自動化軸の実装
+# Hooks / Monitor / Routines 詳細: 4 自動化軸の実装
 
 > **先回りで設定しない。実需が出てから設定する。**
 

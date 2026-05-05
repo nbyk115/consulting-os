@@ -2,7 +2,7 @@
 description: PR自動レビュー
 ---
 
-# /review-pr — PR自動レビュー
+# /review-pr: PR自動レビュー
 
 引数: $ARGUMENTS（PR番号 or ブランチ名）
 

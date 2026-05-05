@@ -1,4 +1,4 @@
-# Advisor Strategy 詳細 — Opus アドバイザー × Sonnet/Haiku 実行
+# Advisor Strategy 詳細: Opus アドバイザー × Sonnet/Haiku 実行
 
 > **Opus をアドバイザー、Sonnet/Haiku を実行役にペアリングし、Opus 同等の知能を低コストで実現する。**
 

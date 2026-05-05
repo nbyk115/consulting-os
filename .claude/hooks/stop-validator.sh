@@ -1,11 +1,11 @@
 #!/bin/bash
 # Stop hook: assistant 応答完了時に応答内容を検証
-# Phase 5-3 実装 — 2026-05-05
+# Phase 5-3 実装: 2026-05-05
 # 70 点で出して実運用しながら改修（佐藤裕介流）
 #
 # 検知対象:
-# 1. 禁止フレーズ（CLAUDE.md ハードルール 17）— 絞り込み錯覚 / orchestrator 規律違反シグナル
-# 2. 反証チェック未付与（CLAUDE.md ハードルール 1）— 全アウトプット末尾必須
+# 1. 禁止フレーズ（CLAUDE.md ハードルール 17）- 絞り込み錯覚 / orchestrator 規律違反シグナル
+# 2. 反証チェック未付与（CLAUDE.md ハードルール 1）- 全アウトプット末尾必須
 #
 # 環境変数 CONSULTINGOS_STOP_ENFORCEMENT=off|warn|block （default: warn）
 # 初期は警告運用、誤検知率検証後に block 移行判断

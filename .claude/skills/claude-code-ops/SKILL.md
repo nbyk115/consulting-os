@@ -1,4 +1,4 @@
-# Claude Code Ops — 運用・自動化・パフォーマンス最適化
+# Claude Code Ops: 運用・自動化・パフォーマンス最適化
 
 ## いつこのスキルを使うか
 Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワークフロー・コンテキスト管理・Advisor Strategy・Boris 9規律の判断軸を参照する。
@@ -51,7 +51,7 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 1. **Plan Mode** を大規模変更（3ファイル以上 / アーキテクチャ判断 / 本番影響）で必須
 2. **自己検証**: 実装後に typecheck/test/lint を変更直後に実行（反証モード Step 1-3 と統合）
 3. **CLAUDE.md "ruthlessly edit"**: 形骸化ルールは追加でなく削除。月1レビュー
-4. **権限 allow/deny/ask 明示**（settings.json）— 承認疲れ減 × 危険操作物理ブロック
+4. **権限 allow/deny/ask 明示**（settings.json）- 承認疲れ減 × 危険操作物理ブロック
 5. **サブエージェント context separation**（メイン汚染防止）
 6. **`/compact` + `/btw`** でコンテキスト攻撃的管理
 7. **Demand Elegance**: 非自明変更で「もっとエレガントな方法は？」自問

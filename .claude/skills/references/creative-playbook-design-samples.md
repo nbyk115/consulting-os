@@ -66,12 +66,12 @@
 ---
 
 ## 適用エージェント
-- `creative/creative-director` — デザイン方針・レビュー
-- `creative/ux-designer` — UX/UI設計
-- `creative/frontend-dev` — フロントエンド実装
-- `creative/content-strategist` — コンテンツ制作・AIO/GEO最適化
-- `creative/growth-hacker` — キャンペーン施策カレンダー・グロース実装
-- `creative/brand-guardian` — 品質チェック
+- `creative/creative-director`: デザイン方針・レビュー
+- `creative/ux-designer`: UX/UI設計
+- `creative/frontend-dev`: フロントエンド実装
+- `creative/content-strategist`: コンテンツ制作・AIO/GEO最適化
+- `creative/growth-hacker`: キャンペーン施策カレンダー・グロース実装
+- `creative/brand-guardian`: 品質チェック
 
 
 
@@ -82,4 +82,4 @@
 
 | Ver | 日付 | 変更内容 | 根拠 | 効果 |
 |---|---|---|---|---|
-| 1.0.0 | 2026-03-25 | 初版 | — | ベースライン |
+| 1.0.0 | 2026-03-25 | 初版 |: | ベースライン |
