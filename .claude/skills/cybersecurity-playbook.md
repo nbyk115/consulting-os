@@ -401,7 +401,7 @@ npm install --auditlevel=high
 | 🟡 Medium | セッション管理（有効期限・ログアウト処理） | 不正利用 |
 
 ### Claude Code 連携パターン
-- **Chrome DevTools MCP**: Web アプリの動的検証。`browser-automation.md` と併用
+- **Chrome DevTools MCP**: Web アプリの動的検証。Scrapling 系等の bot 偽装ツールは禁止（ICP.md §9.4 / 不正アクセス禁止法 3 条グレー）
 - **curl/httpie + Claude Code**: API エンドポイントの境界テスト（認証/認可/入力）
 - **OWASP ZAP / Burp Suite**: プロキシ経由でのリクエスト改変（手動連携）
 - **/security-scan コマンド**: OWASP Top 10 + シークレット漏洩の静的検知

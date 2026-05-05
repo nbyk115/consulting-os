@@ -54,11 +54,11 @@ if [ ! -f "$TSV" ]; then
   exit 0
 fi
 
-# --- キーワードマッチング ---
-# TSV 形式: priority\tagent\tregex（ヘッダ行は # で始まる）
-# bash の while + grep で priority 昇順に収集（awk system() の引数エスケープ問題回避）
-MATCHED_AGENTS=$(
-  while IFS=$'\t' read -r priority agent pattern; do
+# --- キーワードマッチング + 連動エージェント収集（Phase 5-2）---
+# TSV 形式: priority\tagent\tregex\tsecondary（ヘッダ行は # で始まる）
+# secondary 列: 連動必須エージェントのカンマ区切り（4 兼務体制 / 佐藤裕介 3 変数交点準拠）
+PRIMARY_AGENTS=$(
+  while IFS=$'\t' read -r priority agent pattern secondary; do
     case "$priority" in
       \#*|"") continue ;;
     esac
@@ -66,40 +66,57 @@ MATCHED_AGENTS=$(
       continue
     fi
     if printf '%s' "$USER_PROMPT" | grep -qiE -- "$pattern" 2>/dev/null; then
-      printf '%s\t%s\n' "$priority" "$agent"
+      printf '%s\t%s\t%s\n' "$priority" "$agent" "$secondary"
     fi
-  done < "$TSV" | sort -t$'\t' -k1,1n | awk -F'\t' '{print $2}' | head -6
+  done < "$TSV" | sort -t$'\t' -k1,1n
 )
 
-# マッチなし → 推奨なし → additionalContext を出力しない（additionalContext が空でも JSON 返却は必要）
+if [ -z "$PRIMARY_AGENTS" ]; then
+  exit 0
+fi
+
+# Primary + Secondary を統合（重複排除、上位 8 件、佐藤裕介 4 兼務 + α）
+ALL_AGENTS=$(
+  printf '%s\n' "$PRIMARY_AGENTS" | awk -F'\t' '{print $2}'
+  printf '%s\n' "$PRIMARY_AGENTS" | awk -F'\t' '{
+    n = split($3, sec, ",")
+    for (i = 1; i <= n; i++) {
+      gsub(/^ +| +$/, "", sec[i])
+      if (sec[i] != "") print sec[i]
+    }
+  }'
+)
+MATCHED_AGENTS=$(printf '%s\n' "$ALL_AGENTS" | awk 'NF && !seen[$0]++' | head -8)
+
+# マッチなし → 推奨なし
 if [ -z "$MATCHED_AGENTS" ]; then
-  # 推奨なしの場合は空の additionalContext を返す（prompt-rules.sh と共存させるため exit 0 のみ）
   exit 0
 fi
 
 # --- エージェント一覧をリスト形式に整形 ---
-# 1行1エージェント → "- agent-name" 形式
 AGENT_LIST=$(echo "$MATCHED_AGENTS" | awk '{print "- " $0}')
 
 # 上位件数カウント
 AGENT_COUNT=$(echo "$MATCHED_AGENTS" | wc -l | tr -d ' ')
 
-# --- モード別メッセージ生成 ---
-# suggest: 推奨表示のみ
-# warn: 推奨 + 未起動リスクを強調
+# --- モード別メッセージ生成（Phase 5-4 簡易: 強い推奨化）---
+# suggest: 強い推奨（Task tool 並列起動を明示）
+# warn: 推奨 + 未起動 = ハードルール 17 違反明示
 # block は UserPromptSubmit では exit 2 しない（PreToolUse の orchestration-block.sh に委譲）
 
-if [ "$ENFORCEMENT" = "warn" ]; then
-  PREFIX="[ConsultingOS エージェント推奨・未起動は CLAUDE.md ハードルール 17 違反リスク]"
+if [ "$ENFORCEMENT" = "warn" ] || [ "$ENFORCEMENT" = "block" ]; then
+  PREFIX="[ConsultingOS Orchestrator 起動義務・ハードルール 17]"
+  ACTION_LINE="この依頼は assistant 単独実行禁止。以下のエージェントを Task tool で並列起動してください（最低 1 名以上、形式変換を伴う場合は必須）。未起動で Write/Edit すると orchestration-block.sh で物理ブロックされる可能性があります。"
 else
-  PREFIX="[ConsultingOS 関連エージェント推奨]"
+  PREFIX="[ConsultingOS 関連エージェント推奨・佐藤裕介 4 兼務オーケストレーション]"
+  ACTION_LINE="この依頼に対し以下のエージェント（Primary + Secondary 連動）を Task tool で並列起動することを強く推奨します。AI 会社化原則: 全依頼で関連リード・部署が連動稼働。"
 fi
 
-MSG="${PREFIX} この依頼に関連するエージェント（上位${AGENT_COUNT}件）:
+MSG="${PREFIX} 推奨エージェント（${AGENT_COUNT}件・優先度順）:
 
 ${AGENT_LIST}
 
-起動前 4 点ゲートを確認してから関連エージェントを並列起動してください（CLAUDE.md ハードルール 17）。形式変換（HTML/PPT/PDF 等）を伴う成果物生成は必ずエージェント起動が必要です。"
+${ACTION_LINE}"
 
 # --- JSON 出力 ---
 # jq で適切にエスケープして additionalContext を生成

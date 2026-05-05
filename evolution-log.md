@@ -37,6 +37,75 @@
 
 ---
 
+## 2026-05-05: Phase 5 完成 — Phase 5-2 連動推奨 + Phase 5-4 強い推奨化 + browser-automation.md 削除（ハードルール 13 債務解消）
+
+### トリガー
+
+ユーザー指示「全部作って」を受け、Phase 5-2 + Phase 5-4 + ハードルール 13 削除セットを統合実装。「正真正銘の AI エージェント会社」到達を目指す。佐藤裕介流「70 点で出して実運用しながら改修」継続。
+
+### 実装内容（4 変更）
+
+1. `.claude/agents.routing.tsv` 4 列形式拡張（Phase 5-2 連動推奨）
+   - 旧: priority / agent / regex
+   - 新: priority / agent / regex / secondary（連動必須エージェントのカンマ区切り）
+   - 4 兼務体制を物理化: strategy-lead → competitive-analyst + kpi-analytics / proposal-writer → sales-deck-designer + kpi-analytics + strategy-lead / creative-director → ux-designer + frontend-dev + brand-guardian 等
+2. `.claude/hooks/recommend-agents.sh` Phase 5-2 連動 + Phase 5-4 強い推奨化
+   - secondary 列を読み取り Primary + Secondary を統合（重複排除、上位 8 件）
+   - 出力文言を「Task tool で必ず並列起動」に強化（warn / block モードでは「assistant 単独実行禁止」明示）
+   - 「AI 会社化原則: 全依頼で関連リード・部署が連動稼働」を default suggest モードでも明示
+3. `.claude/skills/browser-automation.md` 削除（git rm、ハードルール 13 累積債務 3 ファイル → 0 解消）
+4. `.claude/skills/cybersecurity-playbook.md` L404 参照削除（browser-automation.md 削除と同期、ハードルール 14 抵触回避）
+
+### 動作テスト 3 ケース全 PASS
+
+| ケース | 入力 | 出力 | 連動効果 |
+|---|---|---|---|
+| 1 LP 制作 | 「新サービスのLPを作りたい。コンバージョン最適化も含めて」 | frontend-dev + ux-designer + brand-guardian の 3 件 | LP 1 依頼 → 3 部門連動 |
+| 2 戦略+競合 | 「3年中期戦略の競合分析を提案書にまとめたい」 | competitive-analyst + kpi-analytics + proposal-writer + strategy-lead + sales-deck-designer の 5 件 | 1 依頼 → 5 部門連動稼働 |
+| 3 短文スキップ | 「hi」 | 出力なし、exit 0 | PASS |
+
+### Phase 5-4 の限界明示
+
+「自動起動」（hook から Task tool 直接呼び出し）は Claude Code v2.x 仕様で技術的不可能（FACT）。代替として「強い推奨」を実装。assistant が推奨を読んで自動起動する設計、完全自動化は SDK 改良待ち（SPECULATION）。実用上は「ほぼ自動連動」状態に到達。
+
+### Phase 5 完成サマリ
+
+| Phase | 状態 | 実装 PR | カバー範囲 |
+|---|---|---|---|
+| 5-1 | 完了 | PR #36 | 推奨表示（UserPromptSubmit）|
+| 5-2 | 完了 | 本 PR | 連動推奨（secondary 4 兼務体制）|
+| 5-3 | 完了 | PR #37 | 応答内容検証（Stop hook、禁止フレーズ + 反証未付与）|
+| 5-4 | 完了（強い推奨版）| 本 PR | 「Task tool で必ず起動」明示、自動起動は SDK 制約で代替実装 |
+
+### 反証結果
+
+Step 1 自己反証: Phase 5-4 の「自動起動」を「強い推奨」で代替したのは技術的制約（FACT: hook → Task tool 不可）への正直な妥協、ただし 70 点実装方針と整合、SDK 改良時に完全自動化に再着手可能。
+Step 2 構造反証: ハードルール 13 累積債務 3 ファイル → 削除 1 件で解消、cybersecurity-playbook.md L404 参照も同期削除でハードルール 14 抵触回避。
+Step 3 実用反証: agents.routing.tsv 4 列拡張は CLAUDE.md / agent-routing.md / 各 agent 定義との 4 重管理がさらに 5 重管理化、形骸化リスク増大、2026-08-05 再評価カレンダーで整合性検証必須。
+
+### 残存リスク
+
+1. Phase 5-4 完全自動起動は SDK 制約で未達、「強い推奨」が assistant に無視されるリスクが構造的に残存（hook では検知不能）
+2. agents.routing.tsv 5 重管理リスク、エージェント追加時の TSV 更新漏れ
+3. secondary 列の連動エージェント設計は INFERENCE（実運用 4 週間で過剰連動 / 不足連動を検証）
+4. browser-automation.md 削除で Chrome DevTools MCP 連携の運用詳細が失われた可能性、cybersecurity-playbook.md 内の補完が必要なら別 PR
+5. 全 hook の累積実装複雑度が増大、メンテナンスコスト上昇
+
+### 再評価カレンダー追加
+
+- 2026-08-05: agents.routing.tsv secondary 列の連動精度検証（4 週間運用後、過剰連動 / 不足連動パターン分析）
+- 2026-08-05: Claude Code SDK Stop hook + Task tool 自動呼び出し対応の最新仕様確認、可能なら Phase 5-4 完全自動化に着手
+
+### 関連参照
+
+- `.claude/agents.routing.tsv`（4 列形式、secondary 列追加）
+- `.claude/hooks/recommend-agents.sh`（連動推奨 + 強い推奨文言）
+- `.claude/skills/browser-automation.md`（削除）
+- `.claude/skills/cybersecurity-playbook.md` L404（参照削除）
+- PR #36 / PR #37（Phase 5-1 / Phase 5-3、本 PR の前提）
+
+---
+
 ## 2026-05-05: Phase 5-3 Stop hook 応答内容検証実装 — 禁止フレーズ + 反証チェック未付与の物理検知
 
 ### トリガー
