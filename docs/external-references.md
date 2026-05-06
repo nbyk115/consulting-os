@@ -13,6 +13,7 @@
 | リソース | URL | 判定 | 用途 |
 |---|---|---|---|
 | AIDB | [ai-data-base.com](https://ai-data-base.com/) | 注目（90 日評価購読） | 日本語 AI 論文要約・月 20-30 本厳選 |
+| Google「生成 AI 活用事例集 2026 年版」 | [cloud.google.com](https://cloud.google.com/learn/intl/ja-jp/genai-case-study?hl=ja) | 採用（実証データソース） | 国内 120 社以上の生成 AI 活用事例（金融 / 小売 / 製造 / IT / 商社）、3 月版で 26 社追加（フリー / Luup / IVRy / HIS / グリー / ベネッセ / テレビ朝日 / 伊藤忠商事 / イオンリテール / 東京電力 / アコム 他）、market-researcher + ai-readiness-assessment + industry-playbooks 各業界 PB の実証データ素材、NotebookLM 統合で自社近接事例抽出可能 |
 | AIDB Premium | [ai-data-base.com/premium](https://ai-data-base.com/premium) | 個人月額 1,980 円 | プレミアム会員登録 |
 | World Monitor (OSS) | [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 注目（条件付き 2 ステップ） | 地政学リスク・500+ ニュースソース監視・AGPL-3.0 法務確認必須 |
 
