@@ -4,7 +4,7 @@ theme: default
 size: 16:9
 paginate: true
 header: "N.Y.CRAFT × ConsultingOS パートナーシップ提案"
-footer: "2026.05 | Confidential | v10"
+footer: "2026.05 | Confidential | v11"
 lang: ja
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Crimson+Pro:wght@500;700&display=swap');
@@ -17,7 +17,7 @@ style: |
     font-family: "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN", "IPAGothic", "Meiryo", sans-serif;
     background-color: #FAFAF7;
     color: #0A0A0A;
-    padding: 36px 52px;
+    padding: 50px 52px 40px;
     font-size: 19px;
     line-height: 1.55;
   }
@@ -277,7 +277,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v10</p>
+<p class="neutral">2026.05 / v11</p>
 
 ---
 
@@ -691,12 +691,11 @@ A 社情報を入力（業界・規模・課題）<br>
 ↓<br>
 提案書ライターが粗利試算込みドラフト生成<br>
 ↓<br>
-関根さんは「自分の判断軸」で仕上げ<br>
-反証モード ＋ ブランド監査が品質ゲート<br>
+関根さんが「判断軸」で仕上げ <span class="small">→ 反証モード + ブランド監査が品質ゲート</span><br>
 ↓<br>
 <strong>関根さんの時間は半日に短縮、並行案件数が拡大</strong>
 
-<div class="small accent">関根さんの「中小企業の課題解決をより多くへ展開したい」という願いが量産可能な構造で実現される</div>
+<div class="small accent">「より多くのお客様の課題解決へ展開したい」が量産可能に</div>
 
 </div>
 </div>
