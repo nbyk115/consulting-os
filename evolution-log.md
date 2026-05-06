@@ -33,6 +33,7 @@
 - 2027-05-01: Scrapling / 法的リスク再評価（不正アクセス禁止法 3 条解釈 / 公開データ限定使用の許容範囲確定後・1 年後再判定）
 - 2027-05-01: Camofox Browser / 法的リスク再評価（Scrapling と同タイミング、bot 偽装ツールの法解釈 1 年後再判定）
 - 2026-06-04: Shipper.now 1 ヶ月実績確認 / `.claude/skills/app-design-patterns.md` §8.3 SPECULATION ラベル更新判断（公開 1 ヶ月後、ストア審査通過事例 / 独立検証データ / lock-in 事例の有無で FACT 化または非推奨化、よるのことば PoC 着手判断と連動）
+- 2026-06-03: claude-mem プラグイン（thedotmack/claude-mem）評価期間終了、採用 / 不採用判断（実証実験項目: ★ 数値実測、5 hook と既存 ConsultingOS hook 7 種の衝突確認、トークン削減 95% 主張の実測検証、Bun + SQLite + Chroma 依存の運用負荷、Boris #3 削除セット整合確認＝採用なら既存 .claude/memory/ 体系の冗長部分削除）
 - 2026-08-04: `.claude/skills/app-design-patterns.md` §8 + `.claude/agents/consulting/proposal-writer.md` S7 の IAP 手数料公式料金確認（3 ヶ月後、Apple Small Business Program / Google Play 手数料の 2026-Q3 時点規約変更チェック、INFERENCE → FACT 格上げ または再 INFERENCE 化）
 - 2026-08-05: 本セッション 16 PR 連続実装（PR #42-#57）の累積成果を brand-guardian + tech-lead 並列起動で全体再検証（規律自己整合性 + hook 動作 + 数値統一 + 形骸化検出 + 削除エージェント言及残存ゼロ確認、3 ヶ月後の四半期レビュー）
 - 2026-05-12: PR #57 観察期間 3 件期日チェック（R1 jsonl パス命名規則変化 / R2 settings.json deny false positive 累積件数 / H2 GitHub ブランチ 7 件削除確認、未削除なら TODO 自体を削除）

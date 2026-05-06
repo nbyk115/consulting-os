@@ -96,6 +96,7 @@
 | LangChain | [langchain.com](https://www.langchain.com/) | フレームワーク層（$1.25B ユニコーン）|
 | Microsoft Copilot Studio | [microsoft.com](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio) | エンタープライズ層（Microsoft 365 前提）|
 | ConsultingOS（自社）| 本リポジトリ | 中堅中小特化・導入支援込み（公開情報では競合不在 INFERENCE）|
+| claude-mem (thedotmack/claude-mem) | [github.com](https://github.com/thedotmack/claude-mem) | Claude Code 記憶層プラグイン（5 hook + SQLite + Chroma + Bun）、評価対象（2026-06-03 再評価期日、★ 数値 / トークン削減率 / 既存 hook 衝突を実測検証予定）|
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
