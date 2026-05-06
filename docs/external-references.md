@@ -101,7 +101,8 @@
 | claude-mem (thedotmack/claude-mem) | [github.com](https://github.com/thedotmack/claude-mem) | Claude Code 記憶層プラグイン（5 hook + SQLite + Chroma + Bun）、評価対象（2026-06-03 再評価期日、★ 数値 / トークン削減率 / 既存 hook 衝突を実測検証予定）|
 | Anthropic Claude Platform Dreaming | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式記憶キュレーション機能（過去セッション → パターン抽出）、評価対象（2026-05-20 再評価期日、ConsultingOS evolution-log + memory/ + 4 週間再評価との統合余地検証）|
 | Anthropic Claude Platform Outcomes | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式評価機能（ルーブリック + 別評価者 + 反復改善）、評価対象（2026-05-20 再評価期日、brand-guardian + score-os-health 単体テストとの統合余地検証）|
-| Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能、ConsultingOS のハードルール 17 + 27 エージェント並列起動が既に上位実装、追加採用不要判定 FACT |
+| Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能（独自コンテキストウィンドウ + コンテナ + ファイルシステム共有）、ConsultingOS のハードルール 17 + 27 エージェント並列起動 + Agent ツール async 起動 + Git 共有リポジトリが既に上位実装、追加採用不要判定 FACT |
+| Anthropic Managed Agents Webhooks | [platform.claude.com/docs/en/managed-agents](https://platform.claude.com) | 公式 Webhooks 機能、ConsultingOS の hook 11 本（PreToolUse / PostToolUse / Stop / SessionStart）と整合領域あり、Phase 4 候補（2026-06-03 AutoHarness + claude-mem 統合判断と同期） |
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
