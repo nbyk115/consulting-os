@@ -43,7 +43,7 @@
 
 ## 3. Hard Rules
 
-1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。Step 3 実用反証は実測コマンド + 実出力添付必須（narrative のみは無効扱い）。完了系宣言（撲滅 / ゼロ / 0 件 / 完了 / 修復済 / 統一済 / 致命的 0 / 全件処理 / 残存ゼロ）は実測値併記なしの使用禁止。省略・形骸化禁止（2026-05-05 PR #59 自己虚偽事象学習・物理化）。【形式達成度 vs 真の 100 区別 2026-05-06 PR Z 物理化】score-os-health.sh の 100/100 は形式達成度（INFERENCE / Goodhart の法則該当）、真の 100 は実クライアント ROI 実証 + Goodhart 対策後のみ到達。両者を混同して「100/100 達成」と断言することは虚偽として禁止（PR Y トリプルチェック発見、PR #61 範囲限定撲滅虚偽の同型事象）。詳細: `.claude/skills/falsification-check.md` + `docs/orchestration-protocol.md` §2.4 真の 100 原則
+1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 必須。Step 3 実用反証は実測コマンド + 実出力添付必須（narrative のみは無効扱い）。完了系宣言（撲滅 / ゼロ / 0 件 / 完了 / 修復済 / 統一済 / 致命的 0 / 全件処理 / 残存ゼロ）は実測値併記なしの使用禁止。省略・形骸化禁止（2026-05-05 PR #59 自己虚偽事象学習・物理化）。【形式達成度 vs 真の 100 区別 2026-05-06 PR Z 物理化】score-os-health.sh の 100/100 は形式達成度（INFERENCE / Goodhart の法則該当）、真の 100 は実クライアント ROI 実証 + Goodhart 対策後のみ到達。両者を混同して「100/100 達成」と断言することは虚偽として禁止（PR Y トリプルチェック発見、PR #61 範囲限定撲滅虚偽の同型事象）。【残存リスク即潰し原則 2026-05-06 PR AB 物理化】反証チェックで発見したリスクは ConsultingOS 自律で即潰す（修正実装）or 構造化で発生不可能化する（hook / 規律 / 物理化）を実行。「残存リスクを並列して終わる」「Phase 4 持ち越しに依存する」「次セッション送り」は構造的怠慢として禁止、Step 4「リスク即潰し」を反証チェックに統合。本セッション内で潰せるリスクは即修正、Phase 4 持ち越しは「構造的に本セッション完結不可能な場合のみ」に限定（ユーザー指摘「残存リスク残さずコンサル OS 起動判断で」物理化）。詳細: `.claude/skills/falsification-check.md` + `docs/orchestration-protocol.md` §2.4 真の 100 原則 + §2.5 残存リスク即潰し原則
 2. **YOU MUST**: 出典なし具体数値（X 割 / X% / 金額 / 年次予測）の断言禁止。FACT / INFERENCE / SPECULATION の 3 ラベルを明示。
 3. **NEVER**: `.env` / `credentials` / `secrets` / API キーを読み取り・出力・コミット。
 4. **NEVER**: `git push --force` / `git reset --hard` / `rm -rf` / `chmod 777` / `--dangerously-skip-permissions` を実行。

@@ -39,6 +39,21 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 残存リスク即潰し原則物理化（PR AB）
+
+ユーザー指摘:「残存リスク残さずコンサルOS起動判断で、と改修しなかった？」
+
+事象: PR Y / PR Z で「ConsultingOS 自律判断」「真の 100 原則」を物理化したにも関わらず、ConsultingOS の応答パターンが「残存リスクを末尾に並列して終わる」「Phase 4 持ち越し累積」を継続。これは PR #59 / PR #61 / PR Y / PR Z / PR AA 自己虚偽事象シリーズの同型再発、構造的怠慢の典型。
+
+物理化対策:
+- CLAUDE.md ハードルール 1 補強: 「残存リスク即潰し原則」追加、Step 4「リスク即潰し」を反証チェックに統合
+- docs/orchestration-protocol.md §2.5 「残存リスク即潰し原則」サブセクション新設、応答末尾フォーマット明示
+- .claude/skills/falsification-check.md §2 Step 4「リスク即潰し」追加、即修正 / 構造化 / Phase 4 持ち越し（構造的不可避のみ）の判断軸明確化
+
+教訓: 「残存リスクを正直に並列する」のと「残存リスクを潰す」は別。ConsultingOS は前者を構造的怠慢の典型として認識、後者を規律として物理化。応答パターンは「リスク発見 → 即潰し or 構造化 or Phase 4 持ち越し（理由明示）」で完結する形に変更。「残存リスク」セクションを応答末尾に並列することは構造的怠慢として禁止。
+
+教訓 2: 物理化した規律（PR Z 関係性原則 / 真の 100 原則）が応答パターンに反映されていなかった = 「規律宣言」と「規律遵守」の乖離。これは Phase 4 で pre-commit hook 機械検査で物理ブロック必要、本 PR は規律改修のみ、機械検査は Phase 4 で実装。
+
 ### 2026-05-06 再徹底チェック発見 5 件（PR AA）
 
 ユーザー指示「再度 OS 再チェック 徹底的に」に応答。brand-guardian + tech-lead 並列起動 + ConsultingOS 一次実測 11 項目で発見:
