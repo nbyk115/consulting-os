@@ -428,6 +428,40 @@ ConsultingOS は既に類似構造を運用中（CLAUDE.md = 意味 / evolution-
 
 ---
 
+## 事業化マインドセット: 小さく始めて致命傷を避ける（2026-05-06 BMR 流統合）
+
+`strategy-lead` + `proposal-writer` + `kpi-analytics` + `market-researcher` 連携で、ConsultingOS 自身および ICP の事業化判断に適用する Phase 0 上流ゲート。前節「スモビジ即活用 4 ステップ」が事業内部運用（下流）であるのに対し、本節は「立ち上げる / 撤退する」の上流判断を担う。
+
+### 致命傷を避ける 2 原則（BMR スモビジ研究所 2024-09-13、INFERENCE: 2026 年現在も有効）
+
+YOU MUST: 新規事業 / 中期計画 / M&A 検討の全シナリオで Step 0 ゲートとして適用。
+
+「原則 1: 初期投資を極限まで減らす」: オフィス契約 / 専従採用 / 広告大量出稿 / 在庫先行確保 / システム作り込み = 撤退コストを跳ね上げる地雷。代替は自宅 / 業務委託 / オーガニック獲得 / 受注ベース仕入れ / SaaS 組み合わせ。ConsultingOS 自身: $0 投資、Claude Code 従量課金のみ。
+
+「原則 2: 6 ヶ月以内に継続可否ジャッジ」: 撤退ラインを着手前に数値で定義（月次粗利 X 万円 / 月次新規 Y 件 / LTV/CAC Z 倍）、6 ヶ月で未達なら機械撤退。`strategy-lead` 提案時に明文化、`kpi-analytics` 月次モニタ、`client-success` がエスカレーション。
+
+### Palantir FDE 民主化版 × 挑戦回数最大化
+
+Palantir 60 億ドル赤字 20 年のスタートアップ式とは構造が異なり、ConsultingOS は初期投資ゼロ + 自己資本のみで挑戦回数を最大化するスモビジ式に近い。27 エージェント × 27 スキル並列運用、案件ごとに最適チーム編成、当たり筋を高速発見、特定領域失敗が全体を毀損しない疎結合設計。
+
+### SIer 業界 IT 人材 79 万人不足を補完する論理
+
+経産省試算「2030 年 IT 人材 79 万人不足」（日経クロステック 2026 経由、INFERENCE: 数値は調査により幅あり）に対し、SIer の人月固定費モデルが限界に達する一方、ConsultingOS は 27 エージェント並列処理で人件費ゼロ × 案件数 10x スケール可能。NEVER: 「SIer 代替」訴求は敵を増やす、「SIer が取れない領域の補完」（中堅企業 / 個人 PE / 中小代理店）と訴求（佐藤裕介流市場構造設計）。
+
+### 連携プレイブック（事業化判断 5 Phase）
+
+| Phase | 担当 | アウトプット |
+|---|---|---|
+| 0 致命傷ゲート | strategy-lead | 初期投資抑制チェック + 撤退ライン明文化 |
+| 1 市場構造 | market-researcher + competitive-analyst | TAM/SAM/SOM + Beachhead 特定（monopoly-positioning §6 連携）|
+| 2 PL 試算 | kpi-analytics | 6 ヶ月粗利推移 + ブレイクイーブン + サンクコスト |
+| 3 提案資料化 | proposal-writer | 撤退ライン込み提案書、感情論排除の構造提示 |
+| 4 月次モニタ | kpi-analytics + client-success | 撤退ライン未達自動エスカレーション |
+
+> 出典: BMR スモールビジネス研究所（note 2024-09-13、INFERENCE）/ 日経クロステック「2030 年 IT 人材 79 万人不足」（経産省「IT 人材需給調査」引用、SPECULATION）/ Palantir FDE 民主化論（docs/external-references.md 山崎レポート）
+
+---
+
 
 ## 補助セクション（references/ 分離）
 
