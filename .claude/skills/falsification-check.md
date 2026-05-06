@@ -168,3 +168,10 @@ $ grep -ro $'\xe2\x80\x94' .claude/ docs/ *.md | wc -l
 |---|---|---|
 | 1.0.0 | 2026-04-12 | 初版。CLAUDE.md の反証モードを独立 skill として昇格 |
 | 1.1.0 | 2026-05-05 | PR #59 自己虚偽事象学習で物理化。§3.2 検証済ラベル基準を実測出力必須に強化 / §4.1 L80 「10 秒頭の中」属人判定削除 / §4.1.1 完了系宣言規律新設（実測コマンド + 出力必須）/ §4.2 Step 3 実測フォーマット強制 / §8 評価カード narrative 加点削除 + 実測加点 7 点化。reality-check.sh + stop-validator.sh 拡張で物理ブロック化。 |
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/falsification-check.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

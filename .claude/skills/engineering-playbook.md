@@ -342,3 +342,10 @@ Accepted / Proposed / Superseded by ADR-XXXX
 |---|---|---|---|---|
 | 1.0.0 | 2026-03-25 | 初版 |: | ベースライン |
 | 1.1.0 | 2026-04-12 | §8 Source-Driven Development / §9 Core Web Vitals / §10 ADR運用を追加 | addyosmani/agent-skills 20スキルから真のギャップ3つを抽出 | AI hallucination対策・測定ファースト・技術判断の記録 |
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/engineering-playbook.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

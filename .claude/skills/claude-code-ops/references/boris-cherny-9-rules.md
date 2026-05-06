@@ -183,3 +183,10 @@ npm run typecheck && npm run lint && npm test
 | 7. Demand Elegance | 反証モード Step 2 + Iterative Refinement Prompt |
 | 8. Verification Before Done | 反証モード Step 3 |
 | 9. Autonomous Bug Fixing | debug-methodology + Agent Teams パターン A |
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/claude-code-ops/references/boris-cherny-9-rules.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

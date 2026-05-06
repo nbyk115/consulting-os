@@ -73,3 +73,9 @@ description: B2B (特に代理店／エンタープライズ向け) セールス
 
 - `/docs/sales-deck-rules.md`: 完全版ルール
 - `/.claude/agents/creative/sales-deck-designer.md`: デザイン実装担当エージェント
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の規律ファイルとして 2026-05-05 PR #65 で体系的に出典明示が物理化された（ファイルパス: .claude/skills/sales-deck-review/SKILL.md、タイトル: ---、規律カテゴリ: ConsultingOS 6 部門 27 エージェント・27 スキル体系の構成要素）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流「構造で売る = 仕組みが結果を担保する」、Boris Cherny 流「9 規律 ruthlessly edit」、該当部門の業界フレームワーク）から派生、各セクションの判断基準は実証研究と経験則の両軸を採用
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md「再評価カレンダー」セクション）で形骸化検出、Boris #3 削除セット対象、規律違反や過剰要件が発生した場合は本ファイルを統合・分離・削除のいずれかで整理する運用予定
