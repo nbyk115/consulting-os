@@ -38,6 +38,17 @@ model: claude-opus-4-7
 
 日本語が中途半端に改行される主要因。これを入れないと「マーケティン / グ会社」のような崩れが出る。
 
+### 3-bis. テンプレート参照の物理化（PR AV）
+
+**起動時は必ず `.claude/templates/sales-deck-designer/` 配下のテンプレを参照し、必須要素を出力にマージする**:
+
+- `.claude/templates/sales-deck-designer/marp-required.css`: 必須 CSS の最小セット（word-break: auto-phrase / 日本語フォントスタック / .card grid / .srcLine pin）
+- `.claude/templates/sales-deck-designer/marp-frontmatter.md`: 必須 frontmatter（marp / theme / paginate / lang: ja / style 注入済み）
+
+ConsultingOS は外販 / OEM 提供前提のため、skill が「規約集」止まりではなく「実装テンプレ」として物理化されている。新規 .slides.md 作成時は marp-frontmatter.md を雛形にコピーし、HTML スライドの場合は marp-required.css を <style> ブロックまたは外部 CSS としてリンクする。
+
+クライアント別カスタマイズは `.claude/templates/sales-deck-designer/<variant>.css` / `<variant>.md` の派生形で対応（テンプレ本体は creative-director 承認なしに変更不可）。
+
 ### 4. レイアウト禁則
 
 - `transform: scale()` で特定要素を拡大しない（行の整列崩れ）

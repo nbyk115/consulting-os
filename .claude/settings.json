@@ -52,6 +52,11 @@
             "type": "command",
             "command": ".claude/hooks/recommend-agents.sh",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/agent-zero-warning.sh",
+            "timeout": 5000
           }
         ]
       }
@@ -68,6 +73,11 @@
             "type": "command",
             "command": ".claude/hooks/stop-validator.sh",
             "timeout": 10000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/emdash-detector.sh",
+            "timeout": 5000
           }
         ]
       }
@@ -146,6 +156,16 @@
           {
             "type": "command",
             "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); case \"$file\" in strategy/*/*.html|strategy/*/*.css|strategy/*/*.pptx|strategy/*/*.pdf|strategy/*/case-*.html|strategy/*/index.html|examples/*/*.html|examples/*/*.css|examples/*/*.pptx|examples/*/*.pdf) echo \"ConsultingOS 起動チェック（HTML/CSS/PPT/PDF）: $file は形式変換を伴う案件成果物。CLAUDE.md ハードルール 17 で関連エージェント（sales-deck-designer / frontend-dev / creative-director / ux-designer / brand-guardian）の最低 1 名以上の並列起動が必須。形式変換 = 内容生成として扱う（2026-05-04 違反学習・hook 対象拡張）。「自分で書いた方が早い」「形式変換だから例外」モード発動なら即停止 = evolution-log 記録義務\" ;; esac"
+          },
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_TOOL_INPUT\" | .claude/hooks/emdash-detector.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/template-injection-check.sh",
+            "timeout": 5000
           }
         ]
       }
