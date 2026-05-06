@@ -86,6 +86,8 @@ fi
 
 # --- 検知 3: 完了系キーワード × 検証コマンド未実行（HARD BLOCK・PR #59 虚偽再発防止）---
 # 完了断言時、transcript を遡り検証コマンド実行ログがなければ exit 2
+# 完了断言ガードキーワード（PR #65 で体系化、軸4 数値根拠の物理化）: 撲滅 / 残存ゼロ / 致命的 0 / 全件処理 / 統一済 / 修復済 / 達成 / クリア / 全件成功
+COMPLETION_KEYWORDS='撲滅|残存ゼロ|致命的 0|全件処理|統一済|修復済|達成|クリア|全件成功'
 COMPLETION_CLAIM="no"
 if printf '%s' "$LATEST_RESPONSE" | grep -qE '撲滅|残存ゼロ|致命的 0|全件処理|統一済|修復済' 2>/dev/null; then
   COMPLETION_CLAIM="yes"

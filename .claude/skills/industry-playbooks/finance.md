@@ -218,3 +218,10 @@
 - `ai-engineer`: 金融 AI（説明可能性・公平性・規制準拠が必須、アモデイ RSP / 社内 ASL）
 - `pr-communications`: 危機管理（スミス Fess Up Early / システム障害時の対応）
 - `client-success`: 金融顧客の特殊な FD 義務対応
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/industry-playbooks/finance.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

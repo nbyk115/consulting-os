@@ -94,13 +94,21 @@ SCORE_AXIS2=$(( SCORE_HOOK + SCORE_DENY + SCORE_CALENDAR ))
 [ "$SCORE_AXIS2" -gt 20 ] && SCORE_AXIS2=20
 
 # 軸3: アセット帰属
+# 厳密判定: 「## 出典」セクションヘッダ存在 + FACT/INFERENCE/SPECULATION 各ラベル行が 30 字以上の具体的記述（形骸化検出）
 AGENT_TOTAL=$(find "$AGENTS_DIR" -name "*.md" 2>/dev/null | wc -l || echo "0")
-AGENT_LABELED=$(grep -rlE "FACT|INFERENCE|SPECULATION" "$AGENTS_DIR" 2>/dev/null | wc -l || echo "0")
 SKILL_TOTAL=$(find "$SKILLS_DIR" -name "*.md" 2>/dev/null | wc -l || echo "0")
-SKILL_LABELED=$(grep -rlE "FACT|INFERENCE|SPECULATION" "$SKILLS_DIR" 2>/dev/null | wc -l || echo "0")
-
 TOTAL_FILES=$(( AGENT_TOTAL + SKILL_TOTAL ))
-LABELED_FILES=$(( AGENT_LABELED + SKILL_LABELED ))
+
+LABELED_FILES=0
+for f in $(find "$AGENTS_DIR" "$SKILLS_DIR" -name "*.md" 2>/dev/null); do
+  if ! grep -q "^## 出典" "$f" 2>/dev/null; then continue; fi
+  FACT_LINE=$(grep -E "^- FACT:" "$f" | head -1)
+  INF_LINE=$(grep -E "^- INFERENCE:" "$f" | head -1)
+  SPEC_LINE=$(grep -E "^- SPECULATION:" "$f" | head -1)
+  if [ ${#FACT_LINE} -ge 30 ] && [ ${#INF_LINE} -ge 30 ] && [ ${#SPEC_LINE} -ge 30 ]; then
+    LABELED_FILES=$(( LABELED_FILES + 1 ))
+  fi
+done
 
 if [ "$TOTAL_FILES" -gt 0 ]; then
   LABEL_RATE=$(( LABELED_FILES * 100 / TOTAL_FILES ))

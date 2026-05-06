@@ -96,3 +96,9 @@ Layer 2: settings.json（技術レベル）
 | 1.1.0 | 2026-04-12 | §8.7 ガバナンスフレームワーク（ISMS/NIST CSF/CPSF/経営ガイドライン/ISO 27005）追加 | IPA/NIST/METI/ISO 公式資料 + 企業経営サイバーセキュリティ診断チェック | エンジニアリング層とガバナンス層の分離・エンタープライズ案件の共通言語提供 |
 | 1.2.0 | 2026-04-12 | §8.8 自律セキュリティテスト（Self-Pentesting）追加 | workers.io/blog/autonomous-mobile-pentesting + Chrome DevTools MCP 連携 | 本番前の動的検証を体系化・倫理規定で悪用防止・サブスク化前の必須チェック明確化 |
 | 1.3.0 | 2026-04-18 | §9.5 Claude Code 多層防御（CLAUDE.md + settings.json 2層防御）追加 | Opus 4.7+ モデルの単一層バイパスリスク | 意図レベル + 技術レベルの defense-in-depth 確立 |
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の規律ファイルとして 2026-05-05 PR #65 で体系的に出典明示が物理化された（ファイルパス: .claude/skills/references/cybersecurity-playbook-claude-defense.md、タイトル: # 9.5 Claude Code 多層防御（Multi-Layer Defense: 3層）、規律カテゴリ: ConsultingOS 6 部門 27 エージェント・27 スキル体系の構成要素）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流「構造で売る = 仕組みが結果を担保する」、Boris Cherny 流「9 規律 ruthlessly edit」、該当部門の業界フレームワーク）から派生、各セクションの判断基準は実証研究と経験則の両軸を採用
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md「再評価カレンダー」セクション）で形骸化検出、Boris #3 削除セット対象、規律違反や過剰要件が発生した場合は本ファイルを統合・分離・削除のいずれかで整理する運用予定

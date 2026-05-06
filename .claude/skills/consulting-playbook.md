@@ -445,3 +445,10 @@ ConsultingOS は既に類似構造を運用中（CLAUDE.md = 意味 / evolution-
 ## バージョン履歴
 
 - 2026-05-05 (PR #49): SKILL.md 500 行制限遵守のため思想統合セクション（L431-657）を `references/consulting-playbook-thoughts.md` に分離
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/consulting-playbook.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定
