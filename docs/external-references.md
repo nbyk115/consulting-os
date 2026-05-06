@@ -25,6 +25,7 @@
 | Anthropic ASL-3 | [anthropic.com/news](https://www.anthropic.com/news/activating-asl3-protections) | safety + capability 制度的両立 |
 | Anthropic Claude Sonnet 4.6 | [anthropic.com/news](https://www.anthropic.com/news/claude-sonnet-4-6) | 1M トークン・MCP 正式サポート |
 | 80,000 Hours AGI 予測 | [80000hours.org](https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/) | Metaculus 中央値・業界コンセンサス |
+| Anthropic + Blackstone + Goldman Sachs + Hellman & Friedman 4 社 JV | [fortune.com](https://fortune.com/2026/05/04/anthropic-claude-consulting-industry-joint-venture-blackstone-goldman-sachs/) | $1.5B AI ネイティブ企業向けサービス会社、フォワードデプロイ型、McKinsey ビッグ3 への正面攻撃、ConsultingOS 自己ポジショニング材料（個人版 Anthropic JV） |
 
 ## 3. AI エージェント市場調査
 
