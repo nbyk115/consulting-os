@@ -34,6 +34,11 @@
             "type": "command",
             "command": ".claude/hooks/recommend-agents.sh",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/agent-zero-warning.sh",
+            "timeout": 5000
           }
         ]
       }
@@ -137,6 +142,11 @@
           {
             "type": "command",
             "command": "echo \"$CLAUDE_TOOL_INPUT\" | .claude/hooks/emdash-detector.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/template-injection-check.sh",
             "timeout": 5000
           }
         ]
