@@ -97,6 +97,9 @@
 | Microsoft Copilot Studio | [microsoft.com](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio) | エンタープライズ層（Microsoft 365 前提）|
 | ConsultingOS（自社）| 本リポジトリ | 中堅中小特化・導入支援込み（公開情報では競合不在 INFERENCE）|
 | claude-mem (thedotmack/claude-mem) | [github.com](https://github.com/thedotmack/claude-mem) | Claude Code 記憶層プラグイン（5 hook + SQLite + Chroma + Bun）、評価対象（2026-06-03 再評価期日、★ 数値 / トークン削減率 / 既存 hook 衝突を実測検証予定）|
+| Anthropic Claude Platform Dreaming | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式記憶キュレーション機能（過去セッション → パターン抽出）、評価対象（2026-05-20 再評価期日、ConsultingOS evolution-log + memory/ + 4 週間再評価との統合余地検証）|
+| Anthropic Claude Platform Outcomes | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式評価機能（ルーブリック + 別評価者 + 反復改善）、評価対象（2026-05-20 再評価期日、brand-guardian + score-os-health 単体テストとの統合余地検証）|
+| Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能、ConsultingOS のハードルール 17 + 27 エージェント並列起動が既に上位実装、追加採用不要判定 FACT |
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
