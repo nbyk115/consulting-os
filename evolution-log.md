@@ -39,6 +39,24 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 太田貴史「成果軸業務設計フレーム」深層統合（PR AE）
+
+ユーザー共有 太田貴史「人件費と AI エージェント費用は厳密には単純比較できない」スライド（2026 年）+ 言及「コンサル OS はそのトリガーになりたい」を ConsultingOS の核心ポジショニングとして深層統合。
+
+統合価値:
+- 「人件費 vs AI 費用」単純比較禁止 = Goodhart 法則対策（コスト最小化が目標化、成果見失う構造的怠慢）
+- 「どの業務を人・AI・人＋AI のどの組み合わせで担うと最も高い成果」 = ConsultingOS の核心ポジショニング
+- ユーザー言及「コンサル OS はそのトリガーになりたい」 = 自己 GTM 訴求の中核メッセージ
+
+物理化対策（Step 4 リスク即潰し原則準拠 PR AB）:
+- 即修正: external-references.md に太田貴史スライド深層追記
+- 構造化: ai-readiness-assessment §1-4「成果軸業務設計フレーム」サブセクション新設、業務分類フレーム + 核心ポジショニング明文化
+- Phase 4 持ち越し: ai-kpi-framework への「成果軸 KPI 設計」深掘り統合（規模大、本セッション完結不可能）
+
+太田貴史氏組込深度進化: 0 ファイル → 3 ファイル（external-references + ai-readiness-assessment + evolution-log）
+
+教訓: ConsultingOS の自己 GTM 訴求の核心メッセージは「コスト削減論ではなく成果軸業務設計のトリガー」と明確化。これは佐藤裕介「PL に落ちる提案」+ 真の 100 原則（PR Z）+ 10:80:10 オーケストレーション + Phil Knight 第 7 項と完璧整合する位置取り。
+
 ### 2026-05-06 Sean Parker / Napster 売却ストーリー深層統合（PR AD）
 
 ユーザー共有「Napster $205M 売却（Infinite Reality、2025-03-25）+ Sean Parker 哲学」を ConsultingOS 思想バンドルに深層統合。
