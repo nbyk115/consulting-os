@@ -39,6 +39,34 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 Peter Drucker（マネジメントの父）グランドビジョン 7 原則統合（PR AG）
+
+ユーザー共有 Andy 氏「Drucker 自らをマネジメントせよ 5 教え」を ConsultingOS グランドビジョン 7 原則の最重要権威者証言として深層統合。
+
+実測発見: Drucker / ドラッカー組込 0 ファイル = マネジメントの父が ConsultingOS 完全未組込だった重大漏れ。過小組込自己虚偽事象シリーズ（PR #59 / #61 / Y / Z / AA / AB / AE / AF / AG）の同型再発。
+
+Drucker 5 教え × グランドビジョン 7 原則整合:
+1. 強みを唯一の拠り所 + フィードバック分析 → 原則 1「構造で勝つ」+ 原則 2「自己批判」
+2. 仕事のスタイル（Reader vs Listener、学び方）→ 原則 7「AI 補完しない、適切な役割分担」
+3. 鏡のテスト（価値観照合）→ 原則 5「形式達成度 ≠ 真の品質」
+4. 関係の責任（上司マネジメント、情報共有）→ 原則 3「成果軸業務設計」+ orchestrator 思想
+5. 人生の後半戦（パラレルキャリア、継続学習）→ 原則 4「自己所有インフラ」+ 原則 6「致命傷回避」
+
+「自らを CEO に」= ConsultingOS の核心メッセージ「個人が AI チームを率いる」と完璧整合 = Drucker はグランドビジョン 7 原則すべてと整合する唯一の最重要権威者。
+
+物理化対策（Step 4 リスク即潰し原則 PR AB 準拠）:
+- 即修正: external-references.md に Drucker 5 教え + 7 原則紐付け深層追記
+- 構造化: ai-readiness-assessment §1-4 グランドビジョン 7 原則の各原則に Drucker 教え 1-5 を権威者証言として明示紐付け
+- Phase 4 持ち越し: consulting-playbook + strategy-lead + client-success への実質統合（規模大）
+
+Drucker 組込深度進化: 0 → 3 ファイル（external-references + ai-readiness §1-4 + evolution-log）
+
+教訓: ConsultingOS は「マネジメントの父」を組み込んでいなかった。これは思想バンドル網羅性の構造的盲点 = Phase 4 で経営学の祖（Drucker / コトラー / クリステンセン）系統の網羅性検証 hook 必要。
+
+ConsultingOS グランドビジョン進化:
+- PR AF: 7 原則 + 7 系統権威者交点
+- PR AG: 7 原則 + 7 系統権威者 + Drucker（最重要、全 7 原則と整合）= 8 系統権威者交点
+
 ### 2026-05-06 ConsultingOS グランドビジョン物理化 + Jack Conte 自己所有インフラ統合（PR AF）
 
 ユーザー指摘:「太田氏としないでグランドビジョン的にしたい」+ Jack Conte（Patreon 創業者）「フォロワーの死、自己所有インフラ」哲学共有。
