@@ -77,6 +77,7 @@ KPI 設計前に必ず「**この指標を1年追って失敗するシナリオ*
 | revenue-growth-framework | PL思考・複利成長モデル |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| excel-output-playbook | PL 数値・KPI 目標値を source/*.json に格納し Excel 検証スクリプトの 3 点 assert 根拠として使用 |
 
 ## シナリオ別プレイブック
 

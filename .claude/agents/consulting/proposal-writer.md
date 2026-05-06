@@ -88,6 +88,7 @@ model: sonnet
 | brand-guidelines | トーン・品質基準・禁止表現 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 | monopoly-positioning-framework | ピッチ資料の独占ナラティブ設計・成長シナリオの Beachhead 根拠 |
+| excel-output-playbook | 事業計画書・投資家資料の Excel 納品（セル番地定義・検証スクリプト・色分け規約） |
 
 ## シナリオ別プレイブック
 
