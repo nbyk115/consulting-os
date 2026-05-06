@@ -40,6 +40,9 @@
 | McKinsey State of AI 2025 | [mckinsey.com](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) | AI 高パフォーマー 5.5% のみ |
 | BCG AI at Work 2025 | [codezine.jp](https://codezine.jp/news/detail/21866) | 日本業務統合率 7%（世界 13%）|
 | 総務省情報通信白書 2025 | [soumu.go.jp](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html) | 日本生成 AI 日常活用率 51% |
+| GPTs are GPTs（OpenAI 2023）| [arxiv.org/2303.10130](https://arxiv.org/pdf/2303.10130) | LLM 労働市場影響度ベンチマーク、職業別 LLM 暴露率、Anthropic 次の一手予測材料 |
+| Working with AI: Measuring Applicability of Generative AI to Occupations | [arxiv.org/2507.07935](https://arxiv.org/pdf/2507.07935) | 職業別 AI 適用度測定（2025）、業界 PB 戦略素材、market-researcher 担当 |
+| Future of Work with AI Agents（Stanford 2025）| [arxiv.org/2506.06576](https://arxiv.org/abs/2506.06576) | 米国労働力の自動化 vs 増強監査、Anthropic 金融 / 法務エージェント等の業界別展開予測材料 |
 
 ## 4. VC / 投資トレンド
 
