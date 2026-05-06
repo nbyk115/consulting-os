@@ -1,4 +1,4 @@
-# Evolution Log — スキル進化記録
+# Evolution Log: スキル進化記録
 
 ## ⚠️ 重要: 追記専用
 

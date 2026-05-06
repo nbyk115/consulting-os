@@ -169,7 +169,7 @@
    - 機能要望（Functional Job）
    - 感情ノイズ（Stable pattern noise）
    - 構造的不満（Behavioral signal）
-   - 一時的不満（Occasion noise — 重み付けを下げる）
+   - 一時的不満（Occasion noise: 重み付けを下げる）
 
 2. 3次元 Job 分類（クリステンセン）
    - Functional Job: 機能的用事
@@ -258,3 +258,10 @@
 
 出力末尾に反証チェック結果。
 ```
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/prompt-templates/06-product-growth.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

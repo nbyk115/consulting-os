@@ -1,4 +1,4 @@
-# Marketing & Research Playbook — マーケティング&リサーチ統合プレイブック
+# Marketing & Research Playbook: マーケティング&リサーチ統合プレイブック
 
 ## 概要
 Marketing & Research部門の全エージェントが参照する共通ナレッジベース。戦略フレームワーク・チャネル選定・データ分析・リサーチ手法・PR手法の標準を定義する。
@@ -63,15 +63,15 @@ Positioning（差別化ポジショニング）
 
 ### ファネル設計
 ```
-TOFU（Top of Funnel）— 認知・興味
+TOFU（Top of Funnel）- 認知・興味
   チャネル: SEO / PR / SNS / ディスプレイ広告 / 動画
   KPI: リーチ / インプレッション / ブランド認知率
 
-MOFU（Middle of Funnel）— 検討・比較
+MOFU（Middle of Funnel）- 検討・比較
   チャネル: コンテンツマーケ / メール / リターゲティング / ウェビナー
   KPI: エンゲージメント / MQL / コンテンツDL数
 
-BOFU（Bottom of Funnel）— 購買・決定
+BOFU（Bottom of Funnel）- 購買・決定
   チャネル: SEM / LP / CRM / セールス連携
   KPI: SQL / CV数 / CPA / CVR
 ```
@@ -406,3 +406,10 @@ ULSSAS（SNS時代）
 ハードルール 13 遵守のため、§9 日本 AI 市場構造分析（5 層モデル + Vertical AI 戦略 + 経産省 2040 年推計）+ バージョン履歴を分離（2026-05-05 PR #49）。
 
 詳細: [`.claude/skills/references/marketing-research-playbook-japan-ai.md`](references/marketing-research-playbook-japan-ai.md)
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/marketing-research-playbook.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

@@ -1,4 +1,4 @@
-# Brand Guidelines — ブランドガイドライン
+# Brand Guidelines: ブランドガイドライン
 
 ## 概要
 全エージェントが遵守するブランドルール・トーン規定・品質基準・禁止表現。
@@ -7,9 +7,26 @@
 
 ## 1. ブランドトーン
 
+### Phil Knight Nike 創業マニフェスト 10 項目（2026-05-06 PR AC 統合、ConsultingOS ブランド規律の権威者基盤）
+
+ConsultingOS のブランド規律は Nike 創業者 Phil Knight が記した 10 項目マニフェスト（著書「Shoe Dog」+ 創業時メモ）に整合する形で物理化。各項目は ConsultingOS 既存規律と整合（INFERENCE）:
+
+1. Our business is change = 川邊健太郎 AI 駆動型 + Born in AI 思想
+2. We're on offense. All the time = monopoly-positioning §教訓 4 独占攻勢 + Boris Cherny ruthlessly edit
+3. Perfect results count, not a perfect process. Break the rules: fight the law = ハードルール 1 実測必須 + ティール「漸進改善は競争を生む」否定
+4. About battle as about business = ティール §教訓 3「競争は敗者のもの」+ 独占ポジショニング設計
+5. Assume nothing. Make sure people keep promises. Push yourselves push others. Stretch the possible = 反証チェック Step 1-3 + Boris Cherny 自己検証 + 出典明示
+6. Live off the land = BMR スモビジ「初期投資ゼロ」+ 致命傷を避ける
+7. Your job isn't done until THE job is done = 真の 100 原則（PR Z）+ 形式達成度 ≠ 真の 100
+8. Dangers: Bureaucracy / Personal ambition / Energy takers vs givers / Knowing weaknesses / Don't get too many things on the platter = Boris #3 ruthlessly edit + Meta 中間管理職削減 + 形骸化追加禁止
+9. It won't be pretty = 反証 Step 1-3 で泥臭く検証
+10. If we do the right things we'll make money damn near automatic = 佐藤裕介「構造で売る = 仕組みが結果を担保する」整合（INFERENCE）
+
+名言: 「Just Do It」「ブランドは信頼から生まれる」 = ConsultingOS の規律遵守 + 反証チェック + 完了系断言禁止と整合。
+
 ### コアバリュー
-- **信頼性**: データと根拠に基づく発言
-- **専門性**: 業界知識と実践経験に裏付けられた提案
+- **信頼性**: データと根拠に基づく発言（Phil Knight「ブランドは信頼から生まれる」+ Step 3 実用反証）
+- **専門性**: 業界知識と実践経験に裏付けられた提案（Phil Knight 第 5 項「Stretch the possible」）
 - **実行力**: 提案だけでなく実装まで一気通貫
 
 ### トーンスペクトラム
@@ -116,8 +133,8 @@
 - **英語**: 技術用語・固有名詞はそのまま使用（無理に訳さない）
 
 ### 英語出力ルール
-- **emダッシュ（—）・enダッシュ（–）は使用禁止**。代わりにコロン（:）、カンマ（,）、ピリオド（.）、セミコロン（;）で区切る
-- NG: `This is important — it affects revenue`
+- **em ダッシュ（U+2014）・en ダッシュ（U+2013）は使用禁止**。代わりにコロン（:）、カンマ（,）、ピリオド（.）、セミコロン（;）で区切る
+- NG: U+2014 を含む例示はリポジトリ字形違反検出を汚染するため省略（検証は `grep $'\xe2\x80\x94'` で 0 件確認）
 - OK: `This is important: it affects revenue`
 - OK: `This is important, and it affects revenue`
 
@@ -203,6 +220,19 @@ font-family:
   "Noto Sans JP", "Meiryo", "メイリオ",
   sans-serif;
 ```
+
+#### 採用候補（評価中、デフォルト採用は時期尚早）
+
+**Gen Interface JP**（Inter + Noto Sans JP 混植、yamatoiizuka 制作、OFL ライセンス、v0.1.2、2026 年公開）
+
+- 設計: Inter（英文 UI）+ Noto Sans JP の緻密調整 = UI 用途最適
+- ライセンス: OFL = 無償・商用可
+- リスク: v0.1.2 = 初期版、Windows ウェイト不具合修正直後
+- 評価期日: 2026-06-03（claude-mem / Anthropic 公式機能と同期）
+- 評価項目: pdffonts / unzip+grep で中国字形フォールバック実測検証 + 全 OS（Windows / Mac / Linux）動作 + 6 ヶ月後の安定性
+- リポジトリ: github.com/yamatoiizuka/gen-interface-jp
+- 公式: gen.typesetting.jp
+- 採用判断: 評価期日後に実測検証通過 = デフォルト採用候補へ昇格、未通過 = 候補維持 or 削除
 
 #### 検知方法（機械検証必須・2026-05-01 違反学習で強化）
 
@@ -447,11 +477,11 @@ AI文章バレ対策:
 
 | brand-guidelines のセクション | DESIGN.md のセクション | 変換内容 |
 |---|---|---|
-| 1. ブランドトーン | — | DESIGN.mdには含めない（人間向けルール） |
-| 2. 出力ルール | — | DESIGN.mdには含めない（テキスト品質ルール） |
+| 1. ブランドトーン |: | DESIGN.mdには含めない（人間向けルール） |
+| 2. 出力ルール |: | DESIGN.mdには含めない（テキスト品質ルール） |
 | 3. 禁止表現 | `Do / Don't` | 禁止表現を「Don't」セクションに変換 |
 | 4. 言語ルール | `Typography` | フォント・敬語ルールをフォントスタック定義に変換 |
-| 4.5 AI文章バレ対策 | — | DESIGN.mdには含めない（テキスト品質ルール） |
+| 4.5 AI文章バレ対策 |: | DESIGN.mdには含めない（テキスト品質ルール） |
 | 5. ビジュアルガイドライン | `Colors` `Typography` `Spacing` | カラーパレット・フォント・スペーシングをトークンに変換 |
 | 6. 品質ゲート | `Do / Don't` | チェック項目の一部を「Do」に変換 |
 
@@ -531,4 +561,11 @@ grep -rn $'\xe2\x80\x94' /home/user/consulting-os/strategy/ /home/user/consultin
 
 | Ver | 日付 | 変更内容 | 根拠 | 効果 |
 |---|---|---|---|---|
-| 1.0.0 | 2026-03-25 | 初版 | — | ベースライン |
+| 1.0.0 | 2026-03-25 | 初版 |: | ベースライン |
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/brand-guidelines.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

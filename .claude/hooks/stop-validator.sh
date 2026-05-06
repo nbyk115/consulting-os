@@ -1,11 +1,11 @@
 #!/bin/bash
 # Stop hook: assistant 応答完了時に応答内容を検証
-# Phase 5-3 実装 — 2026-05-05
+# Phase 5-3 実装: 2026-05-05
 # 70 点で出して実運用しながら改修（佐藤裕介流）
 #
 # 検知対象:
-# 1. 禁止フレーズ（CLAUDE.md ハードルール 17）— 絞り込み錯覚 / orchestrator 規律違反シグナル
-# 2. 反証チェック未付与（CLAUDE.md ハードルール 1）— 全アウトプット末尾必須
+# 1. 禁止フレーズ（CLAUDE.md ハードルール 17）- 絞り込み錯覚 / orchestrator 規律違反シグナル
+# 2. 反証チェック未付与（CLAUDE.md ハードルール 1）- 全アウトプット末尾必須
 #
 # 環境変数 CONSULTINGOS_STOP_ENFORCEMENT=off|warn|block （default: warn）
 # 初期は警告運用、誤検知率検証後に block 移行判断
@@ -64,7 +64,7 @@ done
 
 # --- 検知 2: 反証チェック未付与 ---
 HAS_FALSIFICATION="yes"
-if ! printf '%s' "$LATEST_RESPONSE" | grep -qE '反証チェック結果|Step 1.*自己反証|Step 2.*構造反証|Step 3.*実用反証' 2>/dev/null; then
+if ! printf '%s' "$LATEST_RESPONSE" | grep -qE '反証チェック結果|Step 1.*自己反証|Step 2.*構造反証|Step 3.*実用反証|Step 4.*リスク即潰し' 2>/dev/null; then
   HAS_FALSIFICATION="no"
 fi
 
@@ -86,6 +86,8 @@ fi
 
 # --- 検知 3: 完了系キーワード × 検証コマンド未実行（HARD BLOCK・PR #59 虚偽再発防止）---
 # 完了断言時、transcript を遡り検証コマンド実行ログがなければ exit 2
+# 完了断言ガードキーワード（PR #65 で体系化、軸4 数値根拠の物理化）: 撲滅 / 残存ゼロ / 致命的 0 / 全件処理 / 統一済 / 修復済 / 達成 / クリア / 全件成功
+COMPLETION_KEYWORDS='撲滅|残存ゼロ|致命的 0|全件処理|統一済|修復済|達成|クリア|全件成功'
 COMPLETION_CLAIM="no"
 if printf '%s' "$LATEST_RESPONSE" | grep -qE '撲滅|残存ゼロ|致命的 0|全件処理|統一済|修復済' 2>/dev/null; then
   COMPLETION_CLAIM="yes"

@@ -1,4 +1,4 @@
-# コードマップ — よるのことば
+# コードマップ: よるのことば
 
 > 最終更新: 2026-04-10
 
@@ -44,12 +44,12 @@
 | 54-159 | CSS | 全スタイル（ライト/ダーク両テーマ） |
 | 160-176 | SW管理 | Service Worker登録・更新ロジック |
 | 179-201 | 追加JSON-LD | HowTo, FAQPage等の構造化データ |
-| 203 | `</head>` | — |
+| 203 | `</head>` |: |
 | 204-206 | body開始 | skip-link, `#main-content`, `#root` |
 | 208-212 | Firebase SDK | 5本（app→messaging→firestore→auth→functions） |
 | 213-244 | Firebase初期化 | initializeApp, initPush, error handlers |
 | 245-246 | React/ReactDOM | CDN読み込み（SRI付き） |
-| 248 | **メインJS開始** | `<script>` — ミニファイ済み巨大ブロック |
+| 248 | **メインJS開始** | `<script>`: ミニファイ済み巨大ブロック |
 | 248 (line内) | CHARA_IMAGES | 24キャラのbase64 WebP画像（~130KB） |
 | 248 | DREAM_TYPES | 24キャラの夢タイプ定義 |
 | 248 | RARITY_INFO | SSR/SR/R/Nのレア度設定 |
@@ -114,11 +114,11 @@
 | `ynk_streak` | JSON | 連続ログイン `{count, last, collection}` | typeof + フィールド型チェック |
 | `ynk_profile` | JSON | ユーザープロフィール `{name, sign, gender, ...}` | typeof + フィールド型チェック |
 | `ynk_dream_archive` | JSON | 夢占いアーカイブ `[{...}]` | Array.isArray |
-| `ynk_ftue_done` | string | FTUE完了フラグ `"1"` | — |
-| `ynk_night_mode` | string | ダークモード `"on"/"off"` | — |
+| `ynk_ftue_done` | string | FTUE完了フラグ `"1"` |: |
+| `ynk_night_mode` | string | ダークモード `"on"/"off"` |: |
 | `ynk_banner_dismissed` | string | バナー非表示タイムスタンプ | parseInt |
-| `ynk_push_token` | string | FCMトークン | — |
-| `ynk_email_for_signin` | string | メールリンク認証用 | — |
+| `ynk_push_token` | string | FCMトークン |: |
+| `ynk_email_for_signin` | string | メールリンク認証用 |: |
 
 ### Firebase コレクション
 

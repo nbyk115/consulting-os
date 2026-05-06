@@ -236,7 +236,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# ConsultingOS とは — 30 の AI エージェントから成る事業 OS
+# ConsultingOS とは: 30 の AI エージェントから成る事業 OS
 
 <div class="grid-2">
 <div>
@@ -292,7 +292,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# 思想的基盤 — 30 名のエージェントが拠って立つ知見
+# 思想的基盤: 30 名のエージェントが拠って立つ知見
 
 <div class="grid-2">
 <div>
@@ -349,7 +349,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — NotebookLM 時代</span>
+<span class="label before">Before: NotebookLM 時代</span>
 
 スペシャリストが資料作成に着手<br>
 ↓<br>
@@ -365,7 +365,7 @@ NotebookLM で過去資料を検索<br>
 
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After: 関根さんver OS</span>
 
 「業界・課題・予算」を入力<br>
 ↓<br>
@@ -389,7 +389,7 @@ NotebookLM で過去資料を検索<br>
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — 今までのやり方</span>
+<span class="label before">Before: 今までのやり方</span>
 
 A 社訪問・課題ヒアリング<br>
 ↓<br>
@@ -404,7 +404,7 @@ A 社訪問・課題ヒアリング<br>
 <div class="small neutral">関根さん依存で量産できない</div>
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After: 関根さんver OS</span>
 
 A 社情報を入力（業界・規模・課題）<br>
 ↓<br>

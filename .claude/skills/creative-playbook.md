@@ -1,4 +1,4 @@
-# Creative Playbook — デザイン・コンテンツ・マルチツール連携
+# Creative Playbook: デザイン・コンテンツ・マルチツール連携
 
 ## 概要
 Creative部門の全エージェントが参照するデザインプロセス・コンテンツ標準・デザインツール選定ガイド。
@@ -171,7 +171,7 @@ Creative部門の全エージェントが参照するデザインプロセス・
 
 ---
 
-## 2.5 デザイン品質管理 — L1/L2/L3 × Wave方式
+## 2.5 デザイン品質管理: L1/L2/L3 × Wave方式
 
 > **「品質を落とさない」の定義が曖昧なまま進めると破綻する。品質を3層に分け、Wave方式で全体を波のようになぞる。**
 
@@ -223,7 +223,7 @@ L1: 20画面（52%）→ サブ設定, 管理画面, 補助リスト
 
 > **原則**: ConsultingOS は「原則から導出」が本質。カタログは**参考書**であり SSOT ではない。案件の tokens.json/rules.json は必ず案件ごとに作る。
 
-- **外部参照**: [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) — 161業界ルール × 67スタイル × 161パレット × 57フォントペア × 15技術スタック
+- **外部参照**: [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill): 161業界ルール × 67スタイル × 161パレット × 57フォントペア × 15技術スタック
 - **使用シーン**: 新規クライアント案件で業界の標準的なデザイン傾向を素早く把握したい時（fintech/medtech/SaaS/e-commerce/wellness 等）
 - **使用者**: `creative-director`（起点）→ `ux-designer`（具体化）
 - **使い方**: 丸写ししない。**業界傾向の地図**として参照し、そこから佐藤×小野寺 + アイブ/ハットフィールドの視点で再解釈する
@@ -237,9 +237,9 @@ L1: 20画面（52%）→ サブ設定, 管理画面, 補助リスト
 | エージェント | Canva | Figma | Google Slides | html2pptx |
 |---|---|---|---|---|
 | `creative-director` 🎨 | ✅ 方針指示・レビュー | ✅ デザインレビュー | ✅ 資料レビュー | ✅ PPTX出力指示 |
-| `ux-designer` 🎨 | ✅ 簡易LP・モック | ✅ UX/UI設計 | — | — |
-| `frontend-dev` 🎨 | — | ✅ Figma→コード変換 | — | — |
-| `proposal-writer` | — | — | ✅ 提案書作成 | ✅ 提案書PPTX変換 |
+| `ux-designer` 🎨 | ✅ 簡易LP・モック | ✅ UX/UI設計 |: |: |
+| `frontend-dev` 🎨 |: | ✅ Figma→コード変換 |: |: |
+| `proposal-writer` |: |: | ✅ 提案書作成 | ✅ 提案書PPTX変換 |
 
 ### html2pptx（HTML→PowerPoint変換）
 > **HTMLスライドをPPTXに変換。提案書・ピッチデックをデザイン付きで納品可能に。**
@@ -490,3 +490,10 @@ Layer 3: 検証（破っても通さない）
 ハードルール 13 遵守のため、DESIGN サンプル（Colors / Typography / Spacing / Components / Hover / Responsive）+ スキル横断リファレンス + 適用エージェント + バージョン履歴を分離（2026-05-05 PR #49）。
 
 詳細: [`.claude/skills/references/creative-playbook-design-samples.md`](references/creative-playbook-design-samples.md)
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/creative-playbook.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

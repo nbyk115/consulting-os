@@ -1,4 +1,4 @@
-# ICP.md — ConsultingOS の Ideal Customer Profile
+# ICP.md: ConsultingOS の Ideal Customer Profile
 
 > **このファイルは ConsultingOS 自体の ICP 兼テンプレート**。マーケ / セールス / コンテンツ制作・カスタマーサクセス系エージェントは必ずこれを読み込んでから作業する。新規クライアント案件では、このテンプレートを `<project>/ICP.md` にコピーしてクライアント固有の ICP に書き換える。
 

@@ -69,11 +69,11 @@
 ## 次セッションへの引き継ぎ
 
 ### 推奨タスク（優先順）
-1. **Vite導入 + コンポーネント分割** — リピーター転送量95%削減。MAU 1,000+で投資回収
-2. **Firebase modular SDK移行** — SDK 50-70%削減。Viteと同時実施
-3. **Firestoreセキュリティルール確認** — Firebase Console上の作業
+1. **Vite導入 + コンポーネント分割**: リピーター転送量95%削減。MAU 1,000+で投資回収
+2. **Firebase modular SDK移行**: SDK 50-70%削減。Viteと同時実施
+3. **Firestoreセキュリティルール確認**: Firebase Console上の作業
 4. **God Component分割** (23 useState → 機能別コンポーネント)
-5. **Base64画像の外部ファイル化** — 130KB削減
+5. **Base64画像の外部ファイル化**: 130KB削減
 
 ### 注意事項
 - getStreak日付フォーマット変更済み（toDateString→ISO）: 初回アクセス時にストリークリセット

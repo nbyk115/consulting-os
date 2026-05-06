@@ -1,4 +1,4 @@
-# Claude Code Ops — 運用・自動化・パフォーマンス最適化
+# Claude Code Ops: 運用・自動化・パフォーマンス最適化
 
 ## いつこのスキルを使うか
 Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワークフロー・コンテキスト管理・Advisor Strategy・Boris 9規律の判断軸を参照する。
@@ -51,7 +51,7 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 1. **Plan Mode** を大規模変更（3ファイル以上 / アーキテクチャ判断 / 本番影響）で必須
 2. **自己検証**: 実装後に typecheck/test/lint を変更直後に実行（反証モード Step 1-3 と統合）
 3. **CLAUDE.md "ruthlessly edit"**: 形骸化ルールは追加でなく削除。月1レビュー
-4. **権限 allow/deny/ask 明示**（settings.json）— 承認疲れ減 × 危険操作物理ブロック
+4. **権限 allow/deny/ask 明示**（settings.json）- 承認疲れ減 × 危険操作物理ブロック
 5. **サブエージェント context separation**（メイン汚染防止）
 6. **`/compact` + `/btw`** でコンテキスト攻撃的管理
 7. **Demand Elegance**: 非自明変更で「もっとエレガントな方法は？」自問
@@ -463,3 +463,10 @@ ClaudeCodeStudio 独自調査記事（2026-04-23 時点・Boris X 投稿 + Anthr
 | 2.2.0 | 2026-05-02 | Boris Cherny 公式 Claude Code 機能 3 項目取り込み（worktree -w / /batch / --bare）。5 項目は実需顕在化次第保留（/loop /schedule / teleport / /branch / /voice / --add-dir）|
 | 2.3.0 | 2026-05-02 | ClaudeCodeStudio 30 Tips から 4 項目取り込み（status line / Interview ファースト / Chrome 拡張 / Issue→実装直結）。13 項目は既存内包、13 項目は研究プレビュー or 実需未顕在化で保留 |
 | 2.4.0 | 2026-05-04 | Orchestration プロトコル節新設（起動前 4 点ゲート + 起動プロンプト必須項目 + 出力検証ゲート + 形骸化防止）。2026-05-04 legal-compliance-checker ファイル不在判定事例の構造的解決 |
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/claude-code-ops/SKILL.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

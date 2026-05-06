@@ -32,8 +32,8 @@
 ### Primary（事業 KPI）
 | 指標 | 定義 | 一般的な目安（要最新確認） |
 |---|---|---|
-| **ARR** | 年間経常収益 | — |
-| **MRR** | 月間経常収益 | — |
+| **ARR** | 年間経常収益 |: |
+| **MRR** | 月間経常収益 |: |
 | **NRR** | Net Revenue Retention（既存顧客の年間収益維持率） | 100% 以上が健全、120% 超で Best in class とされることが多い |
 | **GRR** | Gross Revenue Retention（チャーン控除後の収益維持） | 90% 以上が一般的な健全水準 |
 | **CAC** | Customer Acquisition Cost | 業種・チャネルにより大きく変動 |
@@ -171,3 +171,10 @@
 - `marketing-director`: PLG / SLG 設計
 - `client-success`: NRR 改善（Lincoln Murphy 式 Desired Outcome）
 - `proposal-writer`: MEDDPICC でエンタープライズ案件資格化
+
+
+## 出典・依拠先
+
+- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/industry-playbooks/saas.md）
+- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
+- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

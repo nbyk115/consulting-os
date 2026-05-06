@@ -61,7 +61,7 @@ echo "$JSON_ENTRY" >> "$LOG_JSONL"
 # Markdown エントリ（人間可読、日付セクションに追記）
 if [ ! -f "$LOG_MD" ]; then
   cat > "$LOG_MD" <<EOF
-# Evolution Log — ConsultingOS 進化履歴
+# Evolution Log: ConsultingOS 進化履歴
 
 > エージェント・スキルの変更履歴を時系列で記録。詳細仕様は CLAUDE.md「進化ログ運用ルール」参照。
 
