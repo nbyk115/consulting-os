@@ -14,6 +14,8 @@
 |---|---|---|---|
 | AIDB | [ai-data-base.com](https://ai-data-base.com/) | 注目（90 日評価購読） | 日本語 AI 論文要約・月 20-30 本厳選 |
 | Google「生成 AI 活用事例集 2026 年版」 | [cloud.google.com](https://cloud.google.com/learn/intl/ja-jp/genai-case-study?hl=ja) | 採用（実証データソース） | 国内 120 社以上の生成 AI 活用事例（金融 / 小売 / 製造 / IT / 商社）、3 月版で 26 社追加（フリー / Luup / IVRy / HIS / グリー / ベネッセ / テレビ朝日 / 伊藤忠商事 / イオンリテール / 東京電力 / アコム 他）、market-researcher + ai-readiness-assessment + industry-playbooks 各業界 PB の実証データ素材、NotebookLM 統合で自社近接事例抽出可能 |
+| McKinsey「95% of companies see no returns from AI」（TNW Insights 2026 経由） | [thenextweb.com](https://thenextweb.com/news/mckinsey-ai-report-95-percent-companies-no-returns) | 採用（ConsultingOS 自己 GTM 訴求の核心材料） | 56% が AI 投資から未収益化、節約時間 40% が出力確認・修正に消失、JPモルガン警告「$6,500 億年間売上が永遠に必要」、需要必然性ロジック（95% リターンなし課題 → 「10:80:10」オーケストレーション解決 → ConsultingOS が物理達成）、ai-readiness-assessment + monopoly-positioning-framework + consulting-playbook の自己訴求素材 |
+| The Nerve（元 Observer 記者ら、調査報道 × 文化報道、6 ヶ月で有料購読者 1.5 万人 / Palantir 調査）| [pressgazette.co.uk](https://pressgazette.co.uk/the-wire/media-jobs-uk-news/the-nerve-expands-journalists-team-six-months-after-launch/) | 採用（メディア事業 GTM 参考モデル） | 調査報道 × 文化報道の購読モデル成功事例、The AdSignal の事業展開 + GTM 参考として gtm-consultant + pr-communications + content-strategist で活用、Palantir 調査の公共性訴求は monopoly-positioning §教訓 5（独占企業の語り方）と整合 |
 | AIDB Premium | [ai-data-base.com/premium](https://ai-data-base.com/premium) | 個人月額 1,980 円 | プレミアム会員登録 |
 | World Monitor (OSS) | [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 注目（条件付き 2 ステップ） | 地政学リスク・500+ ニュースソース監視・AGPL-3.0 法務確認必須 |
 
