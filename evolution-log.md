@@ -39,6 +39,30 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 太田→小野寺リファクタリング + クラシル IR + IBM CEO 統合（PR AH）
+
+ユーザー指示 3 件即対応:
+1. 「太田貴史だれってなる」 = 知名度問題、既 39 ファイル深層組込の小野寺信行（ROAS / LTV / 60:40 ルール）の思想として扱い直し
+2. クラシル（dely）IR 資料 = creative-director / sales-deck-designer / ux-designer 参考資料追加
+3. IBM CEO Arvind Krishna「ソフト産業従来成長難、AI データ基盤注力」 = 業界変革トレンド整合の追加証拠
+
+物理化対策（Step 4 リスク即潰し原則 PR AB 準拠）:
+- 即修正: ai-readiness §1-4 グランドビジョン原則 3 の権威者を太田貴史 → 小野寺信行（主）+ 太田貴史（補足事例）に調整
+- 即修正: external-references.md にクラシル IR + IBM CEO 2 件深層追記、太田貴史を補足位置づけに調整
+- Phase 4 持ち越し: monopoly-positioning §10-B-2 死の谷課題マッピングに IBM CEO 業界変革証拠統合
+
+業界変革トレンド整合性 7 件 → 8 件に拡張:
+1. Anthropic + PE 4 社 JV $1.5B
+2. Goldman + Bain → AI マーケ投資
+3. Palantir Rule of 40 145% / NDR 150%
+4. Meta プレイヤー・コーチ型
+5. The Trade Desk 広告サプライチェーン透明化
+6. McKinsey 95% リターンなし + 79 万人 IT 不足
+7. SaaS 2/3 が生き残れない
+8. IBM CEO「ソフト産業従来成長難、AI データ基盤注力」（PR AH 新規）
+
+教訓: 個人名権威者を選ぶ際、知名度 + 既組込深度を考慮。小野寺信行（39 ファイル深層）vs 太田貴史（3 ファイル軽量）= 主たる権威者は前者、後者は補足事例の位置づけ。これは PR AF「太田氏個人名依存を避けてグランドビジョン化」のさらなる徹底。
+
 ### 2026-05-06 Peter Drucker（マネジメントの父）グランドビジョン 7 原則統合（PR AG）
 
 ユーザー共有 Andy 氏「Drucker 自らをマネジメントせよ 5 教え」を ConsultingOS グランドビジョン 7 原則の最重要権威者証言として深層統合。
