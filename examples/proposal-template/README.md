@@ -1,4 +1,4 @@
-# 提案書テンプレート — ConsultingOS 標準
+# 提案書テンプレート: ConsultingOS 標準
 
 > ConsultingOS で代理店・エンタープライズ向け B2B 提案書を作る時の汎用テンプレート。`proposal-writer` + `sales-deck-designer` + `competitive-analyst` の知見を統合した最小構成。
 

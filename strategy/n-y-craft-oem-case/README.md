@@ -83,7 +83,7 @@ CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
 ## 関連ドキュメント
 
 汎用 OEM 戦略の枠組み（このケースの上位概念）：
-- [`../oem-side-business/`](../oem-side-business/) — 副業OEM販売の標準戦略
+- [`../oem-side-business/`](../oem-side-business/): 副業OEM販売の標準戦略
 
 ---
 
