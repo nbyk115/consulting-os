@@ -107,6 +107,7 @@
 | Anthropic Claude Platform Outcomes | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式評価機能（ルーブリック + 別評価者 + 反復改善）、評価対象（2026-05-20 再評価期日、brand-guardian + score-os-health 単体テストとの統合余地検証）|
 | Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能（独自コンテキストウィンドウ + コンテナ + ファイルシステム共有）、ConsultingOS のハードルール 17 + 27 エージェント並列起動 + Agent ツール async 起動 + Git 共有リポジトリが既に上位実装、追加採用不要判定 FACT |
 | Anthropic Managed Agents Webhooks | [platform.claude.com/docs/en/managed-agents](https://platform.claude.com) | 公式 Webhooks 機能、ConsultingOS の hook 11 本（PreToolUse / PostToolUse / Stop / SessionStart）と整合領域あり、Phase 4 候補（2026-06-03 AutoHarness + claude-mem 統合判断と同期） |
+| SPECA（Specification-to-Checklist Agentic Auditing Framework） | （リポジトリ URL 未確認、原典源検証必要 INFERENCE） | 仕様駆動監査 OSS、Claude Code CLI + MCP 対応、Go / Rust / Nim / TypeScript / C、Sherlock Fusaka で既知 15 件 + 新規 4 件発見主張（INFERENCE）、cybersecurity-playbook §3-B 後続の §4 仕様駆動監査補完候補、2026-06-03 評価期日（依頼ベースのクライアント監査時に活用、攻撃型営業モデルは ConsultingOS 規律違反として不採用判定 FACT） |
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
