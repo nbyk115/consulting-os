@@ -39,6 +39,27 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 再徹底チェック発見 5 件（PR AA）
+
+ユーザー指示「再度 OS 再チェック 徹底的に」に応答。brand-guardian + tech-lead 並列起動 + ConsultingOS 一次実測 11 項目で発見:
+
+1. docs/orchestration-protocol.md に「assistant」主語 23 箇所残存（PR Z 関係性原則と矛盾）= 主語使い分け未明文化
+2. PR #65 commit「100/100 達成 + アセット帰属物理化」が完了系断言違反として git log に残存（修正不可、規律記録のみ）
+3. 規律ドリフト 3 件: ハードルール 1 肥大化 / 再評価カレンダー 4 件超追跡手段なし / Boris #3 機械検証コマンド未実装
+4. docs/sales-deck-rules.md 太字 31 件（規律定義書外）
+5. ConsultingOS 主体応答の主語使い分けが未明文化
+
+PR AA で即修正 2 件:
+- docs/orchestration-protocol.md §2.3 に「主語使い分け明文化」追記（規律文書内 = assistant 主語、外部応答 = ConsultingOS 主体）
+- docs/sales-deck-rules.md 太字 31 件 → 「」括弧に機械置換、docs/ 全体 0 件達成
+
+Phase 4 持ち越し 3 件（2026-06-03 期日）:
+- Boris #3 機械検証 hook 新設（PreToolUse で追加 PR 検出時に削除 PR の有無を警告、コミット時自動チェック）
+- 出典・依拠先 80 ファイル形骸化解消（テンプレ → ファイル別実質化）
+- ハードルール 1 肥大化解消（複数補強で長文化、サマリ + docs/ 詳細外出し検討）
+
+教訓: PR Z「物理化完了」と謳ったが実態は規律の「宣言」であり「強制」ではなかった。真の物理化 = pre-commit hook による機械検査 = Phase 4 採点ロジック AutoHarness 化と同期して実装必要。「物理化したから遵守される」前提自体が、物理化前の形骸化と同型の構造エラー（brand-guardian 指摘 INFERENCE）。
+
 ### 2026-05-06 関係性原則 + 真の 100 原則物理化（PR Z）
 
 ユーザー指示連続 3 件:
