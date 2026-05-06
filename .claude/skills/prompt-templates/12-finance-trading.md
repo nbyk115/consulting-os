@@ -22,7 +22,7 @@ IMPORTANT: 本プロンプトは投資成果を保証しない。数値・シグ
 
 ### T01. トレード・アイデア・ジェネレーター
 
-**用途**: 高確率の取引機会を 5 件特定し、エントリー/利益目標/ストップロス/リスク・リワード比を構造化する
+用途: 高確率の取引機会を 5 件特定し、エントリー/利益目標/ストップロス/リスク・リワード比を構造化する
 
 ```
 あなたは株式トレード分析エージェントです。
@@ -60,7 +60,7 @@ IMPORTANT: 本プロンプトは投資成果を保証しない。数値・シグ
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a stock trade analysis agent.
 
@@ -101,7 +101,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T02. 自動化テクニカルアナリスト
 
-**用途**: 日次/週次のテクニカル評価を行い、サポート/レジスタンス・移動平均・モメンタム指標を統合して判断する
+用途: 日次/週次のテクニカル評価を行い、サポート/レジスタンス・移動平均・モメンタム指標を統合して判断する
 
 ```
 あなたは自動化テクニカルアナリストです。
@@ -141,7 +141,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are an automated technical analyst.
 
@@ -171,7 +171,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T03. ニュース to トレード変換器
 
-**用途**: ニュースや決算発表を短期/長期の価格影響に変換し、推奨ポジション方針を導出する
+用途: ニュースや決算発表を短期/長期の価格影響に変換し、推奨ポジション方針を導出する
 
 ```
 あなたはニュース to トレード変換エージェントです。
@@ -212,7 +212,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a news-to-trade conversion agent.
 
@@ -242,7 +242,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T04. 戦略バックテスター
 
-**用途**: 移動平均クロスオーバー/RSI ダイバージェンス等の取引ルールを過去データで検証し、勝率/利益率/最大ドローダウンを算出する
+用途: 移動平均クロスオーバー/RSI ダイバージェンス等の取引ルールを過去データで検証し、勝率/利益率/最大ドローダウンを算出する
 
 ```
 あなたは戦略バックテストエージェントです。
@@ -288,7 +288,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a strategy backtesting agent.
 
@@ -323,7 +323,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T05. ポートフォリオ・リスク・マネージャー
 
-**用途**: 保有ポジション一覧を入力し、過剰露出/弱いポジション/相関分析/20% 下落耐性を評価する
+用途: 保有ポジション一覧を入力し、過剰露出/弱いポジション/相関分析/20% 下落耐性を評価する
 
 ```
 あなたはポートフォリオ・リスク管理エージェントです。
@@ -363,7 +363,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a portfolio risk management agent.
 
@@ -394,7 +394,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T06. トレーディング・ジャーナル・アナライザー
 
-**用途**: 過去 20 トレードの取引記録を分析し、行動バイアスを検出して一貫性向上のルールを 3 つ導出する
+用途: 過去 20 トレードの取引記録を分析し、行動バイアスを検出して一貫性向上のルールを 3 つ導出する
 
 ```
 あなたはトレーディング・ジャーナル分析エージェントです。
@@ -433,7 +433,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a trading journal analysis agent.
 
@@ -460,7 +460,7 @@ End with a falsification check (Step 1-3 + residual risks).
 
 ### T07. 完全自動化取引計画
 
-**用途**: プレマーケット/開場/昼間/引けの 4 フェーズに分けた構造化日次取引計画を生成する
+用途: プレマーケット/開場/昼間/引けの 4 フェーズに分けた構造化日次取引計画を生成する
 
 ```
 あなたは取引計画立案エージェントです。
@@ -509,7 +509,7 @@ End with a falsification check (Step 1-3 + residual risks).
 最後に【反証チェック結果】Step 1-3 + 残存リスクを付与。
 ```
 
-**英訳 (English version):**
+英訳 (English version):
 ```
 You are a trading plan agent.
 

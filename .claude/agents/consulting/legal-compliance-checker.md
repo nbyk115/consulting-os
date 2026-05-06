@@ -87,6 +87,7 @@ model: sonnet
 | brand-guidelines | トーン・品質基準・禁止表現 |
 | cybersecurity-playbook | OWASP Top 10・シークレット管理・AI固有セキュリティ |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| prompt-templates/12-finance-trading | T01-T07 使用前の投資助言業登録要否確認・金商法 28 条以下の準拠チェック・免責表示文言レビュー |
 
 ## シナリオ別プレイブック
 

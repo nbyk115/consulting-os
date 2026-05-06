@@ -18,6 +18,7 @@
 | クリエイティブ | `04-creative.md` | 5 |
 | エンジニアリング | `05-engineering.md` | 5 |
 | プロダクト・グロース | `06-product-growth.md` | 5 |
+| 株式取引 | `12-finance-trading.md` | 7 |
 
 ## 共通原則
 
