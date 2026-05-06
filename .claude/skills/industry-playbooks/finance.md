@@ -220,8 +220,154 @@
 - `client-success`: 金融顧客の特殊な FD 義務対応
 
 
+---
+
+## 8. Claude 公式金融エージェントテンプレ統合（Phase 3 PR K / 2026-05-06）
+
+> INFERENCE: 本セクションは Anthropic 公式サイト（https://claude.com/solutions/financial-services#finance-agents）の記載内容に基づく。プラグイン仕様・データソース連携・価格体系は Anthropic の公式アナウンスで最新版を確認すること。
+
+### 8.1 提供形態と選択基準
+
+Anthropic が 2026 年 5 月に公開した金融エージェントテンプレは 3 形態で提供される（INFERENCE: 公式サイト記載に基づく、仕様変更の可能性あり）。
+
+| 形態 | 用途 | 採用判断軸 |
+|---|---|---|
+| Cowork プラグイン | チーム共有型 / 非エンジニアによる GUI 操作 | 社内展開・チームライセンス優先時 |
+| Claude Code プラグイン | 開発者による拡張・自動化・CI/CD 連携 | ConsultingOS との統合・カスタマイズ優先時 |
+| Managed Agents cookbook | API 直接統合 / SaaS 組み込み / マルチエージェント連携 | 本番 SaaS 構築・再販 OEM パッケージ時 |
+
+ConsultingOS との統合推奨パス: Claude Code プラグイン（開発者起動）+ Managed Agents cookbook（本番 API 統合）の組み合わせ。Cowork は非エンジニアのクライアント展開時のみ採用。
+
+### 8.2 6 ワークフロー標準実装手順
+
+> 各ワークフローは法務・コンプライアンスレビュー必須（金融業法 / 金商法 / 投資助言業登録要否は legal-compliance-checker で事前確認）。
+
+#### 8.2.1 ピッチブック（Pitchbook）
+
+1. `proposal-writer` が SCQA ブロック + Governing Thought を作成
+2. `competitive-analyst` が M&A 対象企業の業界ポジション・競合比較表を生成
+3. Claude 金融エージェントが財務データ（FactSet / S&P Global / LSEG）を自動取得し Excel 連携でモデル更新
+4. `kpi-analytics` が EV / EBITDA 倍率・PER・PBR のマルチプル分析を実施
+5. `sales-deck-designer` が PowerPoint に出力（1 スライド = 1 メッセージ原則）
+6. `legal-compliance-checker` が「断定的判断の提供禁止」「適合性原則」準拠を確認
+
+#### 8.2.2 企業価値評価（Valuation）
+
+1. Claude 金融エージェントが DCF / LBO / Comparable Companies の 3 手法を並列実行
+2. 財務データソース: FactSet（株価・財務情報）/ S&P Global（格付け・クレジット）/ Morningstar（ファンド・ETF）
+3. `kpi-analytics` がブレイクイーブン・感応度分析（WACC ±1% / 成長率 ±0.5%）を試算
+4. 出力: Excel モデル + PowerPoint サマリー（Word 版エグゼクティブサマリー付属）
+
+#### 8.2.3 KYC（本人確認・顧客デューデリジェンス）
+
+1. `legal-compliance-checker` が犯罪収益移転防止法・FATF 勧告の最新要件を確認
+2. Claude 金融エージェントが顧客属性フォームを自動生成（帝国データバンク / 東京商工リサーチ連携で法人与信確認）
+3. AML/CFT スコアリング: 疑わしい取引パターンを ML モデルで継続モニタリング
+4. Outlook 連携で SAR（疑わしい取引届出）ドラフトを自動生成 → 担当者承認フローへ
+
+#### 8.2.4 月次決算（Financial Close）
+
+1. Claude 金融エージェントが Excel 財務モデルと連携し、前月比・前年同期比・予実差異を自動算出
+2. `kpi-analytics` が ROE / NIM / OHR 等の業界 KPI を自動集計
+3. Word テンプレートに月次レポートを生成（経営会議向けエグゼクティブサマリー形式）
+4. `brand-guardian` が字形・トーン・数値単位の整合性を最終チェック
+
+#### 8.2.5 アクチュアリー・レビュー（Actuarial Review）
+
+1. Claude 金融エージェントがソルベンシーマージン比率・NBV 等の保険特有 KPI を算出
+2. 死亡率テーブル / 解約率モデルをデータソース（S&P Global / Morningstar）から取得して更新
+3. `legal-compliance-checker` が保険業法・ソルベンシー II 相当の規制要件を確認
+4. レポートは Word + Excel 形式で保険庁提出フォーマットに準拠（INFERENCE: 最新監督指針で要確認）
+
+#### 8.2.6 クレジット・メモ（Credit Memo）
+
+1. `strategy-lead` が対象企業の事業リスク・業界環境を分析
+2. Claude 金融エージェントが財務比率（D/E レシオ / ICR / FCF マージン）を FactSet から自動取得
+3. `legal-compliance-checker` が貸金業法・銀行法・信用リスク管理ガイドライン準拠を確認
+4. 出力: Word クレジット・メモ + Excel 財務サマリー + Outlook 承認フロー連携
+
+### 8.3 外部データソース連携設計
+
+#### グローバルデータソース
+
+| データソース | 提供情報 | 用途 | 留意点 |
+|---|---|---|---|
+| FactSet | 株価・財務情報・M&A データ | ピッチブック / 企業価値評価 / クレジット・メモ | INFERENCE: ライセンス契約必須、個人向け提供なし |
+| S&P Global | 格付け・クレジットスコア・ESG | 企業価値評価 / アクチュアリー / KYC | INFERENCE: エンタープライズ契約。個別モジュール購入可 |
+| Morningstar | ファンド・ETF・個人投資家向け評価 | 資産運用 / 投資顧問向け分析 | INFERENCE: Direct / Direct API のライセンス区分あり |
+| LSEG（旧 Refinitiv）| リアルタイム相場 / 取引データ / 規制データ | トレーディング / コンプライアンス / 月次決算 | INFERENCE: Workspace API を通じた Claude 統合が公式対応 |
+
+#### 国内データソース（追加統合候補）
+
+| データソース | 提供情報 | 用途 |
+|---|---|---|
+| 帝国データバンク | 法人与信情報 / 財務データ | KYC / クレジット・メモ / 与信審査 |
+| 東京商工リサーチ（TSR）| 企業情報 / 倒産情報 / 業界統計 | KYC / AML / 与信審査 |
+| 日経 NEEDS | 上場企業財務データ | 企業価値評価 / 月次決算 |
+| eol（株式会社ユーザーベース）| 企業情報・業界分析 | 競合分析 / ピッチブック |
+
+> INFERENCE: 国内データソースは API 提供契約が必要。帝国データバンク / TSR はエンタープライズ向け API 仕様を各社に直接確認。
+
+### 8.4 アプリ連携設計（Excel / PowerPoint / Word / Outlook）
+
+Claude 公式金融エージェントが Microsoft Office スイートと連携するアーキテクチャ（INFERENCE: 公式サイト記載に基づく、Microsoft 365 ライセンス前提）。
+
+| アプリ | 統合用途 | ConsultingOS 連携エージェント |
+|---|---|---|
+| Excel | 財務モデル更新 / KPI 自動集計 / 感応度分析 | `kpi-analytics` + Claude 金融エージェント |
+| PowerPoint | ピッチブック / 月次レポート出力 | `sales-deck-designer` + `proposal-writer` |
+| Word | クレジット・メモ / エグゼクティブサマリー / アクチュアリーレポート | `proposal-writer` + `brand-guardian` |
+| Outlook | SAR 承認フロー / 月次レポート配信 / KYC 通知 | `legal-compliance-checker` + `client-success` |
+
+実装パス（ConsultingOS 環境）:
+1. Claude Code プラグインで Microsoft Graph API トークンを設定
+2. Excel ファイルを `kpi-analytics` が Read して財務数値を抽出
+3. Claude 金融エージェントがデータソース（FactSet 等）と突合更新
+4. `sales-deck-designer` が PowerPoint テンプレートに PPTX として出力（DESIGN.md 準拠）
+5. `brand-guardian` が字形 / 単位 / トーン最終チェック
+
+### 8.5 ConsultingOS 既存エージェント連携マップ（金融業界版）
+
+```
+金融案件トリガー
+    |
+    v
+strategy-lead（業界環境 / ポーター 5 フォース / 規制業種競争分析）
+    |
+    +-- legal-compliance-checker（最重要: 金商法 / 銀行法 / AML 事前チェック）
+    |
+    +-- competitive-analyst（FinTech 競合 / M&A 動向 / データソース照合）
+    |
+    +-- kpi-analytics（ROE / NIM / OHR / NBV / コンバインドレシオ 算出）
+    |
+    +-- Claude 金融エージェントテンプレ
+    |       FactSet / S&P Global / Morningstar / LSEG
+    |       Excel / PowerPoint / Word / Outlook
+    |
+    +-- proposal-writer（SCQA + Governing Thought + ピッチブック構造化）
+    |
+    +-- brand-guardian（日本語字形 / 単位整合性 / 断定的判断禁止チェック）
+    |
+    v
+出力: ピッチブック / 企業価値評価 / KYC / 月次決算 / アクチュアリー / クレジット・メモ
+```
+
+### 8.6 金融業界向けチェックリスト追加（Claude 金融エージェント利用時）
+
+- [ ] 投資助言業登録の要否を `legal-compliance-checker` で確認（金商法 28 条以下）
+- [ ] データソース（FactSet 等）のライセンス条件がクライアントへの再提供を許容しているか確認
+- [ ] Excel / PowerPoint 出力物に「投資勧誘ではない」免責表示を挿入
+- [ ] 断定的判断（「必ず上昇」「100% 安全」）のテキスト検査（brand-guardian の禁止表現チェックに金融特有ワードを追加）
+- [ ] 月次決算データは J-SOX 対応の改ざん防止ログを確保
+- [ ] クレジット・メモは第 2 線（リスク管理部門）のレビューフローを明示
+
+---
+
 ## 出典・依拠先
 
 - FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/industry-playbooks/finance.md）
+- FACT: §8 の Claude 公式金融エージェントテンプレ記載は Anthropic 公式サイト https://claude.com/solutions/financial-services#finance-agents に基づく（2026-05-06 参照、仕様変更リスクあり）
+- INFERENCE: §8.3 外部データソース（FactSet / S&P Global / Morningstar / LSEG / 帝国データバンク / TSR）のライセンス条件・API 仕様は各社公式サイトで最新版確認が必須（個人・法人契約区分 / 再提供条件が異なる）
+- INFERENCE: §8.4 Microsoft Office 連携は Microsoft 365 Business 以上のライセンスと Microsoft Graph API 設定が前提（2026-05-06 時点の一般的な前提条件として記載、ライセンス変更リスクあり）
 - INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
 - SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定

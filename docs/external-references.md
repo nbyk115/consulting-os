@@ -40,6 +40,9 @@
 | McKinsey State of AI 2025 | [mckinsey.com](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai) | AI 高パフォーマー 5.5% のみ |
 | BCG AI at Work 2025 | [codezine.jp](https://codezine.jp/news/detail/21866) | 日本業務統合率 7%（世界 13%）|
 | 総務省情報通信白書 2025 | [soumu.go.jp](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html) | 日本生成 AI 日常活用率 51% |
+| GPTs are GPTs（OpenAI 2023）| [arxiv.org/2303.10130](https://arxiv.org/pdf/2303.10130) | LLM 労働市場影響度ベンチマーク、職業別 LLM 暴露率、Anthropic 次の一手予測材料 |
+| Working with AI: Measuring Applicability of Generative AI to Occupations | [arxiv.org/2507.07935](https://arxiv.org/pdf/2507.07935) | 職業別 AI 適用度測定（2025）、業界 PB 戦略素材、market-researcher 担当 |
+| Future of Work with AI Agents（Stanford 2025）| [arxiv.org/2506.06576](https://arxiv.org/abs/2506.06576) | 米国労働力の自動化 vs 増強監査、Anthropic 金融 / 法務エージェント等の業界別展開予測材料 |
 
 ## 4. VC / 投資トレンド
 
@@ -93,6 +96,7 @@
 | LangChain | [langchain.com](https://www.langchain.com/) | フレームワーク層（$1.25B ユニコーン）|
 | Microsoft Copilot Studio | [microsoft.com](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio) | エンタープライズ層（Microsoft 365 前提）|
 | ConsultingOS（自社）| 本リポジトリ | 中堅中小特化・導入支援込み（公開情報では競合不在 INFERENCE）|
+| claude-mem (thedotmack/claude-mem) | [github.com](https://github.com/thedotmack/claude-mem) | Claude Code 記憶層プラグイン（5 hook + SQLite + Chroma + Bun）、評価対象（2026-06-03 再評価期日、★ 数値 / トークン削減率 / 既存 hook 衝突を実測検証予定）|
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
