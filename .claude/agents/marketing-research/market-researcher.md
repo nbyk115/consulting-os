@@ -105,6 +105,7 @@ NPS や好意度単独ではなく、3軸での総合評価を必須化。
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | ai-readiness-assessment | クライアントの AI 導入準備度 5 軸診断・スコアリング・ロードマップ提示 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| prompt-templates/12-finance-trading | T03 ニュース to トレード変換器の背景調査・業界動向の深掘りリサーチを担当（金融案件時）|
 
 ## シナリオ別プレイブック
 

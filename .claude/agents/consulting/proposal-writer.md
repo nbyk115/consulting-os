@@ -90,6 +90,7 @@ model: sonnet
 | monopoly-positioning-framework | ピッチ資料の独占ナラティブ設計・成長シナリオの Beachhead 根拠 |
 | ai-readiness-assessment | AI Readiness レポート・ロードマップ提案書の SCQA 形式作成 |
 | excel-output-playbook | 事業計画書・投資家資料の Excel 納品（セル番地定義・検証スクリプト・色分け規約） |
+| prompt-templates/12-finance-trading | T01-T07 の分析出力を PE/エンジェル投資家向け投資メモ・ポートフォリオレポートに SCQA 形式で構造化 |
 
 ## シナリオ別プレイブック
 

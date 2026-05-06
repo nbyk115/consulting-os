@@ -13,6 +13,7 @@
 | リソース | URL | 判定 | 用途 |
 |---|---|---|---|
 | AIDB | [ai-data-base.com](https://ai-data-base.com/) | 注目（90 日評価購読） | 日本語 AI 論文要約・月 20-30 本厳選 |
+| Google「生成 AI 活用事例集 2026 年版」 | [cloud.google.com](https://cloud.google.com/learn/intl/ja-jp/genai-case-study?hl=ja) | 採用（実証データソース） | 国内 120 社以上の生成 AI 活用事例（金融 / 小売 / 製造 / IT / 商社）、3 月版で 26 社追加（フリー / Luup / IVRy / HIS / グリー / ベネッセ / テレビ朝日 / 伊藤忠商事 / イオンリテール / 東京電力 / アコム 他）、market-researcher + ai-readiness-assessment + industry-playbooks 各業界 PB の実証データ素材、NotebookLM 統合で自社近接事例抽出可能 |
 | AIDB Premium | [ai-data-base.com/premium](https://ai-data-base.com/premium) | 個人月額 1,980 円 | プレミアム会員登録 |
 | World Monitor (OSS) | [github.com/koala73/worldmonitor](https://github.com/koala73/worldmonitor) | 注目（条件付き 2 ステップ） | 地政学リスク・500+ ニュースソース監視・AGPL-3.0 法務確認必須 |
 
@@ -100,7 +101,8 @@
 | claude-mem (thedotmack/claude-mem) | [github.com](https://github.com/thedotmack/claude-mem) | Claude Code 記憶層プラグイン（5 hook + SQLite + Chroma + Bun）、評価対象（2026-06-03 再評価期日、★ 数値 / トークン削減率 / 既存 hook 衝突を実測検証予定）|
 | Anthropic Claude Platform Dreaming | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式記憶キュレーション機能（過去セッション → パターン抽出）、評価対象（2026-05-20 再評価期日、ConsultingOS evolution-log + memory/ + 4 週間再評価との統合余地検証）|
 | Anthropic Claude Platform Outcomes | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式評価機能（ルーブリック + 別評価者 + 反復改善）、評価対象（2026-05-20 再評価期日、brand-guardian + score-os-health 単体テストとの統合余地検証）|
-| Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能、ConsultingOS のハードルール 17 + 27 エージェント並列起動が既に上位実装、追加採用不要判定 FACT |
+| Anthropic Multi-Agent Orchestration | [claude.com/blog](https://www.claude.com/blog/new-in-claude) | 公式リードエージェント委任機能（独自コンテキストウィンドウ + コンテナ + ファイルシステム共有）、ConsultingOS のハードルール 17 + 27 エージェント並列起動 + Agent ツール async 起動 + Git 共有リポジトリが既に上位実装、追加採用不要判定 FACT |
+| Anthropic Managed Agents Webhooks | [platform.claude.com/docs/en/managed-agents](https://platform.claude.com) | 公式 Webhooks 機能、ConsultingOS の hook 11 本（PreToolUse / PostToolUse / Stop / SessionStart）と整合領域あり、Phase 4 候補（2026-06-03 AutoHarness + claude-mem 統合判断と同期） |
 
 ## 10. 事業計画書 / 新規事業 / 銀行融資 フレームワーク
 
