@@ -195,8 +195,9 @@ RESULT="${RESULT}軸2 再現性     : ${SCORE_AXIS2}/20  (hook ${HOOK_COUNT} 本
 RESULT="${RESULT}軸3 アセット帰属: ${SCORE_AXIS3}/20  (ラベル付与率 ${LABEL_RATE}% = ${LABELED_FILES}/${TOTAL_FILES} ファイル)\n"
 RESULT="${RESULT}軸4 数値根拠   : ${SCORE_AXIS4}/20  (em/en ダッシュ ${EM_DASH_COUNT} 件 / 完了断言ガード ${COMPLETION_GUARD} 件)\n"
 RESULT="${RESULT}軸5 差別化     : ${SCORE_AXIS5}/20  (exit2 ブロック ${EXIT2_COUNT} 件 / 競合比較表 ${COMPARE_TABLE_COUNT} セクション)\n"
-RESULT="${RESULT}総合スコア     : ${TOTAL}/100\n"
-RESULT="${RESULT}ボトルネック   : 軸「${MIN_AXIS}」(${MIN_SCORE} 点) が最低、優先改善対象"
+RESULT="${RESULT}総合スコア     : ${TOTAL}/100  [形式達成度 INFERENCE: Goodhart 法則該当、真の 100 ではない、Phase 4 採点ロジック AutoHarness 化で構造担保予定]\n"
+RESULT="${RESULT}ボトルネック   : 軸「${MIN_AXIS}」(${MIN_SCORE} 点) が最低、優先改善対象\n"
+RESULT="${RESULT}注記           : 真の 100 = 実クライアント ROI 実証 + Goodhart 対策後のみ到達。本スコアと混同して「100/100 達成」断言は虚偽（CLAUDE.md ハードルール 1 + 17 §2.4 真の 100 原則）"
 
 printf '{"additionalContext": "%s"}\n' "$(printf '%s' "$RESULT" | sed 's/"/\\"/g')"
 

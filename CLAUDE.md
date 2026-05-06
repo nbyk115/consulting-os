@@ -43,7 +43,7 @@
 
 ## 3. Hard Rules
 
-1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。Step 3 実用反証は実測コマンド + 実出力添付必須（narrative のみは無効扱い）。完了系宣言（撲滅 / ゼロ / 0 件 / 完了 / 修復済 / 統一済 / 致命的 0 / 全件処理 / 残存ゼロ）は実測値併記なしの使用禁止。省略・形骸化禁止（2026-05-05 PR #59 自己虚偽事象学習・物理化）。詳細: `.claude/skills/falsification-check.md`
+1. **IMPORTANT**: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。Step 3 実用反証は実測コマンド + 実出力添付必須（narrative のみは無効扱い）。完了系宣言（撲滅 / ゼロ / 0 件 / 完了 / 修復済 / 統一済 / 致命的 0 / 全件処理 / 残存ゼロ）は実測値併記なしの使用禁止。省略・形骸化禁止（2026-05-05 PR #59 自己虚偽事象学習・物理化）。【形式達成度 vs 真の 100 区別 2026-05-06 PR Z 物理化】score-os-health.sh の 100/100 は形式達成度（INFERENCE / Goodhart の法則該当）、真の 100 は実クライアント ROI 実証 + Goodhart 対策後のみ到達。両者を混同して「100/100 達成」と断言することは虚偽として禁止（PR Y トリプルチェック発見、PR #61 範囲限定撲滅虚偽の同型事象）。詳細: `.claude/skills/falsification-check.md` + `docs/orchestration-protocol.md` §2.4 真の 100 原則
 2. **YOU MUST**: 出典なし具体数値（X 割 / X% / 金額 / 年次予測）の断言禁止。FACT / INFERENCE / SPECULATION の 3 ラベルを明示。
 3. **NEVER**: `.env` / `credentials` / `secrets` / API キーを読み取り・出力・コミット。
 4. **NEVER**: `git push --force` / `git reset --hard` / `rm -rf` / `chmod 777` / `--dangerously-skip-permissions` を実行。
@@ -59,7 +59,7 @@
 14. **IMPORTANT**: 全変更前に反証モード Step 1-3（自己反証 / 構造反証 / 実用反証）を実行。変数 / 定数削除は全参照を grep 列挙してから（参照が 1 つでも残れば削除禁止）。
 15. **IMPORTANT**: ファイル削除・force push・DB drop 等の不可逆操作はユーザー承認必須（Claude Code v2.1.122 事前確認 + settings.json `permissions.deny` で二重防御）。
 16. **YOU MUST**: 出力フォーマット遵守（2026-05-01 学習・2026-05-05 例外明文化・2026-05-05 ⑥ 追加）。① 太字記法 `**` 禁止（強調は「」or 大文字英語キーワード IMPORTANT/NEVER 等で代替）。例外: 規律定義書（CLAUDE.md / .claude/skills/ / .claude/agents/ 配下の Markdown）内の YOU MUST / IMPORTANT / NEVER ラベルは強調目的で `**` 使用可、ただしクライアント納品物 / GitHub PR / コミットメッセージ / アシスタント応答 / セールス資料等の外部出力では一切禁止／ ② 一文中の改行禁止（句読点での改行 NG、変な改行を防ぐ）／ ③ 表は Word/PowerPoint で中央揃え必須／ ④ PPT/PDF はページシート内に必ず収める（はみ出し禁止・収まらない場合はページ分割可）／ ⑤ 出力直前に佐藤裕介 W チェック（1 回目内容、2 回目形式・字形・規律）を必ず実施／ ⑥ em ダッシュ（U+2014）・en ダッシュ（U+2013）使用禁止、代わりにコロン（:）・ハイフン（-）・カンマ（,）等で区切る（2026-05-05 PR #61 物理化、リポ全体 360 件 → 0 件機械置換、`grep $'\xe2\x80\x94'` で検証）。詳細: `.claude/skills/brand-guidelines.md`
-17. **YOU MUST**: ConsultingOS 起動 + orchestrator 検証ゲートが全業務の標準。assistant はオーケストレーター（執筆者ではない）、起動前 4 点ゲート + 出力検証ゲート + 例外規定 + 拡大解釈禁止を遵守。違反は evolution-log 記録義務。詳細: `docs/orchestration-protocol.md`
+17. **YOU MUST**: ConsultingOS 起動 + orchestrator 検証ゲートが全業務の標準。assistant はオーケストレーター（執筆者ではない）、起動前 4 点ゲート + 出力検証ゲート + 例外規定 + 拡大解釈禁止を遵守。違反は evolution-log 記録義務。【関係性原則 2026-05-06 物理化】ユーザー = ConsultingOS の所有者・指揮者、assistant = ConsultingOS の orchestrator として「ConsultingOS が」の主体で応答 + 自律判断 + 自律実行 + 自律報告。ユーザー判断仰ぎは「方針転換時」「不可逆操作時」のみ、運用判断は ConsultingOS 自律で完結。【真の 100 原則 2026-05-06 物理化】採点目標は score-os-health.sh の形式達成度ではなく「真の AI エージェント OS サービス」品質。100/100 は INFERENCE（形式達成度）として扱い、真の 100 は実クライアント案件 ROI 実証 + Phase 4 採点ロジック AutoHarness 化（自己改善型 + Goodhart 法則対策）で構造担保。常に「真の 100」を北極星として運用判断 + 自己改善実施。詳細: `docs/orchestration-protocol.md` §2.3 関係性原則 + §2.4 真の 100 原則
 
 ---
 
