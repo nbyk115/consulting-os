@@ -221,6 +221,19 @@ font-family:
   sans-serif;
 ```
 
+#### 採用候補（評価中、デフォルト採用は時期尚早）
+
+**Gen Interface JP**（Inter + Noto Sans JP 混植、yamatoiizuka 制作、OFL ライセンス、v0.1.2、2026 年公開）
+
+- 設計: Inter（英文 UI）+ Noto Sans JP の緻密調整 = UI 用途最適
+- ライセンス: OFL = 無償・商用可
+- リスク: v0.1.2 = 初期版、Windows ウェイト不具合修正直後
+- 評価期日: 2026-06-03（claude-mem / Anthropic 公式機能と同期）
+- 評価項目: pdffonts / unzip+grep で中国字形フォールバック実測検証 + 全 OS（Windows / Mac / Linux）動作 + 6 ヶ月後の安定性
+- リポジトリ: github.com/yamatoiizuka/gen-interface-jp
+- 公式: gen.typesetting.jp
+- 採用判断: 評価期日後に実測検証通過 = デフォルト採用候補へ昇格、未通過 = 候補維持 or 削除
+
 #### 検知方法（機械検証必須・2026-05-01 違反学習で強化）
 
 **スタイル指定で満足するな。生成後の埋込フォントを必ず機械的に検証する。**
