@@ -226,6 +226,7 @@ Phase 4: 改善ロードマップ
 - `marketing-research-playbook`: マーケティング統合プレイブック
 - `brand-guidelines`: トーン・品質基準・禁止表現・英語ダッシュ禁止
 - `agent-evaluation`: 自己評価チェックリスト（軽量版・週次セルフレビュー）
+- `aeo-playbook`: AI 回答エンジン（ChatGPT/Claude/Perplexity/AI Overviews）への引用最適化・AEO KPI 設計
 
 
 > 反証モード・評価カード・セッション間メモリの共通ルールは CLAUDE.md を参照。
