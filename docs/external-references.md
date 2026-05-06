@@ -116,6 +116,7 @@
 |---|---|---|---|
 | Claude Design 60 プロンプト集 | （ユーザー提供画像） | 取り込まない | 既存 30 エージェント・22 スキルで 70-90% カバー |
 | Graph Sensei | [amix-design.com](https://amix-design.com/asoboad/) | 対象外 | Marp + CSS + SVG で代替可能 |
+| Design Spells（マイクロインタラクション + イースターエッグキュレーションサイト、parascope.design）| [parascope.design/resources/design-spells](https://parascope.design/resources/design-spells) | 採用（実用リファレンス）| 機能要件には現れないが体験の質を決める細部の事例集（Reddit プル・トゥ・リフレッシュ / Grok 音声入力アニメ / AllTrails アチーブメント / Opal ラバーバンディング 等）、Mobile / Desktop / Interaction / Dynamic island タグ分類、ux-designer / frontend-dev / creative-director / brand-guardian の参考素材、サイト / UI 制作案件で「触ったときにいいな」と感じる表現パターン引き出し、既存 brand-guidelines + DESIGN.md と補完関係（規律 + 表現リファレンス）、Phase 4 で ux-designer.md / frontend-dev.md / creative-director.md 参照スキル実質統合候補 |
 
 ## 8. AI 論文検索ツール（無料代替）
 
