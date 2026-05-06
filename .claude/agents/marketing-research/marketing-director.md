@@ -209,6 +209,7 @@ Phase 3: Post-launch（0〜+8週）
 ---
 
 - `brand-guidelines`: トーン・品質基準・禁止表現・英語ダッシュ禁止
+- `ai-readiness-assessment`: 組織軸・運用軸の AI 推進文化醸成プログラム設計
 - `agent-evaluation`: 自己評価チェックリスト（軽量版・週次セルフレビュー）
 
 
