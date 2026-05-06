@@ -103,6 +103,7 @@ NPS や好意度単独ではなく、3軸での総合評価を必須化。
 | marketing-research-playbook | マーケティングリサーチ全体の標準手法 |
 | revenue-growth-framework | PL思考・複利成長モデル |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
+| ai-readiness-assessment | クライアントの AI 導入準備度 5 軸診断・スコアリング・ロードマップ提示 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
 
 ## シナリオ別プレイブック

@@ -27,6 +27,7 @@
 | 80,000 Hours AGI 予測 | [80000hours.org](https://80000hours.org/2025/03/when-do-experts-expect-agi-to-arrive/) | Metaculus 中央値・業界コンセンサス |
 | Anthropic + Blackstone + Goldman Sachs + Hellman & Friedman 4 社 JV | [fortune.com](https://fortune.com/2026/05/04/anthropic-claude-consulting-industry-joint-venture-blackstone-goldman-sachs/) | $1.5B AI ネイティブ企業向けサービス会社、フォワードデプロイ型、McKinsey ビッグ3 への正面攻撃、ConsultingOS 自己ポジショニング材料（個人版 Anthropic JV） |
 | Forbes Japan「VC なしでユニコーン構築 米国 125 人調査」 | [forbesjapan.com](https://forbesjapan.com/articles/detail/96982) | 94% が VC 回避または遅延 / 76% が一度も利用なし、ブートストラップ戦略実証データ、strategy-lead + proposal-writer + market-researcher の知見素材、ティール教訓 6（同心円拡大）と整合 |
+| AutoHarness（Google DeepMind 論文） | [arxiv.org](https://arxiv.org/abs/2603.03329) | LLM が自己ハーネス（行動検証コード）を自動生成 + 環境フィードバックで自己改善、Gemini-2.5-Flash で TextArena 145 ゲーム illegal move 0、ConsultingOS hook 11 本の AutoHarness 化 = Phase 4 候補（評価期日 2026-06-03）|
 
 ## 3. AI エージェント市場調査
 

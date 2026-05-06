@@ -82,6 +82,7 @@ model: opus
 | first-principles-breakdown | 前提を剥がし本質から再構築 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| ai-readiness-assessment | クライアント AI 成熟度スコアの戦略軸解釈・Phase 3 独占化提案承認 |
 | monopoly-positioning-framework | ティール式独占性ゲートの詳細実装（§4 10x 判定・§5 4 軸・§8 DCF） |
 | excel-output-playbook | 中期計画の感度分析（楽観/標準/悲観）を Assumptions シートに格納する Excel 構造規律 |
 
