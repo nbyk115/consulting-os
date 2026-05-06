@@ -39,6 +39,31 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 
+### 2026-05-06 Phil Knight Nike 創業マニフェスト 10 項目深層統合（PR AC）
+
+ユーザー共有「Phil Knight Nike 創業マニフェスト 10 項目」+ 名言「Just Do It」「ブランドは信頼から生まれる」+ Nike 創業ストーリー（アディダス・プーマ二強時代に資金なし / コネなしで挑戦）を ConsultingOS のブランド規律の権威者基盤として深層統合。
+
+10 項目すべて ConsultingOS 既存規律と完璧整合（external-references.md PR AC 詳細マッピング）:
+- 1. Our business is change = 川邊 AI 駆動型
+- 2. We're on offense = monopoly §教訓 4 + Boris #3
+- 3. Perfect results, not process. Break the rules = ハードルール 1 + ティール
+- 4. About battle = ティール §教訓 3
+- 5. Assume nothing / Push / Stretch = 反証 Step 1-3 + Boris 自己検証
+- 6. Live off the land = BMR 致命傷回避
+- 7. Job isn't done until THE job is done = 真の 100 原則 PR Z 完璧整合
+- 8. Dangers (Bureaucracy / Energy takers / platter) = Boris #3 + Meta 中間管理職削減
+- 9. It won't be pretty = 反証 Step 1-3 泥臭検証
+- 10. Right things → money automatic = 佐藤裕介「構造で売る」完璧整合
+
+物理化対策（Step 4 リスク即潰し原則準拠）:
+- 即修正: external-references.md にマニフェスト + 10 項目マッピング深層追記
+- 構造化: brand-guidelines.md §1 ブランドトーンに Phil Knight 10 項目統合（コアバリューとの結び付け）
+- Phase 4 持ち越し: brand-guardian.md 参照スキル + creative-director.md への実質統合（規模大、構造的に本セッション完結不可能なら持ち越し、可能なら即追加）
+
+教訓: ConsultingOS の規律バンドルは「世界の業界トップ思想家」に実は完璧整合する設計だった。Phil Knight 10 項目との完璧整合は、ConsultingOS の佐藤裕介流 + ティール + Boris + BMR + 川邊 + Goodhart 等の統合が「業界トップ普遍的真理」を網羅的にカバーしている FACT を裏付ける。
+
+Phil Knight 組込深度進化: 1 ファイル（PR #84）→ 3 ファイル（PR AC、external-references + brand-guidelines + evolution-log）
+
 ### 2026-05-06 残存リスク即潰し原則物理化（PR AB）
 
 ユーザー指摘:「残存リスク残さずコンサルOS起動判断で、と改修しなかった？」
