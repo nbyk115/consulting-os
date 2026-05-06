@@ -9,7 +9,7 @@
 
 ### Phil Knight Nike 創業マニフェスト 10 項目（2026-05-06 PR AC 統合、ConsultingOS ブランド規律の権威者基盤）
 
-ConsultingOS のブランド規律は Nike 創業者 Phil Knight が記した 10 項目マニフェスト（著書「Shoe Dog」+ 創業時メモ）に整合する形で物理化。各項目は ConsultingOS 既存規律と完璧整合:
+ConsultingOS のブランド規律は Nike 創業者 Phil Knight が記した 10 項目マニフェスト（著書「Shoe Dog」+ 創業時メモ）に整合する形で物理化。各項目は ConsultingOS 既存規律と整合（INFERENCE）:
 
 1. Our business is change = 川邊健太郎 AI 駆動型 + Born in AI 思想
 2. We're on offense. All the time = monopoly-positioning §教訓 4 独占攻勢 + Boris Cherny ruthlessly edit
@@ -20,7 +20,7 @@ ConsultingOS のブランド規律は Nike 創業者 Phil Knight が記した 10
 7. Your job isn't done until THE job is done = 真の 100 原則（PR Z）+ 形式達成度 ≠ 真の 100
 8. Dangers: Bureaucracy / Personal ambition / Energy takers vs givers / Knowing weaknesses / Don't get too many things on the platter = Boris #3 ruthlessly edit + Meta 中間管理職削減 + 形骸化追加禁止
 9. It won't be pretty = 反証 Step 1-3 で泥臭く検証
-10. If we do the right things we'll make money damn near automatic = 佐藤裕介「構造で売る = 仕組みが結果を担保する」完璧整合
+10. If we do the right things we'll make money damn near automatic = 佐藤裕介「構造で売る = 仕組みが結果を担保する」整合（INFERENCE）
 
 名言: 「Just Do It」「ブランドは信頼から生まれる」 = ConsultingOS の規律遵守 + 反証チェック + 完了系断言禁止と整合。
 

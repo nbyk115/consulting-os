@@ -2,7 +2,9 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "extendedThinking": true,
   "effortLevel": "high",
+  "_cleanup_period_unit": "days（cleanupPeriodDays = 365 日、2026-05-06 PR AO 単位曖昧性解消）",
   "cleanupPeriodDays": 365,
+  "_max_thinking_tokens_unit": "tokens（MAX_THINKING_TOKENS = 31999 トークン、2026-05-06 PR AO 単位曖昧性解消）",
   "env": {
     "MAX_THINKING_TOKENS": "31999",
     "ENABLE_TOOL_SEARCH": "auto:5",

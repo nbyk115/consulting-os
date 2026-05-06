@@ -64,7 +64,7 @@ done
 
 # --- 検知 2: 反証チェック未付与 ---
 HAS_FALSIFICATION="yes"
-if ! printf '%s' "$LATEST_RESPONSE" | grep -qE '反証チェック結果|Step 1.*自己反証|Step 2.*構造反証|Step 3.*実用反証' 2>/dev/null; then
+if ! printf '%s' "$LATEST_RESPONSE" | grep -qE '反証チェック結果|Step 1.*自己反証|Step 2.*構造反証|Step 3.*実用反証|Step 4.*リスク即潰し' 2>/dev/null; then
   HAS_FALSIFICATION="no"
 fi
 
