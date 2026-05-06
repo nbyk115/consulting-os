@@ -4,7 +4,7 @@ theme: default
 size: 16:9
 paginate: true
 header: "N.Y.CRAFT × ConsultingOS パートナーシップ提案"
-footer: "2026.04 | Confidential | v7"
+footer: "2026.05 | Confidential | v8"
 lang: ja
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
@@ -159,9 +159,9 @@ style: |
 
 # N.Y.CRAFT × ConsultingOS<br>パートナーシップ ご提案
 
-属人化された経営知見を「規律ある専門家チーム」として再現する<br>30 の AI エージェントから成る事業 OS
+属人化された経営知見を「規律ある専門家チーム」として再現する<br>27 の AI エージェント・33 スキルから成る事業 OS
 
-<p class="neutral">2026.04 / v7</p>
+<p class="neutral">2026.05 / v8</p>
 
 ---
 
@@ -170,31 +170,91 @@ style: |
 <div class="grid-2">
 <div>
 
-## 1. 現状の整理
+## 1. なぜ今、AI エージェント OS なのか
 
-ご要望の確認と<br>既存ツールで届かなかった理由
+中小企業の構造的課題と市場の空白<br>N.Y.CRAFT こそフィットする理由
 
-## 2. ConsultingOS とは何か
+## 2. 現状の整理とご要望
+
+過去の試行（NotebookLM 等）<br>既存ツールで届かなかった理由
+
+## 3. ConsultingOS とは何か
 
 AI エージェント OS の中身<br>普通の Claude Code との違い<br>各部門の思想的基盤
 
 </div>
 <div>
 
-## 3. 関根さんver で何が変わるか
+## 4. 関根さんver で何が変わるか
 
 具体ストーリー 3 本<br>関根さんメソッドの組み込み箇所
 
-## 4. パートナーシップ・価格・進め方
+## 5. パートナーシップ・価格・進め方
 
-役割分担と 4 つの収益層<br>価格サマリーと次のアクション
+役割分担と 3 つの収益層<br>価格サマリーと次のアクション
 
 </div>
 </div>
 
 ---
 
-# ご相談の整理
+# なぜ今、AI エージェント OS なのか
+
+<div class="grid-2">
+<div>
+
+## 中小企業の構造的課題
+
+経営者・キーパーソンへの<strong>知見の属人化</strong><br>
+<span class="small">暗黙知の流出リスク、退職・体調不良で事業継続が傾く</span>
+
+スペシャリスト<strong>育成の長期化</strong><br>
+<span class="small">OJT 依存で 1 人前まで半年〜1 年、育成期間中は受注キャップ</span>
+
+同時並行案件数の<strong>物理的上限</strong><br>
+<span class="small">経営者の時間が律速、スケールしない</span>
+
+</div>
+<div>
+
+## AI ツール時代の現実
+
+ChatGPT・NotebookLM 等は<strong>単一 AI による「検索・引用」</strong>中心<br>
+<span class="small">経営判断・規律・品質保証は範囲外</span>
+
+「事業 OS」レイヤーは<span class="accent">市場の空白</span><br>
+<span class="small">単発回答ではなく、業務に組み込める規律ある専門家チームが必要</span>
+
+求められるもの:<br>
+<strong>経営知見を「規律ある専門家チーム」として再現するオペレーション基盤</strong>
+
+</div>
+</div>
+
+<blockquote class="small" style="margin-top:14px;">
+中小企業の事業継続性 ＝ 経営知見の脱属人化 × チーム品質の標準化 ＝ AI エージェント OS が解く構造的課題
+</blockquote>
+
+---
+
+# なぜ N.Y.CRAFT こそ ConsultingOS がフィットするのか
+
+| 観点 | N.Y.CRAFT の現状 | フィット理由 |
+|---|---|---|
+| 事業の本質 | 事業立ち上げ経験者がチームで支援する「売れる仕組みづくり」 | <span class="accent">チーム提供モデル ＝ OS の役割分担構造と完全一致</span> |
+| メソッドの源泉 | キーエンス流営業 + Fastask 初期営業 + 新規事業テストマーケ | 言語化済の営業手法 ＝ エージェント化しやすい |
+| 顧客像 | 中堅・中小企業 / 事業立ち上げ期 | 業界プレイブックでカバー可能、追加プレイブック新設も軽量 |
+| 関根さん依存 | 営業・組織・マネジメント判断が関根さんに集中 | OS による規律・品質ガードが<strong>事業継続性を直接強化</strong> |
+| AI への期待 | NotebookLM 試行で「辞書代わり」に挫折 | 既に「単なる検索では足りない」と理解済 ＝ 導入決断が早い |
+| 顧客への提供形態 | 「経験者チームで支援」を売る | OS が品質保証の裏付けとなり、<strong>提供価値を構造化できる</strong> |
+
+<blockquote class="small" style="margin-top:14px;">
+言語化された営業メソッド × チーム提供モデル × 中小企業特化 ＝ ConsultingOS が事業 OS として最も高くフィットする組み合わせ
+</blockquote>
+
+---
+
+# 現状の整理とご要望
 
 <div class="grid-2">
 <div>
@@ -236,26 +296,26 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# ConsultingOS とは — 30 の AI エージェントから成る事業 OS
+# ConsultingOS とは : 27 の AI エージェント・33 スキルから成る事業 OS
 
 <div class="grid-2">
 <div>
 
-## 6 部門・30 エージェント
+## 6 部門・27 エージェント
 
 | 部門 | 人数 | 役割 |
 |---|:---:|---|
-| コンサル | 7 | 戦略・提案・KPI・法務 |
+| コンサル | 6 | 戦略・提案・KPI・法務 |
 | サービス開発 | 4 | 実装・AI・インフラ |
 | プロダクト | 2 | プロダクト責任者・顧客の声分析 |
-| クリエイティブ | 6 | デザイン・コンテンツ |
-| グローバル | 3 | 海外市場参入・現地・翻訳 |
-| マーケ調査 | 8 | 広告・SEO・分析・PR |
+| クリエイティブ | 7 | デザイン・コンテンツ・営業資料 |
+| グローバル | 1 | 海外市場参入 |
+| マーケ調査 | 7 | 広告・SEO・分析・PR |
 
 </div>
 <div>
 
-## 19 スキル ＋ ハードルール ＋ 継続改善
+## 33 スキル ＋ ハードルール ＋ 継続改善
 
 <strong>プレイブック・テンプレ群</strong><br>
 コンサル / クリエイティブ / エンジニア各分野<br>業界プレイブック 5 業界 / プロンプトテンプレ 30 本
@@ -279,7 +339,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 | 観点 | 普通の Claude Code | ConsultingOS（AI エージェント OS） |
 |---|---|---|
 | 性格 | エンジニア向けコード支援ツール | <span class="accent">事業オペレーティングシステム</span> |
-| 担い手 | 単一の AI が応答 | 30 のエージェントが <span class="accent">役割分担して連携</span> |
+| 担い手 | 単一の AI が応答 | 27 のエージェントが <span class="accent">役割分担して連携</span> |
 | 業界知識 | 汎用 | 5 業界別プレイブック ＋ N.Y.CRAFT 専用版を新設 |
 | 品質保証 | なし（プロンプト次第） | 反証モード + 規律ルールで <span class="accent">機械的に弾く</span> |
 | 思想的基盤 | なし | 著名コンサル・経営者の <span class="accent">実証知見を組込み</span> |
@@ -292,7 +352,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 ---
 
-# 思想的基盤 — 30 名のエージェントが拠って立つ知見
+# 思想的基盤 : 27 名のエージェントが拠って立つ知見
 
 <div class="grid-2">
 <div>
@@ -349,7 +409,7 @@ NotebookLM は<span style="background:#FFF3CD; padding:2px 8px;">「辞書」</s
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — NotebookLM 時代</span>
+<span class="label before">Before : NotebookLM 時代</span>
 
 スペシャリストが資料作成に着手<br>
 ↓<br>
@@ -365,7 +425,7 @@ NotebookLM で過去資料を検索<br>
 
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After : 関根さんver OS</span>
 
 「業界・課題・予算」を入力<br>
 ↓<br>
@@ -389,7 +449,7 @@ NotebookLM で過去資料を検索<br>
 
 <div class="grid-2">
 <div class="card before">
-<span class="label before">Before — 今までのやり方</span>
+<span class="label before">Before : 今までのやり方</span>
 
 A 社訪問・課題ヒアリング<br>
 ↓<br>
@@ -403,7 +463,7 @@ A 社訪問・課題ヒアリング<br>
 
 </div>
 <div class="card after">
-<span class="label after">After — 関根さんver OS</span>
+<span class="label after">After : 関根さんver OS</span>
 
 A 社情報を入力（業界・規模・課題）<br>
 ↓<br>
@@ -462,8 +522,8 @@ A 社情報を入力（業界・規模・課題）<br>
 
 | OS の構成要素 | 関根さんver 化の中身 |
 |---|---|
-| 30 エージェント | 関根さんの判断ロジック・成功/失敗パターンを各エージェントに組込み |
-| 19 スキル（プレイブック） | 営業／組織／マネジメントの関根さんメソッドを独自スキルとして体系化 |
+| 27 エージェント | 関根さんの判断ロジック・成功/失敗パターンを各エージェントに組込み |
+| 33 スキル（プレイブック） | 営業／組織／マネジメントの関根さんメソッドを独自スキルとして体系化 |
 | 業界プレイブック | <span class="accent">中堅・中小企業／レガシービジネス向けプレイブックを新設</span>（既存 5 業界に追加） |
 | 顧客像定義書 / ブランド基盤書 | N.Y.CRAFT の顧客像・ブランド基盤を全エージェント共通参照に |
 | 反証モード（品質ガード） | 関根さん流の「絶対外しちゃダメ」をチェックリストに組込み |
@@ -487,7 +547,7 @@ A 社情報を入力（業界・規模・課題）<br>
 <div class="role-box center-os">
 <strong>関根さんver<br>ConsultingOS</strong><br>
 <span class="small">中核</span><br><br>
-<span class="small">30 エージェント ×<br>19 スキル ×<br>反証モード</span>
+<span class="small">27 エージェント ×<br>33 スキル ×<br>反証モード</span>
 </div>
 <div class="role-arrow">←</div>
 <div class="role-box">
@@ -638,7 +698,7 @@ Phase 1 スコープ縮小（業界プレイブック新設を Phase 2 送り／
 
 ---
 
-# リファレンス第 1 号 — N.Y.CRAFT 側のメリット
+# リファレンス第 1 号 : N.Y.CRAFT 側のメリット
 
 <blockquote class="small" style="margin-bottom:14px;">
 当社（提供者）は<strong>裏方に徹し対外的には一切表に出ません</strong>。本プロジェクトは<strong>完全に N.Y.CRAFT 様の取り組み</strong>として、自由に発信していただけます。
