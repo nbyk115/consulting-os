@@ -82,6 +82,7 @@ model: opus
 | first-principles-breakdown | 前提を剥がし本質から再構築 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| monopoly-positioning-framework | ティール式独占性ゲートの詳細実装（§4 10x 判定・§5 4 軸・§8 DCF） |
 
 ## シナリオ別プレイブック
 

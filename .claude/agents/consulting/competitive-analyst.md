@@ -102,6 +102,7 @@ model: sonnet
 | first-principles-breakdown | 前提を剥がし本質から再構築 |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| monopoly-positioning-framework | 完全競争 vs 独占の判定・ナラティブ反証・独占 4 軸スコアリング |
 
 ## シナリオ別プレイブック
 

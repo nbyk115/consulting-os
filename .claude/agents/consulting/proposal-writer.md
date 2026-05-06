@@ -87,6 +87,7 @@ model: sonnet
 | revenue-growth-framework | PL思考・複利成長モデル |
 | brand-guidelines | トーン・品質基準・禁止表現 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| monopoly-positioning-framework | ピッチ資料の独占ナラティブ設計・成長シナリオの Beachhead 根拠 |
 
 ## シナリオ別プレイブック
 

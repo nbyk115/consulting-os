@@ -121,6 +121,7 @@ GTM 設計時に4タイプのどれを構築するか宣言:
 | global-expansion-playbook | 海外展開・ローカライズ・現地オペレーション |
 | brand-guidelines | トーン・品質基準・禁止表現・英語ダッシュ禁止 |
 | agent-evaluation | 自己評価チェックリスト（軽量版・週次セルフレビュー） |
+| monopoly-positioning-framework | Beachhead 市場選定・海外版同心円拡大・独占判定ゲート |
 
 ## シナリオ別プレイブック
 
