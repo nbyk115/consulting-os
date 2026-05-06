@@ -37,6 +37,34 @@
 - 2026-05-20: Anthropic Claude Platform 新機能 3 種（Dreaming / Outcomes / Multi-Agent Orchestration）採用判断（評価項目: Dreaming は ConsultingOS evolution-log + memory/ + 4 週間再評価との統合余地、Outcomes は brand-guardian + score-os-health 単体テストとの統合余地、Multi-Agent Orchestration はハードルール 17 + 27 エージェント既存上位実装ゆえ不採用判定 FACT、Boris #3 削除セット整合確認）
 - 2026-06-03: AutoHarness 論文（arXiv:2603.03329、Google DeepMind）の ConsultingOS への組み込み判断（評価項目: 既存 hook 11 本を LLM 自己生成 + 自己改善型に refactor する Phase 4 級変更の妥当性、autoharness-pattern.md スキル新設の必要性、reality-check.sh / stop-validator.sh / orchestration-block.sh の AutoHarness 化 PoC、claude-mem との統合余地、Boris #3 削除セット整合）
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
+- 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
+
+### 2026-05-06 トリプルチェック自己虚偽事象学習（PR Y）
+
+ユーザー指示「100/100 だと思うけど。ほんと？最終 OS を全部トリプルチェックしてバグや機能不備がないか確認、あればなぜか、あわせて徹底的に改善、治して」に対し brand-guardian + tech-lead 並列起動で検査:
+
+発見 9 件:
+1. em ダッシュ 25 件残存（examples + strategy 配下）= PR #61「全面撲滅」は範囲限定の虚偽 = 自己虚偽事象再発（PR #59 型）。原因: PR #61 の sed 対象が .claude/ + docs/ + ルート *.md のみで examples/ + strategy/ + .html/.py/.css/.sh は対象外だった。
+2. 太字違反 34 件以上（docs/ + README）= ハードルール 16 ① グレーゾーン
+3. 出典・依拠先 78 ファイル形骸化 HIGH（PR #65 機械追加同一テンプレ）
+4. README L251「100/100 物理達成」完了系断言 + 実測値併記なし = ハードルール 1 違反
+5-8. score-os-health.sh 採点基準脆弱性 4 件（軸 3 文字長のみ / 機械追加由来 / 単純加算 / 軸 1 閾値罠）
+9. スキル数文書不整合（実態直下 24 vs 文書「直下 18」、PR L/Q/H/G/J/K で 6 件追加されたが文書未更新）= FACT 違反
+
+PR Y で即修正:
+- em/en ダッシュ全形式機械撲滅（.md/.html/.py/.js/.ts/.css/.sh）= 全リポジトリ 0 件確認
+- README L251 完了系断言修正（INFERENCE: 形式達成度、Phase 4 改善予定明示）
+- スキル数 27 → 33（直下 24 + サブ 9）= 文書整合
+- settings.json timeout 単位コメント追記（milliseconds 明記、ai-engineer 警告 2026-05-05 解消）
+
+Phase 4 持ち越し（2026-06-03 期日）:
+- score-os-health.sh 採点基準根本再設計（軸 3 テンプレ重複検出 / 軸 1 閾値再考 / Goodhart 防止）
+- test-score-os-health.sh 採点ロジック差分テスト追加（T9-T11）
+- 出典・依拠先 78 ファイルの実質化（テンプレ → ファイル別具体化）
+- ハードルール 13 違反学習（追加 18 PR vs 削除 0 件）+ Boris #3 削除セット運用物理化
+- 太字 `**` 違反 34 件の docs/ 分類明確化 + 修正
+
+構造的教訓: 「100/100」は score-os-health.sh の判定基準依存 = Goodhart の法則該当（測定対象が目標化）。真の品質保証ではなく形式達成度。Phase 4 で採点ロジック自体を AutoHarness 化（claude-mem / Anthropic Dreaming 統合）で構造的に劣化耐性を獲得する設計が必要。
 - 2026-08-04: `.claude/skills/app-design-patterns.md` §8 + `.claude/agents/consulting/proposal-writer.md` S7 の IAP 手数料公式料金確認（3 ヶ月後、Apple Small Business Program / Google Play 手数料の 2026-Q3 時点規約変更チェック、INFERENCE → FACT 格上げ または再 INFERENCE 化）
 - 2026-08-05: 本セッション 16 PR 連続実装（PR #42-#57）の累積成果を brand-guardian + tech-lead 並列起動で全体再検証（規律自己整合性 + hook 動作 + 数値統一 + 形骸化検出 + 削除エージェント言及残存ゼロ確認、3 ヶ月後の四半期レビュー）
 - 2026-05-12: PR #57 観察期間 3 件期日チェック（R1 jsonl パス命名規則変化 / R2 settings.json deny false positive 累積件数 / H2 GitHub ブランチ 7 件削除確認、未削除なら TODO 自体を削除）

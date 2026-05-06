@@ -8,6 +8,7 @@
     "ENABLE_TOOL_SEARCH": "auto:5",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
+  "_hooks_timeout_unit": "milliseconds（Claude Code 公式仕様、5000 = 5 秒。秒単位ではないので注意。2026-05-06 PR Y で明記、ai-engineer 警告 2026-05-05 解消）",
   "hooks": {
     "SessionStart": [
       {

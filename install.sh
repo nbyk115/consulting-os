@@ -1,5 +1,5 @@
 #!/bin/bash
-# ConsultingOS installer — consulting-os (正本) から同期
+# ConsultingOS installer: consulting-os (正本) から同期
 set -e
 
 TARGET_DIR="${1:-.}"
