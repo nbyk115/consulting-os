@@ -15,8 +15,7 @@ keywords = ["ai", "agent", "anthropic", "consulting", "ops"]
 dependencies = []
 
 [project.optional-dependencies]
-anthropic = ["anthropic>=0.40.0"]
-dev = ["pytest>=8.0", "pytest-mock>=3.12"]
+dev = ["pytest>=8.0"]
 
 [project.scripts]
 consulting-os = "consulting_os.cli:main"

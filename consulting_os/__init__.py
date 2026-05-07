@@ -1,12 +1,20 @@
-"""ConsultingOS runtime: Anthropic SDK 上の規律レイヤー.
+"""ConsultingOS runtime utilities (zero cost).
 
-ConsultingOS を「呼べば動く AI エージェント」として callable にする runtime.
-Anthropic SDK が production reliability を担保し、本パッケージが規律
-(反証チェック / 出典ラベル / 6 部門 routing) を enforce する。
+実 runtime = Claude Code (ユーザー既存契約)。本パッケージは Anthropic API を
+直接叩かず、以下のみ提供:
+
+  - format_prompt(agent, request, context) -> dict[str, str]
+      agent + skill + 規律 instruction を統合してプロンプト整形
+
+  - validate_output(output_text) -> Result
+      応答テキストに対して反証チェック + 出典ラベル + 裸数値を機械検証
+
+API 課金は発生しない (markdown / yaml parsing と regex 検証のみ)。
+Claude Code への引き渡しは format_prompt() の戻り値を使う。
 """
 
-from consulting_os.invoke import Result, invoke
+from consulting_os.invoke import Result, format_prompt, validate_output
 from consulting_os.types import Agent, Skill
 
-__version__ = "1.0.0"
-__all__ = ["invoke", "Result", "Agent", "Skill"]
+__version__ = "1.1.0"
+__all__ = ["format_prompt", "validate_output", "Result", "Agent", "Skill"]
