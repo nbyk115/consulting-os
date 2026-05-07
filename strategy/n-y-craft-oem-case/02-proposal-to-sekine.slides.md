@@ -412,7 +412,9 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v19</p>
+<p class="neutral" style="font-size:14px; margin-top:8px; opacity:0.7;">略語注: PMF = プロダクトマーケットフィット（売れる仕組みづくりが完成した状態）／ KPI = 成果指標／ LP = 営業用ランディングページ</p>
+
+<p class="neutral">2026.05 / v21</p>
 
 ---
 
@@ -517,7 +519,7 @@ AI エージェントで量産可能にする
 <div class="data-card chance">
 <span class="stat-tag chance">市場の機会</span>
 <div class="stat">48.5<span style="font-size:18px;">%</span></div>
-<div class="stat-label">複数 AI 連携市場の年平均成長率<br>2025: 78 億 → 2030: 526 億ドル</div>
+<div class="stat-label">複数 AI 連携市場（Multi-Agent）の年平均成長率<br>2025: 78 億 → 2030: 526 億ドル</div>
 <div class="src"><a href="https://www.marketsandmarkets.com/PressReleases/ai-agents.asp">MarketsandMarkets (2025)</a></div>
 </div>
 <div class="data-card chance">
@@ -895,6 +897,10 @@ A 社情報を入力（業界・規模・課題）<br>
 
 # 関根さんver 化で組み込むもの
 
+<div class="small neutral" style="margin-bottom:10px;">
+前出スライド「思想的基盤」（標準装備）の上に、以下を関根さん独自カスタムとして上書き・追加するイメージ
+</div>
+
 | OS の構成要素 | 関根さんver 化の中身 |
 |---|---|
 | 27 エージェント | 関根さんの判断ロジック・成功/失敗パターンを各エージェントに組込み |
@@ -1084,7 +1090,7 @@ Phase 1 スコープ縮小（業界プレイブック新設を Phase 2 送り／
 <div class="benefit-card">
 <div class="benefit-num">01</div>
 <div class="benefit-title">自社事例として自由に発信可能</div>
-<div class="benefit-body">「AI 事業 OS 導入の先進企業」として、プレスリリース・業界誌・カンファレンス登壇等を N.Y.CRAFT 名義で実施可能。当社名・OS 名の開示義務なし</div>
+<div class="benefit-body">「AI 事業 OS 導入の先進企業」（ソフトバンク・サイバーエージェント等の AI 内製先行企業と同列の文脈）として、プレスリリース・業界誌・カンファレンス登壇等を N.Y.CRAFT 名義で実施可能。当社名・OS 名の開示義務なし</div>
 </div>
 
 <div class="benefit-card">
