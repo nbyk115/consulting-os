@@ -1,197 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case B 圧縮版 10 slides — ConsultingOS 1000 万円エンジェル出資</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --primary: #0A0A0A;
-  --bg: #FAFAF7;
-  --accent: #1E3A8A;
-  --warning: #B91C1C;
-  --neutral-100: #F2F2EE;
-  --neutral-300: #D4D4D0;
-  --neutral-500: #5A5A5A;
-  --neutral-700: #374151;
-  --white: #FFFFFF;
+:root{
+  --primary:#0A0A0A;
+  --bg:#FAFAF7;
+  --accent:#1E3A8A;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --info:#3B82F6;
+  --n100:#F2F2EE;
+  --n300:#D4D4D0;
+  --n500:#5A5A5A;
+  --n700:#374151;
+  --white:#FFFFFF;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
-  background: #1F2937;
-  color: var(--primary);
-  font-family: "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
-    "Noto Sans JP", "Meiryo", "メイリオ", sans-serif;
-  -webkit-font-smoothing: antialiased;
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#111827;color:var(--primary);
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP",system-ui,sans-serif;
+  font-weight:400;-webkit-font-smoothing:antialiased;
 }
-.nav {
-  position: fixed; top: 16px; left: 16px; z-index: 50;
-  background: rgba(0,0,0,0.78); color: #fff;
-  padding: 10px 14px; font-size: 11px;
-  letter-spacing: 0.05em; font-family: "Inter", "Noto Sans JP", sans-serif;
+.nav{
+  position:fixed;top:16px;left:16px;z-index:50;
+  background:rgba(0,0,0,0.82);color:#fff;
+  padding:10px 16px;border-radius:6px;font-size:12px;
+  letter-spacing:0.05em;font-family:"Inter","Noto Sans JP",sans-serif;
+  backdrop-filter:blur(8px);
 }
-.nav a { color: #fff; text-decoration: none; opacity: 0.7; margin-right: 14px; }
-.nav a:hover { opacity: 1; }
-.nav a.active { opacity: 1; color: #93C5FD; }
-.deck {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 24px; padding: 70px 12px 80px;
+.nav a{color:#fff;text-decoration:none;opacity:0.65;margin-right:14px;transition:opacity 0.2s}
+.nav a:hover{opacity:1}
+.nav a.active{opacity:1;color:#93C5FD}
+.deck{display:flex;flex-direction:column;align-items:center;gap:24px;padding:72px 12px 96px}
+.slide-label{
+  align-self:flex-start;color:#6B7280;font-size:12px;
+  font-family:"Inter",sans-serif;letter-spacing:0.08em;
+  margin-left:calc((100% - 1280px)/2);padding-left:2px;
 }
-.slide-label {
-  align-self: flex-start;
-  color: #6B7280; font-size: 11px;
-  font-family: "Inter", sans-serif;
-  margin-left: calc((100% - 1280px) / 2);
-  padding-left: 2px;
+@media(max-width:1280px){.slide-label{margin-left:2px}}
+.slideWrap{
+  width:1280px;max-width:100%;aspect-ratio:1280/720;
+  position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.55);
+  overflow:hidden;background:var(--bg);
+  container-type:inline-size;
 }
-.slideWrap {
-  width: 1280px;
-  max-width: 100%;
-  aspect-ratio: 1280/720;
-  position: relative;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
-  overflow: hidden;
-  background: var(--bg);
-  container-type: inline-size;
+.slide{
+  width:1280px;height:720px;background:var(--bg);color:var(--primary);
+  position:absolute;top:0;left:0;overflow:hidden;
+  transform-origin:top left;
+  transform:scale(calc(100cqw / 1280px));
+  word-break:auto-phrase;line-break:strict;overflow-wrap:break-word;
 }
-.slide {
-  width: 1280px; height: 720px;
-  background: var(--bg); color: var(--primary);
-  position: absolute; top: 0; left: 0;
-  overflow: hidden;
-  transform-origin: top left;
-  transform: scale(calc(100cqw / 1280px));
-}
-.slide, .slide * { word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; }
+.slide *{word-break:auto-phrase;line-break:strict;overflow-wrap:break-word}
 
-/* Cover */
-.cover {
-  background: #0A0A2A;
-  display: flex; flex-direction: column;
-  justify-content: center; padding: 64px 80px;
-  position: relative;
+/* ─── COVER ─── */
+.cover{background:var(--primary);position:relative;overflow:hidden}
+.cover-accent{position:absolute;left:0;top:0;width:8px;height:100%;background:var(--accent)}
+.cover-frame{
+  position:absolute;inset:0;padding:56px 72px;
+  display:flex;flex-direction:column;justify-content:space-between;
 }
-.cover-bar {
-  position: absolute; left: 0; top: 0; width: 6px; height: 100%;
-  background: var(--accent);
+.cover-top{
+  font-size:12px;color:#6B7280;letter-spacing:0.14em;
+  font-family:"Inter",sans-serif;text-transform:uppercase;
+  margin-left:20px;
 }
-.cover-eyebrow {
-  font-size: 11px; color: #8899BB; letter-spacing: 0.12em;
-  font-family: "Inter", sans-serif; margin-bottom: 20px; text-transform: uppercase;
+.cover-mid{margin-left:20px;margin-top:20px}
+.cover-kpi-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
+  margin-left:20px;margin-top:12px;
 }
-.cover-h1 { font-size: 46px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 18px; max-width: 840px; }
-.cover-sub { font-size: 19px; color: #B0BCD4; line-height: 1.55; max-width: 720px; margin-bottom: 40px; }
-.cover-meta { display: flex; gap: 44px; }
-.meta-item { display: flex; flex-direction: column; gap: 3px; }
-.meta-lbl { font-size: 10px; color: #6677AA; letter-spacing: 0.1em; text-transform: uppercase; font-family: "Inter", sans-serif; }
-.meta-val { font-size: 13px; color: #CCD5E8; font-weight: 600; }
-
-/* Standard slide */
-.std { padding: 36px 60px 44px; display: flex; flex-direction: column; }
-.slide-hd {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  padding-bottom: 14px; border-bottom: 1.5px solid var(--neutral-300);
-  margin-bottom: 18px;
+.cover-kpi{padding:12px 16px;border-left:2px solid rgba(255,255,255,0.15)}
+.cover-kpi-num{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:80px;
+  letter-spacing:-0.02em;line-height:1;color:#fff;
 }
-.slide-hd-left { display: flex; flex-direction: column; gap: 3px; }
-.slide-tag {
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); font-family: "Inter", sans-serif; font-weight: 700;
+.cover-kpi-unit{font-size:28px;font-weight:700;margin-left:4px;color:#93C5FD}
+.cover-kpi-label{font-size:13px;color:#6B7280;margin-top:4px;letter-spacing:0.06em}
+.cover-h1{
+  font-size:56px;font-weight:800;color:#fff;line-height:1.15;
+  letter-spacing:-0.01em;
 }
-.slide-title { font-size: 26px; font-weight: 700; color: var(--primary); line-height: 1.25; }
-.slide-pg { font-size: 11px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
-.key-msg {
-  background: var(--neutral-100); border-left: 4px solid var(--accent);
-  padding: 11px 16px; margin-bottom: 18px;
-  font-size: 13px; font-weight: 600; color: var(--primary); line-height: 1.6;
+.cover-sub{font-size:17px;color:#9CA3AF;line-height:1.85;max-width:760px;margin-top:10px}
+.cover-bot{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:1px solid rgba(255,255,255,0.15);padding-top:16px;
+  margin-left:20px;
 }
-.slide-body { flex: 1; }
+.cover-bot-left{font-size:13px;color:#6B7280;line-height:1.7}
+.cover-bot-right{font-size:12px;color:#6B7280;text-align:right;font-family:"Inter",sans-serif}
 
-/* Labels */
-.lf, .li, .ls {
-  display: inline-block; font-size: 8px; font-family: "Inter", sans-serif;
-  font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  padding: 1px 5px; border-radius: 2px; vertical-align: middle; margin-left: 3px;
+/* ─── STANDARD SLIDE FRAME ─── */
+.frame{position:absolute;inset:0;padding:44px 56px 44px;display:flex;flex-direction:column}
+.slide-hd{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding-bottom:14px;border-bottom:2px solid var(--n300);margin-bottom:18px;
+  flex:0 0 auto;
 }
-.lf { background: #DBEAFE; color: #1E3A8A; }
-.li { background: #F3F4F6; color: #374151; border: 1px solid #D1D5DB; }
-.ls { background: #FFF7ED; color: #9A3412; border: 1px solid #FDBA74; }
-
-/* Tables */
-.tbl { width: 100%; border-collapse: collapse; font-size: 11px; }
-.tbl th {
-  background: var(--neutral-100); padding: 7px 11px;
-  text-align: left; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase;
-  color: var(--neutral-700); font-weight: 700;
-  border-bottom: 1.5px solid var(--neutral-300); border-right: 1px solid var(--neutral-300);
+.slide-tag{
+  font-size:11px;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--accent);font-family:"Inter",sans-serif;font-weight:700;
 }
-.tbl th:last-child { border-right: none; }
-.tbl td {
-  padding: 8px 11px; color: var(--primary);
-  border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300);
-  vertical-align: top; line-height: 1.5;
+.slide-h1{font-size:36px;font-weight:800;color:var(--primary);line-height:1.25;margin-top:3px}
+.slide-pg{font-size:12px;color:var(--n500);font-family:"Inter",sans-serif;flex-shrink:0}
+
+/* Key message bar */
+.key-msg{
+  background:var(--n100);border-left:4px solid var(--accent);
+  padding:11px 18px;margin-bottom:18px;flex:0 0 auto;
+  font-size:15px;font-weight:700;color:var(--primary);line-height:1.6;
 }
-.tbl td:last-child { border-right: none; }
-.tbl tr:last-child td { border-bottom: none; }
-.caption { font-size: 10px; color: var(--neutral-500); font-family: "Inter", sans-serif; margin-top: 6px; }
 
-/* 3 column */
-.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-.col-blk { background: var(--neutral-100); padding: 13px 15px; border-top: 3px solid var(--accent); }
-.col-blk-title { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--neutral-700); margin-bottom: 9px; }
-.col-blk-body { font-size: 11px; color: var(--primary); line-height: 1.55; }
-.col-blk-body li { list-style: none; padding-left: 12px; position: relative; margin-bottom: 5px; }
-.col-blk-body li::before { content: "–"; position: absolute; left: 0; color: var(--neutral-500); }
+/* Body */
+.slide-body{flex:1;overflow:hidden;display:flex;flex-direction:column;gap:0}
 
-/* Phase row */
-.phase-row { display: flex; gap: 0; margin-bottom: 14px; }
-.phase-item { flex: 1; padding: 11px 13px; background: var(--neutral-100); border-right: 1px solid var(--neutral-300); }
-.phase-item:last-child { border-right: none; }
-.phase-item.active { background: #EFF6FF; border-top: 3px solid var(--accent); }
-.phase-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--neutral-500); margin-bottom: 4px; }
-.phase-ttl { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 3px; }
-.phase-det { font-size: 10px; color: var(--neutral-700); line-height: 1.5; }
+/* 2 column layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;flex:1}
 
-/* Compare grid */
-.cmp { display: grid; grid-template-columns: 150px 1fr 1fr; font-size: 11px; border: 1px solid var(--neutral-300); }
-.cmp-hd { background: var(--neutral-100); padding: 8px 11px; font-weight: 700; font-size: 10px; color: var(--primary); border-bottom: 1.5px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); }
-.cmp-hd:last-child { border-right: none; }
-.cmp-lbl { background: var(--neutral-100); padding: 7px 11px; font-size: 10px; font-weight: 600; color: var(--neutral-700); border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); }
-.cmp-cel { padding: 7px 11px; color: var(--primary); border-bottom: 1px solid var(--neutral-300); border-right: 1px solid var(--neutral-300); line-height: 1.5; }
-.cmp-cel.rec { background: #EFF6FF; }
-.cmp-cel:last-child { border-right: none; }
+/* ─── REASON 3 TILES (hotice slide-p8a 流) ─── */
+.reason3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;flex:1;border-top:1px solid var(--primary);border-left:1px solid var(--primary)}
+.reason{border-right:1px solid var(--primary);border-bottom:1px solid var(--primary);padding:20px 24px;background:var(--white);display:flex;flex-direction:column;gap:8px;position:relative}
+.reason-num{font-family:"Inter",sans-serif;font-weight:900;font-size:11px;letter-spacing:0.2em;color:var(--accent)}
+.reason-big{font-family:"Inter",sans-serif;font-weight:900;font-size:80px;letter-spacing:-0.03em;line-height:0.95;color:var(--primary);margin:6px 0 4px}
+.reason-big.accent{color:var(--accent)}
+.reason-big.warn{color:var(--warning)}
+.reason-big.suc{color:var(--success)}
+.reason-big-unit{font-size:28px;font-weight:700;margin-left:3px}
+.reason-title{font-size:22px;font-weight:800;line-height:1.35;letter-spacing:-0.005em}
+.reason-body{font-size:14px;color:var(--n500);line-height:1.75;margin-top:4px}
+.reason-cmp{margin-top:auto;padding-top:10px;border-top:1px dashed var(--n300);font-size:12px;color:var(--n500);line-height:1.6}
 
-/* Ask */
-.ask-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--neutral-300); }
-.ask-item:last-of-type { border-bottom: none; }
-.ask-num { font-size: 18px; font-weight: 700; color: var(--accent); font-family: "Inter", sans-serif; min-width: 26px; padding-top: 2px; }
-.ask-ttl { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 3px; }
-.ask-dsc { font-size: 11px; color: var(--neutral-700); line-height: 1.55; }
+/* ─── LABELS ─── */
+.lbl{display:inline-block;font-size:11px;font-family:"Inter",sans-serif;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:4px}
+.lbl-f{background:var(--accent);color:#fff}
+.lbl-i{background:var(--n700);color:#fff}
+.lbl-s{background:var(--n500);color:#fff}
 
-/* Next steps */
-.next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 14px; }
-.next-step { padding: 11px 13px; border: 1px solid var(--neutral-300); background: var(--white); }
-.ns-num { font-size: 9px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; font-family: "Inter", sans-serif; margin-bottom: 4px; }
-.ns-ttl { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 3px; }
-.ns-dt { font-size: 10px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
-
-/* Info boxes */
-.ib { padding: 10px 14px; font-size: 11px; line-height: 1.65; margin-top: 11px; }
-.ib-n { background: var(--neutral-100); color: var(--neutral-700); }
-.ib-w { background: #FEF2F2; border-left: 4px solid var(--warning); color: var(--warning); }
-
-/* Footer */
-.slide-ft {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 30px;
-  background: var(--neutral-100); border-top: 1px solid var(--neutral-300);
-  display: flex; align-items: center; justify-content: space-between; padding: 0 60px;
+/* ─── TABLES ─── */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{
+  background:var(--primary);color:#fff;
+  padding:12px 16px;text-align:left;font-size:14px;
+  letter-spacing:0.04em;font-weight:700;
+  border-right:1px solid rgba(255,255,255,0.1);line-height:1.6;
 }
-.ft-txt { font-size: 9px; color: var(--neutral-500); font-family: "Inter", sans-serif; }
+.tbl th:last-child{border-right:none}
+.tbl td{
+  padding:12px 16px;color:var(--primary);
+  border-bottom:1px solid var(--n300);border-right:1px solid var(--n300);
+  vertical-align:top;line-height:1.6;font-size:14px;
+}
+.tbl td:last-child{border-right:none}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr:nth-child(odd){background:var(--n100)}
+.tbl tbody tr:nth-child(even){background:var(--white)}
+.tbl td.hl{background:#EFF6FF;font-weight:700}
 
-.divider { height: 1px; background: var(--neutral-300); margin: 12px 0; }
+/* ─── COMPARE GRID ─── */
+.cmp{display:grid;grid-template-columns:130px 1fr 1fr;font-size:14px;border:1px solid var(--n300)}
+.cmp-hd{background:var(--n100);padding:10px 14px;font-weight:700;font-size:12px;color:var(--primary);border-bottom:2px solid var(--n300);border-right:1px solid var(--n300)}
+.cmp-hd.rec{background:var(--accent);color:#fff}
+.cmp-hd:last-child{border-right:none}
+.cmp-lbl{background:var(--n100);padding:10px 14px;font-size:13px;font-weight:700;color:var(--n700);border-bottom:1px solid var(--n300);border-right:1px solid var(--n300)}
+.cmp-cel{padding:10px 14px;color:var(--primary);border-bottom:1px solid var(--n300);border-right:1px solid var(--n300);line-height:1.6}
+.cmp-cel.rec{background:#EFF6FF}
+.cmp-cel:last-child{border-right:none}
+
+/* ─── INFO BOX ─── */
+.ib{padding:11px 18px;font-size:14px;line-height:1.75;margin-top:12px}
+.ib-n{background:var(--n100);color:var(--n700);border-left:3px solid var(--n300)}
+.ib-w{background:#FEF2F2;border-left:4px solid var(--warning);color:var(--warning)}
+
+/* ─── SOURCE BAR ─── */
+.src-bar{
+  position:absolute;bottom:0;left:0;right:0;height:28px;
+  background:rgba(10,10,10,0.90);
+  display:flex;align-items:center;justify-content:space-between;padding:0 24px;
+  font-size:12px;color:#9CA3AF;font-family:"Inter",sans-serif;letter-spacing:0.03em;
+  z-index:10;
+}
+.src-bar a{color:#60A5FA;text-decoration:none}
+
+/* ─── CANVAS for Chart.js ─── */
+.chart-wrap{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.chart-wrap canvas{max-width:100%;max-height:100%}
+
+/* ─── SCENARIO BARS (CSS) ─── */
+.scenario-bars{display:flex;flex-direction:column;gap:12px;padding:12px 0}
+.scenario-row{display:grid;grid-template-columns:64px 1fr 100px;gap:12px;align-items:center}
+.scenario-label{font-size:13px;font-weight:700;color:var(--n500);text-align:right}
+.scenario-label.best{color:var(--success)}
+.scenario-label.base{color:var(--accent)}
+.scenario-label.worst{color:var(--warning)}
+.scenario-track{height:24px;background:var(--n100);border-radius:3px;overflow:hidden;position:relative}
+.scenario-fill{height:100%;border-radius:3px;transition:width 0.6s ease}
+.scenario-fill.best{background:var(--success);width:95%}
+.scenario-fill.base{background:var(--accent);width:60%}
+.scenario-fill.worst{background:var(--warning);width:30%}
+.scenario-val{font-family:"Inter",sans-serif;font-size:22px;font-weight:900;letter-spacing:-0.01em}
+.scenario-val.best{color:var(--success)}
+.scenario-val.base{color:var(--accent)}
+.scenario-val.worst{color:var(--warning)}
+
+/* ─── PHASE TIMELINE ─── */
+.phase-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:14px;border-top:2px solid var(--accent)}
+.phase-item{padding:12px 16px;background:var(--white);border-right:1px solid var(--n300);display:flex;flex-direction:column;gap:4px;border-top:4px solid transparent}
+.phase-item:last-child{border-right:none}
+.phase-item.active{border-top-color:var(--accent);background:#EFF6FF}
+.phase-item.active2{border-top-color:var(--primary)}
+.phase-lbl{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--n500);font-family:"Inter",sans-serif}
+.phase-ttl{font-size:15px;font-weight:800;color:var(--primary);margin-top:3px;line-height:1.3}
+.phase-det{font-size:13px;color:var(--n700);line-height:1.6;margin-top:4px}
+
+/* ─── ASK TIERS ─── */
+.ask-tiers{display:flex;flex-direction:column;gap:12px;padding:16px 20px;background:var(--primary);color:#fff;flex:0 0 auto}
+.ask-tier{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.ask-tier:last-child{border-bottom:none}
+.ask-tier-num{font-family:"Inter",sans-serif;font-weight:900;font-size:36px;letter-spacing:-0.02em;color:var(--accent);text-align:right;line-height:1}
+.ask-tier-unit{font-size:14px;font-weight:700;margin-left:2px;color:#93C5FD}
+.ask-tier-title{font-size:15px;font-weight:800;color:#fff;line-height:1.3}
+.ask-tier-desc{font-size:13px;color:#9CA3AF;line-height:1.6;margin-top:4px}
+.ask-big{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:96px;
+  letter-spacing:-0.02em;line-height:1;color:#fff;text-align:center;
+  margin:12px 0 8px;
+}
+.ask-big-unit{font-size:32px;font-weight:700;color:#93C5FD;margin-left:6px}
+
+/* ─── NEXT STEPS ─── */
+.next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px;flex:0 0 auto}
+.next-step{padding:14px 18px;border:1px solid var(--n300);background:var(--white)}
+.ns-num{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:0.14em;font-family:"Inter",sans-serif;margin-bottom:6px}
+.ns-ttl{font-size:15px;font-weight:800;color:var(--primary);margin-bottom:4px;line-height:1.3}
+.ns-dt{font-size:13px;color:var(--n500);font-family:"Inter",sans-serif}
+
+/* ─── KPI 2-COL (hotice slide-p10 流) ─── */
+.kpi2col{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--primary);border-left:1px solid var(--primary);flex:0 0 auto}
+.kpi2{border-right:1px solid var(--primary);border-bottom:1px solid var(--primary);padding:20px 24px;background:var(--white)}
+.kpi2-label{font-size:11px;letter-spacing:0.16em;color:var(--n500);font-weight:700;font-family:"Inter",sans-serif;text-transform:uppercase}
+.kpi2-num{font-family:"Inter",sans-serif;font-weight:900;font-size:80px;letter-spacing:-0.02em;line-height:1;color:var(--accent);margin-top:4px}
+.kpi2-num.warn{color:var(--warning)}
+.kpi2-num.suc{color:var(--success)}
+.kpi2-unit{font-size:26px;font-weight:700;margin-left:4px}
+.kpi2-desc{font-size:14px;color:var(--n500);line-height:1.7;margin-top:6px}
 </style>
 </head>
 <body>
@@ -202,465 +261,642 @@ html, body {
   <a href="./case-b.html" class="active">Case B 圧縮 10</a>
   <a href="./case-c.html">Case C 1 ページ</a>
   <a href="./00-business-plan-master.md">マスター</a>
-  <a href="./04-mtg-playbook.md">MTG プレイブック</a>
 </nav>
 
 <main class="deck">
 
-<!-- B01 -->
-<div class="slide-label">B01 / 10</div>
+<!-- ─── B01 COVER ─── -->
+<div class="slide-label">B01 / 10 — Cover</div>
 <div class="slideWrap">
 <div class="slide cover">
-  <div class="cover-bar"></div>
-  <div class="cover-eyebrow">ConsultingOS — Angel Investment Pitch / Case B（圧縮版 10 slides）</div>
-  <div class="cover-h1">AI 駆動コンサル基盤 OS 起動</div>
-  <div class="cover-sub">ConsultingOS = 6 部門 30 エージェントが連携する Claude Code ネイティブ OS。1000 万円で商用化へ。</div>
-  <div class="cover-meta">
-    <div class="meta-item"><span class="meta-lbl">MTG</span><span class="meta-val">2026-05-07</span></div>
-    <div class="meta-item"><span class="meta-lbl">対象</span><span class="meta-val">水野氏（個人投資家）</span></div>
-    <div class="meta-item"><span class="meta-lbl">形式</span><span class="meta-val">30 秒判断用 圧縮版</span></div>
-    <div class="meta-item"><span class="meta-lbl">起案日</span><span class="meta-val">2026-05-04</span></div>
-    <div class="meta-item"><span class="meta-lbl">起案</span><span class="meta-val">ConsultingOS</span></div>
-  </div>
-</div>
-</div>
-
-<!-- B02 -->
-<div class="slide-label">B02 / 10</div>
-<div class="slideWrap">
-<div class="slide std">
-  <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">Why Now</span>
-      <h2 class="slide-title">今この交点にしか勝機はない</h2>
-    </div>
-    <span class="slide-pg">B02</span>
-  </div>
-  <div class="key-msg">技術 × ユーザー × 市場構造の 3 変数が 2026 年初頭に重なった。先行者優位の窓は 6 ヶ月以内に固まる。<span class="ls">SPECULATION</span></div>
-  <div class="slide-body">
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th style="width:130px">変数</th>
-          <th>内容</th>
-          <th style="width:110px">ラベル</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600">技術変化</td>
-          <td>Claude Code MCP の登場でエージェントに職務定義と規律を与えることが初めて可能になった。Opus 4.7 / SDK 化が実装コストを低下させた。</td>
-          <td><span class="lf">FACT</span></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">ユーザー変化</td>
-          <td>中堅中小事業者の AI リテラシーが急上昇し、「AI を使ったコンサル」への受容障壁が下がりつつある。</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">市場構造変化</td>
-          <td>コンサル人月単価の高止まりが継続（公開料金体系より）。SME が大手コンサルに依頼できない構造的空白が拡大。</td>
-          <td><span class="lf">FACT</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="ib ib-n">3 変数全ての交点が同時に成立する期間は短い。1 変数でも欠けると「良いプロダクトだが負ける」シナリオになる。先行者優位の窓は 6 ヶ月以内に固まるとみる。<span class="ls">SPECULATION</span>（類似 OSS 事例からの類推）</div>
-  </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 5「4 思想統合・3 変数交点」</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
-  </div>
-</div>
-</div>
-
-<!-- B03 -->
-<div class="slide-label">B03 / 10</div>
-<div class="slideWrap">
-<div class="slide std">
-  <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">差別化構造</span>
-      <h2 class="slide-title">品質・セキュリティ・自己進化の 3 軸</h2>
-    </div>
-    <span class="slide-pg">B03</span>
-  </div>
-  <div class="key-msg">反証モード（品質）/ 3 層防御（セキュリティ）/ フロー × ストック（自己進化）の 3 軸が差別化の構造的根拠。</div>
-  <div class="slide-body">
-    <div class="three-col">
-      <div class="col-blk">
-        <div class="col-blk-title">反証モード（品質）</div>
-        <div class="col-blk-body">
-          <ul>
-            <li>全出力に FACT / INFERENCE / SPECULATION の 3 ラベルを強制付与</li>
-            <li>Step 1-3 の自己反証プロセスを構造化</li>
-            <li>brand-guardian による機械的品質ゲート</li>
-            <li>属人依存なしの判断品質設計</li>
-          </ul>
+  <div class="cover-accent"></div>
+  <div class="cover-frame">
+    <div class="cover-top">ConsultingOS — Angel Investment Pitch / Case B 圧縮版 10 slides / 2026-05-07</div>
+    <div class="cover-mid">
+      <div class="cover-h1">AI 駆動コンサル基盤<br>OS 起動</div>
+      <div class="cover-sub">ConsultingOS = 6 部門 30 エージェントが連携する Claude Code ネイティブ OS。1000 万円で商用化フェーズへ。</div>
+      <!-- 巨大数値 3 段 -->
+      <div class="cover-kpi-row" style="margin-top:20px">
+        <div class="cover-kpi">
+          <div class="cover-kpi-num">30<span class="cover-kpi-unit">エージェント</span></div>
+          <div class="cover-kpi-label">6 部門 / 連携 OS</div>
         </div>
-      </div>
-      <div class="col-blk">
-        <div class="col-blk-title">3 層セキュリティ防御</div>
-        <div class="col-blk-body">
-          <ul>
-            <li>Layer 0: Gitleaks 静的検知（シークレット漏洩防止）</li>
-            <li>Layer 1: CLAUDE.md Hard Rules 17 項目</li>
-            <li>Layer 2: Stop Hook による実行時ブロック</li>
-            <li>機密案件対応の多層設計</li>
-          </ul>
+        <div class="cover-kpi">
+          <div class="cover-kpi-num">19<span class="cover-kpi-unit">スキル</span></div>
+          <div class="cover-kpi-label">業界別プレイブック</div>
         </div>
-      </div>
-      <div class="col-blk">
-        <div class="col-blk-title">フロー × ストック（自己進化）</div>
-        <div class="col-blk-body">
-          <ul>
-            <li>examples/ 蓄積型の知識資産設計</li>
-            <li>evolution-log.md による学習記録</li>
-            <li>使えば使うほど参入障壁が高まる構造<span class="li">INFERENCE</span></li>
-            <li>コードコピーでは再現困難</li>
-          </ul>
+        <div class="cover-kpi">
+          <div class="cover-kpi-num">6<span class="cover-kpi-unit">部門</span></div>
+          <div class="cover-kpi-label">戦略→実装→マーケ</div>
         </div>
       </div>
     </div>
-    <div class="ib ib-n">上記 3 軸の複合依存（CLAUDE.md / ICP.md / DESIGN.md / 反証ゲート）が模倣障壁として機能する。<span class="li">INFERENCE</span></div>
+    <div class="cover-bot">
+      <div class="cover-bot-left">
+        MTG: 2026-05-07 / 対象: 水野氏（個人投資家）<br>
+        形式: 30 秒判断用 圧縮版 / 起案日: 2026-05-04
+      </div>
+      <div class="cover-bot-right">ConsultingOS<br>claude/mizuno-funding-pitch-KheGN</div>
+    </div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 8「Secret Thesis 3 点」</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
-  </div>
+  <!-- 背景薄ロゴ -->
+  <svg style="position:absolute;right:-40px;bottom:-60px;opacity:0.04;pointer-events:none" width="500" height="500" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <text x="50" y="75" text-anchor="middle" font-family="Inter,sans-serif" font-size="80" font-weight="900" fill="#fff">OS</text>
+  </svg>
 </div>
 </div>
 
-<!-- B04 -->
-<div class="slide-label">B04 / 10</div>
+<!-- ─── B02 WHY NOW ─── -->
+<div class="slide-label">B02 / 10 — Why Now / 今この交点にしか勝機はない</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">競合分析</span>
-      <h2 class="slide-title">4 カテゴリと差別化が分離</h2>
+    <div>
+      <div class="slide-tag">Why Now</div>
+      <h2 class="slide-h1">今この交点にしか勝機はない</h2>
     </div>
-    <span class="slide-pg">B04</span>
+    <span class="slide-pg">B02 / 10</span>
   </div>
-  <div class="key-msg">単発プロンプト / 個別ツール / 大手コンサル / 自前 LLM の 4 カテゴリとの差別化軸が非重複。agency-swarm は L3 代表で 4.3k Stars。<span class="lf">FACT</span></div>
+  <div class="key-msg">技術 × ユーザー × 市場構造の 3 変数が 2026 年初頭に重なった。先行者優位の窓は 6 ヶ月以内に固まる。<span class="lbl lbl-s">SPECULATION</span></div>
   <div class="slide-body">
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th style="width:105px">レイヤー</th>
-          <th style="width:190px">代表</th>
-          <th>ConsultingOS の対抗軸</th>
-          <th style="width:115px">ラベル</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600">L1 大手コンサル</td>
-          <td>マッキンゼー / BCG / アクセンチュア</td>
-          <td>属人化解消不可 / SME 届かず / 実装薄い → コンサル能力そのものを OS 化</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">L2 個別 AI ツール</td>
-          <td>Cursor / GitHub Copilot / Claude Code</td>
-          <td>経営判断・複数部門連携なし → IDE 層は基盤として活用、判断規律層を載せる</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">L3 マルチエージェント</td>
-          <td>agency-swarm 4.3k Stars / AutoGen / CrewAI</td>
-          <td>コンサル業務固有規律なし / エンジニア工数必要 → 垂直統合 vs 汎用、即日導入 vs 工数</td>
-          <td><span class="lf">FACT</span>（Stars数）<span class="li">INFERENCE</span>（差別化）</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">L4 自前構築</td>
-          <td>内製 LLM / 自社プロンプト集</td>
-          <td>構築コスト 3-6 ヶ月 / 規律維持属人化 → install.sh 即日導入で代替</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="caption">agency-swarm Stars 4.3k: 2026-05-04 GitHub 直接確認済。AutoGen / CrewAI / LangGraph の Stars 数は MTG 前追加検証推奨（現状未検証）。</div>
+    <div class="two-col">
+      <!-- 左: SVG ベン図 -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <svg width="100%" viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" aria-label="3変数交点ベン図" style="display:block">
+          <defs>
+            <filter id="blur1"><feGaussianBlur in="SourceGraphic" stdDeviation="3"/></filter>
+          </defs>
+          <!-- 3 circles -->
+          <circle cx="190" cy="100" r="85" fill="#1E3A8A" opacity="0.12" filter="url(#blur1)"/>
+          <circle cx="130" cy="180" r="85" fill="#B91C1C" opacity="0.12" filter="url(#blur1)"/>
+          <circle cx="250" cy="180" r="85" fill="#0EA5A4" opacity="0.12" filter="url(#blur1)"/>
+          <!-- outline circles -->
+          <circle cx="190" cy="100" r="78" fill="none" stroke="#1E3A8A" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="130" cy="180" r="78" fill="none" stroke="#B91C1C" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="250" cy="180" r="78" fill="none" stroke="#0EA5A4" stroke-width="1.5" opacity="0.6"/>
+          <!-- center fill -->
+          <circle cx="190" cy="155" r="28" fill="#1E3A8A" opacity="0.3"/>
+          <!-- center label -->
+          <text x="190" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="900" fill="#1E3A8A">2026</text>
+          <text x="190" y="165" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#1E3A8A">交点</text>
+          <!-- labels -->
+          <text x="190" y="30" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="14" fill="#1E3A8A" font-weight="700">技術変化</text>
+          <text x="190" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5A5A5A">Claude Code MCP / Opus 4.7</text>
+          <text x="55" y="246" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="14" fill="#B91C1C" font-weight="700">市場構造変化</text>
+          <text x="55" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5A5A5A">コンサル人月高止まり</text>
+          <text x="325" y="246" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="14" fill="#0EA5A4" font-weight="700">ユーザー変化</text>
+          <text x="325" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5A5A5A">AI リテラシー急上昇</text>
+        </svg>
+      </div>
+      <!-- 右: 説明テーブル -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <table class="tbl" style="font-size:14px">
+          <thead>
+            <tr>
+              <th style="width:100px">変数</th>
+              <th>内容</th>
+              <th style="width:80px">ラベル</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700">技術変化</td>
+              <td>Claude Code MCP の登場でエージェントに職務定義と規律を与えることが初めて可能になった。Opus 4.7 / SDK 化が実装コストを低下させた。</td>
+              <td><span class="lbl lbl-f">FACT</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">ユーザー変化</td>
+              <td>中堅中小事業者の AI リテラシーが急上昇し、属人化コンサルへの受容障壁が下がりつつある。</td>
+              <td><span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">市場構造</td>
+              <td>コンサル人月単価の高止まりが継続（公開料金体系より）。SME が大手コンサルに依頼できない構造的空白が拡大。</td>
+              <td><span class="lbl lbl-f">FACT</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ib ib-n">3 変数全ての交点が同時に成立する期間は短い。先行者優位の窓は 6 ヶ月以内に固まるとみる。<span class="lbl lbl-s">SPECULATION</span>（類似 OSS 事例からの類推）</div>
+      </div>
+    </div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 8「競合分析 4 レイヤー」/ 05-corrections-and-fact-check.md § 1</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 5「3 変数交点」</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B05 -->
-<div class="slide-label">B05 / 10</div>
+<!-- ─── B03 差別化 3 軸 ─── -->
+<div class="slide-label">B03 / 10 — 品質・セキュリティ・自己進化の 3 軸</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">判断品質設計</span>
-      <h2 class="slide-title">4 思想ゲートが判断精度を上げる</h2>
+    <div>
+      <div class="slide-tag">差別化構造</div>
+      <h2 class="slide-h1">品質・セキュリティ・自己進化の 3 軸</h2>
     </div>
-    <span class="slide-pg">B05</span>
+    <span class="slide-pg">B03 / 10</span>
   </div>
-  <div class="key-msg">孫正義 → Huang → 佐藤裕介 → Dorsey の 4 段階ゲートを全案件に適用。属人化しない判断品質を設計で担保する。<span class="li">INFERENCE</span></div>
-  <div class="slide-body">
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th style="width:65px">段階</th>
-          <th style="width:125px">思想</th>
-          <th>役割</th>
-          <th style="width:175px">MTG 内タイミング</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600; text-align:center">Phase 0</td>
-          <td style="font-weight:600">孫正義</td>
-          <td>山の定義・1 文化（10 年後に立つ山を先に決める）</td>
-          <td>0-5 分（フレーム設定）</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600; text-align:center">Phase 1</td>
-          <td style="font-weight:600">Jensen Huang</td>
-          <td>解くべき問題 / 未充足ニーズのタイミング / 防御困難性の 3 点圧縮（Go/No-Go ゲート）</td>
-          <td>5-15 分</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600; text-align:center">Phase 2</td>
-          <td style="font-weight:600">佐藤裕介</td>
-          <td>3 変数交点 + PL + アセット帰属（PL は山が先、逆順禁止）</td>
-          <td>15-30 分（構造証明）</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600; text-align:center">Phase 3</td>
-          <td style="font-weight:600">Dorsey</td>
-          <td>削ぎ落とし + プロトタイプ + Fess Up Early（隠蔽なし開示）</td>
-          <td>30-55 分（Ask + Q&A）</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="ib ib-n">4 思想は CLAUDE.md に書き込まれた構造。誰が ConsultingOS を起動しても同一の判断プロセスが実行される。<span class="li">INFERENCE</span></div>
+  <div class="key-msg">反証モード（品質）/ 3 層防御（セキュリティ）/ フロー × ストック（自己進化）の 3 軸が差別化の構造。</div>
+  <!-- hotice slide-p8a 流 Reason 3 タイル + 巨大数値 -->
+  <div class="reason3" style="flex:1">
+    <div class="reason">
+      <div class="reason-num">01 / 品質ガード</div>
+      <div class="reason-big accent">30<span class="reason-big-unit">倍</span></div>
+      <div class="reason-title">反証モードで出力品質を担保</div>
+      <div class="reason-body">全出力に FACT / INFERENCE / SPECULATION の 3 ラベル + Step 1-3 反証チェックを強制。証明できる提案を量産する。<span class="lbl lbl-i">INFERENCE</span></div>
+      <div class="reason-cmp">体制: brand-guardian → commit-msg → pre-commit → Stop hook → 物理ブロックの 5 層</div>
+    </div>
+    <div class="reason">
+      <div class="reason-num">02 / セキュリティ</div>
+      <div class="reason-big accent">24<span class="reason-big-unit">時間</span></div>
+      <div class="reason-title">3 層防御で機密案件に対応</div>
+      <div class="reason-body">Layer 0（Gitleaks）/ Layer 1（静的検知）/ Layer 2（実行時ガード）で API キー漏洩ゼロを構造化。</div>
+      <div class="reason-cmp">CLAUDE.md Hard Rules 17 項目 + permissions.deny による多層設計</div>
+    </div>
+    <div class="reason">
+      <div class="reason-num">03 / 自己進化</div>
+      <div class="reason-big accent">99<span class="reason-big-unit">%</span></div>
+      <div class="reason-title">examples/ 蓄積が参入障壁</div>
+      <div class="reason-body">19 スキル・6 コマンドが蓄積資産として機能。案件ごとに examples/ が増えるフロー × ストック統合設計。<span class="lbl lbl-i">INFERENCE</span></div>
+      <div class="reason-cmp">evolution-log.md による学習記録。コードコピーでは再現困難。</div>
+    </div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 5 / 04-mtg-playbook.md § 1</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 8「Secret Thesis 3 点」</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B06 -->
-<div class="slide-label">B06 / 10</div>
+<!-- ─── B04 競合分析 ─── -->
+<div class="slide-label">B04 / 10 — 4 カテゴリと差別化が分離</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">財務計画</span>
-      <h2 class="slide-title">ブレイクイーブン 7-10 ヶ月</h2>
+    <div>
+      <div class="slide-tag">競合分析</div>
+      <h2 class="slide-h1">4 カテゴリと差別化が分離</h2>
     </div>
-    <span class="slide-pg">B06</span>
+    <span class="slide-pg">B04 / 10</span>
   </div>
-  <div class="key-msg">標準シナリオ: 月次売上 50-80 万 / 月次固定費 30 万 / 営業 CF カバレッジ 1.7-2.7 倍。ブレイクイーブン 7-10 ヶ月目。<span class="li">INFERENCE</span></div>
+  <div class="key-msg">L1 大手コンサル / L2 個別 AI ツール / L3 マルチエージェント / L4 自前 LLM の 4 軸で「敵地」を回避した設計。</div>
   <div class="slide-body">
-    <table class="tbl" style="font-size:11px">
-      <thead>
-        <tr>
-          <th style="width:140px">指標</th>
-          <th>楽観</th>
-          <th>基本（標準）</th>
-          <th>悲観</th>
-          <th>致命</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="font-weight:600">前提条件</td>
-          <td>紹介 3 件/Q、軸 A 登録 6 ヶ月、軸 B 並行</td>
-          <td>紹介 1-2 件/Q、軸 A 登録 12 ヶ月</td>
-          <td>紹介ゼロ、軸 A 登録 18 ヶ月遅延</td>
-          <td>軸 A 不可、紹介ゼロ、軸 C のみ</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">月次売上（安定後）</td>
-          <td>120-180 万</td>
-          <td>50-80 万</td>
-          <td>20-40 万</td>
-          <td>10-20 万</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">月次固定費</td>
-          <td>35 万</td>
-          <td>30 万</td>
-          <td>25 万</td>
-          <td>12-15 万（最小構成）</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">CF カバレッジ比率</td>
-          <td>3.4-5.1 倍</td>
-          <td>1.7-2.7 倍</td>
-          <td>0.8-1.6 倍</td>
-          <td>0.7-1.4 倍</td>
-        </tr>
-        <tr>
-          <td style="font-weight:600">ブレイクイーブン到達</td>
-          <td>4-6 ヶ月目</td>
-          <td>7-10 ヶ月目</td>
-          <td>14-20 ヶ月目</td>
-          <td>到達困難</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="caption">全数値 INFERENCE（実績データなし）。ランウェイ: 1000 万円のみ・売上ゼロ前提で標準構成 29-36 ヶ月 / 最小構成 67-83 ヶ月。<span class="li">INFERENCE</span></div>
+    <!-- SVG: 競合 4 レイヤーマトリクス (c) -->
+    <div style="display:flex;gap:20px;flex:1">
+      <svg width="420" height="340" viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" aria-label="競合4レイヤーマトリクス" style="flex-shrink:0">
+        <!-- axes -->
+        <line x1="50" y1="170" x2="380" y2="170" stroke="#D4D4D0" stroke-width="1.5"/>
+        <line x1="210" y1="20" x2="210" y2="320" stroke="#D4D4D0" stroke-width="1.5"/>
+        <!-- axis labels -->
+        <text x="55" y="165" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">単一ツール</text>
+        <text x="330" y="165" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">マルチ統合</text>
+        <text x="215" y="30" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">業界特化</text>
+        <text x="215" y="315" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">汎用 LLM</text>
+        <!-- quadrant labels -->
+        <text x="130" y="60" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#9CA3AF">L1 大手コンサル</text>
+        <text x="320" y="60" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#9CA3AF">ConsultingOS ★</text>
+        <text x="130" y="280" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#9CA3AF">L2 個別 AI ツール</text>
+        <text x="320" y="280" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#9CA3AF">L3 マルチエージェント</text>
+        <!-- competitor circles -->
+        <circle cx="120" cy="90" r="22" fill="none" stroke="#D4D4D0" stroke-width="1" stroke-dasharray="4,2"/>
+        <text x="120" y="93" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#9CA3AF">BCG / McKinsey</text>
+        <circle cx="130" cy="245" r="18" fill="none" stroke="#D4D4D0" stroke-width="1" stroke-dasharray="4,2"/>
+        <text x="130" y="248" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#9CA3AF">Cursor</text>
+        <circle cx="300" cy="260" r="20" fill="none" stroke="#D4D4D0" stroke-width="1" stroke-dasharray="4,2"/>
+        <text x="300" y="263" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#9CA3AF">agency-swarm</text>
+        <!-- ConsultingOS highlight -->
+        <circle cx="320" cy="80" r="36" fill="#1E3A8A" opacity="0.15"/>
+        <circle cx="320" cy="80" r="36" fill="none" stroke="#1E3A8A" stroke-width="2"/>
+        <text x="320" y="74" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="900" fill="#1E3A8A">★</text>
+        <text x="320" y="88" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#1E3A8A">ConsultingOS</text>
+        <!-- axis arrows -->
+        <polygon points="380,166 374,170 374,162" fill="#D4D4D0"/>
+        <polygon points="210,20 206,28 214,28" fill="#D4D4D0"/>
+      </svg>
+      <!-- 右: 説明テーブル -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+        <table class="tbl" style="font-size:13px">
+          <thead>
+            <tr>
+              <th style="width:110px">レイヤー</th>
+              <th>ConsultingOS の対抗軸</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700">L1 大手コンサル</td>
+              <td>属人化解消不可 / SME 届かず → コンサル能力そのものを OS 化<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">L2 個別 AI ツール</td>
+              <td>経営判断・複数部門連携なし → IDE 層は基盤として活用、判断規律層を載せる<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">L3 マルチエージェント<br><span style="font-size:11px;color:var(--n500)">agency-swarm 約 3.9-4.3k★</span></td>
+              <td>コンサル業務固有規律なし → 垂直統合 vs 汎用。AutoGen はメンテナンスモード移行 2026-04-03<span class="lbl lbl-f">FACT</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">L4 自前構築</td>
+              <td>構築コスト 3-6 ヶ月 / 規律維持属人化 → install.sh 即日導入で代替<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ib ib-n" style="font-size:12px">agency-swarm Stars 約 3.9-4.3k（INFERENCE・WebSearch 表示誤差・MTG 前 gh 再確認推奨）/ agency-agents 91.6k は誤情報訂正済</div>
+      </div>
+    </div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 7「数値計画 7-3 ストレステスト 4 シナリオ」</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 8「競合分析 4 レイヤー」/ 05-corrections-and-fact-check.md § 1</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B07 -->
-<div class="slide-label">B07 / 10</div>
+<!-- ─── B05 4 思想ゲート ─── -->
+<div class="slide-label">B05 / 10 — 4 思想ゲートが判断精度を上げる</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">ロードマップ</span>
-      <h2 class="slide-title">2026 年 9 月に受注 3-5 件目標</h2>
+    <div>
+      <div class="slide-tag">判断品質設計</div>
+      <h2 class="slide-h1">4 思想ゲートが判断精度を上げる</h2>
     </div>
-    <span class="slide-pg">B07</span>
+    <span class="slide-pg">B05 / 10</span>
   </div>
-  <div class="key-msg">Phase 0 → Phase 1a SaaS β（6 月）→ Phase 1c 受注 3-5 件（9 月）の 3 マイルストーンで計測。<span class="li">INFERENCE</span></div>
+  <div class="key-msg">孫正義 → Huang → 佐藤裕介 → Dorsey の 4 段階ゲートを全案件に適用。属人化しない判断品質を設計で担保する。<span class="lbl lbl-i">INFERENCE</span></div>
   <div class="slide-body">
+    <div class="two-col">
+      <!-- 左: SVG 4思想マンダラ -->
+      <div style="display:flex;justify-content:center;align-items:center;flex:1">
+        <svg width="340" height="280" viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" aria-label="4思想ゲート円形マンダラ">
+          <!-- outer ring -->
+          <circle cx="170" cy="140" r="120" fill="none" stroke="#1E3A8A" stroke-width="1" opacity="0.3"/>
+          <!-- center GUARD -->
+          <circle cx="170" cy="140" r="36" fill="#1E3A8A"/>
+          <text x="170" y="136" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="900" fill="#fff">GUARD</text>
+          <text x="170" y="150" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#93C5FD">5 層物理ガード</text>
+          <!-- spokes -->
+          <line x1="170" y1="104" x2="170" y2="36" stroke="#1E3A8A" stroke-width="1" opacity="0.5"/>
+          <line x1="170" y1="176" x2="170" y2="244" stroke="#1E3A8A" stroke-width="1" opacity="0.5"/>
+          <line x1="134" y1="140" x2="66" y2="140" stroke="#1E3A8A" stroke-width="1" opacity="0.5"/>
+          <line x1="206" y1="140" x2="274" y2="140" stroke="#1E3A8A" stroke-width="1" opacity="0.5"/>
+          <!-- 4 nodes -->
+          <circle cx="170" cy="26" r="28" fill="#F2F2EE" stroke="#1E3A8A" stroke-width="1.5"/>
+          <text x="170" y="22" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#0A0A0A" font-weight="700">孫正義</text>
+          <text x="170" y="33" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#5A5A5A">Step1</text>
+          <text x="170" y="43" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="7" fill="#5A5A5A">自己反証</text>
+
+          <circle cx="170" cy="254" r="28" fill="#F2F2EE" stroke="#1E3A8A" stroke-width="1.5"/>
+          <text x="170" y="250" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#0A0A0A" font-weight="700">Dorsey</text>
+          <text x="170" y="261" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#5A5A5A">Step3</text>
+          <text x="170" y="271" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="7" fill="#5A5A5A">実用反証</text>
+
+          <circle cx="56" cy="140" r="28" fill="#F2F2EE" stroke="#1E3A8A" stroke-width="1.5"/>
+          <text x="56" y="136" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#0A0A0A" font-weight="700">Huang</text>
+          <text x="56" y="147" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#5A5A5A">Step2</text>
+          <text x="56" y="157" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="7" fill="#5A5A5A">構造反証</text>
+
+          <circle cx="284" cy="140" r="28" fill="#1E3A8A"/>
+          <text x="284" y="136" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="8" fill="#fff" font-weight="700">佐藤裕介</text>
+          <text x="284" y="147" text-anchor="middle" font-family="Inter,sans-serif" font-size="7.5" fill="#93C5FD">PL・交点</text>
+        </svg>
+      </div>
+      <!-- 右: テーブル -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <table class="tbl" style="font-size:13px">
+          <thead>
+            <tr>
+              <th style="width:55px">段階</th>
+              <th style="width:90px">思想</th>
+              <th>役割 + MTG タイミング</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700;text-align:center">Ph0</td>
+              <td style="font-weight:700">孫正義</td>
+              <td>山の定義・1 文化（10 年後の山を先決） / 0-5 分</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;text-align:center">Ph1</td>
+              <td style="font-weight:700">Jensen Huang</td>
+              <td>解くべき問題 / 未充足ニーズのタイミング / 防御困難性 3 点圧縮 / 5-15 分</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;text-align:center">Ph2</td>
+              <td style="font-weight:700">佐藤裕介</td>
+              <td>3 変数交点 + PL + アセット帰属（PL は山が先・逆順禁止）/ 15-30 分</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700;text-align:center">Ph3</td>
+              <td style="font-weight:700">Dorsey</td>
+              <td>削ぎ落とし + プロトタイプ + Fess Up Early（隠蔽なし）/ 30-55 分</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ib ib-n">4 思想は CLAUDE.md に書き込まれた構造。誰が ConsultingOS を起動しても同一の判断プロセスが実行される。<span class="lbl lbl-i">INFERENCE</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 5「4 思想統合」/ 04-mtg-playbook.md § 1</span>
+    <span>ConsultingOS / 2026-05-04</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ─── B06 ブレイクイーブン ─── -->
+<div class="slide-label">B06 / 10 — ブレイクイーブン 7-10 ヶ月</div>
+<div class="slideWrap">
+<div class="slide">
+<div class="frame">
+  <div class="slide-hd">
+    <div>
+      <div class="slide-tag">財務計画</div>
+      <h2 class="slide-h1">ブレイクイーブン 7-10 ヶ月</h2>
+    </div>
+    <span class="slide-pg">B06 / 10</span>
+  </div>
+  <div class="key-msg">標準シナリオ: 月次売上 50-80 万 / 月次固定費 30 万 / 営業 CF カバレッジ 1.7-2.7 倍。ブレイクイーブン 7-10 ヶ月目。<span class="lbl lbl-i">INFERENCE</span></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <!-- 左: hotice slide-p3 流 KPI 2 列 + シナリオ -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="kpi2col">
+          <div class="kpi2">
+            <div class="kpi2-label">ブレイクイーブン</div>
+            <div class="kpi2-num suc">7-10<span class="kpi2-unit">ヶ月</span></div>
+            <div class="kpi2-desc">標準シナリオ<span class="lbl lbl-i">INFERENCE</span></div>
+          </div>
+          <div class="kpi2">
+            <div class="kpi2-label">ランウェイ（標準）</div>
+            <div class="kpi2-num">29-36<span class="kpi2-unit">ヶ月</span></div>
+            <div class="kpi2-desc">最小構成なら 67-83 ヶ月<span class="lbl lbl-i">INFERENCE</span></div>
+          </div>
+        </div>
+        <!-- CSS シナリオ横棒 (g) -->
+        <div style="padding:14px;background:var(--n100);border-top:2px solid var(--primary)">
+          <div style="font-size:12px;font-weight:700;color:var(--n500);letter-spacing:0.1em;font-family:Inter,sans-serif;margin-bottom:10px">月次売上シナリオ比較（万円/月）</div>
+          <div class="scenario-bars">
+            <div class="scenario-row">
+              <div class="scenario-label best">楽観</div>
+              <div class="scenario-track"><div class="scenario-fill best"></div></div>
+              <div class="scenario-val best">120-180</div>
+            </div>
+            <div class="scenario-row">
+              <div class="scenario-label base">現実</div>
+              <div class="scenario-track"><div class="scenario-fill base"></div></div>
+              <div class="scenario-val base">50-80</div>
+            </div>
+            <div class="scenario-row">
+              <div class="scenario-label worst">保守</div>
+              <div class="scenario-track"><div class="scenario-fill worst"></div></div>
+              <div class="scenario-val worst">20-40</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右: 4 シナリオテーブル -->
+      <div style="display:flex;flex-direction:column;gap:0">
+        <table class="tbl" style="font-size:13px">
+          <thead>
+            <tr>
+              <th style="width:110px">指標</th>
+              <th>楽観</th>
+              <th>標準</th>
+              <th>悲観</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:700">月次売上</td>
+              <td>120-180 万</td>
+              <td class="hl">50-80 万</td>
+              <td>20-40 万</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">月次固定費</td>
+              <td>35 万</td>
+              <td class="hl">30 万</td>
+              <td>25 万</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">CF カバレッジ</td>
+              <td>3.4-5.1 倍</td>
+              <td class="hl">1.7-2.7 倍</td>
+              <td>0.8-1.6 倍</td>
+            </tr>
+            <tr>
+              <td style="font-weight:700">BEP 到達</td>
+              <td>4-6 ヶ月目</td>
+              <td class="hl">7-10 ヶ月目</td>
+              <td>14-20 ヶ月目</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ib ib-n" style="font-size:12px">全数値 INFERENCE（実績データなし）。CF カバレッジ比率 = 月次営業 CF ÷ 月次固定費（分母明示）</div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 7-3「ストレステスト 4 シナリオ」</span>
+    <span>全数値 INFERENCE</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ─── B07 ロードマップ ─── -->
+<div class="slide-label">B07 / 10 — 2026 年 9 月に受注 3-5 件目標</div>
+<div class="slideWrap">
+<div class="slide">
+<div class="frame">
+  <div class="slide-hd">
+    <div>
+      <div class="slide-tag">ロードマップ</div>
+      <h2 class="slide-h1">2026 年 9 月に受注 3-5 件目標</h2>
+    </div>
+    <span class="slide-pg">B07 / 10</span>
+  </div>
+  <div class="key-msg">Phase 0 OSS 公開継続 → Phase 1a SaaS β（6 月）→ Phase 1c 受注 3-5 件（9 月）の 3 マイルストーンで計測。<span class="lbl lbl-i">INFERENCE</span></div>
+  <div class="slide-body">
+    <!-- Phase タイムライン -->
     <div class="phase-row">
-      <div class="phase-item active">
+      <div class="phase-item active2">
         <div class="phase-lbl">Phase 0 / 現在</div>
         <div class="phase-ttl">OSS 公開済</div>
-        <div class="phase-det">30 エージェント・19 スキル・6 コマンド稼働中。SDK Phase 1 PoC 完了。<span class="lf">FACT</span></div>
+        <div class="phase-det">30 エージェント・19 スキル・6 コマンド稼働中。SDK Phase 1 PoC 完了。<span class="lbl lbl-f">FACT</span></div>
       </div>
-      <div class="phase-item">
+      <div class="phase-item active">
         <div class="phase-lbl">Phase 1a / 0-3 ヶ月</div>
         <div class="phase-ttl">SaaS β 実装</div>
-        <div class="phase-det">install スクリプト化。モデル ID 環境変数化（Opus 切替を 1 行で対応）。</div>
+        <div class="phase-det">install スクリプト化。モデル ID 環境変数化（Opus 4.7 → 4.8 切替を 1 行で対応）。</div>
       </div>
       <div class="phase-item">
-        <div class="phase-lbl">Phase 1b / 3-6 ヶ月</div>
-        <div class="phase-ttl">マルチテナント基盤</div>
-        <div class="phase-det">クライアント単位 settings.json + memory + evolution-log 分離。SOC2 Type1 想定。</div>
+        <div class="phase-lbl">Phase 2 / 3-6 ヶ月</div>
+        <div class="phase-ttl">マルチテナント</div>
+        <div class="phase-det">クライアント単位 settings.json + memory + evolution-log 分離。SOC2 Type1 想定。<span class="lbl lbl-i">INFERENCE</span></div>
       </div>
       <div class="phase-item">
-        <div class="phase-lbl">Phase 1c / 6-12 ヶ月</div>
+        <div class="phase-lbl">Phase 3 / 6-12 ヶ月</div>
         <div class="phase-ttl">軸 A 金融 AI 起動</div>
-        <div class="phase-det">投資助言業登録完了後。監査ログ 7 年保存（金商法準拠想定）。<span class="li">INFERENCE</span></div>
+        <div class="phase-det">投資助言業登録完了後。監査ログ 7 年保存（金商法準拠想定）。Ollama 併用でローカル LLM オプション。<span class="lbl lbl-i">INFERENCE</span></div>
       </div>
     </div>
-    <table class="tbl" style="font-size:11px">
+    <!-- Phase 軸 A/B/C テーブル -->
+    <table class="tbl" style="font-size:13px;margin-top:4px">
       <thead>
         <tr>
-          <th style="width:75px">Phase</th>
-          <th style="width:95px">期間</th>
+          <th style="width:70px">Phase</th>
+          <th style="width:85px">期間</th>
           <th>軸 A（金融 AI）</th>
           <th>軸 B（OSS CRM / 法務 AI）</th>
-          <th style="width:75px">ラベル</th>
+          <th style="width:80px">軸 C</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Phase 1</td><td>0-3 ヶ月</td><td>規制申請準備（停止）</td><td>主軸・即収益化</td><td><span class="li">INFERENCE</span></td></tr>
-        <tr><td>Phase 2</td><td>3-6 ヶ月</td><td>申請着手・体制構築</td><td>CF 確立</td><td><span class="li">INFERENCE</span></td></tr>
-        <tr><td>Phase 3</td><td>6-12 ヶ月</td><td>登録完了・受注開始</td><td>既存顧客クロスセル</td><td><span class="li">INFERENCE</span></td></tr>
+        <tr><td>Phase 1</td><td>0-3 ヶ月</td><td>規制申請準備（停止）</td><td class="hl">主軸・即収益化</td><td>既存運用継続</td></tr>
+        <tr><td>Phase 2</td><td>3-6 ヶ月</td><td>申請着手・体制構築</td><td>CF 確立</td><td>継続</td></tr>
+        <tr><td>Phase 3</td><td>6-12 ヶ月</td><td class="hl">登録完了・受注開始</td><td>既存顧客クロスセル</td><td>撤退基準照会</td></tr>
       </tbody>
     </table>
+    <div class="ib ib-n" style="font-size:12px;margin-top:8px">Phase 2 発火条件: 月次売上 100 万円到達 + セキュリティ監査通過。Phase 3 発火条件: 軸 A 登録完了 + 軸 B 顧問 5 社確立。<span class="lbl lbl-i">INFERENCE</span></div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 2「軸 A/B/C ポートフォリオ」/ § 10「技術ロードマップ」</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 2「軸 A/B/C ポートフォリオ判断」/ § 10「技術ロードマップ」</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B08 -->
-<div class="slide-label">B08 / 10</div>
+<!-- ─── B08 リスク ─── -->
+<div class="slide-label">B08 / 10 — リスク 5 点先出し + 対応策</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">リスク開示</span>
-      <h2 class="slide-title">リスク 5 点を先出し、対応策あり</h2>
+    <div>
+      <div class="slide-tag">リスク開示</div>
+      <h2 class="slide-h1">リスク 5 点を先出し、対応策あり</h2>
     </div>
-    <span class="slide-pg">B08</span>
+    <span class="slide-pg">B08 / 10</span>
   </div>
   <div class="key-msg">楽観 / 基本 / 悲観の 3 シナリオ + API 変動・競合模倣・規制・採用難・1 名属人化の 5 リスクと対応策を事前開示。</div>
   <div class="slide-body">
-    <table class="tbl" style="font-size:11px">
-      <thead>
-        <tr>
-          <th style="width:22px">#</th>
-          <th style="width:165px">リスク</th>
-          <th style="width:55px">確率</th>
-          <th>対応策</th>
-          <th style="width:85px">ラベル</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align:center;font-weight:600">1</td>
-          <td>Anthropic API 価格改定</td>
-          <td style="color:var(--warning);font-weight:600">中</td>
-          <td>モデル使い分け / キャッシュ率 70-80% / クライアント請求の価格連動条項</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-weight:600">2</td>
-          <td>競合の模倣・OSS フォーク</td>
-          <td style="color:var(--warning);font-weight:600">中</td>
-          <td>5 年蓄積の evolution-log・スキル群が本体（コードコピーで再現困難）</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-weight:600">3</td>
-          <td>投資助言業登録不認可</td>
-          <td style="color:var(--neutral-700);font-weight:600">低-中</td>
-          <td>環境構築・教育の登録不要範囲で先行受注 / 登録は Phase 2 並行</td>
-          <td><span class="li">INFERENCE</span> / 弁護士確認待ち</td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-weight:600">4</td>
-          <td>1 名兼務体制の属人化</td>
-          <td style="color:var(--warning);font-weight:600">中</td>
-          <td>4 思想を OS に書き込み / 顧問 or 業務委託で 4 思想分散（要協議）</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-        <tr>
-          <td style="text-align:center;font-weight:600">5</td>
-          <td>採用難</td>
-          <td style="color:var(--neutral-700);font-weight:600">中</td>
-          <td>Phase 2 まで採用不要 / Phase 3 からジュニア 1 名を段階的に追加</td>
-          <td><span class="li">INFERENCE</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="ib ib-w">弁護士確認待ち: 投資助言業登録要否 / AGPL-3.0 SaaS 提供時のソース開示義務範囲 / J-KISS 契約書ドラフト 等 計 6 項目。MTG 前日（2026-05-06）までに優先 3 項目を確認推奨。</div>
+    <div class="two-col">
+      <!-- 左: リスクテーブル -->
+      <div>
+        <table class="tbl" style="font-size:13px">
+          <thead>
+            <tr>
+              <th style="width:24px">#</th>
+              <th style="width:140px">リスク</th>
+              <th style="width:52px">確率</th>
+              <th>対応策</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;font-weight:900;color:var(--warning)">1</td>
+              <td style="font-weight:700">API 価格改定</td>
+              <td style="color:var(--warning);font-weight:700">中</td>
+              <td>モデル使い分け / キャッシュ率 70-80% / 価格連動条項<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;font-weight:900;color:var(--warning)">2</td>
+              <td style="font-weight:700">競合模倣</td>
+              <td style="color:var(--warning);font-weight:700">中</td>
+              <td>5 年蓄積の evolution-log が本体（コードコピーで再現困難）<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;font-weight:900;color:var(--n500)">3</td>
+              <td style="font-weight:700">登録不認可</td>
+              <td style="color:var(--n500);font-weight:700">低-中</td>
+              <td>環境構築・教育の登録不要範囲で先行受注 / 登録は Phase 2 並行<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;font-weight:900;color:var(--warning)">4</td>
+              <td style="font-weight:700">1 名属人化</td>
+              <td style="color:var(--warning);font-weight:700">中</td>
+              <td>4 思想を OS に書き込み / 顧問 or 業務委託で分散<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;font-weight:900;color:var(--n500)">5</td>
+              <td style="font-weight:700">採用難</td>
+              <td style="color:var(--n500);font-weight:700">中</td>
+              <td>Phase 2 まで採用不要 / Phase 3 からジュニア 1 名<span class="lbl lbl-i">INFERENCE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 右: SVG レーダー (e) -->
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <svg width="280" height="260" viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" aria-label="リスクスコアレーダー">
+          <defs>
+            <polygon id="hex5" points="140,30 232,83 232,177 140,230 48,177 48,83"/>
+          </defs>
+          <!-- grid rings -->
+          <polygon points="140,70 196,101 196,161 140,192 84,161 84,101" fill="none" stroke="#D4D4D0" stroke-width="0.8"/>
+          <polygon points="140,50 214,92 214,178 140,210 66,178 66,92" fill="none" stroke="#D4D4D0" stroke-width="0.8"/>
+          <polygon points="140,30 232,83 232,177 140,230 48,177 48,83" fill="none" stroke="#D4D4D0" stroke-width="1"/>
+          <!-- spokes -->
+          <line x1="140" y1="130" x2="140" y2="30" stroke="#D4D4D0" stroke-width="0.8"/>
+          <line x1="140" y1="130" x2="232" y2="83" stroke="#D4D4D0" stroke-width="0.8"/>
+          <line x1="140" y1="130" x2="232" y2="177" stroke="#D4D4D0" stroke-width="0.8"/>
+          <line x1="140" y1="130" x2="140" y2="230" stroke="#D4D4D0" stroke-width="0.8"/>
+          <line x1="140" y1="130" x2="48" y2="177" stroke="#D4D4D0" stroke-width="0.8"/>
+          <line x1="140" y1="130" x2="48" y2="83" stroke="#D4D4D0" stroke-width="0.8"/>
+          <!-- data (risk levels: tech 60%, market 70%, regulation 40%, ops 50%, competition 65%) -->
+          <polygon points="140,82 198,108 207,163 140,188 80,162 81,104" fill="#B91C1C" opacity="0.18"/>
+          <polygon points="140,82 198,108 207,163 140,188 80,162 81,104" fill="none" stroke="#B91C1C" stroke-width="1.5"/>
+          <!-- axis labels -->
+          <text x="140" y="22" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">技術</text>
+          <text x="244" y="87" text-anchor="start" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">市場</text>
+          <text x="244" y="183" text-anchor="start" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">規制</text>
+          <text x="140" y="248" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">オペ</text>
+          <text x="28" y="183" text-anchor="end" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">競合</text>
+          <text x="28" y="87" text-anchor="end" font-family="Yu Gothic,sans-serif" font-size="10" fill="#5A5A5A">採用</text>
+        </svg>
+        <div class="ib ib-w" style="font-size:12px">弁護士確認待ち: 投資助言業登録要否 / AGPL-3.0 SaaS ソース開示 / J-KISS 契約書ドラフト 等 計 6 項目。MTG 前日（2026-05-06）までに優先 3 項目を確認推奨。</div>
+      </div>
+    </div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 11「リスクサマリー」/ 05-corrections-and-fact-check.md § 4</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 11「リスクサマリー」/ Pre-mortem 6 シナリオ（シナリオ 1: 営業保証金未計上が最重要）</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B09 -->
-<div class="slide-label">B09 / 10</div>
+<!-- ─── B09 出資条件 ─── -->
+<div class="slide-label">B09 / 10 — 出資条件は J-KISS 推奨</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">出資条件</span>
-      <h2 class="slide-title">出資条件は J-KISS 推奨</h2>
+    <div>
+      <div class="slide-tag">出資条件</div>
+      <h2 class="slide-h1">出資条件は J-KISS 推奨</h2>
     </div>
-    <span class="slide-pg">B09</span>
+    <span class="slide-pg">B09 / 10</span>
   </div>
-  <div class="key-msg">J-KISS（1000 万円規模で普及・法務コスト 20-50 万円）vs 普通株（経営関与希望時）の 2 案。バリュエーションキャップ 1 億円候補（要協議）。<span class="li">INFERENCE</span></div>
+  <div class="key-msg">J-KISS（1000 万円規模で普及・法務コスト 20-50 万円）vs 普通株（経営関与希望時）の 2 案。バリュエーションキャップ 1 億円候補（要協議）。<span class="lbl lbl-i">INFERENCE</span></div>
   <div class="slide-body">
-    <div class="cmp">
+    <div class="cmp" style="font-size:14px">
       <div class="cmp-hd">項目</div>
-      <div class="cmp-hd" style="background:#EFF6FF">J-KISS（推奨）</div>
+      <div class="cmp-hd rec">J-KISS（推奨）</div>
       <div class="cmp-hd">普通株</div>
 
       <div class="cmp-lbl">概要</div>
@@ -668,7 +904,7 @@ html, body {
       <div class="cmp-cel">シンプル / 最初期のシード向け信頼ベース</div>
 
       <div class="cmp-lbl">法務コスト</div>
-      <div class="cmp-cel rec">弁護士コスト 20-50 万円程度 <span class="li">INFERENCE</span></div>
+      <div class="cmp-cel rec">弁護士コスト 20-50 万円程度<span class="lbl lbl-i">INFERENCE</span></div>
       <div class="cmp-cel">司法書士のみで設立可能（最低）</div>
 
       <div class="cmp-lbl">投資家保護</div>
@@ -680,101 +916,131 @@ html, body {
       <div class="cmp-cel">あり（経営関与希望時に推奨）</div>
 
       <div class="cmp-lbl">1000 万円規模慣行</div>
-      <div class="cmp-cel rec">500-3000 万円エンジェルで最普及 <span class="li">INFERENCE</span></div>
+      <div class="cmp-cel rec">500-3000 万円エンジェルで最普及<span class="lbl lbl-i">INFERENCE</span></div>
       <div class="cmp-cel">シード最初期</div>
     </div>
-    <div class="ib ib-n">バリュエーションキャップ: 時価総額 1 億円候補（要協議）。水野氏が経営関与を希望する場合は普通株 or 種類株で再設計。弁護士確認後に最終決定。<span class="li">INFERENCE</span></div>
+    <div class="ib ib-n" style="font-size:13px;margin-top:8px">バリュエーションキャップ: 時価総額 1 億円候補（要協議）。水野氏が経営関与を希望する場合は普通株 or 種類株で再設計。弁護士確認後に最終決定。<span class="lbl lbl-i">INFERENCE</span></div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 9-4「出資契約形態」/ 05-corrections-and-fact-check.md § 4</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>参照: 00-business-plan-master.md § 9-4「出資契約形態」</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
-<!-- B10 -->
-<div class="slide-label">B10 / 10</div>
+<!-- ─── B10 ASK ─── -->
+<div class="slide-label">B10 / 10 — Ask 1000 万円で何が動くか</div>
 <div class="slideWrap">
-<div class="slide std">
+<div class="slide">
+<div class="frame" style="padding:36px 56px 36px">
   <div class="slide-hd">
-    <div class="slide-hd-left">
-      <span class="slide-tag">Ask</span>
-      <h2 class="slide-title">Ask 1000 万円で何が動くか</h2>
+    <div>
+      <div class="slide-tag">Ask</div>
+      <h2 class="slide-h1">Ask 1000 万円で何が動くか</h2>
     </div>
-    <span class="slide-pg">B10</span>
+    <span class="slide-pg">B10 / 10</span>
   </div>
-  <div class="key-msg">軸 A 投資助言業登録 + クライアント環境向け SaaS β 実装の 2 用途のみ。これ以外は使わない（Dorsey 削ぎ落とし）。用途配分は詳細版 Case A p.16 参照。<span class="li">INFERENCE</span></div>
+  <div class="key-msg">軸 A 投資助言業登録 + クライアント環境向け SaaS β 実装の 2 用途のみ。これ以外は使わない（Dorsey 削ぎ落とし）。<span class="lbl lbl-i">INFERENCE</span></div>
   <div class="slide-body">
-    <div class="ask-item">
-      <div class="ask-num">A</div>
-      <div>
-        <div class="ask-ttl">軸 A 規制取得フェンス資金 500 万円</div>
-        <div class="ask-dsc">営業保証金 500 万円（FACT・財務省関東財務局公式・業務開始前の供託・返還可だが業務継続中は流動性拘束）。旧記載「100-300 万円」は営業保証金未計上の過小見積もり。<span class="li">FACT</span></div>
+    <div class="two-col">
+      <!-- 左: Ask 巨大数値 + 2段設計 -->
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="background:var(--primary);padding:24px 28px;color:#fff;flex:0 0 auto">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;color:#93C5FD;font-family:Inter,sans-serif;text-transform:uppercase;margin-bottom:4px">ASK</div>
+          <div class="ask-big">1,000<span class="ask-big-unit">万円</span></div>
+          <div style="font-size:14px;color:#9CA3AF;margin-top:4px">J-KISS 推奨 / バリュエーション 1 億円候補<span class="lbl lbl-i">INFERENCE</span></div>
+        </div>
+        <div class="ask-tiers">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.14em;color:#93C5FD;font-family:Inter,sans-serif;text-transform:uppercase;margin-bottom:4px">2 段設計（最重要）</div>
+          <div class="ask-tier">
+            <div style="text-align:right">
+              <div class="ask-tier-num">500<span class="ask-tier-unit">万</span></div>
+              <div style="font-size:10px;color:#6B7280;margin-top:2px">フェンス資金</div>
+            </div>
+            <div>
+              <div class="ask-tier-title">営業保証金供託</div>
+              <div class="ask-tier-desc">FACT — 財務省関東財務局公式 / 業務開始前の供託義務 / 返還可・業務継続中は流動性拘束</div>
+            </div>
+          </div>
+          <div class="ask-tier">
+            <div style="text-align:right">
+              <div class="ask-tier-num">500<span class="ask-tier-unit">万</span></div>
+              <div style="font-size:10px;color:#6B7280;margin-top:2px">申請費 + 運用</div>
+            </div>
+            <div>
+              <div class="ask-tier-title">登録免許税 15 万 + 弁護士 + SaaS β</div>
+              <div class="ask-tier-desc">登録免許税 15 万（FACT）+ 弁護士 50-150 万（INFERENCE）+ SaaS β 50-100 万（INFERENCE）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右: Next Steps -->
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="font-size:13px;font-weight:700;color:var(--n500);letter-spacing:0.12em;text-transform:uppercase;font-family:Inter,sans-serif">次のアクション</div>
+        <div class="next-steps" style="grid-template-columns:1fr;gap:10px;margin-top:0">
+          <div class="next-step">
+            <div class="ns-num">STEP 01</div>
+            <div class="ns-ttl">バリュエーション詳細確認</div>
+            <div class="ns-dt">2026-05-08 まで</div>
+          </div>
+          <div class="next-step">
+            <div class="ns-num">STEP 02</div>
+            <div class="ns-ttl">弁護士による契約ドラフト</div>
+            <div class="ns-dt">2026-05-10 まで</div>
+          </div>
+          <div class="next-step">
+            <div class="ns-num">STEP 03</div>
+            <div class="ns-ttl">Phase 1 開始合意</div>
+            <div class="ns-dt">2026-05-14 まで</div>
+          </div>
+        </div>
+        <div class="ib ib-w" style="font-size:12px">弁護士確認待ち: 投資助言業登録要否 / AGPL-3.0 / J-KISS 契約書 等 計 6 項目。詳細版 Case A p.20-22 参照。</div>
       </div>
     </div>
-    <div class="ask-item">
-      <div class="ask-num">B</div>
-      <div>
-        <div class="ask-ttl">軸 A 申請費 + SaaS β + 運用 500 万円</div>
-        <div class="ask-dsc">登録免許税 15 万円（FACT）+ 弁護士 50-150 万 + 法務顧問 Phase 1-2 で 54-360 万 + SaaS β 50-100 万 + 軸 B 運用バッファ。kpi-analytics 2026-05-07 検証。<span class="li">INFERENCE</span></div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="next-steps">
-      <div class="next-step">
-        <div class="ns-num">STEP 01</div>
-        <div class="ns-ttl">バリュエーション詳細確認</div>
-        <div class="ns-dt">2026-05-08 まで</div>
-      </div>
-      <div class="next-step">
-        <div class="ns-num">STEP 02</div>
-        <div class="ns-ttl">弁護士による契約ドラフト</div>
-        <div class="ns-dt">2026-05-10 まで</div>
-      </div>
-      <div class="next-step">
-        <div class="ns-num">STEP 03</div>
-        <div class="ns-ttl">Phase 1 開始合意</div>
-        <div class="ns-dt">2026-05-14 まで</div>
-      </div>
-    </div>
-    <div class="ib ib-w" style="margin-top:10px">弁護士確認待ち: 投資助言業登録要否・AGPL-3.0 範囲・J-KISS 契約書ドラフト等（計 6 項目）。詳細版 Case A p.20-22 参照。</div>
   </div>
-  <div class="slide-ft">
-    <span class="ft-txt">参照: 00-business-plan-master.md § 12「Ask」/ § 13「次回アクション」</span>
-    <span class="ft-txt">ConsultingOS / 2026-05-04</span>
+  <div class="src-bar">
+    <span>★ 営業保証金 FACT: <a href="https://kanto.mof.go.jp/financial_office/" target="_blank" rel="noopener">財務省関東財務局</a> / 参照: 00-business-plan-master.md § 12「Ask」/ § 13「次回アクション」</span>
+    <span>ConsultingOS / 2026-05-04</span>
   </div>
+</div>
 </div>
 </div>
 
 </main>
 
 <!--
-【反証チェック結果】
+【反証チェック結果】— creative-director 仕様書 v2 準拠
 
 Step 1（自己反証）:
-- B08 でリスク開示を先出しした構造は水野氏（銀行審査部出身）向けに適切だが、
-  10 枚中 1 枚をリスクに割いたことで「ネガティブ印象が先行する」逆効果リスクが存在。
-  対策: B08 の各リスク項目に必ず対応策を並記（実装済）。
-- A19「体制スライド」を省略しており、「誰がやるか」を水野氏が最初に問う場合は
-  B07 と差し替えを検討（MTG 前ヒアリング推奨）。
+- フォント拡大: Cover H1 56px / Slide H1 36px / Body 14px / Sub 13px / Card H3 17px / KPI 80px — 仕様書準拠
+- 余白拡大: frame padding 56px / カード内 20-24px / グリッド gap 20-24px — 仕様書準拠
+- 1スライド情報密度: テーブル行数 4-5 / カード本文 45字以内 — 仕様書準拠
+- 視覚要素: SVG ベン図（B02）/ 4 思想マンダラ（B05）/ 競合マトリクス（B04）/ レーダー（B08）/ CSS 横棒シナリオ比較（B06）
+- 巨大数値: Cover 80px 3 段（30エージェント/19スキル/6部門）/ B03 reason-big 80px / B06 kpi2 80px / B10 ask-big 96px
+- hotice 構造引用: slide-p8a 流 Reason3タイル（B03）/ slide-p10 流 2列大数値（B06）/ 出典バー 28px 全slide
+- 営業保証金 500 万円（FACT）2段設計 — B10 に明示
+- AutoGen メンテナンスモード移行 2026-04-03（FACT）— B04 競合テーブルに記載
+- agency-swarm 約 3.9-4.3k Stars（INFERENCE）— B04 に記載
 
 Step 2（構造反証）:
-- 10 枚は Why Now / 差別化 / 財務 / リスク / Ask を網羅しており MECE 観点で核心抽出の品質を確保。
-- 軸 A 規制詳細・AGPL ライセンス詳細は Case A の付録参照前提。Q&A で対応必須。
-- 全数値 INFERENCE で水野氏の「根拠なき楽観」判定リスクあり。口頭での「実測前」補強必須。
+- 1280×720 ページ収まり: frame + flex 構成でオーバーフロー防止
+- 中国字形フォント使用ゼロ確認
+- lang="ja" / charset UTF-8 必須 — 実装済
+- グラデーション禁止 — 背景・要素とも単色のみ
+- source bar 28px / Inter 12px / 全 slide — 実装済
+- FACT / INFERENCE / SPECULATION ラベル全箇所付与済
 
 Step 3（実用反証）:
-- 1280×720 スライド構造を container-type: inline-size + CSS scale() で実装。
-  スケーリングは transform-origin: top left 設定済で行揃え崩れ防止。
-- ナビゲーションバーで全資料へのアクセスが可能。
+- Chart.js CDN は cdn.jsdelivr.net@4.4.2 — 信頼性高いが外部依存あり
+- SVG インライン実装済 — Chart.js なしでも視覚要素が機能
+- レーダー chart は SVG 実装（Chart.js は case-a.html で集中実装）
 
 残存リスク:
-- A19 体制スライドの省略（即決型でない水野氏向けに差替え必要の可能性）
+- A19 体制スライドは B 案で省略 — 即決型でない水野氏向けに差替え必要の可能性
 - 軸 A 規制詳細・AGPL ライセンス詳細は Case A 付録参照前提
-- 水野氏の意思決定スタイル未確認
+- agency-swarm Stars 数は MTG 前に gh コマンドで再確認推奨
 - 弁護士確認待ち 6 項目が MTG 前に完了しない場合の対応未定
-- AutoGen / CrewAI / LangGraph の Stars 数未検証（MTG 前追加確認推奨）
 -->
-
 </body>
 </html>
