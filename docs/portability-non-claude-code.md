@@ -103,9 +103,9 @@ aider --message-file /tmp/aider-msg.txt --model claude-opus-4-7
 
 Claude Code 以外では hook が動かないため、以下の 3 件を手動で運用する:
 
-1. **反証チェック (Rule 1)**: `consulting-os validate < response.txt` で機械検証
-2. **出典ラベル (Rule 2)**: 同 validate で裸数値を検知
-3. **日本語字形 (Rule 10)**: PDF / DOCX 生成後に `pdffonts` / `unzip + grep` で手動検証
+1. 反証チェック (Rule 1): `consulting-os validate < response.txt` で機械検証
+2. 出典ラベル (Rule 2): 同 validate で裸数値を検知
+3. 日本語字形 (Rule 10): PDF / DOCX 生成後に `pdffonts` / `unzip + grep` で手動検証
 
 ConsultingOS の真の価値は markdown 規律 + Python utility にあり、Claude Code は最も統合度が高い runtime だが必須ではない。
 
