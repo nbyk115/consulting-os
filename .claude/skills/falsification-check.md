@@ -57,6 +57,8 @@ Step 4 リスク即潰し: 発見 N 件、即修正 M 件、構造化 X 件、Ph
 
 補完関係: §2.6 Autonomous Mode 既定化（7 protocol）は task 起動時の self-audit gate（TASK START CALIBRATION / AUTO-SPAWN GATES / AUTONOMOUS DIMENSION MAPPING / VERIFY-FIRST DRAFT / WHY-LAYER COMPLETION / VERIFIED ASSET INTEGRATION / REACTIVE FAILSAFE）として、本 Step 4 の上流で reactive correction loop を構造的に防止する（2026-05-07 LinkedIn 16 failure cluster 学習）。詳細: docs/orchestration-protocol.md §2.6
 
+機械検証層（2026-05-07 物理化）: 自己 audit に依存しない構造的品質保証として、`.claude/rubrics/brand-guardian-minimal.yaml` + `.claude/hooks/outcomes-judge-minimal.sh`（Stop hook）を運用。assistant 応答の 4 criteria（em ダッシュ / 太字 ** / 完了系断言 / 主語詐称）を機械判定、違反は stderr に [FAIL] / [WARN] alert（非ブロッキング、PoC 段階）。Anthropic Outcomes 機能（2026-05-06 Public Beta）の概念を自前移植、Managed Agents 基盤への移行は scope 外。
+
 ---
 
 ## 3. ハルシネーション検証チェックリスト（出力前）

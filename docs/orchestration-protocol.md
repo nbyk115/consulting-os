@@ -142,6 +142,8 @@ NEVER: ユーザー指摘で発覚した瞬間に reactive patch のみで終わ
 
 詳細違反学習: §8.5（2026-05-07 LinkedIn programmatic コメント 16 failure cluster）
 
+機械検証層（2026-05-07 物理化）: 7 protocol の self-audit を補強する mechanical enforcement として、`.claude/rubrics/brand-guardian-minimal.yaml` + `.claude/hooks/outcomes-judge-minimal.sh`（Stop hook chain 登録済）を運用。Anthropic Outcomes 機能（2026-05-06 Public Beta、Managed Agents 基盤前提）の概念を ConsultingOS 自前実装で移植、4 criteria（emdash_ban / bold_markdown_ban / completion_claim_evidence / subject_fraud_ban）を assistant 出力に対して逐次判定、違反は stderr に [FAIL] / [WARN] alert（非ブロッキング）。Phase: PoC、α 拡張で反証 Step 1-4 完備 + FACT/INFERENCE/SPECULATION 3 ラベル検証 criteria を追加予定。
+
 ---
 
 ## 3. 起動前 4 点ゲート
