@@ -131,11 +131,11 @@ WARNING_MSG="[ConsultingOS Stop hook 違反検知]"$'\n'
 if [ -n "$DETECTED_PHRASES" ]; then
   WARNING_MSG="${WARNING_MSG}禁止フレーズ検出（CLAUDE.md ハードルール 17）:"$'\n'
   WARNING_MSG="${WARNING_MSG}${DETECTED_PHRASES}"
-  WARNING_MSG="${WARNING_MSG}これらは絞り込み錯覚 / orchestrator 規律違反のシグナルです。次回応答で関連エージェント並列起動 + 反証 Step 1-3 必須。"$'\n'
+  WARNING_MSG="${WARNING_MSG}これらは絞り込み錯覚 / orchestrator 規律違反のシグナルです。次回応答で関連エージェント並列起動 + 反証 Step 1-4 必須。"$'\n'
 fi
 
 if [ "$HAS_FALSIFICATION" = "no" ]; then
-  WARNING_MSG="${WARNING_MSG}反証チェック未付与検出（CLAUDE.md ハードルール 1）: 全アウトプット末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。省略・形骸化禁止。"$'\n'
+  WARNING_MSG="${WARNING_MSG}反証チェック未付与検出（CLAUDE.md ハードルール 1）: 全アウトプット末尾に【反証チェック結果】Step 1-4（Step 4 = リスク即潰し）必須。省略・形骸化禁止。"$'\n'
 fi
 
 if [ "$STEP3_NARRATIVE_ONLY" = "yes" ]; then
