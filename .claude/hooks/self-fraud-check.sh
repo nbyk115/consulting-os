@@ -52,7 +52,7 @@ CURRENT_BRANCH=$(cd "$REPO_ROOT" 2>/dev/null && git branch --show-current 2>/dev
 AGENT_COUNT=$(grep -cE '"name"[[:space:]]*:[[:space:]]*"Agent"|"subagent_type"[[:space:]]*:' "$TRANSCRIPT_PATH" 2>/dev/null || echo 0)
 EDIT_COUNT=$(grep -cE '"name"[[:space:]]*:[[:space:]]*"(Edit|Write|MultiEdit)"' "$TRANSCRIPT_PATH" 2>/dev/null || echo 0)
 
-LAST_ASSISTANT_TEXT=$(tac "$TRANSCRIPT_PATH" 2>/dev/null | python3 - <<'PYEOF' 2>/dev/null || true
+LAST_ASSISTANT_TEXT=$(set +e; tac "$TRANSCRIPT_PATH" 2>/dev/null | python3 - 2>/dev/null <<'PYEOF'
 import sys, json
 
 for line in sys.stdin:
@@ -75,7 +75,7 @@ for line in sys.stdin:
         print(content)
         break
 PYEOF
-)
+true)
 
 if [ -z "$LAST_ASSISTANT_TEXT" ]; then
   exit 0
@@ -86,7 +86,7 @@ FRAUD_PATTERN='(ConsultingOS|本 ?OS|当 ?OS|ConsultingOSが)[ \t]*(が|とし�
 FRAUD_HITS=$(printf '%s' "$LAST_ASSISTANT_TEXT" | grep -oE "$FRAUD_PATTERN" 2>/dev/null | head -20 || true)
 FRAUD_COUNT=$(printf '%s' "$FRAUD_HITS" | grep -c . 2>/dev/null || echo 0)
 
-EDITED_FILES=$(python3 - "$TRANSCRIPT_PATH" <<'PYEOF' 2>/dev/null || true
+EDITED_FILES=$(set +e; python3 - "$TRANSCRIPT_PATH" 2>/dev/null <<'PYEOF'
 import sys, json
 
 path = sys.argv[1]
@@ -116,7 +116,7 @@ except Exception:
 for f in files:
     print(f)
 PYEOF
-)
+true)
 
 DISCIPLINE_ONLY="yes"
 NON_DISCIPLINE_FILES=""
