@@ -8,6 +8,41 @@ REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 EVOLUTION_LOG="$REPO_ROOT/evolution-log.md"
 CLAUDE_MD="$REPO_ROOT/CLAUDE.md"
 
+# 0. ConsultingOS Bootstrap Guard（2026-05-07 PR AY 物理化、関根さん案件 v1-v13 narrative-only 稼働事象学習）
+# CONSULTINGOS_BOOTSTRAP_CHECK: block | warn (default) | off
+# feature branch で CLAUDE.md / .claude/agents 不在の場合に警告 or 起動 block
+BOOTSTRAP_MODE="${CONSULTINGOS_BOOTSTRAP_CHECK:-warn}"
+MISSING=()
+[ ! -f "$CLAUDE_MD" ] && MISSING+=("CLAUDE.md")
+[ ! -d "$REPO_ROOT/.claude/agents" ] && MISSING+=(".claude/agents/")
+[ ! -d "$REPO_ROOT/.claude/hooks" ] && MISSING+=(".claude/hooks/")
+[ ! -d "$REPO_ROOT/.claude/skills" ] && MISSING+=(".claude/skills/")
+
+if [ "$BOOTSTRAP_MODE" != "off" ] && [ ${#MISSING[@]} -gt 0 ]; then
+  CURRENT_BRANCH=$(cd "$REPO_ROOT" && git branch --show-current 2>/dev/null || echo "(not a git repo)")
+  >&2 cat <<EOF
+ConsultingOS UNLOADED: assistant operation IN DEGRADED MODE
+
+現在のブランチ: $CURRENT_BRANCH
+不在ファイル: ${MISSING[*]}
+
+物理修復:
+  git merge origin/main
+  または:
+  git checkout main -- CLAUDE.md .claude/
+  git commit -m "bootstrap ConsultingOS to feature branch"
+
+このメッセージが出ている間、assistant は narrative-only で動作するため
+規律違反の可能性が極めて高い。即座に修復してください。
+
+無効化: CONSULTINGOS_BOOTSTRAP_CHECK=off
+強制 block: CONSULTINGOS_BOOTSTRAP_CHECK=block
+EOF
+  if [ "$BOOTSTRAP_MODE" = "block" ]; then
+    exit 1
+  fi
+fi
+
 # 通知メッセージ蓄積
 MESSAGES=()
 

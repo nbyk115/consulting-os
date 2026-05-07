@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consulting-os"
+version = "1.0.0"
+description = "ConsultingOS: callable AI agent OS runtime layered on Anthropic SDK"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+authors = [{ name = "ConsultingOS Team" }]
+keywords = ["ai", "agent", "anthropic", "consulting", "ops"]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+consulting-os = "consulting_os.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["consulting_os*"]
+exclude = ["tests*", "examples*", "strategy*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"

@@ -1,6 +1,64 @@
 # ConsultingOS
 
-コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・33 スキル（直下 24 + サブディレクトリ 9）で提案から実装・海外展開・マーケまで一気通貫のマルチエージェント OS。
+> コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・34 スキルで提案から実装・海外展開・マーケまで一気通貫の AI エージェント OS。
+
+| 項目 | 値 |
+|---|---|
+| 製品 | ConsultingOS v1.0.0 |
+| カテゴリ | AI エージェント OS (multi-agent operating system) |
+| 配布 | Self-Hosted (`install.sh`) / OEM (`scripts/deploy-oem.sh`) / White-Label / Custom |
+| 構成 | 27 agents + 34 skills + 6 commands + Hard Rule 17 + 6 層物理防御 |
+| Runtime | Claude Code (Anthropic Claude Opus 4.7 専用設計) |
+| Reference Deal | N.Y.CRAFT (`strategy/n-y-craft-oem-case/`) |
+
+OEM 配布時は ConsultingOS をベースにクライアント独自ブランドへ rebrand (例: N.Y.CRAFT → "TEAM CRAFT OS")。配布物の本体は常に ConsultingOS。
+
+製品仕様: [`docs/consulting-os-product.md`](docs/consulting-os-product.md) / OEM 配布: [`scripts/deploy-oem.sh`](scripts/deploy-oem.sh)
+
+## Quickstart (Zero-Cost CLI Utility)
+
+ConsultingOS の実 runtime は Claude Code (ユーザー既存契約)。本パッケージは Anthropic API を直接叩かず、プロンプト整形 + 応答検証のみを提供 = 追加コスト 0。
+
+```bash
+pip install -e .
+
+# Step 1: agent + skill + 規律 instruction を統合した prompt を整形
+consulting-os format-prompt --agent strategy-lead \
+  --request "N.Y.CRAFT の OEM 戦略を 3 軸で評価" \
+  --context '{"client":"N.Y.CRAFT"}' > prompt.txt
+
+# Step 2: Claude Code (or 任意の Claude UI) に貼り付けて応答取得
+# (Claude Code が runtime、追加 API 課金は発生しない)
+
+# Step 3: 応答テキストを規律検証 (反証 / 出典 / 裸数値)
+cat response.txt | consulting-os validate
+# => discipline_pass: PASS / FAIL + violations 列挙
+
+# Agent 一覧
+consulting-os list-agents
+```
+
+Python から:
+
+```python
+from consulting_os import format_prompt, validate_output
+
+prompt = format_prompt(
+    agent="strategy-lead",
+    request="N.Y.CRAFT の OEM 戦略",
+    context={"client": "N.Y.CRAFT"},
+)
+# prompt["system"] / prompt["user"] を Claude Code に渡す
+
+# 応答取得後
+result = validate_output(claude_response_text)
+result.discipline_pass  # True if Hard Rule 1+2 全 PASS
+result.violations       # 違反検知リスト
+```
+
+19 件 pytest 全 PASS、API 課金なし、markdown / regex / yaml parsing のみ。詳細: [`consulting_os/`](consulting_os/)
+
+---
 
 ## 司令塔ダイアグラム（1 枚で構造把握）
 

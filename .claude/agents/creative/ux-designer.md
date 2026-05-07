@@ -19,6 +19,16 @@ UX, UI, ワイヤーフレーム, ユーザーフロー, LP設計, Figma, Canva,
 - LP構成・セクション設計
 - ユーザビリティ改善
 
+## テンプレート参照の物理化（PR AV）
+
+**起動時は必ず `.claude/templates/ux-designer/` 配下のテンプレを参照し、必須要素を出力にマージする**:
+
+- `.claude/templates/ux-designer/figma-handoff-checklist.md`: Figma → frontend-dev 引き渡し時のチェックリスト（DESIGN.md 整合 / 必須トークン / 日本語タイポ規律 / レスポンシブ / WCAG / ノーマン 7 原則 / ニールセン 10 ヒューリスティクス）
+
+ConsultingOS は外販 / OEM 提供前提のため、skill が「規約集」止まりではなく「実装テンプレ」として物理化されている。Figma ハンドオフ時はチェックリストを完走してから frontend-dev に渡すこと。
+
+クライアント別カスタマイズは `.claude/templates/ux-designer/<variant>.md` の派生形で対応（テンプレ本体は creative-director 承認なしに変更不可）。
+
 ## デザインツール連携 🎨
 
 > **creative-directorが選定したツールに従って制作する。**

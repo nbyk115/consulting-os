@@ -7,9 +7,26 @@
 
 ## 1. ブランドトーン
 
+### Phil Knight Nike 創業マニフェスト 10 項目（2026-05-06 PR AC 統合、ConsultingOS ブランド規律の権威者基盤）
+
+ConsultingOS のブランド規律は Nike 創業者 Phil Knight が記した 10 項目マニフェスト（著書「Shoe Dog」+ 創業時メモ）に整合する形で物理化。各項目は ConsultingOS 既存規律と整合（INFERENCE）:
+
+1. Our business is change = 川邊健太郎 AI 駆動型 + Born in AI 思想
+2. We're on offense. All the time = monopoly-positioning §教訓 4 独占攻勢 + Boris Cherny ruthlessly edit
+3. Perfect results count, not a perfect process. Break the rules: fight the law = ハードルール 1 実測必須 + ティール「漸進改善は競争を生む」否定
+4. About battle as about business = ティール §教訓 3「競争は敗者のもの」+ 独占ポジショニング設計
+5. Assume nothing. Make sure people keep promises. Push yourselves push others. Stretch the possible = 反証チェック Step 1-3 + Boris Cherny 自己検証 + 出典明示
+6. Live off the land = BMR スモビジ「初期投資ゼロ」+ 致命傷を避ける
+7. Your job isn't done until THE job is done = 真の 100 原則（PR Z）+ 形式達成度 ≠ 真の 100
+8. Dangers: Bureaucracy / Personal ambition / Energy takers vs givers / Knowing weaknesses / Don't get too many things on the platter = Boris #3 ruthlessly edit + Meta 中間管理職削減 + 形骸化追加禁止
+9. It won't be pretty = 反証 Step 1-3 で泥臭く検証
+10. If we do the right things we'll make money damn near automatic = 佐藤裕介「構造で売る = 仕組みが結果を担保する」整合（INFERENCE）
+
+名言: 「Just Do It」「ブランドは信頼から生まれる」 = ConsultingOS の規律遵守 + 反証チェック + 完了系断言禁止と整合。
+
 ### コアバリュー
-- **信頼性**: データと根拠に基づく発言
-- **専門性**: 業界知識と実践経験に裏付けられた提案
+- **信頼性**: データと根拠に基づく発言（Phil Knight「ブランドは信頼から生まれる」+ Step 3 実用反証）
+- **専門性**: 業界知識と実践経験に裏付けられた提案（Phil Knight 第 5 項「Stretch the possible」）
 - **実行力**: 提案だけでなく実装まで一気通貫
 
 ### トーンスペクトラム
@@ -203,6 +220,19 @@ font-family:
   "Noto Sans JP", "Meiryo", "メイリオ",
   sans-serif;
 ```
+
+#### 採用候補（評価中、デフォルト採用は時期尚早）
+
+**Gen Interface JP**（Inter + Noto Sans JP 混植、yamatoiizuka 制作、OFL ライセンス、v0.1.2、2026 年公開）
+
+- 設計: Inter（英文 UI）+ Noto Sans JP の緻密調整 = UI 用途最適
+- ライセンス: OFL = 無償・商用可
+- リスク: v0.1.2 = 初期版、Windows ウェイト不具合修正直後
+- 評価期日: 2026-06-03（claude-mem / Anthropic 公式機能と同期）
+- 評価項目: pdffonts / unzip+grep で中国字形フォールバック実測検証 + 全 OS（Windows / Mac / Linux）動作 + 6 ヶ月後の安定性
+- リポジトリ: github.com/yamatoiizuka/gen-interface-jp
+- 公式: gen.typesetting.jp
+- 採用判断: 評価期日後に実測検証通過 = デフォルト採用候補へ昇格、未通過 = 候補維持 or 削除
 
 #### 検知方法（機械検証必須・2026-05-01 違反学習で強化）
 
@@ -468,6 +498,63 @@ AI文章バレ対策:
 
 
 > 反証モード（トリプルチェック）の共通ルールは CLAUDE.md を参照。
+---
+
+## 5.8 em-dash / en-dash 物理化ゲート（PR AU 実装 2026-05-06）
+
+CLAUDE.md ハードルール 16 ⑥ の em-dash (U+2014) / en-dash (U+2013) 禁止規律をターン内で物理検出する hook を追加。
+
+### 背景・違反学習（2026-05-06 関根さん案件）
+
+assistant 応答「User指摘は正鵠 - sales-deck-designer」の中に em-dash が混入。
+stop-validator.sh は assistant 応答完了後の検証であり、ターン中の生成テキストには介入できない構造的空白があった。
+PR AU で PostToolUse + Stop の両フックに emdash-detector.sh を物理化し、構造的に発生不可能化。
+
+### 検出対象・除外対象
+
+| 対象 | 処理 |
+|---|---|
+| assistant 応答テキスト全体 | Stop hook で検証（transcript の最終 assistant message） |
+| ファイル書き込みコンテンツ（Edit/Write/MultiEdit） | PostToolUse hook で検証 |
+| .claude/skills/ / .claude/agents/ / docs/ / CLAUDE.md | 除外（規律定義書は学習目的で em-dash 表記あり、正当使用） |
+| evolution-log.md | 除外（違反記録ファイル自体が em-dash を記録する場合あり） |
+
+### 動作モード
+
+```bash
+# 環境変数で制御（default: warn）
+CONSULTINGOS_EMDASH_ENFORCEMENT=off    # 即時通過
+CONSULTINGOS_EMDASH_ENFORCEMENT=warn   # stderr 警告のみ（default）
+CONSULTINGOS_EMDASH_ENFORCEMENT=block  # exit 2 でブロック
+```
+
+### 検証コマンド（手動実行）
+
+```bash
+# em-dash 検出テスト（ヒットすれば検出OK）
+printf '{"content": "test em-dash here"}' | .claude/hooks/emdash-detector.sh 2>&1
+
+# 規律定義書内は通過することを確認
+printf '{"file_path": ".claude/skills/brand-guidelines.md", "content": "test em-dash"}'   | .claude/hooks/emdash-detector.sh 2>&1 && echo "PASS (excluded)" || echo "FAIL"
+
+# リポジトリ全体の em-dash 残存チェック（外部出力ファイルのみ）
+grep -rn $'\xe2\x80\x94' /home/user/consulting-os/strategy/ /home/user/consulting-os/examples/ 2>/dev/null | head -10 || echo "0件: クリア"
+```
+
+### hook ファイルパス
+
+- `.claude/hooks/emdash-detector.sh` （PostToolUse + Stop から呼び出し）
+- `settings.json` の PostToolUse `Edit|Write|MultiEdit` マッチャーと Stop 両方に登録済み
+
+### 代替表現リファレンス
+
+| NG | OK |
+|---|---|
+| `This is important — it affects revenue` | `This is important: it affects revenue` |
+| `Result — 30% improvement` | `Result: 30% improvement` |
+| `Phase 1 – Discovery` | `Phase 1: Discovery` |
+| `User指摘は正鵠 — sales-deck-designer` | `User指摘は正鵠 - sales-deck-designer` |
+
 ---
 
 ## バージョン履歴

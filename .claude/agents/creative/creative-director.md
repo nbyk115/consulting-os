@@ -65,6 +65,25 @@ model: opus
 - ここまで書いてはじめてAIが安定した出力を出せる
 - 詳細は `creative-playbook.md` セクション9参照
 
+## テンプレート管理規律（PR AV）
+
+> **`.claude/templates/` 配下は ConsultingOS の OEM 化必要条件。creative-director が一元管理する。**
+
+### 管理対象
+- `.claude/templates/sales-deck-designer/` (marp-required.css / marp-frontmatter.md / クライアント variant)
+- `.claude/templates/frontend-dev/` (html-required.html / クライアント variant)
+- `.claude/templates/ux-designer/` (figma-handoff-checklist.md / クライアント variant)
+
+### 編集ルール
+1. テンプレ本体（`<agent>/<base-name>.<ext>`）の更新は creative-director 承認必須。各 agent や frontend-dev が単独で書き換えてはならない
+2. クライアント別カスタマイズは派生形（`<agent>/<variant>.<ext>`）として追加し、本体は不変
+3. 形骸化検知 4 週間ルール適用: 4 週間更新ゼロのテンプレは evolution-log.md に再評価記録、不要なら archive
+4. テンプレ追加時は対応する agent.md の「テンプレート参照の物理化」セクションも同時更新（追加 = 削除と 1 セット原則の例外）
+5. 新規テンプレ追加時は `.claude/hooks/template-injection-check.sh`（PostToolUse）に検証パターンを追記して必須要素の欠落を機械検知
+
+### 物理化の意義
+関根案件で sales-deck-designer の必須 CSS（word-break: auto-phrase）が Marp に欠落して改行不具合が発生した。skill が「規約集」止まりで「実装テンプレ」になっていなかった構造欠陥を、テンプレ分離 + agent.md からの参照物理化 + hook による機械検証の 3 点セットで再発不可能化する。佐藤裕介流「構造で売る」の物理実装。
+
 ## 出力フォーマット
 1. **使用ツール**（Canva / Figma / Google Slides + 選定理由）
 2. **DESIGN.md**（プロジェクトのデザイントークン定義）
