@@ -8,12 +8,15 @@
 
 ---
 
-## 1. 引き継ぎ文書記載の重大な誤情報訂正
+## 1. 引き継ぎ文書 / 自社事業計画記載の重大な誤情報訂正
 
 | # | 誤記載 | 正しい情報 | 検証日 | 検証方法 |
 |---|---|---|---|---|
-| 1 | agency-agents 91.6k Stars | agency-swarm（VRSEN/agency-swarm）4.3k Stars | 2026-05-04 | WebFetch /VRSEN/agency-swarm |
+| 1 | agency-agents 91.6k Stars | agency-swarm（VRSEN/agency-swarm）約 3.9-4.3k Stars（WebSearch 表示誤差・MTG 前 gh 再確認推奨） | 2026-05-04 / 2026-05-07 | WebFetch + WebSearch |
 | 2 | リポジトリ名「agency-agents」 | 正しくは「agency-swarm」 | 2026-05-04 | GitHub VRSEN/agency-swarm 直接確認 |
+| 3 | 軸 A 投資助言業登録費用「100-300 万円程度」のみ記載 | 営業保証金 500 万円（FACT・財務省関東財務局公式）+ 登録免許税 15 万円（FACT）+ 弁護士 50-150 万円（INFERENCE）= 565-665 万円。営業保証金 500 万円は供託（返還可だが業務継続中は流動性拘束）| 2026-05-07 | kpi-analytics WebSearch 検証（財務省関東財務局公式 / 金融庁登録手続ガイドブック）|
+| 4 | SaaS 最小構成 0.5 万円/月 | 0.8 万円/月（FACT・GitHub Team $4 + Cloudflare Pro $25 + Vercel Pro $20 公開料金合計）| 2026-05-07 | kpi-analytics 各社公式 Pricing 直接確認 |
+| 5 | AutoGen を競合 4 レイヤー L3 に並列記載 | AutoGen 55.9k Stars（FACT）だが 2026-04-03 メンテナンスモード移行・後継 Microsoft Agent Framework 1.0 へ移行（FACT）。新規開発停止状態 | 2026-05-07 | competitive-analyst WebSearch 検証 |
 
 訂正の重要性: 水野氏が銀行審査部出身として「数値根拠」を最重要視するため、誤情報の提示は信頼毀損につながる。MTG 前の Case A / Case B / マスター文書すべてで FACT 4.3k Stars に統一済。
 
