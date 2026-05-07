@@ -62,16 +62,16 @@ Claude Code の性能を最大化したいとき。Hooks・MCP管理・並列ワ
 
 ---
 
-## Advisor Strategy（コスト最適化の核心）
+## Advisor Strategy（評価中: 2026-05-07 - 2026-06-04）
 
-> **Opus をアドバイザー、Sonnet/Haiku を実行役にペアリングし、Opus 同等の知能を低コストで実現。**
+> **YOU MUST**: 物理化判断は Opus 4.7 単独運用の実コスト測定後（PR BA 評価ハーネス）。先回り実装禁止。
 
-- **Executor（Sonnet 4.6）**: 毎ターン呼び出し。ファイル操作・コード生成・定型タスク
-- **Advisor（Opus）**: オンデマンド呼び出し。戦略判断・設計レビュー・品質ゲート
-- 設定: エージェントファイルの `model:` フロントマターで指定
-- 公式機能 `/advisor opus` でセカンドオピニオンを常時 ON 推奨
+- **Executor（Sonnet 4.6）候補**: 毎ターン呼び出し想定（ファイル操作・コード生成・定型タスク）
+- **Advisor（Opus）候補**: オンデマンド呼び出し想定（戦略判断・設計レビュー・品質ゲート）
+- 評価指標: agent 別 API token 消費量、Sonnet 切替時の粗利インパクト
+- 評価結果次第で `model:` フロントマター割当を再設計、4 週間後 2026-06-04 PL 判断
 
-→ 部門別ペアリング・運用詳細は `references/advisor-strategy.md` 参照。
+→ 部門別ペアリング想定・評価詳細は `references/advisor-strategy.md` + `evolution-log.md` 2026-05-07 エントリ参照。
 
 ---
 
