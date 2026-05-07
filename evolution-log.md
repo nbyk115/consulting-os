@@ -40,6 +40,9 @@
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
 - 2026-06-07: docs/orchestration-protocol.md §2.5 Autonomous Mode と Phase 5 UserPromptSubmit hook の統合判断（hook レベルでの autonomous mode 強制実装可否）
+- 2026-06-14: brand-guidelines.md (571 行) + cybersecurity-playbook.md (549 行) の references/ 分離 refactor（CLAUDE.md「SKILL.md は 500 行以下」規律準拠、infra-devops + brand-guardian 並列起動、抽出候補: brand-guidelines のビジュアルガイドラインセクション 387 行 / cybersecurity の §3-B Workload Identity Federation 77 行 + OWASP Top 10 詳細セクション）
+- 2026-06-14: pytest CI 環境構築（GitHub Actions workflow 設定、tests/ 配下 6 テスト + .claude/hooks/test-score-os-health.sh の自動実行、PR ごとの regression 検出）
+- 2026-06-21: evolution-log の自称フレーズ検知 hook 拡張（self-fraud-check.sh が assistant 応答以外に evolution-log 新規エントリも検知対象とする、Phase 4 持ち越し対応）
 - 2026-08-07: docs/orchestration-protocol.md §2.5 Autonomous Mode Protocol 7 件の 3 ヶ月運用後形骸化チェック、違反検知件数測定（目標 0 件、5 件以上で再設計判断）
 
 ### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
