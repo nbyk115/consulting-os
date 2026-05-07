@@ -412,7 +412,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v17</p>
+<p class="neutral">2026.05 / v18</p>
 
 ---
 
@@ -728,6 +728,10 @@ N.Y.CRAFT の組織モデルがそのまま OS の構造に対応する。関根
 
 # 思想的基盤 : 27 名のエージェントが拠って立つ知見
 
+<div class="small neutral" style="margin-bottom:10px;">
+これは ConsultingOS のベース（標準装備）です。<span class="accent">関根さんver では、これらを土台にしつつ関根さんの判断軸・営業メソッド・規律でカスタマイズ・上書き可能</span>。詳細は次々ページ「関根さんver 化で組み込むもの」を参照
+</div>
+
 <div class="grid-2">
 <div>
 
@@ -771,7 +775,7 @@ N.Y.CRAFT の組織モデルがそのまま OS の構造に対応する。関根
 12-Factor／Strangler Fig
 
 <blockquote class="small" style="margin-top:8px;">
-著名コンサル・経営者・研究者の実証された知見が、各エージェントの判断軸として組み込まれている
+著名コンサル・経営者・研究者の実証知見をベースに、<strong>関根さんメソッドで上書き・追加可能</strong>。例: コンサル部門に「関根さん流: キーエンス × Fastask 営業メソッド」を独自スキルとして追加、等
 </blockquote>
 
 </div>
