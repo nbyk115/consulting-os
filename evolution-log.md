@@ -11,6 +11,7 @@
 
 ### 即時 TODO（次回セッションで自動通知）
 
+- 2026-06-04: PR AX `workload-allocation-management` skill + `workload-tracking.sh` hook の形骸化検知（4 週間後）。Goodhart 法則対策（複数軸 + 定性レビュー + 反指標）が運用されているか / 単一指標化していないか / 教育実習が「やった」だけになっていないかを確認。形骸化検知時は Boris #3 ruthlessly edit で削除 / 統合 / 改修判断
 - 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
 
 ### 中期再評価

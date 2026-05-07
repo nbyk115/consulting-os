@@ -35,6 +35,11 @@
             "type": "command",
             "command": ".claude/hooks/score-os-health.sh",
             "timeout": 10000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/workload-tracking.sh",
+            "timeout": 10000
           }
         ]
       }
