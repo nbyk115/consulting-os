@@ -83,6 +83,16 @@
             "type": "command",
             "command": ".claude/hooks/emdash-detector.sh",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/stop-os-check.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/self-fraud-check.sh",
+            "timeout": 8000
           }
         ]
       }
