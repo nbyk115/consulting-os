@@ -93,6 +93,10 @@
             "type": "command",
             "command": ".claude/hooks/self-fraud-check.sh",
             "timeout": 8000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/auto-validate-discipline.sh"
           }
         ]
       }
