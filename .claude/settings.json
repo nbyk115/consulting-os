@@ -96,6 +96,11 @@
           },
           {
             "type": "command",
+            "command": ".claude/hooks/outcomes-judge-minimal.sh",
+            "timeout": 5000
+          },
+          {
+            "type": "command",
             "command": ".claude/hooks/auto-validate-discipline.sh"
           }
         ]
