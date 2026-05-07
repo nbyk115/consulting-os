@@ -1,9 +1,14 @@
 # Incendium 日本市場参入: 競合分析 + ポジショニング設計ブリーフ
 
-作成日: 2026-05-07
+作成日: 2026-05-07 (v1) / 改訂 2026-05-07 (v2)
 作成: ConsultingOS (orchestrator: assistant)
 想定読者: Robin (紹介者) / Incendium 経営チーム
 位置づけ: 初回 call 前の一次調査ブリーフ (Pre-engagement)
+
+## 改訂履歴
+
+- v1 (2026-05-07 初版): 国内競合を Web 2.0 期老舗 (KARTE / Repro / USERGRAM / b→dash / Rtoaster / AD EBiS / CINC) で構成。
+- v2 (2026-05-07 改訂): ユーザー指摘により AI ネイティブ国内勢を完全見落としていたことが判明。電通デジタル ∞AI / KARTE AI (2025-10 AI ネイティブ化) / サイバーエージェント極予測 AI / Sprocket SproAgent / Sales Marker Orcha / Algomatic Apodori / PKSHA AI Agents / ELYZA Works / Lightblue Assistant 等を追加し、競合マップを「AI ネイティブ vs 老舗 (AI 統合中)」2 軸で再構造化。ポジショニング推奨を 12 ヶ月時間窓で精緻化。構造原因学習は evolution-log 2026-05-07 エントリ参照。
 
 ---
 
@@ -11,18 +16,32 @@
 
 Incendium は ecommerce / B2B 向けの AI 駆動マーケ分析プラットフォームで、独自指標「Page Effectiveness」とフルアトリビューション、パーソナライズ LP / A/B テストを SaaS + Shopify App として提供している。日本市場で参入する場合、以下が ConsultingOS の一次見立てである。
 
+重要訂正 (v2):
+日本の AI x マーケ領域は 2025 年に急速に立ち上がっており、すでに激戦区。電通デジタル ∞AI が 2025-03 にマルチモーダル生成 AI + AI エージェント運用を開始、プレイドが 2025-10 に「KARTE AI」を発表して AI ネイティブ化、サイバーエージェント極予測 AI が成功報酬型で 500 アカウント突破、Sprocket / Sales Marker / Algomatic / PKSHA / ELYZA / Lightblue が AI エージェント路線で並走。Incendium が「日本市場で AI ファーストのマーケ分析が空白」と捉えていたら認識ギャップがある。
+
 ポジショニングの結論 (推奨候補):
-「Shopify ネイティブ Mid-market D2C 向け、AI 1st-party アトリビューション + CRO 統合プレイヤー」として参入するのが最も空きポジションが大きい。海外ではすでに Triple Whale / Northbeam が同領域を取っているが、日本市場では (1) Shopify エコシステムの Mid-market 特化 (2) パーソナライズ LP + A/B + アトリビューションの統合 (3) Page Effectiveness の独自指標、の 3 軸が交差する空白がまだ存在する。KARTE / Repro は CX / アプリ寄り、AD EBiS は計測専業、b→dash / Rtoaster は CDP 寄りで、いずれも Shopify D2C の「広告投資効率を 1 ダッシュボードで可視化 + 改善」までを 1 プロダクトで完結させていない。
+「Shopify ネイティブ Mid-market D2C 向け、AI ファースト x SaaS セルフサーブ x 広告 ROI 特化」として、12 ヶ月以内の参入が勝負。理由:
+- 電通デジタル ∞AI は代理店ソリューション (大手向け / 代理店経由) で、SaaS セルフサーブではない
+- KARTE AI は CX プラットフォーム特化 (大手 EC / メディア向け)、Shopify Mid-market 特化ではない
+- 極予測 AI はクリエイティブ予測特化 (広告制作)、アトリビューション + CRO 統合ではない
+- Sprocket / Sales Marker / Algomatic は CX / Sales / 業務効率特化、Shopify D2C 広告 ROI 特化ではない
+- Shopify Sidekick / Magic は店舗運営支援 (商品管理 / 顧客対応)、広告 ROI 分析機能は弱い [INFERENCE]
+
+ゆえに Shopify D2C 向け「AI ファースト + セルフサーブ + 広告 ROI + CRO 統合」の交差点はまだ空きが残るが、この空きは KARTE AI Context Lake / Craft Cross CMS の進化次第で 2026 年内に閉じる可能性。Incendium の参入は時間との勝負。
 
 GA / Adobe Analytics / TTD / MiQ との関係 (Robin への 1 分回答):
 - GA4 / Adobe Analytics は「全社の Web 計測基盤」: Incendium はこの上位に乗る「広告 ROI 改善 + CRO 実行ツール」。被らず補完。
-- TTD Kokai / MiQ Sigma は DSP レイヤー (媒体買付の AI): Incendium は LP / サイト側の最適化レイヤー。買付 AI と LP / アトリビューション AI は「補完関係」で、両方使われる。
-- 直接競合は Northbeam / Triple Whale / Rockerbox (海外)、KARTE / b→dash / AD EBiS (日本)。ここに対して「Shopify x AI x 統合」で差別化する。
+- TTD Kokai / MiQ Sigma は DSP レイヤー (媒体買付の AI): Incendium は LP / サイト側の最適化レイヤー。補完関係。
+- 直接競合 (日本): 電通デジタル ∞AI / KARTE AI / 極予測 AI (大手向け代理店 / プラットフォーム勢) + Sprocket SproAgent / Algomatic Apodori (AI エージェント勢)。
+- 直接競合 (海外): Northbeam / Triple Whale (Shopify D2C アトリビューション、日本未進出)。
+- 老舗 (AI 統合中): KARTE 旧シリーズ / Repro / USERGRAM / AD EBiS / b→dash / Rtoaster は AI ネイティブ化を進行中だが、KARTE 以外は依然として旧アーキで AI 後付け [INFERENCE]。
 
-初回 call で確認すべきトップ 3:
+初回 call で確認すべきトップ 5:
 1. 日本進出の本気度 (現地法人 / 代理店 / Shopify App Store のみ、のどれか)
 2. 現在の海外 ARPU / 主要顧客の年商レンジ (Mid-market なのか Enterprise なのか)
 3. 日本語 UI / サポート / 改正電気通信事業法対応の現状
+4. 電通グループ / 大手代理店との提携意向 (∞AI / 極予測 AI と提携 or 競合か)
+5. AI エージェント機能の現状と日本展開時の差別化軸 (生成 AI / エージェント / 仮想顧客 AI のどれを推すか)
 
 ---
 
@@ -90,47 +109,63 @@ Shopify App Store に「Incendium - Advanced attribution & analytics for data-dr
 
 ---
 
-## 3. 競合マップ
+## 3. 競合マップ (v2: AI ネイティブ vs 老舗 AI 統合中の 2 軸再構造化)
 
-### 3.1 Category A: 国内ネイティブ競合 (日本発)
+### 3.1 Category A1: AI ネイティブ国内競合 (Incendium と最も近接)
 
-| プロダクト | 提供企業 | カテゴリ | 主要顧客 | 強み | 弱み (Incendium 差別化余地) |
-|---|---|---|---|---|---|
-| KARTE | PLAID | CX プラットフォーム + CDP + AI/ML | 大手 EC / D2C / メディア (電通デジタル等パートナー) | エンタープライズ営業強い、CX 深い、日本語サポート | アトリビューション機能は弱い、Shopify 特化ではない、価格高い [INFERENCE] |
-| Repro | Repro Inc. | モバイルアプリ CX (push / in-app) | アプリを持つ EC / メディア | アプリ特化で深い | Web の AI アトリビューションは Incendium が優位 [INFERENCE] |
-| USERGRAM | Beebit | 行動観察型分析 | 大手 EC / 金融 | 「個」の行動観察 (UI/UX 改善向け) | アトリビューション / 広告 ROI は対象外 |
-| AD EBiS | LOCKON (現 IREP) | 広告効果測定 | 広告主 / 代理店 | 広告計測の老舗、データ基盤強い | CRO / LP / A/B テストは対象外、Shopify 統合弱い [INFERENCE] |
-| b→dash | データ X | CDP + MA | エンタープライズ / 中堅 | データ統合 + MA 統合 | Shopify D2C の「広告 ROI 即可視化」とは別カテゴリ |
-| Rtoaster | ブレインパッド | DMP / レコメンド | 大手 EC / メディア | レコメンド深い、データサイエンス背景 | アトリビューション / 統合 CRO は対象外 |
-| CINC | Faber Company | SEO 分析 | デジタルマーケ部門 | SEO 特化 | 広告 ROI / EC アトリビューションはスコープ外 |
+| プロダクト | 提供企業 | AI 戦略 | 主要顧客 | 提供形態 | 強み | Incendium との差分 |
+|---|---|---|---|---|---|---|
+| ∞AI (ムゲンエーアイ) | 電通デジタル | マルチモーダル生成 AI + AI エージェント (2025-03 大型アップデート)。Customer Data Hub + 仮想顧客 AI (カスタマーツイン)。メディアプランニング/広告コピー/効果予測自動化。∞AI Social (SNS 投稿) | 大手広告主 / 大手 EC | 代理店ソリューション (電通グループ経由) | 国内最大マーケテック × AI 統合、電通グループのデータ + 代理店網 | SaaS セルフサーブではない (大手代理店経由前提)、Mid-market D2C はターゲット外 [INFERENCE] |
+| KARTE AI | プレイド | 「KARTE AI」発表 (2025-10)。フレックスエディタ AI エージェント (自然言語でキャンペーン編集)、Context Lake (顧客コンテクスト自動理解、2025-11)、Craft Cross CMS (AI ネイティブヘッドレス CMS、2025-09 β)、Remote MCP (ChatGPT 連携) | 大手 EC / D2C / メディア | SaaS (大手向け契約) | AI ネイティブに進化中、コード不要 LP / 通知編集、CX 深い、日本語サポート完備 | アトリビューション機能はメインではない、Shopify Mid-market 特化ではない、価格高 [INFERENCE]。ただし急進化中、12 ヶ月で領域被る可能性 |
+| 極予測 AI | サイバーエージェント | AI 効果予測 + 成功報酬型。クリエイティブ勝率予測、500 アカウント突破。極多様性プロット (2025-07、Meta 広告対応)。極予測やりとり AI、極予測 AI 人間 (ブランド固有モデル) | 大手広告主 / D2C | サイバーエージェント代理店経由 | 効果予測 2.6 倍勝率実績、成功報酬型で価格リスク低、AI ネイティブ純度高 | クリエイティブ予測特化、CRO / LP / アトリビューション統合機能はなし、サイバー代理店契約前提 |
+| SproAgent (Sprocket) | Sprocket | Data Analysis Agent (2025-07)、生成 AI でデータ分析自動化、CX 改善プラットフォーム拡張 | 大手 EC / メディア / 金融 | SaaS | CX 改善実績、AI エージェント路線、日本語完備 | アトリビューション特化ではない、Shopify ネイティブではない |
+| Orcha (Sales Marker) | Sales Marker | 日本初 AI スーパーエージェント (2025-07)、ABM × AI、200 名社員 AI ハッカソン体制 | B2B 営業組織 | SaaS | B2B AI セールスのリーダー、AI 投資の本気度高 | B2B セールス特化、ecommerce / D2C 広告 ROI はスコープ外 |
+| Apodori (Algomatic) | Algomatic | 営業 AI エージェント (リスト作成 + アプローチ + 活動管理 + 分析自動化) | B2B 営業組織 | SaaS | AI ネイティブ純度高、エージェント深い | 営業特化、マーケ分析 / アトリビューションは対象外 |
+| PKSHA AI Agents | PKSHA Technology | PKSHA AI SaaS (2,600+ 企業)、AI Agents、AI UX (2025-12 Extone 統合)、Chatbot / FAQ / Voicebot 基盤 | エンタープライズ / 中堅 | SaaS + 受託 | AI 技術深い、東大松尾研系統、エンタープライズ実績 | マーケ分析 / 広告 ROI はメインスコープではない |
+| ELYZA Works | ELYZA | 法人向け生成 AI ツール (2025-09)、KDDI 提携、日本語 LLM 強い | エンタープライズ | SaaS + KDDI チャネル | 日本語 LLM トップティア、KDDI 営業力 | マーケ特化ではなく汎用生成 AI、Incendium と直接競合は弱い |
+| Lightblue Assistant | Lightblue | AI エージェント業務自動化 (2025-01)、東大発 | エンタープライズ | SaaS | 業務自動化 AI エージェント、東大ブランド | 業務効率特化、マーケ分析は対象外 |
+| Shopify Sidekick / Magic | Shopify Japan | Shopify 純正 AI、商品管理 / 顧客対応支援、Sidekick (アシスタント機能) | Shopify 加盟店全般 | プラットフォーム純正 (無料 / 有料プラン) | Shopify ネイティブ、加盟店全店リーチ可能 | 広告 ROI 分析 / アトリビューションは弱い [INFERENCE]、Sidekick は店舗運営支援が主軸 |
 
-### 3.2 Category B: グローバル競合 (日本市場でのプレゼンス)
+### 3.2 Category A2: 老舗 (AI 統合中、Incendium とは隣接領域)
 
-| プロダクト | カテゴリ | 日本での実プレゼンス | 強み | 弱み (Incendium 差別化余地) |
+| プロダクト | 提供企業 | AI 統合状況 | 旧主力 | Incendium との関係 |
 |---|---|---|---|---|
-| Google Analytics 4 / GA360 | Web 分析 (DAP) | 圧倒的 (デファクト) | 無料 GA4 / GA360 はエンタープライズ標準 | GA4 はアトリビューション浅い、Shopify 統合は標準でない、CRO 機能なし |
-| Adobe Analytics / CJA | エンタープライズ分析 | 大手企業中心に存在 (電通 / 博報堂経由含む) | Sensei AI (Anomaly / Forecast / AI Assistant)、Attribution IQ | 価格高 (年額数千万円〜想定) [SPECULATION]、Shopify Mid-market には過剰 |
-| Mixpanel / Amplitude | プロダクト分析 | スタートアップ / SaaS で利用 | プロダクト分析深い | EC アトリビューションは専門外、Shopify 統合弱い |
-| Optimizely / VWO | A/B テスト | 中堅以上 | A/B 専業の深さ | アトリビューション / アナリティクスは別途必要 |
-| Triple Whale | Shopify アトリビューション | 日本での実プレゼンス薄い [INFERENCE] | Shopify ネイティブ、Moby AI (Chat / Media Buyer / Studio)、リアルタイム | 日本語 UI なし [推定]、$10-40M の D2C 向け |
-| Northbeam | DTC アトリビューション ($40M+) | 日本での実プレゼンス薄い [INFERENCE] | MMM、Holdout testing、フラクショナル重み付け、研究志向 | $1,500/月〜のスターター、Enterprise ブランド向け、AI 機能浅い |
-| Rockerbox | アトリビューション (Mid-Enterprise) | 日本実プレゼンスほぼなし | MTA + MMM + インクリメンタリティ | 日本展開なし |
+| KARTE 旧シリーズ | プレイド | 「KARTE AI」(A1 参照) で AI ネイティブ化進行中。本欄は AI 統合前の旧 CX プラットフォーム機能 | CX 接客プラットフォーム | A1 に進化中、本欄は近年中に消える |
+| Repro | Repro Inc. | AI 統合は Push 配信最適化等で限定的 [INFERENCE] | モバイルアプリ CX (push / in-app) | アプリ特化、Web の AI アトリビューションは Incendium が優位 |
+| USERGRAM | Beebit | AI 統合は限定的 [INFERENCE] | 行動観察型分析 (UI/UX 改善向け) | アトリビューション / 広告 ROI は対象外 |
+| AD EBiS | LOCKON (現 IREP) | AI 統合は限定的 [INFERENCE]、データ基盤側で活用 | 広告効果測定の老舗 | CRO / LP / A/B テストは対象外、Shopify 統合弱い |
+| b→dash | データ X | AI 統合は機械学習レコメンド程度 [INFERENCE] | CDP + MA | Shopify D2C 広告 ROI とは別カテゴリ |
+| Rtoaster | ブレインパッド | データサイエンス + AI レコメンド | DMP / レコメンド | アトリビューション / 統合 CRO は対象外 |
+| CINC | Faber Company | AI 統合は限定的 [INFERENCE] | SEO 分析 | 広告 ROI / EC アトリビューションは対象外 |
 
-### 3.3 Category C: 隣接 / 代替手段 (Build vs Buy)
+### 3.3 Category B: グローバル競合 (日本市場でのプレゼンス)
+
+| プロダクト | カテゴリ | AI 機能 | 日本での実プレゼンス | Incendium 差別化余地 |
+|---|---|---|---|---|
+| Google Analytics 4 / GA360 | Web 分析 (DAP) | Predictive Audiences / Insights / Anomaly Detection | 圧倒的 (デファクト) | アトリビューション浅い、Shopify 統合は標準でない、CRO 機能なし |
+| Adobe Analytics / CJA | エンタープライズ分析 | Sensei AI (Anomaly / Forecast / AI Assistant)、Attribution IQ | 大手企業中心 (電通 / 博報堂経由含む) | 価格高 (年額数千万円〜想定) [SPECULATION]、Shopify Mid-market には過剰 |
+| Triple Whale | Shopify アトリビューション | Moby AI (Chat / Media Buyer / Studio) | 日本実プレゼンス薄い [INFERENCE] | 日本語 UI なし [推定]、$10-40M D2C 向け |
+| Northbeam | DTC アトリビューション ($40M+) | MMM、Holdout testing、フラクショナル重み付け | 日本実プレゼンス薄い [INFERENCE] | $1,500/月〜、Enterprise 向け、AI 機能浅い |
+| Rockerbox | アトリビューション (Mid-Enterprise) | MTA + MMM + インクリメンタリティ | 日本実プレゼンスほぼなし | 日本展開なし |
+| Mixpanel / Amplitude | プロダクト分析 | AI Insight | スタートアップ / SaaS で利用 | EC アトリビューションは専門外 |
+| Optimizely / VWO | A/B テスト | AI バンディット | 中堅以上 | アトリビューション / アナリティクスは別途必要 |
+
+### 3.4 Category C: 隣接 / 代替手段 (Build vs Buy)
 
 - 内製 BI: Tableau / Looker / Power BI + データチーム (大手向け、初期コスト高)
 - GA4 + 手動アナリスト: 多くの中堅 D2C はこれで凌いでいる (Incendium が置き換えるべき主敵)
-- 広告代理店レポーティング: 代理店依存のレポート提供 (脱代理店ニーズが Incendium への追い風)
+- 広告代理店レポーティング: 代理店依存 (脱代理店ニーズが Incendium への追い風、ただし電通 ∞AI / サイバー極予測 AI と直接競合)
+- ChatGPT / Claude / Gemini + Excel: 生成 AI + 手作業の組み合わせ (Mid-market では現実的代替手段、Incendium は「AI を業務に組み込む」価値で勝負)
 
-### 3.4 空きポジション ヒートマップ (3 候補)
+### 3.5 空きポジション ヒートマップ (v2 改訂)
 
 ConsultingOS の見立てによる「日本市場で誰も完全に取っていない交点」 [INFERENCE]:
 
 | 軸 1 | 軸 2 | 軸 3 | 空き度 | 理由 |
 |---|---|---|---|---|
-| Shopify ネイティブ | Mid-market D2C ($1M-30M 売上) | AI アトリビューション + CRO 統合 | 高 | KARTE / b→dash は CDP / 大手向け、Triple Whale 等は日本語対応せず |
-| Shopify ネイティブ | 大手ブランド単一事業部 | エンタープライズ統合 | 中 | Adobe / KARTE が既存、Shopify 特化での割り込みは可能 |
-| 非 Shopify EC (自社カート / 楽天 / Amazon Japan) | Mid-market | アトリビューション + LP 改善 | 中 | 楽天 / Amazon は API 制約強い、参入難度高い |
+| Shopify ネイティブ | Mid-market D2C ($1M-30M 売上) | AI ファースト広告 ROI + CRO 統合 SaaS セルフサーブ | 中-高 (12 ヶ月時間窓) | 電通 ∞AI は代理店経由 / KARTE AI は大手向け / 極予測 AI はクリエイティブ特化、Shopify Mid-market セルフサーブの空きあり。ただし KARTE Craft Cross CMS / Context Lake 進化次第で 2026 年内に閉じる可能性 |
+| 大手代理店パートナー | エンタープライズ D2C 事業部 | AI クリエイティブ + AI アトリビューション統合 | 低 | 電通 ∞AI / サイバー極予測 AI が強固に押さえている、参入は提携 or 受託前提 |
+| Mid-market B2B SaaS | アカウント単位アトリビューション | AI インサイト | 中 | Sales Marker Orcha / Algomatic Apodori は営業特化、マーケ側は空白あり。Incendium B2B モードで参入可 |
 
 ---
 
@@ -279,28 +314,39 @@ ConsultingOS 推奨: 初期 ICP は ICP-A (Shopify D2C Mid-market) で、ICP-C (
 
 ## 6. ポジショニング設計 (3 候補 + 推奨)
 
-### 6.1 候補 1: 「Shopify D2C のための AI 広告 ROI x CRO 統合プラットフォーム」(推奨)
+### 6.1 候補 1: 「Shopify D2C のための AI ファースト広告 ROI x CRO 統合 SaaS」(推奨、12 ヶ月時間窓)
 
-ポジショニングステートメント:
-「広告投資が真に売上に効いているかを、Shopify ダッシュボードの上で AI が秒で答え、ページ単位で改善案まで出すプラットフォーム」
+ポジショニングステートメント (v2 精緻化):
+「電通や代理店に頼まずに、Shopify 上で AI が広告 ROI とページ改善を同時に解決する、Mid-market D2C のための SaaS」
 
 3S (Segment / Story / Strategy):
-- Segment: Shopify を使う Mid-market D2C ($1M-30M USD 売上)
-- Story: 「代理店レポートを待つ時代は終わった。Incendium は Shopify の中で広告 ROI と LP 改善を同時に解決する」
-- Strategy: Shopify App Store + Shopify Plus パートナー連携で初期獲得、月額サブスクで LTV 拡大
+- Segment: Shopify を使う Mid-market D2C ($1M-30M USD 売上、内製マーケチーム 3-10 名)
+- Story: 「電通 ∞AI も KARTE AI も大企業向け。極予測 AI は代理店経由。Shopify D2C の現場が AI を SaaS で直接使える唯一のプラットフォーム」
+- Strategy: Shopify App Store + Shopify Plus パートナー連携 + Shopify Japan との直接アライアンスで初期獲得、月額サブスクで LTV 拡大
 
-3 変数交点 (佐藤裕介流):
-- (1) Shopify ネイティブ x (2) AI アトリビューション x (3) CRO 実行 = 国内競合不在の交差点
+4 変数交点 (v2 で 1 軸追加):
+- (1) Shopify ネイティブ x (2) AI ファースト x (3) CRO + アトリビューション統合 x (4) SaaS セルフサーブ
+- = 国内 AI ネイティブ勢 (∞AI / KARTE AI / 極予測 AI) も含めて空きが残る交差点
 
-なぜ強いか:
-- 国内競合 (KARTE / b→dash / AD EBiS) はいずれも 3 軸全てを満たさない
-- Shopify エコシステムへの依存が「ニッチ」に見えるが、日本の Shopify 加盟店が今後 5 年で増えるトレンド前提なら成長余地大 [SPECULATION: トレンド前提要 FACT 確認]
-- グローバル競合 (Triple Whale / Northbeam) は日本展開していないため、日本語 UI / 日本サポートが構造的優位
+なぜ強いか (AI ネイティブ前提で再構成):
+- 電通 ∞AI: 代理店ソリューション、SaaS セルフサーブ非対象 (4 軸目で外れる)
+- KARTE AI: 大手 EC / メディア向け、Shopify Mid-market 特化ではない (1 軸目 + Segment で外れる)
+- 極予測 AI: クリエイティブ予測特化、CRO + アトリビューション統合ではない (3 軸目で外れる)
+- Sprocket / Sales Marker / Algomatic / PKSHA / ELYZA / Lightblue: それぞれ CX / Sales / 業務効率特化、Shopify D2C 広告 ROI 特化ではない
+- Shopify 純正 Sidekick / Magic: 店舗運営支援が主、広告 ROI 分析機能は弱い [INFERENCE]
+- グローバル Triple Whale / Northbeam: 日本展開していない、日本語 UI / 日本サポートで構造的優位
 
-リスク / 反証:
-- Shopify エコシステムが日本で伸び悩めば TAM が頭打ち
-- 国内 Shopify アプリ (KICK 系 / EC Force 系) との競合になる可能性
-- 改正電気通信事業法対応コストが想定以上にかかる
+時間窓 12 ヶ月の根拠:
+- KARTE AI は 2025-09 「フレックスエディタ」、2025-11 「Context Lake」、2025-09 β「Craft Cross CMS」と連続リリース中。今のペースで進化すれば 2026 年内に Shopify 統合 / Mid-market 価格帯まで降りてくる可能性
+- 電通 ∞AI は 2025-03 アップデートで AI エージェント運用開始、2026 年内に SaaS 化 or 中堅向けプラン展開する可能性 [SPECULATION]
+- ゆえに 2027 年に参入では遅い。2026 年中の Beachhead 確立が勝負
+
+リスク / 反証 (v2 強化):
+- 国内 Shopify アプリ競合 (Apuri 系 / EC Force 系等) で類似機能を持つものが既にある可能性 (Phase 1 で要マッピング)
+- KARTE AI が Shopify 連携アプリを 2026 年中にリリースした場合、空きポジションが急速に閉じる
+- 電通 ∞AI が SaaS 化 + Mid-market プラン展開した場合、ブランド力 + データ量で押される
+- Shopify Japan のシェアが米国比で低い場合 TAM 頭打ち
+- 改正電気通信事業法対応コストが想定以上 (Phase 1 でリーガル確認必須)
 
 ### 6.2 候補 2: 「GA4 を超える、AI ファーストのマーケ分析ツール」(差別化弱め)
 
@@ -373,15 +419,40 @@ ConsultingOS が現時点で確認できていない事項を明記する (Hard 
 
 ## 9. 反証チェック結果
 
-### Step 1: 自己反証 (内部論理整合性)
+### v1 → v2 改訂学習 (構造的失敗事象)
 
-- 主張: 「Shopify D2C Mid-market 向け AI x CRO 統合は空きポジション」
-  - 反証: 国内 Shopify アプリ (Apuri 系 / EC Force 系) で類似機能を持つものが存在する可能性。今回未調査。
-  - 対策: Phase 1 詳細調査で Shopify Japan App Store の上位 50 アプリを実マッピングする。
+v1 の重大な構造的失敗を本セクションで明記する。本ブリーフは pre-engagement の一次調査だが、v1 では以下の失敗を犯した:
+
+- 国内競合マップを「自分の記憶ベース」で組み立て、AI ネイティブ角度の WebSearch を 0 回しか発行しなかった
+- 結果として、電通デジタル ∞AI / KARTE AI (2025-10) / サイバーエージェント極予測 AI / Sprocket SproAgent / Sales Marker Orcha / Algomatic / PKSHA / ELYZA / Lightblue 等の AI ネイティブ国内勢を完全に見落とした
+- INFERENCE「国内に AI ネイティブ直接競合は不在」を、実検索 0 回で断言した = FACT 偽装 (Hard Rule 1 違反)
+
+ユーザー指摘 3 件で構造的問題が露呈:
+1. 「国内競合古くない? AI だよね?」
+2. 「電通デジタルの AI ソリューションも調べた?」
+3. 「ちゃんとコンサル OS 起動してる?」
+
+構造原因 (5 Whys 詳細は evolution-log 2026-05-07 エントリ参照):
+- エージェント並列起動がレート制限で失敗した時、再起動 / 構成変更ではなく「自分でやる」に即フォールバックした (orchestrator バイアス)
+- 「納品物を出す」を「正しいプロセスで出す」より優先した (Goodhart 法則: 形式達成度を真の 100 と混同)
+- Hard Rule 17 の「出力検証ゲート」と「拡大解釈禁止」の物理化が文言止まりで、サーチクエリ網羅性チェックが機械化されていない
+
+物理化対策 (v2 改訂時に実施):
+- evolution-log 2026-05-07 エントリで再発不能化記録
+- 隣接角度ゲート 3 問を falsification-check.md §3.X 新設予定: (1) 同類の AI ネイティブを検索したか / (2) 大手代理店ソリューションを検索したか / (3) 海外同等製品の日本展開状況を検索したか
+- competitive-analyst.md に「AI プロダクト案件で必須サーチクエリ」セクション追加予定 (Phase 1 持ち越し)
+
+### Step 1: 自己反証 (内部論理整合性、v2 改訂後)
+
+- 主張: 「Shopify D2C Mid-market 向け AI ファースト広告 ROI + CRO 統合 SaaS セルフサーブは 12 ヶ月時間窓で空きポジション」
+  - 反証 1: KARTE AI が Shopify 連携アプリを 2026 年中にリリースした場合、空きポジションが急速に閉じる。
+  - 反証 2: 電通 ∞AI が SaaS 化 + Mid-market プラン展開した場合、ブランド力 + データ量で押される。
+  - 反証 3: 国内 Shopify アプリ (Apuri 系 / EC Force 系) で類似機能を持つものが既にある可能性。今回未調査。
+  - 対策: Phase 1 詳細調査で Shopify Japan App Store 上位 50 アプリ実マッピング + KARTE / 電通の四半期ごと動向ウォッチ体制構築。
 
 - 主張: 「ICP-A の ARPU は月額 10-50 万円」
-  - 反証: 海外 Triple Whale の価格帯から推計したが、日本市場では Willingness to Pay が低い可能性 (D2C は資金力が限定的)。
-  - 対策: ICP インタビューで価格弾力性を直接検証。
+  - 反証: 海外 Triple Whale 価格帯から推計したが、日本市場では Willingness to Pay が低い可能性 (D2C は資金力限定的、AI ツールの値段感は ChatGPT 比較で安く見られがち)。
+  - 対策: ICP インタビューで価格弾力性を直接検証 + 極予測 AI 成功報酬型との比較で価格設計を再考。
 
 ### Step 2: 構造反証 (前提条件の脆弱性)
 
@@ -430,14 +501,43 @@ Phase 1 持ち越しが構造的に必要なリスク:
 
 ## 10. 出典一覧
 
+### 市場 / 規制 (FACT)
 - 経済産業省「令和 6 年度電子商取引に関する市場調査」: https://www.meti.go.jp/press/2025/08/20250826005/20250826005.html
 - 総務省 外部送信規律: https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/gaibusoushin_kiritsu.html
+- 改正電気通信事業法解説 (Priv Lab): https://privtech.co.jp/blog/law/revised-telecommunications-business-law-cookie.html
+
+### Incendium 関連
 - Incendium 公式: https://incendium.ai/
 - Incendium Shopify App: https://apps.shopify.com/incendium-pixel
 - Incendium Crunchbase: https://www.crunchbase.com/organization/incendium-ai
+
+### グローバル競合 (DSP / 計測 / アトリビューション)
 - The Trade Desk Kokai: https://www.thetradedesk.com/press-room/the-trade-desk-launches-kokai-a-new-media-buying-platform-that-brings-the-full-power-of-ai-to-digital-marketing
 - MiQ Sigma: https://www.businesswire.com/news/home/20250604957858/en/MiQ-Sigma-Breaks-the-Fragmentation-Cycle-The-First-AI-Platform-That-Unifies-the-Programmatic-Ecosystem
-- Adobe CJA AI: https://www.blastx.com/insights/2025-ai-guide-for-adobe-customer-journey-analytics
+- Adobe CJA AI 2025 ガイド: https://www.blastx.com/insights/2025-ai-guide-for-adobe-customer-journey-analytics
 - Triple Whale vs Northbeam: https://www.triplewhale.com/blog/triple-whale-vs-northbeam
-- KARTE (PLAID): https://karte.io/
-- 改正電気通信事業法解説 (Priv Lab): https://privtech.co.jp/blog/law/revised-telecommunications-business-law-cookie.html
+
+### AI ネイティブ国内競合 (v2 で追加、最重要セクション)
+- 電通デジタル ∞AI 大型アップデート (2025-03): https://www.dentsudigital.co.jp/news/release/services/2025-0324-000211
+- 電通デジタル ∞AI Social SNS (2025-01): https://www.dentsudigital.co.jp/news/release/services/2025-0114-000196
+- 電通デジタル ∞AI Knowledge Charge: https://www.dentsudigital.co.jp/knowledge-charge/articles/2025-0411-mugen-ai
+- 電通デジタル データ AI: https://www.dentsudigital.co.jp/services/data-ai
+- プレイド「KARTE AI」発表 (2025-10): https://plaid.co.jp/news/20251030/
+- KARTE Flex Editor + AI Agent (2025-09): https://plaid.co.jp/news/20250910/
+- KARTE Context Lake (2025-11): https://plaid.co.jp/news/20251110/
+- KARTE Craft Cross CMS β (2025-09): https://plaid.co.jp/news/20250924/
+- サイバーエージェント極予測 AI: https://www.cyberagent.co.jp/news/detail/id=24647
+- 極予測 AI 500 アカウント突破: https://www.cyberagent.co.jp/news/detail/id=25062
+- 極多様性プロット (2025-07): https://www.cyberagent.co.jp/news/detail/id=32243
+- Sprocket SproAgent: https://www.sprocket.bz/platform/sproagent/
+- Sprocket 生成 AI 活用: https://www.sprocket.bz/blog/20250801-ai_marketing.html
+- Sales Marker Orcha (2025-07 日本初 AI スーパーエージェント): https://sales-marker.jp/report/ai-agent/
+- Algomatic Apodori 営業 AI エージェント: https://magazine.algomatic.jp/eigyo-ai-agent-revolution-next-gen-sales-strategy
+- PKSHA AI Agents: https://aismiley.co.jp/ai_news/pksha-technology-ai-agent/
+- PKSHA AI Summit 2025: https://aisaas.pkshatech.com/summit2025
+- ELYZA Works (2025-09): https://note.com/elyza/n/n7cd59e020596
+- Lightblue Assistant (2025-01): https://www.lightblue-tech.com/2025/01/16/20250116-news/
+
+### 老舗 (AI 統合中) 国内
+- KARTE 公式: https://karte.io/
+- KARTE 競合比較 (ITreview): https://www.itreview.jp/products/karte/competitors/alternatives

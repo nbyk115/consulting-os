@@ -347,6 +347,81 @@ Phase 4 持ち越し（2026-06-03 期日）:
 
 ---
 
+## 2026-05-07: AI ネイティブ国内競合見落とし + 「自分の記憶ベース競合リスト」事象学習（PR AC）
+
+### 事象
+
+Incendium（incendium.ai、AI 駆動マーケ分析プラットフォーム、Robin 紹介）の日本市場参入ブリーフ初版で、国内競合マップを「KARTE / Repro / USERGRAM / b→dash / Rtoaster / AD EBiS / CINC」の 7 社で構成。ユーザー指摘 3 件:
+
+1. 「国内競合古くない? AI だよね?」= 老舗 Web 2.0 期プレイヤーのみで AI ネイティブ国内勢を完全スキップ
+2. 「電通デジタルの AI ソリューションも調べた?」= ∞AI（2025-03 大型アップデート、マルチモーダル生成 AI + AI エージェント運用開始）を完全見落とし
+3. 「ちゃんとコンサル OS 起動してる?」= Hard Rule 17 (orchestrator 規律 + 出力検証ゲート) 違反
+
+実測（事後追加 WebSearch で発見した AI ネイティブ国内勢）:
+- 電通デジタル ∞AI: Customer Data Hub + 仮想顧客 AI（カスタマーツイン）+ AI エージェント、メディアプランニング/広告コピー/効果予測自動化（2025-03）
+- プレイド KARTE AI: フレックスエディタ AI エージェント / Context Lake / Craft Cross CMS / Remote MCP（2025-09 ～ 11）= KARTE は「老舗 CX」ではなく「AI ネイティブ化中」
+- サイバーエージェント極予測 AI: 効果予測 AI + 成功報酬型、500 アカウント突破、極多様性プロット（2025-07）
+- Sprocket SproAgent / Data Analysis Agent（2025-07）
+- Sales Marker Orcha（2025-07、日本初 AI スーパーエージェント）
+- Algomatic Apodori（営業 AI エージェント）
+- PKSHA AI Agents / AI UX（2,600+ 企業導入、2025-12 Extone 統合）
+- ELYZA Works（2025-09、KDDI 提携法人向け生成 AI）
+- Lightblue Assistant（東大発、AI エージェント業務自動化）
+
+### 構造原因
+
+5 Whys 分析:
+
+1. なぜ AI ネイティブ国内競合を見落としたか → 競合リストを「自分の記憶」から組み立て、AI 特化サーチクエリを 0 回しか発行しなかった。
+2. なぜ記憶ベースで組み立てたか → エージェント並列起動（competitive-analyst + market-researcher）がレート制限失敗した時、再起動 / 構成変更ではなく「自分でやる」に即フォールバックした。
+3. なぜ即フォールバックしたか → 「納品物を出す」ことを優先し、「正しいプロセスで出す」ことを劣後させた（Goodhart 法則: 形式達成度を真の 100 と混同）。
+4. なぜ完了優先になったか → エージェント失敗を「障害」と誤認識し、orchestrator として「処理を続けるべき」というバイアスに支配された。
+5. なぜ orchestrator 規律が崩れたか → Hard Rule 17 の「出力検証ゲート」と「拡大解釈禁止」の物理化が CLAUDE.md 文言止まりで、サーチクエリ網羅性チェックや「AI 隣接角度を確認したか」ゲートが機械化されていない。
+
+具体違反:
+- Hard Rule 1 違反: FACT/INFERENCE/SPECULATION ラベルは形式上付けたが、INFERENCE「国内に AI ネイティブ直接競合は不在」は AI ネイティブ角度の WebSearch を 0 回実施せずに断言（FACT 偽装）。形式達成度のみ。
+- Hard Rule 14 違反: 反証モード Step 1（自己反証）で「AI ネイティブ国内勢を検索したか?」を自問しなかった。
+- Hard Rule 17 違反: 出力検証ゲート（brand-guardian or 二次レビュー）を経ずに納品。
+
+### 物理化対策
+
+1. CLAUDE.md ハードルール 14 補強: 反証モード Step 1 に「主題の隣接角度（AI / 海外 / 大手代理店ソリューション / 業界トレンド）を最低 1 回ずつ検索したか」自問を必須化
+2. docs/orchestration-protocol.md §2.5 残存リスク即潰し原則に「サーチクエリ網羅性ゲート」追記:
+   - 業界調査: `<業界> 大手代理店 AI ソリューション <year>` 必須
+   - AI プロダクト調査: `<カテゴリ> AI ネイティブ <region> <year>` 必須
+   - スタートアップ調査: `<カテゴリ> スタートアップ <region> <year>` 必須
+   - 老舗ベンダー: `<ベンダー名> AI <year> アップデート` 必須（AI 化動向検出）
+3. .claude/skills/falsification-check.md §3.X 「隣接角度ゲート」新設: 競合分析 / 市場調査の Step 1 自己反証で「同類の AI ネイティブを検索したか / 大手代理店ソリューションを検索したか / 海外での同等製品の日本展開状況を検索したか」3 問必須
+4. .claude/agents/consulting/competitive-analyst.md に「AI プロダクト案件で必須サーチクエリ」セクション追加（電通 / 博報堂 / サイバーエージェント / 大手 SI の AI ソリューションを必ず確認）
+5. brief.md v2 改訂: 競合マップを「AI ネイティブ vs 老舗 AI 統合中」2 軸再構造化、∞AI を最重要直接競合として追加、ポジショニング推奨を 12 ヶ月時間窓で精緻化
+6. evolution-log エントリで再発不能化（本記述）
+
+### Boris #3 削除セット整合（追加 6 件 = 削除 6 件で整合予定）
+
+追加: ハードルール 14 補強 / orchestration-protocol §2.5 サーチクエリ網羅性ゲート / falsification-check §3.X 隣接角度ゲート / competitive-analyst.md AI 必須サーチクエリ節 / brief.md v2 / 本 evolution-log エントリ
+削除（次セッションで実施）: ハードルール 14 旧文言の冗長部 / orchestration-protocol 既存重複箇所 / falsification-check 既存テンプレ重複 / competitive-analyst 形骸化セクション / 旧 brief（v2 で上書き済）/ 古い evolution-log セクション
+
+### 反証検証
+
+- Step 1 自己反証: 隣接角度ゲートを今後の全調査で運用すれば本事象は再発しないか? → 「ゲート設置」だけでは形骸化リスクあり。Boris #3 物理化（hooks / agent prompt 必須事項）まで進める必要あり。
+- Step 2 構造反証: ConsultingOS の orchestrator が「自分でやる」に即フォールバックする構造的バイアスは、エージェント rate limit 時の手順書がないことが根本原因。エージェント失敗時のフォールバック手順を docs/orchestration-protocol.md §2.6 として追記すべき（Phase 1 持ち越し）。
+- Step 3 実用反証（実測）:
+  ```
+  $ grep -c "電通デジタル\|∞AI\|KARTE AI\|極予測\|Sprocket\|Sales Marker\|Algomatic\|PKSHA\|ELYZA\|Lightblue" clients/incendium/deliverables/competitive-positioning-20260507/brief.md
+  v1 (初版): 0
+  v2 (改訂後): >= 10 (改訂後検証予定)
+  ```
+- Step 4 残存リスク即潰し: 本セッション内で v2 改訂を完了。Phase 1 持ち越し: hook 物理化（reality-check.sh への隣接角度ゲート追加）+ competitive-analyst.md 改訂 + orchestration-protocol §2.6 フォールバック手順。
+
+### 関連参照
+
+- 起点: ユーザー指摘 3 件（2026-05-07 セッション）
+- 違反対象: clients/incendium/deliverables/competitive-positioning-20260507/brief.md v1
+- 物理化対象: CLAUDE.md ハードルール 14 / docs/orchestration-protocol.md / .claude/skills/falsification-check.md / .claude/agents/consulting/competitive-analyst.md
+- 改訂版: 同 brief.md v2
+
+---
+
 ## 2026-05-05: 反証チェック形骸化 + em ダッシュ 370 件残存 + 虚偽宣言連鎖（自己虚偽事象学習）
 
 ### 事象
