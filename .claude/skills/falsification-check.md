@@ -55,6 +55,8 @@ Step 3 実用反証: ...（実測コマンド + 出力）
 Step 4 リスク即潰し: 発見 N 件、即修正 M 件、構造化 X 件、Phase 4 持ち越し（構造的不可避）Y 件
 ```
 
+補完関係: §2.6 Autonomous Mode 既定化（7 protocol）は task 起動時の self-audit gate（TASK START CALIBRATION / AUTO-SPAWN GATES / AUTONOMOUS DIMENSION MAPPING / VERIFY-FIRST DRAFT / WHY-LAYER COMPLETION / VERIFIED ASSET INTEGRATION / REACTIVE FAILSAFE）として、本 Step 4 の上流で reactive correction loop を構造的に防止する（2026-05-07 LinkedIn 16 failure cluster 学習）。詳細: docs/orchestration-protocol.md §2.6
+
 ---
 
 ## 3. ハルシネーション検証チェックリスト（出力前）
