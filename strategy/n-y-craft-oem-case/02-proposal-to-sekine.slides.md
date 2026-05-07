@@ -3,26 +3,31 @@ marp: true
 theme: default
 size: 16:9
 paginate: true
-header: "N.Y.CRAFT × ConsultingOS パートナーシップ提案"
-footer: "2026.05 | Confidential | v11"
+header: ''
+footer: ''
 lang: ja
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Crimson+Pro:wght@500;700&display=swap');
-  section, section * {
+  section,
+  section * {
     word-break: auto-phrase;
     line-break: strict;
     overflow-wrap: break-word;
   }
   section {
-    font-family: "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN", "IPAGothic", "Meiryo", sans-serif;
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Noto Sans CJK JP", "BIZ UDPGothic", "Yu Gothic UI", "Meiryo", "IPAGothic", sans-serif;
+    font-feature-settings: "palt" 1;
     background-color: #FAFAF7;
     color: #0A0A0A;
-    padding: 50px 52px 40px;
+    padding: 40px 52px 36px;
     font-size: 19px;
     line-height: 1.55;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
   }
   h1 {
-    font-family: "Crimson Pro", "Noto Serif JP", "Noto Serif CJK JP", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", serif;
+    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #0A0A0A;
     border-bottom: 3px solid #E60012;
     padding-bottom: 8px;
@@ -33,7 +38,7 @@ style: |
     font-weight: 700;
   }
   h2 {
-    font-family: "Crimson Pro", "Noto Serif JP", "Noto Serif CJK JP", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", serif;
+    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #1A1A1A;
     font-size: 21px;
     margin-top: 12px;
@@ -100,9 +105,29 @@ style: |
     border: 1px solid #E5E5E5;
     border-radius: 6px;
     padding: 14px 18px;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    height: 100%;
+    box-sizing: border-box;
   }
   .card.before { border-left: 4px solid #999999; }
   .card.after { border-left: 4px solid #E60012; }
+  .srcLine,
+  .caseNote,
+  .footnote {
+    margin-top: auto;
+    font-size: 12px;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+  }
+  .deck-meta {
+    position: absolute;
+    bottom: 12px;
+    left: 52px;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.04em;
+  }
   .label {
     display: inline-block;
     font-size: 13px;
@@ -123,7 +148,7 @@ style: |
     justify-content: center;
   }
   section.title h1 {
-    font-family: "Crimson Pro", "Noto Serif JP", "Noto Serif CJK JP", "Yu Mincho", "游明朝", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", serif;
+    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #FAFAF7;
     border: none;
     border-bottom: 3px solid #E60012;
@@ -277,7 +302,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v11</p>
+<p class="neutral">2026.05 / v12</p>
 
 ---
 
