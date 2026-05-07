@@ -1,6 +1,6 @@
 #!/bin/bash
-# AI Agent OS: OEM Deployment Script
-# vendor-invisible でクライアント環境に AI Agent OS を配布する
+# ConsultingOS: OEM Deployment Script
+# vendor-invisible でクライアント環境に ConsultingOS を配布 (rebrand 付き)
 #
 # 使用例:
 #   ./scripts/deploy-oem.sh \
@@ -70,7 +70,7 @@ if [[ -z "$CLIENT_NAME" || -z "$BRAND_NAME" || -z "$TARGET_DIR" ]]; then
 fi
 
 echo "================================================================"
-echo "AI Agent OS - OEM Deployment"
+echo "ConsultingOS - OEM Deployment"
 echo "================================================================"
 echo "Client            : $CLIENT_NAME"
 echo "Brand             : $BRAND_NAME"
@@ -91,7 +91,7 @@ if [[ -d "$TARGET_DIR" && "$DRY_RUN" == "false" ]]; then
 fi
 
 # Step 2: Clone source
-TMP_DIR="/tmp/ai-agent-os-deploy-$$"
+TMP_DIR="/tmp/consulting-os-deploy-$$"
 echo "[1/5] ソース取得中..."
 if [[ "$DRY_RUN" == "false" ]]; then
   git clone --depth 1 "$SOURCE_REPO" "$TMP_DIR"
@@ -107,7 +107,7 @@ if [[ "$VENDOR_INVISIBLE" == "true" ]]; then
   FILES_TO_REWRITE=(
     "CLAUDE.md"
     "README.md"
-    "docs/ai-agent-os-product.md"
+    "docs/consulting-os-product.md"
     "docs/agent-routing.md"
     "docs/agent-collaboration-patterns.md"
   )
@@ -117,10 +117,9 @@ if [[ "$VENDOR_INVISIBLE" == "true" ]]; then
       echo "  Processing: $file"
       if [[ "$DRY_RUN" == "false" ]]; then
         # Replace ConsultingOS -> BRAND_NAME
-        # Replace "AI Agent OS" -> BRAND_NAME (if vendor-invisible)
+        # Replace ConsultingOS -> BRAND_NAME (only when vendor-invisible)
         sed -i.bak \
           -e "s/ConsultingOS/$BRAND_NAME/g" \
-          -e "s/AI Agent OS/$BRAND_NAME/g" \
           -e "s/consulting-os/${BRAND_NAME,,}/g" \
           "$TMP_DIR/$file"
         rm -f "$TMP_DIR/$file.bak"
@@ -139,7 +138,7 @@ if [[ "$VENDOR_INVISIBLE" == "true" ]]; then
 クライアント: $CLIENT_NAME
 配布日: $(date +%Y-%m-%d)
 配布モード: OEM (vendor-invisible)
-ベース: AI Agent OS v1.0.0
+ベース: ConsultingOS v1.0.0 (multi-agent operating system)
 
 ## カスタマイズ層
 
@@ -209,7 +208,7 @@ if [[ "$DRY_RUN" == "false" ]]; then
   "deployed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "source_repo": "$SOURCE_REPO",
   "source_commit": "$(cd $TMP_DIR && git rev-parse HEAD 2>/dev/null || echo 'unknown')",
-  "ai_agent_os_version": "v1.0.0"
+  "consulting_os_version": "v1.0.0"
 }
 EOF
   echo "  Manifest: $MANIFEST_FILE"

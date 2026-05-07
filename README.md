@@ -1,18 +1,19 @@
-# ConsultingOS / AI Agent OS
+# ConsultingOS
 
-> Productized AI Agent OS for consulting + product + creative + marketing operations.
-
-コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・34 スキルで提案から実装・海外展開・マーケまで一気通貫のマルチエージェント OS。
+> コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・34 スキルで提案から実装・海外展開・マーケまで一気通貫の AI エージェント OS。
 
 | 項目 | 値 |
 |---|---|
-| 製品 | AI Agent OS v1.0.0 (内部呼称: ConsultingOS) |
+| 製品 | ConsultingOS v1.0.0 |
+| カテゴリ | AI エージェント OS (multi-agent operating system) |
 | 配布 | Self-Hosted (`install.sh`) / OEM (`scripts/deploy-oem.sh`) / White-Label / Custom |
 | 構成 | 27 agents + 34 skills + 6 commands + Hard Rule 17 + 6 層物理防御 |
 | Runtime | Claude Code (Anthropic Claude Opus 4.7 専用設計) |
 | Reference Deal | N.Y.CRAFT (`strategy/n-y-craft-oem-case/`) |
 
-製品仕様: [`docs/ai-agent-os-product.md`](docs/ai-agent-os-product.md) / OEM 配布: [`scripts/deploy-oem.sh`](scripts/deploy-oem.sh)
+OEM 配布時は ConsultingOS をベースにクライアント独自ブランドへ rebrand (例: N.Y.CRAFT → "TEAM CRAFT OS")。配布物の本体は常に ConsultingOS。
+
+製品仕様: [`docs/consulting-os-product.md`](docs/consulting-os-product.md) / OEM 配布: [`scripts/deploy-oem.sh`](scripts/deploy-oem.sh)
 
 ---
 
