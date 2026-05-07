@@ -40,6 +40,11 @@
             "type": "command",
             "command": ".claude/hooks/workload-tracking.sh",
             "timeout": 10000
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/sync-global-skills.sh",
+            "timeout": 5000
           }
         ]
       }
