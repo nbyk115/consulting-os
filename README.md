@@ -1,6 +1,20 @@
-# ConsultingOS
+# ConsultingOS / AI Agent OS
 
-コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・33 スキル（直下 24 + サブディレクトリ 9）で提案から実装・海外展開・マーケまで一気通貫のマルチエージェント OS。
+> Productized AI Agent OS for consulting + product + creative + marketing operations.
+
+コンサル / サービス開発 / プロダクト / クリエイティブ / グローバル / マーケティングの 6 部門・27 エージェント・34 スキルで提案から実装・海外展開・マーケまで一気通貫のマルチエージェント OS。
+
+| 項目 | 値 |
+|---|---|
+| 製品 | AI Agent OS v1.0.0 (内部呼称: ConsultingOS) |
+| 配布 | Self-Hosted (`install.sh`) / OEM (`scripts/deploy-oem.sh`) / White-Label / Custom |
+| 構成 | 27 agents + 34 skills + 6 commands + Hard Rule 17 + 6 層物理防御 |
+| Runtime | Claude Code (Anthropic Claude Opus 4.7 専用設計) |
+| Reference Deal | N.Y.CRAFT (`strategy/n-y-craft-oem-case/`) |
+
+製品仕様: [`docs/ai-agent-os-product.md`](docs/ai-agent-os-product.md) / OEM 配布: [`scripts/deploy-oem.sh`](scripts/deploy-oem.sh)
+
+---
 
 ## 司令塔ダイアグラム（1 枚で構造把握）
 
