@@ -289,6 +289,33 @@ style: |
     color: #888;
     margin-top: 6px;
   }
+  .data-card .src a {
+    color: #888;
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+  }
+  .data-card .src a:hover {
+    color: #E60012;
+  }
+  .stat-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .stat-tag.issue {
+    background: #FEF3C7;
+    color: #92400E;
+  }
+  .stat-tag.chance {
+    background: #DCFCE7;
+    color: #166534;
+  }
+  .data-card.issue .stat { color: #B45309; }
+  .data-card.chance .stat { color: #15803D; }
   .label-fact { background: #DCFCE7; color: #166534; font-size: 11px; padding: 1px 6px; border-radius: 3px; font-weight: 700; }
   .label-inf { background: #FEF3C7; color: #92400E; font-size: 11px; padding: 1px 6px; border-radius: 3px; font-weight: 700; }
   .benefit-card {
@@ -385,7 +412,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v15</p>
+<p class="neutral">2026.05 / v16</p>
 
 ---
 
@@ -481,25 +508,29 @@ N.Y.CRAFT が「TEAM CRAFT で移植する」価値を、<br>
 </div>
 
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-top: 8px;">
-<div class="data-card">
+<div class="data-card issue">
+<span class="stat-tag issue">課題のサイズ</span>
 <div class="stat">43<span style="font-size:18px;">%</span></div>
 <div class="stat-label">立ち上げ期事業の失敗原因 1 位<br>「売れる仕組みが作れない」</div>
-<div class="src">CB Insights (2024)<br>cbinsights.com/research/<br>report/startup-failure-reasons-top</div>
+<div class="src"><a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top">CB Insights (2024)</a></div>
 </div>
-<div class="data-card">
+<div class="data-card chance">
+<span class="stat-tag chance">市場の機会</span>
 <div class="stat">48.5<span style="font-size:18px;">%</span></div>
 <div class="stat-label">複数 AI 連携市場の年平均成長率<br>2025: 78 億 → 2030: 526 億ドル</div>
-<div class="src">MarketsandMarkets (2025)<br>marketsandmarkets.com/<br>PressReleases/ai-agents.asp</div>
+<div class="src"><a href="https://www.marketsandmarkets.com/PressReleases/ai-agents.asp">MarketsandMarkets (2025)</a></div>
 </div>
-<div class="data-card">
+<div class="data-card chance">
+<span class="stat-tag chance">市場の機会</span>
 <div class="stat">40<span style="font-size:18px;">%</span></div>
 <div class="stat-label">大手アプリも 2026 末までに<br>AI エージェント前提に</div>
-<div class="src">Gartner プレスリリース (2025/8/26)<br>gartner.com/en/newsroom/<br>press-releases/2025-08-26</div>
+<div class="src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">Gartner プレスリリース (2025/8/26)</a></div>
 </div>
-<div class="data-card">
+<div class="data-card issue">
+<span class="stat-tag issue">空白の余地</span>
 <div class="stat">1.3<span style="font-size:18px;">%</span></div>
 <div class="stat-label">中小企業の AI 全社活用率<br>(大企業 19.0% で 15 倍格差)</div>
-<div class="src">総務省『令和 7 年版 情報通信白書』(2025)<br>soumu.go.jp/johotsusintokei/<br>whitepaper/ja/r07/html/nd112220.html</div>
+<div class="src"><a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r07/html/nd112220.html">総務省『令和 7 年版 情報通信白書』(2025)</a></div>
 </div>
 </div>
 
