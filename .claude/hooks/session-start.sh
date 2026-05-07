@@ -69,7 +69,8 @@ if [ -d "$REPO_ROOT/.git" ]; then
 fi
 
 # 3. 反証モード規律のリマインド（恒久）
-MESSAGES+=("IMPORTANT: 反証モード厳守: 全応答末尾に【反証チェック結果】Step 1-3 + 残存リスク必須。短文・端的回答でも省略禁止（圧縮版2-3行は可）")
+MESSAGES+=("IMPORTANT: 反証モード厳守: 全応答末尾に【反証チェック結果】Step 1-4 必須（Step 4 = リスク即潰し、2026-05-06 PR AB 物理化）。短文・端的回答でも省略禁止（圧縮版2-3行は可）")
+MESSAGES+=("PROTOCOL: §2.6 Autonomous Mode 7 protocol を task 起動時に self-audit: TASK START CALIBRATION / AUTO-SPAWN GATES / AUTONOMOUS DIMENSION MAPPING / VERIFY-FIRST DRAFT / WHY-LAYER COMPLETION / VERIFIED ASSET INTEGRATION / REACTIVE FAILSAFE。reactive correction loop は OS 設計失敗（2026-05-07 LinkedIn 16 failure 物理化）")
 MESSAGES+=("INFO: 出典管理3ラベル: 出典なし具体数値（X割/X%/金額/年次予測）の断言禁止。FACT/INFERENCE/SPECULATION を明示")
 MESSAGES+=("REQUIRED: 日本語字形検証: PDF/DOCX/PPTX 生成時はスタイル指定だけで満足せず、pdffonts/unzip+grep で埋込フォント・ロケールを機械検証必須（2026-05-01 違反学習）")
 MESSAGES+=("FORMAT: 出力フォーマット規律（2026-05-01 学習）: Markdown 太字 ** 禁止／一文中改行禁止／表は Word/PPT で中央揃え／PPT/PDF はページ収まり必須／出力直前に佐藤裕介 W チェック（内容＋形式）必須")
