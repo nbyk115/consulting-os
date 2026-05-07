@@ -7,7 +7,7 @@ header: ''
 footer: ''
 lang: ja
 style: |
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&family=Crimson+Pro:wght@500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
   section,
   section * {
     word-break: auto-phrase;
@@ -27,7 +27,6 @@ style: |
     position: relative;
   }
   h1 {
-    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #0A0A0A;
     border-bottom: 3px solid #E60012;
     padding-bottom: 8px;
@@ -38,7 +37,6 @@ style: |
     font-weight: 700;
   }
   h2 {
-    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #1A1A1A;
     font-size: 21px;
     margin-top: 12px;
@@ -148,7 +146,6 @@ style: |
     justify-content: center;
   }
   section.title h1 {
-    font-family: "Crimson Pro", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", "BIZ UDPMincho", "游明朝", serif;
     color: #FAFAF7;
     border: none;
     border-bottom: 3px solid #E60012;
@@ -245,7 +242,7 @@ style: |
     border-color: #E60012;
   }
   .arch-box .role-name {
-    font-family: "Crimson Pro", "Noto Serif JP", serif;
+    font-family: inherit;
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -276,7 +273,7 @@ style: |
     min-height: 110px;
   }
   .data-card .stat {
-    font-family: "Crimson Pro", "Noto Serif JP", serif;
+    font-family: inherit;
     font-size: 26px;
     color: #E60012;
     font-weight: 700;
@@ -294,6 +291,88 @@ style: |
   }
   .label-fact { background: #DCFCE7; color: #166534; font-size: 11px; padding: 1px 6px; border-radius: 3px; font-weight: 700; }
   .label-inf { background: #FEF3C7; color: #92400E; font-size: 11px; padding: 1px 6px; border-radius: 3px; font-weight: 700; }
+  .benefit-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-left: 4px solid #E60012;
+    border-radius: 8px;
+    padding: 16px 20px 14px;
+    position: relative;
+  }
+  .benefit-card .benefit-num {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 28px;
+    color: #E60012;
+    opacity: 0.18;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .benefit-card .benefit-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0A0A0A;
+    margin-bottom: 6px;
+    padding-right: 36px;
+  }
+  .benefit-card .benefit-body {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.55;
+  }
+  .phase-card {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    padding: 16px 18px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .phase-card .phase-label {
+    display: inline-block;
+    background: #0A0A0A;
+    color: #FAFAF7;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    align-self: flex-start;
+  }
+  .phase-card.long .phase-label {
+    background: #E60012;
+  }
+  .phase-card .phase-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0A0A0A;
+    margin-bottom: 10px;
+  }
+  .phase-card .phase-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    color: #1A1A1A;
+    line-height: 1.6;
+  }
+  .phase-card .phase-list li {
+    padding: 4px 0;
+    border-top: 1px solid #F0F0F0;
+  }
+  .phase-card .phase-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .phase-card .phase-list li::before {
+    content: "✓";
+    color: #E60012;
+    font-weight: 700;
+    margin-right: 6px;
+  }
 ---
 
 <!-- _class: title -->
@@ -302,7 +381,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v12</p>
+<p class="neutral">2026.05 / v13</p>
 
 ---
 
@@ -391,34 +470,30 @@ PMF 期の事業継続性<br>
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-top: 8px;">
 <div class="data-card">
 <div class="stat">43<span style="font-size:18px;">%</span></div>
-<div class="stat-label">VC バック企業の失敗原因 1 位<br>「PMF 不在」<span class="label-fact">FACT</span></div>
-<div class="src">CB Insights 2024</div>
+<div class="stat-label">VC バック企業の失敗原因 1 位「PMF 不在」</div>
+<div class="src">CB Insights (2024)<br>cbinsights.com/research/<br>report/startup-failure-reasons-top</div>
 </div>
 <div class="data-card">
 <div class="stat">48.5<span style="font-size:18px;">%</span></div>
-<div class="stat-label">Multi-Agent 市場 CAGR<br>2025: 78 億 → 2030: 526 億ドル<span class="label-fact">FACT</span></div>
-<div class="src">MarketsandMarkets</div>
+<div class="stat-label">Multi-Agent 市場 CAGR<br>2025: 78 億 → 2030: 526 億ドル</div>
+<div class="src">MarketsandMarkets (2025)<br>marketsandmarkets.com/<br>PressReleases/ai-agents.asp</div>
 </div>
 <div class="data-card">
 <div class="stat">40<span style="font-size:18px;">%</span></div>
-<div class="stat-label">エンタープライズアプリが<br>AI Agent 搭載へ (2026 末)<span class="label-fact">FACT</span></div>
-<div class="src">Gartner 2025/8</div>
+<div class="stat-label">エンタープライズアプリが<br>AI Agent 搭載へ (2026 末)</div>
+<div class="src">Gartner プレスリリース (2025/8/26)<br>gartner.com/en/newsroom/<br>press-releases/2025-08-26</div>
 </div>
 <div class="data-card">
 <div class="stat">1.3<span style="font-size:18px;">%</span></div>
-<div class="stat-label">中小企業の AI 全社活用率<br>(大企業 19.0% で 15 倍格差)<span class="label-fact">FACT</span></div>
-<div class="src">総務省 令和 7 年情報通信白書</div>
+<div class="stat-label">中小企業の AI 全社活用率<br>(大企業 19.0% で 15 倍格差)</div>
+<div class="src">総務省『令和 7 年版 情報通信白書』(2025)<br>soumu.go.jp/johotsusintokei/<br>whitepaper/ja/r07/html/nd112220.html</div>
 </div>
 </div>
 
 <blockquote class="small" style="margin-top:14px;">
-PMF 不在で 4 割が失敗 × Multi-Agent 市場が年率 48.5% で急拡大 × 中堅以下の AI 活用が大幅に遅れている <br>
+PMF 不在で 4 割が失敗 × Multi-Agent 市場が年率 48.5% で急拡大 × 中堅以下の AI 活用が大幅に遅れている<br>
 → N.Y.CRAFT が解く課題は構造的に大きく、伴走型 AI 提供が市場の空白を埋める好機
 </blockquote>
-
-<div class="small neutral" style="margin-top:8px;">
-出典: Steve Blank「スタートアップは大企業の縮小版ではない」(2010) も理論的裏付けとして参照
-</div>
 
 ---
 
@@ -944,66 +1019,75 @@ Phase 1 スコープ縮小（業界プレイブック新設を Phase 2 送り／
 
 # リファレンス第 1 号 : N.Y.CRAFT 側のメリット
 
-<blockquote class="small" style="margin-bottom:14px;">
+<blockquote class="small" style="margin-bottom:16px;">
 当社（提供者）は<strong>裏方に徹し対外的には一切表に出ません</strong>。本プロジェクトは<strong>完全に N.Y.CRAFT 様の取り組み</strong>として、自由に発信していただけます。
 </blockquote>
 
-## N.Y.CRAFT 様が得るもの
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
 
-<div class="grid-2">
-<div>
-
-<strong>自社事例として自由に発信可能</strong><br>
-<span class="small">「AI 事業 OS 導入の先進企業」として、プレスリリース・業界誌・カンファレンス登壇等を N.Y.CRAFT 名義で実施可能。当社名・OS 名の開示義務なし</span>
-
-<strong>先進的経営の対外発信材料</strong><br>
-<span class="small">スタートアップ・新規事業 PMF 期顧客への営業時のブランディング強化、競合との差別化材料</span>
-
+<div class="benefit-card">
+<div class="benefit-num">01</div>
+<div class="benefit-title">自社事例として自由に発信可能</div>
+<div class="benefit-body">「AI 事業 OS 導入の先進企業」として、プレスリリース・業界誌・カンファレンス登壇等を N.Y.CRAFT 名義で実施可能。当社名・OS 名の開示義務なし</div>
 </div>
-<div>
 
-<strong>プロジェクトフィー大幅圧縮</strong><br>
-<span class="small">標準 102 万 → 50 万（約 50% 圧縮）。第 1 号として導入ハードルを下げています</span>
-
-<strong>広報の自由度</strong><br>
-<span class="small">共同プレスリリースや当社への参照は不要。N.Y.CRAFT 様の判断で発信内容・タイミング・チャネルを完全コントロール可能</span>
-
+<div class="benefit-card">
+<div class="benefit-num">02</div>
+<div class="benefit-title">プロジェクトフィー大幅圧縮</div>
+<div class="benefit-body">標準 102 万 → 50 万（約 50% 圧縮）。第 1 号として導入ハードルを下げています</div>
 </div>
+
+<div class="benefit-card">
+<div class="benefit-num">03</div>
+<div class="benefit-title">先進的経営の対外発信材料</div>
+<div class="benefit-body">スタートアップ・新規事業 PMF 期顧客への営業時のブランディング強化、競合との差別化材料</div>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-num">04</div>
+<div class="benefit-title">広報の自由度</div>
+<div class="benefit-body">共同プレスリリースや当社への参照は不要。N.Y.CRAFT 様の判断で発信内容・タイミング・チャネルを完全コントロール可能</div>
+</div>
+
 </div>
 
 ---
 
 # 期待される成果
 
-<div class="grid-2">
-<div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 8px;">
 
-## 短期（〜6 ヶ月）
-
-- 関根さん本人の作業時間削減：月 10〜30 時間相当（推定）
-- スペシャリストが品質ゲートを通過したアウトプットを単独で出せる
-- 関根さんの判断・規律が永続的な資産として蓄積開始
-
-## 中期（〜1 年）
-
-- 関根さんの時間が「個別作業」から<strong>「戦略・新規開拓・関係構築」</strong>へシフト
-- 粗利試算ハードルールで提案打率が構造的に上昇
-- 新人スペシャリスト育成期間が短縮
-
+<div class="phase-card">
+<span class="phase-label">短期 / 〜6 ヶ月</span>
+<div class="phase-title">立ち上げと初期効果</div>
+<ul class="phase-list">
+<li>関根さん本人の作業時間削減: 月 10〜30 時間相当 (推定)</li>
+<li>スペシャリストが品質ゲート通過アウトプットを単独で出せる</li>
+<li>関根さんの判断・規律が永続的な資産として蓄積開始</li>
+</ul>
 </div>
-<div>
 
-## 長期（1 年〜）
-
-事業継続性の根本改善（関根さん依存度の低下）
-
-OS 自体を商品化して再販する選択肢の獲得（成果報酬 15% 対象）
-
-業界内での <strong>「N.Y.CRAFT メソッド × 規律ある事業 OS」</strong> ブランド確立
-
-学習ログの蓄積が、N.Y.CRAFT 独自の<strong>業界知識ベース資産</strong> に進化
-
+<div class="phase-card">
+<span class="phase-label">中期 / 〜1 年</span>
+<div class="phase-title">時間配分とスケール</div>
+<ul class="phase-list">
+<li>関根さんの時間が「個別作業」から「戦略・新規開拓・関係構築」へシフト</li>
+<li>粗利試算ハードルールで提案打率が構造的に上昇</li>
+<li>新人スペシャリスト育成期間が短縮</li>
+</ul>
 </div>
+
+<div class="phase-card long">
+<span class="phase-label">長期 / 1 年〜</span>
+<div class="phase-title">事業継続性とブランド</div>
+<ul class="phase-list">
+<li>事業継続性の根本改善 (関根さん依存度の低下)</li>
+<li>OS 自体を商品化して再販する選択肢の獲得 (成果報酬 15% 対象)</li>
+<li>業界内での「N.Y.CRAFT メソッド × 規律ある事業 OS」ブランド確立</li>
+<li>学習ログの蓄積が N.Y.CRAFT 独自の業界知識ベース資産に進化</li>
+</ul>
+</div>
+
 </div>
 
 ---
