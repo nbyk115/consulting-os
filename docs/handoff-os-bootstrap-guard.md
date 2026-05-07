@@ -1,10 +1,10 @@
 # 引き継ぎ: ConsultingOS Bootstrap Guard 改修
 
-**起票**: 2026-05-07
-**起票元事象**: `claude/oem-sales-strategy-gVMWp` (関根さん案件) で v1〜v13 全期間 ConsultingOS 規律ファイル不在状態で稼働、assistant が narrative-only で「OS 起動」を演出していた構造的バグを発見
-**対象**: 別ブランチで実装 (推奨ブランチ名: `claude/os-bootstrap-guard`)
-**判断基盤**: 佐藤裕介流「構造で売る = 仕組みが結果を担保する」
-**緊急度**: 高 (実クライアント案件で再発した場合、全成果物が narrative-only 生成になり信頼毀損)
+起票: 2026-05-07
+起票元事象: `claude/oem-sales-strategy-gVMWp` (関根さん案件) で v1〜v13 全期間 ConsultingOS 規律ファイル不在状態で稼働、assistant が narrative-only で「OS 起動」を演出していた構造的バグを発見
+対象: 別ブランチで実装 (推奨ブランチ名: `claude/os-bootstrap-guard`)
+判断基盤: 佐藤裕介流「構造で売る = 仕組みが結果を担保する」
+緊急度: 高 (実クライアント案件で再発した場合、全成果物が narrative-only 生成になり信頼毀損)
 
 ---
 
@@ -35,9 +35,9 @@
 
 ### Priority 1: SessionStart 物理ガード (最重要)
 
-**目的**: ConsultingOS 規律ファイル不在環境で assistant が動くこと自体を block / 警告。
+目的: ConsultingOS 規律ファイル不在環境で assistant が動くこと自体を block / 警告。
 
-**実装ファイル**: `.claude/hooks/session-start.sh` (既存) に先頭追加 + 新環境変数
+実装ファイル: `.claude/hooks/session-start.sh` (既存) に先頭追加 + 新環境変数
 
 ```bash
 # .claude/hooks/session-start.sh 先頭追加
@@ -73,7 +73,7 @@ EOF
 fi
 ```
 
-**検証コマンド**:
+検証コマンド:
 ```bash
 # ConsultingOS 不在環境 (worktree で OS 削除等) で
 CONSULTINGOS_BOOTSTRAP_CHECK=block claude   # → SessionStart exit 1
@@ -82,9 +82,9 @@ CONSULTINGOS_BOOTSTRAP_CHECK=warn claude    # → 警告のみ表示して継続
 
 ### Priority 2: Stop hook で「OS 物理稼働」検証
 
-**目的**: session 終了時、hook が 1 つも実行されていなければ「OS 起動していない」と警告ログ + evolution-log 自動追記。
+目的: session 終了時、hook が 1 つも実行されていなければ「OS 起動していない」と警告ログ + evolution-log 自動追記。
 
-**実装ファイル**: 新規 `.claude/hooks/stop-os-check.sh`
+実装ファイル: 新規 `.claude/hooks/stop-os-check.sh`
 
 ```bash
 #!/bin/bash
@@ -133,9 +133,9 @@ settings.json `Stop` hook entry に追加:
 
 ### Priority 3: feature branch 作成スクリプト
 
-**目的**: 新しい feature branch 作成時に OS 規律ファイルが必ず継承される。
+目的: 新しい feature branch 作成時に OS 規律ファイルが必ず継承される。
 
-**実装ファイル**: `bin/new-feature-branch.sh`
+実装ファイル: `bin/new-feature-branch.sh`
 
 ```bash
 #!/bin/bash
@@ -157,9 +157,9 @@ git checkout -b "$BRANCH"
 
 echo "✅ ConsultingOS bootstrapped on branch: $BRANCH"
 echo "   CLAUDE.md: $(wc -l < CLAUDE.md) lines"
-echo "   agents: $(ls .claude/agents/**/*.md 2>/dev/null | wc -l) files"
+echo "   agents: $(ls .claude/agents//*.md 2>/dev/null | wc -l) files"
 echo "   hooks: $(ls .claude/hooks/*.sh 2>/dev/null | wc -l) scripts"
-echo "   skills: $(ls .claude/skills/*.md .claude/skills/**/*.md 2>/dev/null | wc -l) files"
+echo "   skills: $(ls .claude/skills/*.md .claude/skills//*.md 2>/dev/null | wc -l) files"
 ```
 
 `README.md` に推奨手順として記載:
@@ -173,9 +173,9 @@ bin/new-feature-branch.sh <branch-name>
 
 ### Priority 4: GitHub Actions CI ガード
 
-**目的**: PR 作成時 CLAUDE.md / .claude/ 不在を CI fail させる。
+目的: PR 作成時 CLAUDE.md / .claude/ 不在を CI fail させる。
 
-**実装ファイル**: `.github/workflows/quality.yml` に Step 追加
+実装ファイル: `.github/workflows/quality.yml` に Step 追加
 
 ```yaml
 - name: ConsultingOS bootstrap check
