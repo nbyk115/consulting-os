@@ -787,6 +787,8 @@ N.Y.CRAFT の組織モデルがそのまま OS の構造に対応する。関根
 
 # ストーリー 1：営業資料を作るとき
 
+<div class="small neutral" style="margin-bottom:8px;">本ページから 3 ページにかけて、関根さんver OS 導入で日常業務がどう変わるかを 3 つの典型シーンで提示します（次：案件組み立て / 次々：振り返り資産化）</div>
+
 <div class="grid-2">
 <div class="card before">
 <span class="label before">Before : NotebookLM 時代</span>
@@ -841,6 +843,8 @@ A 社訪問・課題ヒアリング<br>
 ↓<br>
 抱えられる案件数に物理的上限
 
+<div class="small neutral">関根さん稼働 2〜3 日 / 案件（推定）</div>
+
 </div>
 <div class="card after">
 <span class="label after">After : 関根さんver OS</span>
@@ -875,6 +879,8 @@ A 社情報を入力（業界・規模・課題）<br>
 <strong>同じ失敗が別案件で再発</strong><br>
 ↓<br>
 関根さんが何度も同じ指摘をする
+
+<div class="small neutral">学びは個人メモに滞留 / 横展開なし（推定）</div>
 
 </div>
 <div class="card after">
