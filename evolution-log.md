@@ -38,6 +38,42 @@
 - 2026-06-03: AutoHarness 論文（arXiv:2603.03329、Google DeepMind）の ConsultingOS への組み込み判断（評価項目: 既存 hook 11 本を LLM 自己生成 + 自己改善型に refactor する Phase 4 級変更の妥当性、autoharness-pattern.md スキル新設の必要性、reality-check.sh / stop-validator.sh / orchestration-block.sh の AutoHarness 化 PoC、claude-mem との統合余地、Boris #3 削除セット整合）
 - 2026-06-03: SPECA（Specification-to-Checklist Agentic Auditing Framework）の cybersecurity-playbook §4 仕様駆動監査セクションへの組み込み判断（評価項目: 原典源・実績主張の検証、Claude Code CLI + MCP 統合の動作確認、依頼ベースのクライアント監査向けユースケース設計、攻撃型営業モデルは佐藤裕介流「売りつけない」+ legal-compliance-checker 不正アクセス禁止法違反リスクで採用不可 FACT、Boris #3 削除セット整合）
 - 2026-06-03: PR Y トリプルチェック発見事項の Phase 4 改善判断（① score-os-health.sh 採点基準脆弱性 4 件: 軸 3 形骸化判定が文字長のみ / 78 ファイルが PR #65 機械追加由来 / 全軸単純加算 cap 20 固定 Goodhart の法則 / 軸 1 SCORE_LINES 閾値罠、② test-score-os-health.sh 採点ロジック妥当性未検証、③ 出典・依拠先 78 ファイル同一テンプレ形骸化 HIGH、④ ハードルール 13 違反疑い: 18 PR 追加 vs 削除 0 件で Boris #3 形骸化、⑤ 太字 `**` 違反 34 件以上 docs/ + README、これら全てを Phase 4 採点ロジック根本再設計 + Boris #3 運用物理化で対応、tech-lead + brand-guardian 並列起動による検証実施）
+- 2026-06-07: docs/orchestration-protocol.md §2.5 Autonomous Mode と Phase 5 UserPromptSubmit hook の統合判断（hook レベルでの autonomous mode 強制実装可否）
+- 2026-08-07: docs/orchestration-protocol.md §2.5 Autonomous Mode Protocol 7 件の 3 ヶ月運用後形骸化チェック、違反検知件数測定（目標 0 件、5 件以上で再設計判断）
+
+### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
+
+LinkedIn コメント（TTD Isom Winton 返信、Japan PMP / curated marketplace の役割）で 16 段階の failure を user が逐次検知。根本原因: orchestrator default が「responsive assistant」モードのまま「autonomous analyst」モードへ切替できておらず、ユーザー指摘待ちの reactive correction loop に陥っていた。
+
+主要 failure 6 cluster:
+1. OS 起動偽装（embody を multi-agent と詐称、token 効率優先）
+2. Output format mis-calibration（LinkedIn コメント vs email register の context start 確定なし）
+3. ハルシネーション（日経 + 朝日 specific 名指し未検証 + "open internet is the antidote to walled gardens" 捏造引用）
+4. Dimension 取りこぼし（demand-side / why-layer / 既 verified Jeff Green data をユーザー指摘待ち）
+5. 数値 / 母数誤認（10-20% slice 内訳混同 + 総広告費 vs デジタル広告費）
+6. Reactive mode（patch のみ実行、autonomous 分析なし）
+
+物理化対策:
+- docs/orchestration-protocol.md §2.5「Autonomous Mode 既定化（Reactive Failsafe Protocol）」新設、7 protocol（TASK START CALIBRATION / AUTO-SPAWN GATES / AUTONOMOUS DIMENSION MAPPING / VERIFY-FIRST DRAFT / WHY-LAYER COMPLETION / VERIFIED ASSET INTEGRATION / REACTIVE FAILSAFE）体系化
+- docs/orchestration-protocol.md §8.5 違反学習記録（16 failure pattern + 構造的原因 + 是正）
+- CLAUDE.md ハードルール 17 §2.5 参照追加
+
+教訓: 7 protocol を「持っている」だけでは無効、次の task で実行されるかが真の検証。本コミット含め過去の宣言は narrative-only として無効、actual behavior change のみが evidence。CLAUDE.md ハードルール 1「実用反証は narrative のみは無効」と整合。
+
+反証結果:
+Step 1 自己反証: 7 protocol は session で実証された 16 pattern を抽象化したもの、ただし「protocol を持つ」と「実行する」は別、本回の物理化が次 session で形骸化しないかは実測で検証必要。
+Step 2 構造反証: §2.5 新設は CLAUDE.md ハードルール 13（Boris #3: 追加 = 削除 1 セット）との緊張、ただし本 §2.5 は 16 failure cluster の体系化であり形骸化追加ではない。Boris #3 balance は §8 archive へ古い violation entries 移動で対応可能（次 PR）。
+Step 3 実用反証: 本コミット narrative では無効、次の task で §2.5 protocol 1-7 が実行されるかが真の検証。本記述自体は narrative であり、実測は次セッションでの protocol 違反検知件数 0 件で担保。
+
+残存リスク:
+1. 7 protocol の物理化が settings.json hook レベルでは未実装、UserPromptSubmit hook での autonomous mode 強制は Phase 5-1 待ち
+2. §2.5 の TASK START CALIBRATION が機械化されておらず assistant 自己 audit に依存、Hook 化は Phase 4 持ち越し
+3. SessionStart hook で §2.5 を notify する仕組みが未実装
+
+関連参照:
+- docs/orchestration-protocol.md §2.5（本 PR で追加）
+- docs/orchestration-protocol.md §8.5（本 PR で追加）
+- CLAUDE.md ハードルール 17（§2.5 参照追加、本 PR で更新）
 
 ### 2026-05-06 関係性原則 + 真の 100 原則物理化（PR Z）
 
