@@ -412,7 +412,7 @@ style: |
 
 TEAM CRAFT を AI エージェントで増幅する<br>監督（関根さん）と 27 のメンバーで「売れる仕組み」を量産する事業 OS
 
-<p class="neutral">2026.05 / v16</p>
+<p class="neutral">2026.05 / v17</p>
 
 ---
 
@@ -523,7 +523,7 @@ N.Y.CRAFT が「TEAM CRAFT で移植する」価値を、<br>
 <div class="data-card chance">
 <span class="stat-tag chance">市場の機会</span>
 <div class="stat">40<span style="font-size:18px;">%</span></div>
-<div class="stat-label">大手アプリも 2026 末までに<br>AI エージェント前提に</div>
+<div class="stat-label">業務向けソフトウェア (Salesforce 等) も<br>2026 末までに AI エージェント搭載へ</div>
 <div class="src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">Gartner プレスリリース (2025/8/26)</a></div>
 </div>
 <div class="data-card issue">
@@ -541,7 +541,7 @@ N.Y.CRAFT が「TEAM CRAFT で移植する」価値を、<br>
 </div>
 <div style="padding:10px 12px; background:#FFFFFF; border:1px solid #E5E5E5; border-left:4px solid #E60012; border-radius:6px; font-size:14px;">
 <strong>② AI ツールが成熟期</strong><br>
-複数 AI 連携が急拡大 + 大手も 2026 末までに搭載 = 今が活用の最適タイミング
+複数 AI 連携が急拡大 + 業務向けソフトウェアも AI 搭載前提に = 今が活用の最適タイミング
 </div>
 <div style="padding:10px 12px; background:#FFFFFF; border:1px solid #E5E5E5; border-left:4px solid #E60012; border-radius:6px; font-size:14px;">
 <strong>③ 中堅以下は競合手薄</strong><br>
