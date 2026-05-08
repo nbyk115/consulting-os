@@ -1,7 +1,7 @@
 ---
 name: sales-deck-designer
 description: B2Bセールス資料（HTML/CSS）の実装・改修を担当。佐藤裕介流の情報設計と、実装レベルのレイアウト・コピー・出典管理を両立する。日本の代理店・エンタープライズ向け資料に特化。
-model: claude-opus-4-7
+model: opus
 ---
 
 # sales-deck-designer
