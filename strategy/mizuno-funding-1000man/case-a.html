@@ -76,7 +76,7 @@ html,body{
 .lf-s{background:var(--neutral-500)}
 table{width:100%;border-collapse:collapse;font-size:12px}
 th{text-align:left;padding:7px 10px;border-bottom:2px solid var(--primary);font-weight:700;font-size:11px;letter-spacing:0.03em;color:var(--neutral-700);background:var(--neutral-100)}
-td{padding:7px 10px;border-bottom:1px solid var(--neutral-300);vertical-align:top;font-size:11.5px;line-height:1.5}
+td{padding:7px 10px;border-bottom:1px solid var(--neutral-300);vertical-align:top;font-size:11.5px;line-height:1.65}
 td.c{text-align:center}
 td.r{text-align:right;font-family:"Inter",sans-serif}
 
@@ -154,18 +154,18 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 .phaseDot.active{background:var(--accent);color:#fff;border-color:var(--white)}
 .phaseLabel{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:0.08em;margin-top:6px;font-family:"Inter",sans-serif}
 .phaseTitle{font-size:12px;font-weight:700;margin-top:3px;text-align:center}
-.phaseDesc{font-size:10px;color:var(--neutral-500);margin-top:3px;text-align:center;line-height:1.5;padding:0 4px}
+.phaseDesc{font-size:10px;color:var(--neutral-500);margin-top:3px;text-align:center;line-height:1.65;padding:0 4px}
 
 /* gate boxes */
 .gateRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .gateBox{background:var(--neutral-100);padding:11px 13px;border-left:3px solid var(--accent)}
 .gateBox .gn{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:"Inter",sans-serif}
 .gateBox .gt{font-size:13px;font-weight:700;margin-top:2px}
-.gateBox .gd{font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5}
+.gateBox .gd{font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.65}
 
 /* checklist */
 .checkList{display:flex;flex-direction:column;gap:7px;margin-top:10px}
-.checkItem{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.5}
+.checkItem{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.65}
 .checkIcon{flex-shrink:0;margin-top:1px}
 
 /* exit tiles */
@@ -260,13 +260,13 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       </div>
       <div class="colBox" style="border-top-color:#B91C1C">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#B91C1C;font-family:'Inter',sans-serif">C — COMPLICATION（変化）</div>
-        <div style="font-size:13px;font-weight:700;margin-top:4px">生成 AI 普及でクライアント要求精度が急上昇</div>
-        <p class="body" style="font-size:11px;margin-top:4px">GPT / Claude 普及後、クライアント側もプロンプト品質を比較評価できる。提案精度の「底上げ期待値」が以前の 3 倍速で上昇している（INFERENCE）。</p>
+        <div style="font-size:13px;font-weight:700;margin-top:4px">生成 AI 普及でクライアント側のプロンプト評価が一般化</div>
+        <p class="body" style="font-size:11px;margin-top:4px">GPT / Claude 普及後、クライアント側もプロンプト品質を比較評価できる。提案物のファクトチェックが顧客側で行われるケースが増加（観察ベース・INFERENCE）。</p>
       </div>
       <div class="colBox" style="border-top-color:#0EA5A4">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#0EA5A4;font-family:'Inter',sans-serif">Q — QUESTION（問い）</div>
         <div style="font-size:13px;font-weight:700;margin-top:4px">誰が先に再現可能な仕組みを持つか</div>
-        <p class="body" style="font-size:11px;margin-top:4px">OSS ベースで規律をコード化し「誰が起動しても同水準」を実証できた事業者が市場のデファクトを取る。</p>
+        <p class="body" style="font-size:11px;margin-top:4px">OSS ベースで規律をコード化し「誰が起動しても同水準」を実証できた事業者が、コンサル属人化問題の標準解になる。<span class="lf lf-s">SPECULATION</span></p>
       </div>
       <div class="colBox" style="border-top-color:#1E3A8A;background:#EFF6FF">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#1E3A8A;font-family:'Inter',sans-serif">A — ANSWER（結論）</div>
@@ -276,7 +276,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
     </div>
     <!-- SVG issue structure diagram -->
     <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--neutral-100);padding:16px">
-      <svg width="460" height="400" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+      <svg width="460" height="400" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg" aria-label="提案品質の属人化 — 問題構造図（S02）" role="img">
         <!-- Problem node -->
         <rect x="155" y="20" width="150" height="52" rx="4" fill="#B91C1C"/>
         <text x="230" y="42" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Yu Gothic,sans-serif">属人化・断絶</text>
@@ -342,12 +342,12 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 <div class="slide">
 <div class="frame">
   <div class="tag">SLIDE 03 — WHY NOW</div>
-  <div class="h1">今が参入の唯一の交点</div>
+  <div class="h1">技術 × ユーザー × 市場の 3 変数交点が 2026 年に重なる</div>
   <div class="rule"></div>
   <div class="twoCol-6040">
     <!-- LEFT: Venn SVG -->
     <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--neutral-100);padding:14px">
-      <svg width="480" height="380" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+      <svg width="480" height="380" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-label="技術 × ユーザー × 市場の 3 変数交点ベン図（S03）" role="img">
         <!-- Circle A: 技術変化 -->
         <circle cx="200" cy="160" r="130" fill="#1E3A8A" fill-opacity="0.15" stroke="#1E3A8A" stroke-width="2"/>
         <!-- Circle B: ユーザー変化 -->
@@ -411,24 +411,20 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <!-- Giant numbers row -->
   <div class="kpiRow" style="margin-top:10px">
     <div class="kpiCell">
-      <div class="kv warn" style="font-size:64px">3×</div>
-      <div class="ku">クライアント要求精度の上昇速度</div>
-      <div class="kd">GPT普及後の体感比較（INFERENCE）</div>
+      <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 1</div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">クライアントのプロンプト品質評価が一般化、提案物の検証が顧客側で行われる<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
-      <div class="kv warn" style="font-size:64px">30%</div>
-      <div class="ku">修正コスト率（属人案件）</div>
-      <div class="kd">シニア担当者交代後の工数増（INFERENCE）</div>
+      <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 2</div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">担当者交代後の修正工数増、属人案件の再現コスト発生<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
-      <div class="kv warn" style="font-size:64px">-40%</div>
-      <div class="ku">LTV 縮小（再現不能提案）</div>
-      <div class="kd">リピート率低下試算（INFERENCE）</div>
+      <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 3</div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">再現不能提案による LTV 低下リスク、ストック資産化が困難<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
-      <div class="kv" style="font-size:64px;color:var(--success)">1日</div>
-      <div class="ku">ConsultingOS 導入リードタイム</div>
-      <div class="kd">install.sh ワンステップ（INFERENCE）</div>
+      <div class="ku" style="font-size:14px;font-weight:800;color:var(--success);letter-spacing:0">解決</div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">install.sh で 1 日稼働、CLAUDE.md / ICP.md / DESIGN.md で属人化を構造解消<span class="lf lf-f">FACT</span></div>
     </div>
   </div>
   <div class="twoCol" style="margin-top:10px">
@@ -479,7 +475,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="rule"></div>
   <!-- SVG 6-dept structure -->
   <div style="display:flex;flex-direction:column;flex:1;justify-content:center">
-    <svg width="1100" height="420" viewBox="0 0 1100 420" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1100" height="420" viewBox="0 0 1100 420" xmlns="http://www.w3.org/2000/svg" aria-label="6 部門 30 エージェント放射構造図（S05）" role="img">
       <!-- center OS node -->
       <rect x="425" y="168" width="250" height="84" rx="8" fill="#1E3A8A"/>
       <text x="550" y="198" text-anchor="middle" fill="#fff" font-size="18" font-weight="800" font-family="Yu Gothic,sans-serif">ConsultingOS</text>
@@ -547,7 +543,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="twoCol-6040">
     <!-- LEFT: 4-thought gate mandala SVG -->
     <div style="display:flex;justify-content:center;align-items:center;background:var(--neutral-100);padding:12px">
-      <svg width="500" height="400" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+      <svg width="500" height="400" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" aria-label="4 思想ゲート円形マンダラ（S06）" role="img">
         <!-- outer ring -->
         <circle cx="250" cy="196" r="168" fill="none" stroke="#D4D4D0" stroke-width="1.5" stroke-dasharray="6,4"/>
         <!-- 4 thought arc segments -->
@@ -621,7 +617,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 <div class="slide">
 <div class="frame" style="padding:36px 60px 60px">
   <div class="tag">SLIDE 07 — 軸B 速度・セキュリティ</div>
-  <div class="h1">3 層防御で機密案件に対応、30 倍速で提案</div>
+  <div class="h1">3 層防御で機密案件に対応、並列起動でシニア直列フローを代替</div>
   <div class="rule"></div>
   <!-- hotice p8a why3 tiles -->
   <div class="why3">
@@ -677,7 +673,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div style="font-size:12px;font-weight:700">フロー × ストック 統合設計</div>
       <!-- flow diagram -->
       <div style="background:var(--neutral-100);padding:14px">
-        <svg width="450" height="240" viewBox="0 0 450 240" xmlns="http://www.w3.org/2000/svg">
+        <svg width="450" height="240" viewBox="0 0 450 240" xmlns="http://www.w3.org/2000/svg" aria-label="自己進化 フロー × ストック ループ図（S08）" role="img">
           <!-- boxes -->
           <rect x="10" y="90" width="100" height="48" rx="4" fill="#F2F2EE" stroke="#D4D4D0"/>
           <text x="60" y="111" text-anchor="middle" fill="#374151" font-size="11" font-weight="700" font-family="Yu Gothic,sans-serif">案件受注</text>
@@ -749,7 +745,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="rule"></div>
   <!-- competitive matrix SVG -->
   <div style="display:flex;flex-direction:column;flex:1;justify-content:center">
-    <svg width="1120" height="380" viewBox="0 0 1120 380" xmlns="http://www.w3.org/2000/svg">
+    <svg width="1120" height="380" viewBox="0 0 1120 380" xmlns="http://www.w3.org/2000/svg" aria-label="競合 4 レイヤーマトリクス（S09）" role="img">
       <!-- Y axis label -->
       <text x="18" y="200" text-anchor="middle" fill="#374151" font-size="11" font-weight="700" font-family="Yu Gothic,sans-serif" transform="rotate(-90,18,200)">コンサル業務特化度 →</text>
       <!-- X axis label -->
@@ -881,7 +877,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="twoCol">
     <!-- Venn 3-circle SVG -->
     <div style="display:flex;justify-content:center;align-items:center;background:var(--neutral-100);padding:14px">
-      <svg width="480" height="380" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+      <svg width="480" height="380" viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg" aria-label="アセット帰属 3 円ベン図 — 技術資産 × 市場接点 × 規制ライセンス（S11）" role="img">
         <!-- Circle A: 技術資産 -->
         <circle cx="200" cy="155" r="125" fill="#1E3A8A" fill-opacity="0.14" stroke="#1E3A8A" stroke-width="2"/>
         <!-- Circle B: 市場接点 -->
@@ -943,12 +939,12 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
           <text x="18" y="23" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter,sans-serif">A</text>
         </svg>
         <div>
-          <div class="qa">Persona A — 中堅事業会社 経営企画</div>
+          <div class="qa">想定課題 A — 中堅事業会社 経営企画</div>
           <div class="qr">従業員 50-200名 / 売上 5-30億円</div>
         </div>
       </div>
-      <div class="qt">「戦略から実装まで同じ OS でハンドオフが起きると、修正が格段に減った。担当者が変わっても品質が落ちない点が一番の価値。」</div>
-      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">INFERENCE — ICP.md ペルソナ設計より構成</div>
+      <div class="qt">戦略提案 → 実装ハンドオフでの手戻り発生・担当者交代時の品質低下。ConsultingOS は CLAUDE.md + DESIGN.md + ICP.md 中央参照で属人化を構造解消する設計。</div>
+      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">ICP.md ペルソナ設計仮説（INFERENCE / 実顧客インタビュー未実施）</div>
     </div>
     <div class="qCard">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
@@ -957,12 +953,12 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
           <text x="18" y="23" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter,sans-serif">B</text>
         </svg>
         <div>
-          <div class="qa">Persona B — コンサルティングファーム</div>
+          <div class="qa">想定課題 B — コンサルティングファーム</div>
           <div class="qr">10-50名 / 年商 1-5億円</div>
         </div>
       </div>
-      <div class="qt">「反証チェックが全出力に強制されるので、クライアントへの説明責任がとりやすい。FACT/INFERENCE 分離が銀行・投資家への説明を圧倒的に楽にした。」</div>
-      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">INFERENCE — ICP.md ペルソナ設計より構成</div>
+      <div class="qt">反証チェック未強制で説明責任が個人裁量に依存。ConsultingOS は全出力に FACT / INFERENCE / SPECULATION + Step 1-3 を強制し、銀行・投資家への説明根拠を構造化する。</div>
+      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">ICP.md ペルソナ設計仮説（INFERENCE / 実顧客インタビュー未実施）</div>
     </div>
     <div class="qCard">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
@@ -971,16 +967,16 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
           <text x="18" y="23" text-anchor="middle" fill="#fff" font-size="16" font-weight="700" font-family="Inter,sans-serif">C</text>
         </svg>
         <div>
-          <div class="qa">Persona C — 広告代理店</div>
+          <div class="qa">想定課題 C — 広告代理店</div>
           <div class="qr">20-100名 / 年商 2-10億円</div>
         </div>
       </div>
-      <div class="qt">「install.sh 1 コマンドで翌日から稼働。自前で LLM 環境を構築しようとしていたが、ConsultingOS の方が 3 ヶ月早く動き出せた。」</div>
-      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">INFERENCE — ICP.md ペルソナ設計より構成</div>
+      <div class="qt">自前 LLM 環境構築の工数 vs 即時稼働ニーズのトレードオフ。ConsultingOS は install.sh ワンステップで 1 日稼働、6 部門 30 エージェント + 19 スキルを即利用可能。</div>
+      <div style="font-size:9px;color:var(--neutral-500);font-family:'Inter',sans-serif;margin-top:4px">ICP.md ペルソナ設計仮説（INFERENCE / 実顧客インタビュー未実施）</div>
     </div>
   </div>
   <div style="background:#FEF9C3;border:1px solid #FDE68A;padding:8px 12px;margin-top:10px">
-    <div style="font-size:11px;color:#92400E">注記: 上記フィードバックは ICP.md ペルソナ設計から構成したモデルケースです（INFERENCE）。実顧客インタビューによる一次データではありません。MTG 前に実証データに差し替え推奨。</div>
+    <div style="font-size:11px;color:#92400E">本スライドは ICP.md ペルソナ設計から導出した「想定課題」であり、実顧客インタビュー一次データではありません（INFERENCE）。Phase 1 でパイロット顧客 3 社の実フィードバックに差し替え予定。</div>
   </div>
 </div>
 <div class="srcBar">
@@ -1098,7 +1094,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div style="padding-left:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:'Inter',sans-serif;margin-bottom:4px">AFTER</div>
         <div style="font-size:13px;font-weight:700">competitive-analyst + brand-guardian 並列: 4 時間</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">FACT/INFERENCE/SPECULATION ラベル自動付与、evolution-log 参照で同水準品質。コスト 1/18（INFERENCE）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">FACT/INFERENCE/SPECULATION ラベル自動付与、evolution-log 参照で同水準品質。シニア 3 日 vs 並列 4 時間（INFERENCE・実測予定）。</div>
       </div>
     </div>
     <!-- Scene 2 -->
@@ -1132,12 +1128,12 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:10px">
     <div style="text-align:center;background:#EFF6FF;padding:8px">
-      <div style="font-size:28px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent)">1/18</div>
-      <div style="font-size:10px;color:var(--neutral-500)">競合分析コスト比（INFERENCE）</div>
+      <div style="font-size:28px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent)">4h</div>
+      <div style="font-size:10px;color:var(--neutral-500)">competitive-analyst 並列起動（実測予定 INFERENCE）</div>
     </div>
     <div style="text-align:center;background:#EFF6FF;padding:8px">
-      <div style="font-size:28px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent)">1/10</div>
-      <div style="font-size:10px;color:var(--neutral-500)">LP制作フィードバックループ（INFERENCE）</div>
+      <div style="font-size:28px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent)">1日</div>
+      <div style="font-size:10px;color:var(--neutral-500)">LP 制作 1 サイクル目標（実測予定 INFERENCE）</div>
     </div>
     <div style="text-align:center;background:#EFF6FF;padding:8px">
       <div style="font-size:28px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent)">6h</div>
@@ -1207,19 +1203,19 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="threeCol">
     <div class="colBox" style="background:#EFF6FF">
       <div class="tag" style="font-size:9px">PM / 経営判断</div>
-      <div style="font-size:38px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent);line-height:1;margin-top:4px">孫×Huang</div>
-      <div style="font-size:11px;color:var(--neutral-700);margin-top:6px">山の定義 + 問題圧縮の 2 段ゲートを毎案件適用。10 年後の山を先に決め、解くべき問題を 3 点に圧縮してから実装に入る。</div>
+      <div style="font-size:34px;font-weight:800;font-family:'Inter',sans-serif;color:var(--accent);line-height:1.05;margin-top:4px">山×圧縮ゲート</div>
+      <div style="font-size:11px;color:var(--neutral-700);margin-top:6px">10 年後の山を先に定義し、解くべき問題を 3 点に圧縮してから実装に入る 2 段ゲート。毎案件強制適用。</div>
       <div class="meta">Phase 0: 0-5分 → Phase 1: 5-15分 <span class="lf lf-f">FACT</span></div>
     </div>
     <div class="colBox">
       <div class="tag" style="font-size:9px">エンジニア / 実装</div>
-      <div style="font-size:38px;font-weight:800;font-family:'Inter',sans-serif;color:var(--neutral-700);line-height:1;margin-top:4px">佐藤流PL</div>
+      <div style="font-size:34px;font-weight:800;font-family:'Inter',sans-serif;color:var(--neutral-700);line-height:1.05;margin-top:4px">PL ゲート</div>
       <div style="font-size:11px;color:var(--neutral-700);margin-top:6px">3 変数交点（技術×ユーザー×市場）+ PL + アセット帰属診断を全案件に適用。PL に落ちない提案は却下ルール。</div>
       <div class="meta">Phase 2: 15-30分 <span class="lf lf-f">FACT</span></div>
     </div>
     <div class="colBox">
       <div class="tag" style="font-size:9px">アドバイザー / 撤退判断</div>
-      <div style="font-size:38px;font-weight:800;font-family:'Inter',sans-serif;color:var(--neutral-700);line-height:1;margin-top:4px">Dorsey削ぎ</div>
+      <div style="font-size:34px;font-weight:800;font-family:'Inter',sans-serif;color:var(--neutral-700);line-height:1.05;margin-top:4px">削ぎ落としゲート</div>
       <div style="font-size:11px;color:var(--neutral-700);margin-top:6px">余分な機能・コスト・人員の削除判断。Fess Up Early（弱点の先出し）+ プロトタイプで体験 → 数字の順序で提示。</div>
       <div class="meta">Phase 3: 30-55分 <span class="lf lf-f">FACT</span></div>
     </div>
@@ -1313,7 +1309,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   </div>
 </div>
 <div class="srcBar">
-  <span>営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 登録免許税15万: 金融庁登録手続ガイドブック <span class="lf lf-f">FACT</span></span>
+  <span>営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank" rel="noopener">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 登録免許税15万: 金融庁登録手続ガイドブック <span class="lf lf-f">FACT</span></span>
   <span class="pgn">17 / 26</span>
 </div>
 </div>
@@ -1327,7 +1323,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="h1">Phase 0-4 売上・粗利推移 — 標準シナリオ</div>
   <div class="rule"></div>
   <div style="flex:1;position:relative;min-height:0">
-    <canvas id="plChart" style="width:100%;height:100%"></canvas>
+    <canvas id="plChart" style="width:100%;height:100%" aria-label="P/L シナリオ別グラフ 2026-2030（S18）" role="img"></canvas>
   </div>
   <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px">
     <div style="font-size:10px;color:var(--neutral-500);text-align:center;background:var(--neutral-100);padding:4px">2026 H1<br>SaaS β 立上</div>
@@ -1467,7 +1463,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="h1">Claude API コスト — モデル別 12 ヶ月スタック推移</div>
   <div class="rule"></div>
   <div style="flex:1;position:relative;min-height:0">
-    <canvas id="apiChart" style="width:100%;height:100%"></canvas>
+    <canvas id="apiChart" style="width:100%;height:100%" aria-label="API コスト Opus/Sonnet/Haiku 12 ヶ月スタックバー（S20）" role="img"></canvas>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:8px">
     <div style="background:var(--neutral-100);padding:8px 10px">
@@ -1700,7 +1696,7 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   </div>
 </div>
 <div class="srcBar">
-  <span>登録免許税15万・営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 弁護士費用: <span class="lf lf-i">INFERENCE</span></span>
+  <span>登録免許税15万・営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank" rel="noopener">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 弁護士費用: <span class="lf lf-i">INFERENCE</span></span>
   <span class="pgn">23 / 26</span>
 </div>
 </div>
@@ -1802,11 +1798,11 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   </div>
   <!-- governing thought restatement -->
   <div style="background:var(--primary);color:#fff;padding:12px 20px;text-align:center">
-    <div style="font-size:14px;font-weight:700;color:#93C5FD">ConsultingOS は 6 部門 30 エージェントの一気通貫 OS として既に稼働中。1000 万円で Phase 1 商用化を加速する。</div>
+    <div style="font-size:14px;font-weight:700;color:#93C5FD">ConsultingOS は 6 部門 30 エージェントの一気通貫 OS として既に稼働中。1000 万円で「OSS 公開済み OS」を「規制対応済み有償サービス」に変える。</div>
   </div>
 </div>
 <div class="srcBar">
-  <span>営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 登録免許税15万: 金融庁登録手続ガイドブック <span class="lf lf-f">FACT</span></span>
+  <span>営業保証金500万: <a href="https://lfb.mof.go.jp/kantou/kinyuu/index.html" target="_blank" rel="noopener">財務省関東財務局</a> <span class="lf lf-f">FACT</span> / 登録免許税15万: 金融庁登録手続ガイドブック <span class="lf lf-f">FACT</span></span>
   <span class="pgn">25 / 26</span>
 </div>
 </div>
