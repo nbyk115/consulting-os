@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case A 詳細版 26 slides — ConsultingOS 1000万円エンジェル出資</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<!-- Chart.js v4.5.1 (2025-10-13 release, no breaking changes from 4.4.2). SRI hash to be added at deploy time via: curl -sS <url> | openssl dgst -sha384 -binary | openssl base64 -A -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
 :root{
   --primary:#0A0A0A;
@@ -22,7 +23,7 @@
 html,body{
   background:#1F2937;
   color:var(--primary);
-  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP",system-ui,sans-serif;
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
   font-weight:400;
   -webkit-font-smoothing:antialiased;
   word-break:auto-phrase;
@@ -1163,17 +1164,17 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
     <div class="kpiCell">
       <div class="kv" style="font-size:80px">110%</div>
       <div class="ku">NRR 目標（Year 1）</div>
-      <div class="kd">Net Revenue Retention<br>継続収入 + アップセル（INFERENCE）</div>
+      <div class="kd">Net Revenue Retention<br>継続収入 + アップセル<br><span style="font-size:10px;color:var(--neutral-500)">INFERENCE 目標 / FACT 比較: Vertical AI SaaS 中央値 108-120%（Tidemark 2025）・プライベート SaaS 中央値 101-103%（SaaS Capital 2025）</span></div>
     </div>
     <div class="kpiCell">
       <div class="kv" style="font-size:80px">0.8+</div>
       <div class="ku">Magic Number 目標</div>
-      <div class="kd">ARR 増加÷前Q Sマーケ費<br>効率的成長の基準（INFERENCE）</div>
+      <div class="kd">ARR 増加÷前Q Sマーケ費<br>効率的成長の基準<br><span style="font-size:10px;color:var(--neutral-500)">INFERENCE 目標 / FACT 比較: 業界中央値 0.90・健全閾値 0.75+（Benchmarkit 2025）</span></div>
     </div>
     <div class="kpiCell">
       <div class="kv" style="font-size:80px">40+</div>
       <div class="ku">Rule of 40 目標（Year 2）</div>
-      <div class="kd">成長率%+利益率%≥40<br>SaaS健全性基準（INFERENCE）</div>
+      <div class="kd">成長率%+利益率%≥40<br>SaaS健全性基準<br><span style="font-size:10px;color:var(--neutral-500)">INFERENCE 目標 / FACT 比較: プライベート SaaS 中央値 34%・上位四分位 87-114%（SaaS Capital / OpenView 2025）</span></div>
     </div>
   </div>
   <div style="margin-top:14px">
@@ -1186,10 +1187,10 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <tr><td>KSF-5 ランウェイ</td><td>月次バーンレート</td><td>残存ランウェイ月数</td><td class="r" style="color:var(--warning)">6ヶ月割れ = 即対応</td></tr>
     </table>
   </div>
-  <div style="font-size:9px;color:var(--neutral-500);margin-top:5px">全KPI目標値: INFERENCE — 実測前のモデル値。NRR/Magic Number/Rule of 40 はSaaS業界標準指標（FACT）。</div>
+  <div style="font-size:10px;color:var(--neutral-500);margin-top:5px">全KPI目標値: INFERENCE（実測前モデル値）／ベンチマーク FACT — NRR: <a href="https://www.tidemarkcap.com/vskp-chapter/2025-vertical-smb-saas-benchmark-report" target="_blank" rel="noopener" style="color:var(--accent)">Tidemark 2025</a>・<a href="https://www.saas-capital.com/blog-posts/what-is-a-good-retention-rate-for-a-private-saas-company/" target="_blank" rel="noopener" style="color:var(--accent)">SaaS Capital 2025</a>・<a href="https://www.meritechcapital.com/benchmarking/comps-table" target="_blank" rel="noopener" style="color:var(--accent)">Meritech 2024</a>・Snowflake FY2025 126% ／ Magic Number: <a href="https://www.benchmarkit.ai/2025benchmarks" target="_blank" rel="noopener" style="color:var(--accent)">Benchmarkit 2025</a> 中央値 0.90 ／ Rule of 40: <a href="https://www.highalpha.com/saas-benchmarks" target="_blank" rel="noopener" style="color:var(--accent)">OpenView 2025</a> 中央値 34%</div>
 </div>
 <div class="srcBar">
-  <span>KPI指標定義: SaaS業界標準 <span class="lf lf-f">FACT</span> / 目標数値: <span class="lf lf-i">INFERENCE</span></span>
+  <span>KPI指標定義: SaaS業界標準 <span class="lf lf-f">FACT</span> / 目標数値: <span class="lf lf-i">INFERENCE</span> / ベンチマーク出典: Tidemark・SaaS Capital・Meritech・OpenView・Benchmarkit（2024-2025） <span class="lf lf-f">FACT</span></span>
   <span class="pgn">15 / 26</span>
 </div>
 </div>
