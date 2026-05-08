@@ -550,10 +550,10 @@ grep -rn $'\xe2\x80\x94' /home/user/consulting-os/strategy/ /home/user/consultin
 
 | NG | OK |
 |---|---|
-| `This is important — it affects revenue` | `This is important: it affects revenue` |
-| `Result — 30% improvement` | `Result: 30% improvement` |
-| `Phase 1 – Discovery` | `Phase 1: Discovery` |
-| `User指摘は正鵠 — sales-deck-designer` | `User指摘は正鵠 - sales-deck-designer` |
+| `This is important &#x2014; it affects revenue` | `This is important: it affects revenue` |
+| `Result &#x2014; 30% improvement` | `Result: 30% improvement` |
+| `Phase 1 &#x2013; Discovery` | `Phase 1: Discovery` |
+| `User指摘は正鵠 &#x2014; sales-deck-designer` | `User指摘は正鵠 - sales-deck-designer` |
 
 ---
 
