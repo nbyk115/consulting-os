@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>ConsultingOS とは: ツリー + 連携で見る全体像</title>
+<title>ConsultingOS とは: ツリー + 連携で見る全体像 v5</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,15 +18,32 @@
     line-break: strict;
     overflow-wrap: break-word;
   }
+  /* CSS 変数: DESIGN.md カラートークン拡張定義 */
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --neutral-100: #F2F2EE;
+    --neutral-300: #BBBBBB;
+    --neutral-500: #666666;
+    --neutral-900: #1A1A1A;
+    --surface: #FFFFFF;
+    /* 部門別アクセント色（連携可視化のため） */
+    --dept-01: #E60012; /* コンサル: Accent */
+    --dept-02: #0EA5A4; /* サービス開発: Success */
+    --dept-03: #F59E0B; /* プロダクト: Warning */
+    --dept-04: #8B5CF6; /* クリエイティブ: Purple */
+    --dept-05: #2563EB; /* グローバル: Blue */
+    --dept-06: #DC2626; /* マーケティング: Red */
+  }
   .page {
     width: 1920px;
-    min-height: 1280px;
+    min-height: 1320px;
     padding: 56px 64px 48px;
-    background: #FAFAF7;
-    position: relative;
+    background: var(--bg);
     margin: 0 auto;
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
     gap: 28px;
   }
 
@@ -36,7 +53,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 18px;
-    border-bottom: 2px solid #0A0A0A;
+    border-bottom: 2px solid var(--primary);
   }
   .h-title {
     font-size: 44px;
@@ -44,17 +61,17 @@
     letter-spacing: -0.02em;
     line-height: 1.1;
   }
-  .h-title .accent { color: #E60012; }
+  .h-title .accent { color: var(--accent); }
   .h-tagline {
     font-size: 16px;
-    color: #666666;
+    color: var(--neutral-500);
     margin-top: 8px;
     font-weight: 500;
   }
   .h-badges { display: flex; gap: 14px; }
   .badge {
-    background: #0A0A0A;
-    color: #FAFAF7;
+    background: var(--primary);
+    color: var(--bg);
     padding: 12px 20px;
     border-radius: 100px;
     font-size: 15px;
@@ -62,25 +79,49 @@
   }
   .badge .num { font-size: 22px; font-weight: 900; margin-right: 6px; }
 
+  /* HERO COPY: 人格ステートメント（creative-director Top 3 #1） */
+  .hero-copy {
+    background: var(--primary);
+    color: var(--bg);
+    padding: 24px 36px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+  .hero-statement {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+  .hero-statement .accent { color: var(--accent); }
+  .hero-meta {
+    font-size: 13px;
+    color: var(--neutral-300);
+    text-align: right;
+    line-height: 1.5;
+    min-width: 220px;
+  }
+
   /* TREE */
   .tree-wrapper {
     position: relative;
     display: grid;
     grid-template-rows: auto 60px auto;
-    gap: 0;
   }
-
   .tree-root {
     display: flex;
     justify-content: center;
   }
   .root-node {
-    background: #0A0A0A;
-    color: #FAFAF7;
+    background: var(--primary);
+    color: var(--bg);
     padding: 22px 44px;
     border-radius: 8px;
     text-align: center;
-    border: 2px solid #0A0A0A;
+    border: 2px solid var(--primary);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     min-width: 480px;
   }
@@ -91,19 +132,20 @@
   }
   .root-node .root-sub {
     font-size: 14px;
-    color: #BBBBBB;
+    color: var(--neutral-300);
     margin-top: 6px;
     font-weight: 500;
   }
-  .root-node .accent { color: #E60012; }
+  .root-node .accent { color: var(--accent); }
 
+  /* SVG ブランチ: ux-designer Top 3 #2: preserveAspectRatio 修正 */
   .tree-branches {
     width: 100%;
     height: 60px;
     display: block;
   }
 
-  /* LEVEL 1: 6 部門 */
+  /* LEVEL 1 */
   .level1 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -115,8 +157,9 @@
     gap: 10px;
   }
   .dept-card {
-    background: #FFFFFF;
-    border: 2px solid #0A0A0A;
+    background: var(--surface);
+    border: 2px solid var(--primary);
+    border-top: 6px solid var(--dept-color, var(--accent));
     border-radius: 8px;
     padding: 16px 14px 14px;
     text-align: center;
@@ -125,10 +168,10 @@
   }
   .dept-num {
     position: absolute;
-    top: -12px;
+    top: -4px;
     left: 14px;
-    background: #E60012;
-    color: #FAFAF7;
+    background: var(--dept-color, var(--accent));
+    color: var(--bg);
     font-size: 13px;
     font-weight: 900;
     padding: 3px 10px;
@@ -138,18 +181,18 @@
   .dept-name {
     font-size: 17px;
     font-weight: 900;
-    color: #0A0A0A;
+    color: var(--primary);
     margin-top: 6px;
     margin-bottom: 4px;
   }
   .dept-count {
     font-size: 13px;
-    color: #666;
+    color: var(--neutral-500);
     font-weight: 500;
   }
   .agent-list {
-    background: #F2F2EE;
-    border: 1px solid #1A1A1A;
+    background: var(--neutral-100);
+    border: 1px solid var(--neutral-900);
     border-radius: 6px;
     padding: 12px 12px;
     flex: 1;
@@ -160,58 +203,81 @@
   .agent-item {
     font-size: 14px;
     line-height: 1.4;
-    color: #1A1A1A;
+    color: var(--neutral-900);
     padding: 6px 10px;
-    background: #FFFFFF;
-    border-left: 3px solid #E60012;
+    background: var(--surface);
+    border-left: 3px solid var(--dept-color, var(--accent));
     border-radius: 3px;
     font-weight: 500;
   }
 
-  /* 横連携 セクション */
+  /* 部門色割当 */
+  .dept-column.d01 { --dept-color: var(--dept-01); }
+  .dept-column.d02 { --dept-color: var(--dept-02); }
+  .dept-column.d03 { --dept-color: var(--dept-03); }
+  .dept-column.d04 { --dept-color: var(--dept-04); }
+  .dept-column.d05 { --dept-color: var(--dept-05); }
+  .dept-column.d06 { --dept-color: var(--dept-06); }
+
+  /* 横連携: ux-designer Top 3 #3 + creative-director Top 3 #2 */
   .collab-section {
-    background: #FFFFFF;
-    border: 1px solid #1A1A1A;
+    background: var(--surface);
+    border: 1px solid var(--neutral-900);
     border-radius: 8px;
     padding: 22px 28px;
   }
   .collab-title {
     font-size: 16px;
     font-weight: 900;
-    color: #E60012;
+    color: var(--accent);
     margin-bottom: 16px;
     letter-spacing: 0.05em;
   }
   .collab-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    gap: 14px;
   }
   .collab-card {
-    background: #FAFAF7;
-    border-left: 4px solid #E60012;
-    padding: 12px 14px;
-    border-radius: 4px;
+    background: var(--bg);
+    border: 1px solid var(--neutral-900);
+    padding: 14px 16px;
+    border-radius: 6px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 10px;
   }
   .collab-pattern {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 900;
-    color: #0A0A0A;
+    color: var(--primary);
     line-height: 1.3;
   }
   .collab-flow {
-    font-size: 13px;
-    color: #1A1A1A;
-    line-height: 1.5;
-    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
   }
-  .collab-flow .arrow {
-    color: #E60012;
+  .collab-dept {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--surface);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .collab-dept.d01 { background: var(--dept-01); }
+  .collab-dept.d02 { background: var(--dept-02); }
+  .collab-dept.d03 { background: var(--dept-03); }
+  .collab-dept.d04 { background: var(--dept-04); }
+  .collab-dept.d05 { background: var(--dept-05); }
+  .collab-dept.d06 { background: var(--dept-06); }
+  .collab-arrow {
+    color: var(--neutral-500);
     font-weight: 900;
-    margin: 0 4px;
+    font-size: 14px;
   }
 
   /* 下段: 物理化 + Before/After */
@@ -221,15 +287,15 @@
     gap: 24px;
   }
   .infra-block, .ba-block {
-    background: #FFFFFF;
-    border: 1px solid #1A1A1A;
+    background: var(--surface);
+    border: 1px solid var(--neutral-900);
     border-radius: 8px;
     padding: 22px 26px;
   }
   .block-title {
     font-size: 16px;
     font-weight: 900;
-    color: #E60012;
+    color: var(--accent);
     margin-bottom: 16px;
     letter-spacing: 0.05em;
   }
@@ -239,11 +305,11 @@
     gap: 12px 22px;
   }
   .infra-item {
-    border-left: 4px solid #E60012;
+    border-left: 4px solid var(--accent);
     padding: 4px 0 4px 14px;
     font-size: 14px;
     font-weight: 700;
-    color: #0A0A0A;
+    color: var(--primary);
     line-height: 1.4;
   }
   .ba-grid {
@@ -257,17 +323,23 @@
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 0.18em;
-    color: #666;
+    color: var(--neutral-500);
   }
   .ba-item {
     font-size: 14px;
     line-height: 1.5;
-    color: #0A0A0A;
+    color: var(--primary);
   }
   .ba-arrow {
     font-size: 32px;
-    color: #E60012;
+    color: var(--accent);
     font-weight: 900;
+  }
+  .ba-source {
+    font-size: 11px;
+    color: var(--neutral-500);
+    margin-top: 8px;
+    line-height: 1.4;
   }
 
   /* FOOTER */
@@ -276,19 +348,25 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 18px;
-    border-top: 1px solid #666;
+    border-top: 1px solid var(--neutral-500);
     font-size: 13px;
-    color: #666;
+    color: var(--neutral-500);
   }
   .footer-thoughts { display: flex; gap: 28px; }
   .footer-thoughts .label {
     font-weight: 900;
-    color: #0A0A0A;
+    color: var(--primary);
     margin-right: 8px;
   }
 </style>
 </head>
 <body>
+<!--
+  ConsultingOS Overview Visual v5
+  用途: Web スクロール表示 / 提案資料 / GitHub README / SNS シェア（汎用）
+  サイズ: 1920 × 1320（DESIGN.md スライド標準 1280×720 とは別、Web 表示用）
+  アクセシビリティ: WCAG AA 準拠（コントラスト最低 5.5:1、フォント最小 13px）
+-->
 <div class="page">
 
   <!-- HEADER -->
@@ -304,6 +382,19 @@
     </div>
   </div>
 
+  <!-- HERO COPY: 人格ステートメント -->
+  <div class="hero-copy">
+    <div class="hero-statement">
+      属人営業から、<span class="accent">構造で売る</span>。<br>
+      派手な機能でなく、本番で動く<span class="accent">作り込み</span>で勝つ。
+    </div>
+    <div class="hero-meta">
+      佐藤裕介流「3 変数交点」+<br>
+      マスク式「Unkind Truth コミット」+<br>
+      Sierra 流「本番ワーク作り込み」
+    </div>
+  </div>
+
   <!-- TREE -->
   <div class="tree-wrapper">
 
@@ -314,7 +405,7 @@
       </div>
     </div>
 
-    <svg class="tree-branches" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="tree-branches" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
       <path d="M 600 0 C 600 30, 100 30, 100 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
       <path d="M 600 0 C 600 30, 300 30, 300 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
       <path d="M 600 0 C 600 30, 500 30, 500 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
@@ -322,16 +413,16 @@
       <path d="M 600 0 C 600 30, 900 30, 900 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
       <path d="M 600 0 C 600 30, 1100 30, 1100 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
       <circle cx="600" cy="0" r="5" fill="#0A0A0A"/>
-      <circle cx="100" cy="60" r="5" fill="#0A0A0A"/>
-      <circle cx="300" cy="60" r="5" fill="#0A0A0A"/>
-      <circle cx="500" cy="60" r="5" fill="#0A0A0A"/>
-      <circle cx="700" cy="60" r="5" fill="#0A0A0A"/>
-      <circle cx="900" cy="60" r="5" fill="#0A0A0A"/>
-      <circle cx="1100" cy="60" r="5" fill="#0A0A0A"/>
+      <circle cx="100" cy="60" r="5" fill="#E60012"/>
+      <circle cx="300" cy="60" r="5" fill="#0EA5A4"/>
+      <circle cx="500" cy="60" r="5" fill="#F59E0B"/>
+      <circle cx="700" cy="60" r="5" fill="#8B5CF6"/>
+      <circle cx="900" cy="60" r="5" fill="#2563EB"/>
+      <circle cx="1100" cy="60" r="5" fill="#DC2626"/>
     </svg>
 
     <div class="level1">
-      <div class="dept-column">
+      <div class="dept-column d01">
         <div class="dept-card">
           <span class="dept-num">01</span>
           <div class="dept-name">コンサル</div>
@@ -347,7 +438,7 @@
         </div>
       </div>
 
-      <div class="dept-column">
+      <div class="dept-column d02">
         <div class="dept-card">
           <span class="dept-num">02</span>
           <div class="dept-name">サービス開発</div>
@@ -361,7 +452,7 @@
         </div>
       </div>
 
-      <div class="dept-column">
+      <div class="dept-column d03">
         <div class="dept-card">
           <span class="dept-num">03</span>
           <div class="dept-name">プロダクト</div>
@@ -373,7 +464,7 @@
         </div>
       </div>
 
-      <div class="dept-column">
+      <div class="dept-column d04">
         <div class="dept-card">
           <span class="dept-num">04</span>
           <div class="dept-name">クリエイティブ</div>
@@ -390,7 +481,7 @@
         </div>
       </div>
 
-      <div class="dept-column">
+      <div class="dept-column d05">
         <div class="dept-card">
           <span class="dept-num">05</span>
           <div class="dept-name">グローバル</div>
@@ -401,7 +492,7 @@
         </div>
       </div>
 
-      <div class="dept-column">
+      <div class="dept-column d06">
         <div class="dept-card">
           <span class="dept-num">06</span>
           <div class="dept-name">マーケティング</div>
@@ -420,44 +511,66 @@
     </div>
   </div>
 
-  <!-- 横連携: 部門間コラボ 5 パターン -->
+  <!-- 横連携: 部門色付きピル -->
   <div class="collab-section">
-    <div class="collab-title">部門間連携 5 パターン（18 パターン中の代表例）</div>
+    <div class="collab-title">部門間連携 5 パターン（agent-collaboration-patterns.md 18 パターン中の代表例）</div>
     <div class="collab-grid">
       <div class="collab-card">
         <div class="collab-pattern">戦略提案書</div>
         <div class="collab-flow">
-          コンサル<span class="arrow">×</span>クリエイティブ<span class="arrow">×</span>プロダクト
+          <span class="collab-dept d01">コンサル</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d04">クリエイティブ</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d03">プロダクト</span>
         </div>
       </div>
       <div class="collab-card">
         <div class="collab-pattern">SaaS 新機能開発</div>
         <div class="collab-flow">
-          コンサル<span class="arrow">×</span>サービス開発<span class="arrow">×</span>プロダクト
+          <span class="collab-dept d01">コンサル</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d02">サービス開発</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d03">プロダクト</span>
         </div>
       </div>
       <div class="collab-card">
         <div class="collab-pattern">CVR 改善 / グロース</div>
         <div class="collab-flow">
-          マーケ<span class="arrow">×</span>クリエイティブ<span class="arrow">×</span>プロダクト
+          <span class="collab-dept d06">マーケ</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d04">クリエイティブ</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d03">プロダクト</span>
         </div>
       </div>
       <div class="collab-card">
         <div class="collab-pattern">海外展開</div>
         <div class="collab-flow">
-          コンサル<span class="arrow">×</span>サービス開発<span class="arrow">×</span>グローバル<span class="arrow">×</span>クリエイティブ
+          <span class="collab-dept d01">コンサル</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d02">サービス開発</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d05">グローバル</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d04">クリエイティブ</span>
         </div>
       </div>
       <div class="collab-card">
         <div class="collab-pattern">広告 ROAS 改善</div>
         <div class="collab-flow">
-          マーケ<span class="arrow">×</span>プロダクト<span class="arrow">×</span>コンサル
+          <span class="collab-dept d06">マーケ</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d03">プロダクト</span>
+          <span class="collab-arrow">×</span>
+          <span class="collab-dept d01">コンサル</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 下段: 物理化層 + Before/After -->
+  <!-- 下段: 物理化層 + Before/After（出典 + ラベル明示） -->
   <div class="lower">
     <div class="infra-block">
       <div class="block-title">品質を構造で担保する 4 つの物理化層</div>
@@ -470,7 +583,7 @@
     </div>
 
     <div class="ba-block">
-      <div class="block-title">Before → After</div>
+      <div class="block-title">Before → After（数値は SPECULATION）</div>
       <div class="ba-grid">
         <div class="ba-col">
           <div class="ba-label">BEFORE</div>
@@ -481,10 +594,13 @@
         <div class="ba-arrow">→</div>
         <div class="ba-col">
           <div class="ba-label">AFTER</div>
-          <div class="ba-item">提案作成 8h（5x 圧縮）</div>
+          <div class="ba-item">提案作成 8h（5x 圧縮想定）</div>
           <div class="ba-item">構造で売る、再現性担保</div>
           <div class="ba-item">3 ラベル + hook で機械検出</div>
         </div>
+      </div>
+      <div class="ba-source">
+        SPECULATION: 数値は内部試算（実クライアント案件 ROI 実証は次セッション以降）。FACT 化には N.Y.CRAFT 関根さん案件 + 3 社実証後の実測必要（ハードルール 1「真の 100 原則」）。
       </div>
     </div>
   </div>
@@ -497,7 +613,7 @@
       <span><span class="label">マスク式</span>4 原則統合</span>
       <span><span class="label">BMR</span>致命傷を避ける</span>
     </div>
-    <div>v 2026-05-08 / nbyk115/consulting-os</div>
+    <div>v5 2026-05-08 / nbyk115/consulting-os</div>
   </div>
 
 </div>
