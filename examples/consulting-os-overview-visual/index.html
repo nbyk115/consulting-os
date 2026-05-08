@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ConsultingOS とは: 一目でわかる全体像</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #FAFAF7;
+    color: #0A0A0A;
+    line-height: 1.4;
+    font-feature-settings: "palt";
+  }
+  .page {
+    width: 1920px;
+    height: 1080px;
+    padding: 48px 56px;
+    background: #FAFAF7;
+    position: relative;
+    margin: 0 auto;
+  }
+  /* ヘッダー */
+  .header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 16px; border-bottom: 2px solid #0A0A0A; margin-bottom: 24px; }
+  .h-title { font-size: 36px; font-weight: 900; letter-spacing: -0.02em; }
+  .h-title .accent { color: #E60012; }
+  .h-meta { font-size: 13px; color: #666; }
+  .h-tagline { font-size: 16px; color: #1A1A1A; margin-top: 4px; }
+  /* 3 列構造 */
+  .body { display: grid; grid-template-columns: 360px 1fr 360px; gap: 24px; height: 760px; }
+  /* 左: 課題 */
+  .left, .right { display: flex; flex-direction: column; gap: 12px; }
+  .panel { background: #FFFFFF; border: 1px solid #1A1A1A; padding: 16px 20px; border-radius: 4px; }
+  .panel-title { font-size: 13px; font-weight: 700; color: #E60012; margin-bottom: 10px; letter-spacing: 0.05em; }
+  .panel-list { font-size: 14px; line-height: 1.6; }
+  .panel-list li { list-style: none; padding-left: 16px; position: relative; margin-bottom: 6px; }
+  .panel-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 1px; background: #0A0A0A; }
+  .left .panel-title { color: #E60012; }
+  .right .panel-title { color: #0EA5A4; }
+  /* 中央: コア */
+  .center { display: flex; flex-direction: column; gap: 16px; }
+  .core-os {
+    background: #0A0A0A;
+    color: #FAFAF7;
+    padding: 24px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .core-title { font-size: 22px; font-weight: 900; letter-spacing: -0.01em; margin-bottom: 4px; }
+  .core-sub { font-size: 13px; color: #999; }
+  .departments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .dept {
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    padding: 12px 14px;
+    border-radius: 4px;
+  }
+  .dept-name { font-size: 13px; font-weight: 700; color: #0A0A0A; margin-bottom: 4px; }
+  .dept-count { font-size: 11px; color: #666; margin-bottom: 6px; }
+  .dept-roles { font-size: 11px; color: #1A1A1A; line-height: 1.4; }
+  /* 連携フロー */
+  .flow {
+    background: #F2F2EE;
+    border: 1px solid #1A1A1A;
+    padding: 14px 18px;
+    border-radius: 4px;
+  }
+  .flow-title { font-size: 13px; font-weight: 700; color: #0A0A0A; margin-bottom: 10px; }
+  .flow-steps { display: grid; grid-template-columns: repeat(5, 1fr) auto; gap: 4px; align-items: center; font-size: 11px; }
+  .flow-step {
+    background: #FFFFFF;
+    border: 1px solid #0A0A0A;
+    padding: 8px 6px;
+    text-align: center;
+    border-radius: 3px;
+  }
+  .flow-step .num { font-size: 10px; font-weight: 700; color: #E60012; display: block; }
+  .flow-step .name { font-weight: 700; font-size: 11px; line-height: 1.2; }
+  .flow-step .agent { color: #666; font-size: 10px; margin-top: 2px; line-height: 1.2; }
+  .flow-arrow { font-size: 18px; color: #0A0A0A; padding: 0 2px; text-align: center; }
+  /* 物理化層 */
+  .infra {
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    padding: 14px 18px;
+    border-radius: 4px;
+  }
+  .infra-title { font-size: 13px; font-weight: 700; color: #0A0A0A; margin-bottom: 8px; }
+  .infra-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 11px; }
+  .infra-item {
+    border-left: 3px solid #E60012;
+    padding-left: 8px;
+  }
+  .infra-item-title { font-weight: 700; margin-bottom: 2px; }
+  .infra-item-detail { color: #666; font-size: 10px; line-height: 1.3; }
+  /* フッター */
+  .footer {
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 1px solid #666;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #666;
+  }
+  .footer .principles { display: flex; gap: 24px; }
+  .footer .principles span strong { color: #0A0A0A; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- ヘッダー -->
+  <div class="header">
+    <div>
+      <div class="h-title">ConsultingOS<span class="accent"> とは</span> / 司令塔型コンサル OS の全体像</div>
+      <div class="h-tagline">提案 → 実装 → 海外展開 → マーケまで、6 部門・27 エージェント・34 スキルで一気通貫。反証チェック + 物理化 hook で品質を構造担保。</div>
+    </div>
+    <div class="h-meta">
+      v 2026-05-08<br>
+      nbyk115/consulting-os
+    </div>
+  </div>
+
+  <!-- 3 列ボディ -->
+  <div class="body">
+    <!-- 左: 解決する課題 -->
+    <div class="left">
+      <div class="panel">
+        <div class="panel-title">解決する課題（典型 6 例）</div>
+        <ul class="panel-list">
+          <li>属人営業 / 属人提案で再現性なし、トップ営業が辞めると機能停止</li>
+          <li>ハルシネーション / 出典なし数値で信頼失墜、納品リスク高い</li>
+          <li>提案書作成に毎回 40h、案件回転率が上がらない</li>
+          <li>海外展開で日本語字形 / 翻訳 / 文化文脈の品質崩壊</li>
+          <li>CPC / CPA 至上主義で LTV / 粗利が見えない、PL に落ちない</li>
+          <li>クリエイティブ品質が制作者個人技、ブランド統一困難</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-title">解決アプローチ（佐藤裕介 + 小野寺信行）</div>
+        <ul class="panel-list">
+          <li>3 変数交点（誰が・何を・どう）で属人を構造化</li>
+          <li>反証チェック Step 1-4（自己 / 構造 / 実用 / リスク即潰し）</li>
+          <li>60/40 ルール（既存 60% / 新規 40%）で挑戦回数最大化</li>
+          <li>マスク式 4 原則（インセンティブ / 評判 / Unkind Truth / アルゴリズム）</li>
+          <li>佐藤メソッド: 構造で売る、属人営業の推奨を排除</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 中央: コア -->
+    <div class="center">
+      <div class="core-os">
+        <div class="core-title">ConsultingOS コア</div>
+        <div class="core-sub">CLAUDE.md ハードルール 17 条 / 反証チェック必須 / 真の 100 原則 / Autonomous Mode 既定化</div>
+      </div>
+
+      <div class="departments">
+        <div class="dept">
+          <div class="dept-name">コンサル</div>
+          <div class="dept-count">6 エージェント</div>
+          <div class="dept-roles">strategy-lead / competitive-analyst / proposal-writer / kpi-analytics / client-success / legal-compliance-checker</div>
+        </div>
+        <div class="dept">
+          <div class="dept-name">サービス開発</div>
+          <div class="dept-count">4 エージェント</div>
+          <div class="dept-roles">tech-lead / fullstack-dev / ai-engineer / infra-devops</div>
+        </div>
+        <div class="dept">
+          <div class="dept-name">プロダクト</div>
+          <div class="dept-count">2 エージェント</div>
+          <div class="dept-roles">product-manager / feedback-synthesizer</div>
+        </div>
+        <div class="dept">
+          <div class="dept-name">クリエイティブ</div>
+          <div class="dept-count">7 エージェント</div>
+          <div class="dept-roles">creative-director / ux-designer / frontend-dev / content-strategist / brand-guardian / growth-hacker / sales-deck-designer</div>
+        </div>
+        <div class="dept">
+          <div class="dept-name">グローバル</div>
+          <div class="dept-count">1 エージェント</div>
+          <div class="dept-roles">gtm-consultant（海外参入 / ローカライズ / 文化文脈）</div>
+        </div>
+        <div class="dept">
+          <div class="dept-name">マーケティング</div>
+          <div class="dept-count">7 エージェント</div>
+          <div class="dept-roles">marketing-director / performance-marketer / seo-specialist / marketing-analyst / social-media-strategist / market-researcher / pr-communications</div>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-title">案件処理の標準フロー（提案 → 実装 → 海外 → マーケ）</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <span class="num">1</span>
+            <span class="name">課題ヒアリング</span>
+            <div class="agent">strategy-lead<br>market-researcher</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="num">2</span>
+            <span class="name">提案 / 構造化</span>
+            <div class="agent">proposal-writer<br>kpi-analytics</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="num">3</span>
+            <span class="name">実装 / AI 統合</span>
+            <div class="agent">tech-lead<br>ai-engineer</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="num">4</span>
+            <span class="name">クリエイティブ</span>
+            <div class="agent">creative-director<br>frontend-dev</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <span class="num">5</span>
+            <span class="name">海外 + マーケ</span>
+            <div class="agent">gtm-consultant<br>marketing-director</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="infra">
+        <div class="infra-title">物理化層（hook + 規律）: 品質を構造で担保、人間の意志に依存しない</div>
+        <div class="infra-grid">
+          <div class="infra-item">
+            <div class="infra-item-title">反証チェック</div>
+            <div class="infra-item-detail">Step 1-4 必須付与 / em-dash 検出 / 主語詐称検出 / 自己虚偽検出</div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-item-title">Git 規律</div>
+            <div class="infra-item-detail">main 直 push 物理ブロック（bypass 6 種対応）/ Squash and merge 必須</div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-item-title">出典規律</div>
+            <div class="infra-item-detail">FACT / INFERENCE / SPECULATION 3 ラベル / ハルシネーション禁止</div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-item-title">真の 100 原則</div>
+            <div class="infra-item-detail">形式達成度 vs 実クライアント ROI 実証を区別、Goodhart 化防止</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右: アウトプット / 価値 -->
+    <div class="right">
+      <div class="panel">
+        <div class="panel-title">出力物（再現性 + 監査可能性）</div>
+        <ul class="panel-list">
+          <li>提案書 / ピッチデック（PPTX / PDF / HTML、佐藤裕介モード）</li>
+          <li>コード / hook / インフラ（GitHub PR 経由、Squash merge）</li>
+          <li>海外向け資料（日本語字形遵守、英文併記必須）</li>
+          <li>マーケ KPI ダッシュボード（CPC / CPA でなく LTV / 粗利基軸）</li>
+          <li>クリエイティブ納品物（DESIGN.md 準拠、brand-guardian 検証）</li>
+          <li>SOW / 契約書（legal-compliance-checker 検証）</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-title">クライアント価値（評判資本主義）</div>
+        <ul class="panel-list">
+          <li>提案作成工数 40h → 8h 圧縮（5x 効率化、kpi-analytics 試算）</li>
+          <li>属人営業から構造営業へ移行、トップ営業依存解消</li>
+          <li>ハルシネーション / 出典なし数値の機械検出で信頼担保</li>
+          <li>OEM 提供で他社ブランド配下のクライアント展開可能</li>
+          <li>事例化権 = 評判資本起点（マスク式原則 2 適用）</li>
+          <li>業界プレイブック 5 種（SaaS / D2C / 広告 / 製造 / 金融）標準装備</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- フッター: 思想基盤 -->
+  <div class="footer">
+    <div class="principles">
+      <span><strong>佐藤裕介:</strong> 構造で売る / 3 変数交点 / アセット帰属診断</span>
+      <span><strong>小野寺信行:</strong> CPC/CPA 脱却 / 60/40 ルール / 目的別 KPI 分岐</span>
+      <span><strong>マスク式:</strong> インセンティブ + 評判資本主義 + Unkind Truth + アルゴリズム</span>
+      <span><strong>BMR スモビジ:</strong> 致命傷を避ける 2 原則 / 撤退ライン先決</span>
+    </div>
+    <div>34 スキル / 21 hook / 31 hook 登録 / 真の 100 原則</div>
+  </div>
+</div>
+</body>
+</html>

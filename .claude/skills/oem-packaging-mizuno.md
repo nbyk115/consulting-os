@@ -26,8 +26,10 @@ ConsultingOS は「個人版 Anthropic JV + Sequoia "サービスがソフトウ
 | 項目 | 内容 |
 |---|---|
 | ロール | 投資家（エンジェル出資者） |
-| 関連組織 | Pivot Markets / 三菱 UFJ 系（INFERENCE: evolution-log.md 記載に基づく、詳細は要確認） |
-| 案件特性 | 中堅企業案件への投資・事業支援（INFERENCE: evolution-log.md / ICP.md §9.2 金融 AI 環境構築支援 行の記載に基づく） |
+| ロール | 株式会社ジーニー（Geniee）役員 + エンジェル出資者（FACT: ユーザー口頭確認 2026-05-08） |
+| 事業領域 | アドテク / マーケティング自動化 / CRM / SFA / SaaS（FACT: ジーニー公開情報、東証プライム上場） |
+| ConsultingOS との親和性 | マーケティング部門 7 agent（performance-marketer / seo-specialist / marketing-analyst / social-media-strategist / market-researcher / pr-communications / marketing-director）と直接ドメイン重複 |
+| 案件特性 | 個人エンジェル出資 + 事業パートナーシップ可能性（INFERENCE: ユーザー個人への 1000 万出資意向、評判資本主義の典型例）|
 | ピッチ実績 | 2026-05-04 に事業計画ピッチ HTML 4 形式（case-a / b / c / index）を作成（FACT: evolution-log.md 2026-05-04 エントリ） |
 
 ### 痛み（Pain）
@@ -256,7 +258,7 @@ pr-communications（投資家向けプレスリリース / 対外コミュニケ
 - FACT: evolution-log.md 2026-05-04「水野氏向け事業計画ピッチ HTML 4 形式（case-a / b / c / index）」エントリ（ファイルパス: strategy/mizuno-funding-1000man/case-a.html、当該セッションで作成済） - 本ファイルの水野氏ユースケース記載の一次根拠
 - FACT: ICP.md §9.2「金融 AI 環境構築支援（投資助言業登録後）スポット 50-150 万円 / 月次 15-50 万円（INFERENCE）」- 商品化価格のレンジ試算の根拠として引用（ファイルパス: /home/user/consulting-os/ICP.md L169）
 - FACT: .claude/skills/industry-playbooks/finance.md §8（Claude 公式金融エージェントテンプレ統合 Phase 3 PR K）- 本ファイルの OEM 提供範囲の技術仕様根拠（ファイルパス: .claude/skills/industry-playbooks/finance.md L225-L373）
-- INFERENCE: 水野氏の Pivot Markets / 三菱 UFJ 系関連は evolution-log.md の記述に基づく。詳細属性・案件詳細の新規創作は禁止し、既存記載範囲のみ反映
+- FACT: 水野氏 = 株式会社ジーニー（Geniee）役員（ユーザー口頭確認 2026-05-08）。本ファイル初版（2026-05-06）に「Pivot Markets / 三菱 UFJ 系」と記載した内容はハルシネーション（誤情報、出典不在）であり、2026-05-08 訂正済（PR BM）。反証チェック失敗事例として `evolution-log.md` に学習記録
 - INFERENCE: 商品化価格・PL 試算・ブレイクイーブンの数値は ICP.md §9.2 商品ラインナップと evolution-log.md 2026-05-04 Phase 5 kpi-analytics 試算を参照した仮説試算（有償パイロット 1 社の実測値取得前）
 - INFERENCE: SLA 設計（24 時間以内初稿 / 月次第 X 営業日等）は運用体制に依存する仮定値。実際の契約時に双方合意の上で確定する
 - INFERENCE: Claude 公式金融エージェントテンプレ（Cowork / Claude Code プラグイン / Managed Agents cookbook）の仕様は Anthropic 公式サイト https://claude.com/solutions/financial-services#finance-agents に基づく（2026-05-06 参照、仕様変更リスクあり）
