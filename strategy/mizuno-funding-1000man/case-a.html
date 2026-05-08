@@ -55,8 +55,8 @@ html,body{
   transform-origin:top left;
   transform:scale(calc(100cqw / 1280px));
 }
-.slide *{word-break:auto-phrase;line-break:strict}
-.frame{position:absolute;inset:0;padding:44px 60px 60px;display:flex;flex-direction:column}
+.slide *{word-break:auto-phrase;line-break:strict;text-wrap:pretty;hanging-punctuation:allow-end}
+.frame{position:absolute;inset:0;padding:36px 56px 44px;display:flex;flex-direction:column}
 .srcBar{
   position:absolute;bottom:0;left:0;right:0;height:28px;
   background:var(--neutral-100);border-top:1px solid var(--neutral-300);
@@ -68,15 +68,15 @@ html,body{
 .srcBar .pgn{margin-left:auto;font-size:11px;color:var(--neutral-500);letter-spacing:0.08em}
 .tag{font-size:10px;letter-spacing:0.18em;color:var(--accent);font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif}
 .h1{font-size:30px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;margin-top:6px}
-.rule{height:2px;background:var(--accent);width:32px;margin:10px 0 14px}
+.rule{height:2px;background:var(--accent);width:32px;margin:8px 0 10px}
 .body{font-size:14px;line-height:1.75;color:var(--neutral-700)}
 .lf{display:inline-block;padding:1px 5px;font-size:9px;font-weight:700;letter-spacing:0.04em;color:#fff;border-radius:2px;font-family:"Inter",sans-serif;margin-left:3px;vertical-align:middle}
 .lf-f{background:var(--accent)}
 .lf-i{background:var(--neutral-700)}
 .lf-s{background:var(--neutral-500)}
 table{width:100%;border-collapse:collapse;font-size:12px}
-th{text-align:left;padding:7px 10px;border-bottom:2px solid var(--primary);font-weight:700;font-size:11px;letter-spacing:0.03em;color:var(--neutral-700);background:var(--neutral-100)}
-td{padding:7px 10px;border-bottom:1px solid var(--neutral-300);vertical-align:top;font-size:11.5px;line-height:1.65}
+th{text-align:left;padding:5px 8px;border-bottom:2px solid var(--primary);font-weight:700;font-size:11px;letter-spacing:0.03em;color:var(--neutral-700);background:var(--neutral-100)}
+td{padding:5px 8px;border-bottom:1px solid var(--neutral-300);vertical-align:top;font-size:11.5px;line-height:1.7}
 td.c{text-align:center}
 td.r{text-align:right;font-family:"Inter",sans-serif}
 
@@ -95,19 +95,19 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 .coverMeta{font-size:11px;color:rgba(255,255,255,0.45);font-family:"Inter",sans-serif;text-align:right;line-height:1.8}
 
 /* 2-col layout */
-.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;margin-top:10px}
-.twoCol-6040{display:grid;grid-template-columns:6fr 4fr;gap:16px;flex:1;margin-top:10px}
-.twoCol-4060{display:grid;grid-template-columns:4fr 6fr;gap:16px;flex:1;margin-top:10px}
-.threeCol{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;flex:1;margin-top:10px}
-.fourCol{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-top:10px}
-.colBox{background:var(--white);border:1px solid var(--neutral-300);border-top:3px solid var(--accent);padding:13px 15px;display:flex;flex-direction:column;gap:5px}
-.colBox h3{font-size:13px;font-weight:700;line-height:1.4}
-.colBox p{font-size:11px;color:var(--neutral-700);line-height:1.6}
+.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;margin-top:8px}
+.twoCol-6040{display:grid;grid-template-columns:6fr 4fr;gap:14px;flex:1;margin-top:8px}
+.twoCol-4060{display:grid;grid-template-columns:4fr 6fr;gap:14px;flex:1;margin-top:8px}
+.threeCol{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;flex:1;margin-top:8px}
+.fourCol{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-top:8px}
+.colBox{background:var(--white);border:1px solid var(--neutral-300);border-top:3px solid var(--accent);padding:11px 13px;display:flex;flex-direction:column;gap:5px}
+.colBox h3{font-size:13px;font-weight:700;line-height:1.45}
+.colBox p{font-size:11px;color:var(--neutral-700);line-height:1.7}
 .colBox .meta{font-size:9px;color:var(--neutral-500);font-family:"Inter",sans-serif;margin-top:auto;padding-top:5px;border-top:1px dashed var(--neutral-300);font-weight:600;letter-spacing:0.04em}
 
 /* KPI giant */
-.kpiRow{display:flex;gap:0;margin-top:12px}
-.kpiCell{flex:1;display:flex;flex-direction:column;align-items:center;padding:16px 8px;border-right:1px solid var(--neutral-300)}
+.kpiRow{display:flex;gap:0;margin-top:8px}
+.kpiCell{flex:1;display:flex;flex-direction:column;align-items:center;padding:12px 8px;border-right:1px solid var(--neutral-300)}
 .kpiCell:last-child{border-right:none}
 .kpiCell .kv{font-size:56px;font-weight:800;font-family:"Inter",sans-serif;color:var(--accent);line-height:1}
 .kpiCell .kv.warn{color:var(--warning)}
@@ -115,15 +115,15 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 .kpiCell .kd{font-size:10px;color:var(--neutral-500);margin-top:2px;line-height:1.4;text-align:center}
 
 /* why3 tiles (hotice p8a) */
-.why3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px}
-.wCard{background:var(--primary);color:#fff;padding:20px 18px;display:flex;flex-direction:column;gap:8px}
+.why3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px}
+.wCard{background:var(--primary);color:#fff;padding:16px 16px;display:flex;flex-direction:column;gap:8px}
 .wCard .wn{font-size:80px;font-weight:800;font-family:"Inter",sans-serif;line-height:1;color:#fff}
 .wCard .wu{font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.04em}
 .wCard .wt{font-size:15px;font-weight:700;color:#fff;margin-top:4px}
-.wCard .wd{font-size:11px;color:rgba(255,255,255,0.72);line-height:1.55}
+.wCard .wd{font-size:11px;color:rgba(255,255,255,0.72);line-height:1.7}
 
 /* scenario bars */
-.scenBar{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.scenBar{display:flex;flex-direction:column;gap:8px;margin-top:8px}
 .scenRow{display:flex;align-items:center;gap:10px}
 .scenLabel{width:72px;font-size:11px;font-weight:700;color:var(--neutral-700);text-align:right;flex-shrink:0}
 .scenTrack{flex:1;background:var(--neutral-100);height:24px;border-radius:3px;position:relative;overflow:hidden}
@@ -132,21 +132,21 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 .scenAmt{width:100px;font-size:12px;font-weight:700;font-family:"Inter",sans-serif;color:var(--primary);text-align:right;flex-shrink:0}
 
 /* dark box pre-mortem */
-.darkBox{background:var(--primary);color:#fff;padding:14px 18px;margin-top:10px}
-.darkBox h4{font-size:12px;font-weight:700;color:#93C5FD;letter-spacing:0.06em;margin-bottom:8px}
-.darkBox li{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.55;margin-left:14px;margin-bottom:3px}
+.darkBox{background:var(--primary);color:#fff;padding:11px 16px;margin-top:8px}
+.darkBox h4{font-size:12px;font-weight:700;color:#93C5FD;letter-spacing:0.06em;margin-bottom:6px}
+.darkBox li{font-size:11px;color:rgba(255,255,255,0.8);line-height:1.7;margin-left:14px;margin-bottom:2px}
 .darkBox li.crit{color:#FCA5A5;font-weight:700}
 
 /* ask 2-stage */
-.askGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
-.askCard{background:var(--neutral-100);padding:16px 18px;border-left:4px solid var(--accent)}
+.askGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.askCard{background:var(--neutral-100);padding:13px 16px;border-left:4px solid var(--accent)}
 .askCard.rec{background:#EFF6FF;border-left-color:var(--accent)}
-.askCard h4{font-size:13px;font-weight:700;margin-bottom:6px;color:var(--primary)}
+.askCard h4{font-size:13px;font-weight:700;margin-bottom:5px;color:var(--primary)}
 .askCard .av{font-size:32px;font-weight:800;font-family:"Inter",sans-serif;color:var(--accent);line-height:1}
-.askCard p{font-size:11px;color:var(--neutral-700);margin-top:6px;line-height:1.6}
+.askCard p{font-size:11px;color:var(--neutral-700);margin-top:5px;line-height:1.7}
 
 /* phase timeline */
-.phaseRow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:14px;position:relative}
+.phaseRow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:10px;position:relative}
 .phaseCell{display:flex;flex-direction:column;align-items:center;position:relative}
 .phaseCell::before{content:'';position:absolute;top:18px;left:50%;right:-50%;height:3px;background:var(--neutral-300);z-index:0}
 .phaseCell:last-child::before{display:none}
@@ -154,39 +154,39 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
 .phaseDot.active{background:var(--accent);color:#fff;border-color:var(--white)}
 .phaseLabel{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:0.08em;margin-top:6px;font-family:"Inter",sans-serif}
 .phaseTitle{font-size:12px;font-weight:700;margin-top:3px;text-align:center}
-.phaseDesc{font-size:10px;color:var(--neutral-500);margin-top:3px;text-align:center;line-height:1.65;padding:0 4px}
+.phaseDesc{font-size:10px;color:var(--neutral-500);margin-top:3px;text-align:center;line-height:1.7;padding:0 4px}
 
 /* gate boxes */
-.gateRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.gateBox{background:var(--neutral-100);padding:11px 13px;border-left:3px solid var(--accent)}
+.gateRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:7px}
+.gateBox{background:var(--neutral-100);padding:9px 11px;border-left:3px solid var(--accent)}
 .gateBox .gn{font-size:9px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:"Inter",sans-serif}
 .gateBox .gt{font-size:13px;font-weight:700;margin-top:2px}
-.gateBox .gd{font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.65}
+.gateBox .gd{font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7}
 
 /* checklist */
-.checkList{display:flex;flex-direction:column;gap:7px;margin-top:10px}
-.checkItem{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.65}
+.checkList{display:flex;flex-direction:column;gap:6px;margin-top:7px}
+.checkItem{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.7}
 .checkIcon{flex-shrink:0;margin-top:1px}
 
 /* exit tiles */
-.exitGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
-.exitCard{border:1px solid var(--neutral-300);padding:16px 14px;display:flex;flex-direction:column;gap:6px}
+.exitGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:10px}
+.exitCard{border:1px solid var(--neutral-300);padding:12px 12px;display:flex;flex-direction:column;gap:5px}
 .exitCard h3{font-size:14px;font-weight:700}
 .exitCard .ev{font-size:28px;font-weight:800;font-family:"Inter",sans-serif;color:var(--accent)}
-.exitCard p{font-size:11px;color:var(--neutral-700);line-height:1.55}
+.exitCard p{font-size:11px;color:var(--neutral-700);line-height:1.7}
 
 /* next steps */
-.nextGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
-.nextCard{background:var(--neutral-100);padding:14px 16px;border-top:3px solid var(--accent)}
+.nextGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:10px}
+.nextCard{background:var(--neutral-100);padding:11px 14px;border-top:3px solid var(--accent)}
 .nextCard .ns{font-size:9px;font-weight:700;letter-spacing:0.12em;color:var(--accent);font-family:"Inter",sans-serif}
 .nextCard .nt{font-size:13px;font-weight:700;margin-top:4px}
-.nextCard .nd{font-size:11px;color:var(--neutral-700);margin-top:4px;line-height:1.55}
+.nextCard .nd{font-size:11px;color:var(--neutral-700);margin-top:4px;line-height:1.7}
 .nextCard .ndate{font-size:12px;font-weight:700;font-family:"Inter",sans-serif;color:var(--warning);margin-top:6px}
 
 /* quote cards */
-.quoteGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:10px;flex:1}
-.qCard{border:1px solid var(--neutral-300);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-.qCard .qt{font-size:13px;font-style:italic;line-height:1.7;color:var(--neutral-700);flex:1}
+.quoteGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:7px;flex:1}
+.qCard{border:1px solid var(--neutral-300);padding:11px 14px;display:flex;flex-direction:column;gap:7px}
+.qCard .qt{font-size:13px;font-style:normal;line-height:1.75;color:var(--neutral-700);flex:1}
 .qCard .qa{font-size:11px;font-weight:700;color:var(--primary)}
 .qCard .qr{font-size:10px;color:var(--neutral-500)}
 
@@ -384,12 +384,12 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div class="colBox">
         <div class="gn" style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:#0EA5A4;font-family:'Inter',sans-serif">USER — INFERENCE</div>
         <div class="gt" style="font-size:13px;font-weight:700;margin-top:2px">属人化に悲鳴を上げる事業会社</div>
-        <div class="gd" style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">GPT 普及後にクライアント側もプロンプト品質を比較評価できるようになり「なぜ担当が変わると品質が落ちるのか」への問いが頻出している（INFERENCE）。</div>
+        <div class="gd" style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">GPT 普及後にクライアント側もプロンプト品質を比較評価できるようになり「なぜ担当が変わると品質が落ちるのか」への問いが頻出している（INFERENCE）。</div>
       </div>
       <div class="colBox">
         <div class="gn" style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:#B91C1C;font-family:'Inter',sans-serif">MARKET — INFERENCE</div>
         <div class="gt" style="font-size:13px;font-weight:700;margin-top:2px">先行者優位の窓 6 ヶ月以内</div>
-        <div class="gd" style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">OSS 先行者優位が固まる前に examples/ の質量差をつける。類似 OSS 事例から 6 ヶ月以内が窓（SPECULATION）。AutoGen メンテナンスモード移行（2026-04-03 FACT）は垂直統合への市場シグナル。</div>
+        <div class="gd" style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">OSS 先行者優位が固まる前に examples/ の質量差をつける。類似 OSS 事例から 6 ヶ月以内が窓（SPECULATION）。AutoGen メンテナンスモード移行（2026-04-03 FACT）は垂直統合への市場シグナル。</div>
       </div>
     </div>
   </div>
@@ -412,19 +412,19 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
   <div class="kpiRow" style="margin-top:10px">
     <div class="kpiCell">
       <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 1</div>
-      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">クライアントのプロンプト品質評価が一般化、提案物の検証が顧客側で行われる<span class="lf lf-i">INFERENCE</span></div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.6;margin-top:4px">クライアントのプロンプト品質評価が一般化、提案物の検証が顧客側で行われる<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
       <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 2</div>
-      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">担当者交代後の修正工数増、属人案件の再現コスト発生<span class="lf lf-i">INFERENCE</span></div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.6;margin-top:4px">担当者交代後の修正工数増、属人案件の再現コスト発生<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
       <div class="ku" style="font-size:14px;font-weight:800;color:var(--warning);letter-spacing:0">課題 3</div>
-      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">再現不能提案による LTV 低下リスク、ストック資産化が困難<span class="lf lf-i">INFERENCE</span></div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.6;margin-top:4px">再現不能提案による LTV 低下リスク、ストック資産化が困難<span class="lf lf-i">INFERENCE</span></div>
     </div>
     <div class="kpiCell">
       <div class="ku" style="font-size:14px;font-weight:800;color:var(--success);letter-spacing:0">解決</div>
-      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.5;margin-top:4px">install.sh で 1 日稼働、CLAUDE.md / ICP.md / DESIGN.md で属人化を構造解消<span class="lf lf-f">FACT</span></div>
+      <div class="kd" style="font-size:13px;font-weight:700;line-height:1.6;margin-top:4px">install.sh で 1 日稼働、CLAUDE.md / ICP.md / DESIGN.md で属人化を構造解消<span class="lf lf-f">FACT</span></div>
     </div>
   </div>
   <div class="twoCol" style="margin-top:10px">
@@ -1088,13 +1088,13 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div style="padding-right:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--warning);font-family:'Inter',sans-serif;margin-bottom:4px">BEFORE</div>
         <div style="font-size:13px;font-weight:700">競合分析レポート: シニアコンサル 3 日</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">担当者がゼロから調査、フォーマット毎回ばらつき、レビューで手戻り 1-2 回。固定費 1.5 万円/件（人件費換算 INFERENCE）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">担当者がゼロから調査、フォーマット毎回ばらつき、レビューで手戻り 1-2 回。固定費 1.5 万円/件（人件費換算 INFERENCE）。</div>
       </div>
       <div style="text-align:center;font-size:24px;color:var(--accent);font-weight:700">→</div>
       <div style="padding-left:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:'Inter',sans-serif;margin-bottom:4px">AFTER</div>
         <div style="font-size:13px;font-weight:700">competitive-analyst + brand-guardian 並列: 4 時間</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">FACT/INFERENCE/SPECULATION ラベル自動付与、evolution-log 参照で同水準品質。シニア 3 日 vs 並列 4 時間（INFERENCE・実測予定）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">FACT/INFERENCE/SPECULATION ラベル自動付与、evolution-log 参照で同水準品質。シニア 3 日 vs 並列 4 時間（INFERENCE・実測予定）。</div>
       </div>
     </div>
     <!-- Scene 2 -->
@@ -1102,13 +1102,13 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div style="padding-right:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--warning);font-family:'Inter',sans-serif;margin-bottom:4px">BEFORE</div>
         <div style="font-size:13px;font-weight:700">LP 制作: デザイナー + ライター + エンジニア 2 週間</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">3 者のコミュニケーションロス + ブランドガイドライン逸脱 + 修正 3-5 往復。費用 30-80 万円（INFERENCE）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">3 者のコミュニケーションロス + ブランドガイドライン逸脱 + 修正 3-5 往復。費用 30-80 万円（INFERENCE）。</div>
       </div>
       <div style="text-align:center;font-size:24px;color:var(--accent);font-weight:700">→</div>
       <div style="padding-left:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:'Inter',sans-serif;margin-bottom:4px">AFTER</div>
         <div style="font-size:13px;font-weight:700">frontend-dev + content-strategist + brand-guardian: 1 日</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">DESIGN.md / ICP.md 中央参照で品質統一。PR 毎に Vercel Preview URL 生成、フィードバックループ 1/10（INFERENCE）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">DESIGN.md / ICP.md 中央参照で品質統一。PR 毎に Vercel Preview URL 生成、フィードバックループ 1/10（INFERENCE）。</div>
       </div>
     </div>
     <!-- Scene 3 -->
@@ -1116,13 +1116,13 @@ td.r{text-align:right;font-family:"Inter",sans-serif}
       <div style="padding-right:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--warning);font-family:'Inter',sans-serif;margin-bottom:4px">BEFORE</div>
         <div style="font-size:13px;font-weight:700">投資家向けピッチ資料: 役員 + 外部制作 1 週間</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">ファクトチェックなし、出典不明数値乱用、修正 5-10 往復。制作費 20-50 万円（INFERENCE）。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">ファクトチェックなし、出典不明数値乱用、修正 5-10 往復。制作費 20-50 万円（INFERENCE）。</div>
       </div>
       <div style="text-align:center;font-size:24px;color:var(--accent);font-weight:700">→</div>
       <div style="padding-left:12px">
         <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:'Inter',sans-serif;margin-bottom:4px">AFTER</div>
         <div style="font-size:13px;font-weight:700">strategy-lead + sales-deck-designer + proposal-writer: 6 時間</div>
-        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.5">本スライドがまさにそのアウトプット（FACT）。FACT/INFERENCE/SPECULATION 全数値にラベル付与済。</div>
+        <div style="font-size:11px;color:var(--neutral-700);margin-top:3px;line-height:1.7">本スライドがまさにそのアウトプット（FACT）。FACT/INFERENCE/SPECULATION 全数値にラベル付与済。</div>
       </div>
     </div>
   </div>
