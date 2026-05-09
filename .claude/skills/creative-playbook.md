@@ -491,6 +491,12 @@ Layer 3: 検証（破っても通さない）
 
 詳細: [`.claude/skills/references/creative-playbook-design-samples.md`](references/creative-playbook-design-samples.md)
 
+## Visual Reactive Correction Loop 防止規律（2026-05-09 統合）
+
+visual 制作で 14 ラウンド reactive correction loop が発生した実体験から、同型ミスの再発防止を物理化。着手前必須チェックリスト 5 項目 / 改行 / 抽象タグライン / 競合実名 / クライアント名指し / レイアウト高さ計算 / ラベル区別性 / 注釈フォント / agent 監修フロー再設計の 8 軸規律。
+
+詳細: [`.claude/skills/references/creative-playbook-visual-loop-prevention.md`](references/creative-playbook-visual-loop-prevention.md)
+
 
 ## 出典・依拠先
 
