@@ -147,9 +147,15 @@
     font-weight: 700;
     color: var(--gray-500);
     letter-spacing: 0.05em;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--gray-500);
+    display: inline-block;
   }
-  .compare-label.us { color: var(--accent); }
+  .compare-label.us {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
   .compare-name {
     font-size: 18px;
     font-weight: 900;
@@ -298,16 +304,16 @@
   /* FOOTER */
   .footer {
     border-top: 1px solid var(--hairline);
-    padding-top: 12px;
+    padding-top: 10px;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 24px;
+    gap: 20px;
     align-items: start;
   }
   .footnotes {
     font-size: 12px;
     color: var(--gray-500);
-    line-height: 1.6;
+    line-height: 1.45;
   }
   .footnotes .label {
     font-weight: 700;
@@ -586,10 +592,10 @@ async function downloadPDF() {
   <!-- FOOTER -->
   <div class="footer">
     <div class="footnotes">
-      <span class="label">DATA.</span>27 agents / 36 skills / 17 hard rules はリポ実測 (FACT, commit dc841ac)<span style="margin: 0 8px;">/</span>
-      <span class="label">PRICE.</span>注 1) 初年度 ¥340 万 = PJ 50 + 月次 15 × 12 + 業務委託 5 × 12 + 成果報酬 50 (INFERENCE: 標準プラン試算)<span style="margin: 0 8px;">/</span>
-      注 2) 自社構築試算: 27 agent × 50-100h + 36 skill × 10-20h + hook / インテグレーション / テスト = 2,000-4,000h × エンジニア単価 100-150 万 / 月 = ¥1,500-5,000 万、期間 6-18 ヶ月 (INFERENCE: 業界平均ベース試算、規模 / 品質で変動)<span style="margin: 0 8px;">/</span>
-      <span class="label">LIMIT.</span>「汎用 AI ツール」評価は ConsultingOS 設計時点 (2026-05) の競合機能比較に基づく一般化 (INFERENCE)。各ツールの最新機能アップデートで境界は変動
+      <span class="label">DATA.</span>27 / 36 / 17 はリポ実測 (FACT)<span style="margin: 0 6px;">/</span>
+      <span class="label">注 1)</span>¥340 万 = PJ 50 + 月次 15×12 + 業委 5×12 + 成果 50 (INFERENCE)<span style="margin: 0 6px;">/</span>
+      <span class="label">注 2)</span>自社構築 ¥1,500-5,000 万 = 2,000-4,000h × エンジニア単価 100-150 万 / 月 (INFERENCE)<span style="margin: 0 6px;">/</span>
+      <span class="label">LIMIT.</span>「汎用 AI ツール」は 2026-05 時点比較 (INFERENCE)、機能更新で境界変動
     </div>
     <div class="repo">
       <a href="https://github.com/nbyk115/consulting-os">github.com/nbyk115/consulting-os</a><br>
