@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ConsultingOS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --gray: #6B7280;
+    --hairline: #E5E5E5;
+  }
+  html, body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .deck, .deck * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .deck { display: flex; justify-content: center; padding: 64px 16px; }
+  .slideWrap {
+    width: 1280px;
+    max-width: 100%;
+    aspect-ratio: 1280 / 720;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    background: #FFFFFF;
+    container-type: inline-size;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: top left;
+    transform: scale(calc(100cqw / 1280));
+    padding: 96px 120px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .title .accent { color: var(--accent); }
+
+  .stats {
+    display: flex;
+    gap: 64px;
+  }
+  .stat-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.15em;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 32px;
+  }
+
+  .why {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--primary);
+    font-weight: 500;
+    max-width: 760px;
+  }
+  .why .accent { color: var(--accent); font-weight: 700; }
+
+  .source {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: right;
+    line-height: 1.6;
+    min-width: 200px;
+  }
+  .source a { color: var(--gray); text-decoration: none; }
+</style>
+</head>
+<body>
+<!--
+  ConsultingOS Visual v7 (引き算徹底版)
+  方針: 1 ページ 1 メッセージ、要素 5 個以下、出典のみ残す
+-->
+<div class="deck">
+<div class="slideWrap">
+<div class="slide">
+
+  <div class="top">
+    <div class="title">
+      属人営業を、<br>
+      <span class="accent">再現可能な工程</span>に変える OS。
+    </div>
+    <div class="stats">
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">DEPARTMENTS</div>
+      </div>
+      <div>
+        <div class="stat-num">27</div>
+        <div class="stat-label">AGENTS</div>
+      </div>
+      <div>
+        <div class="stat-num">36</div>
+        <div class="stat-label">SKILLS</div>
+      </div>
+      <div>
+        <div class="stat-num">17</div>
+        <div class="stat-label">HARD RULES</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="why">
+      日本語 B2B 提案ワークフロー特化型の Multi-Agent OS。提案 → 実装 → 海外展開 → マーケまで 27 担当 AI が分担し、<span class="accent">反証チェック・出典ラベル・規律 hook</span> を物理化することで、属人営業を「再現可能な工程」に置き換える。
+    </div>
+    <div class="source">
+      <a href="https://github.com/nbyk115/consulting-os">github.com/nbyk115/consulting-os</a><br>
+      v7 / 2026-05-09 / Minimal 1/1<br>
+      数値はリポ実測 (FACT, commit dc841ac)
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
