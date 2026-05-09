@@ -163,6 +163,45 @@
     font-weight: 500;
   }
   .compare-text .accent { color: var(--accent); font-weight: 700; }
+  .price-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .price-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.1em;
+  }
+  .price-num {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .price-detail {
+    font-size: 12px;
+    color: var(--gray-700);
+    font-weight: 500;
+  }
+  .price-total {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .price-total .accent {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 900;
+  }
 
   /* 右: 27 AI 可視化 */
   .team-panel {
@@ -432,6 +471,14 @@ async function downloadPDF() {
           業界別プレイブックとクライアント固有 agent を<br>
           組み合わせて <span class="accent">OEM 提供</span>。
         </div>
+        <div class="price-line">
+          <span class="price-label">FROM</span>
+          <span class="price-num">¥50万〜</span>
+          <span class="price-detail">プロジェクト + 月次 ¥12〜18 万 + 成果報酬 5-15%</span>
+        </div>
+        <div class="price-total">
+          初年度総額 <span class="accent">¥340 万円〜</span>（標準プラン）<sup>注 1)</sup>
+        </div>
       </div>
     </div>
 
@@ -526,7 +573,8 @@ async function downloadPDF() {
   <div class="footer">
     <div class="footnotes">
       <span class="label">DATA.</span>27 agents / 36 skills / 17 hard rules はリポ実測 (FACT, commit dc841ac)<span style="margin: 0 8px;">/</span>
-      <span class="label">LIMIT.</span>「汎用 AI ツール」評価は ConsultingOS 設計時点 (2026-05) の競合機能比較に基づく一般化 (INFERENCE)。各ツールの最新機能アップデートで境界は変動 / 「平均 5 体並列」は内部運用試算 (SPECULATION)
+      <span class="label">PRICE.</span>注 1) 初年度 ¥340 万 = プロジェクト 50 + ランニング月 15 万 × 12 + 業務委託月 5 万 × 12 + 成果報酬 50 (INFERENCE: 標準プラン試算、案件規模で変動)<span style="margin: 0 8px;">/</span>
+      <span class="label">LIMIT.</span>「汎用 AI ツール」評価は ConsultingOS 設計時点 (2026-05) の競合機能比較に基づく一般化 (INFERENCE)。各ツールの最新機能アップデートで境界は変動
     </div>
     <div class="repo">
       <a href="https://github.com/nbyk115/consulting-os">github.com/nbyk115/consulting-os</a><br>
