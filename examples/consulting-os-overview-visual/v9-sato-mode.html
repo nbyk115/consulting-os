@@ -335,9 +335,45 @@
   左パネル = 汎用 AI ツール vs ConsultingOS の構造比較
   右パネル = 27 AI を 6 部門色付きドットで可視化（チーム感の物理化）
 -->
-<button class="pdf-btn" onclick="window.print()" title="ブラウザ印刷ダイアログから「PDF として保存」を選択">
+<button class="pdf-btn" onclick="downloadPDF()" title="PDF ダウンロード">
   <span class="ico">↓</span>PDF DL
 </button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+<script>
+async function downloadPDF() {
+  const btn = document.querySelector('.pdf-btn');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<span class="ico">⋯</span>生成中...';
+  btn.disabled = true;
+  try {
+    // 印刷用: slide を 1280×720 で原寸表示してから capture
+    const slideWrap = document.querySelector('.slideWrap');
+    const slide = document.querySelector('.slide');
+    const origWrapStyle = slideWrap.style.cssText;
+    const origSlideStyle = slide.style.cssText;
+    slideWrap.style.cssText = 'width:1280px;height:720px;aspect-ratio:auto;max-width:none;';
+    slide.style.cssText = 'width:1280px;height:720px;transform:none;position:static;';
+
+    const opt = {
+      margin: 0,
+      filename: 'consulting-os-overview.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, width: 1280, height: 720, backgroundColor: '#FAFAF7' },
+      jsPDF: { unit: 'px', format: [1280, 720], orientation: 'landscape', hotfixes: ['px_scaling'] }
+    };
+    await html2pdf().set(opt).from(slide).save();
+
+    slideWrap.style.cssText = origWrapStyle;
+    slide.style.cssText = origSlideStyle;
+  } catch (e) {
+    alert('PDF 生成に失敗しました: ' + e.message);
+  } finally {
+    btn.innerHTML = orig;
+    btn.disabled = false;
+  }
+}
+</script>
 
 <div class="deck">
 <div class="slideWrap">
