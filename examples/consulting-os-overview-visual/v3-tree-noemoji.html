@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ConsultingOS とは: ツリー構造で見る全体像</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #FAFAF7;
+    color: #0A0A0A;
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .page, .page * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .page {
+    width: 1920px;
+    height: 1080px;
+    padding: 48px 64px;
+    background: #FAFAF7;
+    position: relative;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 24px;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #0A0A0A;
+  }
+  .h-title {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .h-title .accent { color: #E60012; }
+  .h-tagline {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .h-badges { display: flex; gap: 12px; }
+  .badge {
+    background: #0A0A0A;
+    color: #FAFAF7;
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .badge .num { font-size: 20px; font-weight: 900; margin-right: 4px; }
+
+  /* TREE */
+  .tree-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 60px 1fr;
+    gap: 0;
+    min-height: 0;
+  }
+
+  /* ROOT ノード */
+  .tree-root {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+  .root-node {
+    background: #0A0A0A;
+    color: #FAFAF7;
+    padding: 18px 36px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #0A0A0A;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 360px;
+  }
+  .root-node .root-label {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+  }
+  .root-node .root-sub {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .root-node .accent { color: #E60012; }
+
+  /* SVG ブランチ */
+  .tree-branches {
+    width: 100%;
+    height: 60px;
+    display: block;
+  }
+
+  /* LEVEL 1: 6 部門 + 詳細 */
+  .level1 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    align-items: stretch;
+  }
+  .dept-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .dept-card {
+    background: #FFFFFF;
+    border: 2px solid #0A0A0A;
+    border-radius: 8px;
+    padding: 14px 14px 12px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .dept-num {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    background: #E60012;
+    color: #FAFAF7;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+  .dept-name {
+    font-size: 15px;
+    font-weight: 900;
+    color: #0A0A0A;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .dept-count {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+  }
+  .agent-list {
+    background: #F2F2EE;
+    border: 1px solid #1A1A1A;
+    border-radius: 6px;
+    padding: 10px 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 0;
+  }
+  .agent-item {
+    font-size: 12px;
+    line-height: 1.35;
+    color: #1A1A1A;
+    padding: 5px 8px;
+    background: #FFFFFF;
+    border-left: 2px solid #E60012;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* 下段: 物理化 + Before/After */
+  .lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 0;
+  }
+  .infra-block, .ba-block {
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .block-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: #E60012;
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+  .infra-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 18px;
+  }
+  .infra-item {
+    border-left: 4px solid #E60012;
+    padding: 4px 0 4px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0A0A0A;
+    line-height: 1.4;
+  }
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .ba-col { display: flex; flex-direction: column; gap: 6px; }
+  .ba-label {
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    color: #666;
+  }
+  .ba-item {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #0A0A0A;
+  }
+  .ba-arrow {
+    font-size: 28px;
+    color: #E60012;
+    font-weight: 900;
+  }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid #666;
+    font-size: 12px;
+    color: #666;
+  }
+  .footer-thoughts { display: flex; gap: 24px; }
+  .footer-thoughts .label {
+    font-weight: 900;
+    color: #0A0A0A;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="h-title">ConsultingOS<span class="accent"> / 司令塔型コンサル OS</span></div>
+      <div class="h-tagline">提案 → 実装 → 海外展開 → マーケまで一気通貫。反証チェック + 物理化層で品質を構造担保。</div>
+    </div>
+    <div class="h-badges">
+      <div class="badge"><span class="num">6</span>部門</div>
+      <div class="badge"><span class="num">27</span>エージェント</div>
+      <div class="badge"><span class="num">36</span>スキル</div>
+    </div>
+  </div>
+
+  <!-- TREE -->
+  <div class="tree-wrapper">
+
+    <!-- ROOT -->
+    <div class="tree-root">
+      <div class="root-node">
+        <div class="root-label">ConsultingOS<span class="accent"> / 司令塔</span></div>
+        <div class="root-sub">CLAUDE.md ハードルール 17 + 反証チェック Step 1-4 + 真の 100 原則</div>
+      </div>
+    </div>
+
+    <!-- SVG ブランチ（ROOT 下中央 → 6 部門カード上端への接続線） -->
+    <svg class="tree-branches" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <!-- ROOT の下端中央 (x=600, y=0) から 6 部門上端 (各列中心: 100, 300, 500, 700, 900, 1100) -->
+      <path d="M 600 0 C 600 30, 100 30, 100 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <path d="M 600 0 C 600 30, 300 30, 300 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <path d="M 600 0 C 600 30, 500 30, 500 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <path d="M 600 0 C 600 30, 700 30, 700 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <path d="M 600 0 C 600 30, 900 30, 900 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <path d="M 600 0 C 600 30, 1100 30, 1100 60" fill="none" stroke="#0A0A0A" stroke-width="1.5" stroke-opacity="0.4"/>
+      <!-- 接続点（ノード円） -->
+      <circle cx="600" cy="0" r="4" fill="#0A0A0A"/>
+      <circle cx="100" cy="60" r="4" fill="#0A0A0A"/>
+      <circle cx="300" cy="60" r="4" fill="#0A0A0A"/>
+      <circle cx="500" cy="60" r="4" fill="#0A0A0A"/>
+      <circle cx="700" cy="60" r="4" fill="#0A0A0A"/>
+      <circle cx="900" cy="60" r="4" fill="#0A0A0A"/>
+      <circle cx="1100" cy="60" r="4" fill="#0A0A0A"/>
+    </svg>
+
+    <!-- LEVEL 1: 6 部門 + LEVEL 2 agent リスト -->
+    <div class="level1">
+      <!-- 01 コンサル -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">01</span>
+          <div class="dept-name">コンサル</div>
+          <div class="dept-count">6 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">strategy-lead</div>
+          <div class="agent-item">competitive-analyst</div>
+          <div class="agent-item">proposal-writer</div>
+          <div class="agent-item">kpi-analytics</div>
+          <div class="agent-item">client-success</div>
+          <div class="agent-item">legal-compliance-checker</div>
+        </div>
+      </div>
+
+      <!-- 02 サービス開発 -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">02</span>
+          <div class="dept-name">サービス開発</div>
+          <div class="dept-count">4 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">tech-lead</div>
+          <div class="agent-item">fullstack-dev</div>
+          <div class="agent-item">ai-engineer</div>
+          <div class="agent-item">infra-devops</div>
+        </div>
+      </div>
+
+      <!-- 03 プロダクト -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">03</span>
+          <div class="dept-name">プロダクト</div>
+          <div class="dept-count">2 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">product-manager</div>
+          <div class="agent-item">feedback-synthesizer</div>
+        </div>
+      </div>
+
+      <!-- 04 クリエイティブ -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">04</span>
+          <div class="dept-name">クリエイティブ</div>
+          <div class="dept-count">7 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">creative-director</div>
+          <div class="agent-item">ux-designer</div>
+          <div class="agent-item">frontend-dev</div>
+          <div class="agent-item">content-strategist</div>
+          <div class="agent-item">brand-guardian</div>
+          <div class="agent-item">growth-hacker</div>
+          <div class="agent-item">sales-deck-designer</div>
+        </div>
+      </div>
+
+      <!-- 05 グローバル -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">05</span>
+          <div class="dept-name">グローバル</div>
+          <div class="dept-count">1 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">gtm-consultant</div>
+        </div>
+      </div>
+
+      <!-- 06 マーケティング -->
+      <div class="dept-column">
+        <div class="dept-card">
+          <span class="dept-num">06</span>
+          <div class="dept-name">マーケティング</div>
+          <div class="dept-count">7 エージェント</div>
+        </div>
+        <div class="agent-list">
+          <div class="agent-item">marketing-director</div>
+          <div class="agent-item">performance-marketer</div>
+          <div class="agent-item">seo-specialist</div>
+          <div class="agent-item">marketing-analyst</div>
+          <div class="agent-item">social-media-strategist</div>
+          <div class="agent-item">market-researcher</div>
+          <div class="agent-item">pr-communications</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 下段: 物理化層 + Before/After -->
+  <div class="lower">
+    <div class="infra-block">
+      <div class="block-title">品質を構造で担保する 4 つの物理化層</div>
+      <div class="infra-list">
+        <div class="infra-item">反証チェック Step 1-4 必須</div>
+        <div class="infra-item">main 直 push 物理ブロック</div>
+        <div class="infra-item">FACT / INFERENCE / SPECULATION ラベル</div>
+        <div class="infra-item">真の 100 原則（実 ROI 実証）</div>
+      </div>
+    </div>
+
+    <div class="ba-block">
+      <div class="block-title">Before → After</div>
+      <div class="ba-grid">
+        <div class="ba-col">
+          <div class="ba-label">BEFORE</div>
+          <div class="ba-item">提案作成 40h / 案件</div>
+          <div class="ba-item">属人営業、トップ依存</div>
+          <div class="ba-item">出典なし数値で信頼失墜</div>
+        </div>
+        <div class="ba-arrow">→</div>
+        <div class="ba-col">
+          <div class="ba-label">AFTER</div>
+          <div class="ba-item">提案作成 8h（5x 圧縮）</div>
+          <div class="ba-item">構造で売る、再現性担保</div>
+          <div class="ba-item">3 ラベル + hook で機械検出</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-thoughts">
+      <span><span class="label">佐藤裕介</span>構造で売る</span>
+      <span><span class="label">小野寺信行</span>CPC/CPA 脱却</span>
+      <span><span class="label">マスク式</span>4 原則統合</span>
+      <span><span class="label">BMR</span>致命傷を避ける</span>
+    </div>
+    <div>v 2026-05-08 / nbyk115/consulting-os</div>
+  </div>
+
+</div>
+</body>
+</html>
