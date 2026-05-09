@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>戦略ディスカッションシート: 電気興業 ITソリューション部</title>
+  <style>
+    /* ベースリセット + 日本語字形設定 */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN", "Noto Sans JP", "Meiryo", "メイリオ", sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.65;
+      color: #1A1A1A;
+      background: #FAFAF7;
+    }
+
+    /* A4縦 印刷対応 */
+    @page {
+      size: A4 portrait;
+      margin: 14mm 16mm 14mm 16mm;
+    }
+
+    @media print {
+      body { background: white; font-size: 9.5pt; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+    }
+
+    .page {
+      width: 180mm;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      background: white;
+    }
+
+    /* ヘッダー */
+    .doc-header {
+      border-bottom: 2px solid #0A0A0A;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+    }
+
+    .doc-meta {
+      font-size: 8.5pt;
+      color: #666666;
+      margin-bottom: 4px;
+    }
+
+    .doc-title {
+      font-size: 16pt;
+      font-weight: 700;
+      color: #0A0A0A;
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+
+    .doc-subtitle {
+      font-size: 10pt;
+      color: #666666;
+    }
+
+    /* セクション */
+    .section {
+      margin-bottom: 18px;
+    }
+
+    .section-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666666;
+      border-left: 3px solid #0A0A0A;
+      padding-left: 7px;
+      margin-bottom: 8px;
+    }
+
+    .section-body {
+      padding-left: 0;
+    }
+
+    /* ゴール3行 */
+    .goal-list {
+      list-style: none;
+      counter-reset: goal-counter;
+    }
+
+    .goal-list li {
+      counter-increment: goal-counter;
+      padding: 7px 10px 7px 36px;
+      position: relative;
+      border-bottom: 1px solid #F2F2EE;
+      font-size: 10pt;
+    }
+
+    .goal-list li:last-child { border-bottom: none; }
+
+    .goal-list li::before {
+      content: counter(goal-counter);
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: #0A0A0A;
+      color: white;
+      border-radius: 50%;
+      font-size: 8pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    /* Phase 0 診断: 3列レイアウト */
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .diagnosis-card {
+      border: 1px solid #E0E0D8;
+      border-radius: 4px;
+      padding: 10px 11px;
+      text-align: center;
+      background: #FAFAF7;
+    }
+
+    .diagnosis-card.primary {
+      border: 2px solid #0A0A0A;
+      background: #0A0A0A;
+      color: white;
+    }
+
+    .diagnosis-card.secondary {
+      border: 1px solid #666666;
+    }
+
+    .diagnosis-card.inactive {
+      opacity: 0.45;
+    }
+
+    .card-label {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      color: inherit;
+    }
+
+    .card-name {
+      font-size: 10pt;
+      font-weight: 700;
+      color: inherit;
+      margin-bottom: 3px;
+    }
+
+    .card-score {
+      font-size: 14pt;
+      font-weight: 700;
+      color: inherit;
+    }
+
+    .card-score-sub {
+      font-size: 7.5pt;
+      color: inherit;
+      opacity: 0.75;
+    }
+
+    .card-action {
+      font-size: 7.5pt;
+      margin-top: 4px;
+      color: inherit;
+      opacity: 0.85;
+    }
+
+    /* KPI再設計 */
+    .kpi-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 9.5pt;
+    }
+
+    .kpi-before {
+      color: #666666;
+      text-decoration: line-through;
+      font-size: 10.5pt;
+    }
+
+    .kpi-arrow {
+      color: #666666;
+      font-size: 9pt;
+    }
+
+    .kpi-after {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0A0A0A;
+    }
+
+    .kpi-note {
+      font-size: 8pt;
+      color: #666666;
+    }
+
+    /* 議論論点 */
+    .topic-list {
+      list-style: none;
+      counter-reset: topic-counter;
+    }
+
+    .topic-item {
+      counter-increment: topic-counter;
+      padding: 8px 10px 8px 40px;
+      position: relative;
+      border-bottom: 1px solid #F2F2EE;
+      font-size: 9.5pt;
+    }
+
+    .topic-item:last-child { border-bottom: none; }
+
+    .topic-item::before {
+      content: "Q" counter(topic-counter);
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 32px;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #666666;
+      text-align: center;
+    }
+
+    .topic-question {
+      font-weight: 700;
+      color: #0A0A0A;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .topic-purpose {
+      font-size: 8.5pt;
+      color: #666666;
+    }
+
+    /* Phase 1 プレビュー */
+    .phase-timeline {
+      display: flex;
+      gap: 0;
+      margin-top: 6px;
+    }
+
+    .phase-step {
+      flex: 1;
+      text-align: center;
+      padding: 8px 6px;
+      border: 1px solid #E0E0D8;
+      border-right: none;
+      font-size: 8.5pt;
+    }
+
+    .phase-step:last-child { border-right: 1px solid #E0E0D8; }
+
+    .phase-step.current {
+      background: #0A0A0A;
+      color: white;
+      border-color: #0A0A0A;
+    }
+
+    .phase-num {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .phase-name {
+      font-weight: 700;
+      font-size: 9pt;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .phase-period {
+      font-size: 7.5pt;
+      opacity: 0.75;
+      display: block;
+    }
+
+    .phase-deliverable {
+      font-size: 7.5pt;
+      margin-top: 4px;
+      opacity: 0.85;
+    }
+
+    /* ToDo表 */
+    .todo-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-top: 6px;
+    }
+
+    .todo-table th {
+      background: #0A0A0A;
+      color: white;
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 8.5pt;
+      font-weight: 700;
+    }
+
+    .todo-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #F2F2EE;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .todo-table tr:last-child td { border-bottom: none; }
+
+    .todo-table .col-who { width: 88px; font-weight: 700; text-align: center; }
+    .todo-table .col-what { }
+    .todo-table .col-when { width: 72px; text-align: center; color: #666666; font-size: 8.5pt; }
+
+    .badge {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-size: 7.5pt;
+      font-weight: 700;
+    }
+
+    .badge-us { background: #F2F2EE; color: #0A0A0A; }
+    .badge-client { background: #0A0A0A; color: white; }
+
+    /* タイムアジェンダ */
+    .agenda-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-top: 6px;
+    }
+
+    .agenda-table td {
+      padding: 5px 9px;
+      border-bottom: 1px solid #F2F2EE;
+      text-align: left;
+    }
+
+    .agenda-table .col-time { width: 70px; font-weight: 700; color: #0A0A0A; text-align: center; }
+    .agenda-table .col-topic { }
+    .agenda-table .col-goal { width: 140px; font-size: 8.5pt; color: #666666; text-align: left; }
+
+    .agenda-table tr:last-child td { border-bottom: none; }
+
+    /* フッター */
+    .doc-footer {
+      border-top: 1px solid #E0E0D8;
+      padding-top: 8px;
+      margin-top: 18px;
+      font-size: 7.5pt;
+      color: #999999;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 印刷用微調整 */
+    @media print {
+      .diagnosis-card.primary { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .todo-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .badge-client { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .phase-step.current { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="doc-header">
+    <div class="doc-meta">2026年5月 / 電気興業株式会社 ITソリューション部 / 北條部長 / 第1回戦略ディスカッション</div>
+    <div class="doc-title">港湾DX主軸化: Phase 1 設計に向けた論点整理</div>
+    <div class="doc-subtitle">本日のゴール確認 + Phase 0 診断結果の共有 + Phase 1 設計に必要な情報の整理</div>
+  </div>
+
+  <!-- 本日のゴール -->
+  <div class="section">
+    <div class="section-label">本日のゴール（3点）</div>
+    <div class="section-body">
+      <ol class="goal-list">
+        <li>Phase 0 診断結果（港湾DXを主軸とする方針）を北條さんの現場感覚と照合し、方針を確定する</li>
+        <li>Phase 1 営業プレイブック設計に必要な実情報を7論点で確認する</li>
+        <li>Phase 1 の進め方・役割分担・次回までのToDoを双方で合意する</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Phase 0 診断結果 -->
+  <div class="section">
+    <div class="section-label">Phase 0 診断: 3領域の位置づけ</div>
+    <div class="section-body">
+      <div class="diagnosis-grid">
+
+        <div class="diagnosis-card primary">
+          <div class="card-label">主軸（集中投資）</div>
+          <div class="card-name">港湾DX</div>
+          <div class="card-score">22<span class="card-score-sub"> / 25点</span></div>
+          <div class="card-action">国交省実証済み、横展開フェーズへ</div>
+        </div>
+
+        <div class="diagnosis-card secondary">
+          <div class="card-label">維持（縮小管理）</div>
+          <div class="card-name">インフラ監視 / 自治体AI電話</div>
+          <div class="card-score" style="font-size:11pt;">現行維持</div>
+          <div class="card-action">新規リソース投下は最小限</div>
+        </div>
+
+        <div class="diagnosis-card inactive">
+          <div class="card-label">除外（今フェーズは対象外）</div>
+          <div class="card-name">その他領域</div>
+          <div class="card-score" style="font-size:10pt;">Phase 2 以降</div>
+          <div class="card-action">今回の議論スコープ外</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:10px; padding: 8px 10px; background:#F2F2EE; border-radius:3px; font-size:9pt;">
+        KPI再設計案（議論たたき台）: 目標件数 180件/年 → 150件 + 受注率 90% → 84% への集中化で、件数を減らしながら粗利インパクトを維持する設計を検討中。実態との照合が必要。
+      </div>
+    </div>
+  </div>
+
+  <!-- 本日の議論論点 -->
+  <div class="section">
+    <div class="section-label">本日の議論論点（7件）</div>
+    <div class="section-body">
+      <ol class="topic-list">
+
+        <li class="topic-item">
+          <span class="topic-question">メンバー5名は、提案書作成・クロージング・技術ヒアリングのどれを単独でできますか。</span>
+          <span class="topic-purpose">誰を最初にトレーニングし、どのプロセスを先に標準化するかを決めるための確認です。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">接触してきた港湾のお客様は、自治体管理・国管理・港湾局のどのタイプが多く、予算サイクルや調達ルールはどのような形でしたか。</span>
+          <span class="topic-purpose">営業アプローチが入札か随契か補助スキームかによって、プレイブックの構成が変わります。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">国交省実証について、実証先の港湾・期間・評価指標を教えてください。横展開を打診した際に壁になったことはありましたか。</span>
+          <span class="topic-purpose">実証結果を「事例」としてセールスデックに組み込む準備と、横展開の障壁特定が目的です。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">現在進行中の案件を3領域に分けると、それぞれ何件ありますか。失注した案件で目立つ理由はありますか。</span>
+          <span class="topic-purpose">パイプラインの厚さによって「新規開拓先行」か「案件管理強化先行」かが変わります。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">採用予定の1名には、北條さんの右腕補佐と現場営業の増員、どちらを期待していますか。</span>
+          <span class="topic-purpose">Phase 1 のプレイブック設計担当として組み込めるかどうかを確認します。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">KPIとして報告している「受注」は、契約・検収・売上計上のどのタイミングですか。</span>
+          <span class="topic-purpose">予算未達の真因分析と、KPI再設計の計算ベース確定に必要です。</span>
+        </li>
+
+        <li class="topic-item">
+          <span class="topic-question">港湾DXでNTT系・富士通・NEC等と競合する場面はありますか。競り合って負けたとき、相手の勝因はどこにありましたか。</span>
+          <span class="topic-purpose">セールストークの差別化軸を、北條さんの言葉で設計するための素材を集めます。</span>
+        </li>
+
+      </ol>
+    </div>
+  </div>
+
+  <!-- Phase 1 進め方プレビュー -->
+  <div class="section">
+    <div class="section-label">Phase 1: 営業プレイブック構築の進め方（プレビュー）</div>
+    <div class="section-body">
+      <div class="phase-timeline">
+
+        <div class="phase-step" style="background:#F2F2EE;">
+          <span class="phase-num">PHASE 0</span>
+          <span class="phase-name">診断</span>
+          <span class="phase-period">完了</span>
+          <div class="phase-deliverable">主軸確定</div>
+        </div>
+
+        <div class="phase-step current">
+          <span class="phase-num">TODAY</span>
+          <span class="phase-name">情報回収</span>
+          <span class="phase-period">本日</span>
+          <div class="phase-deliverable">7論点の実態把握</div>
+        </div>
+
+        <div class="phase-step">
+          <span class="phase-num">PHASE 1-A</span>
+          <span class="phase-name">骨子設計</span>
+          <span class="phase-period">2週間以内</span>
+          <div class="phase-deliverable">プレイブック初稿</div>
+        </div>
+
+        <div class="phase-step">
+          <span class="phase-num">PHASE 1-B</span>
+          <span class="phase-name">検証・修正</span>
+          <span class="phase-period">4週間以内</span>
+          <div class="phase-deliverable">現場適用テスト</div>
+        </div>
+
+        <div class="phase-step">
+          <span class="phase-num">PHASE 1-C</span>
+          <span class="phase-name">完成・展開</span>
+          <span class="phase-period">6週間以内</span>
+          <div class="phase-deliverable">チーム展開版</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:8px; font-size:8.5pt; color:#666666;">
+        成果物: 港湾DX営業プロセスマップ / ターゲット顧客ICP / セールストーク設計書 / 案件管理シート / KPI管理フォーマット
+      </div>
+    </div>
+  </div>
+
+  <!-- ToDo -->
+  <div class="section">
+    <div class="section-label">次回までのToDo候補（双方向）</div>
+    <div class="section-body">
+      <table class="todo-table">
+        <thead>
+          <tr>
+            <th class="col-who">担当</th>
+            <th class="col-what">アクション</th>
+            <th class="col-when">目処</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-who"><span class="badge badge-client">北條さん</span></td>
+            <td class="col-what">現在の案件台帳を領域・確度別で整理したリスト（フォーマット不問）</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+          <tr>
+            <td class="col-who"><span class="badge badge-client">北條さん</span></td>
+            <td class="col-what">国交省実証の報告書または概要資料（公開可能な範囲）</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+          <tr>
+            <td class="col-who"><span class="badge badge-client">北條さん</span></td>
+            <td class="col-what">メンバー5名のスキル評価（提案/クロージング/技術の3軸、簡易マトリクス）</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+          <tr>
+            <td class="col-who"><span class="badge badge-us">当方</span></td>
+            <td class="col-what">Phase 1 営業プレイブック骨子初稿の作成・提示</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+          <tr>
+            <td class="col-who"><span class="badge badge-us">当方</span></td>
+            <td class="col-what">港湾顧客の調達ルート整理（自治体管理 vs 国管理の分岐図）</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+          <tr>
+            <td class="col-who"><span class="badge badge-us">当方</span></td>
+            <td class="col-what">KPI再設計案の試算根拠ドキュメント（150件/84%への移行シナリオ）</td>
+            <td class="col-when">2週間以内</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 本日のアジェンダ（参考） -->
+  <div class="section">
+    <div class="section-label">本日のアジェンダ（参考）</div>
+    <div class="section-body">
+      <table class="agenda-table">
+        <tbody>
+          <tr>
+            <td class="col-time">0 - 5分</td>
+            <td class="col-topic">オープニング: Phase 0 診断サマリーの共有</td>
+            <td class="col-goal">本日のゴール3点を合意する</td>
+          </tr>
+          <tr>
+            <td class="col-time">5 - 15分</td>
+            <td class="col-topic">「港湾DX主軸」方針への北條さんの肌感覚確認</td>
+            <td class="col-goal">方針の合意 or 修正点の特定</td>
+          </tr>
+          <tr>
+            <td class="col-time">15 - 35分</td>
+            <td class="col-topic">7論点のヒアリング（Q1-Q7）</td>
+            <td class="col-goal">Phase 1 設計の実態データ回収</td>
+          </tr>
+          <tr>
+            <td class="col-time">35 - 50分</td>
+            <td class="col-topic">深堀り: 北條さんの回答をもとにした仮説検証</td>
+            <td class="col-goal">未確認事項の追加確認</td>
+          </tr>
+          <tr>
+            <td class="col-time">50 - 58分</td>
+            <td class="col-topic">ToDoの確認: 双方の宿題を合意する</td>
+            <td class="col-goal">次回アジェンダ確定</td>
+          </tr>
+          <tr>
+            <td class="col-time">58 - 60分</td>
+            <td class="col-topic">次回日程の仮押さえ + クロージング</td>
+            <td class="col-goal">次回ミーティングの日程確保</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- フッター -->
+  <div class="doc-footer">
+    <span>電気興業株式会社 ITソリューション部 / Phase 0 完了 - Phase 1 移行ヒアリング資料</span>
+    <span>2026年5月9日 / ConsultingOS</span>
+  </div>
+
+</div>
+</body>
+</html>
