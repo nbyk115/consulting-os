@@ -491,15 +491,9 @@ Layer 3: 検証（破っても通さない）
 
 詳細: [`.claude/skills/references/creative-playbook-design-samples.md`](references/creative-playbook-design-samples.md)
 
-## Visual Reactive Correction Loop 防止規律（2026-05-09 統合）
-
-visual 制作で 14 ラウンド reactive correction loop が発生した実体験から、同型ミスの再発防止を物理化。着手前必須チェックリスト 5 項目 / 改行 / 抽象タグライン / 競合実名 / クライアント名指し / レイアウト高さ計算 / ラベル区別性 / 注釈フォント / agent 監修フロー再設計の 8 軸規律。
-
-詳細: [`.claude/skills/references/creative-playbook-visual-loop-prevention.md`](references/creative-playbook-visual-loop-prevention.md)
-
+## Visual Loop 防止規律（2026-05-09）
+詳細: [`references/creative-playbook-visual-loop-prevention.md`](references/creative-playbook-visual-loop-prevention.md)（着手前 5 項目 + 防止規律 8 軸 + agent 監修フロー再設計）
 
 ## 出典・依拠先
 
-- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/creative-playbook.md）
-- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
-- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定
+FACT: ConsultingOS 規律 (2026-05-05 PR #65 物理化) / INFERENCE: 佐藤裕介流 + Boris Cherny 9 規律派生 / SPECULATION: 4 週間ごと再評価で形骸化検出
