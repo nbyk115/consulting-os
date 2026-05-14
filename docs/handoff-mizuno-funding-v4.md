@@ -220,4 +220,40 @@ cat docs/handoff-mizuno-funding-v4.md  # 本ファイル
 
 ---
 
-> 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。
+## 11. v4 投資テーゼ補強: Anthropic 垂直 OS 戦略 + 金融 vertical AI-OS（2026-05-14 追加）
+
+### 11.1 投資テーゼ核心
+
+「Anthropic は Legal (2026-05-12) → Small Business (2026-05-13) と vertical AI-OS を順次制圧中。次は金融 / 医療 / 製薬予測。この trend に乗る vertical AI-OS 早期参入者が次世代の defensible business」
+
+ConsultingOS = 「日本 B2B コンサル vertical AI-OS」= Anthropic 公式 vertical （Legal / Small Business）と非競合の機会窓。
+
+### 11.2 水野さんに刺さる 3 ポイント
+
+1. ジーニー卒業生視点: ad-tech SaaS = 「AI に選ばれない SaaS」リスクの内側を知る個人投資家として希少。SaaS 死テーゼ（Anthropic Claude for Small Business が QuickBooks / Stripe / HubSpot を MCP 統合）を内側から理解
+2. 1000 万投資 justification: コンサル事業投資でなく「AI-OS verticalization trend への early bet」= ConsultingOS が日本 B2B コンサル vertical AI-OS の早期参入者
+3. 横展開機会: 金融 vertical AI-OS（地銀 / 信金 / 個人投資家向け Bloomberg + 銀行 API 連携）への投資パイプライン構築、水野さん個人投資家ネットワーク活用
+
+### 11.3 v4 事業計画への組み込みポイント
+
+- 「投資テーゼ」セクションに Anthropic vertical 制圧プレイブック + Finatext 4 層構造（エージェント / コンテキスト / ビジネスロジック / データ）を反映
+- 「競合分析」セクションに「SaaS 死テーゼ」+「AI に選ばれない SaaS」リスク追加
+- 「中期戦略」に「金融 vertical AI-OS 横展開」候補追加（水野さん個人投資家ネットワーク活用）
+- 「ConsultingOS 戦略位置」セクション新設: エージェント入口（Sierra 型）から開始、コンテキスト + ビジネスロジック層を整備中、Anthropic 公式 vertical と非競合
+
+### 11.4 Finatext 4 層 ConsultingOS マッピング
+
+| 層 | ConsultingOS 該当 | v4 提示価値 |
+|---|---|---|
+| エージェント | 27 agent + assistant orchestrator | 「1 人で 10 人分」の物理化、水野さん 1000 万投資の ROI 担保 |
+| コンテキスト | evolution-log + ICP + 規律 hook 21 種 | 競争優位の中核、模倣困難な moat |
+| ビジネスロジック | 36 skill 体系 | OEM 展開で業界別 customization 可能 |
+| データ | 顧客文脈 + 案件記録 | 関根さん / 水野さん案件で蓄積開始 |
+
+### 11.5 詳細参照
+
+`.claude/skills/references/consulting-playbook-anthropic-vertical-os.md`（PR 統合済）に Anthropic 垂直制圧プレイブック / SaaS 死テーゼ / Finatext 4 層 / Sierra vs Finatext 戦略分岐の詳細を物理化済。
+
+---
+
+> 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。§11 は Anthropic 公式発表（2026-05-12 / 05-13）+ Finatext IR + note.com/110_110_110 (Sierra vs Finatext 比較、INFERENCE) を追加根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。
