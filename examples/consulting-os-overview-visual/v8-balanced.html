@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsultingOS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --hairline: #E5E5E5;
+    --surface: #FFFFFF;
+  }
+  html, body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .deck, .deck * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .deck { display: flex; justify-content: center; padding: 48px 16px; }
+  .slideWrap {
+    width: 1280px;
+    max-width: 100%;
+    aspect-ratio: 1280 / 720;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    background: var(--surface);
+    container-type: inline-size;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: top left;
+    transform: scale(calc(100cqw / 1280px));
+    padding: 48px 56px 36px;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    gap: 24px;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 14px;
+  }
+  .logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+  .logo .mark { color: var(--accent); }
+  .meta {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* HERO: WHAT (タグライン) + 数字 */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 32px;
+  }
+  .tagline {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .tagline .accent { color: var(--accent); }
+  .tagline-sub {
+    font-size: 14px;
+    color: var(--gray-500);
+    font-weight: 500;
+    margin-top: 10px;
+    letter-spacing: 0.02em;
+  }
+  .stats {
+    display: flex;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .stat {
+    text-align: right;
+    border-left: 1px solid var(--hairline);
+    padding-left: 18px;
+  }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+  }
+
+  /* WHY: 4 つの強み カード横並び */
+  .why {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .strength {
+    border-top: 2px solid var(--accent);
+    padding: 12px 14px 14px;
+    background: var(--surface);
+    border-right: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    border-left: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .strength-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+  }
+  .strength-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1.3;
+  }
+  .strength-text {
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  /* HOW: 6 部門 + 競合一言 */
+  .how {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+    min-height: 0;
+  }
+  .panel-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .departments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .dept {
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .dept-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.12em;
+  }
+  .dept-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .dept-meta {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .vs {
+    border-top: 1px solid var(--primary);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vs-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .vs-row:last-child { border-bottom: 0; }
+  .vs-key { color: var(--gray-700); font-weight: 500; }
+  .vs-val { font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .vs-val.gray { color: var(--gray-500); }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--hairline);
+    padding-top: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+  }
+  .footnotes {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+  .footnotes .label {
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+  .repo {
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .repo a { color: var(--gray-700); text-decoration: none; }
+</style>
+</head>
+<body>
+<!--
+  ConsultingOS Visual v8 (整理 + 強弱版)
+  方針: WHAT (タグライン + 数字) → WHY (4 強み) → HOW (6 部門 + 競合差) の 3 段ストーリー
+  v6 から: 装飾整理、視線フロー単一化、要素統合
+  v7 から: WHY と HOW を復活、ただし整理して詰めず
+-->
+<div class="deck">
+<div class="slideWrap">
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">CONSULTING<span class="mark">OS</span></div>
+    <div class="meta">2026-05-09 / Overview</div>
+  </div>
+
+  <!-- HERO: WHAT -->
+  <div class="hero">
+    <div>
+      <div class="tagline">
+        属人営業を、<span class="accent">再現可能な工程</span>に変える OS。
+      </div>
+      <div class="tagline-sub">
+        日本語 B2B 提案ワークフロー特化型 Multi-Agent OS / 提案 → 実装 → 海外展開 → マーケまで一気通貫
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">DEPARTMENTS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">27</div>
+        <div class="stat-label">AGENTS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">36</div>
+        <div class="stat-label">SKILLS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">17</div>
+        <div class="stat-label">RULES</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY: 4 つの強み -->
+  <div class="why">
+    <div class="strength">
+      <div class="strength-num">01</div>
+      <div class="strength-title">規律を物理化</div>
+      <div class="strength-text">反証チェック / 出典ラベル / 字形検証を hook で機械強制。モデル品質に依存しない。</div>
+    </div>
+    <div class="strength">
+      <div class="strength-num">02</div>
+      <div class="strength-title">業界フレーム内蔵</div>
+      <div class="strength-text">5Forces / JTBD / 3C / 5 業界プレイブック (SaaS / D2C / 代理店 / 製造 / 金融) を先行ロード。</div>
+    </div>
+    <div class="strength">
+      <div class="strength-num">03</div>
+      <div class="strength-title">工程の再現性</div>
+      <div class="strength-text">提案 / 実装 / マーケ / 法務を agent 間ハンドオフで一気通貫。2 件目以降の精度が上がる構造。</div>
+    </div>
+    <div class="strength">
+      <div class="strength-num">04</div>
+      <div class="strength-title">組織知の蓄積</div>
+      <div class="strength-text">CLAUDE.md + memory + skill にクライアント文脈が規律として持続。担当が変わっても水準維持。</div>
+    </div>
+  </div>
+
+  <!-- HOW: 6 部門 + 競合差 -->
+  <div class="how">
+    <div>
+      <div class="panel-label">HOW / 6 部門 27 エージェント</div>
+      <div class="panel-title">案件ごとに最適チームを編成する司令塔型構造</div>
+      <div class="departments">
+        <div class="dept">
+          <div class="dept-num">01</div>
+          <div class="dept-name">コンサル</div>
+          <div class="dept-meta">6 / 戦略・提案・KPI</div>
+        </div>
+        <div class="dept">
+          <div class="dept-num">02</div>
+          <div class="dept-name">サービス開発</div>
+          <div class="dept-meta">4 / 実装・AI・インフラ</div>
+        </div>
+        <div class="dept">
+          <div class="dept-num">03</div>
+          <div class="dept-name">プロダクト</div>
+          <div class="dept-meta">2 / PM・VOC</div>
+        </div>
+        <div class="dept">
+          <div class="dept-num">04</div>
+          <div class="dept-name">クリエイティブ</div>
+          <div class="dept-meta">7 / デザイン・コンテンツ</div>
+        </div>
+        <div class="dept">
+          <div class="dept-num">05</div>
+          <div class="dept-name">グローバル</div>
+          <div class="dept-meta">1 / GTM・現地化</div>
+        </div>
+        <div class="dept">
+          <div class="dept-num">06</div>
+          <div class="dept-name">マーケティング</div>
+          <div class="dept-meta">7 / 広告・SEO・PR</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="panel-label">VS / 他ツールとの違い</div>
+      <div class="panel-title">「Genspark でやってる」客への構造的差分</div>
+      <div class="vs">
+        <div class="vs-row">
+          <div class="vs-key">Genspark / Notion AI / NotebookLM</div>
+          <div class="vs-val gray">単発生成</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-key">Sierra / Agentforce</div>
+          <div class="vs-val gray">CX / CRM 特化</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-key">素の Claude Code</div>
+          <div class="vs-val gray">汎用 / 規律なし</div>
+        </div>
+        <div class="vs-row">
+          <div class="vs-key">ConsultingOS</div>
+          <div class="vs-val">B2B 工程 + 規律 OS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footnotes">
+      <span class="label">DATA.</span>27 / 36 / 6 / 17 はリポ実測 (FACT, commit dc841ac, 2026-05-09)<span style="margin: 0 8px;">/</span>
+      <span class="label">SOURCE.</span>Genspark genspark.ai / Sierra TechCrunch 2026-05-04 / Agentforce Salesforce 公式 / NotebookLM Google Cloud Docs (FACT)<span style="margin: 0 8px;">/</span>
+      <span class="label">LIMIT.</span>ROI 比較は実クライアント案件実証後に追記 (現時点 SPECULATION)
+    </div>
+    <div class="repo">
+      <a href="https://github.com/nbyk115/consulting-os">github.com/nbyk115/consulting-os</a><br>
+      v8 / 2026-05-09 / Balanced 1/1
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

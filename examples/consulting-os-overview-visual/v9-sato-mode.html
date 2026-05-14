@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsultingOS / 1 人で、27 人の AI チームを率いる</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --hairline: #E5E5E5;
+    --surface: #FFFFFF;
+    --d01: #E60012;
+    --d02: #0EA5A4;
+    --d03: #F59E0B;
+    --d04: #8B5CF6;
+    --d05: #2563EB;
+    --d06: #DC2626;
+  }
+  html, body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .deck, .deck * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .deck { display: flex; justify-content: center; padding: 48px 16px; }
+  .slideWrap {
+    width: 1280px;
+    max-width: 100%;
+    aspect-ratio: 1280 / 720;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    background: var(--surface);
+    container-type: inline-size;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 0; left: 0;
+    transform-origin: top left;
+    transform: scale(calc(100cqw / 1280px));
+    padding: 40px 44px 32px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 14px;
+  }
+  .logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+  .logo .mark { color: var(--accent); }
+  .meta {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 48px;
+  }
+  .tagline {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+  .tagline .accent { color: var(--accent); }
+  .tagline .small { font-size: 38px; }
+  .tagline-sub {
+    font-size: 14px;
+    color: var(--gray-700);
+    font-weight: 500;
+    margin-top: 14px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .hero-num {
+    text-align: right;
+  }
+  .hero-num-big {
+    font-size: 96px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+  }
+  .hero-num-label {
+    font-size: 13px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    margin-top: 6px;
+  }
+
+  /* MAIN: 汎用 AI ツール vs ConsultingOS 対比 + 27 AI 可視化 */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 32px;
+    min-height: 0;
+  }
+
+  /* 左: 比較対比 */
+  .compare-panel {
+    border-left: 4px solid var(--primary);
+    padding: 6px 0 6px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .compare-block {
+    margin-bottom: 0;
+  }
+  .compare-block:last-child { margin-bottom: 0; }
+  .compare-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--gray-500);
+    display: inline-block;
+  }
+  .compare-label.us {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .compare-name {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .compare-text {
+    font-size: 11px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .oem-price {
+    font-size: 11px;
+    color: var(--primary);
+    line-height: 1.5;
+    font-weight: 500;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--hairline);
+  }
+  .oem-ratio {
+    font-size: 11px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+  .oem-price .accent, .oem-ratio .accent { color: var(--accent); font-weight: 700; }
+  .compare-text .accent { color: var(--accent); font-weight: 700; }
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--hairline);
+    flex-wrap: wrap;
+  }
+  .price-num {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1.3;
+  }
+  .price-num .accent {
+    color: var(--accent);
+    font-size: 18px;
+  }
+  .price-detail {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .vs-build-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+  .vs-build-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.05em;
+    background: var(--gray-100, #F2F2EE);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+  .vs-build-text {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .vs-build-text .accent {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* 右: 27 AI 可視化 */
+  .team-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .team-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+  }
+  .team-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    flex: 1;
+  }
+  .team-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .team-col-head {
+    border-top: 3px solid var(--col-color);
+    padding-top: 8px;
+  }
+  .team-col-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 0.12em;
+  }
+  .team-col-name {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-top: 2px;
+    line-height: 1.2;
+  }
+  .team-col-count {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .team-agents {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 8px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+  }
+  .agent-pill {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary);
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--col-color);
+    padding: 3px 7px;
+    border-radius: 3px;
+    line-height: 1.25;
+  }
+  .team-col.c1 { --col-color: var(--d01); }
+  .team-col.c2 { --col-color: var(--d02); }
+  .team-col.c3 { --col-color: var(--d03); }
+  .team-col.c4 { --col-color: var(--d04); }
+  .team-col.c5 { --col-color: var(--d05); }
+  .team-col.c6 { --col-color: var(--d06); }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--hairline);
+    padding-top: 10px;
+    display: block;
+  }
+  .footnotes {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.45;
+  }
+  .footnotes .label {
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+  .repo {
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .repo a { color: var(--gray-700); text-decoration: none; }
+
+  /* PDF DL ボタン */
+  .pdf-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: var(--primary);
+    color: var(--bg);
+    border: 0;
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pdf-btn:hover { background: var(--accent); }
+  .pdf-btn .ico {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  /* 印刷時最適化: 1280×720 を A4 横 or 用紙横にフィット、ボタン / 影非表示 */
+  @media print {
+    @page {
+      size: 1280px 720px;
+      margin: 0;
+    }
+    html, body {
+      background: var(--surface);
+      width: 1280px;
+      height: 720px;
+    }
+    .pdf-btn { display: none !important; }
+    .deck { padding: 0; }
+    .slideWrap {
+      box-shadow: none;
+      width: 1280px;
+      height: 720px;
+      max-width: 100%;
+      page-break-after: avoid;
+    }
+    .slide {
+      transform: scale(1);
+      width: 1280px;
+      height: 720px;
+    }
+  }
+</style>
+</head>
+<body>
+<!--
+  ConsultingOS Visual v9 (佐藤裕介判断 全面見直し)
+  方針: 単発 AI 利用 vs AI チーム経営 の対比で「凄さ」を伝える
+  ヒーロー = 「1 人で、27 人の AI チームを率いる」
+  左パネル = 汎用 AI ツール vs ConsultingOS の構造比較
+  右パネル = 27 AI を 6 部門色付きドットで可視化（チーム感の物理化）
+-->
+<button class="pdf-btn" onclick="downloadPDF()" title="PDF ダウンロード">
+  <span class="ico">↓</span>PDF DL
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+<script>
+async function downloadPDF() {
+  const btn = document.querySelector('.pdf-btn');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<span class="ico">⋯</span>生成中...';
+  btn.disabled = true;
+  try {
+    // 印刷用: slide を 1280×720 で原寸表示してから capture
+    const slideWrap = document.querySelector('.slideWrap');
+    const slide = document.querySelector('.slide');
+    const origWrapStyle = slideWrap.style.cssText;
+    const origSlideStyle = slide.style.cssText;
+    slideWrap.style.cssText = 'width:1280px;height:720px;aspect-ratio:auto;max-width:none;';
+    slide.style.cssText = 'width:1280px;height:720px;transform:none;position:static;';
+
+    const opt = {
+      margin: 0,
+      filename: 'consulting-os-overview.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, width: 1280, height: 720, backgroundColor: '#FAFAF7' },
+      jsPDF: { unit: 'px', format: [1280, 720], orientation: 'landscape', hotfixes: ['px_scaling'] }
+    };
+    await html2pdf().set(opt).from(slide).save();
+
+    slideWrap.style.cssText = origWrapStyle;
+    slide.style.cssText = origSlideStyle;
+  } catch (e) {
+    alert('PDF 生成に失敗しました: ' + e.message);
+  } finally {
+    btn.innerHTML = orig;
+    btn.disabled = false;
+  }
+}
+</script>
+
+<div class="deck">
+<div class="slideWrap">
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">CONSULTING<span class="mark">OS</span></div>
+    <div class="meta">2026-05-09 / Overview</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="tagline">
+        AI 部隊を、<span class="accent">自社用に編成する</span> OS
+      </div>
+      <div class="tagline-sub">
+        AI を 1 ツール「使う」時代から、AI 部隊を「自社用に編成する」時代へ。専門 27 AI を<span style="white-space:nowrap">業界 / 用途別</span>にカスタム編成する司令塔型マルチエージェント OS
+      </div>
+    </div>
+    <div class="hero-num">
+      <div class="hero-num-big">27</div>
+      <div class="hero-num-label">ベース AI ／ カスタム編成</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- 左: 比較対比 -->
+    <div class="compare-panel">
+      <div class="compare-block">
+        <div class="compare-label">汎用 AI ツール</div>
+        <div class="compare-name">AI を「使う」</div>
+        <div class="compare-text">
+          1 回の出力品質を上げる設計<br>
+          日本語 B2B の字形・敬語・出典規律は標準提供なし<br>
+          業界フレーム + 工程ハンドオフを OS として持たない
+        </div>
+      </div>
+      <div class="compare-block">
+        <div class="compare-label us">ConsultingOS</div>
+        <div class="compare-name">AI チームを<span style="color:var(--accent);">「経営する」</span></div>
+        <div class="compare-text">
+          <span class="accent">専門 27 AI</span> が役割分担で並列起動<br>
+          規律 17 条 + 反証 + 字形を <span class="accent">機械化</span><br>
+          CLAUDE.md + memory + skill に <span class="accent">組織知蓄積</span>
+        </div>
+      </div>
+      <div class="compare-block oem">
+        <div class="compare-label us"><span style="white-space:nowrap">OEM / カスタム編成</span></div>
+        <div class="compare-name"><span style="white-space:nowrap">業界 / 用途別</span>に<span style="color:var(--accent);">専用編成</span></div>
+        <div class="compare-text">27 AI + 36 skill + 業界 PB + 固有 agent で OEM 提供</div>
+        <div class="oem-price"><span class="accent">¥230 万〜 / 初年度</span>（イニシャル ¥50 + 月次 ¥15×12）+ <span class="accent">レベシェア 5-15%</span><sup>注 1)</sup></div>
+        <div class="oem-ratio">自社構築よりコスト <span class="accent">約 77-95% 削減</span>、期間 <span class="accent">3-15 ヶ月短縮</span><sup>注 2)</sup></div>
+      </div>
+    </div>
+
+    <!-- 右: 27 AI 可視化 -->
+    <div class="team-panel">
+      <div>
+        <div class="team-label">あなたの AI チーム / 6 部門</div>
+        <div class="team-title">案件ごとに最適チームを編成、平均 5 体が並列起動</div>
+      </div>
+      <div class="team-grid">
+        <div class="team-col c1">
+          <div class="team-col-head">
+            <div class="team-col-num">01 / 6 名</div>
+            <div class="team-col-name">コンサル</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">戦略統括</div>
+            <div class="agent-pill">競合分析</div>
+            <div class="agent-pill">提案作成</div>
+            <div class="agent-pill">KPI 分析</div>
+            <div class="agent-pill">顧客成功</div>
+            <div class="agent-pill">法務 / コンプラ</div>
+          </div>
+        </div>
+        <div class="team-col c2">
+          <div class="team-col-head">
+            <div class="team-col-num">02 / 4 名</div>
+            <div class="team-col-name">サービス開発</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">技術統括</div>
+            <div class="agent-pill">フルスタック実装</div>
+            <div class="agent-pill">AI エンジニア</div>
+            <div class="agent-pill">インフラ運用</div>
+          </div>
+        </div>
+        <div class="team-col c3">
+          <div class="team-col-head">
+            <div class="team-col-num">03 / 2 名</div>
+            <div class="team-col-name">プロダクト</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">プロダクト管理</div>
+            <div class="agent-pill">顧客 VOC 統合</div>
+          </div>
+        </div>
+        <div class="team-col c4">
+          <div class="team-col-head">
+            <div class="team-col-num">04 / 7 名</div>
+            <div class="team-col-name">クリエイティブ</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">クリエイティブ統括</div>
+            <div class="agent-pill">UX 設計</div>
+            <div class="agent-pill">フロント実装</div>
+            <div class="agent-pill">コンテンツ戦略</div>
+            <div class="agent-pill">ブランド守護</div>
+            <div class="agent-pill">グロース実験</div>
+            <div class="agent-pill">営業資料設計</div>
+          </div>
+        </div>
+        <div class="team-col c5">
+          <div class="team-col-head">
+            <div class="team-col-num">05 / 1 名</div>
+            <div class="team-col-name">グローバル</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">GTM 戦略</div>
+          </div>
+        </div>
+        <div class="team-col c6">
+          <div class="team-col-head">
+            <div class="team-col-num">06 / 7 名</div>
+            <div class="team-col-name">マーケ</div>
+          </div>
+          <div class="team-agents">
+            <div class="agent-pill">マーケ統括</div>
+            <div class="agent-pill">広告運用</div>
+            <div class="agent-pill">SEO 専門</div>
+            <div class="agent-pill">マーケ分析</div>
+            <div class="agent-pill">SNS 運用</div>
+            <div class="agent-pill">市場調査</div>
+            <div class="agent-pill">PR 広報</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footnotes">
+      <span class="label">データ</span>27 / 36 / 17 はリポ実測 (FACT)<span style="margin: 0 6px;">/</span>
+      <span class="label">注 1)</span>¥230 万 = イニシャル 50 + 月次 15×12 (FACT, 確定費用) / レベシェア 5-15% は売上連動 (SPECULATION)<span style="margin: 0 6px;">/</span>
+      <span class="label">注 2)</span>自社構築試算 (SPECULATION): ¥1,000-5,000 万 / 6-18 ヶ月、規模 / 品質 / 人員 / データソース・外部 API ライセンスで変動。一次出典 URL なし、業界平均ベース仮置き → コスト 約 77-95% 削減、期間 3-15 ヶ月短縮<span style="margin: 0 6px;">/</span>
+      <span class="label">注</span>「汎用 AI ツール」は 2026-05 時点比較 (INFERENCE)、機能更新で境界変動
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

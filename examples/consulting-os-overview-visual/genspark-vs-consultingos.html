@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsultingOS / 単発生成を、再現可能な工程に変える</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --gray-100: #F2F2EE;
+    --gray-300: #D4D4D4;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+    --hairline: #E5E5E5;
+    --surface: #FFFFFF;
+  }
+  html, body {
+    font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .deck, .deck * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 48px 16px 64px;
+  }
+  .slideWrap {
+    width: 1280px;
+    max-width: 100%;
+    aspect-ratio: 1280 / 720;
+    position: relative;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+    overflow: hidden;
+    background: var(--surface);
+    container-type: inline-size;
+  }
+  .slide {
+    width: 1280px;
+    height: 720px;
+    background: var(--surface);
+    color: var(--primary);
+    position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
+    transform-origin: top left;
+    transform: scale(calc(100cqw / 1280px));
+    padding: 56px 64px 40px;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr auto;
+    gap: 24px;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--hairline);
+    padding-bottom: 16px;
+  }
+  .logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--primary);
+  }
+  .logo .mark { color: var(--accent); }
+  .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* TITLE */
+  .title {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .title .accent { color: var(--accent); }
+
+  /* SUBTITLE */
+  .subtitle {
+    font-size: 16px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    font-weight: 500;
+    max-width: 1100px;
+  }
+  .subtitle .accent { color: var(--accent); font-weight: 700; }
+
+  /* MAIN: 2 列対比 */
+  .main {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    min-height: 0;
+    align-items: stretch;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .col-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+  .col-label.left { color: var(--gray-500); }
+  .col-label.right { color: var(--accent); }
+  .col-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .col-tagline {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-bottom: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .col-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+  .col-item {
+    border-top: 1px solid var(--hairline);
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .col-item:first-child { border-top: 1px solid var(--primary); }
+  .item-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--gray-500);
+  }
+  .item-text {
+    font-size: 14px;
+    color: var(--primary);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .col-list.us .item-text {
+    font-weight: 600;
+  }
+  .col-list.us .item-label {
+    color: var(--accent);
+  }
+
+  /* divider */
+  .divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+  .divider-line {
+    width: 1px;
+    background: var(--hairline);
+    flex: 1;
+  }
+  .divider-arrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    padding: 12px 0;
+  }
+
+  /* KILLER COPY */
+  .killer {
+    background: var(--primary);
+    color: var(--bg);
+    padding: 22px 32px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+  .killer .accent { color: var(--accent); }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--hairline);
+    padding-top: 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: start;
+  }
+  .footnotes {
+    font-size: 12px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+  .footnotes .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--primary);
+    margin-right: 4px;
+    letter-spacing: 0.05em;
+  }
+  .repo {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .repo a { color: var(--gray-700); text-decoration: none; }
+</style>
+</head>
+<body>
+<!--
+  ConsultingOS Genspark 比較スライド v1
+  用途: B2B 提案で「Genspark でやってる」客への構造説明（佐藤裕介モード）
+  サイズ: 1280×720（DESIGN.md スライド標準準拠）
+  agent 監修: competitive-analyst + proposal-writer + sales-deck-designer
+-->
+<div class="deck">
+<div class="slideWrap">
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">CONSULTING<span class="mark">OS</span></div>
+    <div class="meta">2026-05-09 / Genspark vs ConsultingOS</div>
+  </div>
+
+  <!-- TITLE -->
+  <div class="title">
+    単発生成を、<span class="accent">再現可能な工程</span>に変える。
+  </div>
+
+  <!-- SUBTITLE -->
+  <div class="subtitle">
+    Genspark は<span class="accent">「1 回の出力」</span>を速くする汎用 AI Workspace<sup>注 1)</sup>。ConsultingOS は<span class="accent">「何度やっても同じ水準で通せる」</span>ための B2B 工程設計 OS。土俵が違うため両立可能で、提案書の最終ゲートとして ConsultingOS を通す運用が現実解。
+  </div>
+
+  <!-- MAIN: 2 列対比 -->
+  <div class="main">
+
+    <!-- 左: Genspark -->
+    <div class="col">
+      <div class="col-label left">調査 / 生成 特化型</div>
+      <div class="col-name">Genspark<sup>注 1)</sup></div>
+      <div class="col-tagline">All-in-One AI Workspace、Sparkpages、Multi-Agent 並列推論</div>
+      <div class="col-list">
+        <div class="col-item">
+          <div class="item-label">出力単位</div>
+          <div class="item-text">Sparkpage / Slide / Doc を 1 回生成</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">品質ゲート</div>
+          <div class="item-text">モデル品質に依存、出典 / 字形 / 規律検証は人手</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">再現性</div>
+          <div class="item-text">同プロンプトでも出力ブレ、規律として保証なし</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">工程カバレッジ</div>
+          <div class="item-text">調査 + 生成の 2 工程、実装 / マーケは設計外</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">組織知の蓄積</div>
+          <div class="item-text">セッション間で文脈引き継ぎ困難（フロー型）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- divider -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-arrow">→</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- 右: ConsultingOS -->
+    <div class="col">
+      <div class="col-label right">B2B 工程 / 規律 OS</div>
+      <div class="col-name">ConsultingOS</div>
+      <div class="col-tagline">日本語 B2B 提案ワークフロー特化、6 部門 27 担当 AI、規律物理化</div>
+      <div class="col-list us">
+        <div class="col-item">
+          <div class="item-label">出力単位</div>
+          <div class="item-text">案件単位、提案 → 実装 → マーケまで一気通貫</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">品質ゲート</div>
+          <div class="item-text">反証チェック / 字形 / 出典規律を hook で物理化</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">再現性</div>
+          <div class="item-text">17 ハードルール + 36 スキルで構造保証</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">工程カバレッジ</div>
+          <div class="item-text">調査 / 提案 / 実装 / 検証 / マーケ 5 工程 27 agent</div>
+        </div>
+        <div class="col-item">
+          <div class="item-label">組織知の蓄積</div>
+          <div class="item-text">CLAUDE.md + memory + skill が規律として持続（ストック型）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KILLER COPY -->
+  <div class="killer">
+    Genspark で出る Sparkpage は、<span class="accent">今日の課題</span>を解く。<br>
+    ConsultingOS は、<span class="accent">来月の課題が出ない構造</span>を作る。
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footnotes">
+      <span class="label">SOURCE.</span>
+      注 1) Genspark: <a href="https://www.genspark.ai/" style="color: var(--gray-700); text-decoration: none;">genspark.ai</a> 公式 LP / textify.ai / lindy.ai レビュー（FACT、2026-05-09 確認）<span style="margin: 0 8px;">/</span>
+      <span class="label">DATA.</span>
+      ConsultingOS 数値（27 / 36 / 17）はリポ実測 commit dc841ac（FACT）<span style="margin: 0 8px;">/</span>
+      <span class="label">LIMIT.</span>
+      ROI 比較は実クライアント案件実証後に追記予定（現時点 SPECULATION）
+    </div>
+    <div class="repo">
+      <a href="https://github.com/nbyk115/consulting-os">github.com/nbyk115/consulting-os</a><br>
+      v1 / 2026-05-09 / Genspark Compare
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>
