@@ -358,9 +358,73 @@ ConsultingOS の `seo-specialist` が GEO（Generative Engine Optimization）設
 
 ---
 
-## 12. 更新履歴
+## 12. ビジュアル参照ライブラリ（2026-05-14 追加、デザインインフラ不全構造修正）
+
+### 12.1 背景: デザインインフラ 4 層不全（2026-05-14 ユーザー指摘）
+
+ConsultingOS のデザイン層は以下の構造的問題で機能不全だった:
+1. 参照ライブラリ不在（DESIGN.md は色 / フォント定義のみ、「良いデザイン実例」reference 不足）
+2. 生成インフラ不安定（Claude Design API 400 エラー反復、単一依存リスク）
+3. 品質基準曖昧（「ダサい / ダサくない」判定が agent に渡せない）
+4. agent orchestration 失敗（creative-director 5 名いるのに visual v9 = 30+ ラウンドループ）
+
+= 「PPT 結構ださい」「クロードデザインもエージェントちゃんと使えてない」(ユーザー口頭 2026-05-14)。
+
+### 12.2 デザイン参照ライブラリ運用ルール
+
+YOU MUST: `creative-director` / `ux-designer` / `frontend-dev` / `sales-deck-designer` は visual / deck / LP 制作の **着手前** に必ず以下を実行:
+
+1. **参照ギャラリー query**（最優先）: 制作対象のカテゴリ（IR デッキ / セールスデッキ / LP / ダッシュボード / アプリ UI）で関連 UI スクリーン or 業界事例を最低 3-5 件参照
+2. **DESIGN.md セクション 12.3-12.4 確認**: 推奨パターン + アンチパターン
+3. **`refero.design` 補完参照**: 既存推奨参照、2,000+ プロダクトの構造化情報
+4. **判断根拠の明示**: 「なぜこのレイアウト / トーン / 配色か」を制作開始時に 1-2 行で言語化
+
+### 12.3 デザイン参照ギャラリー MCP（実装待ち）
+
+YOU MUST: 以下 MCP 実装後、`creative-director` の必須 query 対象とする（URL 取得待ち、2026-05-14 user 確認中）:
+
+- 想定機能: 25 万 UI スクリーン以上のデザインギャラリー、MCP 経由検索
+- 価格: 完全無料・レート制限なし・サブスク不要（INFERENCE: ツイート主張、実機確認前）
+- ConsultingOS 用途: visual / deck / LP 制作前の reference query、品質基準の客観化
+
+### 12.4 推奨ビジュアル参照パターン（業界別）
+
+| 制作対象 | 推奨参照 | 補足 |
+|---|---|---|
+| IR / 決算デッキ | Stripe / Shopify / Snowflake IR / Figma S-1 / Atlassian Investor | 数値プレゼンの黄金パターン |
+| セールスデッキ | Pitch / Notion / Linear / Vercel | B2B SaaS の標準 |
+| 1 枚絵 / overview | a16z / Sequoia / 16z 1-pager / The Information explainer | 戦略 1 枚絵の構造 |
+| LP | refero.design 1,000+ | コンポーネント別参照可能 |
+| ダッシュボード UI | Vercel / Linear / Notion / Figma | プロダクト UI 標準 |
+
+### 12.5 visual 生成フロー改訂（Claude Design 単一依存撤廃）
+
+YOU MUST: visual / 画像生成は以下優先順位で agent が能動的選択:
+
+1. **HTML + Playwright スクリーンショット**: 1200×630 / 1080×1080 等の固定サイズ画像、CSS 完全制御、API 障害ゼロ（推奨デフォルト）
+2. **Figma MCP**: 既存デザインシステム流用、デザイントークン抽出、Code Connect 利用時
+3. **html2pdf.js**: PDF 出力（既存 visual v9 で実装済）
+4. **Claude Design API**: 利用継続だが代替経路を常に確保（400 エラー時の即時切替）
+
+「Claude Design 失敗 → セッション停止」は構造的怠慢として禁止。
+
+### 12.6 agent orchestration ルール（creative 部門 5 名の正しい起動）
+
+`creative-director` は visual / deck 制作で以下 4 agent を必ず順次起動:
+
+1. **`ux-designer`**: ワイヤーフレーム + 情報設計（参照ギャラリー query 含む）
+2. **`frontend-dev`** or **`sales-deck-designer`**: HTML / Figma / PPT 実装
+3. **`brand-guardian`**: 日本語字形 + DESIGN.md 整合検証
+4. **`creative-director` 自身**: 最終品質レビュー + 参照パターンとの照合
+
+「creative-director 起動した」と主語詐称せず、上記 4 agent の起動有無を明示（ハードルール 17 主語詐称禁止と整合）。
+
+---
+
+## 13. 更新履歴
 
 | 日付 | 変更 |
 |---|---|
 | 2026-04-29 | 初版作成（hotice deck の実装知見を統合） |
-| 2026-05-05 | セクション 11 追加--AI エージェント対応設計原則（出典: Google web.dev、ICP Persona C 接続、AIO/LLMO 連携） |
+| 2026-05-05 | セクション 11 追加 - AI エージェント対応設計原則（出典: Google web.dev、ICP Persona C 接続、AIO/LLMO 連携） |
+| 2026-05-14 | セクション 12 追加 - ビジュアル参照ライブラリ + Claude Design 単一依存撤廃 + creative 部門 5 名 orchestration ルール（デザインインフラ 4 層不全構造修正） |

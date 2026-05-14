@@ -386,6 +386,46 @@ Phase 4 持ち越し（2026-06-03 期日）:
 
 ---
 
+## 2026-05-14: デザインインフラ 4 層不全 + カテゴリ反射的スキップ判定の構造修正
+
+### 事象
+
+ユーザーから新規デザインギャラリー MCP（25 万 UI スクリーン、Claude Code MCP 対応、完全無料）の取り込み提案。assistant が「ツール紹介系 = 操作軸 = 戦略価値低」とカテゴリ反射的に「案 A スキップ」推奨 → ユーザー指摘「なんで？PPT デザイン結構ださいよ」+ 追加指摘「クロードデザインもエージェントちゃんと使えてないみたいだし、さっきの API エラーなって」で判断ミス露見。
+
+### 規律違反内容
+
+1. ハードルール 1 違反: 「形式達成度 vs 真の 100」区別失敗。visual v9 = 30+ ラウンドループ + creative-playbook-visual-loop-prevention 12 軸規律物理化 = 実需発生済の物理証拠が evolution-log に既存だったのに、「実需が出てから」と先回り増設禁止原則を誤適用
+2. マスク式原則 3 Unkind Truth 違反: 「ConsultingOS のデザイン層は十分」という Kind Lie を維持、「PPT ださい」事実直視を回避
+3. ハードルール 17 主語詐称類縁: creative-director 5 名いるのに visual ループ防げず = orchestrator が creative 部門を正しく起動できていない構造問題を「先回り禁止」で見逃し
+
+### 構造的根本原因 4 層（ユーザー指摘で発見）
+
+| 層 | 問題 |
+|---|---|
+| 1 参照ライブラリ不在 | DESIGN.md は色 / フォント定義のみ、「良いデザイン実例」reference 不足 |
+| 2 生成インフラ不安定 | Claude Design API 400 エラー反復、単一依存リスク、代替経路 agent 能動選択なし |
+| 3 品質基準曖昧 | 「ダサい / ダサくない」判定が agent に渡せない |
+| 4 agent orchestration 失敗 | creative-director 5 名いるのに visual ループ防げず、主語詐称的に「creative-director 起動した」と称しつつ実体は 1 agent のみ起動 |
+
+### 構造修正（PR 統合）
+
+1. DESIGN.md §12 追加: ビジュアル参照ライブラリ + 生成フロー優先順位 + creative 5 名 orchestration ルール
+2. creative-director agent description 改訂: visual 参照 query 最優先責務 + Claude Design 単一依存撤廃 + 5 名 orchestration 明文化
+3. 残: デザインギャラリー MCP 導入（ユーザー URL 提供待ち、本セッション完結不可能）
+
+### メタ学習: カテゴリ反射的スキップ判定の禁止
+
+YOU MUST: 取り込み判定で「カテゴリ = ツール / 操作 / 戦略 / 哲学」を主軸にスキップ判定しない。ConsultingOS 既存実需（evolution-log + skill 体系で物理化済）との fit を必ず確認してから判定。「実需が出てから」原則は「ConsultingOS 内で実需が物理証拠化されているか」を確認した上で適用。
+
+### 反証チェック
+
+- Step 1: 「実需未発生」前回判断は判断ミス FACT（visual 30+ ラウンド = evolution-log 永続記録 + creative-playbook-visual-loop-prevention.md 12 軸物理化 = 物理証拠）/ 4 層構造原因は INFERENCE（実機検証は次回 visual で）
+- Step 2: ハードルール 1 + マスク式原則 3 + ハードルール 17 違反として体系内整合性破綻、自己反証で発見
+- Step 3 実用反証: DESIGN.md §12 追加 + creative-director 改訂で構造的修正完了、次回 visual で実 ROI 検証必要
+- Step 4 リスク即潰し: 「カテゴリ反射スキップ再発」リスクは本学習エントリ + 「実需確認」前段化で構造的に発生不可能化、デザインギャラリー MCP 導入は user URL 提供後の次タスク
+
+---
+
 ## 2026-05-09: デロイト FMO 戦略含意統合 (DS / FDE 役割分離 + Strategy⇄Execution 循環)
 
 ### 事象
