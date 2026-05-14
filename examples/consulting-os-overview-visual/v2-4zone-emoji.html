@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsultingOS とは: 30 秒で分かる全体像</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #FAFAF7;
+    color: #0A0A0A;
+    line-height: 1.5;
+    font-feature-settings: "palt";
+  }
+  .page, .page * {
+    word-break: auto-phrase;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .page {
+    width: 1920px;
+    height: 1080px;
+    padding: 64px 80px;
+    background: #FAFAF7;
+    position: relative;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 40px;
+  }
+
+  /* HEADER */
+  .header { display: flex; justify-content: space-between; align-items: center; }
+  .h-title {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .h-title .accent { color: #E60012; }
+  .h-badges { display: flex; gap: 16px; }
+  .badge {
+    background: #0A0A0A;
+    color: #FAFAF7;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .badge .num { font-size: 22px; font-weight: 900; margin-right: 6px; }
+
+  /* HERO */
+  .hero {
+    background: #0A0A0A;
+    color: #FAFAF7;
+    padding: 36px 48px;
+    border-radius: 8px;
+  }
+  .hero-headline {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  .hero-headline .accent { color: #E60012; }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .flow-step {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 16px 14px;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .flow-step .icon { font-size: 26px; line-height: 1; }
+  .flow-step .step-name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* GRID: 部門 + 下段 */
+  .grid {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 28px;
+    min-height: 0;
+  }
+  .departments {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+  .dept {
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    border-radius: 8px;
+    padding: 22px 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .dept .icon {
+    font-size: 36px;
+    line-height: 1;
+  }
+  .dept-name {
+    font-size: 16px;
+    font-weight: 900;
+    color: #0A0A0A;
+  }
+  .dept-count {
+    font-size: 13px;
+    color: #666666;
+    font-weight: 500;
+  }
+
+  /* 下段: 物理化 + Before/After */
+  .lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    min-height: 0;
+  }
+  .infra-block, .ba-block {
+    background: #FFFFFF;
+    border: 1px solid #1A1A1A;
+    border-radius: 8px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .block-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: #E60012;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .infra-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 24px;
+  }
+  .infra-item {
+    border-left: 4px solid #E60012;
+    padding: 4px 0 4px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0A0A0A;
+    line-height: 1.4;
+  }
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .ba-col { display: flex; flex-direction: column; gap: 10px; }
+  .ba-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #666666;
+    margin-bottom: 4px;
+  }
+  .ba-item {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #0A0A0A;
+  }
+  .ba-arrow {
+    font-size: 32px;
+    color: #E60012;
+    font-weight: 900;
+  }
+
+  /* FOOTER */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #666666;
+    font-size: 13px;
+    color: #666666;
+  }
+  .footer-thoughts { display: flex; gap: 28px; }
+  .footer-thoughts .label {
+    font-weight: 900;
+    color: #0A0A0A;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="h-title">ConsultingOS<span class="accent"> / 司令塔型コンサル OS</span></div>
+    <div class="h-badges">
+      <div class="badge"><span class="num">6</span>部門</div>
+      <div class="badge"><span class="num">27</span>エージェント</div>
+      <div class="badge"><span class="num">36</span>スキル</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-headline">
+      提案作成 40h <span class="accent">→ 8h 圧縮</span>。属人営業 <span class="accent">→ 構造化</span>。<br>
+      27 エージェントが提案から実装・海外展開・マーケまで一気通貫で動かす OS。
+    </div>
+    <div class="flow">
+      <div class="flow-step"><span class="icon">🎯</span><span class="step-name">課題ヒアリング</span></div>
+      <div class="flow-step"><span class="icon">📋</span><span class="step-name">提案 / 構造化</span></div>
+      <div class="flow-step"><span class="icon">⚙️</span><span class="step-name">実装 / AI 統合</span></div>
+      <div class="flow-step"><span class="icon">🎨</span><span class="step-name">クリエイティブ</span></div>
+      <div class="flow-step"><span class="icon">🌏</span><span class="step-name">海外 + マーケ</span></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="departments">
+      <div class="dept">
+        <div class="icon">🧠</div>
+        <div class="dept-name">コンサル</div>
+        <div class="dept-count">6 エージェント</div>
+      </div>
+      <div class="dept">
+        <div class="icon">⚙️</div>
+        <div class="dept-name">サービス開発</div>
+        <div class="dept-count">4 エージェント</div>
+      </div>
+      <div class="dept">
+        <div class="icon">📦</div>
+        <div class="dept-name">プロダクト</div>
+        <div class="dept-count">2 エージェント</div>
+      </div>
+      <div class="dept">
+        <div class="icon">🎨</div>
+        <div class="dept-name">クリエイティブ</div>
+        <div class="dept-count">7 エージェント</div>
+      </div>
+      <div class="dept">
+        <div class="icon">🌏</div>
+        <div class="dept-name">グローバル</div>
+        <div class="dept-count">1 エージェント</div>
+      </div>
+      <div class="dept">
+        <div class="icon">📈</div>
+        <div class="dept-name">マーケティング</div>
+        <div class="dept-count">7 エージェント</div>
+      </div>
+    </div>
+
+    <div class="lower">
+      <div class="infra-block">
+        <div class="block-title">品質を構造で担保する 4 つの物理化層</div>
+        <div class="infra-list">
+          <div class="infra-item">反証チェック Step 1-4 必須</div>
+          <div class="infra-item">main 直 push 物理ブロック</div>
+          <div class="infra-item">FACT / INFERENCE / SPECULATION ラベル</div>
+          <div class="infra-item">真の 100 原則（実 ROI 実証）</div>
+        </div>
+      </div>
+
+      <div class="ba-block">
+        <div class="block-title">Before → After</div>
+        <div class="ba-grid">
+          <div class="ba-col">
+            <div class="ba-label">BEFORE</div>
+            <div class="ba-item">提案作成 40h / 案件</div>
+            <div class="ba-item">属人営業、トップ依存</div>
+            <div class="ba-item">出典なし数値で信頼失墜</div>
+          </div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-col">
+            <div class="ba-label">AFTER</div>
+            <div class="ba-item">提案作成 8h（5x 圧縮）</div>
+            <div class="ba-item">構造で売る、再現性担保</div>
+            <div class="ba-item">3 ラベル + hook で機械検出</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-thoughts">
+      <span><span class="label">佐藤裕介</span>構造で売る</span>
+      <span><span class="label">小野寺信行</span>CPC/CPA 脱却</span>
+      <span><span class="label">マスク式</span>4 原則統合</span>
+      <span><span class="label">BMR</span>致命傷を避ける</span>
+    </div>
+    <div>v 2026-05-08 / nbyk115/consulting-os</div>
+  </div>
+
+</div>
+</body>
+</html>

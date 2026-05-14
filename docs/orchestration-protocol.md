@@ -144,6 +144,25 @@ NEVER: ユーザー指摘で発覚した瞬間に reactive patch のみで終わ
 
 機械検証層（2026-05-07 物理化）: 7 protocol の self-audit を補強する mechanical enforcement として、`.claude/rubrics/brand-guardian-minimal.yaml` + `.claude/hooks/outcomes-judge-minimal.sh`（Stop hook chain 登録済）を運用。Anthropic Outcomes 機能（2026-05-06 Public Beta、Managed Agents 基盤前提）の概念を ConsultingOS 自前実装で移植、4 criteria（emdash_ban / bold_markdown_ban / completion_claim_evidence / subject_fraud_ban）を assistant 出力に対して逐次判定、違反は stderr に [FAIL] / [WARN] alert（非ブロッキング）。Phase: PoC、α 拡張で反証 Step 1-4 完備 + FACT/INFERENCE/SPECULATION 3 ラベル検証 criteria を追加予定。
 
+### §2.7 Strategy ⇄ Execution 循環 + 価値マップ標準化（2026-05-09 PR DJ 物理化、デロイト FMO + OpenAI Tomoro + Anthropic + Blackstone 連携学習）
+
+YOU MUST: assistant orchestrator は agent 起動前に「Enterprise Value Map → KPI Prioritization → Innovation Roadmap」の DS (Deployment Strategist) 標準フローを内省で 1 周。価値定量化なしの agent 起動は形骸化リスク高、起動順序のみの暗黙設計を防止。
+
+3 ステップ（着手前 30 秒）:
+1. Enterprise Value Map: 案件の最終価値ドライバーを 1-3 件特定（売上 / 粗利 / 工数削減 / 評判資本 / 認知 OS 書き換え 等）
+2. KPI Prioritization: 価値ドライバー → 測定可能 KPI に翻訳（例: 提案作成時間 40h → 8h / 受注率 X% → Y% / NPS 等）
+3. Innovation Roadmap: KPI 達成までの工程を 3-5 stage に分解、各 stage の担当 agent を仮配置
+
+YOU MUST: agent 実行結果を strategy-lead へ自動フィードバック（Strategy ⇄ Execution 循環）。一方向フロー（戦略 → 実装で終わる）は禁止、Execution to Strategy で軌道修正 + 価値マップ更新を反復。
+
+ConsultingOS 整合（前 PR DI FDE 時代戦略 5 原則と統合）:
+- DS 役割 = assistant orchestrator
+- FDE 役割 = 27 agent 専門領域別
+- FMO 機能 = skill / hook / evolution-log + 本 §2.7
+- Strategy ⇄ Execution 循環 = 反証チェック Step 1-4 の orchestration 拡張版
+
+出典: デロイトトーマツ「FDE マネジメントオフィス (FMO)」資料（2026 年、INFERENCE: ユーザー提示画像経由）+ 関連 skill `consulting-playbook-fde-era.md`。
+
 ---
 
 ## 3. 起動前 4 点ゲート

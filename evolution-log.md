@@ -386,6 +386,146 @@ Phase 4 持ち越し（2026-06-03 期日）:
 
 ---
 
+## 2026-05-09: デロイト FMO 戦略含意統合 (DS / FDE 役割分離 + Strategy⇄Execution 循環)
+
+### 事象
+
+ユーザーから「デロイト FDE マネジメントオフィス (FMO)」資料 4 枚を提示され「OS に組み込み + オーケストレーター起動」指示。3 agent 並列起動 (strategy-lead + ai-engineer + competitive-analyst) → 統合判定。
+
+### 統合判定
+
+| Agent | 主要結論 |
+|---|---|
+| strategy-lead | A1 価値マップ標準化 + A2 Strategy⇄Execution 循環 を orchestration-protocol §2.7 に統合（追加ファイル 0、ハードルール 13 適合）。A3 Semantic Layer は B 任意（実需待ち、Boris #3 ruthlessly edit）|
+| ai-engineer | デロイト 6 領域 vs ConsultingOS 既存資産マッピング: 4 領域充足 / 3 領域弱（Semantic Layer / staging 環境 / 外部データ管理層）/ 規模ミスマッチで「不要」可能性も |
+| competitive-analyst | 4 プレイヤーポジショニング（デロイト FMO / OpenAI Tomoro / Anthropic+Blackstone / ConsultingOS）/ ConsultingOS = 個人民主化 × OEM × 日本語特化、Stuck in the middle 回避 / v9 visual に「戦略的ポジション比較」追加推奨 |
+
+### 物理化
+
+- docs/orchestration-protocol.md §2.7 新設「Strategy ⇄ Execution 循環 + 価値マップ標準化」
+- 3 ステップ（Enterprise Value Map → KPI Prioritization → Innovation Roadmap）を agent 起動前必須化
+- DS 役割 = assistant orchestrator / FDE 役割 = 27 agent / FMO 機能 = skill + hook + evolution-log + §2.7
+
+### 次セッション課題
+
+- A3 Semantic Layer / staging 環境 / 外部データ管理層は実需待ち（Boris #3 先回り増設禁止）
+- v9 visual の競合比較表に「戦略的ポジション比較」軸追加検討
+- 14 原則体系（マスク 4 + アルトマン 5 + FDE 5）が ConsultingOS 中核思想として体系化済（前 PR DH + DI）
+
+### 関連 PR
+
+- PR DJ（本コミット、orchestration-protocol §2.7 追加 + 本記録）
+- 前 PR: DG (Anthropic Claude for Legal 統合) / DH (アルトマン式) / DI (FDE 時代戦略)
+
+---
+
+## 2026-05-09: visual reactive correction loop 30+ ラウンド事象 + ユーザー指摘 20 件分類学習（OS 設計失敗、二度と起こさない構造改善）
+
+### 事象
+
+ユーザー指示「ConsultingOS 全体像 1 枚絵 visual」に対し、v1 → v9 + 改修ラウンド計 30+ 回の reactive correction loop が発生。各ラウンドでユーザー指摘 → assistant 修正 → 次のラウンドで別指摘の繰り返し。
+
+### ユーザー指摘 20 件分類（同型ミスのカテゴリ化）
+
+| カテゴリ | 指摘内容 | 構造原因 |
+|---|---|---|
+| A 初動 | わかりにくい / ダサい / がちゃがちゃ / わけわからん | ICP / 完成基準確認なしで自走着手 |
+| B 規律違反 | 改行変 / 句点過剰 / 英語混在 / 抽象タグライン | skill 化されていない、毎回手動チェック |
+| C 価格 | 業委混入 / イニシャル + レベシェア区別なし / 計算式不一致 | 価格構造の skill 化なし、検算ゲートなし |
+| D ハルシネーション | 競合実名 / クライアント名指し / 自社構築試算と計算式不一致 | 数値検算ゲート不在、出典 URL チェックなし |
+| E agent 監修 | デザイン部門監修してる / 全エージェント起動してる | 監修フロー機能不全、形式 PASS で判定誤り |
+| F モバイル | モバイルで見切れる / PDF DL されない | viewport meta + Safari scale + iframe 制限の知見が skill 化されていない |
+
+### 構造原因（深層）
+
+| 区分 | 内容 |
+|---|---|
+| 表層 | 各ラウンド assistant が「修正」のみ、根本構造を見直さない |
+| 深層 1 | 初動でユーザー想定 / 対象用途 / 完成基準を確認していない（自走で実装着手）|
+| 深層 2 | 実プレビュー視認なし（assistant がブラウザレンダリング確認できない、Read ベース判定のみ）|
+| 深層 3 | agent 監修（sales-deck-designer 等）の判定が「Read ベース」で「ユーザー視点の見え方」を捕捉できない |
+| 深層 4 | レイアウト高さ計算 skill 化されていない（毎回手動計算ミス）|
+| 深層 5 | 改行 / 句点 / 区別 / 注釈 / 価格 / 計算式 ルールが skill 化されていない（同型ミス再発）|
+| 深層 6 | 「ユーザー OK = 真の 100」が CLAUDE.md ハードルール 1 に明文化されていない |
+| 連鎖 | sales-deck-designer が「総合 PASS」判定後もユーザー指摘継続 = agent 監修の信頼性失墜 |
+
+### 構造的解決策（即時 + 中期）
+
+即時（本 PR）:
+- evolution-log に 20 件分類で永続記録
+- creative-playbook-visual-loop-prevention.md に同型ミス防止規律 6 軸 → 12 軸に拡張
+- 新規律: 価格表記 / 数値検算 / モバイル必須要素 / クレジット削除等
+
+中期（次セッション課題）:
+- 着手前 ICP 確認 skill: visual-initial-checklist.md（用途 / 想定読者 / 参考リファレンス / 完成基準 / 配色 5 項目）
+- 機械検出 hook: visual-quality-check.sh（句点 / br / 英語混在 / 抽象タグライン / 計算式不一致 検出）
+- agent 監修フロー強化: 「user 実プレビュー視認 OK = 真の 100」を CLAUDE.md ハードルール 1 に明記
+- 価格検算 skill: 「PJ + 月次 × 12 + ...」自動検算 + 不一致警告
+
+### 真の 100 原則との整合（深堀り）
+
+本事象は「形式達成度 vs 真の 100」の典型: sales-deck-designer 判定 PASS（形式達成度）= 規律 grep PASS、しかしユーザー視点で「ダサい / 被り / わかりづらい」（真の 100 = 実ユーザーが OK と言うか）に失敗。
+
+CLAUDE.md ハードルール 1 「真の 100 原則」+ 17 §2.6 「Autonomous Mode reactive correction loop は OS 設計失敗」の適用事例。
+
+新たな知見: 「user 視認 OK」を「真の 100」到達条件として明文化必要。assistant 単独 PASS / agent 5 名 PASS は形式達成度（INFERENCE）に過ぎない。
+
+### 関連 PR
+
+- v1-v9 commits: 17c143e / 1e7ea6f / 40cb00e / e8ba563 / 996089c / e13ecb9 / d81fc88 / 0a79c89 / 6204602 / d4af607 / a6d6ed6 / 480113e / c52aa67 / 591964d / f258521 ...
+- 学習 PR: PR DD（本コミット、creative-playbook 規律 12 軸拡張 + 本記録）
+
+---
+
+## 2026-05-09: visual reactive correction loop 14 ラウンド事象（旧記録、上記 20 件分類で更新）
+
+### 事象（旧記録）
+
+v1 → v9 + 改修ラウンド計 14 回の reactive correction loop。「がちゃがちゃ」「emoji 依存」「ダサい」「文字小さい」「下部注釈被り」「改行変」「ハルシネーション」「ラベル区別性なし」等、構造的問題が連続発覚。
+
+### 失敗構造
+
+| 区分 | 内容 |
+|---|---|
+| 表層原因 | 各ラウンド assistant が「修正」のみ、根本構造を見直さない |
+| 構造原因 1 | 初動でユーザー想定 / 対象用途 / 完成基準を確認していない（自走で実装着手）|
+| 構造原因 2 | 実プレビュー視認なし（assistant がブラウザレンダリング確認できない、Read ベース判定のみ）|
+| 構造原因 3 | agent 監修（sales-deck-designer 等）の判定が「Read ベース」で「ユーザー視点の見え方」を捕捉できない |
+| 構造原因 4 | レイアウト高さ計算 skill 化されていない（毎回手動計算ミス）|
+| 構造原因 5 | 改行 / 区別 / 注釈ルールが skill 化されていない（同型ミス再発）|
+| 連鎖リスク | sales-deck-designer が「総合 PASS」判定後もユーザー指摘継続 = agent 監修の信頼性失墜 |
+
+### 同型ミスの繰返し
+
+1. 改行 (br) を勝手に追加 → 削除 → 復活 → 削除（v6 → v7 → v8 → v9）
+2. 抽象タグライン採用（「再現可能な工程」等、ユーザー「わけわからん」）
+3. 競合実名列挙（Genspark / ChatGPT / NotebookLM）でハルシネーション疑い
+4. クライアント名指し（リファレンス記述、ユーザー「書かないで」）
+5. 価格 / 自社構築追加で footer overlap（高さ計算ミスで 2 回再発）
+
+### 構造的解決策（即時 + 中期）
+
+即時（本 PR + 関連 PR）:
+- creative-playbook に「visual reactive correction loop 防止規律」セクション追加
+- ラベル区別性 / 改行 / 注釈フォントサイズの skill 化
+
+中期（次セッション課題）:
+- visual 着手前 ICP 確認テンプレ skill 新設
+- agent 監修フローに「実プレビュー視認」必須化（user 経由 screenshot 共有プロセス）
+- レイアウト高さ計算自動化（CSS で safe area 物理化）
+- 改行ルール（br 追加禁止 + word-break: auto-phrase の信頼）
+
+### 真の 100 原則との整合
+
+本事象は「形式達成度 vs 真の 100」の典型: sales-deck-designer 判定 PASS（形式達成度）= 規律 grep PASS、しかしユーザー視点で「ダサい / 被り / わかりづらい」（真の 100 = 実ユーザーが OK と言うか）に失敗。CLAUDE.md ハードルール 1 「真の 100 原則」+ 17 §2.6 「Autonomous Mode reactive correction loop は OS 設計失敗」の適用事例。
+
+### 関連 PR
+
+- v1-v9 commits: 17c143e / 1e7ea6f / 40cb00e / e8ba563 / 996089c / e13ecb9 / d81fc88 / 0a79c89 / 6204602 ...
+- 学習 PR: PR CN（本コミット、creative-playbook 規律追加 + 本記録）
+
+---
+
 ## 2026-05-08: 水野氏属性ハルシネーション事象（INFERENCE ラベル付与でも誤情報残存）
 
 ### 事象
