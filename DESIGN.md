@@ -408,6 +408,17 @@ YOU MUST: visual / 画像生成は以下優先順位で agent が能動的選択
 
 「Claude Design 失敗 → セッション停止」は構造的怠慢として禁止。
 
+### 12.5.1 HTML 出力の必須テンプレ要件（2026-05-14 追加、HTML-First 採用に伴う規律強化）
+
+HTML 生成時に以下 4 項目を必ず満たす（brand-guardian 機械検証対象）:
+
+1. `<html lang="ja">` 必須付与（ハードルール 10）。検証: `grep 'lang="ja"' output.html`
+2. `<meta charset="UTF-8">` 必須付与（brand-guidelines.md §必須対応）
+3. `font-family` に日本語フォントスタック明示（`Noto Sans JP` / `Yu Gothic` / `Hiragino Sans` 最低 1 つ）。検証: `grep 'font-family' output.html | grep -v 'Noto Sans JP\|Yu Gothic\|Hiragino'` ヒット時 REJECT
+4. em ダッシュ HTML entity（`&mdash;` / `&#8212;` / `&#x2014;`）禁止、raw `**` 残留禁止（ハードルール 16）。検証: `grep '&mdash;\|&#8212;\|&#x2014;' output.html` ヒット時 REJECT + `grep '\*\*' output.html` ヒット時 REJECT
+
+詳細は `.claude/skills/claude-code-ops/references/html-output-patterns.md`。
+
 ### 12.6 agent orchestration ルール（creative 部門 5 名の正しい起動）
 
 `creative-director` は visual / deck 制作で以下 4 agent を必ず順次起動:

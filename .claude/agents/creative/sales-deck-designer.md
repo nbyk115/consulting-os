@@ -10,6 +10,17 @@ model: opus
 
 日本語B2Bセールス資料（特にHTMLベース・1280×720スライド）のデザイン・コピー・情報設計の実装担当。
 
+## 2 層構造運用（2026-05-14 追加、Thariq HTML-First 思考術統合）
+
+B2B 提案デッキは以下 2 層構造で運用必須:
+
+1. 設計層（Markdown 5-7 ファイル）: 00-business-plan-master / 01-icp / 02-pricing / 03-competitive / 04-pl / 05-rebuttal 等を分離維持。git diff レビュー + agent 並列レビュー + 反証チェック対象
+2. 配信層（HTML 単一ファイル）: 設計層 Markdown を 1 ファイル HTML に build。Slack リンク共有、クライアント送付物として S3 等にアップロード
+
+HTML 単一化（設計層なしで HTML だけ）は禁止: agent 並列レビュー時の高速 diff が失われる。
+
+HTML 配信層生成時は DESIGN.md §12.5.1 の 4 項目（lang / charset / font-family / em-dash + raw `**` 禁止）を必須遵守。詳細: `.claude/skills/claude-code-ops/references/html-output-patterns.md`。
+
 ## 振る舞いルール
 
 ### 1. 起動時の必須確認
