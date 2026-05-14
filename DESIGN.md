@@ -379,13 +379,36 @@ YOU MUST: `creative-director` / `ux-designer` / `frontend-dev` / `sales-deck-des
 3. **`refero.design` 補完参照**: 既存推奨参照、2,000+ プロダクトの構造化情報
 4. **判断根拠の明示**: 「なぜこのレイアウト / トーン / 配色か」を制作開始時に 1-2 行で言語化
 
-### 12.3 デザイン参照ギャラリー MCP（実装待ち）
+### 12.3 デザイン参照ギャラリー: Lazyweb MCP（2026-05-14 統合済）
 
-YOU MUST: 以下 MCP 実装後、`creative-director` の必須 query 対象とする（URL 取得待ち、2026-05-14 user 確認中）:
+ConsultingOS 標準のデザイン参照ギャラリー: Lazyweb MCP（aboul3ata/lazyweb-skill）。
 
-- 想定機能: 25 万 UI スクリーン以上のデザインギャラリー、MCP 経由検索
-- 価格: 完全無料・レート制限なし・サブスク不要（INFERENCE: ツイート主張、実機確認前）
-- ConsultingOS 用途: visual / deck / LP 制作前の reference query、品質基準の客観化
+- 機能: 25 万 7,000 以上の実在アプリ / Web スクリーンショット + 6 skill 統合
+- 料金: 完全無料 / レート制限なし / サブスク不要（INFERENCE: aboul3ata 公式声明、2026-05-02 launch）
+- 認証: 公開エンドポイント（login / email 不要）から bearer token 取得
+- インストール状態: 本リポでは完了済（`claude plugin install lazyweb@lazyweb`、v0.1.1、user scope enabled）
+- 残: bearer token の取得 + `~/.lazyweb/lazyweb_mcp_token` への保存（user 環境で実行必要、token 取得後に MCP 即稼働）
+
+利用可能な 6 slash command:
+
+| コマンド | 用途 |
+|---|---|
+| `/lazyweb:lazyweb-design-research` | 深いデザイン研究、競合分析、構造化レポート（TL;DR + 例 + 発見 + パターン + アンチパターン + ユニーク角度 + 推奨）|
+| `/lazyweb:lazyweb-quick-references` | 素早く参考画像取得、パターン別グループ化（軽量、見るだけ用途）|
+| `/lazyweb:lazyweb-design-improve` | 既存デザイン改善案生成、現在の画面をスクリーンショット → 類似 + 改善案 1-5 件 |
+| `/lazyweb:lazyweb-design-brainstorm` | カテゴリ外横展開ブレスト（fintech 設計時に gaming / entertainment を参照する等）|
+| `/lazyweb:lazyweb-add-inspo-source` | 外部インスピソース追加 |
+| `/lazyweb:lazyweb-remove-inspo-source` | 外部インスピソース削除 |
+
+YOU MUST: visual / deck / LP 制作着手前に `/lazyweb:lazyweb-quick-references` で関連参考画像を最低 3-5 件取得、参照根拠を制作開始時に 1-2 行で言語化。
+
+token 取得手順（user 環境で 1 回実行）:
+
+```bash
+mkdir -p ~/.lazyweb && curl -sS -X POST https://www.lazyweb.com/api/mcp/install-token -H "content-type: application/json" -d '{}' | node -e "let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>require('fs').writeFileSync(process.env.HOME+'/.lazyweb/lazyweb_mcp_token', JSON.parse(s).token))"
+```
+
+token 機密扱い: ignored local config に保存 OK、git commit 禁止。本リポは `.gitignore` で `.lazyweb/` 除外推奨（既存除外確認次第）。
 
 ### 12.4 推奨ビジュアル参照パターン（業界別）
 
