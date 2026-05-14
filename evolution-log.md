@@ -386,6 +386,39 @@ Phase 4 持ち越し（2026-06-03 期日）:
 
 ---
 
+## 2026-05-09: デロイト FMO 戦略含意統合 (DS / FDE 役割分離 + Strategy⇄Execution 循環)
+
+### 事象
+
+ユーザーから「デロイト FDE マネジメントオフィス (FMO)」資料 4 枚を提示され「OS に組み込み + オーケストレーター起動」指示。3 agent 並列起動 (strategy-lead + ai-engineer + competitive-analyst) → 統合判定。
+
+### 統合判定
+
+| Agent | 主要結論 |
+|---|---|
+| strategy-lead | A1 価値マップ標準化 + A2 Strategy⇄Execution 循環 を orchestration-protocol §2.7 に統合（追加ファイル 0、ハードルール 13 適合）。A3 Semantic Layer は B 任意（実需待ち、Boris #3 ruthlessly edit）|
+| ai-engineer | デロイト 6 領域 vs ConsultingOS 既存資産マッピング: 4 領域充足 / 3 領域弱（Semantic Layer / staging 環境 / 外部データ管理層）/ 規模ミスマッチで「不要」可能性も |
+| competitive-analyst | 4 プレイヤーポジショニング（デロイト FMO / OpenAI Tomoro / Anthropic+Blackstone / ConsultingOS）/ ConsultingOS = 個人民主化 × OEM × 日本語特化、Stuck in the middle 回避 / v9 visual に「戦略的ポジション比較」追加推奨 |
+
+### 物理化
+
+- docs/orchestration-protocol.md §2.7 新設「Strategy ⇄ Execution 循環 + 価値マップ標準化」
+- 3 ステップ（Enterprise Value Map → KPI Prioritization → Innovation Roadmap）を agent 起動前必須化
+- DS 役割 = assistant orchestrator / FDE 役割 = 27 agent / FMO 機能 = skill + hook + evolution-log + §2.7
+
+### 次セッション課題
+
+- A3 Semantic Layer / staging 環境 / 外部データ管理層は実需待ち（Boris #3 先回り増設禁止）
+- v9 visual の競合比較表に「戦略的ポジション比較」軸追加検討
+- 14 原則体系（マスク 4 + アルトマン 5 + FDE 5）が ConsultingOS 中核思想として体系化済（前 PR DH + DI）
+
+### 関連 PR
+
+- PR DJ（本コミット、orchestration-protocol §2.7 追加 + 本記録）
+- 前 PR: DG (Anthropic Claude for Legal 統合) / DH (アルトマン式) / DI (FDE 時代戦略)
+
+---
+
 ## 2026-05-09: visual reactive correction loop 30+ ラウンド事象 + ユーザー指摘 20 件分類学習（OS 設計失敗、二度と起こさない構造改善）
 
 ### 事象
