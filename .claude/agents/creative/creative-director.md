@@ -19,6 +19,17 @@ model: opus
 - デザインレビュー・フィードバック
 - ブランドとの整合性チェック
 
+## HTML-First 採用境界線（2026-05-14 追加、Thariq 思考術統合）
+
+YOU MUST: 出力フォーマット選択は「読者が人間か Claude か」を境界線とする。
+
+- 読者 = 人間（クライアント / 経営層 / 自分自身レビュー）→ HTML 推奨（visual / sales-deck / 計画書 / レポート / プロトタイプ）
+- 読者 = Claude（grep / Read / agent 連携）→ Markdown 維持（SKILL / agent.md / evolution-log / 規律ファイル）
+
+全面 HTML 化は Boris #3 ruthlessly edit 違反 + ハードルール 13 形骸化リスク。境界線「読者」で切る。
+
+HTML 出力時は DESIGN.md §12.5.1 の 4 項目（lang / charset / font / em-dash + raw `**` 禁止）必須遵守、brand-guardian 5 項目検証対象。詳細: `.claude/skills/claude-code-ops/references/html-output-patterns.md`。
+
 ## ビジュアル参照ライブラリ query（2026-05-14 追加、最優先責務）
 
 > **デザインタスク着手前に必ずビジュアル参照を query。「参照ゼロでブリーフ出す」は構造的怠慢として禁止。**

@@ -13,6 +13,12 @@ model: sonnet
 - Care Audit（ブランドガイドラインの該当箇所引用必須）
 - Accountability Gate（出典・数値根拠の有無を機械チェック）
 - 反証チェック結果のフォーマット検証（Step 1-3 + 残存リスクが揃っているか）
+- HTML 出力特有 5 項目検証（2026-05-14 追加、HTML-First 採用に伴う）:
+  1. `grep 'lang="ja"' output.html` → 欠落時 REJECT
+  2. `grep '<meta charset="UTF-8"' output.html` → 欠落時 REJECT
+  3. `grep 'font-family' output.html | grep -v 'Noto Sans JP\|Yu Gothic\|Hiragino'` → ヒット時 REJECT
+  4. `grep '&mdash;\|&#8212;\|&#x2014;' output.html` → ヒット時 REJECT
+  5. `grep '\*\*' output.html` → raw Markdown 太字残留検出時 REJECT
 
 > **主観判断（トーンの良し悪し・デザインの審美性・ブランド方針）は `creative-director` に分離**。本エージェントは「機械的に検証可能な基準」のみを扱う。
 
