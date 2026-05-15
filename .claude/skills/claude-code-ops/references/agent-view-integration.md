@@ -2,6 +2,43 @@
 
 > Claude Code 公式機能「Agent View」(Research Preview、2026-05) を ConsultingOS 27 agent 並列起動運用に統合するガイド。`claude-code-ops/SKILL.md` のサブ参照。
 
+## 0. `/goal` コマンド統合（2026-05-14 追加、v2.1.139 で公式追加）
+
+Anthropic が 2026-05-11 公式追加。完了条件を 1 行書くと Claude が達成まで複数ターン自走する仕組み。「続けて」連打が不要化、auto mode 併用で完全放置可能。
+
+機能:
+- 完了条件: 自然言語で指定（例: `test/auth 全パスかつ lint クリーン`）
+- 評価者: 既定 Haiku、各ターン後に yes/no と理由を返却
+- 状態: turns / tokens / elapsed をオーバーレイ表示
+- 「Ralph loop」内蔵化
+
+利用方法:
+- CLI: `/goal [条件]` または `claude -p "/goal ..."` で非対話起動
+- Remote Control でも動作
+- session-scoped Stop hook のラッパー
+
+出典: code.claude.com/docs/en/goal（INFERENCE: ユーザー提示テキスト経由）
+
+ConsultingOS 整合:
+- 既存 stop-validator.sh / stop-os-check.sh hook と統合候補（agent 自走時の反証チェック発火）
+- ハードルール 17 Autonomous Mode 既定化と完全整合
+- AI エージェントガードレール 3 層体系（PR #150）の「個人レベル運用」での自走条件明示化に直接活用
+
+YOU MUST: 関根さん N&Y Craft Phase 1 構築 / 水野さん v4 書き直し等の大規模タスクで `/goal` 採用検討。完了条件 = 反証チェック Step 1-4 全項目 PASS + 規律 hook 全件 PASS 等を 1 行で指定。
+
+Tom Griffiths 8 条件（PR #148）と連携:
+- 予算上限: `/goal` の elapsed / tokens 上限を活用
+- エスカレーション: Haiku 判定が一定回数 no なら停止 + 人間介在
+- 監査可能性: turns / tokens / elapsed オーバーレイ = ログ可視化
+
+ConsultingOS 案件での標準活用パターン:
+| シーン | `/goal` 完了条件例 |
+|---|---|
+| 反証チェック修正 | `反証チェック Step 1-4 全項目 PASS + brand-guardian 5 項目検証 PASS` |
+| visual 制作 | `lang=ja + charset=UTF-8 + Noto Sans JP + em-dash 0 + raw ** 0 全件 PASS` |
+| skill 統合 | `consulting-playbook.md 500 行以下 + 出典明記 + 反証チェック付与` |
+| OEM 案件構築 | `oem-base-kits/ 全 125 ファイル整合 + ICP.md 完成 + DESIGN.md 整合` |
+
 ## 1. Agent View 機能概要（FACT、Anthropic 公式）
 
 Claude Code が「1 チャットでコードを書くツール」から「複数 AI 作業員を同時に動かす開発 OS」へ進化。
