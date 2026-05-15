@@ -50,8 +50,16 @@ DESIGN.md §12 + Lazyweb MCP (token 取得済の場合) で動画リファレン
 | モーショングラフィックス | Hyperframes + Puppeteer pipeline | CI 親和性高 |
 | 既存素材編集 (mp4 → 完成版) | Video Use | アセットフォルダ→完成 mp4 自動編集 |
 | 静止画ベース動画 (Ken Burns 等) | Hyperframes or html2pdf 派生 | 軽量 / プログラマブル |
+| 長編動画 → クリップ抽出 + 投稿 (2026-05-15 追加) | VugolaAI.com MCP (有料推定 INFERENCE) or louisedesadele 系 OSS (無料、github.com/louisedesadele...、INFERENCE 一次出典 URL truncated) | Claude Opus 4.7 経由で長編分析 + クリップ抽出 + キャプション + スケジュール投稿、関根さん Phase 2-3 で醸造工程動画 → TikTok 切り出しに直接適用 |
 
 YOU MUST: ツール選定根拠を 1-2 行で明示 (例: 「TikTok 10 本量産 → Higgsfield Supercomputer、auto モデル選定 + 商用 OK」)。
+
+クリップ抽出 MCP 採用判定 (Boris #3):
+- 即インストール禁止
+- 関根さん Phase 2-3 (TikTok / UGC 展開時) で実需確認後
+- OSS 版 (無料) を優先評価、有料版 (VugolaAI) は OSS で不足時のみ
+- legal-compliance-checker: 動画素材の著作権 / 肖像権 / プラットフォーム規約検証必須
+- AI ガードレール 3 層 (PR #150) + Tom Griffiths 8 条件 (PR #148) 全件遵守
 
 ### Phase 4: 生成・実装 (frontend-dev or sales-deck-designer)
 
