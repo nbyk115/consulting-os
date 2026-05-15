@@ -94,6 +94,42 @@ YOU MUST: ConsultingOS 提案で「ツールとしての AI」でなく「思考
 
 3 思想家フレームが層構造で重なる: 思考 (マスク) + 経営 (アルトマン) + 実装 (FDE)。
 
+## OpenAI FDE 公式 Job Description 6 capabilities（2026-05-14 追加）
+
+OpenAI 公式 Forward Deployed Engineer 募集要項より、上位 FDE に求められる 6 能力（FACT、出典: openai.com/careers/forward-deployed-engineer、INFERENCE: ユーザー提示画像経由）:
+
+| # | 能力 | 詳細 |
+|---|---|---|
+| 1 | 顧客課題の構造化 | 曖昧な要望を業務要件・技術要件へ整理 / 顧客の本質課題を見抜く |
+| 2 | システム設計・実装力 | フルスタックで本番品質まで実装 / API・データ・クラウド踏まえた設計 |
+| 3 | LLM / 生成 AI 活用力 | RAG・Agent・評価設計を理解 / モデル挙動と UX への影響を判断 |
+| 4 | プロジェクト推進力 | 優先順位付け・スコープ調整・障害除去 / 速度・品質・納期のバランス |
+| 5 | 本番運用・ガバナンス | セキュリティ・監査・信頼性を担保 / リスクを早期発見し対処 |
+| 6 | 仕組み化と学習循環 | 成功パターンを Playbook 化・再利用 / 現場知見を Product / Research へ還元 |
+
+コア資質 4 軸: 顧客理解 / 技術力 / 判断力 / やり切る力
+
+定義: 「上位の FDE とは、単なる AI エンジニアではなく、顧客現場で AI を『使える形』にする技術責任者」
+
+報酬 FACT (NY base、INFERENCE: ユーザー提示):
+- 年俸: $162K – $280K
+- Equity: あり
+
+日本展開: 「日本でも近々ポジション openinng」予測 (SPECULATION、ユーザー提示)。
+
+### ConsultingOS との対応マッピング
+
+| OpenAI FDE 6 capabilities | ConsultingOS 該当 |
+|---|---|
+| 1 顧客課題の構造化 | strategy-lead + proposal-writer + 反証チェック Step 1 自己反証 |
+| 2 システム設計・実装力 | tech-lead + fullstack-dev + infra-devops + ai-engineer |
+| 3 LLM / 生成 AI 活用力 | ai-engineer + 21 hook + ハードルール 17 体系 |
+| 4 プロジェクト推進力 | assistant orchestrator + ハードルール 6/7/12 (PR / commit 規律) |
+| 5 本番運用・ガバナンス | brand-guardian + AI ガードレール 3 層 (PR #150) + Tom Griffiths 8 条件 (PR #148) |
+| 6 仕組み化と学習循環 | evolution-log + 36 skill 体系 + 反証チェック Step 4 リスク即潰し |
+
+= ConsultingOS は OpenAI FDE 6 capabilities 全件カバーする「個人版 FDE プラットフォーム」として既に物理化済 (PR #DI で FDE 民主化原則明示)。
+
 ## 関連参照
 
 - 出典: OpenAI Tomoro 買収 / Anthropic + Blackstone 連携（Reuters 2026）
