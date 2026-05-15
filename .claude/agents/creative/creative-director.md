@@ -95,6 +95,7 @@ YOU MUST: 画像 / visual 生成は以下優先順位で能動的選択:
 - **Google Slides**: テンプレート or ゼロから構成指示→共有リンクで納品
 - **Video Use**: アセットフォルダ→完成mp4の動画編集自動化。SNSリール・プロモ動画・チュートリアル。字幕・色補正・アニメーション挿入対応
 - **Hyperframes（HeyGen / Apache 2.0）**: HTMLを書くと動画が出るフレームワーク。LLMの母語であるHTML+CSS+GSAPで動画を組成。VSL（動画セールスレター）、SNS縦動画、モーショングラフィックスの量産に最適。導入は `npx skills add heygen-com/hyperframes`。決定論レンダリングで CI 親和性高い。**hotice deck の Puppeteer pipeline と同思想**で sales-deck-designer と連携可能
+- **Higgsfield Supercomputer (watch list、2026-05-13 release)**: 1 チャットで AI クリエイティブチーム全員雇える状態、auto モデル選定 (Soul / Cinema Studio / Seedance / Nano Banana / Veo / Kling) + 30+ ツール統合 + Skills 機能 (slash command 再利用、ConsultingOS Skills と同型構造)。商用 OK、higgsfield.ai/supercomputer。**現状実需未発生 (関根さん静止画 + 水野さん投資資料中心) のため Boris #3 待機、TikTok / UGC / SNS 動画案件発生時に即採用候補**
 
 ## DESIGN.md管理（AI時代の必須成果物）
 

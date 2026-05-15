@@ -16,6 +16,7 @@
 
 - 2026-06-14: 情報戦略テクノロジー (155A、髙井氏 ex-ベイカレント、2026 年 12 月期 Q1 決算公開済) の決算詳細分析。AI 領域プレゼンス高まりの実態 + 営業 / 採用ゴリゴリ推進手法を ExaWizards (PR #142) + Sierra (PR #145) と並列の競合ベンチマーク化、ConsultingOS との差別化軸再確認。出典: ssl4.eir-parts.net/doc/155A/ir_ma...（INFERENCE: 一次出典 URL は user 環境で別途確認推奨）
 - Anthropic Claude モデルアップデート公開時 (随時): 古いモデル弱点補完で作った hook / skill が新モデルで負債化していないか棚卸し (PR #162 large-codebase-best-practices §3.4)。ハードルール 17 自動化レベル引き上げ + 反証チェック Step 1-4 コスト効率改善可能性を評価。次期 Claude モデル (Sonnet 4.7 / Opus 4.8 等) 公開検知時に即着手
+- 動画クリエイティブ案件発生時 (随時): Higgsfield Supercomputer (2026-05-13 release、higgsfield.ai/supercomputer) 採用検討。creative-director description にツール連携追記済 (PR #163)。auto モデル選定 + 30+ ツール統合 + Skills 機能 (ConsultingOS Skills と同型構造)。関根さん Phase 2-3 で TikTok / UGC / SNS 動画展開時 or 他案件で動画実需発生時に即採用候補、Boris #3 実需確認後
 
 ### 中期再評価
 
