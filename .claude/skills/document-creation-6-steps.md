@@ -111,6 +111,27 @@ YOU MUST:
 - ハードルール 2 出典なし数値断言禁止: ⑤ 仮説検証で出典必須
 - ハードルール 10/16/17: ⑥ 最終化で字形 / em-dash / 主語詐称機械検証
 
+## Feynman method (理解確認、2026-05-15 追加)
+
+複雑トピックを「分かったつもり」でなく「本当に分かる」ためのアナロジー駆動説明手法。出典: Anatoli Kopadze 18 Steps (2026-05-13、INFERENCE)。
+
+YOU MUST: クライアント / ユーザーが複雑トピック (技術 / 金融 / 法務 / 業界専門用語) 理解で詰まった時、以下のパターン起動:
+
+```
+Explain [topic] to me using only analogies and everyday examples.
+No jargon. Assume I have no background in this field.
+After each analogy, check whether I've actually understood it by asking me one question.
+Based on my answer, go deeper or adjust the explanation.
+Keep going until I can explain it back to you in my own words without using any technical terms.
+```
+
+= 受動的説明でなく、相手の理解度に応じて深さを調整する対話型理解確認。document-creation-6-steps ② メッセージ決定の前段で「相手が分かっていない / 分かっているフリ」を検出可能。
+
+ConsultingOS 適用:
+- 関根さん: AI / vertical OS / OEM 等の技術概念説明時に Feynman 起動
+- 水野さん: 投資テーゼの抽象概念 (vertical AI-OS verticalization trend) を Feynman で理解確認
+- legal-compliance-checker: 法令解説でアナロジー駆動可能
+
 ## 起動条件
 
 - ユーザーが「資料作って」「pitch deck」「提案書」「レポート」「メモ」発話時
