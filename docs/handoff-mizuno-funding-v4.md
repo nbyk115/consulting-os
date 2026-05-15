@@ -254,6 +254,32 @@ ConsultingOS = 「日本 B2B コンサル vertical AI-OS」= Anthropic 公式 ve
 
 `.claude/skills/references/consulting-playbook-anthropic-vertical-os.md`（PR 統合済）に Anthropic 垂直制圧プレイブック / SaaS 死テーゼ / Finatext 4 層 / Sierra vs Finatext 戦略分岐の詳細を物理化済。
 
+### 11.6 Hidden Markov Model (HMM) quant 投資フレーム (watch list、2026-05-15 追加)
+
+Stanford 大学公開 HMM 完全フレームワーク (web.stanford.edu/~jurafsky/slp3、INFERENCE: ユーザー提示テキスト経由) + Roan @RohOnChain 実装記事 (INFERENCE) = ヘッジファンド (Jane Street / Two Sigma) で使用される regime switching 投資フレームの公開実装。
+
+水野さん向け適用候補 (watch list、本人実需確認後段階導入):
+- 個人投資家として「Bull / Bear / Sideways」regime detection
+- Transition Matrix で投資先 / portfolio の n-step ahead 確率予測
+- Stationary distribution で long-run baseline 把握
+- HMM (Baum-Welch + Viterbi) で観察不能な regime を return sequence から推論
+
+ConsultingOS 整合:
+- Anthropic CFO 指数関数思考 (PR #144): 多層指数関数 = HMM 複数 hidden state と同型構造
+- Sierra ハーネスエンジニアリング (PR #145): 本番稼働技術蓄積 = HMM emission variable 選定 (returns + volatility + credit spreads + VIX 等) のドメイン知識
+- PoC 地獄脱出 (PR #161) 戦略 4 自社 SaaS: HMM 自体を SaaS 化する候補
+
+実装ハードル:
+- Python + hmmlearn ライブラリ
+- ヘッジファンド級データ取得 + 計算リソース (歴史データ 10 年以上推奨)
+- Baum-Welch local minimum 問題 (multiple random initialization 必須)
+- 水野さん本人の quant trading 実需確認必須 (Boris #3、個人投資家として regime detection 実需未確定)
+
+統合判定: 本セッションでは watch list 登録のみ、水野さん v4 書き直し時に「投資テーゼ補強候補」として再評価。次セッションで:
+1. 水野さん本人に「regime detection / quant モデル」興味確認
+2. 興味あれば handoff 専用セクション化、新規 references skill 物理化
+3. 興味なしなら本 §11.6 のまま保持 (情報資産として)
+
 ---
 
 > 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。§11 は Anthropic 公式発表（2026-05-12 / 05-13）+ Finatext IR + note.com/110_110_110 (Sierra vs Finatext 比較、INFERENCE) を追加根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。
