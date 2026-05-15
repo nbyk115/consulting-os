@@ -14,6 +14,8 @@
 - 2026-06-04: PR AX `workload-allocation-management` skill + `workload-tracking.sh` hook の形骸化検知（4 週間後）。Goodhart 法則対策（複数軸 + 定性レビュー + 反指標）が運用されているか / 単一指標化していないか / 教育実習が「やった」だけになっていないかを確認。形骸化検知時は Boris #3 ruthlessly edit で削除 / 統合 / 改修判断
 - 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
 
+- 2026-06-14: 情報戦略テクノロジー (155A、髙井氏 ex-ベイカレント、2026 年 12 月期 Q1 決算公開済) の決算詳細分析。AI 領域プレゼンス高まりの実態 + 営業 / 採用ゴリゴリ推進手法を ExaWizards (PR #142) + Sierra (PR #145) と並列の競合ベンチマーク化、ConsultingOS との差別化軸再確認。出典: ssl4.eir-parts.net/doc/155A/ir_ma...（INFERENCE: 一次出典 URL は user 環境で別途確認推奨）
+
 ### 中期再評価
 
 - 2026-08-02: brand-guidelines §5.5 単位整合性ルールの実効性検証（3 ヶ月後、違反再発有無の確認・水野さんピッチ単位錯誤事例対応）
