@@ -39,6 +39,77 @@ ConsultingOS 案件での標準活用パターン:
 | skill 統合 | `consulting-playbook.md 500 行以下 + 出典明記 + 反証チェック付与` |
 | OEM 案件構築 | `oem-base-kits/ 全 125 ファイル整合 + ICP.md 完成 + DESIGN.md 整合` |
 
+### /goal 受け入れ基準設計 (2026-05-15 追加、書き方が成否の 80%)
+
+YOU MUST: /goal の完了条件は「観察可能な終了状態」を記述。「ジュニア開発者へのチケット」メンタルモデルで受け入れ基準を書く。
+
+#### Good Goals (機能する 3 要件)
+
+1. 観察可能な終了状態 (テスト出力 / ビルド結果 / ファイル差分 等)
+2. 評価者が transcript から確認可能
+3. 具体的なアーティファクト指定
+
+例:
+- `test/auth の全テスト PASS + lint クリーン` (テスト出力で確認)
+- `古い API の全呼出箇所が移行 + build 成功` (build 出力で確認)
+- `CHANGELOG.md に今週マージ全 PR のエントリ追加` (ファイル + 内容指定)
+
+#### Bad Goals (失敗 2 パターン)
+
+1. 終了条件不明確 → エージェント無限ループ
+2. 評価者が幻覚的成功宣言 → トークン浪費
+
+NG 例:
+- 「コードベースを良くする」(指標不明)
+- 「すべてをリファクタリング」(終了条件なし)
+- 「バグを修正」(どのバグ / 検証方法不明)
+
+#### 複雑タスクの分解
+
+「authを再設計 + OAuth追加 + テスト + ドキュメント」= 4 つの目標を 1 つに装っている。
+
+YOU MUST: 連続した /goal 呼出に分解、各 /goal は単一の検証可能な終了線:
+
+```
+/goal 1: auth を再設計、test/auth 全 PASS
+/goal 2: OAuth 統合、test/oauth 全 PASS
+/goal 3: ドキュメント更新、CHANGELOG.md + README.md 整合
+```
+
+#### /goal vs /loop vs Stop hooks
+
+- `/goal`: モデル検証された完了条件で停止、outcome-based work 向け
+- `/loop`: スケジュール反復、polling / 定期タスク向け
+- Stop hooks: 各ターン後のカスタム評価ロジック、柔軟だがセットアップ多
+
+#### ConsultingOS 受け入れ基準テンプレート (関根さん / 水野さん向け)
+
+| 案件タイプ | /goal 完了条件 |
+|---|---|
+| 関根さん Phase 1 構築 | `oem-base-kits/n-y-craft-os/ 125 ファイル全件存在 + ICP.md 完成 + DESIGN.md §12 整合 + 反証チェック Step 1-4 付与` |
+| 水野さん v4 書き直し | `事業計画 7 ファイル + HTML pitch 1 形式 + 反証チェック PASS + FACT/INFERENCE/SPECULATION 全件付与 + ハルシネーション 0` |
+| visual 制作 | `1280×720 HTML + brand-guardian 5 項目 (lang/charset/font/em-dash/raw**) 全 PASS` |
+| skill 統合 PR | `consulting-playbook.md 500 行以下 + em-dash 0 + 反証チェック付与 + main マージ済` |
+| 反証チェック修正 | `Step 1-4 全項目 + 実測コマンド出力添付 + brand-guardian PASS` |
+
+#### 自己生成パターン (/goal 書けない時)
+
+```
+Write me a /goal prompt. Ask me what I'm trying to do first, then keep asking
+follow-up questions until you can describe 'done' in specific, measurable terms.
+```
+
+= Claude に /goal 完了条件を逆生成させる、ConsultingOS の strategy-lead 起動 (パートナー級論点設計 = PR #166 資料作りの基本の型 ①) と同型構造。
+
+#### アンチパターン検知 4 件
+
+YOU MUST: 以下を検知したら即停止、/goal 書き直し:
+
+1. 曖昧な動詞 (「改善」「リファクタ」「最適化」) のみ
+2. 検証可能なアーティファクト未指定
+3. 複数目標を 1 つに装う
+4. 評価者が transcript から確認不能 (Claude が結果を出力しない)
+
 ## 1. Agent View 機能概要（FACT、Anthropic 公式）
 
 Claude Code が「1 チャットでコードを書くツール」から「複数 AI 作業員を同時に動かす開発 OS」へ進化。
