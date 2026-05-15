@@ -15,6 +15,7 @@
 - 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
 
 - 2026-06-14: 情報戦略テクノロジー (155A、髙井氏 ex-ベイカレント、2026 年 12 月期 Q1 決算公開済) の決算詳細分析。AI 領域プレゼンス高まりの実態 + 営業 / 採用ゴリゴリ推進手法を ExaWizards (PR #142) + Sierra (PR #145) と並列の競合ベンチマーク化、ConsultingOS との差別化軸再確認。出典: ssl4.eir-parts.net/doc/155A/ir_ma...（INFERENCE: 一次出典 URL は user 環境で別途確認推奨）
+- Anthropic Claude モデルアップデート公開時 (随時): 古いモデル弱点補完で作った hook / skill が新モデルで負債化していないか棚卸し (PR #162 large-codebase-best-practices §3.4)。ハードルール 17 自動化レベル引き上げ + 反証チェック Step 1-4 コスト効率改善可能性を評価。次期 Claude モデル (Sonnet 4.7 / Opus 4.8 等) 公開検知時に即着手
 
 ### 中期再評価
 
