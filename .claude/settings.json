@@ -101,6 +101,11 @@
           },
           {
             "type": "command",
+            "command": ".claude/hooks/subject-fraud-check.sh",
+            "timeout": 8000
+          },
+          {
+            "type": "command",
             "command": ".claude/hooks/outcomes-judge-minimal.sh",
             "timeout": 5000
           },
