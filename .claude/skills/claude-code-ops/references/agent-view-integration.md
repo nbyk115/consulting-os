@@ -111,6 +111,28 @@ Phase 1 構築（3 ヶ月）期間中の運用想定:
 - バックグラウンド: competitive-analyst + market-researcher（ジーニー / マーケ業界調査）+ kpi-analytics（ROI 試算）
 - Agent View で全並列 5-7 agent を管理
 
+## 6.3 Claude Code Desktop App vs ターミナルの使い分け（2026-05-14 追加）
+
+Claude Code Desktop App (Mac / Windows) が機能拡張で「ターミナル代替」候補に進化:
+- 過去セッション一覧表示
+- フォルダ選択 + 展開
+- ワーキングツリー + プレビュー表示
+- ターミナル起動内蔵
+
+設定共有: `~/.claude/` はデスクトップ / ターミナル両方で共有、ConsultingOS の skill / agent / hook / MCP / Lazyweb plugin はどちらでも稼働。
+
+ConsultingOS 推奨使い分け:
+
+| タスク | 推奨環境 | 理由 |
+|---|---|---|
+| コード実装 / ビルド / デプロイ / git 操作 | ターミナル | CLI 操作の即時性 |
+| 壁打ち / 調査 / 資料作成 / 提案書ドラフト | デスクトップ | UI + プレビュー |
+| 関根さん / 水野さん週次レビュー | デスクトップ | 過去セッション参照容易 |
+| visual / OEM ベースキット制作 | ターミナル | hook + 検証コマンド連動 |
+| iPhone / iPad 限定環境（user 現状）| Web claude.ai | デスクトップ未保有時のフォールバック |
+
+副次効果: デスクトップ環境では `claude plugin` CLI 直接アクセス可能 = Lazyweb token 取得 (前ターン保留中) が容易化。
+
 ## 7. 関連参照
 
 - 出典: x.com/claudeai (Agent View Research Preview、2026-05、INFERENCE)
