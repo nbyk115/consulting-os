@@ -309,6 +309,10 @@ AI が最も引用するコンテンツの 3 類型:
 - 「AI ブランド価値一貫性」「AI レスポンス内優先表示」両項目でグローバル小売第 1 位（Business of Fashion 調査）
 - YouTube / Facebook / Instagram が Google AI モード上位 6 引用元のうち 3 つを占有
 
+### 9-6. AI 検索流入計測ツール候補 (watch list、2026-05-14)
+
+Cody Schneider 公開「AI 検索分析ダッシュボード」(GA + 検索順位ツール接続、3 タブ = AI 検索 / 広告 / 通常検索、5 分構築、Claude Code Skill + Notion 手順書配布、931 いいね) を採用候補マーキング。トリガー: 関根さん N&Y Craft Phase 2 オーガニック施策 + 「ChatGPT / Perplexity アクセス計測不能」の具体的痛み発生時。Phase 1 先行実装不要 (Boris #3)。実需確定時に §10 詳細追記、新規 skill 不要。
+
 ---
 
 ## 出典・依拠先
