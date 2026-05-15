@@ -282,4 +282,34 @@ ConsultingOS 整合:
 
 ---
 
+## §11.7 YC Top 8 AI Sectors 2025-2026 FACT 引用源 (2026-05-15 統合 PR #200)
+
+> 出典: @aiedge_ チートシート + YC batch data + Communication Square 2025 (FACT、ユーザー画像)。水野さん v4 投資テーゼ補強の anchor、Anthropic 垂直 OS (PR #133) + Dario 3 段階 (PR #190) + Anthropic Economic Index (PR #188) と並列。
+
+### 8 セクター + ConsultingOS 接続 (実測 FACT)
+
+| # | AI セクター | 数値 FACT | ConsultingOS 接続 |
+|---|---|---|---|
+| 1 | Agents & Automation | Spring '25 batch の 50%+、70+ companies 18 sub-categories | 27 agent + 60+ skill 体系で直接整合 |
+| 2 | Healthcare | LunaBill $764K ARR since July | 該当 vertical 未着手 |
+| 3 | Software Dev | Emergent $50M ARR in 7 mo、5M+ users 190 countries | service-dev 4 agent、競合領域 |
+| 4 | Fintech | 100 deals YTD '25、+65% YoY | Personal CFO PR #191 + 水野 v4 投資テーゼ直接整合 |
+| 5 | Legal | LegalOS / Blueshoe leading | legal-compliance-checker + legal-playbook 整合 |
+| 6 | Defence & Security | NATO partnerships early-stage | 規制リスク高、不適合 |
+| 7 | Agent Infrastructure | $7.6B → $183B by 2033 (24x growth) | Hard Rule 17 + 21 hook + dream pass 整合 |
+| 8 | Robotics | Smaller batch %、big $ checks | 関根さん N&Y Craft (中小製造) 隣接 |
+
+### 投資判断 3 anchor (水野さん v4 ピッチデッキ FACT 引用)
+
+1. **「Vertical-specific agents > horizontal tools」** = ConsultingOS 核心戦略を YC 公式裏付け
+2. **「Pair with a regulated industry (legal/health/finance)」** = legal-compliance-checker + 水野さん投資テーゼ pair 戦略裏付け
+3. **「Agent infra: 24x growth by 2033」** = 1000 万投資 ROI 算出の anchor 数値
+
+### Building / Investing ガイド (FACT)
+
+If you're building: Vertical-specific > horizontal / regulated industry pair / Infra layer biggest TAM
+If you're investing: AI Fintech +65% YoY / Agent infra 24x by 2033 / Defence is new uncrowded bet
+
+---
+
 > 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。§11 は Anthropic 公式発表（2026-05-12 / 05-13）+ Finatext IR + note.com/110_110_110 (Sierra vs Finatext 比較、INFERENCE) を追加根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。
