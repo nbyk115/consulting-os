@@ -17,6 +17,8 @@
 - 2026-06-14: 情報戦略テクノロジー (155A、髙井氏 ex-ベイカレント、2026 年 12 月期 Q1 決算公開済) の決算詳細分析。AI 領域プレゼンス高まりの実態 + 営業 / 採用ゴリゴリ推進手法を ExaWizards (PR #142) + Sierra (PR #145) と並列の競合ベンチマーク化、ConsultingOS との差別化軸再確認。出典: ssl4.eir-parts.net/doc/155A/ir_ma...（INFERENCE: 一次出典 URL は user 環境で別途確認推奨）
 - Anthropic Claude モデルアップデート公開時 (随時): 古いモデル弱点補完で作った hook / skill が新モデルで負債化していないか棚卸し (PR #162 large-codebase-best-practices §3.4)。ハードルール 17 自動化レベル引き上げ + 反証チェック Step 1-4 コスト効率改善可能性を評価。次期 Claude モデル (Sonnet 4.7 / Opus 4.8 等) 公開検知時に即着手
 - 動画クリエイティブ案件発生時 (随時): Higgsfield Supercomputer (2026-05-13 release、higgsfield.ai/supercomputer) 採用検討。creative-director description にツール連携追記済 (PR #163)。auto モデル選定 + 30+ ツール統合 + Skills 機能 (ConsultingOS Skills と同型構造)。関根さん Phase 2-3 で TikTok / UGC / SNS 動画展開時 or 他案件で動画実需発生時に即採用候補、Boris #3 実需確認後
+- 次セッション最優先 (随時 / 関根さん N&Y Craft Phase 1 着手前): Anthropic 公式 Claude for Enterprise / claude.ai/code/agents 機能の lawyer 系 agent 提供有無を確認。yorunokotoba 別ブランチで「lawyer エージェント未存在」指摘あり (2026-05-15、PR #?)。ConsultingOS 現状 = legal-compliance-checker agent + legal-playbook skill (Anthropic Claude for Legal 11 専門家統合) で機能カバー済、lawyer.md 追加は Hard Rule 13 形骸化リスクで却下判定済 (本 PR #187)。Anthropic 公式が正式に lawyer agent / Claude for Enterprise 法務機能をリリースした場合、ConsultingOS 規律と整合の上で再評価必須
+- 自己ルール強化「agent / skill / hook 層明示」(随時 / Stop hook 違反防止継続): 「組み込み済」「実装済」「統合済」発話時に必ず agent / skill / hook どの層かを明示。yorunokotoba session で skill 統合済を「lawyer agent 統合済」と誤認させた事例 (2026-05-15、PR #187 自己振り返り) の再発防止。完了系キーワード使用前の実測コマンド添付ルール (Hard Rule 1 + PR #59 em ダッシュ虚偽事象学習) と統合運用
 
 ### 中期再評価
 
