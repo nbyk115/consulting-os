@@ -60,8 +60,17 @@ if echo "$LAST_OUTPUT" | grep -q -e $'\xe2\x80\x94' -e $'\xe2\x80\x93' 2>/dev/nu
 fi
 
 # Criterion 2: 太字 ** 違反 (rule 16 ①)
-if echo "$LAST_OUTPUT" | grep -q '\*\*' 2>/dev/null; then
-  FAILURES+=("[FAIL] bold_markdown_ban: 太字 ** 違反検出 (rule 16 ①)")
+# 2026-05-15 PR #215 誤検出修正: コードブロック (```) + インラインコード (`) を除外してから検出。
+# さらに「** + 非空白」のペア (実際の太字記法) のみ検出、文中の偶発的アスタリスクは除外。
+STRIPPED_OUTPUT=$(python3 -c "
+import sys, re
+t = sys.stdin.read()
+t = re.sub(r'\`\`\`.*?\`\`\`', '', t, flags=re.DOTALL)  # フェンスコードブロック除去
+t = re.sub(r'\`[^\`]*\`', '', t)  # インラインコード除去
+print(t)
+" <<< "$LAST_OUTPUT" 2>/dev/null || echo "$LAST_OUTPUT")
+if echo "$STRIPPED_OUTPUT" | grep -qE '\*\*[^ *]' 2>/dev/null; then
+  FAILURES+=("[FAIL] bold_markdown_ban: 太字 ** 違反検出 (rule 16 ①、コードブロック / インラインコード除外後)")
 fi
 
 # Criterion 3: 完了系断言の実測値併記 (rule 1)
