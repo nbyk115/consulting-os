@@ -378,6 +378,10 @@ grep -nE '[、。]$' file.slides.md
 
 ## 6. 品質ゲート
 
+### 識別性ゲート（2026-05-15 PR #226、AI 時代の反スロップ）
+
+YOU MUST: creative 成果物の brand-guardian レビュー時、「AI / 参考事例が合理的に推奨する案を、どこで断ったか」を 1 行明示。未記載は REVISE。AI 生成物は均質化 (研究 FACT: ポジティブ感情 +107% / 意味類似性 +33%) に向かうため、床ゲート (スロップ回避) だけでなく天井ゲート (識別性確保) を併用。詳細: `.claude/skills/references/creative-playbook-distinctiveness.md` (断る力 3 能力 = テイスト / 意思と勇気 / ユーモア)。
+
 ### brand-guardian チェックフロー
 ```
 成果物作成 → brand-guardian レビュー → PASS/REVISE/REJECT
