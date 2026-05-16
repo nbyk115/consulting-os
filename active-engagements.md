@@ -7,7 +7,8 @@
 | 案件 | 担当ブランチ | 内容 | ステータス | 備考 |
 |---|---|---|---|---|
 | よるのことば | `claude/brand-fix-phase2` | ブランド・デザイン案件 (ShareCard 9:16 化 / DESIGN.md / BRAND_RULES.md 系) | 進行中 | 詳細は当該ブランチの作業ログ参照 |
-| 個人コンサル案件 | `main` | 個人向けコンサル案件 (関根さん N&Y Craft OEM 含む、詳細は main 作業ログ参照) | 進行中 | ConsultingOS 規律本体も main で並行管理 |
+| 関根さん (nycraftOS 案件) | `claude/session-status-check-pmiIG` | N&Y Craft OEM / nycraftOS 構築案件 | 進行中 | 詳細は当該ブランチの作業ログ参照 |
+| 個人コンサル案件 | `main` | 個人向けコンサル案件 (関根さん案件は別ブランチのため除く) + ConsultingOS 規律本体 | 進行中 | 規律本体 (CLAUDE.md / skills / agents / hooks) も main で並行管理 |
 | 水野さん v4 投資テーゼ | `claude/mizuno-funding-v4` | 1000 万円エンジェル出資 pitch deck + 投資テーゼ (派生: mizuno-funding-pitch / personal-cfo-system-mizuno / hmm-mizuno-watchlist) | 進行中 | 起点ドキュメント: `docs/handoff-mizuno-funding-v4.md` |
 
 ## 運用ルール
