@@ -59,6 +59,14 @@ case "$FILE" in
     if ! echo "$CONTENT" | grep -qE '<meta[^>]*viewport'; then
       WARNINGS="${WARNINGS}- viewport meta 欠落（レスポンシブ対応必須、.claude/templates/frontend-dev/html-required.html 参照）\n"
     fi
+    # OGP / Twitter Card 検証（2026-05-15 PR #212 追加、creative 品質診断 frontend-dev 指摘）
+    if ! echo "$CONTENT" | grep -qE 'property="og:|name="twitter:'; then
+      WARNINGS="${WARNINGS}- OGP / Twitter Card meta 欠落（共有時の表示品質、og:title / og:description / og:image / twitter:card を html-required.html から補完）\n"
+    fi
+    # @media レスポンシブ検証（インライン style 内のメディアクエリ。外部 CSS 利用時は誤検出しうるため warn）
+    if echo "$CONTENT" | grep -qE '<style' && ! echo "$CONTENT" | grep -qE '@media'; then
+      WARNINGS="${WARNINGS}- @media クエリ欠落（インライン style にレスポンシブ未実装。モバイルブレークポイント @media (max-width: 768px) を追加。外部 CSS 利用時は誤検出、その場合 off で無効化可）\n"
+    fi
     ;;
 esac
 
