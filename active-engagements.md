@@ -10,6 +10,7 @@
 | 関根さん (nycraftOS 案件) | `claude/session-status-check-pmiIG` | N&Y Craft OEM / nycraftOS 構築案件 | 進行中 | 詳細は当該ブランチの作業ログ参照 |
 | 個人コンサル案件 | `main` | 個人向けコンサル案件 (関根さん案件は別ブランチのため除く) + ConsultingOS 規律本体 | 進行中 | 規律本体 (CLAUDE.md / skills / agents / hooks) も main で並行管理 |
 | 水野さん v4 投資テーゼ | `claude/mizuno-funding-v4` | 1000 万円エンジェル出資 pitch deck + 投資テーゼ (派生: mizuno-funding-pitch / personal-cfo-system-mizuno / hmm-mizuno-watchlist) | 進行中 | 起点ドキュメント: `docs/handoff-mizuno-funding-v4.md` |
+| GTM 案件 | `claude/gtm-consulting-os-launch-Q1yOm` | Go-to-Market 案件 (ConsultingOS ローンチ GTM、詳細は当該ブランチ要確認) | 進行中 | 担当 agent: gtm-consultant、詳細は当該ブランチの作業ログ参照 |
 
 ## 運用ルール
 
