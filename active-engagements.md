@@ -6,7 +6,7 @@
 
 | 案件 | 担当ブランチ | 内容 | ステータス | 備考 |
 |---|---|---|---|---|
-| よるのことば | `claude/brand-fix-phase2` | ブランド・デザイン案件 (ShareCard 9:16 化 / DESIGN.md / BRAND_RULES.md 系) | 進行中 | 詳細は当該ブランチの作業ログ参照 |
+| よるのことば | 別リポ `nbyk115/yorunokotoba` / ブランチ `claude/design-tokens-canon...` (完全名要確認、旧記載 `brand-fix-phase2` は古い情報と判明) | 自社プロダクト = 女性向け占いアプリ。/goal = 副収入 月 10-20 万 (月 ¥980 課金換算)。Phase 1 コンテンツエンジン完了 / Phase 3 デザイントークン正典化 進行中 / 次 = ビジュアル抜本リデザイン (creative 系) | 進行中 | 別リポのため consulting-os の GitHub MCP では直接更新不可。当該リポ assistant が実態ステータスを提供、本行はその転記 (2026-05-15 更新) |
 | 関根さん (nycraftOS 案件) | `claude/session-status-check-pmiIG` | N&Y Craft OEM / nycraftOS 構築案件 | 進行中 | 詳細は当該ブランチの作業ログ参照 |
 | 個人コンサル案件 | `main` | 個人向けコンサル案件 (関根さん案件は別ブランチのため除く) + ConsultingOS 規律本体 | 進行中 | 規律本体 (CLAUDE.md / skills / agents / hooks) も main で並行管理 |
 | 水野さん v4 投資テーゼ | `claude/mizuno-funding-v4` | 1000 万円エンジェル出資 pitch deck + 投資テーゼ (派生: mizuno-funding-pitch / personal-cfo-system-mizuno / hmm-mizuno-watchlist) | 進行中 | 起点ドキュメント: `docs/handoff-mizuno-funding-v4.md` |
