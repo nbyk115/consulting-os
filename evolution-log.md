@@ -11,6 +11,7 @@
 
 ### 即時 TODO（次回セッションで自動通知）
 
+- 次セッション最優先 (2026-05-15 物理化): HONE Inc. 地方創生マーケティング資料の知見を marketing-research 部門 7 agent に統合検討。核心: ① マーケだけでなく組織開発・マネジメント論の横断が必要 (マーケ結果が出ない 1 番の原因は「関係の質の低下」) / ② ダニエル・キム「組織の成功循環モデル」(関係の質 → 思考の質 → 行動の質 → 結果の質、バッドサイクル/グッドサイクル) / ③ 地方創生 5 つの罠 (ハコモノ先行 / とりあえず PR 認知至上主義 / 誰でも歓迎ターゲット広すぎ / スケール効率至上主義 / 机上の空論) と各回避策 (関係の質構築 / メンタル・フィジカルアベイラビリティ / CEP 設計 / 好意度 Preference 局地戦 / 一次情報で実行アップデート)。出典: HONE Inc. 資料 (2026-05-15 ユーザー提示画像、INFERENCE)。統合先候補: marketing-research-playbook.md or marketing-director agent。本セッション PR #193 システム思考 §12 (Senge 5 アーキタイプ) + PR #205 労働ポートフォリオと接続 (ダニエル・キム成功循環 = システム思考の組織版)。marketing-director + 組織開発観点で腰を据えて統合、拙速な 1 PR は回避 (本セッション 36 PR 連続マージ後の自己目的化を断った判断、PR #218 規律改善 + PR #226 断る力の実践)
 - 2026-06-04: PR AX `workload-allocation-management` skill + `workload-tracking.sh` hook の形骸化検知（4 週間後）。Goodhart 法則対策（複数軸 + 定性レビュー + 反指標）が運用されているか / 単一指標化していないか / 教育実習が「やった」だけになっていないかを確認。形骸化検知時は Boris #3 ruthlessly edit で削除 / 統合 / 改修判断
 - 2026-05-03: 統合済 7 ブランチを GitHub UI から削除（feature/anthropic-boris-knowledge-integration / biz-expansion-knowledge / external-resources-references / implement-statusline-routing-gate-thinking / discipline-physical-block / os-visualization-mermaid / sdk-phase1-pr-review）。URL: https://github.com/nbyk115/consulting-os/branches
 
