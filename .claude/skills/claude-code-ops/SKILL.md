@@ -453,6 +453,8 @@ ClaudeCodeStudio 独自調査記事（2026-04-23 時点・Boris X 投稿 + Anthr
 
 ## 12. Claude Code 2.1.142 claude agents フラグ（2026-05 公開）
 
+FACT: `claude agents` の 8 フラグは Claude Code 公式 CHANGELOG 記載（一次出典 URL 末尾参照）。INFERENCE: ConsultingOS 規律対応表は assistant 判断、フラグ追加バージョンの厳密な番号は CHANGELOG 原典で都度確認推奨。
+
 `claude agents` コマンドに dispatched background session 設定フラグ 8 種追加。ConsultingOS 規律との対応:
 
 | フラグ | ConsultingOS 運用 |
@@ -463,7 +465,7 @@ ClaudeCodeStudio 独自調査記事（2026-04-23 時点・Boris X 投稿 + Anthr
 | `--plugin-dir` / `--settings` / `--mcp-config` | プロジェクト別設定切替 |
 | `--dangerously-skip-permissions` | NEVER: Hard Rule 4 で実行禁止。2.1.142 で追加されたが ConsultingOS では使用禁止を継続 |
 
-Grep tool は embedded ripgrep の ENOENT 時に system `rg` へ自動フォールバック + self-heal（2.1.142 修正、運用者操作不要）。出典: [Claude Code CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)。
+Grep tool は embedded ripgrep の ENOENT 時に system `rg` へ自動フォールバック + self-heal（Claude Code 2.1.x 系で改善済、運用者操作不要。tech-lead 検証: ENOENT fallback の厳密な修正バージョンは CHANGELOG 上 2.1.142 でなく別バージョンの可能性あり、バージョン断定は回避）。出典: [Claude Code CHANGELOG](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md)。
 
 | Ver | 日付 | 変更内容 |
 |---|---|---|
