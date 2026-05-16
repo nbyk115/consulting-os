@@ -300,6 +300,7 @@ strategy-lead + product-manager + feedback-synthesizer + kpi-analytics + brand-g
 - **ナーチャリングのオムニチャネル原則**: オウンドメディア・店頭パンフ・メルマガ・他デジタル施策をシナリオで統合。デジタル単体最適は局所解
 - **代理店は R&D 機関**: 「運用屋」ではなく「プラットフォーム研究機関」へ。グローバル協業前提
 - **広告 = 信頼構築手段**: 広告を情報発信でなく「ユーザーとの信頼を築く手段」と捉える。ユーザーの生活・価値観に寄り添い意味のあるつながりを設計、KGI 達成へ戦略設計の一貫性 + メディア選定 + クリエイティブ + ブランドセーフティ配信環境 + KPI 設計を一気通貫で徹底（出典: [MarkeZine](https://markezine.jp/article/detail/39924) / [Trade Desk Press Room](https://www.thetradedesk.com/jp/press-room/dentsu-digital-aims-to-transform-marketing-methods-in-an-era-of-increasingly-complex-advertising-environments) / [Unyoo.jp 対談](https://www.atara.co.jp/unyoojp/2025/01/dentsudigital_fourm_part1/)）
+- **コンテクスチュアル広告でブランディング**: 3rd party Cookie 規制後の配信設計。特定の人物を追跡せず、Web ページの文脈・キーワード・画像・動画を AI が自動解析し、ブランドとマッチしたコンテンツ上に配信。Cookie 非依存でブランドセーフティを構造的に担保、「ターゲティング」でなく「ブランディング手段」として設計（出典: [ウェブ電通報 コンテクスチュアル広告連載](https://dentsu-ho.com/en/booklets/509) / [MarkeZine 文脈・情緒ターゲティング](https://markezine.jp/article/detail/34251)）
 
 ## 佐藤裕介（フリークアウト/STORES）の追加フレーム
 - **3変数交点**: 技術 × ユーザー × 市場構造の3変化が重なる地点だけが勝つ。1つでも欠けると「良いプロダクトだが負ける」になる
