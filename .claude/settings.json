@@ -118,6 +118,16 @@
     ],
     "PreToolUse": [
       {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/skill-reference-check.sh",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
         "matcher": "Bash",
         "hooks": [
           {
