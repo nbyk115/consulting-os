@@ -405,6 +405,38 @@ Phase 4 持ち越し（2026-06-03 期日）:
 
 ---
 
+## 2026-05-15: 自己虚偽事象 2 件 (assistant 単独「カバー済 / 同期済」断言の実測不足)
+
+### 事象
+
+本セッション (PR #192-205) 中、assistant 単独判断で不完全実測のまま状態断言する自己虚偽事象が 2 件連続発生。両方とも agent 検証 / ユーザー指摘で補正。
+
+事象 1 (グローバル同期誤判定): `~/.claude/skills/references/` の同期状態を `ls -la ~/.claude/skills/references/` (末尾スラッシュ付き) で確認、symlink を transparent に辿った中身を見て「コピー化されている」と誤判定。`readlink` 未実行。ユーザー「意味なくない?」指摘で再実測、`readlink` + `file` コマンドで symlink 確定 (`symbolic link to /home/user/consulting-os/.claude/skills/references`)。
+
+事象 2 (ドーシー完全カバー誤判定): dorsey-mini-agi.md の Block 関連内容を `grep` 3 箇所ヒットで確認し「既存 skill 完全カバー済、追加実装不要」と断言。ユーザー「エージェント判断」指示で brand-guardian + strategy-lead 起動、brand-guardian REJECT (grep 3 箇所サンプリングでの「完全カバー」は Hard Rule 1 違反)、strategy-lead が「最小人数算定手法」未収録を grep 0 件で実測 (PR #204 で原則 5 追加)。
+
+### 根本原因
+
+assistant 単独の「完全カバー / カバー済 / 同期済」等の状態断言を、不完全実測 (サンプリング grep / 末尾スラッシュ ls) で実行。Hard Rule 1「完了系断言は実測値併記必須」+ Hard Rule 14「削除前 grep 全参照列挙」の精神違反。grep N 箇所ヒットは「存在の証明」にはなるが「全カバーの証明」にはならない (結果論と算定手法の混同等、別概念の見落とし)。
+
+### 構造対策
+
+YOU MUST: 以下を assistant 単独判断時に遵守:
+
+1. symlink / コピー判定は `readlink` or `file` コマンド必須。末尾スラッシュ付き `ls -la dir/` は symlink を transparent に辿るため判定に使用禁止
+2. 「完全カバー / カバー済」断言は、対象が小規模 (500 行以下 / 単一ディレクトリ) なら全文確認 (Read 全体 / `cat` 相当) を実施してから。grep サンプリングのみでの「全カバー」断言禁止
+3. grep ゼロヒット = 「未収録の証明」は有効。grep N 箇所ヒット = 「全カバーの証明」には無効 (別表現 / 別概念の見落とし)
+4. 「追加実装不要」判断は、ユーザー input の核心キーワードを複数パターンで grep し全てゼロヒットを確認してから
+
+### 反証結果
+
+- Step 1: 自己虚偽事象 2 件 FACT (本セッション transcript) / agent 検証 + ユーザー指摘で補正 FACT
+- Step 2: Hard Rule 1 (完了系断言実測必須) + Hard Rule 14 (grep 全参照列挙) + PR #59 自己虚偽事象学習と同型、構造対策 4 項目で再発防止物理化
+- Step 3 実用反証: 本セッション内 2 回露呈、orchestrator 検証ゲート (agent 起動 + ユーザー指摘) が補正機能、ただし assistant 単独実測精度の構造問題は本エントリで物理化
+- Step 4 リスク即潰し: 再発リスク → 構造対策 4 項目 (readlink 必須 / 小規模全文確認 / grep ヒットの非対称性認識 / 複数パターン grep) で構造的回避
+
+---
+
 ## 2026-05-14: デザインインフラ 4 層不全 + カテゴリ反射的スキップ判定の構造修正
 
 ### 事象
