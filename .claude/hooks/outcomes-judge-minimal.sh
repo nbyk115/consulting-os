@@ -93,4 +93,21 @@ if [ ${#FAILURES[@]} -gt 0 ]; then
   echo "  rubric: $RUBRIC" >&2
 fi
 
-exit 0  # 非ブロッキング（rule 16 + rule 1 違反検出は alert のみ、応答 block しない）
+# 段階ブロッキング（2026-05-15 PR #212、creative 品質診断 brand-guardian 指摘）
+# default: block モード。[FAIL] (em-dash / 太字 **) 検出時は exit 2 で応答ブロック。
+# [WARN] (主語詐称疑い) は exit 0 で alert のみ。
+# 環境変数 CONSULTINGOS_OUTCOMES_ENFORCEMENT=warn で全件 alert のみに切替（誤検出時の緊急回避）。
+ENFORCEMENT="${CONSULTINGOS_OUTCOMES_ENFORCEMENT:-block}"
+if [ "$ENFORCEMENT" = "block" ]; then
+  for f in "${FAILURES[@]}"; do
+    case "$f" in
+      "[FAIL]"*)
+        echo "BLOCKED: brand-guardian 必須チェック [FAIL] 不通過。修正後に再応答してください。" >&2
+        echo "（誤検出時は CONSULTINGOS_OUTCOMES_ENFORCEMENT=warn で alert のみに切替可）" >&2
+        exit 2
+        ;;
+    esac
+  done
+fi
+
+exit 0  # warn モード or [WARN] のみ: alert のみで通過
