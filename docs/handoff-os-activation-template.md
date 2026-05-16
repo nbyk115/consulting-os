@@ -19,9 +19,17 @@
 | よるのことば | 別リポ `nbyk115/yorunokotoba` / `claude/design-tokens-canon` | docs/handoff-yorunokotoba-os-activation.md |
 | 個人コンサル案件 | `main` | (main 作業ログ) |
 
-## 2. ConsultingOS skill アクセス
+## 2. ConsultingOS skill の物理配布 (2026-05-15 PR #234 訂正)
 
-`~/.claude/skills/` は consulting-os リポへの symlink。どの案件ブランチ / リポで作業しても `~/.claude/skills/<skill>.md` で全 skill にアクセス可。
+重要: `~/.claude/skills/` symlink は consulting-os 環境内でのみ有効。別リポ案件 (yorunokotoba / nycraftOS 等) は別環境のため consulting-os の skill が物理的に存在しない。
+
+案件セッションは session 開始時に必ず以下を実行し、ConsultingOS の skill / agent を案件環境に物理配布する:
+
+```
+bash <(curl -s https://raw.githubusercontent.com/nbyk115/consulting-os/main/scripts/distribute-os-skills.sh)
+```
+
+これで案件リポの `.claude/skills/` `.claude/agents/` に最新 skill が配布される。定期再実行で Hard Rule 18 (規律最新化) を満たす。hook と settings.json は案件固有設定があるため配布対象外。
 
 ## 3. 案件タイプ別の必須 skill
 
