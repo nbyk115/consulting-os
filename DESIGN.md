@@ -42,16 +42,20 @@
 
 - HTML: `<html lang="ja">` 必須、`<meta charset="UTF-8">` 併記
 - DOCX/PPTX: ドキュメント言語を `ja-JP` に設定
-- フォント: **Yu Gothic / 游ゴシック / Hiragino Sans / Noto Sans JP** を使用
+- 日本語フォント: **Yu Gothic / 游ゴシック / Hiragino Sans / Noto Sans JP** を使用
+- 欧文・数値フォント: **Inter** を使用可（数値・ラテン文字表示専用、日本語テキストへの適用禁止）
 - ❌ 禁止: `Noto Sans CJK`（無印） / `Source Han Sans`（無印） / `SimSun` / `Microsoft YaHei`
 
 ### 推奨フォントスタック
 ```css
-font-family:
-  "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
-  "Noto Sans JP", "Meiryo", "メイリオ",
-  sans-serif;
+/* 日本語本文・見出し */
+--font-ja: "Yu Gothic", "游ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN",
+  "Noto Sans JP", "Meiryo", "メイリオ", sans-serif;
+/* 欧文・数値表示専用（日本語テキストへの適用禁止、brand-guardian が grep 検証） */
+--font-latin: "Inter", sans-serif;
 ```
+
+> Inter 使用条件: 数値ダッシュボード・英字ラベル・コードのみ。日本語が混在するテキストブロックには `--font-ja` を使用。検証: `grep 'font-family' output.html` で Inter が日本語テキスト要素に当たっていないか brand-guardian が機械確認。
 
 ### サイズスケール（base 16px）
 | 用途 | サイズ | 行間 |
@@ -388,6 +392,8 @@ ConsultingOS 標準のデザイン参照ギャラリー: Lazyweb MCP（aboul3ata
 - 認証: 公開エンドポイント（login / email 不要）から bearer token 取得
 - インストール状態: 本リポでは完了済（`claude plugin install lazyweb@lazyweb`、v0.1.1、user scope enabled）
 - 残: bearer token の取得 + `~/.lazyweb/lazyweb_mcp_token` への保存（user 環境で実行必要、token 取得後に MCP 即稼働）
+
+> token 未取得時の運用（2026-05-15 PR #217、creative-director 品質診断対応）: Lazyweb token が未取得の間は「着手前に参照 3-5 件 query」を実行不可能な必須命令として課さない。token 未取得時は `refero.design` 等の公開デザインギャラリーを一次参照とし、Lazyweb 参照は token 取得後に必須化する。実行不可能な YOU MUST を放置すると全 agent が参照ゼロでブリーフを出し続ける構造劣化を招くため、参照手段の有無で必須/任意を切り替える。
 
 利用可能な 6 slash command:
 
