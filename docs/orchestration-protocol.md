@@ -198,11 +198,13 @@ YOU MUST: 以下を遵守:
 - NO の場合: エージェント起動中止、ファイル存在をユーザー確認 or 作成
 - 学習根拠: 2026-05-04 legal-compliance-checker 不在ファイル判定事例（evolution-log 参照）
 
-### 3.3 ゲート③: 依存先確認
+### 3.3 ゲート③: 依存先確認 + スキル明示参照（2026-05-15 強化）
 
 - 確認対象: 連携エージェント定義（.claude/agents/）、参照スキル（.claude/skills/）、参照ドキュメント（docs/）
 - 目的: エージェントが参照する依存先が起動可能か確認
 - NO の場合: 不足依存先を整備してから再起動
+- YOU MUST: 確認した参照スキル（.claude/skills/）の該当ファイルパスを agent 委任プロンプトに明示記載する。agent description の「参照スキル」欄に列挙されているだけでは agent が実際に読む保証はない。委任プロンプトに「着手前に `.claude/skills/<該当skill>.md` を Read してから作業」と明記必須。
+- 学習根拠: 2026-05-15 yorunokotoba/Nobucode 別ブランチで、creative 作業時に creative-playbook.md + references (design-samples / visual-loop-prevention) が委任プロンプトに明示されず、別 assistant が「委任の不備」と自認。BRAND_RULES.md / DESIGN.md は明示したが skill 本体が漏れた構造盲点。skill 体系は「列挙 = 参照」でなく「委任プロンプト明示 = 参照」で初めて機能する。
 
 ### 3.4 ゲート④: ICP/DESIGN 確認
 
