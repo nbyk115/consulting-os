@@ -227,6 +227,31 @@ git branch --show-current && ls <target-file> && ls .claude/agents/<dept>/<agent
 - FACT / INFERENCE / SPECULATION 3 ラベルが明示されているか確認
 - 違反時: /check-hallucination コマンドで再判定
 
+### 4.4 2 段階検証ゲート（部門リード → orchestrator、2026-05-15 PR #213 物理化）
+
+**YOU MUST**: エージェント作業成果は、以下 2 段階の検証を必ず通す。1 段階目を飛ばして orchestrator 直結は禁止（クリエイティブ品質劣化の根本対策、3 agent 診断「規約集止まり」を受けた構造強制）。
+
+第 1 段階: 同部門の最終リード agent によるチェック
+
+| 部門 | 最終リード agent |
+|---|---|
+| コンサル | strategy-lead |
+| サービス開発 | tech-lead |
+| クリエイティブ | creative-director（機械検証は brand-guardian 併用）|
+| マーケティング | marketing-director |
+| プロダクト | product-manager |
+| グローバル | gtm-consultant |
+
+- 作業 agent と最終リードが同一の場合（例: strategy-lead 自身の作業）は、第 1 段階を別部門リード or brand-guardian の機械検証で代替
+- 最終リードは「部門品質基準・ルーブリック適合」「§4.1-4.3 の形式」を判定、不適合は差し戻し
+
+第 2 段階: orchestrator チェック
+
+- 第 1 段階通過後、orchestrator が §4.1-4.3（参照パス・反証チェック・数値クレーム）+ 部門横断整合性を検証
+- 第 1 段階の差し戻し履歴も確認、リードのチェックが形骸化していないか監査
+
+省略可能な例外は §5 に準じる（軽微な確認・検証系コマンド・即答・緊急時）。中-大タスク（成果物生成・クライアント納品物）は 2 段階必須。
+
 ---
 
 ## 5. 例外規定
