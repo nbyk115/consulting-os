@@ -76,6 +76,21 @@
 
 反証結果: Step 1 = 「全環境不可」は yorunokotoba 前セッション実測の引用（INFERENCE）、GitHub MCP 稼働は本セッション実測（FACT）。Step 2 = §12.3 を残すと PR #217 が緩めた「実行不可能 YOU MUST」が再発、貼り替えで構造解消。Step 3 = `grep -rn lazyweb`（11 ファイル特定 → 修正後は不採用記述 / For Humans / 履歴記録のみ残存）+ workflow.json JSON 妥当性 + em-dash 0 件を実測。Step 4 = コンテナ揮発リスクは「ローカルプラグイン型 MCP は不採用」の方針確定で発生不可能化。
 
+### 2026-05-17 よるのことば を実案件として登録
+
+対象: よるのことば（女性向け占いアプリ、自社プロダクト、/goal 副収入 月 10-20 万）を ConsultingOS の実案件として記録。
+
+管理方針: 実案件は案件ごとに別リポで分離管理（user 方針、わかりやすさ優先）。consulting-os は司令塔（OS 規律 / skill / agent の本体）、各案件の進行・成果物はそれぞれの案件リポで管理する。中央レジストリは設けない。
+
+- 案件リポ: `nbyk115/yorunokotoba`（安定キーはリポ名。作業ブランチはセッションごとに変わるため記録対象外）
+- 進捗: Phase 1 コンテンツエンジン完了 / Phase 3 デザイントークン正典化 進行中
+- OS 連携: `scripts/distribute-os-skills.sh` で consulting-os main の skill / agent を案件リポへ配布（pull 型、案件リポ側で実行）。2026-05-17 配布で lazyweb 除去済み最新 OS（main 0007ee0）が反映済み
+- ハンドオフ: `docs/handoff-yorunokotoba-os-activation.md`（§1 冒頭のブランチ記述はセッション交代で陳腐化する前提、リポ名で参照すること）
+
+他の実案件（関根さん N&Y Craft = `nbyk115/n-y-craft-os-beta`、水野さん funding）も同じく別リポ分離管理。本エントリは よるのことば の登録のみを記録対象とする（1 エントリ = 1 目的）。
+
+反証結果: Step 1 = リポ名 `nbyk115/yorunokotoba`・別リポ分離方針は user 明示（FACT）、ブランチ陳腐化は handoff doc 実測（FACT）。Step 2 = 中央レジストリ新設は user の「案件ごと分離」方針と矛盾するため不採用、evolution-log への登録記録のみで構造整合。Step 3 = consulting-os 環境から案件リポは GitHub MCP スコープ外で直接検証不可、user 申告 + handoff doc 記載に依拠（明示）。Step 4 = 残存リスクなし（記録のみ、不可逆操作なし）。
+
 ### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
 
 LinkedIn コメント（TTD Isom Winton 返信、Japan PMP / curated marketplace の役割）で 16 段階の failure を user が逐次検知。根本原因: orchestrator default が「responsive assistant」モードのまま「autonomous analyst」モードへ切替できておらず、ユーザー指摘待ちの reactive correction loop に陥っていた。
