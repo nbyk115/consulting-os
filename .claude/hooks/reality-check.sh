@@ -3,6 +3,8 @@
 # 対象: Write/Edit/MultiEdit on evolution-log.md, Bash with `git commit` containing 完了系キーワード
 # 直近 30 ターン以内に検証コマンド実行ログがなければ exit 2 ブロック + evolution-log 自動追記
 # 2026-05-05 PR #59 em ダッシュ虚偽 370 件残存・引き継ぎ「致命的 0」虚偽の再発防止
+# 2026-05-16 強化: 検証コマンドと git commit を同一 Bash で && 連結 + 完了断言を構造ブロック
+#   （検証結果を見る前に commit message が固定される構造。自己虚偽 commit 8d0d948 / 1857526 学習）
 # 例外: ユーザーが「強制マージ」「検証スキップ」「実測なし許可」明示時、または CONSULTINGOS_REALITY_BYPASS=1
 
 set -euo pipefail
@@ -66,6 +68,27 @@ esac
 
 if [ -z "$TARGET_TEXT" ]; then
   exit 0
+fi
+
+# 構造ブロック（2026-05-16 強化）: 検証コマンドと git commit を同一 Bash で && 連結 + 完了断言
+# 検証結果を見る前に commit message が固定される構造 = 自己虚偽 commit 8d0d948 / 1857526 の根本原因
+# 検証コマンドの「実行有無」では捉えられない（実行はしたが結果を見ずに message を先書きするため）
+if [ "$TARGET_KIND" = "git-commit" ]; then
+  # 検証コマンドは「実行形」（行頭 / && 後 / ; 後）に絞る。
+  # commit message 内に説明文として grep 等が出現しても誤検知しないため（2026-05-16 誤検知対策）。
+  CONNECTED_PATTERN="no"
+  if printf '%s' "$TARGET_TEXT" | grep -qE '(^|&&[[:space:]]*|;[[:space:]]*)grep[[:space:]-].*&&.*git[[:space:]]+commit' 2>/dev/null \
+     || printf '%s' "$TARGET_TEXT" | grep -qE '(^|&&[[:space:]]*|;[[:space:]]*)pdffonts[[:space:]].*&&.*git[[:space:]]+commit' 2>/dev/null \
+     || printf '%s' "$TARGET_TEXT" | grep -qE '(^|&&[[:space:]]*|;[[:space:]]*)unzip[[:space:]].*&&.*git[[:space:]]+commit' 2>/dev/null \
+     || printf '%s' "$TARGET_TEXT" | grep -qE '(^|&&[[:space:]]*|;[[:space:]]*)wc[[:space:]]-[lc].*&&.*git[[:space:]]+commit' 2>/dev/null; then
+    CONNECTED_PATTERN="yes"
+  fi
+  # 完了断言キーワード（「残存」単独は「残存リスク」で誤検知のため不採用、「ゼロ」が残存ゼロをカバー）
+  if [ "$CONNECTED_PATTERN" = "yes" ] \
+     && printf '%s' "$TARGET_TEXT" | grep -qE 'ゼロ|検証 ?PASS|0 件|撲滅' 2>/dev/null; then
+    echo "BLOCKED: 検証コマンド（grep / pdffonts / unzip / wc）と git commit を同一 Bash で && 連結し、commit message に完了断言（ゼロ / PASS / 0 件 / 撲滅）が含まれます。検証結果を見る前に commit message が固定される構造（2026-05-16 自己虚偽 commit 8d0d948 / 1857526）です。正しい対応: 検証を実行 → 結果をそのターンで確認 → 別 Bash で commit する（検証と commit の分離）。どうしても同一コマンドが必要な場合のみ環境変数 CONSULTINGOS_REALITY_BYPASS=1（CLAUDE.md ハードルール 1 自己虚偽再発防止）。" >&2
+    exit 2
+  fi
 fi
 
 # 完了系キーワード検出（narrative 余地のある「完了」「0 件」は除外、虚偽断言確実な語のみ）

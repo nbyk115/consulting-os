@@ -17,3 +17,4 @@ tests/_tmp_*.log
 *_ecdsa
 credentials.json
 secrets.json
+.lazyweb/

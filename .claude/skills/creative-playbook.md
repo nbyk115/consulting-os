@@ -210,12 +210,11 @@ Creative部門の全エージェントが参照するデザインプロセス・
 ```
 
 ### 画面別品質レベルの配分例（40画面の場合）
-```
-L3: 5画面（12%）→ オンボーディング, ホーム, 初回体験, 料金, エラー
-L2: 15画面（36%）→ 検索結果, 詳細, 設定トップ, メッセージ主要
-L1: 20画面（52%）→ サブ設定, 管理画面, 補助リスト
-```
-**配分を最初に決める。** 「この画面はL1でいい」と判断するのが最も難しいが、全画面にL3を求めると永遠に終わらない。
+L3 約12%（オンボーディング/ホーム/初回体験/料金/エラー）、L2 約36%（検索結果/詳細/設定トップ/メッセージ主要）、L1 約52%（サブ設定/管理画面/補助リスト）。配分を最初に決める。全画面にL3を求めると永遠に終わらない。
+
+### ビジュアル品質ルーブリック（数値ゲート、2026-05-15 PR #216）
+
+L1/L2/L3 の定性記述を補完する 15 項目の数値採点ルーブリック。creative-director 最終レビューを「ルーブリック採点 → 12 点未満 (80% 未満) は REJECT」に物理化。「ダサい/良い」の主観判定を採点可能基準に置換（examples v1-v9 の収束失敗 = 採点根拠の主観依存、の構造解消）。詳細 15 項目: `.claude/skills/references/creative-visual-quality-rubric.md` 参照。識別性ゲート (AI 推奨の平均値をどこで断ったか = 反スロップ天井ゲート) は `.claude/skills/references/creative-playbook-distinctiveness.md` 参照。
 
 ---
 
@@ -491,9 +490,9 @@ Layer 3: 検証（破っても通さない）
 
 詳細: [`.claude/skills/references/creative-playbook-design-samples.md`](references/creative-playbook-design-samples.md)
 
+## Visual Loop 防止規律（2026-05-09）
+詳細: [`references/creative-playbook-visual-loop-prevention.md`](references/creative-playbook-visual-loop-prevention.md)（着手前 5 項目 + 防止規律 8 軸 + agent 監修フロー再設計）
 
 ## 出典・依拠先
 
-- FACT: 本ファイルは @nbyk115/consulting-os の ConsultingOS 規律ファイルとして 2026-05-05 PR #65 で体系的明示物理化により定義された（ファイルパス: .claude/skills/creative-playbook.md）
-- INFERENCE: 業界標準ベストプラクティス（佐藤裕介流の構造で売る原則、Boris Cherny 流の 9 規律 ruthlessly edit、該当部門の業界フレームワーク）から派生し実装
-- SPECULATION: 4 週間ごとの再評価カレンダー（evolution-log.md 再評価カレンダーセクション）で形骸化検出、Boris #3 削除セット対象、規律違反発生時は統合 / 分離 / 削除で整理予定
+FACT: ConsultingOS 規律 (2026-05-05 PR #65 物理化) / INFERENCE: 佐藤裕介流 + Boris Cherny 9 規律派生 / SPECULATION: 4 週間ごと再評価で形骸化検出

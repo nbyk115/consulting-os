@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsultingOS Workflow Map</title>
+<style>
+  :root {
+    --primary: #0A0A0A;
+    --bg: #FAFAF7;
+    --accent: #E60012;
+    --neutral-100: #F2F2EE;
+    --neutral-500: #666666;
+    --neutral-900: #1A1A1A;
+    --success: #0EA5A4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    background: var(--bg);
+    color: var(--primary);
+    line-height: 1.6;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  header { border-bottom: 2px solid var(--primary); padding-bottom: 16px; margin-bottom: 32px; }
+  h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+  .subtitle { color: var(--neutral-500); font-size: 14px; margin-top: 4px; }
+  .meta { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: var(--neutral-500); }
+  .meta span { background: var(--neutral-100); padding: 4px 10px; border-radius: 12px; }
+  .workflows { display: grid; grid-template-columns: 280px 1fr; gap: 24px; margin-top: 24px; }
+  .workflow-list { background: white; border: 1px solid var(--neutral-100); border-radius: 8px; padding: 16px; height: fit-content; position: sticky; top: 24px; }
+  .workflow-list h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.05em; }
+  .wf-button { display: block; width: 100%; text-align: left; background: var(--neutral-100); border: none; padding: 10px 14px; border-radius: 6px; margin-bottom: 6px; font-size: 13px; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+  .wf-button:hover { background: var(--primary); color: white; }
+  .wf-button.active { background: var(--accent); color: white; }
+  .canvas { background: white; border: 1px solid var(--neutral-100); border-radius: 8px; padding: 24px; min-height: 600px; }
+  .canvas h2 { font-size: 22px; margin-bottom: 4px; }
+  .canvas .trigger { background: var(--neutral-100); padding: 8px 12px; border-radius: 6px; margin-bottom: 20px; font-size: 13px; color: var(--neutral-500); border-left: 3px solid var(--accent); }
+  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .node { background: var(--primary); color: white; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; }
+  .node.skill { background: var(--success); }
+  .node.hook { background: var(--accent); }
+  .arrow { color: var(--neutral-500); font-size: 18px; }
+  .section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--neutral-100); }
+  .section h4 { font-size: 13px; font-weight: 700; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+  .pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { padding: 4px 10px; background: var(--neutral-100); border-radius: 12px; font-size: 12px; }
+  .pill.agent { background: #E8F0FE; color: #1A56DB; }
+  .pill.skill { background: #E0F2F1; color: #00695C; }
+  .pill.hook { background: #FFF4E5; color: #C76A00; }
+  .output { background: linear-gradient(135deg, var(--neutral-100), white); padding: 14px; border-radius: 8px; margin-top: 16px; border: 1px solid var(--neutral-100); }
+  .output strong { display: block; font-size: 12px; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat { background: white; border: 1px solid var(--neutral-100); border-radius: 8px; padding: 14px; text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 800; color: var(--primary); }
+  .stat-label { font-size: 11px; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--neutral-100); font-size: 11px; color: var(--neutral-500); }
+  .json-link { display: inline-block; margin-top: 8px; color: var(--accent); text-decoration: none; font-size: 12px; }
+  .json-link:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .workflows { grid-template-columns: 1fr; }
+    .workflow-list { position: static; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>ConsultingOS Workflow Map</h1>
+    <div class="subtitle">日本 B2B コンサル vertical AI-OS の主要ワークフロー可視化 / HTML + JSON 二層構造</div>
+    <div class="meta">
+      <span>v2026-05-14</span>
+      <span>HTML-First 思考術 (PR #140) 実装例</span>
+      <span><a class="json-link" href="workflow.json">workflow.json (LLM bootstrap data)</a></span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">27</div><div class="stat-label">Agents</div></div>
+    <div class="stat"><div class="stat-num">38</div><div class="stat-label">Skills</div></div>
+    <div class="stat"><div class="stat-num">21</div><div class="stat-label">Hooks</div></div>
+    <div class="stat"><div class="stat-num">17</div><div class="stat-label">Hard Rules</div></div>
+  </div>
+
+  <div class="workflows">
+    <aside class="workflow-list">
+      <h3>主要ワークフロー</h3>
+      <button class="wf-button active" data-wf="new_project_kickoff">新規案件起動</button>
+      <button class="wf-button" data-wf="visual_deck_creation">visual / deck 制作</button>
+      <button class="wf-button" data-wf="code_change_pr">コード変更 + PR</button>
+      <button class="wf-button" data-wf="hallucination_detection">ハルシネーション検出</button>
+      <button class="wf-button" data-wf="marketing_proposal">マーケ施策起案</button>
+    </aside>
+
+    <main class="canvas" id="canvas">
+      <!-- populated by JS -->
+    </main>
+  </div>
+
+  <footer>
+    出典: Thariq (@trq212) HTML + JSON ワークフロー可視化パターン / PR #149 物理化。再利用方法: workflow.json を新セッションの最初に貼り付ければ、agent はファイル再読込なしで全コンテキスト把握可能。
+  </footer>
+</div>
+
+<script>
+const workflows = {
+  new_project_kickoff: {
+    title: "新規案件起動",
+    trigger: "ユーザーが新規案件を開始",
+    flow: ["ユーザー指示", "strategy-lead", "competitive-analyst", "kpi-analytics", "proposal-writer", "提案書 v1"],
+    agents: ["strategy-lead", "competitive-analyst", "kpi-analytics", "proposal-writer"],
+    skills: ["consulting-playbook", "icp-mapping", "anthropic-vertical-os"],
+    hooks: ["session-start.sh", "session-start-reminder.sh"],
+    output: "提案書 v1 (Markdown 設計層 + HTML 配信層)"
+  },
+  visual_deck_creation: {
+    title: "visual / deck 制作",
+    trigger: "visual / IR デッキ / セールス資料制作依頼",
+    flow: ["ユーザー指示", "creative-director", "ux-designer", "frontend-dev or sales-deck-designer", "brand-guardian", "HTML deck + PDF"],
+    agents: ["creative-director", "ux-designer", "frontend-dev", "sales-deck-designer", "brand-guardian"],
+    skills: ["creative-playbook", "html-output-patterns", "brand-guidelines", "lazyweb (MCP)"],
+    hooks: ["emdash-detector.sh", "self-fraud-check.sh", "reality-check.sh"],
+    output: "HTML 1280x720 deck + PDF",
+    note: "事前: DESIGN.md §12 参照ライブラリ query 4 件以上必須"
+  },
+  code_change_pr: {
+    title: "コード変更 + PR",
+    trigger: "コード / skill / agent / hook 編集",
+    flow: ["編集", "Edit / Write", "lint / typecheck", "branch + commit", "push", "PR", "Squash merge", "branch 削除"],
+    agents: ["tech-lead (review)", "fullstack-dev or infra-devops (impl)"],
+    skills: ["engineering-playbook", "boris-cherny-9-rules", "karpathy-12-rules"],
+    hooks: ["block-main-push.sh", "emdash-detector.sh", "stop-validator.sh"],
+    output: "feature branch + PR + Squash merge + ブランチ削除 + PR URL"
+  },
+  hallucination_detection: {
+    title: "ハルシネーション検出",
+    trigger: "数値断言 / 完了系宣言 / 出典なし主張検出",
+    flow: ["出力", "brand-guardian 機械検証", "FACT / INFERENCE / SPECULATION 分類", "PASS or REJECT"],
+    agents: ["brand-guardian"],
+    skills: ["falsification-check"],
+    hooks: ["reality-check.sh", "self-fraud-check.sh", "stop-validator.sh"],
+    output: "REJECT or 反証チェック Step 1-4 修正",
+    note: "コマンド: /check-hallucination"
+  },
+  marketing_proposal: {
+    title: "マーケ施策起案",
+    trigger: "マーケ / 広告施策起案",
+    flow: ["起案", "marketing-director gatekeeper", "60/40 ルール + 指標分岐宣言検証", "承認 or 差戻し"],
+    agents: ["marketing-director", "performance-marketer", "content-strategist", "seo-specialist"],
+    skills: ["marketing-research-playbook", "aeo-playbook", "agentic-advertising-foundry-nyc"],
+    hooks: ["template-injection-check.sh"],
+    output: "60/40 ルール + 目的別 KPI 分岐宣言 (小野寺信行流)",
+    note: "REJECT パターン: CPC/CPA 主指標化 / プログラマティック単独 (harvest only)"
+  }
+};
+
+const canvas = document.getElementById('canvas');
+const buttons = document.querySelectorAll('.wf-button');
+
+function render(wf) {
+  const w = workflows[wf];
+  if (!w) return;
+  const flowHtml = w.flow.map((node, i) => {
+    const arrow = i < w.flow.length - 1 ? '<span class="arrow">→</span>' : '';
+    return `<span class="node">${node}</span>${arrow}`;
+  }).join('');
+  canvas.innerHTML = `
+    <h2>${w.title}</h2>
+    <div class="trigger"><strong>トリガー:</strong> ${w.trigger}</div>
+    <div class="flow">${flowHtml}</div>
+    <div class="section">
+      <h4>起動 Agent</h4>
+      <div class="pill-list">${w.agents.map(a => `<span class="pill agent">${a}</span>`).join('')}</div>
+    </div>
+    <div class="section">
+      <h4>使用 Skill</h4>
+      <div class="pill-list">${w.skills.map(s => `<span class="pill skill">${s}</span>`).join('')}</div>
+    </div>
+    <div class="section">
+      <h4>発火 Hook</h4>
+      <div class="pill-list">${w.hooks.map(h => `<span class="pill hook">${h}</span>`).join('')}</div>
+    </div>
+    <div class="output">
+      <strong>Output</strong>
+      ${w.output}
+      ${w.note ? `<div style="margin-top:8px; font-size:12px; color:var(--neutral-500);">注: ${w.note}</div>` : ''}
+    </div>
+  `;
+}
+
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render(btn.dataset.wf);
+  });
+});
+
+render('new_project_kickoff');
+</script>
+</body>
+</html>

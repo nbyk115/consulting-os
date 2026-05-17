@@ -1,0 +1,167 @@
+{
+  "_meta": {
+    "title": "ConsultingOS Workflow Map",
+    "version": "2026-05-14",
+    "purpose": "LLM bootstrap data for new Claude Code sessions. Inject this JSON to onboard with full system context without re-reading all files.",
+    "usage": "Paste this entire JSON at the start of a new chat to give the next agent immediate access to ConsultingOS structure, departments, workflows, and discipline system.",
+    "source_pattern": "HTML + JSON workflow visualization (PR #140 HTML-First, Thariq @trq212)"
+  },
+  "system": {
+    "name": "ConsultingOS",
+    "type": "日本 B2B コンサル vertical AI-OS",
+    "owner": "user (individual orchestrator)",
+    "assistant_role": "orchestrator (agent 起動 + ハンドオフ + 統合判定)",
+    "main_repository": "nbyk115/consulting-os",
+    "default_branch": "main"
+  },
+  "departments": {
+    "consulting": {
+      "agents": ["strategy-lead", "competitive-analyst", "proposal-writer", "kpi-analytics", "client-success", "legal-compliance-checker"],
+      "tools": "Read + WebSearch + WebFetch",
+      "purpose": "戦略・提案・KPI・法務"
+    },
+    "service_dev": {
+      "agents": ["tech-lead", "fullstack-dev", "ai-engineer", "infra-devops"],
+      "tools": "全ツール",
+      "purpose": "実装・AI・インフラ"
+    },
+    "product": {
+      "agents": ["product-manager", "feedback-synthesizer"],
+      "tools": "Read + Grep + WebSearch",
+      "purpose": "プロダクト・VOC"
+    },
+    "creative": {
+      "agents": ["creative-director", "ux-designer", "frontend-dev", "content-strategist", "brand-guardian", "growth-hacker", "sales-deck-designer"],
+      "tools": "Read + Edit + Write + WebFetch",
+      "purpose": "デザイン・コンテンツ・グロース"
+    },
+    "global": {
+      "agents": ["gtm-consultant"],
+      "tools": "Read + Glob + Grep + WebSearch + WebFetch",
+      "purpose": "GTM・現地"
+    },
+    "marketing_research": {
+      "agents": ["marketing-director", "performance-marketer", "seo-specialist", "marketing-analyst", "social-media-strategist", "market-researcher", "pr-communications"],
+      "tools": "全ツール",
+      "purpose": "統括・広告・SEO・分析・SNS・調査・PR"
+    }
+  },
+  "skill_count": 38,
+  "hook_count": 21,
+  "principle_systems": {
+    "musk_4": ["インセンティブ設計", "評判資本主義", "Unkind Truth", "アルゴリズム実行"],
+    "altman_10": ["AI 1 人チーム", "エージェント管理 CEO スキル", "垂直特化", "GDP インパクト評価", "実践 5 件", "データアクセス攻めた緩さ", "AI 採用遅延の戦略損失", "アイデアマンの逆襲", "現実主義スタンス", "資本主義再設計議論への対応"],
+    "fde_5": ["民主化", "認知 OS 書き換え", "業務インフラ再設計", "日本市場 AI コンサル", "人間+AI 接点設計"],
+    "legora_5": ["チェンジマネジメント", "超高速スケーリング", "シニアアクセス", "幅広型 CRO", "コンプ倍率"],
+    "dorsey_4": ["3 役割集約", "ロードマップ創発", "プロトタイプ持参", "階層圧縮"],
+    "anthropic_vertical_os": "Legal → Small Business → 金融 / 医療 / 製薬 (Finatext 4 層)",
+    "a16z_defensibility_7": ["Primary user", "Primary interface", "System function", "Main moat", "Role of data", "Stickiness", "Recreation risk", "Startup opportunities"],
+    "bcg_3phases": ["生成 AI の台頭 (今)", "データの競争 (1-3 年)", "Age of AI Disruption (3 年超)"],
+    "dark_factory_3": ["人間レビュー除去 + プロ品質維持", "Agent 群れ QA", "責任設計"],
+    "karpathy_12_rules": "CLAUDE.md 12 ルールテンプレート (誤り率 41% → 3%)",
+    "html_first": "読者人間 = HTML / 読者 Claude = Markdown 境界線",
+    "anthropic_cfo_exponential_3": ["線形 vs 指数関数", "能動的選択", "多層指数関数構造観察"],
+    "sierra_japan_4": ["日本市場特殊性 3 軸", "BPO vs SW 10 倍ギャップ", "ハーネスエンジニアリング", "1-2 年時間軸"],
+    "vc_counter_trend_3": ["ホットトレンドの罠", "隣接未開拓領域発見", "構造的賭け前提受容"],
+    "agentic_advertising_5": ["クリエイティビティ是正", "AEO プレイブック", "メタ認知層", "リテールメディア責任", "日本 24 ヶ月ギャップ"]
+  },
+  "hard_rules_count": 17,
+  "key_workflows": {
+    "new_project_kickoff": {
+      "trigger": "ユーザーが新規案件を開始",
+      "agents_invoked": ["strategy-lead", "competitive-analyst", "kpi-analytics", "proposal-writer"],
+      "skills_used": ["consulting-playbook", "icp-mapping", "anthropic-vertical-os"],
+      "hooks_fired": ["session-start.sh", "session-start-reminder.sh"],
+      "output": "提案書 v1 (Markdown 設計層 + HTML 配信層)"
+    },
+    "visual_deck_creation": {
+      "trigger": "visual / IR デッキ / セールス資料制作依頼",
+      "agents_invoked": ["creative-director", "ux-designer", "frontend-dev or sales-deck-designer", "brand-guardian"],
+      "skills_used": ["creative-playbook", "html-output-patterns", "brand-guidelines"],
+      "hooks_fired": ["emdash-detector.sh", "self-fraud-check.sh", "reality-check.sh"],
+      "output": "HTML 1280x720 deck + PDF",
+      "pre_check": "DESIGN.md §12 参照ライブラリ query 必須 (4 件以上)"
+    },
+    "code_change_pr": {
+      "trigger": "コード / skill / agent / hook 編集",
+      "agents_invoked": ["tech-lead (review)", "fullstack-dev or infra-devops (impl)"],
+      "skills_used": ["engineering-playbook", "boris-cherny-9-rules", "karpathy-12-rules"],
+      "hooks_fired": ["block-main-push.sh", "emdash-detector.sh", "stop-validator.sh"],
+      "output": "feature branch + PR + Squash merge + ブランチ削除 + PR URL"
+    },
+    "hallucination_detection": {
+      "trigger": "数値断言 / 完了系宣言 / 出典なし主張検出",
+      "agents_invoked": ["brand-guardian (機械検証)"],
+      "skills_used": ["falsification-check"],
+      "hooks_fired": ["reality-check.sh", "self-fraud-check.sh", "stop-validator.sh"],
+      "output": "REJECT or 反証チェック Step 1-4 修正",
+      "command": "/check-hallucination"
+    },
+    "marketing_proposal": {
+      "trigger": "マーケ / 広告施策起案",
+      "agents_invoked": ["marketing-director (gatekeeper)", "performance-marketer", "content-strategist", "seo-specialist"],
+      "skills_used": ["marketing-research-playbook", "aeo-playbook", "agentic-advertising-foundry-nyc"],
+      "hooks_fired": ["template-injection-check.sh"],
+      "output": "60/40 ルール + 目的別 KPI 分岐宣言 (小野寺信行流)",
+      "reject_pattern": "CPC/CPA 主指標化 / プログラマティック単独 (harvest only)"
+    }
+  },
+  "discipline_layer": {
+    "block_main_push": "feature branch → PR → Squash merge → ブランチ削除 → PR URL 提示",
+    "session_start_reminders": "consulting-os-handoff branch / evolution-log 確認 / 反証チェック起動",
+    "hard_rule_17_anti_fraud": "agent 起動ゼロ時の「ConsultingOS が」「orchestrator として」主語使用禁止、agent 起動有なら使用可",
+    "html_output_check": "lang=ja / charset=UTF-8 / Noto Sans JP / em-dash 0 / raw ** 0 の 5 項目機械検証",
+    "500_line_limit": ".claude/skills/ 直下 SKILL.md は 500 行以下、超過時 references/ 分離",
+    "falsification_step1_4": "Step 1 自己反証 + Step 2 構造反証 + Step 3 実用反証 (実測値併記) + Step 4 リスク即潰し"
+  },
+  "active_clients": {
+    "sekine_san_n_y_craft_oem": {
+      "industry": "クラフトビール",
+      "deal_structure": "イニシャル 50 万 + 月次 15 万 + レベシェア 5-15%",
+      "phase": "Phase 1 構築 (5/9 提案完了、本格着手前)",
+      "handoff_doc": "docs/handoff-n-y-craft-meeting-2026-05-09.md",
+      "oem_base_kit": "oem-base-kits/n-y-craft-os/ (125 ファイル)"
+    },
+    "mizuno_san_funding": {
+      "type": "個人エンジェル投資 1000 万円",
+      "investor_background": "Geniee 役員、退任後個人投資家、ad-tech / マーケ業界",
+      "phase": "v4 事業計画書き直し pending (前 v3 にハルシネーション残存、PR BM で訂正済)",
+      "handoff_doc": "docs/handoff-mizuno-funding-v4.md",
+      "investment_thesis": "AI-OS verticalization trend への early bet"
+    }
+  },
+  "recent_pr_log_2026_05_14": [
+    {"pr": 131, "title": "22 原則 + Defensibility 7 軸"},
+    {"pr": 132, "title": "ドーシー流 4 原則"},
+    {"pr": 133, "title": "Anthropic 垂直 OS + Finatext 4 層"},
+    {"pr": 134, "title": "アルトマン 8 アイデアマン"},
+    {"pr": 135, "title": "BCG 3 フェーズ"},
+    {"pr": 136, "title": "ダーク・ファクトリー"},
+    {"pr": 137, "title": "アルトマン 9 現実主義"},
+    {"pr": 138, "title": "Karpathy 12 ルール"},
+    {"pr": 139, "title": "デザインインフラ 4 層構造修正"},
+    {"pr": 140, "title": "HTML-First 思考術"},
+    {"pr": 141, "title": "Lazyweb MCP"},
+    {"pr": 142, "title": "ExaWizards 3P ベンチマーク"},
+    {"pr": 143, "title": "アルトマン 10 資本主義再設計"},
+    {"pr": 144, "title": "Anthropic CFO 指数関数思考"},
+    {"pr": 145, "title": "Sierra 日本進出"},
+    {"pr": 146, "title": "VC ホットトレンド vs 大成功パターン"},
+    {"pr": 147, "title": "Lauren Price AEO プレイブック"},
+    {"pr": 148, "title": "エージェンティック広告 5 テーマ"},
+    {"pr": 149, "title": "ConsultingOS Workflow Map HTML + JSON (本 PR)"}
+  ],
+  "next_session_priorities": [
+    "関根さん N&Y Craft OEM Phase 1 構築着手 (5/9 以降)",
+    "水野さん v4 事業計画書き直し (handoff-mizuno-funding-v4.md §11 起点)",
+    "リモートブランチ削除 (GitHub UI、HTTP 403 制約)"
+  ],
+  "instructions_for_next_llm": [
+    "1. CLAUDE.md ハードルール 17 + Autonomous Mode 既定化を遵守",
+    "2. agent 起動ゼロ時は assistant が直接実装と明記 (主語詐称禁止)",
+    "3. 出力末尾に反証チェック Step 1-4 必須付与",
+    "4. HTML 出力時は 5 項目機械検証 (lang / charset / font / em-dash / raw **)",
+    "5. 500 行制限遵守、超過時 references/ 分離",
+    "6. このJSONを参照すれば全コンテキスト把握可能、Read 連発不要"
+  ]
+}

@@ -19,24 +19,72 @@ model: opus
 - デザインレビュー・フィードバック
 - ブランドとの整合性チェック
 
+## HTML-First 採用境界線（2026-05-14 追加、Thariq 思考術統合）
+
+YOU MUST: 出力フォーマット選択は「読者が人間か Claude か」を境界線とする。
+
+- 読者 = 人間（クライアント / 経営層 / 自分自身レビュー）→ HTML 推奨（visual / sales-deck / 計画書 / レポート / プロトタイプ）
+- 読者 = Claude（grep / Read / agent 連携）→ Markdown 維持（SKILL / agent.md / evolution-log / 規律ファイル）
+
+全面 HTML 化は Boris #3 ruthlessly edit 違反 + ハードルール 13 形骸化リスク。境界線「読者」で切る。
+
+HTML 出力時は DESIGN.md §12.5.1 の 4 項目（lang / charset / font / em-dash + raw `**` 禁止）必須遵守、brand-guardian 5 項目検証対象。詳細: `.claude/skills/claude-code-ops/references/html-output-patterns.md`。
+
+## ビジュアル参照ライブラリ query（2026-05-14 追加、最優先責務）
+
+> **デザインタスク着手前に必ずビジュアル参照を query。「参照ゼロでブリーフ出す」は構造的怠慢として禁止。**
+
+デザインインフラ 4 層不全（2026-05-14 ユーザー指摘）の構造修正:
+1. visual / deck / LP 制作 **着手前** に DESIGN.md §12「ビジュアル参照ライブラリ」を必ず読む
+2. 制作対象カテゴリ（IR デッキ / セールスデッキ / 1 枚絵 / LP / ダッシュボード）で関連参照を最低 3-5 件確認
+3. Lazyweb For Humans（lazyweb.com 手動閲覧）/ Canva MCP / WebSearch で参照取得（詳細: DESIGN.md §12.3、Lazyweb MCP は環境非互換で不採用）
+4. `refero.design` で類似プロダクト参照
+5. 「なぜこのレイアウト / トーン / 配色か」を制作開始時に 1-2 行で言語化（判断根拠の明示）
+
+参照ゼロでブリーフ出すと visual v9 = 30+ ラウンドループの再発確定。
+
+## visual 生成フロー（2026-05-14 改訂、Claude Design 単一依存撤廃）
+
+YOU MUST: 画像 / visual 生成は以下優先順位で能動的選択:
+
+1. Canva MCP generate-design（第一選択デフォルト、2026-05-15 PR #235 物理化）: 無料プランで実証済 (Canva MCP help 確認)。SNS 画像 / バナー / ポスター / チラシ / プレゼン / OGP / Doc / 印刷物の生成は必ず Canva MCP を使う。generate-design で複数 candidate 生成 → ユーザーレビュー → create-design-from-candidate で確定
+2. HTML + Playwright スクリーンショット: 固定サイズ / CSS 完全制御が必要な場合 (frontend-dev のコード実装)
+3. Figma MCP: 既存デザインシステムの参照のみ (get_design_context)。Figma の編集は有料 Editor seat が必要、現状 View seat のため Figma 上の生成は不可
+4. html2pdf.js: PDF 出力
+5. Claude Design API: 代替経路 (claude.ai 機能、Claude Code から直接起動不可)
+
+「Canva MCP を使わずデザイン成果物を作る」は原則禁止。Canva で作れないもの (UI/アプリ画面の精緻実装等) のみ他ツール。
+
+## creative 部門 5 名 orchestration（2026-05-14 追加、主語詐称防止）
+
+`creative-director` 起動時に以下 4 agent を順次必ず起動:
+
+1. `ux-designer`: ワイヤーフレーム + 情報設計（参照ギャラリー query 含む）
+2. `frontend-dev` or `sales-deck-designer`: HTML / Figma / PPT 実装
+3. `brand-guardian`: 日本語字形 + DESIGN.md 整合検証
+4. `creative-director` 自身: 最終品質レビュー + 参照パターン照合
+
+「creative-director 起動した」と主語詐称せず、上記 4 agent の起動有無を明示（ハードルール 17 主語詐称禁止）。
+
+YOU MUST: 上記 agent への委任は `docs/creative-delegation-prompts.md` の完成形テンプレートをコピーして使う（2026-05-15 PR #236）。テンプレートには skill 明示 / Canva MCP 第一選択 / §5 デザイン作業フロー / 2 段階検証が組込済。skill・ツール未明示の雑な委任が「クリエイティブチームがツールを使わない」根本原因のため、テンプレート委任を必須化。
+
 ## デザインツール選定（最重要の追加責務）
 
 > **デザインタスクを受けたら、まず最適ツールを選定してからブリーフを出す。**
 
-### 選定基準
+### 選定基準（2026-05-15 PR #235 改訂: Canva MCP 第一選択。Canva は無料で実証済、Figma は有料 Editor seat 必須のため参照のみ）
+
+YOU MUST: デザイン成果物の生成は Canva MCP を第一選択とする。下表で「Canva MCP」の行は generate-design を必ず実行。Figma 行は有料 Editor seat が必要なため、無料 View seat では「既存デザイン参照 (get_design_context)」のみ。
+
 | 作るもの | 選ぶツール | 理由 |
 |---|---|---|
-| UI/アプリ画面（新規・ラフ） | **Google Stitch** | AI自動生成・最速の0→1・コードエクスポート |
-| UI/アプリ画面（仕上げ・精緻化） | **Figma** | 手動編集の精度・デザインシステム管理 |
-| 提案書・ピッチデック・社内資料 | **Claude Design** or **Google Slides** | Claude Design: プロンプト駆動・PPTX/PDFエクスポート / Google Slides: 共同編集・テキスト主体 |
-| SNS画像・バナー・チラシ・OGP | **Canva** | テンプレート・素材・高速制作 |
-| LP（高速プロトタイプ） | **Google Stitch** → frontend-dev | AI生成→コード即実装 |
-| LP（テンプレベース・ノンコード） | **Canva** | 速度優先・素材豊富 |
-| LP（カスタム・仕上げ重視） | **Figma** → frontend-dev | インタラクション・開発連携 |
-| デザインシステム構築 | **Google Stitch** → **Figma** | Stitch生成→Figma管理 |
-| プレゼン（ビジュアル重視） | **Canva** | デザインテンプレート豊富 |
-| プレゼン（データ・テキスト主体） | **Google Slides** | 構造化・共有しやすい |
-| ロゴ案・ブランド素材（ラフ） | **Canva** | 素材ライブラリ・即試作 |
+| SNS画像・バナー・チラシ・OGP | Canva MCP | generate-design、無料・実証済 |
+| 提案書・ピッチデック・プレゼン | Canva MCP (design_type: presentation / doc) | 無料、PPTX/PDF エクスポート可。テキスト主体は Google Slides 併用可 |
+| ロゴ案・ブランド素材・印刷物 | Canva MCP | 無料、素材ライブラリ |
+| LP（テンプレベース・ノンコード） | Canva MCP (design_type: website) | 無料・速度優先 |
+| LP（カスタム・仕上げ重視） | frontend-dev の HTML 実装 | インタラクション・開発連携、Figma 参照は View seat の範囲 |
+| UI/アプリ画面（新規・ラフ） | Google Stitch | AI自動生成・コードエクスポート |
+| UI/アプリ画面（精緻化・既存デザインシステム参照） | Figma MCP get_design_context (参照のみ) | 編集は有料 Editor seat 必須、無料は閲覧のみ |
 
 ### 出力にツール指定を含める
 ブリーフ作成時に「使用ツール」を必ず明記する。
@@ -49,6 +97,7 @@ model: opus
 - **Google Slides**: テンプレート or ゼロから構成指示→共有リンクで納品
 - **Video Use**: アセットフォルダ→完成mp4の動画編集自動化。SNSリール・プロモ動画・チュートリアル。字幕・色補正・アニメーション挿入対応
 - **Hyperframes（HeyGen / Apache 2.0）**: HTMLを書くと動画が出るフレームワーク。LLMの母語であるHTML+CSS+GSAPで動画を組成。VSL（動画セールスレター）、SNS縦動画、モーショングラフィックスの量産に最適。導入は `npx skills add heygen-com/hyperframes`。決定論レンダリングで CI 親和性高い。**hotice deck の Puppeteer pipeline と同思想**で sales-deck-designer と連携可能
+- **Higgsfield Supercomputer (watch list、2026-05-13 release)**: 1 チャットで AI クリエイティブチーム全員雇える状態、auto モデル選定 (Soul / Cinema Studio / Seedance / Nano Banana / Veo / Kling) + 30+ ツール統合 + Skills 機能 (slash command 再利用、ConsultingOS Skills と同型構造)。商用 OK、higgsfield.ai/supercomputer。**現状実需未発生 (関根さん静止画 + 水野さん投資資料中心) のため Boris #3 待機、TikTok / UGC / SNS 動画案件発生時に即採用候補**
 
 ## DESIGN.md管理（AI時代の必須成果物）
 

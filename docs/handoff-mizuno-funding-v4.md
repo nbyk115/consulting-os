@@ -220,4 +220,96 @@ cat docs/handoff-mizuno-funding-v4.md  # 本ファイル
 
 ---
 
-> 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。
+## 11. v4 投資テーゼ補強: Anthropic 垂直 OS 戦略 + 金融 vertical AI-OS（2026-05-14 追加）
+
+### 11.1 投資テーゼ核心
+
+「Anthropic は Legal (2026-05-12) → Small Business (2026-05-13) と vertical AI-OS を順次制圧中。次は金融 / 医療 / 製薬予測。この trend に乗る vertical AI-OS 早期参入者が次世代の defensible business」
+
+ConsultingOS = 「日本 B2B コンサル vertical AI-OS」= Anthropic 公式 vertical （Legal / Small Business）と非競合の機会窓。
+
+### 11.2 水野さんに刺さる 3 ポイント
+
+1. ジーニー卒業生視点: ad-tech SaaS = 「AI に選ばれない SaaS」リスクの内側を知る個人投資家として希少。SaaS 死テーゼ（Anthropic Claude for Small Business が QuickBooks / Stripe / HubSpot を MCP 統合）を内側から理解
+2. 1000 万投資 justification: コンサル事業投資でなく「AI-OS verticalization trend への early bet」= ConsultingOS が日本 B2B コンサル vertical AI-OS の早期参入者
+3. 横展開機会: 金融 vertical AI-OS（地銀 / 信金 / 個人投資家向け Bloomberg + 銀行 API 連携）への投資パイプライン構築、水野さん個人投資家ネットワーク活用
+
+### 11.3 v4 事業計画への組み込みポイント
+
+- 「投資テーゼ」セクションに Anthropic vertical 制圧プレイブック + Finatext 4 層構造（エージェント / コンテキスト / ビジネスロジック / データ）を反映
+- 「競合分析」セクションに「SaaS 死テーゼ」+「AI に選ばれない SaaS」リスク追加
+- 「中期戦略」に「金融 vertical AI-OS 横展開」候補追加（水野さん個人投資家ネットワーク活用）
+- 「ConsultingOS 戦略位置」セクション新設: エージェント入口（Sierra 型）から開始、コンテキスト + ビジネスロジック層を整備中、Anthropic 公式 vertical と非競合
+
+### 11.4 Finatext 4 層 ConsultingOS マッピング
+
+| 層 | ConsultingOS 該当 | v4 提示価値 |
+|---|---|---|
+| エージェント | 27 agent + assistant orchestrator | 「1 人で 10 人分」の物理化、水野さん 1000 万投資の ROI 担保 |
+| コンテキスト | evolution-log + ICP + 規律 hook 21 種 | 競争優位の中核、模倣困難な moat |
+| ビジネスロジック | 36 skill 体系 | OEM 展開で業界別 customization 可能 |
+| データ | 顧客文脈 + 案件記録 | 関根さん / 水野さん案件で蓄積開始 |
+
+### 11.5 詳細参照
+
+`.claude/skills/references/consulting-playbook-anthropic-vertical-os.md`（PR 統合済）に Anthropic 垂直制圧プレイブック / SaaS 死テーゼ / Finatext 4 層 / Sierra vs Finatext 戦略分岐の詳細を物理化済。
+
+### 11.6 Hidden Markov Model (HMM) quant 投資フレーム (watch list、2026-05-15 追加)
+
+Stanford 大学公開 HMM 完全フレームワーク (web.stanford.edu/~jurafsky/slp3、INFERENCE: ユーザー提示テキスト経由) + Roan @RohOnChain 実装記事 (INFERENCE) = ヘッジファンド (Jane Street / Two Sigma) で使用される regime switching 投資フレームの公開実装。
+
+水野さん向け適用候補 (watch list、本人実需確認後段階導入):
+- 個人投資家として「Bull / Bear / Sideways」regime detection
+- Transition Matrix で投資先 / portfolio の n-step ahead 確率予測
+- Stationary distribution で long-run baseline 把握
+- HMM (Baum-Welch + Viterbi) で観察不能な regime を return sequence から推論
+
+ConsultingOS 整合:
+- Anthropic CFO 指数関数思考 (PR #144): 多層指数関数 = HMM 複数 hidden state と同型構造
+- Sierra ハーネスエンジニアリング (PR #145): 本番稼働技術蓄積 = HMM emission variable 選定 (returns + volatility + credit spreads + VIX 等) のドメイン知識
+- PoC 地獄脱出 (PR #161) 戦略 4 自社 SaaS: HMM 自体を SaaS 化する候補
+
+実装ハードル:
+- Python + hmmlearn ライブラリ
+- ヘッジファンド級データ取得 + 計算リソース (歴史データ 10 年以上推奨)
+- Baum-Welch local minimum 問題 (multiple random initialization 必須)
+- 水野さん本人の quant trading 実需確認必須 (Boris #3、個人投資家として regime detection 実需未確定)
+
+統合判定: 本セッションでは watch list 登録のみ、水野さん v4 書き直し時に「投資テーゼ補強候補」として再評価。次セッションで:
+1. 水野さん本人に「regime detection / quant モデル」興味確認
+2. 興味あれば handoff 専用セクション化、新規 references skill 物理化
+3. 興味なしなら本 §11.6 のまま保持 (情報資産として)
+
+---
+
+## §11.7 YC Top 8 AI Sectors 2025-2026 FACT 引用源 (2026-05-15 統合 PR #200)
+
+> 出典: @aiedge_ チートシート + YC batch data + Communication Square 2025 (FACT、ユーザー画像)。水野さん v4 投資テーゼ補強の anchor、Anthropic 垂直 OS (PR #133) + Dario 3 段階 (PR #190) + Anthropic Economic Index (PR #188) と並列。
+
+### 8 セクター + ConsultingOS 接続 (実測 FACT)
+
+| # | AI セクター | 数値 FACT | ConsultingOS 接続 |
+|---|---|---|---|
+| 1 | Agents & Automation | Spring '25 batch の 50%+、70+ companies 18 sub-categories | 27 agent + 60+ skill 体系で直接整合 |
+| 2 | Healthcare | LunaBill $764K ARR since July | 該当 vertical 未着手 |
+| 3 | Software Dev | Emergent $50M ARR in 7 mo、5M+ users 190 countries | service-dev 4 agent、競合領域 |
+| 4 | Fintech | 100 deals YTD '25、+65% YoY | Personal CFO PR #191 + 水野 v4 投資テーゼ直接整合 |
+| 5 | Legal | LegalOS / Blueshoe leading | legal-compliance-checker + legal-playbook 整合 |
+| 6 | Defence & Security | NATO partnerships early-stage | 規制リスク高、不適合 |
+| 7 | Agent Infrastructure | $7.6B → $183B by 2033 (24x growth) | Hard Rule 17 + 21 hook + dream pass 整合 |
+| 8 | Robotics | Smaller batch %、big $ checks | 関根さん N&Y Craft (中小製造) 隣接 |
+
+### 投資判断 3 anchor (水野さん v4 ピッチデッキ FACT 引用)
+
+1. **「Vertical-specific agents > horizontal tools」** = ConsultingOS 核心戦略を YC 公式裏付け
+2. **「Pair with a regulated industry (legal/health/finance)」** = legal-compliance-checker + 水野さん投資テーゼ pair 戦略裏付け
+3. **「Agent infra: 24x growth by 2033」** = 1000 万投資 ROI 算出の anchor 数値
+
+### Building / Investing ガイド (FACT)
+
+If you're building: Vertical-specific > horizontal / regulated industry pair / Infra layer biggest TAM
+If you're investing: AI Fintech +65% YoY / Agent infra 24x by 2033 / Defence is new uncrowded bet
+
+---
+
+> 出典: 本ファイルは `evolution-log.md` 2026-05-08 + `oem-packaging-mizuno.md` 訂正後（PR BM）+ ユーザー口頭確認 2026-05-08 を一次根拠とする。§11 は Anthropic 公式発表（2026-05-12 / 05-13）+ Finatext IR + note.com/110_110_110 (Sierra vs Finatext 比較、INFERENCE) を追加根拠とする。書き直しは次セッションで agent 主導 + ConsultingOS 全体判断で実施。

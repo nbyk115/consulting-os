@@ -144,6 +144,41 @@ NEVER: ユーザー指摘で発覚した瞬間に reactive patch のみで終わ
 
 機械検証層（2026-05-07 物理化）: 7 protocol の self-audit を補強する mechanical enforcement として、`.claude/rubrics/brand-guardian-minimal.yaml` + `.claude/hooks/outcomes-judge-minimal.sh`（Stop hook chain 登録済）を運用。Anthropic Outcomes 機能（2026-05-06 Public Beta、Managed Agents 基盤前提）の概念を ConsultingOS 自前実装で移植、4 criteria（emdash_ban / bold_markdown_ban / completion_claim_evidence / subject_fraud_ban）を assistant 出力に対して逐次判定、違反は stderr に [FAIL] / [WARN] alert（非ブロッキング）。Phase: PoC、α 拡張で反証 Step 1-4 完備 + FACT/INFERENCE/SPECULATION 3 ラベル検証 criteria を追加予定。
 
+### §2.7 Strategy ⇄ Execution 循環 + 価値マップ標準化（2026-05-09 PR DJ 物理化、デロイト FMO + OpenAI Tomoro + Anthropic + Blackstone 連携学習）
+
+YOU MUST: assistant orchestrator は agent 起動前に「Enterprise Value Map → KPI Prioritization → Innovation Roadmap」の DS (Deployment Strategist) 標準フローを内省で 1 周。価値定量化なしの agent 起動は形骸化リスク高、起動順序のみの暗黙設計を防止。
+
+3 ステップ（着手前 30 秒）:
+1. Enterprise Value Map: 案件の最終価値ドライバーを 1-3 件特定（売上 / 粗利 / 工数削減 / 評判資本 / 認知 OS 書き換え 等）
+2. KPI Prioritization: 価値ドライバー → 測定可能 KPI に翻訳（例: 提案作成時間 40h → 8h / 受注率 X% → Y% / NPS 等）
+3. Innovation Roadmap: KPI 達成までの工程を 3-5 stage に分解、各 stage の担当 agent を仮配置
+
+YOU MUST: agent 実行結果を strategy-lead へ自動フィードバック（Strategy ⇄ Execution 循環）。一方向フロー（戦略 → 実装で終わる）は禁止、Execution to Strategy で軌道修正 + 価値マップ更新を反復。
+
+ConsultingOS 整合（前 PR DI FDE 時代戦略 5 原則と統合）:
+- DS 役割 = assistant orchestrator
+- FDE 役割 = 27 agent 専門領域別
+- FMO 機能 = skill / hook / evolution-log + 本 §2.7
+- Strategy ⇄ Execution 循環 = 反証チェック Step 1-4 の orchestration 拡張版
+
+出典: デロイトトーマツ「FDE マネジメントオフィス (FMO)」資料（2026 年、INFERENCE: ユーザー提示画像経由）+ 関連 skill `consulting-playbook-fde-era.md`。
+
+### 2.8 規律改善プロセス（2026-05-15 ユーザー指示「規制やルールが厳しすぎて進めないならリードと orchestrator が議論して改善都度して」物理化）
+
+規律（Hard Rule / Boris #3 / 各種ゲート / hook / skill）が作業進行を構造的に阻害すると判明した場合、該当部門リード + orchestrator が議論し、規律の意図を維持しつつ阻害要因を都度改善する。
+
+YOU MUST: 以下を遵守:
+
+- 「規律が厳しいから次セッション送り」「規律を盾に作業を止める」は構造的怠慢として禁止。規律が障害なら規律自体を即改善する（Hard Rule 1 残存リスク即潰し原則の規律版）
+- 改善手段: 緩和 / 例外追加 / hook 精緻化 / 撤廃 / 適用条件の明確化。該当部門リード（§4.4 の部門リード表）+ orchestrator の議論を経て PR 化
+- ただし「規律の意図そのもの（品質担保 / 主語詐称防止 / 出典明示 / 真の 100）の放棄」は禁止。阻害する形式のみ改善し、意図は維持する
+- 改善は evolution-log に記録、規律改訂の根拠を残す
+
+本セッション実例（2026-05-15）:
+- outcomes-judge hook の太字検出が誤検出 → PR #215 でコードブロック除外ロジック追加（hook 精緻化）
+- DESIGN.md §12.3 Lazyweb「参照 3-5 件必須」が token 未取得で実行不可能命令化 → PR #217 で token 未取得時は任意扱いに緩和（適用条件の明確化）
+- 優先 3（DESIGN.md 3 層構造）を「Boris #3 先回り禁止」で次セッション送り → ユーザー指摘で誤判断と判明、ConsultingOS 本体トークンで実装可能（規律の拡大解釈による作業停止、本プロセスで是正）
+
 ---
 
 ## 3. 起動前 4 点ゲート
@@ -163,11 +198,13 @@ NEVER: ユーザー指摘で発覚した瞬間に reactive patch のみで終わ
 - NO の場合: エージェント起動中止、ファイル存在をユーザー確認 or 作成
 - 学習根拠: 2026-05-04 legal-compliance-checker 不在ファイル判定事例（evolution-log 参照）
 
-### 3.3 ゲート③: 依存先確認
+### 3.3 ゲート③: 依存先確認 + スキル明示参照（2026-05-15 強化）
 
 - 確認対象: 連携エージェント定義（.claude/agents/）、参照スキル（.claude/skills/）、参照ドキュメント（docs/）
 - 目的: エージェントが参照する依存先が起動可能か確認
 - NO の場合: 不足依存先を整備してから再起動
+- YOU MUST: 確認した参照スキル（.claude/skills/）の該当ファイルパスを agent 委任プロンプトに明示記載する。agent description の「参照スキル」欄に列挙されているだけでは agent が実際に読む保証はない。委任プロンプトに「着手前に `.claude/skills/<該当skill>.md` を Read してから作業」と明記必須。
+- 学習根拠: 2026-05-15 yorunokotoba/Nobucode 別ブランチで、creative 作業時に creative-playbook.md + references (design-samples / visual-loop-prevention) が委任プロンプトに明示されず、別 assistant が「委任の不備」と自認。BRAND_RULES.md / DESIGN.md は明示したが skill 本体が漏れた構造盲点。skill 体系は「列挙 = 参照」でなく「委任プロンプト明示 = 参照」で初めて機能する。
 
 ### 3.4 ゲート④: ICP/DESIGN 確認
 
@@ -207,6 +244,31 @@ git branch --show-current && ls <target-file> && ls .claude/agents/<dept>/<agent
 - 出典なし具体数値（X 割 / X% / 金額 / 年次予測）の断言が含まれていないか確認
 - FACT / INFERENCE / SPECULATION 3 ラベルが明示されているか確認
 - 違反時: /check-hallucination コマンドで再判定
+
+### 4.4 2 段階検証ゲート（部門リード → orchestrator、2026-05-15 PR #213 物理化）
+
+**YOU MUST**: エージェント作業成果は、以下 2 段階の検証を必ず通す。1 段階目を飛ばして orchestrator 直結は禁止（クリエイティブ品質劣化の根本対策、3 agent 診断「規約集止まり」を受けた構造強制）。
+
+第 1 段階: 同部門の最終リード agent によるチェック
+
+| 部門 | 最終リード agent |
+|---|---|
+| コンサル | strategy-lead |
+| サービス開発 | tech-lead |
+| クリエイティブ | creative-director（機械検証は brand-guardian 併用）|
+| マーケティング | marketing-director |
+| プロダクト | product-manager |
+| グローバル | gtm-consultant |
+
+- 作業 agent と最終リードが同一の場合（例: strategy-lead 自身の作業）は、第 1 段階を別部門リード or brand-guardian の機械検証で代替
+- 最終リードは「部門品質基準・ルーブリック適合」「§4.1-4.3 の形式」を判定、不適合は差し戻し
+
+第 2 段階: orchestrator チェック
+
+- 第 1 段階通過後、orchestrator が §4.1-4.3（参照パス・反証チェック・数値クレーム）+ 部門横断整合性を検証
+- 第 1 段階の差し戻し履歴も確認、リードのチェックが形骸化していないか監査
+
+省略可能な例外は §5 に準じる（軽微な確認・検証系コマンド・即答・緊急時）。中-大タスク（成果物生成・クライアント納品物）は 2 段階必須。
 
 ---
 
