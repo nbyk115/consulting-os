@@ -80,16 +80,16 @@
 
 対象: よるのことば（女性向け占いアプリ、自社プロダクト、/goal 副収入 月 10-20 万）を ConsultingOS の実案件として記録。
 
-管理方針: 実案件は案件ごとに別リポで分離管理（user 方針、わかりやすさ優先）。consulting-os は司令塔（OS 規律 / skill / agent の本体）、各案件の進行・成果物はそれぞれの案件リポで管理する。中央レジストリは設けない。
+管理方針: 実案件の管理場所は案件ごとに異なる（user 方針、わかりやすさ優先）。独立プロダクト案件は専用の別リポで分離管理、consulting-os リポ自体を使う案件は consulting-os 内のブランチで進行する。consulting-os は司令塔（OS 規律 / skill / agent の本体）。中央レジストリは設けない。
 
 - 案件リポ: `nbyk115/yorunokotoba`（安定キーはリポ名。作業ブランチはセッションごとに変わるため記録対象外）
 - 進捗: Phase 1 コンテンツエンジン完了 / Phase 3 デザイントークン正典化 進行中
 - OS 連携: `scripts/distribute-os-skills.sh` で consulting-os main の skill / agent を案件リポへ配布（pull 型、案件リポ側で実行）。2026-05-17 配布で lazyweb 除去済み最新 OS（main 0007ee0）が反映済み
 - ハンドオフ: `docs/handoff-yorunokotoba-os-activation.md`（§1 冒頭のブランチ記述はセッション交代で陳腐化する前提、リポ名で参照すること）
 
-他の実案件（関根さん N&Y Craft = `nbyk115/n-y-craft-os-beta`、水野さん funding）も同じく別リポ分離管理。本エントリは よるのことば の登録のみを記録対象とする（1 エントリ = 1 目的）。
+他の実案件の管理場所: 関根さん N&Y Craft = 別リポ `nbyk115/n-y-craft-os-beta`、水野さん funding = consulting-os リポ内のブランチ `claude/mizuno-funding-v4`（`strategy/mizuno-funding-1000man/` + `docs/handoff-mizuno-funding-v4.md` 起点）。別リポ管理と consulting-os 内ブランチ管理が混在する。本エントリは よるのことば の登録のみを記録対象とする（1 エントリ = 1 目的）。
 
-反証結果: Step 1 = リポ名 `nbyk115/yorunokotoba`・別リポ分離方針は user 明示（FACT）、ブランチ陳腐化は handoff doc 実測（FACT）。Step 2 = 中央レジストリ新設は user の「案件ごと分離」方針と矛盾するため不採用、evolution-log への登録記録のみで構造整合。Step 3 = consulting-os 環境から案件リポは GitHub MCP スコープ外で直接検証不可、user 申告 + handoff doc 記載に依拠（明示）。Step 4 = 残存リスクなし（記録のみ、不可逆操作なし）。
+反証結果: Step 1 = リポ名 `nbyk115/yorunokotoba`・案件ごとの管理場所（別リポ / consulting-os 内ブランチ混在）は user 明示（FACT）、ブランチ陳腐化は handoff doc 実測（FACT）。Step 2 = 中央レジストリ新設は user の「案件ごと分離」方針と矛盾するため不採用、evolution-log への登録記録のみで構造整合。Step 3 = consulting-os 環境から別リポ案件は GitHub MCP スコープ外で直接検証不可、user 申告 + handoff doc 記載に依拠（明示）。水野さん funding の consulting-os 内資産（`strategy/mizuno-funding-1000man/` + `docs/handoff-mizuno-funding-v4.md`）は本リポ実測（FACT）。Step 4 = 残存リスクなし（記録のみ、不可逆操作なし）。
 
 ### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
 
