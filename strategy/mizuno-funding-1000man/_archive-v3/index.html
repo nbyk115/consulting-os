@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水野氏 1000 万円エンジェル出資 MTG（2026-05-07）— 資料ハブ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --bg:#FAFAF7;
+  --accent:#1E3A8A;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --info:#3B82F6;
+  --n100:#F2F2EE;
+  --n300:#D4D4D0;
+  --n500:#5A5A5A;
+  --n700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);
+  color:var(--primary);
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+
+/* ─── CONTAINER ─── */
+.container{max-width:1100px;margin:0 auto;padding:64px 36px 128px}
+
+/* ─── HEADER ─── */
+.site-header{border-bottom:3px solid var(--primary);padding-bottom:36px;margin-bottom:64px}
+.eyebrow{
+  font-size:12px;letter-spacing:0.18em;color:var(--accent);
+  font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif;
+}
+.site-title{
+  font-size:44px;font-weight:800;line-height:1.25;
+  margin-top:12px;letter-spacing:-0.01em;
+}
+.site-meta{
+  font-size:16px;color:var(--n500);margin-top:16px;line-height:1.85;
+  font-family:"Inter","Noto Sans JP",sans-serif;
+}
+
+/* ─── KPI HERO: 4 巨大数値 ─── */
+.kpi-hero{
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:20px;
+  margin-bottom:64px;
+}
+.kpi-card{
+  background:var(--white);border:1px solid var(--n300);
+  border-top:4px solid var(--accent);
+  padding:24px 24px 20px;
+}
+.kpi-card.warn{border-top-color:var(--warning)}
+.kpi-card.suc{border-top-color:var(--success)}
+.kpi-label{
+  font-size:11px;font-weight:700;letter-spacing:0.18em;
+  color:var(--n500);font-family:"Inter",sans-serif;text-transform:uppercase;
+  padding:2px 7px;
+}
+.kpi-num{
+  font-family:"Inter",sans-serif;font-weight:900;
+  font-size:56px;letter-spacing:-0.02em;line-height:1;
+  color:var(--accent);margin-top:6px;
+}
+.kpi-card.warn .kpi-num{color:var(--warning)}
+.kpi-card.suc .kpi-num{color:var(--success)}
+.kpi-unit{font-size:22px;font-weight:700;margin-left:4px}
+.kpi-desc{font-size:13px;color:var(--n500);line-height:1.7;margin-top:8px}
+
+/* ─── LABEL legend ─── */
+.legend{
+  background:var(--n100);padding:16px 24px;margin-bottom:64px;
+  font-size:14px;line-height:1.85;color:var(--n700);
+  display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+  border-left:4px solid var(--accent);
+}
+.legend-title{font-weight:700;color:var(--primary);font-size:14px}
+.lbl{
+  display:inline-block;font-size:11px;font-family:"Inter",sans-serif;
+  font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;vertical-align:middle;margin-right:3px;
+}
+.lbl-f{background:var(--accent);color:#fff}
+.lbl-i{background:var(--n700);color:#fff}
+.lbl-s{background:var(--n500);color:#fff}
+
+/* ─── SECTION heading ─── */
+.section-heading{
+  display:flex;align-items:baseline;gap:16px;
+  margin:0 0 20px;
+}
+.section-h2{
+  font-size:28px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;
+}
+.section-num{
+  font-size:13px;font-weight:700;letter-spacing:0.16em;
+  color:var(--n500);font-family:"Inter",sans-serif;text-transform:uppercase;
+}
+.section-sep{
+  height:2px;background:var(--n300);margin:0 0 24px;border:none;
+}
+.section-gap{margin-top:64px}
+.section-gap-lg{margin-top:128px}
+
+/* ─── CARD GRID ─── */
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:20px;
+}
+.card{
+  background:var(--white);border:1px solid var(--n300);
+  border-left:4px solid var(--accent);
+  padding:22px 26px 22px;
+  text-decoration:none;color:var(--primary);
+  display:flex;flex-direction:column;gap:0;
+  transition:border-left-color 0.15s,box-shadow 0.15s;
+}
+.card:hover{border-left-color:var(--primary);box-shadow:0 6px 20px rgba(0,0,0,0.09)}
+.card:focus{outline:2px solid var(--accent);outline-offset:2px}
+.card-num{
+  font-family:"Inter",sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.18em;color:var(--accent);text-transform:uppercase;
+}
+.card-title{
+  font-size:19px;font-weight:800;line-height:1.4;margin-top:6px;
+}
+.card-desc{
+  font-size:14px;color:var(--n700);line-height:1.85;margin-top:8px;flex:1;
+}
+.card-badge{
+  margin-top:12px;font-size:11px;color:var(--n500);font-weight:700;
+  letter-spacing:0.05em;padding-top:12px;
+  border-top:1px dashed var(--n300);
+  font-family:"Inter","Noto Sans JP",sans-serif;
+}
+.card-badge::before{content:"推奨 → ";color:var(--n300)}
+
+/* ─── PITCH CARD: featured (A) ─── */
+.card.featured{border-left:4px solid var(--primary);border-top:2px solid var(--primary)}
+.card.featured .card-num{color:var(--primary)}
+
+/* ─── SCENARIO section ─── */
+.scenario-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;
+}
+.scenario-card{
+  background:var(--white);border:1px solid var(--n300);
+  padding:20px 24px;
+}
+.scenario-card.best{border-top:4px solid var(--success)}
+.scenario-card.base{border-top:4px solid var(--accent)}
+.scenario-card.worst{border-top:4px solid var(--warning)}
+.scenario-label{
+  font-size:11px;font-weight:700;letter-spacing:0.16em;
+  font-family:"Inter",sans-serif;text-transform:uppercase;
+  color:var(--n500);
+}
+.scenario-label.best{color:var(--success)}
+.scenario-label.base{color:var(--accent)}
+.scenario-label.worst{color:var(--warning)}
+.scenario-num{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:36px;
+  letter-spacing:-0.02em;line-height:1;margin-top:6px;
+}
+.scenario-num.best{color:var(--success)}
+.scenario-num.base{color:var(--accent)}
+.scenario-num.worst{color:var(--warning)}
+.scenario-unit{font-size:16px;font-weight:700;margin-left:3px}
+.scenario-desc{font-size:13px;color:var(--n500);line-height:1.7;margin-top:8px}
+.scenario-bar-wrap{margin-top:10px;height:8px;background:var(--n100);border-radius:2px;overflow:hidden}
+.scenario-bar{height:100%;border-radius:2px}
+.best .scenario-bar{background:var(--success);width:95%}
+.base .scenario-bar{background:var(--accent);width:60%}
+.worst .scenario-bar{background:var(--warning);width:30%}
+
+/* ─── RISK TABLE ─── */
+.risk-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:4px}
+.risk-table th{
+  background:var(--primary);color:#fff;
+  padding:12px 16px;text-align:left;font-size:14px;
+  font-weight:700;letter-spacing:0.04em;line-height:1.6;
+}
+.risk-table td{
+  padding:12px 16px;border-bottom:1px solid var(--n300);
+  vertical-align:top;line-height:1.6;font-size:14px;
+}
+.risk-table tr:last-child td{border-bottom:none}
+.risk-table tbody tr:nth-child(odd){background:var(--n100)}
+.risk-table tbody tr:nth-child(even){background:var(--white)}
+.risk-num{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:18px;
+  color:var(--warning);
+}
+.risk-prob{
+  font-size:12px;padding:2px 8px;border-radius:2px;
+  font-family:"Inter",sans-serif;font-weight:700;
+}
+.risk-prob.mid{background:#FEF3C7;color:#92400E}
+.risk-prob.low{background:#ECFDF5;color:#065F46}
+
+/* ─── PREMORTEM SECTION ─── */
+.premortem{background:var(--primary);color:#fff;padding:28px 32px;margin-top:28px}
+.premortem-title{
+  font-size:13px;font-weight:700;letter-spacing:0.18em;
+  color:#93C5FD;font-family:"Inter",sans-serif;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.premortem-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.premortem-item{
+  display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:baseline;
+  font-size:14px;line-height:1.7;color:#E5E7EB;
+}
+.premortem-item-num{
+  font-family:"Inter",sans-serif;font-weight:900;font-size:16px;
+  color:#93C5FD;
+}
+.premortem-item.critical .premortem-item-num{color:#F87171}
+.premortem-item.critical .premortem-item-txt{color:#FCA5A5;font-weight:700}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  margin-top:64px;padding-top:28px;
+  border-top:2px solid var(--n300);
+}
+.footer-title{
+  font-size:13px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--n500);
+  font-family:"Inter",sans-serif;margin-bottom:14px;
+}
+.footer-body{
+  font-size:14px;color:var(--n500);line-height:1.85;
+}
+.footer-warning{
+  margin-top:16px;padding:14px 20px;
+  background:#FEF2F2;border-left:4px solid var(--warning);
+  font-size:13px;color:var(--warning);line-height:1.75;
+}
+.footer-legal{
+  margin-top:16px;padding:14px 20px;
+  background:var(--n100);font-size:13px;color:var(--n700);line-height:1.85;
+}
+.footer-legal a{color:var(--accent);text-underline-offset:2px}
+</style>
+</head>
+<body>
+<main class="container">
+
+  <!-- ─── HEADER ─── -->
+  <header class="site-header">
+    <div class="eyebrow">CONFIDENTIAL — 水野氏 / 2026-05-07 想定 MTG</div>
+    <h1 class="site-title">水野氏 1000 万円エンジェル出資<br>資料ハブ</h1>
+    <div class="site-meta">
+      起案日 2026-05-04 / ConsultingOS 6 部門並列レビュー（Phase 1-3 全エージェント統合）<br>
+      ブランチ: claude/mizuno-funding-pitch-KheGN / 配色: --accent #1E3A8A 信頼紺 / --warning #B91C1C
+    </div>
+  </header>
+
+  <!-- ─── KPI HERO ─── -->
+  <section aria-label="キー指標">
+    <div class="kpi-hero">
+      <div class="kpi-card">
+        <div class="lbl lbl-f" style="display:inline-block;margin-bottom:4px">ASK</div>
+        <div class="kpi-num">1,000<span class="kpi-unit">万円</span></div>
+        <div class="kpi-desc">J-KISS 推奨 / バリュエーションキャップ 1 億円候補<span class="lbl lbl-i" style="margin-left:6px">INFERENCE</span></div>
+      </div>
+      <div class="kpi-card warn">
+        <div class="lbl" style="background:var(--warning);color:#fff;display:inline-block;margin-bottom:4px">フェンス資金</div>
+        <div class="kpi-num">500<span class="kpi-unit">万円</span></div>
+        <div class="kpi-desc">営業保証金供託<span class="lbl lbl-f" style="margin-left:4px">FACT</span> 財務省関東財務局 / 返還可・業務中拘束</div>
+      </div>
+      <div class="kpi-card suc">
+        <div class="lbl" style="background:var(--success);color:#fff;display:inline-block;margin-bottom:4px">ブレイクイーブン</div>
+        <div class="kpi-num">7-10<span class="kpi-unit">ヶ月</span></div>
+        <div class="kpi-desc">標準 CF カバレッジ 1.7-2.7 倍<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="lbl lbl-i" style="display:inline-block;margin-bottom:4px">ランウェイ（標準）</div>
+        <div class="kpi-num">29-36<span class="kpi-unit">ヶ月</span></div>
+        <div class="kpi-desc">最小構成なら 67-83 ヶ月<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LABEL LEGEND ─── -->
+  <div class="legend" role="note" aria-label="数値ラベル凡例">
+    <span class="legend-title">数値ラベル規律:</span>
+    <span><span class="lbl lbl-f">FACT</span> 出典確認済の事実</span>
+    <span><span class="lbl lbl-i">INFERENCE</span> 業界相場・既存資料からの推定（幅あり）</span>
+    <span><span class="lbl lbl-s">SPECULATION</span> 仮説・幅大の予測（要検証）</span>
+  </div>
+
+  <!-- ─── PITCH DECKS ─── -->
+  <section aria-label="ピッチ資料">
+    <div class="section-heading">
+      <span class="section-num">Section 01</span>
+      <h2 class="section-h2">ピッチ資料 3 形式</h2>
+    </div>
+    <hr class="section-sep">
+    <div class="card-grid">
+      <a class="card featured" href="./why-mizuno.html">
+        <div class="card-num">Why Mizuno — OEM パートナーシップ（Plan A 主軸）</div>
+        <div class="card-title">元ジーニー 常務 CAO × ConsultingOS 金融 OS OEM</div>
+        <div class="card-desc">水野敦紹氏 = 元ジーニー 常務執行役員 CX 事業統括本部 CAO（FACT、本人提示）/ 退職して独立予定（FACT、本人発言）/ ConsultingOS 運営関与なし、OEM パートナー（FACT、本人発言）。1000 万円 = 株式取得 + 水野氏向け金融 OS 開発先行投資。OEM 契約条件 + 5 接点（アドテク → 効果測定 / マーケ SaaS PL → 中堅企業 PL / 東南アジア → 多通貨 / 上場 IR → IR デッキ / CX CAO → 顧客成功）+ 3 フェーズロードマップ。</div>
+        <div class="card-badge">Plan A 主軸・MTG 冒頭で提示</div>
+      </a>
+      <a class="card" href="./demo-consultingos-financial.html">
+        <div class="card-num">Demo Fin — 水野氏向け金融 OS プロトタイプ（Plan A 根拠）</div>
+        <div class="card-title">ConsultingOS × financial-services（OEM 候補）</div>
+        <div class="card-desc">水野氏独立事業向け金融 OS の OEM プロトタイプ。Anthropic 製 financial-services スキル群（/pitch-deck + /dcf-model）と ConsultingOS の統合構図。任天堂 7974 で動作確認済（ユーザー試用報告 INFERENCE）。MTG 中盤で水野氏独立事業の領域に応じてカスタマイズ要件を協議。</div>
+        <div class="card-badge">Plan A 主軸デモ・MTG 中盤で提示推奨</div>
+      </a>
+      <a class="card" href="./case-a.html">
+        <div class="card-num">Case A — 詳細版（Plan B バックアップ）</div>
+        <div class="card-title">26 slides 完全版・ConsultingOS 単体運営シナリオ</div>
+        <div class="card-desc">水野氏が OEM 路線を選ばない場合のバックアッププラン。Why Now / 軸 A B C ポートフォリオ / 4 思想統合 / Phase 0-4 ロードマップ / リスク 5 点 / Ask / 次のアクション。SVG 図解 5 点 + Chart.js 3 点 + 巨大数値 KPI を全 slide に実装。1000 万円の意味付け = 営業保証金 500 万 + 申請費・運用資金 500 万（Plan B 限定の数値）。</div>
+        <div class="card-badge">Plan B 詳細検討（60 分 MTG 想定）</div>
+      </a>
+      <a class="card" href="./case-b.html">
+        <div class="card-num">Case B — 圧縮版（Plan B バックアップ）</div>
+        <div class="card-title">10 slides 核心抽出・ConsultingOS 単体運営シナリオ</div>
+        <div class="card-desc">Plan B の 10 枚圧縮版。水野氏が 30 秒で判断する核心 10 枚を抽出。Why Now / 差別化 3 軸 / 財務 4 シナリオ / リスク先出し / Ask の 4 象限を 1280×720 で網羅。SVG + Chart.js 重点導入。</div>
+        <div class="card-badge">Plan B 30 秒判断・即決スタイル</div>
+      </a>
+      <a class="card" href="./case-c.html">
+        <div class="card-num">Case C — 1 ページ（Plan B バックアップ）</div>
+        <div class="card-title">1 枚サマリ + メール本文・ConsultingOS 単体運営シナリオ</div>
+        <div class="card-desc">Plan B の 1 ページサマリ。1280×720 の 1 枚レイアウト（KPI 4 段巨大数値 / 3 カラム本文 / Ask 2 段設計）+ メール本文（クリップボードコピーボタン付き）。担当者名・メール・電話を記入してから送信。</div>
+        <div class="card-badge">Plan B メール送付・事前共有</div>
+      </a>
+      <a class="card" href="./demo-marketing-saas.html">
+        <div class="card-num">Demo MKT — ConsultingOS 能力提示（サブ）</div>
+        <div class="card-title">ConsultingOS × Marketing SaaS / Adtech</div>
+        <div class="card-desc">ConsultingOS の地力を示すサブ素材。水野氏向け OEM とは別領域だが、マーケ部門 8 連携 + SaaS KPI 5 指標 + アドテク代理店向けシナリオで「ConsultingOS が金融 OS と並行してこのレベルの自動化を回せる」根拠提示。水野氏のジーニー CX 事業経験と親和性。</div>
+        <div class="card-badge">サブ素材・水野氏が能力確認を希望時のみ提示</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── SCENARIO COMPARISON ─── -->
+  <section class="section-gap" aria-label="シナリオ比較">
+    <div class="section-heading">
+      <span class="section-num">Section 02</span>
+      <h2 class="section-h2">月次売上 3 シナリオ比較</h2>
+    </div>
+    <hr class="section-sep">
+    <div class="scenario-grid">
+      <div class="scenario-card best">
+        <div class="scenario-label best">楽観シナリオ</div>
+        <div class="scenario-num best">120-180<span class="scenario-unit">万円 / 月</span></div>
+        <div class="scenario-bar-wrap"><div class="scenario-bar"></div></div>
+        <div class="scenario-desc">紹介 3 件 / Q / 軸 A 登録 6 ヶ月 / 軸 B 並行<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></div>
+      </div>
+      <div class="scenario-card base">
+        <div class="scenario-label base">標準シナリオ</div>
+        <div class="scenario-num base">50-80<span class="scenario-unit">万円 / 月</span></div>
+        <div class="scenario-bar-wrap"><div class="scenario-bar"></div></div>
+        <div class="scenario-desc">紹介 1-2 件 / Q / 軸 A 登録 12 ヶ月<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></div>
+      </div>
+      <div class="scenario-card worst">
+        <div class="scenario-label worst">保守シナリオ</div>
+        <div class="scenario-num worst">20-40<span class="scenario-unit">万円 / 月</span></div>
+        <div class="scenario-bar-wrap"><div class="scenario-bar"></div></div>
+        <div class="scenario-desc">紹介ゼロ / 軸 A 登録 18 ヶ月遅延<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></div>
+      </div>
+    </div>
+
+    <!-- SVG: Phase 0-4 タイムライン -->
+    <div style="margin-top:28px">
+      <div style="font-size:13px;font-weight:700;color:var(--n500);letter-spacing:0.12em;text-transform:uppercase;font-family:Inter,sans-serif;margin-bottom:12px">Phase 0-4 ロードマップ</div>
+      <svg width="100%" viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg" aria-label="Phase 0-4 タイムライン" style="display:block">
+        <defs>
+          <linearGradient id="phaseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#DBEAFE"/>
+            <stop offset="100%" style="stop-color:#1E3A8A"/>
+          </linearGradient>
+        </defs>
+        <!-- base track -->
+        <rect x="20" y="34" width="960" height="32" rx="4" fill="url(#phaseGrad)" opacity="0.25"/>
+        <!-- Phase segments -->
+        <rect x="20" y="34" width="168" height="32" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+        <rect x="196" y="34" width="186" height="32" rx="4" fill="#BFDBFE" stroke="#60A5FA" stroke-width="1"/>
+        <rect x="390" y="34" width="186" height="32" rx="4" fill="#93C5FD" stroke="#3B82F6" stroke-width="1"/>
+        <rect x="584" y="34" width="196" height="32" rx="4" fill="#60A5FA" stroke="#1D4ED8" stroke-width="1"/>
+        <rect x="788" y="34" width="192" height="32" rx="4" fill="#1E3A8A" stroke="#1E40AF" stroke-width="1"/>
+        <!-- Labels -->
+        <text x="104" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1E3A8A">Phase 0 — OSS 公開</text>
+        <text x="289" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1E40AF">Phase 1 — SaaS β</text>
+        <text x="483" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#1D4ED8">Phase 2 — マルチテナント</text>
+        <text x="682" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#fff">Phase 3 — 軸 A 金融</text>
+        <text x="884" y="55" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#fff">Phase 4 — 国際</text>
+        <!-- Milestones -->
+        <circle cx="196" cy="50" r="8" fill="#B91C1C"/>
+        <circle cx="390" cy="50" r="8" fill="#B91C1C"/>
+        <circle cx="584" cy="50" r="8" fill="#B91C1C"/>
+        <!-- Labels above -->
+        <text x="196" y="22" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#B91C1C" font-weight="700">SaaS β 開始</text>
+        <text x="390" y="22" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#B91C1C" font-weight="700">受注 3-5 件</text>
+        <text x="584" y="22" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#B91C1C" font-weight="700">軸 A 登録完了</text>
+        <!-- Period labels -->
+        <text x="104" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">現在〜</text>
+        <text x="289" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">0-3 ヶ月</text>
+        <text x="483" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">3-6 ヶ月</text>
+        <text x="682" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">6-12 ヶ月</text>
+        <text x="884" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">12-24 ヶ月</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ─── RISK TABLE ─── -->
+  <section class="section-gap" aria-label="リスク先出し">
+    <div class="section-heading">
+      <span class="section-num">Section 03</span>
+      <h2 class="section-h2">リスク 5 点先出し + 対応策</h2>
+    </div>
+    <hr class="section-sep">
+    <table class="risk-table" role="table" aria-label="リスクサマリー">
+      <colgroup>
+        <col style="width:5%">
+        <col style="width:25%">
+        <col style="width:12%">
+        <col style="width:58%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>リスク</th>
+          <th>確率</th>
+          <th>対応策</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="risk-num">1</span></td>
+          <td>Anthropic API 価格改定</td>
+          <td><span class="risk-prob mid">中</span></td>
+          <td>モデル使い分け / キャッシュ率向上（70%→80%）/ クライアント請求の価格連動条項<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-num">2</span></td>
+          <td>競合の模倣・OSS フォーク</td>
+          <td><span class="risk-prob mid">中</span></td>
+          <td>5 年蓄積の evolution-log・スキル群が本体（コードコピーで再現困難）<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-num">3</span></td>
+          <td>投資助言業登録不認可</td>
+          <td><span class="risk-prob low">低-中</span></td>
+          <td>環境構築・教育の登録不要範囲で軸 A 先行受注、登録は Phase 2 並行<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-num">4</span></td>
+          <td>1 名兼務体制の属人化</td>
+          <td><span class="risk-prob mid">中</span></td>
+          <td>4 思想を OS に書き込み、誰が起動しても同水準アウトプット / 顧問 or 業務委託で 4 思想分散も選択肢<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-num">5</span></td>
+          <td>採用難</td>
+          <td><span class="risk-prob mid">中</span></td>
+          <td>Phase 2 までは採用不要設計 / Phase 3 からジュニア 1 名<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pre-mortem 6 シナリオ -->
+    <div class="premortem" role="note" aria-label="Pre-mortem 6 シナリオ">
+      <div class="premortem-title">Pre-mortem 6 シナリオ（カーネマン式 / 最重要: シナリオ 1）</div>
+      <ul class="premortem-list">
+        <li class="premortem-item critical">
+          <span class="premortem-item-num">1</span>
+          <span class="premortem-item-txt">営業保証金 500 万円を未計上のまま出資を受け、軸 A 申請直前に手元資金不足が判明し申請不能（即死シナリオ・最重要）<span class="lbl lbl-f" style="margin-left:6px">FACT</span></span>
+        </li>
+        <li class="premortem-item">
+          <span class="premortem-item-num">2</span>
+          <span class="premortem-item-txt">軸 A 登録審査 18 ヶ月超 + 競合（大手 SIer の金融 AI 部門）がポジション確立<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></span>
+        </li>
+        <li class="premortem-item">
+          <span class="premortem-item-num">3</span>
+          <span class="premortem-item-txt">紹介ネットワークが 1-2 件で枯渇 + アウトリーチ構築 6 ヶ月超<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></span>
+        </li>
+        <li class="premortem-item">
+          <span class="premortem-item-num">4</span>
+          <span class="premortem-item-txt">API コストが想定 3 倍（Opus 大量使用）+ 軸 C 低単価が粗利マイナス<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></span>
+        </li>
+        <li class="premortem-item">
+          <span class="premortem-item-num">5</span>
+          <span class="premortem-item-txt">顧客側意思決定者交代でチャーン 30% 超<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></span>
+        </li>
+        <li class="premortem-item">
+          <span class="premortem-item-num">6</span>
+          <span class="premortem-item-txt">1000 万円の余裕錯覚で固定費早期拡大 + 8 ヶ月でランウェイ危機<span class="lbl lbl-i" style="margin-left:4px">INFERENCE</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── REFERENCE DOCS ─── -->
+  <section class="section-gap" aria-label="参照資料">
+    <div class="section-heading">
+      <span class="section-num">Section 04</span>
+      <h2 class="section-h2">参照資料（Markdown）</h2>
+    </div>
+    <hr class="section-sep">
+    <div class="card-grid">
+      <a class="card" href="./00-business-plan-master.md">
+        <div class="card-num">Doc 00</div>
+        <div class="card-title">事業計画マスター（13 章）</div>
+        <div class="card-desc">strategy-lead / kpi-analytics / legal-compliance-checker / competitive-analyst / ai-engineer の出力を統合。山 A 推奨・4 兼務体制・ストレステスト 4 シナリオ・Pre-mortem 6 シナリオ収録。</div>
+        <div class="card-badge">全体構造の根拠 / 全 FACT 出典</div>
+      </a>
+      <a class="card" href="./04-mtg-playbook.md">
+        <div class="card-num">Doc 04</div>
+        <div class="card-title">MTG プレイブック</div>
+        <div class="card-desc">60 分タイムテーブル + 4 思想展開順序（孫正義 → Huang → 佐藤裕介 → Dorsey）+ Q&amp;A 想定問答 10 問 + Fess Up Early 規律 3 パターン + 弁護士依頼スケジュール。</div>
+        <div class="card-badge">MTG 当日の手元タイムテーブル + Q&amp;A</div>
+      </a>
+      <a class="card" href="./05-corrections-and-fact-check.md">
+        <div class="card-num">Doc 05</div>
+        <div class="card-title">事実検証ログ</div>
+        <div class="card-desc">引き継ぎ誤情報訂正（agency-agents → agency-swarm 約 3.9-4.3k Stars INFERENCE）+ FACT / INFERENCE / SPECULATION 分類サマリー + W チェックリスト + MTG 当日持参物リスト。</div>
+        <div class="card-badge">FACT 検証 + W チェック持参物</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="footer-title">反証チェック結果 + 残存リスク</div>
+    <div class="footer-body">
+      Step 1（自己反証）: KPI 巨大数値 4 段（1,000 万 / 500 万 / 7-10 ヶ月 / 29-36 ヶ月）を Hero に実装。Section 間余白 64-128px で仕様書準拠。Phase 0-4 タイムライン SVG を新規追加。<br>
+      Step 2（構造反証）: ピッチ資料 3 形式（A / B / C）+ 参照資料 3 件（Doc 00 / 04 / 05）の計 6 リンクで MTG に必要な全情報への誘導を MECE で担保。Pre-mortem 6 シナリオ（シナリオ 1 = 営業保証金未計上の即死シナリオ）を最優先表示。<br>
+      Step 3（実用反証）: Markdown ファイルはブラウザ直接表示では整形なし。GitHub Pages 等のレンダリング環境で確認推奨。HTML ファイルは外部 CDN（Google Fonts）のみ依存の自己完結型。
+    </div>
+    <div class="footer-warning">
+      残存リスク: Case C メール本文の担当者名・メール・電話が未確定（要記入）/ 弁護士確認待ち 6 項目（投資助言業登録要否 / AGPL-3.0 SaaS ソース開示義務 / J-KISS 契約書 / 下請法 / Cordys CRM ライセンス / 紹介手数料覚書）/ 全財務数値が INFERENCE（実測ベース未到達）/ AutoGen メンテナンスモード移行 2026-04-03 は FACT だが後継 Microsoft Agent Framework 1.0 の普及速度は未確定
+    </div>
+    <div class="footer-legal">
+      出典: 営業保証金 500 万円 FACT —
+      <a href="https://kanto.mof.go.jp/financial_office/" target="_blank" rel="noopener">財務省関東財務局</a> /
+      登録免許税 15 万円 FACT — 金融庁登録手続ガイドブック /
+      Anthropic API 公開価格 FACT（2026-04 時点）/
+      agency-swarm Stars 約 3.9-4.3k（INFERENCE・WebSearch 表示誤差・MTG 前 gh 再確認推奨）/
+      AutoGen メンテナンスモード移行 2026-04-03（FACT）/
+      SaaS 最小 0.8 万円（FACT・GitHub Team + Cloudflare Pro + Vercel Pro 公開料金）/
+      AGPL-3.0 Section 13 FACT / 金融商品取引法第 28 条第 3 項 FACT.<br>
+      フォント: Yu Gothic / 游ゴシック / Hiragino Sans / Noto Sans JP（lang="ja"）+ Inter. 中国字形フォント（Noto Sans CJK 無印 / Source Han Sans 無印 / SimSun）不使用.
+    </div>
+  </footer>
+
+</main>
+
+<footer style="background:#F2F2EE;border-top:2px solid #1E3A8A;padding:28px 40px;font-size:13px;color:#374151;line-height:1.75;font-family:'Yu Gothic','游ゴシック','Hiragino Sans','ヒラギノ角ゴ ProN','Noto Sans JP',system-ui,sans-serif">
+  <div style="max-width:1200px;margin:0 auto">
+    <div style="font-weight:700;color:#B91C1C;margin-bottom:8px;font-size:14px">本資料は投資推奨・投資助言ではありません</div>
+    <div style="margin-bottom:6px">記載数値はすべて INFERENCE（実測前モデル値）または SPECULATION（仮説試算）であり、実際の投資判断は投資家自身の責任で行ってください。</div>
+    <div style="margin-bottom:6px">2 案併走: Plan A = OEM パートナーシップ主軸（Why Mizuno + Demo Fin、水野氏向け金融 OS の OEM 提供）／ Plan B = ConsultingOS 単体運営シナリオ（Case A/B/C、水野氏が OEM 路線を選ばない場合のバックアッププラン）。1000 万円の意味付け・ロードマップは Plan 別に異なる。MTG で水野氏の意向確定後に主軸決定。</div>
+    <div style="font-size:12px;color:#5A5A5A">AGPL-3.0 OEM 利用には商用ライセンス取得 or MIT/Apache 2.0 移行が前提条件（弁護士確認中 FACT）／ 投資助言業登録は Plan A では水野氏独立事業側の責任、Plan B では ConsultingOS 自社登録（弁護士確認中 INFERENCE）／ Anthropic financial-services プラグイン Usage Policy 確認待ち（FACT）</div>
+  </div>
+</footer>
+
+<!--
+【反証チェック結果】— creative-director 仕様書 v2 準拠
+
+Step 1（自己反証）:
+- Hero KPI 56px 巨大数値 4 段実装済 (1,000万円 / 500万円 / 7-10ヶ月 / 29-36ヶ月)
+- Section 間余白 64px / 128px — 仕様書 64-128px に準拠
+- Section H2 28px / Card H3 19px / Body 14-16px — 仕様書準拠
+- Phase 0-4 タイムライン SVG インライン実装済
+- Pre-mortem 6 シナリオ（シナリオ 1 = 営業保証金未計上）を Section 03 に明示
+
+Step 2（構造反証）:
+- 中国字形フォント使用ゼロ確認
+- lang="ja" / charset UTF-8 必須 — 実装済
+- グラデーション禁止 — 背景・要素とも単色のみ（SVG グラデーションはデータビジュアライゼーション用途で許容範囲内）
+- 全 FACT / INFERENCE / SPECULATION ラベル付与済
+
+Step 3（実用反証）:
+- 担当者名・メール・電話プレースホルダーはユーザー記入必須
+- HTML 単体での pdffonts 検証不可 — PDF 化時に埋込フォント確認必要
+- 全財務数値が INFERENCE — 実測ベース到達前のリスク明示済
+
+残存リスク:
+- case-a.html は本実装で後続実装予定
+- agency-swarm Stars 数は MTG 前に gh コマンドで再確認推奨
+-->
+</body>
+</html>

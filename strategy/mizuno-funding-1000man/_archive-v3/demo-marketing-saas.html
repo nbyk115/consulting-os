@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Demo — ConsultingOS × Marketing SaaS / Adtech（水野氏向け一枚絵）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --blue:#1E3A8A;
+  --bg:#FAFAF7;
+  --accent:#2563EB;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --neutral-100:#F2F2EE;
+  --neutral-300:#D4D4D0;
+  --neutral-500:#5A5A5A;
+  --neutral-700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);
+  color:#0A0A0A;
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.nav{position:fixed;top:14px;right:14px;z-index:1000;display:flex;gap:6px;background:rgba(255,255,255,0.95);padding:6px 10px;border:1px solid var(--neutral-300);font-size:11px;font-family:"Inter",sans-serif}
+.nav a{color:var(--neutral-700);text-decoration:none;padding:3px 8px}
+.nav a.active{background:var(--blue);color:#fff}
+.deck{display:flex;flex-direction:column;gap:24px;padding:40px 20px}
+.slideWrap{display:flex;justify-content:center}
+.slide{position:relative;width:1280px;height:720px;background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.slide *{word-break:auto-phrase;line-break:strict;text-wrap:pretty;hanging-punctuation:allow-end}
+.frame{position:absolute;inset:0;padding:36px 56px 44px;display:flex;flex-direction:column}
+.tag{font-size:10px;letter-spacing:0.18em;color:var(--accent);font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif}
+.h1{font-size:28px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;margin-top:6px}
+.rule{height:2px;background:var(--accent);width:32px;margin:8px 0 10px}
+.lf{display:inline-block;padding:1px 5px;font-size:9px;font-weight:700;letter-spacing:0.04em;color:#fff;border-radius:2px;font-family:"Inter",sans-serif;margin-left:3px;vertical-align:middle}
+.lf-f{background:var(--accent)}
+.lf-i{background:var(--neutral-700)}
+.lf-s{background:var(--neutral-500)}
+.srcBar{position:absolute;bottom:0;left:0;right:0;height:28px;background:var(--neutral-100);border-top:1px solid var(--neutral-300);display:flex;align-items:center;padding:0 14px;font-size:12px;font-family:"Inter",sans-serif;color:var(--neutral-500);gap:16px}
+.srcBar .pgn{margin-left:auto;font-size:11px;color:var(--neutral-500);letter-spacing:0.08em}
+
+/* Demo specific */
+.demoUpper{display:grid;grid-template-columns:480px 668px;gap:20px;flex:0;height:280px;margin-top:4px}
+.paneLabel{font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;font-family:"Inter",sans-serif;margin-bottom:6px}
+
+/* SaaS KPI Cards (5 vertical) */
+.kpiCards{display:flex;flex-direction:column;gap:5px;height:230px}
+.kpiCard{display:grid;grid-template-columns:108px 1fr 60px;gap:8px;align-items:center;background:var(--neutral-100);padding:6px 10px;border-left:3px solid var(--accent)}
+.kpiCard .kpiName{font-size:10px;font-weight:700;color:var(--neutral-700);line-height:1.3}
+.kpiCard .kpiSub{font-size:8.5px;color:var(--neutral-500);font-family:"Inter",sans-serif;line-height:1.3}
+.kpiCard .kpiBarWrap{height:14px;background:var(--white);border:1px solid var(--neutral-300);border-radius:2px;overflow:hidden;position:relative}
+.kpiCard .kpiBar{height:100%;background:var(--accent)}
+.kpiCard .kpiVal{font-size:14px;font-weight:800;color:var(--accent);font-family:"Inter",sans-serif;text-align:right;line-height:1}
+.kpiCard .kpiUnit{font-size:9px;font-weight:600;color:var(--neutral-500);font-family:"Inter",sans-serif}
+
+/* Mkt agent flow grid (4x2) */
+.mktGrid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:6px;height:230px}
+.mktCell{background:var(--neutral-100);border:1px solid var(--neutral-300);padding:6px 8px;display:flex;flex-direction:column;gap:2px}
+.mktCell .mNum{font-size:10px;font-weight:800;color:var(--accent);font-family:"Inter",sans-serif;line-height:1}
+.mktCell .mAgent{font-size:9.5px;font-weight:700;color:var(--primary);line-height:1.3;margin-top:1px}
+.mktCell .mOut{font-size:9px;color:var(--neutral-700);line-height:1.45;margin-top:auto;padding-top:3px;border-top:1px dashed var(--neutral-300)}
+
+.caseNote{font-size:10px;color:var(--neutral-500);margin-top:6px;line-height:1.65}
+
+/* Lower */
+.demoLower{display:grid;grid-template-columns:200px 1fr;gap:0;flex:1;margin-top:12px;align-items:stretch;min-height:180px}
+.connClaim{padding-right:16px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-right:1px solid var(--neutral-300)}
+.claimH{font-size:14px;font-weight:700;color:var(--blue);line-height:1.45}
+.claimB{font-size:10.5px;color:var(--neutral-700);line-height:1.7}
+.connSvgWrap{padding-left:16px;display:flex;align-items:center;justify-content:center}
+.connSvg{width:100%;height:auto;max-height:200px}
+
+/* Persona */
+.demoAsk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px;flex:0}
+.askCard{background:var(--neutral-100);padding:10px 13px;border-left:4px solid var(--accent)}
+.askCard.rec{background:#EFF6FF;border-left-color:var(--accent)}
+.askCard h4{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:3px}
+.askCard p{font-size:10.5px;color:var(--neutral-700);line-height:1.7}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">Index</a>
+  <a href="case-a.html">Case A</a>
+  <a href="case-b.html">Case B</a>
+  <a href="case-c.html">Case C</a>
+  <a href="demo-consultingos-financial.html">Demo Fin</a>
+  <a href="demo-marketing-saas.html" class="active">Demo MKT</a>
+  <a href="why-mizuno.html">Why</a>
+</nav>
+<div class="deck">
+  <div class="slideWrap">
+    <div class="slide">
+      <div class="frame">
+        <div class="tag">DEMO — CONSULTINGOS × MARKETING SAAS / ADTECH</div>
+        <div class="h1">広告運用の属人化を、OS 規律に変える</div>
+        <div class="rule"></div>
+
+        <!-- Upper: SaaS KPI + Mkt Agent Flow -->
+        <div class="demoUpper">
+          <div>
+            <div class="paneLabel">/saas-kpi — 広告主向け SaaS 健全性 5 KPI</div>
+            <div class="kpiCards">
+              <div class="kpiCard">
+                <div>
+                  <div class="kpiName">NRR</div>
+                  <div class="kpiSub">Net Revenue Retention</div>
+                </div>
+                <div class="kpiBarWrap"><div class="kpiBar" style="width:78%"></div></div>
+                <div>
+                  <div class="kpiVal">118<span class="kpiUnit">%</span></div>
+                  <div class="kpiSub">SPEC</div>
+                </div>
+              </div>
+              <div class="kpiCard">
+                <div>
+                  <div class="kpiName">Magic Number</div>
+                  <div class="kpiSub">ARR 増加 ÷ 前 Q SM 費</div>
+                </div>
+                <div class="kpiBarWrap"><div class="kpiBar" style="width:70%"></div></div>
+                <div>
+                  <div class="kpiVal">0.9</div>
+                  <div class="kpiSub">SPEC</div>
+                </div>
+              </div>
+              <div class="kpiCard">
+                <div>
+                  <div class="kpiName">Rule of 40</div>
+                  <div class="kpiSub">成長 28 + 利益 14</div>
+                </div>
+                <div class="kpiBarWrap"><div class="kpiBar" style="width:70%"></div></div>
+                <div>
+                  <div class="kpiVal">42</div>
+                  <div class="kpiSub">SPEC</div>
+                </div>
+              </div>
+              <div class="kpiCard">
+                <div>
+                  <div class="kpiName">CAC Payback</div>
+                  <div class="kpiSub">中央値 12-18 ヶ月 INF</div>
+                </div>
+                <div class="kpiBarWrap"><div class="kpiBar" style="width:60%"></div></div>
+                <div>
+                  <div class="kpiVal">14<span class="kpiUnit">M</span></div>
+                  <div class="kpiSub">INF</div>
+                </div>
+              </div>
+              <div class="kpiCard">
+                <div>
+                  <div class="kpiName">LTV / CAC</div>
+                  <div class="kpiSub">健全閾値 3.0x</div>
+                </div>
+                <div class="kpiBarWrap"><div class="kpiBar" style="width:80%"></div></div>
+                <div>
+                  <div class="kpiVal">3.6<span class="kpiUnit">x</span></div>
+                  <div class="kpiSub">SPEC</div>
+                </div>
+              </div>
+            </div>
+            <div class="caseNote">サンプル広告 SaaS 想定値<span class="lf lf-s">SPECULATION</span>。実顧客接続時は GA4 / Salesforce / HubSpot から自動抽出<span class="lf lf-i">INFERENCE</span></div>
+          </div>
+          <div>
+            <div class="paneLabel">/mkt-flow — 提案 → 運用 → 報告の 1 OS 化（マーケ部門 8 連携）</div>
+            <div class="mktGrid">
+              <div class="mktCell">
+                <div class="mNum">01</div>
+                <div class="mAgent">market-researcher</div>
+                <div class="mOut">競合 / KW 抽出</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">02</div>
+                <div class="mAgent">marketing-director</div>
+                <div class="mOut">メディアプラン</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">03</div>
+                <div class="mAgent">performance-marketer</div>
+                <div class="mOut">入札 / クリエ KPI 設計</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">04</div>
+                <div class="mAgent">seo-specialist</div>
+                <div class="mOut">オーガニック導線</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">05</div>
+                <div class="mAgent">social-media-strategist</div>
+                <div class="mOut">SNS プレイブック</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">06</div>
+                <div class="mAgent">crm-ma-strategist</div>
+                <div class="mOut">育成シナリオ</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">07</div>
+                <div class="mAgent">marketing-analyst</div>
+                <div class="mOut">効果測定 / MMM</div>
+              </div>
+              <div class="mktCell">
+                <div class="mNum">08</div>
+                <div class="mAgent">pr-communications</div>
+                <div class="mOut">広報 / IR 連動</div>
+              </div>
+            </div>
+            <div class="caseNote">8 エージェント並列起動でメディアプラン提案 → 配信設計 → 効果測定 → 月次報告までを 1 サイクル化<span class="lf lf-i">INFERENCE</span></div>
+          </div>
+        </div>
+
+        <!-- Lower: Connection Diagram -->
+        <div class="demoLower">
+          <div class="connClaim">
+            <div class="claimH">アドテク × マーケ SaaS の現場知を OS 規律に変換</div>
+            <div class="claimB">水野氏のジーニーで磨かれた配信オペ規律と SaaS PL 思考を、ConsultingOS のマーケ部門 8 名 + global 部門 3 名に注入。代理店の属人運用を OS 化する</div>
+          </div>
+          <div class="connSvgWrap">
+            <svg class="connSvg" viewBox="0 0 920 220" xmlns="http://www.w3.org/2000/svg" aria-label="ConsultingOS マーケ部門 11 名と顧客クライアントを接続する図 — メディアプラン PPT / 月次レポート / 海外 GTM 仮説の 3 種を統合納品" role="img">
+              <defs>
+                <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#1E3A8A"/>
+                </marker>
+              </defs>
+              <rect x="0" y="50" width="200" height="120" rx="6" fill="#F2F2EE" stroke="#1E3A8A" stroke-width="1.5"/>
+              <text x="100" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#0A0A0A">広告主</text>
+              <text x="100" y="98" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">アドテク代理店</text>
+              <text x="100" y="113" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">インハウスマーケ</text>
+              <text x="100" y="128" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">SaaS グロース部門</text>
+              <text x="100" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#0EA5A4" font-weight="700">顧客 INPUT</text>
+              <path d="M200,110 L300,110" stroke="#1E3A8A" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <text x="250" y="103" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">起案</text>
+              <rect x="300" y="40" width="280" height="140" rx="6" fill="#1E3A8A"/>
+              <text x="440" y="64" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#fff">ConsultingOS</text>
+              <text x="440" y="82" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#93C5FD">マーケ 8 名 + global 3 名</text>
+              <line x1="320" y1="92" x2="560" y2="92" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <text x="440" y="106" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">marketing-director / performance-marketer</text>
+              <text x="440" y="120" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">crm-ma-strategist / marketing-analyst</text>
+              <text x="440" y="134" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">seo-specialist / social-media-strategist</text>
+              <text x="440" y="148" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="rgba(255,255,255,0.85)">market-researcher / pr-communications</text>
+              <text x="440" y="166" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="rgba(255,255,255,0.6)">+ gtm-consultant / business-translator / global-journalist</text>
+              <path d="M580,110 L680,110" stroke="#1E3A8A" stroke-width="1.5" marker-end="url(#arr2)"/>
+              <text x="630" y="103" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">納品</text>
+              <rect x="680" y="30" width="240" height="160" rx="6" fill="#F2F2EE" stroke="#0EA5A4" stroke-width="1.5"/>
+              <text x="800" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#0A0A0A">統合納品</text>
+              <text x="800" y="74" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" font-weight="700" fill="#0EA5A4">1 OS / 1 ファイル体系</text>
+              <text x="800" y="100" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">メディアプラン PPT</text>
+              <text x="800" y="120" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">月次効果測定レポート</text>
+              <text x="800" y="140" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">海外 GTM 仮説</text>
+              <text x="800" y="170" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">提案 → 運用 → 報告 1 サイクル</text>
+              <text x="0" y="208" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">代理店外注費削減 × 内製化速度向上の 2 軸を ConsultingOS マーケ部門で同時に動かす</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Persona -->
+        <div class="demoAsk">
+          <div class="askCard">
+            <h4>アドテク代理店 提案責任者</h4>
+            <p>提案 / 運用 / 報告の 3 工程を 1 OS 化。属人運用を構造化し、粗利率改善見込み（実測予定 INFERENCE）</p>
+          </div>
+          <div class="askCard rec">
+            <h4>事業会社 インハウスマーケ</h4>
+            <p>メディアプラン → MMM → 経営報告まで地続き。代理店依存を最小化、内製化速度向上が見込める</p>
+          </div>
+          <div class="askCard">
+            <h4>SaaS グロース部門</h4>
+            <p>NRR / Magic Number / Rule of 40 を週次更新、ボード資料を自動生成。CFO 同席資料の起案コスト削減</p>
+          </div>
+        </div>
+      </div>
+      <div class="srcBar">
+        <span style="color:var(--warning);font-weight:700">本資料は投資推奨・投資助言ではありません</span>
+        <span>ConsultingOS マーケ部門 8 + global 3 名（既稼働）<span class="lf lf-f">FACT</span> / KPI 数値: サンプル試算 <span class="lf lf-s">SPECULATION</span> / SaaS 健全閾値: 業界一般 <span class="lf lf-i">INFERENCE</span> / AGPL-3.0 SaaS 開示義務 弁護士確認中 <span class="lf lf-f">FACT</span></span>
+        <span class="pgn">demo / 02</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

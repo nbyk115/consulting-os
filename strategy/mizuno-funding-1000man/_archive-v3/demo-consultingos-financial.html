@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Demo — ConsultingOS × financial-services（水野氏向け一枚絵）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --blue:#1E3A8A;
+  --bg:#FAFAF7;
+  --accent:#2563EB;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --neutral-100:#F2F2EE;
+  --neutral-300:#D4D4D0;
+  --neutral-500:#5A5A5A;
+  --neutral-700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);
+  color:#0A0A0A;
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.nav{position:fixed;top:14px;right:14px;z-index:1000;display:flex;gap:6px;background:rgba(255,255,255,0.95);padding:6px 10px;border:1px solid var(--neutral-300);font-size:11px;font-family:"Inter",sans-serif}
+.nav a{color:var(--neutral-700);text-decoration:none;padding:3px 8px}
+.nav a.active{background:var(--blue);color:#fff}
+.deck{display:flex;flex-direction:column;gap:24px;padding:40px 20px}
+.slideWrap{display:flex;justify-content:center}
+.slide{position:relative;width:1280px;height:720px;background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.slide *{word-break:auto-phrase;line-break:strict;text-wrap:pretty;hanging-punctuation:allow-end}
+.frame{position:absolute;inset:0;padding:36px 56px 44px;display:flex;flex-direction:column}
+.tag{font-size:10px;letter-spacing:0.18em;color:var(--accent);font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif}
+.h1{font-size:30px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;margin-top:6px}
+.rule{height:2px;background:var(--accent);width:32px;margin:8px 0 10px}
+.lf{display:inline-block;padding:1px 5px;font-size:9px;font-weight:700;letter-spacing:0.04em;color:#fff;border-radius:2px;font-family:"Inter",sans-serif;margin-left:3px;vertical-align:middle}
+.lf-f{background:var(--accent)}
+.lf-i{background:var(--neutral-700)}
+.lf-s{background:var(--neutral-500)}
+.srcBar{position:absolute;bottom:0;left:0;right:0;height:28px;background:var(--neutral-100);border-top:1px solid var(--neutral-300);display:flex;align-items:center;padding:0 14px;font-size:12px;font-family:"Inter",sans-serif;color:var(--neutral-500);gap:16px}
+.srcBar a{color:var(--accent);text-decoration:none;font-size:11px}
+.srcBar .pgn{margin-left:auto;font-size:11px;color:var(--neutral-500);letter-spacing:0.08em}
+
+/* Demo specific */
+.demoUpper{display:grid;grid-template-columns:480px 668px;gap:20px;flex:0;height:280px;margin-top:4px}
+.paneLabel{font-size:9px;font-weight:700;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;font-family:"Inter",sans-serif;margin-bottom:6px}
+.dcfCards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;height:222px}
+.dcfCard{background:var(--neutral-100);border:1px solid var(--neutral-300);padding:10px 11px;display:flex;flex-direction:column;gap:3px}
+.dcfCard.bear{border-top:3px solid var(--warning)}
+.dcfCard.base{border-top:3px solid var(--accent)}
+.dcfCard.bull{border-top:3px solid var(--success)}
+.scLabel{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;font-family:"Inter",sans-serif;color:var(--neutral-700)}
+.dcfVal{font-size:24px;font-weight:800;font-family:"Inter",sans-serif;line-height:1;margin-top:3px;color:var(--accent)}
+.dcfCard.bear .dcfVal{color:var(--warning)}
+.dcfCard.bull .dcfVal{color:var(--success)}
+.dcfUnit{font-size:10px;color:var(--neutral-500);margin-top:2px;letter-spacing:0.04em}
+.dcfRows{margin-top:5px;display:flex;flex-direction:column;gap:2px}
+.dcfRow{display:flex;justify-content:space-between;font-size:11px;color:var(--neutral-700);line-height:1.6;font-family:"Inter",sans-serif}
+.dcfBar{height:4px;border-radius:2px;margin-top:6px}
+.dcfNote{font-size:9px;color:var(--neutral-500);margin-top:auto;padding-top:4px;border-top:1px dashed var(--neutral-300);line-height:1.5}
+.thumbGrid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,1fr);gap:6px;height:222px}
+.thumb{background:var(--neutral-100);border:1px solid var(--neutral-300);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px;font-size:9px;color:var(--neutral-700);font-family:"Yu Gothic",sans-serif;text-align:center;letter-spacing:0.04em}
+.thumbNum{font-size:16px;font-weight:800;color:var(--accent);font-family:"Inter",sans-serif;line-height:1}
+.caseNote{font-size:10px;color:var(--neutral-500);margin-top:6px;line-height:1.65}
+.demoLower{display:grid;grid-template-columns:200px 1fr;gap:0;flex:1;margin-top:12px;align-items:stretch;min-height:180px}
+.connClaim{padding-right:16px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-right:1px solid var(--neutral-300)}
+.claimH{font-size:14px;font-weight:700;color:var(--primary);line-height:1.45}
+.claimB{font-size:10.5px;color:var(--neutral-700);line-height:1.7}
+.connSvgWrap{padding-left:16px;display:flex;align-items:center;justify-content:center}
+.connSvg{width:100%;height:auto;max-height:200px}
+.demoAsk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8px;flex:0}
+.askCard{background:var(--neutral-100);padding:10px 13px;border-left:4px solid var(--accent)}
+.askCard.rec{background:#EFF6FF;border-left-color:var(--accent)}
+.askCard h4{font-size:12px;font-weight:700;color:var(--primary);margin-bottom:3px}
+.askCard p{font-size:10.5px;color:var(--neutral-700);line-height:1.7}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">Index</a>
+  <a href="case-a.html">Case A</a>
+  <a href="case-b.html">Case B</a>
+  <a href="case-c.html">Case C</a>
+  <a href="demo-consultingos-financial.html" class="active">Demo Fin</a>
+  <a href="demo-marketing-saas.html">Demo MKT</a>
+  <a href="why-mizuno.html">Why</a>
+</nav>
+<div class="deck">
+  <div class="slideWrap">
+    <div class="slide">
+      <div class="frame">
+        <div class="tag">DEMO — CONSULTINGOS × FINANCIAL SERVICES</div>
+        <div class="h1">定性提案を、定量財務まで地続きにする OS に変える</div>
+        <div class="rule"></div>
+
+        <!-- Upper: DCF + Pitch Deck Thumbnails -->
+        <div class="demoUpper">
+          <div>
+            <div class="paneLabel">/dcf-model — 3 シナリオ感応度</div>
+            <div class="dcfCards">
+              <div class="dcfCard bear">
+                <div class="scLabel">BEAR</div>
+                <div class="dcfVal">-15%</div>
+                <div class="dcfUnit">vs Base 相対</div>
+                <div class="dcfRows">
+                  <div class="dcfRow"><span>WACC</span><span>7.5%</span></div>
+                  <div class="dcfRow"><span>5Y CAGR</span><span>3.0%</span></div>
+                  <div class="dcfRow"><span>EBIT 改</span><span>-10%</span></div>
+                </div>
+                <div class="dcfBar" style="width:56%;background:var(--warning)"></div>
+                <div class="dcfNote">ConsultingOS デモ用架空試算 — 任天堂将来業績を示すものではない SPECULATION</div>
+              </div>
+              <div class="dcfCard base">
+                <div class="scLabel">BASE</div>
+                <div class="dcfVal">1.00x</div>
+                <div class="dcfUnit">参照線</div>
+                <div class="dcfRows">
+                  <div class="dcfRow"><span>WACC</span><span>6.8%</span></div>
+                  <div class="dcfRow"><span>5Y CAGR</span><span>5.0%</span></div>
+                  <div class="dcfRow"><span>EBIT 改</span><span>±0%</span></div>
+                </div>
+                <div class="dcfBar" style="width:72%;background:var(--accent)"></div>
+                <div class="dcfNote">ConsultingOS デモ用架空試算 — 任天堂将来業績を示すものではない SPECULATION</div>
+              </div>
+              <div class="dcfCard bull">
+                <div class="scLabel">BULL</div>
+                <div class="dcfVal">+30%</div>
+                <div class="dcfUnit">vs Base 相対</div>
+                <div class="dcfRows">
+                  <div class="dcfRow"><span>WACC</span><span>6.0%</span></div>
+                  <div class="dcfRow"><span>5Y CAGR</span><span>7.0%</span></div>
+                  <div class="dcfRow"><span>EBIT 改</span><span>+15%</span></div>
+                </div>
+                <div class="dcfBar" style="width:94%;background:var(--success)"></div>
+                <div class="dcfNote">ConsultingOS デモ用架空試算 — 任天堂将来業績を示すものではない SPECULATION</div>
+              </div>
+            </div>
+            <div class="caseNote">任天堂 7974 で動作確認済（ユーザー試用 2026-05 <span class="lf lf-i">INFERENCE</span>）。CAPM → WACC → Bear/Base/Bull → EBIT/NOPAT/UFCF → EV → 感応度表まで自動生成</div>
+          </div>
+          <div>
+            <div class="paneLabel">/pitch-deck — 10 枚スケルトン自動生成</div>
+            <div class="thumbGrid">
+              <div class="thumb"><div class="thumbNum">01</div>表紙</div>
+              <div class="thumb"><div class="thumbNum">02</div>Exec Summary</div>
+              <div class="thumb"><div class="thumbNum">03</div>P/L ハイライト</div>
+              <div class="thumb"><div class="thumbNum">04</div>事業ドライバー</div>
+              <div class="thumb"><div class="thumbNum">05</div>B/S 健全性</div>
+              <div class="thumb"><div class="thumbNum">06</div>キャッシュフロー</div>
+              <div class="thumb"><div class="thumbNum">07</div>株主還元</div>
+              <div class="thumb"><div class="thumbNum">08</div>FY 業績予想</div>
+              <div class="thumb"><div class="thumbNum">09</div>リスク</div>
+              <div class="thumb"><div class="thumbNum">10</div>Appendix</div>
+            </div>
+            <div class="caseNote">任天堂 FY3/25 通期決算レビュー構成（ユーザー試用 <span class="lf lf-i">INFERENCE</span>）。雛形 PPT を渡せばテンプレート準拠で出力。担当者ゼロから 10 枚 PPT までを 1 コマンドで</div>
+          </div>
+        </div>
+
+        <!-- Lower: Connection Diagram -->
+        <div class="demoLower">
+          <div class="connClaim">
+            <div class="claimH">定性 + 定量を 1 OS で動かす</div>
+            <div class="claimB">ConsultingOS の戦略・実装・クリエイティブに、Anthropic 製の財務スキル群を接続（ライセンス条件確認中）。M&amp;A・IR・財務分析資料の起案から納品まで地続きに</div>
+          </div>
+          <div class="connSvgWrap">
+            <svg class="connSvg" viewBox="0 0 920 220" xmlns="http://www.w3.org/2000/svg" aria-label="ConsultingOS と financial-services の接続図 — 30 エージェント × 19 スキルが Anthropic 製 2 スキルと統合し、M&amp;A 検討資料 / IR 業績レビュー / エクイティストーリーを統合納品" role="img">
+              <defs>
+                <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="#1E3A8A"/>
+                </marker>
+              </defs>
+              <rect x="0" y="50" width="220" height="120" rx="6" fill="#F2F2EE" stroke="#1E3A8A" stroke-width="1.5"/>
+              <text x="110" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#0A0A0A">ConsultingOS</text>
+              <text x="110" y="94" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#1E3A8A">30 Agents x 19 Skills</text>
+              <text x="110" y="115" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">戦略・提案・実装</text>
+              <text x="110" y="129" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">クリエイティブ・GTM</text>
+              <text x="110" y="143" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">マーケ・QA</text>
+              <text x="110" y="161" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#0EA5A4" font-weight="700">既稼働 FACT</text>
+              <path d="M220,110 L300,110" stroke="#1E3A8A" stroke-width="1.5" marker-end="url(#arr)"/>
+              <text x="260" y="103" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">統合</text>
+              <rect x="300" y="70" width="240" height="80" rx="6" fill="#1E3A8A"/>
+              <text x="420" y="94" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#fff">financial-services</text>
+              <text x="420" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="#93C5FD">Anthropic 製 / 2 Skills</text>
+              <text x="420" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#FFFFFF" fill-opacity="0.85">/pitch-deck   /dcf-model</text>
+              <path d="M540,110 L620,110" stroke="#1E3A8A" stroke-width="1.5" marker-end="url(#arr)"/>
+              <text x="580" y="103" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">納品</text>
+              <rect x="620" y="30" width="300" height="160" rx="6" fill="#F2F2EE" stroke="#0EA5A4" stroke-width="1.5"/>
+              <text x="770" y="56" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="800" fill="#0A0A0A">統合納品 Output</text>
+              <text x="770" y="74" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="9" font-weight="700" fill="#0EA5A4">定性 + 定量 1 ファイル</text>
+              <text x="770" y="100" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">M&amp;A 検討資料</text>
+              <text x="770" y="120" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">IR 業績レビュー</text>
+              <text x="770" y="140" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="11" font-weight="700" fill="#0A0A0A">エクイティストーリー</text>
+              <text x="770" y="170" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">同一エージェント体系で起案 → 検証 → 納品</text>
+              <text x="0" y="208" font-family="Yu Gothic,sans-serif" font-size="9" fill="#5A5A5A">ConsultingOS の戦略レイヤー（4 思想ゲート / 反証チェック / ICP・DESIGN 中央参照）が financial-services 出力にも適用される疎結合設計</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Persona Cards -->
+        <div class="demoAsk">
+          <div class="askCard">
+            <h4>中堅事業会社 経営企画</h4>
+            <p>M&amp;A 検討時、戦略仮説と DCF 試算を 1 OS で起案。Excel 分散と二重作業が消える</p>
+          </div>
+          <div class="askCard rec">
+            <h4>コンサルティングファーム</h4>
+            <p>提案書（定性）と財務モデル（定量）を地続きで納品。手戻り削減見込み（実測予定 INFERENCE）</p>
+          </div>
+          <div class="askCard">
+            <h4>広告代理店</h4>
+            <p>クライアントの財務分析資料を提案と同梱で提示。決裁スピード向上が見込める（実測予定 INFERENCE）</p>
+          </div>
+        </div>
+      </div>
+      <div class="srcBar">
+        <span style="color:var(--warning);font-weight:700">本資料は投資推奨・投資助言ではありません — 水野氏向け金融 OS OEM プロトタイプ</span>
+        <span>出典: Anthropic financial-services プラグイン（github.com/anthropics/financial-services / ライセンス条件確認中）<span class="lf lf-f">FACT</span> / 任天堂 7974 動作確認: ユーザー試用報告 <span class="lf lf-i">INFERENCE</span> / DCF 数値: ConsultingOS デモ用架空試算 <span class="lf lf-s">SPECULATION</span> / AGPL-3.0 → 商用ライセンス or MIT/Apache 2.0 移行が OEM 提供の前提条件 弁護士確認中 <span class="lf lf-f">FACT</span> / 金融助言業登録は水野氏独立事業側の責任 <span class="lf lf-i">INFERENCE</span></span>
+        <span class="pgn">demo / 01</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
