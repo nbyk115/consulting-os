@@ -66,6 +66,16 @@
 - 2026-06-21: evolution-log の自称フレーズ検知 hook 拡張（self-fraud-check.sh が assistant 応答以外に evolution-log 新規エントリも検知対象とする、Phase 4 持ち越し対応）
 - 2026-08-07: docs/orchestration-protocol.md §2.5 Autonomous Mode Protocol 7 件の 3 ヶ月運用後形骸化チェック、違反検知件数測定（目標 0 件、5 件以上で再設計判断）
 
+### 2026-05-17 Lazyweb MCP 不採用確定 + 死参照の OS 全体除去
+
+事象: Lazyweb MCP（aboul3ata/lazyweb-skill、PR #141 で 2026-05-14 統合）が ConsultingOS 全環境で稼働不可と確定。yorunokotoba セッションで再起動後も MCP 接続失敗を実測。残課題だった token 取得が宙に浮き、`fix-lazyweb-setup` ブランチが「動かなくなった」状態で引き継ぎ依頼。
+
+根本原因: Lazyweb はローカルプラグイン型 MCP（`claude plugin install` + `~/.lazyweb/` ローカル token ファイル依存）。ConsultingOS の実行基盤は使い捨てコンテナ（Claude Code on the web）で、プラグインも token もコンテナ破棄ごとに消える。token は `.gitignore` で commit 禁止のため git 成果物としての永続化も不可能。= マネージド型 MCP（Figma / GitHub / Canva）と異なり、ローカルプラグイン型は本実行基盤と原理的に非互換。handoff / SessionStart フックへの組込みでも解決しない。
+
+構造対策: Lazyweb MCP を不採用確定。死参照（実行不可能な `/lazyweb:` slash command 指示・token 取得手順）を OS 全体 11 ファイルから除去し、稼働実証済の代替（Lazyweb For Humans = lazyweb.com 手動閲覧 / Canva MCP / refero.design / WebSearch）へ貼り替え。DESIGN.md §12.3 を「不採用確定 + 構造的理由 + 代替表」に全面改訂。今後 MCP 採用判断時は「マネージド型か否か」を必須チェック項目とする。
+
+反証結果: Step 1 = 「全環境不可」は yorunokotoba 前セッション実測の引用（INFERENCE）、GitHub MCP 稼働は本セッション実測（FACT）。Step 2 = §12.3 を残すと PR #217 が緩めた「実行不可能 YOU MUST」が再発、貼り替えで構造解消。Step 3 = `grep -rn lazyweb`（11 ファイル特定 → 修正後は不採用記述 / For Humans / 履歴記録のみ残存）+ workflow.json JSON 妥当性 + em-dash 0 件を実測。Step 4 = コンテナ揮発リスクは「ローカルプラグイン型 MCP は不採用」の方針確定で発生不可能化。
+
 ### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
 
 LinkedIn コメント（TTD Isom Winton 返信、Japan PMP / curated marketplace の役割）で 16 段階の failure を user が逐次検知。根本原因: orchestrator default が「responsive assistant」モードのまま「autonomous analyst」モードへ切替できておらず、ユーザー指摘待ちの reactive correction loop に陥っていた。

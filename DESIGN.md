@@ -383,38 +383,28 @@ YOU MUST: `creative-director` / `ux-designer` / `frontend-dev` / `sales-deck-des
 3. **`refero.design` 補完参照**: 既存推奨参照、2,000+ プロダクトの構造化情報
 4. **判断根拠の明示**: 「なぜこのレイアウト / トーン / 配色か」を制作開始時に 1-2 行で言語化
 
-### 12.3 デザイン参照ギャラリー: Lazyweb MCP（2026-05-14 統合済）
+### 12.3 デザイン参照ギャラリー（2026-05-17 更新: Lazyweb MCP 不採用確定）
 
-ConsultingOS 標準のデザイン参照ギャラリー: Lazyweb MCP（aboul3ata/lazyweb-skill）。
+Lazyweb MCP（aboul3ata/lazyweb-skill）は 2026-05-14 に統合（PR #141）したが、ConsultingOS 全環境で稼働不可と実測確定したため不採用とする。
 
-- 機能: 25 万 7,000 以上の実在アプリ / Web スクリーンショット + 6 skill 統合
-- 料金: 完全無料 / レート制限なし / サブスク不要（INFERENCE: aboul3ata 公式声明、2026-05-02 launch）
-- 認証: 公開エンドポイント（login / email 不要）から bearer token 取得
-- インストール状態: 本リポでは完了済（`claude plugin install lazyweb@lazyweb`、v0.1.1、user scope enabled）
-- 残: bearer token の取得 + `~/.lazyweb/lazyweb_mcp_token` への保存（user 環境で実行必要、token 取得後に MCP 即稼働）
+不採用の構造的理由:
+- Lazyweb はローカルプラグイン型 MCP（`claude plugin install` + `~/.lazyweb/` のローカル token ファイルに依存）
+- ConsultingOS の実行基盤は使い捨てコンテナ（Claude Code on the web）。プラグインも token もコンテナ破棄ごとに消える
+- token は `.gitignore` で commit 禁止のため、git 成果物としての永続化も不可能
+- yorunokotoba セッションで再起動後も MCP 接続失敗を実測確認（2026-05-16）
 
-> token 未取得時の運用（2026-05-15 PR #217、creative-director 品質診断対応）: Lazyweb token が未取得の間は「着手前に参照 3-5 件 query」を実行不可能な必須命令として課さない。token 未取得時は `refero.design` 等の公開デザインギャラリーを一次参照とし、Lazyweb 参照は token 取得後に必須化する。実行不可能な YOU MUST を放置すると全 agent が参照ゼロでブリーフを出し続ける構造劣化を招くため、参照手段の有無で必須/任意を切り替える。
+= マネージド型 MCP（環境がサーバ側で接続: GitHub / Figma / Canva）と異なり、ローカルプラグイン型は本実行基盤と原理的に非互換。git に commit できる成果物だけでは永続化できないため、handoff / SessionStart フックへの組込みでも解決しない。
 
-利用可能な 6 slash command:
+代替（デザイン参照の標準手段）:
 
-| コマンド | 用途 |
+| 手段 | 用途 |
 |---|---|
-| `/lazyweb:lazyweb-design-research` | 深いデザイン研究、競合分析、構造化レポート（TL;DR + 例 + 発見 + パターン + アンチパターン + ユニーク角度 + 推奨）|
-| `/lazyweb:lazyweb-quick-references` | 素早く参考画像取得、パターン別グループ化（軽量、見るだけ用途）|
-| `/lazyweb:lazyweb-design-improve` | 既存デザイン改善案生成、現在の画面をスクリーンショット → 類似 + 改善案 1-5 件 |
-| `/lazyweb:lazyweb-design-brainstorm` | カテゴリ外横展開ブレスト（fintech 設計時に gaming / entertainment を参照する等）|
-| `/lazyweb:lazyweb-add-inspo-source` | 外部インスピソース追加 |
-| `/lazyweb:lazyweb-remove-inspo-source` | 外部インスピソース削除 |
+| Lazyweb For Humans（lazyweb.com 手動閲覧）| 257k UI スクリーンの目視参照、token / MCP 不要 |
+| Canva MCP | テンプレート参照（マネージド型、稼働実証済）|
+| `refero.design` | 2,000+ プロダクトの構造化参照、§12.4 業界別パターン |
+| WebSearch | 競合 / 業界事例の画像・UI 検索 |
 
-YOU MUST: visual / deck / LP 制作着手前に `/lazyweb:lazyweb-quick-references` で関連参考画像を最低 3-5 件取得、参照根拠を制作開始時に 1-2 行で言語化。
-
-token 取得手順（user 環境で 1 回実行）:
-
-```bash
-mkdir -p ~/.lazyweb && curl -sS -X POST https://www.lazyweb.com/api/mcp/install-token -H "content-type: application/json" -d '{}' | node -e "let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>require('fs').writeFileSync(process.env.HOME+'/.lazyweb/lazyweb_mcp_token', JSON.parse(s).token))"
-```
-
-token 機密扱い: ignored local config に保存 OK、git commit 禁止。本リポは `.gitignore` で `.lazyweb/` 除外推奨（既存除外確認次第）。
+YOU MUST: visual / deck / LP 制作着手前に上記いずれかで関連参考を最低 3-5 件取得、参照根拠を制作開始時に 1-2 行で言語化（§12.2）。
 
 ### 12.4 推奨ビジュアル参照パターン（業界別）
 
