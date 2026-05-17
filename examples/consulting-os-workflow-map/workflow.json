@@ -77,7 +77,7 @@
     "visual_deck_creation": {
       "trigger": "visual / IR デッキ / セールス資料制作依頼",
       "agents_invoked": ["creative-director", "ux-designer", "frontend-dev or sales-deck-designer", "brand-guardian"],
-      "skills_used": ["creative-playbook", "html-output-patterns", "brand-guidelines", "lazyweb (MCP)"],
+      "skills_used": ["creative-playbook", "html-output-patterns", "brand-guidelines"],
       "hooks_fired": ["emdash-detector.sh", "self-fraud-check.sh", "reality-check.sh"],
       "output": "HTML 1280x720 deck + PDF",
       "pre_check": "DESIGN.md §12 参照ライブラリ query 必須 (4 件以上)"
@@ -154,7 +154,6 @@
   "next_session_priorities": [
     "関根さん N&Y Craft OEM Phase 1 構築着手 (5/9 以降)",
     "水野さん v4 事業計画書き直し (handoff-mizuno-funding-v4.md §11 起点)",
-    "Lazyweb MCP token 取得 (user Mac 環境)",
     "リモートブランチ削除 (GitHub UI、HTTP 403 制約)"
   ],
   "instructions_for_next_llm": [
