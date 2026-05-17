@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>水野氏 1000 万円エンジェル出資 v4 資料ハブ（マーケ業界フレーム）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --bg:#FAFAF7;
+  --accent:#1E3A8A;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --info:#3B82F6;
+  --n100:#F2F2EE;
+  --n300:#D4D4D0;
+  --n500:#5A5A5A;
+  --n700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);
+  color:var(--primary);
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.container{max-width:1100px;margin:0 auto;padding:64px 36px 112px}
+
+/* HEADER */
+.site-header{border-bottom:3px solid var(--primary);padding-bottom:32px;margin-bottom:48px}
+.eyebrow{
+  font-size:12px;letter-spacing:0.18em;color:var(--accent);
+  font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif;
+}
+.site-title{
+  font-size:42px;font-weight:800;line-height:1.25;
+  margin-top:12px;letter-spacing:-0.01em;
+}
+.site-meta{
+  font-size:15px;color:var(--n500);margin-top:14px;line-height:1.85;
+  font-family:"Inter","Noto Sans JP",sans-serif;
+}
+.notice{
+  margin-top:14px;font-size:13px;font-weight:700;color:var(--warning);
+}
+
+/* KPI HERO */
+.kpi-hero{
+  display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:18px;
+  margin-bottom:48px;
+}
+.kpi-card{
+  background:var(--white);border:1px solid var(--n300);
+  border-top:4px solid var(--accent);padding:22px 22px 18px;
+}
+.kpi-card.suc{border-top-color:var(--success)}
+.kpi-label{
+  font-size:11px;font-weight:700;letter-spacing:0.16em;
+  color:var(--n500);font-family:"Inter",sans-serif;text-transform:uppercase;
+}
+.kpi-num{
+  font-family:"Inter",sans-serif;font-weight:900;
+  font-size:48px;letter-spacing:-0.02em;line-height:1;
+  color:var(--accent);margin-top:6px;
+}
+.kpi-card.suc .kpi-num{color:var(--success)}
+.kpi-unit{font-size:18px;font-weight:700;margin-left:4px}
+.kpi-desc{font-size:12px;color:var(--n500);line-height:1.7;margin-top:8px}
+
+/* LEGEND */
+.legend{
+  background:var(--n100);padding:14px 22px;margin-bottom:48px;
+  font-size:13px;line-height:1.85;color:var(--n700);
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  border-left:4px solid var(--accent);
+}
+.legend-title{font-weight:700;color:var(--primary)}
+.lbl{
+  display:inline-block;font-size:11px;font-family:"Inter",sans-serif;
+  font-weight:700;letter-spacing:0.07em;
+  padding:2px 7px;border-radius:2px;vertical-align:middle;margin-right:3px;
+}
+.lbl-f{background:var(--accent);color:#fff}
+.lbl-i{background:var(--n700);color:#fff}
+.lbl-s{background:var(--n500);color:#fff}
+
+/* SECTION */
+.section-heading{display:flex;align-items:baseline;gap:14px;margin:0 0 8px}
+.section-h2{font-size:26px;font-weight:800;letter-spacing:-0.01em}
+.section-num{
+  font-size:12px;font-weight:700;letter-spacing:0.16em;
+  color:var(--n500);font-family:"Inter",sans-serif;text-transform:uppercase;
+}
+.section-sep{height:2px;background:var(--n300);margin:0 0 22px;border:none}
+.section-gap{margin-top:56px}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{
+  display:block;background:var(--white);border:1px solid var(--n300);
+  border-left:4px solid var(--accent);padding:20px 22px;
+  text-decoration:none;color:var(--primary);transition:box-shadow 0.15s;
+}
+.card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.10)}
+.card.featured{border-left-color:var(--warning)}
+.card-num{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  color:var(--accent);font-family:"Inter",sans-serif;text-transform:uppercase;
+}
+.card-title{font-size:18px;font-weight:800;margin-top:6px;line-height:1.35}
+.card-desc{font-size:13px;color:var(--n700);line-height:1.75;margin-top:8px}
+.card-badge{
+  display:inline-block;margin-top:10px;font-size:11px;font-weight:700;
+  color:var(--accent);font-family:"Inter","Noto Sans JP",sans-serif;
+}
+
+/* CHANGE NOTE */
+.change-list{font-size:14px;line-height:1.95;color:var(--n700)}
+.change-list li{
+  list-style:none;padding:6px 0;border-bottom:1px dashed var(--n300);
+}
+.change-list li:last-child{border-bottom:none}
+.change-list li::before{content:"- ";color:var(--accent);font-weight:700}
+
+/* FOOTER */
+.site-footer{
+  margin-top:72px;padding-top:24px;border-top:1px solid var(--n300);
+  font-size:12px;color:var(--n500);line-height:1.85;
+}
+.site-footer .foot-warn{color:var(--warning);font-weight:700;font-size:13px}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="site-header">
+    <div class="eyebrow">ANGEL INVESTMENT v4 / MARKETING FRAMEWORK</div>
+    <h1 class="site-title">水野氏 1000 万円エンジェル出資 v4 資料ハブ</h1>
+    <div class="site-meta">
+      マーケ業界 × AI Agent 統合 OS / 2026 年 5 月下旬 MTG 想定<br>
+      水野敦紹氏（元ジーニー 常務執行役員 CX 事業統括本部 CAO、退職して独立予定、退任後個人投資家）向け
+    </div>
+    <div class="notice">本資料は投資推奨・投資助言ではありません</div>
+  </header>
+
+  <div class="kpi-hero">
+    <div class="kpi-card">
+      <div class="kpi-label">ASK</div>
+      <div class="kpi-num">1,000<span class="kpi-unit">万円</span></div>
+      <div class="kpi-desc">J-KISS 推奨 / バリュエーション 1 億円候補<span class="lbl lbl-i">INFERENCE</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">ARR 標準 18 ヶ月</div>
+      <div class="kpi-num">1,000<span class="kpi-unit">万円</span></div>
+      <div class="kpi-desc">楽観 2,400 / 保守 360 万円<span class="lbl lbl-s">SPECULATION</span></div>
+    </div>
+    <div class="kpi-card suc">
+      <div class="kpi-label">ブレイクイーブン</div>
+      <div class="kpi-num">12<span class="kpi-unit">ヶ月</span></div>
+      <div class="kpi-desc">標準シナリオ 月次 50 万円で BEP<span class="lbl lbl-s">SPECULATION</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">マーケ部門 agent</div>
+      <div class="kpi-num">7<span class="kpi-unit">名</span></div>
+      <div class="kpi-desc">27 agent 中核 / 水野氏領域と直接重複<span class="lbl lbl-f">FACT</span></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="legend-title">出典ラベル凡例</span>
+    <span><span class="lbl lbl-f">FACT</span> 検証済み事実</span>
+    <span><span class="lbl lbl-i">INFERENCE</span> 推論・業界平均</span>
+    <span><span class="lbl lbl-s">SPECULATION</span> 仮説試算</span>
+  </div>
+
+  <div class="section-heading">
+    <span class="section-num">01 / Documents</span>
+    <h2 class="section-h2">v4 資料一覧</h2>
+  </div>
+  <hr class="section-sep">
+  <div class="card-grid">
+    <a class="card featured" href="./00-business-plan-master-v4.md">
+      <div class="card-num">事業計画マスター v4</div>
+      <div class="card-title">00-business-plan-master-v4.md</div>
+      <div class="card-desc">5 agent 並列起動を統合した 9 セクション完全版。Secret Thesis（マーケ × AI Agent OS の間隙独占）/ Phase 0-2 ロードマップ / ARR シナリオ / 競合マトリクス 8 社 / マスク式 4 原則 / J-KISS Ask。</div>
+      <div class="card-badge">MTG 事前精読・全体像</div>
+    </a>
+    <a class="card" href="./case-a-v4.html">
+      <div class="card-num">Case A v4 詳細版ピッチ</div>
+      <div class="card-title">case-a-v4.html</div>
+      <div class="card-desc">事業計画マスターを 1280×720 スライド群に展開した詳細版。MTG 当日の主投影資料（sales-deck-designer 設計、派生作業中）。</div>
+      <div class="card-badge">MTG 当日・主投影資料</div>
+    </a>
+    <a class="card" href="./case-c-v4.html">
+      <div class="card-num">Case C v4 1 ページサマリ</div>
+      <div class="card-title">case-c-v4.html</div>
+      <div class="card-desc">9 セクションを 1280×720 1 枚に凝縮。なぜ今か / 構造的優位性 5 軸 / GTM 財務リスク / Ask + メール本文コピー機能。事前共有・短時間提示用。</div>
+      <div class="card-badge">事前共有メール・30 秒判断</div>
+    </a>
+    <a class="card" href="./04-mtg-playbook-v4.md">
+      <div class="card-num">MTG プレイブック v4</div>
+      <div class="card-title">04-mtg-playbook-v4.md</div>
+      <div class="card-desc">60 分タイムテーブル + 想定 Q&A 10 問（Anthropic 依存リスク等）+ 弁護士依頼スケジュール + 対外コミュニケーション設計。MTG 進行の手元控え。</div>
+      <div class="card-badge">MTG 進行・手元控え</div>
+    </a>
+  </div>
+
+  <div class="section-heading section-gap">
+    <span class="section-num">02 / Revision</span>
+    <h2 class="section-h2">v3 からの変更点</h2>
+  </div>
+  <hr class="section-sep">
+  <ul class="change-list">
+    <li>水野氏属性の訂正: v3 は出典不在の誤った前提（旧フレーム）に基づいていた。v4 は本人提示の FACT のみを根拠とする（PR #128 BM ハルシネーション訂正）</li>
+    <li>フレーム転換: 旧フレーム（投資助言業 / 金商法 28 条 / 営業保証金 500 万円）を全削除し、マーケ業界 × AI Agent 統合 OS の事業計画に再構築</li>
+    <li>主指標の刷新: ARR / NRR / CAC payback / Magic Number / Rule of 40 のマーケ SaaS 業界基準に変更</li>
+    <li>GTM の明確化: N&Y Craft（OEM 第 1 リファレンス）+ 水野氏ネットワーク経由マーケ案件の 2 段展開</li>
+    <li>旧 v3 資産 13 ファイルは _archive-v3/ に隔離（参照禁止、ハルシネーション学習証跡として保管）</li>
+  </ul>
+
+  <footer class="site-footer">
+    <div class="foot-warn">本資料は投資推奨・投資助言ではありません</div>
+    記載数値はすべて INFERENCE（実測前モデル値）または SPECULATION（仮説試算）です。実際の投資判断は投資家自身の責任で行ってください。<br>
+    出典: 5 agent 並列起動統合（docs/v4-*-judgment.md）/ handoff-mizuno-funding-v4.md（PR #128 BN）/ 水野氏属性は本人口頭確認 FACT。<br>
+    弁護士確認待ち項目: J-KISS 契約 / 前職 NDA・退任時期（インサイダー規制）/ AGPL-3.0 / Anthropic Usage Policy / 個人情報保護法 / 副業整合性。
+  </footer>
+
+</div>
+</body>
+</html>

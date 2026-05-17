@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Why Mizuno — 元ジーニー常務 CAO × ConsultingOS 金融 OS OEM パートナーシップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --blue:#1E3A8A;
+  --bg:#FAFAF7;
+  --accent:#2563EB;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --neutral-100:#F2F2EE;
+  --neutral-300:#D4D4D0;
+  --neutral-500:#5A5A5A;
+  --neutral-700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);
+  color:#0A0A0A;
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.nav{position:fixed;top:14px;right:14px;z-index:1000;display:flex;gap:6px;background:rgba(255,255,255,0.95);padding:6px 10px;border:1px solid var(--neutral-300);font-size:11px;font-family:"Inter",sans-serif}
+.nav a{color:var(--neutral-700);text-decoration:none;padding:3px 8px}
+.nav a.active{background:var(--blue);color:#fff}
+.deck{display:flex;flex-direction:column;gap:24px;padding:40px 20px}
+.slideWrap{display:flex;justify-content:center}
+.slide{position:relative;width:1280px;height:720px;background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.slide *{word-break:auto-phrase;line-break:strict;text-wrap:pretty;hanging-punctuation:allow-end}
+.frame{position:absolute;inset:0;padding:36px 40px 44px;display:flex;flex-direction:column}
+.tag{font-size:10px;letter-spacing:0.18em;color:var(--accent);font-weight:700;text-transform:uppercase;font-family:"Inter",sans-serif}
+.h1{font-size:28px;font-weight:800;letter-spacing:-0.01em;line-height:1.25;margin-top:6px}
+.rule{height:2px;background:var(--accent);width:32px;margin:8px 0 8px}
+.subClaim{font-size:13px;color:var(--neutral-700);line-height:1.65;margin-bottom:10px}
+.lf{display:inline-block;padding:1px 5px;font-size:9px;font-weight:700;letter-spacing:0.04em;color:#fff;border-radius:2px;font-family:"Inter",sans-serif;margin-left:3px;vertical-align:middle}
+.lf-f{background:var(--accent)}
+.lf-i{background:var(--neutral-700)}
+.lf-s{background:var(--neutral-500)}
+.srcBar{position:absolute;bottom:0;left:0;right:0;height:28px;background:var(--neutral-100);border-top:1px solid var(--neutral-300);display:flex;align-items:center;padding:0 14px;font-size:12px;font-family:"Inter",sans-serif;color:var(--neutral-500);gap:16px}
+.srcBar .pgn{margin-left:auto;font-size:11px;color:var(--neutral-500);letter-spacing:0.08em}
+
+/* Touch cards (5 columns) */
+.touchGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;flex:0;height:296px}
+.touchCard{background:var(--neutral-100);border-top:3px solid var(--accent);padding:12px 12px;display:flex;flex-direction:column;gap:5px}
+.touchCard .tNum{font-size:22px;font-weight:800;color:var(--accent);font-family:"Inter",sans-serif;line-height:1}
+.touchCard .tTitle{font-size:12px;font-weight:700;color:var(--primary);line-height:1.4;margin-top:2px}
+.touchCard .tBody{font-size:10px;color:var(--neutral-700);line-height:1.65;margin-top:3px}
+.touchCard .tLabel{font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;font-family:"Inter",sans-serif;color:var(--neutral-500);margin-top:6px}
+.touchCard .tBlank{font-size:10px;color:var(--warning);line-height:1.6}
+.touchCard .tAction{font-size:10px;color:var(--success);line-height:1.6;font-weight:600;margin-top:auto;padding-top:5px;border-top:1px dashed var(--neutral-300)}
+
+/* Lower section */
+.whyLower{display:grid;grid-template-columns:340px 1fr;gap:22px;flex:1;margin-top:12px;align-items:stretch}
+.whyClaim{background:var(--blue);color:#fff;padding:14px 18px;display:flex;flex-direction:column;gap:8px}
+.whyClaim .claimLabel{font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#93C5FD}
+.whyClaim .claimH{font-size:14px;font-weight:700;color:#fff;line-height:1.45}
+.whyClaim .claimB{font-size:11px;color:rgba(255,255,255,0.85);line-height:1.7}
+.whyClaim .claimMeta{font-size:9px;color:rgba(255,255,255,0.6);font-family:"Inter",sans-serif;margin-top:auto;padding-top:6px;border-top:1px solid rgba(255,255,255,0.2);line-height:1.6}
+
+.phaseGrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.phaseCard{background:var(--neutral-100);padding:11px 14px;border-left:4px solid var(--accent);display:flex;flex-direction:column;gap:4px}
+.phaseCard.rec{background:#EFF6FF;border-left-color:var(--accent);box-shadow:0 0 0 1px rgba(37,99,235,0.15)}
+.phaseCard .pNum{font-size:9px;font-weight:700;letter-spacing:0.12em;color:var(--accent);font-family:"Inter",sans-serif;text-transform:uppercase}
+.phaseCard .pTitle{font-size:12px;font-weight:700;color:var(--primary)}
+.phaseCard .pPeriod{font-size:10px;color:var(--neutral-500);font-family:"Inter",sans-serif}
+.phaseCard .pBody{font-size:10.5px;color:var(--neutral-700);line-height:1.7;margin-top:3px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html">Index</a>
+  <a href="case-a.html">Case A</a>
+  <a href="case-b.html">Case B</a>
+  <a href="case-c.html">Case C</a>
+  <a href="demo-consultingos-financial.html">Demo Fin</a>
+  <a href="demo-marketing-saas.html">Demo MKT</a>
+  <a href="why-mizuno.html" class="active">Why</a>
+</nav>
+<div class="deck">
+  <div class="slideWrap">
+    <div class="slide">
+      <div class="frame">
+        <div class="tag">WHY — MIZUNO × CONSULTINGOS / OEM PARTNERSHIP</div>
+        <div class="h1">水野氏向け金融 OS を、ConsultingOS が裏方として構築する</div>
+        <div class="rule"></div>
+        <div class="subClaim">水野敦紹氏 = 元ジーニー 常務執行役員 / CX 事業統括本部 CAO<span class="lf lf-f">FACT</span>（本人提示）／ 退職して独立予定<span class="lf lf-f">FACT</span>（本人発言）／ ConsultingOS への運営関与なし、OEM パートナー関係<span class="lf lf-f">FACT</span>（本人発言）。本資料は Plan A（OEM パートナーシップ主軸）／ Plan B（ConsultingOS 単体運営）の 2 案併走、Case A/B/C は Plan B のバックアッププラン。MTG で水野氏意向確定後に主軸決定<span class="lf lf-s">SPECULATION</span></div>
+
+        <!-- 5 接点カード -->
+        <div class="touchGrid">
+          <div class="touchCard">
+            <div class="tNum">01</div>
+            <div class="tTitle">アドテク配信知見 → 効果測定モジュール</div>
+            <div class="tLabel">水野氏 経験</div>
+            <div class="tBody">DSP / SSP / 媒体 API 統合<span class="lf lf-i">INFERENCE</span></div>
+            <div class="tLabel">金融 OS 設計要件</div>
+            <div class="tBlank">投資効果測定 / ROI 自動算出</div>
+            <div class="tAction">水野氏の配信オペ規律を金融 OS の KPI ダッシュボード設計に反映</div>
+          </div>
+          <div class="touchCard">
+            <div class="tNum">02</div>
+            <div class="tTitle">マーケ SaaS PL → 中堅企業 PL 自動化</div>
+            <div class="tLabel">水野氏 経験</div>
+            <div class="tBody">上場 SaaS の NRR / 粗利経営<span class="lf lf-i">INFERENCE</span></div>
+            <div class="tLabel">金融 OS 設計要件</div>
+            <div class="tBlank">サブスク企業向け PL / NRR モデル</div>
+            <div class="tAction">水野氏独立事業の顧客企業（中堅 SaaS 想定）の PL 自動化機能</div>
+          </div>
+          <div class="touchCard">
+            <div class="tNum">03</div>
+            <div class="tTitle">東南アジア → 多通貨 / 多市場対応</div>
+            <div class="tLabel">水野氏 経験</div>
+            <div class="tBody">タイ・インドネシア現地法人組成<span class="lf lf-f">FACT</span></div>
+            <div class="tLabel">金融 OS 設計要件</div>
+            <div class="tBlank">多通貨換算 / クロスボーダー M&amp;A 対応</div>
+            <div class="tAction">水野氏独立事業の海外案件想定の OS 機能要件を先行設計</div>
+          </div>
+          <div class="touchCard">
+            <div class="tNum">04</div>
+            <div class="tTitle">上場 IR → IR デッキ自動生成</div>
+            <div class="tLabel">水野氏 経験</div>
+            <div class="tBody">機関投資家対話 / 開示プロセス<span class="lf lf-f">FACT</span></div>
+            <div class="tLabel">金融 OS 設計要件</div>
+            <div class="tBlank">エクイティストーリー / 業績レビュー自動化</div>
+            <div class="tAction">水野氏の IR 実務知見を OS の IR モジュール設計レビューに反映</div>
+          </div>
+          <div class="touchCard">
+            <div class="tNum">05</div>
+            <div class="tTitle">CX 事業統括 CAO → 顧客成功設計</div>
+            <div class="tLabel">水野氏 経験</div>
+            <div class="tBody">CX 事業統括 / CAO の組織経験<span class="lf lf-f">FACT</span></div>
+            <div class="tLabel">金融 OS 設計要件</div>
+            <div class="tBlank">水野氏独立事業の顧客導入フロー</div>
+            <div class="tAction">OEM 提供先のオンボーディング / カスタマーサクセス設計に水野氏知見を反映</div>
+          </div>
+        </div>
+
+        <!-- 下半身: 関与スタイル + ロードマップ -->
+        <div class="whyLower">
+          <div class="whyClaim">
+            <div class="claimLabel">関係設計（OEM パートナーシップ）</div>
+            <div class="claimH">運営関与なし、水野氏ブランドで提供する金融 OS の OEM パートナー</div>
+            <div class="claimB">水野氏は独立後の自分の事業に専念。ConsultingOS は水野氏ブランドで提供される金融 OS を裏方として開発・保守。表に出るのは水野氏、OS は ConsultingOS<span class="lf lf-f">FACT</span>（本人発言）</div>
+            <div class="claimMeta">1000 万円 = ConsultingOS 株式取得 + 水野氏向け金融 OS 開発先行投資<span class="lf lf-s">SPECULATION</span> ／ 水野氏は OEM 顧客（独立事業の OS 基盤として活用）／ AGPL-3.0 → 商用ライセンス or MIT/Apache 2.0 移行が前提条件</div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:var(--accent);text-transform:uppercase;font-family:'Inter',sans-serif;margin-bottom:8px">3 フェーズ ロードマップ — 水野氏の貢献余地</div>
+            <div class="phaseGrid">
+              <div class="phaseCard">
+                <div class="pNum">PHASE 1 OEM 契約</div>
+                <div class="pTitle">OEM ライセンス契約締結</div>
+                <div class="pPeriod">0-3 ヶ月</div>
+                <div class="pBody">水野氏独立事業との OEM ライセンス契約締結。AGPL-3.0 → 商用 or MIT/Apache 2.0 ライセンス移行を弁護士確認。水野氏独立事業の領域 / 顧客像をオンボーディング設計に反映</div>
+              </div>
+              <div class="phaseCard rec">
+                <div class="pNum">PHASE 2 OS 開発（推奨）</div>
+                <div class="pTitle">金融 OS ホワイトラベル化</div>
+                <div class="pPeriod">3-9 ヶ月</div>
+                <div class="pBody">水野氏ブランドで提供される金融 OS の開発（DCF / IR / 業績レビュー / KPI ダッシュボード）。ConsultingOS の 30 エージェントを裏方として接続、表面は水野氏独立事業のロゴ</div>
+              </div>
+              <div class="phaseCard">
+                <div class="pNum">PHASE 3 OEM 売上</div>
+                <div class="pTitle">水野氏独立事業の顧客拡大</div>
+                <div class="pPeriod">9-18 ヶ月</div>
+                <div class="pBody">水野氏独立事業の顧客拡大に応じて金融 OS のスケール。ConsultingOS は OEM 利用料収益（顧客数 × 単価 SPECULATION）+ 実顧客検証データ獲得の Win-Win 構造</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="srcBar">
+        <span style="color:var(--warning);font-weight:700">本資料は投資推奨・投資助言ではありません</span>
+        <span>水野氏役職: 元ジーニー 常務執行役員 CX 事業統括本部 CAO 本人提示 <span class="lf lf-f">FACT</span> / 退職して独立予定 + ConsultingOS 運営関与なし + OEM パートナー 本人発言 <span class="lf lf-f">FACT</span> / OEM 契約条件: 協議中 <span class="lf lf-s">SPECULATION</span> / AGPL-3.0 商用ライセンス移行: 弁護士確認待ち <span class="lf lf-f">FACT</span> / ジーニー海外展開: 公開 IR 資料 <span class="lf lf-f">FACT</span></span>
+        <span class="pgn">why / 01</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
