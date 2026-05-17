@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case A v4 詳細版ピッチ 11 slides: ConsultingOS 水野氏 1000 万円エンジェル出資（マーケ業界フレーム）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#0A0A0A;
+  --bg:#FAFAF7;
+  --accent:#1E3A8A;
+  --warning:#B91C1C;
+  --success:#0EA5A4;
+  --info:#3B82F6;
+  --n100:#F2F2EE;
+  --n300:#D4D4D0;
+  --n500:#5A5A5A;
+  --n700:#374151;
+  --white:#FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#111827;
+  color:var(--primary);
+  font-family:"Yu Gothic","游ゴシック","Hiragino Sans","ヒラギノ角ゴ ProN","Noto Sans JP","IPAexGothic","IPAGothic","IPAゴシック",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  word-break:auto-phrase;
+  line-break:strict;
+  overflow-wrap:break-word;
+}
+.nav{
+  position:fixed;top:14px;left:14px;z-index:50;
+  background:rgba(0,0,0,0.80);color:#fff;
+  padding:9px 14px;border-radius:6px;
+  font-size:11px;letter-spacing:0.04em;
+  font-family:"Inter","Noto Sans JP",sans-serif;
+  backdrop-filter:blur(8px);
+}
+.nav a{color:#fff;text-decoration:none;opacity:0.65;margin-right:12px}
+.nav a:hover{opacity:1}
+.nav a.active{opacity:1;color:#93C5FD}
+.deck{display:flex;flex-direction:column;align-items:center;gap:22px;padding:64px 12px 96px}
+.slideWrap{
+  width:1280px;max-width:100%;aspect-ratio:1280/720;
+  position:relative;box-shadow:0 24px 64px rgba(0,0,0,0.50);
+  overflow:hidden;background:var(--bg);
+  container-type:inline-size;
+}
+.slide{
+  width:1280px;height:720px;background:var(--bg);color:var(--primary);
+  position:absolute;top:0;left:0;overflow:hidden;
+  transform-origin:top left;
+  transform:scale(calc(100cqw / 1280px));
+}
+.slide *{word-break:auto-phrase;line-break:strict;overflow-wrap:break-word;text-wrap:pretty;hanging-punctuation:allow-end}
+.cc-frame{position:absolute;inset:0;display:flex;flex-direction:column}
+
+/* header */
+.cc-header{
+  background:var(--primary);color:#fff;
+  padding:14px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:3px solid var(--accent);flex:0 0 auto;
+}
+.cc-h1{font-size:25px;font-weight:800;letter-spacing:-0.01em;line-height:1.3}
+.cc-h1 .em{color:#93C5FD}
+.cc-meta{
+  font-size:11px;letter-spacing:0.05em;color:#93C5FD;
+  font-family:"Inter",sans-serif;text-align:right;line-height:1.7;
+}
+.cc-meta .warn{color:#FCA5A5;font-weight:700}
+
+/* body */
+.cc-body{flex:1;padding:24px 48px;display:flex;flex-direction:column;overflow:hidden}
+.cc-num{
+  font-size:11px;font-weight:700;letter-spacing:0.16em;
+  color:var(--accent);font-family:"Inter",sans-serif;text-transform:uppercase;
+}
+.lead{font-size:14px;color:var(--n700);line-height:1.8;margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:14px;flex:1}
+.two.lr{grid-template-columns:1.05fr 0.95fr}
+.col-label{
+  font-size:10px;font-weight:700;letter-spacing:0.14em;color:var(--n500);
+  font-family:"Inter",sans-serif;text-transform:uppercase;margin-bottom:8px;
+}
+
+/* src bar */
+.src-bar{
+  position:absolute;bottom:0;left:0;right:0;height:26px;
+  background:rgba(10,10,10,0.92);display:flex;align-items:center;
+  padding:0 20px;font-size:11px;color:#9CA3AF;
+  font-family:"Inter",sans-serif;letter-spacing:0.02em;gap:12px;z-index:10;
+}
+.src-bar .warn-note{color:#FCA5A5;font-weight:700}
+.src-bar .pgn{margin-left:auto;letter-spacing:0.08em}
+
+/* labels */
+.lbl{
+  display:inline-block;padding:1px 6px;font-size:10px;font-weight:700;
+  letter-spacing:0.04em;color:#fff;border-radius:2px;
+  font-family:"Inter",sans-serif;margin-left:3px;vertical-align:middle;
+}
+.lbl-f{background:var(--accent)}
+.lbl-i{background:var(--n700)}
+.lbl-s{background:var(--n500)}
+
+/* KPI cards (s01) */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.kpi-c{background:var(--white);border:1px solid var(--n300);border-top:4px solid var(--accent);padding:18px 18px 14px}
+.kpi-c.suc{border-top-color:var(--success)}
+.kpi-lbl{font-size:10px;font-weight:700;letter-spacing:0.14em;color:var(--n500);font-family:"Inter",sans-serif;text-transform:uppercase}
+.kpi-n{font-family:"Inter",sans-serif;font-weight:900;font-size:42px;letter-spacing:-0.02em;line-height:1;color:var(--accent);margin-top:6px}
+.kpi-c.suc .kpi-n{color:var(--success)}
+.kpi-u{font-size:16px;font-weight:700;margin-left:3px}
+.kpi-d{font-size:11px;color:var(--n500);line-height:1.6;margin-top:6px}
+
+/* generic list */
+.ulist{margin-top:6px}
+.ulist li{list-style:none;font-size:13px;line-height:1.7;color:var(--n700);padding:5px 0;border-bottom:1px dashed var(--n300)}
+.ulist li:last-child{border-bottom:none}
+.ulist li::before{content:"- ";color:var(--accent);font-weight:700}
+
+/* data table */
+.dt{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px}
+.dt th{background:var(--primary);color:#fff;padding:6px 9px;text-align:left;font-size:11px;font-weight:700}
+.dt td{padding:6px 9px;border-bottom:1px solid var(--n300);color:var(--n700)}
+.dt tr.hi td{background:#EFF3FB;font-weight:700;color:var(--primary)}
+.dt .c{text-align:center}
+
+/* cards grid */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;flex:1}
+.cards4{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.card-b{background:var(--white);border:1px solid var(--n300);border-left:4px solid var(--accent);padding:13px 15px;display:flex;flex-direction:column;gap:5px}
+.card-b .ttl{font-size:13px;font-weight:800;color:var(--primary);line-height:1.4}
+.card-b .bd{font-size:11.5px;color:var(--n700);line-height:1.65}
+.card-b .fix{font-size:11px;color:var(--success);font-weight:600;line-height:1.6;margin-top:auto;padding-top:5px;border-top:1px dashed var(--n300)}
+.card-b .num{font-family:"Inter",sans-serif;font-size:24px;font-weight:900;color:var(--accent);line-height:1}
+
+/* bar chart */
+.bar-row{display:grid;grid-template-columns:54px 1fr 64px;gap:8px;align-items:center;margin-bottom:6px}
+.bar-row .bl{font-size:11px;color:var(--n500);text-align:right}
+.bar-row .bt{height:15px;border-radius:2px}
+.bar-row .bv{font-size:11px;font-weight:700;font-family:"Inter",sans-serif;color:var(--accent)}
+
+/* phase flow */
+.flow{display:flex;align-items:stretch;gap:0;margin-top:14px}
+.flow-box{flex:1;background:var(--white);border:1px solid var(--n300);border-top:3px solid var(--accent);padding:11px 13px}
+.flow-box .ph{font-size:10px;font-weight:700;letter-spacing:0.1em;color:var(--accent);font-family:"Inter",sans-serif}
+.flow-box .pt{font-size:12.5px;font-weight:800;margin-top:3px;line-height:1.35}
+.flow-box .pd{font-size:10.5px;color:var(--n700);line-height:1.6;margin-top:4px}
+.flow-arrow{display:flex;align-items:center;padding:0 6px;color:var(--accent);font-weight:900;font-size:16px}
+.gate{background:#FEF2F2;border:1px solid var(--warning);padding:8px 12px;margin-top:10px;font-size:11px;color:var(--n700);line-height:1.6}
+.gate b{color:var(--warning)}
+
+/* domain venn */
+.venn-wrap{display:flex;align-items:center;justify-content:center;flex:1}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="./index-v4.html">資料ハブ</a>
+  <a href="./case-a-v4.html" class="active">Case A v4 詳細</a>
+  <a href="./case-c-v4.html">Case C v4 1 ページ</a>
+  <a href="./00-business-plan-master-v4.md">マスター v4</a>
+</nav>
+<main class="deck">
+
+<!-- s01 カバー -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">ConsultingOS <span class="em">エンジェル出資 詳細版 v4</span></div>
+    <div class="cc-meta">2026 年 5 月下旬 水野氏向け<br><span class="warn">本資料は投資推奨・投資助言ではありません</span></div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s01 / Cover</div>
+    <div class="lead" style="font-size:18px;font-weight:700;color:var(--primary);margin-top:10px">マーケ業界の意思決定構造を、AI Agent の OS に変える</div>
+    <div class="kpi-row">
+      <div class="kpi-c">
+        <div class="kpi-lbl">ASK</div>
+        <div class="kpi-n">1,000<span class="kpi-u">万円</span></div>
+        <div class="kpi-d">エンジェル出資 / 退任後<span class="lbl lbl-f">FACT</span></div>
+      </div>
+      <div class="kpi-c">
+        <div class="kpi-lbl">ARR 標準 18 ヶ月</div>
+        <div class="kpi-n">1,000<span class="kpi-u">万円</span></div>
+        <div class="kpi-d">楽観 2,400 / 保守 360<span class="lbl lbl-s">SPECULATION</span></div>
+      </div>
+      <div class="kpi-c suc">
+        <div class="kpi-lbl">ブレイクイーブン</div>
+        <div class="kpi-n">12<span class="kpi-u">ヶ月</span></div>
+        <div class="kpi-d">標準 月次 50 万円<span class="lbl lbl-s">SPECULATION</span></div>
+      </div>
+      <div class="kpi-c">
+        <div class="kpi-lbl">マーケ部門 agent</div>
+        <div class="kpi-n">7<span class="kpi-u">名</span></div>
+        <div class="kpi-d">27 agent 中核<span class="lbl lbl-f">FACT</span></div>
+      </div>
+    </div>
+    <div class="lead" style="margin-top:18px;font-size:12px;color:var(--n500)">記載数値はすべて INFERENCE（実測前モデル値）または SPECULATION（仮説試算）です。実際の投資判断は投資家自身の責任で行ってください。</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">本資料は投資推奨・投資助言ではありません</span><span>2026 年 5 月下旬 水野氏向け / 5 agent 並列起動統合 docs/v4-*-judgment.md</span><span class="pgn">01 / 11</span></div>
+</div></div></div>
+
+<!-- s02 なぜ今か -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">マーケ判断の OS を、<span class="em">空白の今</span>に取りに行く</div>
+    <div class="cc-meta">s02 / Why Now</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s02 / なぜ今か</div>
+    <div class="two lr">
+      <div>
+        <div class="col-label">SCQA</div>
+        <ul class="ulist">
+          <li>Situation: マーケ / アドテク業界の AI 化が加速し運用知識がコモディティ化</li>
+          <li>Complication: 個別ツールは乱立するが「マーケ判断の OS」は未存在</li>
+          <li>Question: 誰がカテゴリファーストを取るか</li>
+          <li>Answer: ConsultingOS のマーケ部門 7 agent が水野氏ネットワークを配布チャネルに即商用化できる唯一の状態</li>
+        </ul>
+        <div class="lead" style="margin-top:10px">窓: マーケ × AI Agent は黎明期、国内 OEM 事例ほぼなし<span class="lbl lbl-i">INFERENCE</span></div>
+      </div>
+      <div>
+        <div class="col-label">3 変数交点（佐藤裕介式）</div>
+        <div class="venn-wrap">
+          <svg width="320" height="260" viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" aria-label="3 変数交点ベン図: 技術・市場構造・ユーザー変化が 2026 年に重なる" role="img">
+            <circle cx="125" cy="105" r="86" fill="none" stroke="#1E3A8A" stroke-width="2" opacity="0.55"/>
+            <circle cx="195" cy="105" r="86" fill="none" stroke="#B91C1C" stroke-width="2" opacity="0.55"/>
+            <circle cx="160" cy="165" r="86" fill="none" stroke="#0EA5A4" stroke-width="2" opacity="0.55"/>
+            <ellipse cx="160" cy="120" rx="30" ry="28" fill="#1E3A8A" opacity="0.22"/>
+            <text x="160" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="900" fill="#1E3A8A">2026</text>
+            <text x="160" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#1E3A8A">交点</text>
+            <text x="78" y="50" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="13" font-weight="700" fill="#1E3A8A">技術変化</text>
+            <text x="244" y="50" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="13" font-weight="700" fill="#B91C1C">市場構造</text>
+            <text x="160" y="248" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="13" font-weight="700" fill="#0EA5A4">ユーザー変化</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>3 変数交点は佐藤裕介式 / Agentforce 国内浸透速度 SPECULATION</span><span class="pgn">02 / 11</span></div>
+</div></div></div>
+
+<!-- s03 水野氏 × ConsultingOS -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">評判資本を、<span class="em">配布チャネル</span>に変える</div>
+    <div class="cc-meta">s03 / Mizuno × ConsultingOS</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s03 / 水野氏 × ConsultingOS</div>
+    <div class="two">
+      <div>
+        <div class="col-label">水野氏属性（本人提示 FACT）</div>
+        <table class="dt">
+          <tr><th>項目</th><th>内容</th></tr>
+          <tr><td>現職</td><td>元ジーニー 常務執行役員 CX 事業統括本部 CAO</td></tr>
+          <tr><td>状況</td><td>退職して独立予定 / 退任後個人投資家</td></tr>
+          <tr><td>事業領域</td><td>アドテク / マーケ自動化 / CRM / SFA / SaaS</td></tr>
+          <tr><td>関係</td><td>ユーザーと業界先輩、個人を信じての出資</td></tr>
+        </table>
+        <div class="lead" style="margin-top:8px;font-size:12px">全項目 本人口頭確認<span class="lbl lbl-f">FACT</span></div>
+      </div>
+      <div>
+        <div class="col-label">ドメイン重複</div>
+        <div class="venn-wrap">
+          <svg width="330" height="230" viewBox="0 0 330 230" xmlns="http://www.w3.org/2000/svg" aria-label="水野氏ジーニー領域と ConsultingOS マーケ部門 7 agent のドメイン重複ベン図" role="img">
+            <circle cx="120" cy="115" r="92" fill="#1E3A8A" opacity="0.14" stroke="#1E3A8A" stroke-width="2"/>
+            <circle cx="210" cy="115" r="92" fill="#0EA5A4" opacity="0.14" stroke="#0EA5A4" stroke-width="2"/>
+            <text x="78" y="70" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="12" font-weight="700" fill="#1E3A8A">水野氏</text>
+            <text x="78" y="86" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#1E3A8A">ジーニー領域</text>
+            <text x="252" y="70" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="12" font-weight="700" fill="#0EA5A4">マーケ部門</text>
+            <text x="252" y="86" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10" fill="#0EA5A4">7 agent</text>
+            <text x="165" y="108" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10.5" font-weight="700" fill="#0A0A0A">アドテク</text>
+            <text x="165" y="124" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10.5" font-weight="700" fill="#0A0A0A">CRM / SFA</text>
+            <text x="165" y="140" text-anchor="middle" font-family="Yu Gothic,sans-serif" font-size="10.5" font-weight="700" fill="#0A0A0A">マーケ自動化</text>
+          </svg>
+        </div>
+        <div class="lead" style="font-size:11.5px;color:var(--n500)">マーケ部門 7 agent と直接ドメイン重複<span class="lbl lbl-i">INFERENCE</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>水野氏属性: 本人提示 FACT / ドメイン重複は INFERENCE</span><span class="pgn">03 / 11</span></div>
+</div></div></div>
+
+<!-- s04 全体像 -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">6 部門 27 agent を、<span class="em">一気通貫</span>で動かす</div>
+    <div class="cc-meta">s04 / ConsultingOS</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s04 / ConsultingOS 全体像</div>
+    <div class="cards4">
+      <div class="card-b"><div class="num">6</div><div class="ttl">コンサル</div><div class="bd">strategy-lead / competitive-analyst / proposal-writer / kpi-analytics / client-success / legal-compliance-checker</div></div>
+      <div class="card-b"><div class="num">4</div><div class="ttl">サービス開発</div><div class="bd">tech-lead / fullstack-dev / ai-engineer / infra-devops</div></div>
+      <div class="card-b"><div class="num">2</div><div class="ttl">プロダクト</div><div class="bd">product-manager / feedback-synthesizer</div></div>
+      <div class="card-b"><div class="num">7</div><div class="ttl">クリエイティブ</div><div class="bd">creative-director / ux-designer / frontend-dev / content-strategist / brand-guardian / growth-hacker / sales-deck-designer</div></div>
+      <div class="card-b"><div class="num">1</div><div class="ttl">グローバル</div><div class="bd">gtm-consultant</div></div>
+      <div class="card-b" style="border-left-color:var(--warning)"><div class="num" style="color:var(--warning)">7</div><div class="ttl">マーケティング（中核）</div><div class="bd">marketing-director / performance-marketer / seo-specialist / marketing-analyst / social-media-strategist / market-researcher / pr-communications</div></div>
+    </div>
+    <div class="lead" style="margin-top:12px;font-size:12px">技術基盤: Claude Code MCP / Opus 4.7 / 21 hook 物理化 / 36 skill<span class="lbl lbl-f">FACT</span> いずれも既稼働</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>6 部門 27 agent 体制 既稼働 FACT</span><span class="pgn">04 / 11</span></div>
+</div></div></div>
+
+<!-- s05 GTM -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">N&amp;Y Craft で<span class="em">実証</span>し、紹介で広げる</div>
+    <div class="cc-meta">s05 / GTM Roadmap</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s05 / GTM ロードマップ</div>
+    <div class="flow">
+      <div class="flow-box">
+        <div class="ph">PHASE 0 / 0-3 ヶ月</div>
+        <div class="pt">実証</div>
+        <div class="pd">N&amp;Y Craft 関根案件（2026-05-09 提案）着手 + ConsultingOS 27 agent 構造化 + 水野氏出資契約</div>
+      </div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-box">
+        <div class="ph">PHASE 1 / 3-12 ヶ月</div>
+        <div class="pt">展開</div>
+        <div class="pd">水野氏ネットワーク経由でマーケ系 OEM 案件 2-3 件展開<span class="lbl lbl-i">INF</span></div>
+      </div>
+      <div class="flow-arrow">&#8594;</div>
+      <div class="flow-box">
+        <div class="ph">PHASE 2 / 12-24 ヶ月</div>
+        <div class="pt">集約</div>
+        <div class="pd">マーケ × AI Agent 国内カテゴリトップ集約<span class="lbl lbl-s">SPEC</span></div>
+      </div>
+    </div>
+    <div class="gate"><b>Phase 0 末 Go/No-Go ゲート</b>: N&amp;Y Craft 受注確定 → Phase 1 進行 / 不成立 → 水野氏出資を Phase 0 再実証資金に再定義し別マーケ系 OEM 案件 1 件の受注を Phase 1 着手の前提条件に切替（直列依存リスクの分岐設計）</div>
+    <div class="lead" style="margin-top:8px;font-size:12px">CAC ゼロのネットワーク起点を構造化: 属人営業ではなく紹介手数料覚書を契約形態として整備</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>N&amp;Y Craft 関根案件 2026-05-09 提案 FACT / 水野紹介案件は INFERENCE 口約束なし</span><span class="pgn">05 / 11</span></div>
+</div></div></div>
+
+<!-- s06 数値計画 -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">1000 万円を、<span class="em">18 ヶ月のランウェイ</span>に変える</div>
+    <div class="cc-meta">s06 / Numbers</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s06 / 数値計画</div>
+    <div class="two">
+      <div>
+        <div class="col-label">ARR シナリオ 18 ヶ月（全 SPECULATION）</div>
+        <div style="margin-top:8px">
+          <div class="bar-row"><div class="bl">楽観</div><div class="bt" style="background:var(--accent);width:95%"></div><div class="bv">2,400</div></div>
+          <div class="bar-row"><div class="bl">標準</div><div class="bt" style="background:var(--accent);opacity:0.65;width:42%"></div><div class="bv">1,000</div></div>
+          <div class="bar-row"><div class="bl">保守</div><div class="bt" style="background:var(--n500);opacity:0.55;width:15%"></div><div class="bv">360</div></div>
+          <div style="font-size:10px;color:var(--n500);text-align:right">（万円）</div>
+        </div>
+        <div class="lead" style="margin-top:8px;font-size:11.5px">標準シナリオで 12 ヶ月時点 ARR 600 万円（月次 50 万円）で BEP 到達<span class="lbl lbl-s">SPECULATION</span></div>
+      </div>
+      <div>
+        <div class="col-label">1000 万円使途 4 分類</div>
+        <div style="margin-top:8px">
+          <div class="bar-row"><div class="bl" style="font-size:10px">マーケ 7 agent</div><div class="bt" style="background:var(--accent);width:70%"></div><div class="bv">350</div></div>
+          <div class="bar-row"><div class="bl" style="font-size:10px">インフラ開発</div><div class="bt" style="background:var(--accent);opacity:0.8;width:50%"></div><div class="bv">250</div></div>
+          <div class="bar-row"><div class="bl" style="font-size:10px">法務契約</div><div class="bt" style="background:var(--accent);opacity:0.6;width:30%"></div><div class="bv">150</div></div>
+          <div class="bar-row"><div class="bl" style="font-size:10px">N&amp;Y 着手金</div><div class="bt" style="background:var(--accent);opacity:0.8;width:50%"></div><div class="bv">250</div></div>
+          <div style="font-size:10px;color:var(--n500);text-align:right">（万円 / 合計 1,000）</div>
+        </div>
+        <div class="lead" style="margin-top:8px;font-size:11px;color:var(--n500)">主要 KPI: ARR / NRR / CAC payback / Magic Number / Rule of 40（マーケ SaaS 業界基準）</div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>ARR・使途は全 SPECULATION 実証前仮説 / kpi-analytics 試算 docs/v4-kpi-analytics-judgment.md</span><span class="pgn">06 / 11</span></div>
+</div></div></div>
+
+<!-- s07 競合分析 -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">製品の縛りがない立場で、<span class="em">判断 OS</span>を独占する</div>
+    <div class="cc-meta">s07 / Competition</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s07 / 競合分析</div>
+    <table class="dt" style="font-size:11px">
+      <tr><th>競合</th><th class="c">業界特化</th><th class="c">個人カスタム</th><th class="c">評判資本起点</th><th class="c">反証チェック</th><th class="c">OEM 提供</th></tr>
+      <tr class="hi"><td>ConsultingOS</td><td class="c">高</td><td class="c">高</td><td class="c">高</td><td class="c">高</td><td class="c">有</td></tr>
+      <tr><td>Sierra AI</td><td class="c">高</td><td class="c">中</td><td class="c">低</td><td class="c">低</td><td class="c">不明</td></tr>
+      <tr><td>Salesforce Agentforce</td><td class="c">高</td><td class="c">低</td><td class="c">低</td><td class="c">低</td><td class="c">有</td></tr>
+      <tr><td>Microsoft Copilot Studio</td><td class="c">高</td><td class="c">中</td><td class="c">低</td><td class="c">低</td><td class="c">有</td></tr>
+      <tr><td>HubSpot AI</td><td class="c">高</td><td class="c">中</td><td class="c">低</td><td class="c">低</td><td class="c">限定</td></tr>
+      <tr><td>Marketo Engage</td><td class="c">高</td><td class="c">低</td><td class="c">低</td><td class="c">低</td><td class="c">Adobe</td></tr>
+      <tr><td>NotebookLM / Notion AI</td><td class="c">中-低</td><td class="c">低</td><td class="c">低</td><td class="c">低</td><td class="c">無</td></tr>
+    </table>
+    <div class="lead" style="margin-top:8px;font-size:11.5px">差別化 5 軸: 業界特化（マーケ + 金融 + 製造）/ 個人カスタマイズ / 評判資本起点（マスク式原則 2 物理化）/ 反証チェック物理化（Step 1-4 全出力）/ OEM 提供（N&amp;Y Craft 実証中）<span class="lbl lbl-i">INFERENCE</span></div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>競合 8 社マトリクス docs/v4-competitive-analyst-judgment.md / 評価は公開情報ベースの推定含む INFERENCE</span><span class="pgn">07 / 11</span></div>
+</div></div></div>
+
+<!-- s08 リスク開示 -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">リスクを<span class="em">先に出し</span>、対策とセットで渡す</div>
+    <div class="cc-meta">s08 / Risk</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s08 / リスク開示（Pre-mortem）</div>
+    <div class="cards3">
+      <div class="card-b">
+        <div class="ttl">1. Anthropic 依存</div>
+        <div class="bd">claude モデル / API への構造的依存。価格改定・モデル廃止が PL に直結<span class="lbl lbl-f">FACT</span></div>
+        <div class="fix">対策: 短期 LLM 非依存設計 / 中期 抽象化レイヤー / 長期 マルチモデル routing</div>
+      </div>
+      <div class="card-b">
+        <div class="ttl">2. Sierra / Agentforce 侵食</div>
+        <div class="bd">大手 AI Agent のマーケ領域進出。リスクスコア 2/5<span class="lbl lbl-i">INF</span></div>
+        <div class="fix">対策: 垂直統合 + evolution-log 蓄積が参入障壁。模倣困難な Activity Map</div>
+      </div>
+      <div class="card-b">
+        <div class="ttl">3. 個人依存</div>
+        <div class="bd">1 名兼務の属人化<span class="lbl lbl-f">FACT</span></div>
+        <div class="fix">対策: 4 思想を OS に書き込み、誰が起動しても同水準。27 agent + 36 skill で構造化</div>
+      </div>
+    </div>
+    <div class="lead" style="margin-top:10px;font-size:11.5px">Pre-mortem 4 シナリオ（カーネマン式）で事前検知。漸進 60 / 大胆 40 の比率宣言で失敗コスト上限を物理化</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>Pre-mortem 4 シナリオ カーネマン式 / リスクスコアは現時点 INFERENCE</span><span class="pgn">08 / 11</span></div>
+</div></div></div>
+
+<!-- s09 マスク式 4 原則 -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">現金ではなく、<span class="em">評判と知識</span>を資産に置く</div>
+    <div class="cc-meta">s09 / Musk Principles</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s09 / マスク式 4 原則</div>
+    <div class="cards4" style="grid-template-columns:repeat(2,1fr)">
+      <div class="card-b" style="border-left-color:var(--warning)">
+        <div class="ttl" style="color:var(--warning)">思考原則 2: 評判資本主義（核）</div>
+        <div class="bd">現金は遅行指標、評判 / 知識 / 実証 ROI が真の資産。水野氏の「個人を信じる 1000 万」はこの典型例</div>
+      </div>
+      <div class="card-b">
+        <div class="ttl">思考原則 1: インセンティブ設計</div>
+        <div class="bd">罰則 / 報酬の対称配置 + 失敗コスト上限管理 + 漸進 vs 大胆比率宣言</div>
+      </div>
+      <div class="card-b">
+        <div class="ttl">実行原則 3: Unkind Truth</div>
+        <div class="bd">短期摩擦を許容して長期機能性を選ぶ。反証チェック hook で物理化</div>
+      </div>
+      <div class="card-b">
+        <div class="ttl">実行原則 4: アルゴリズム実行</div>
+        <div class="bd">要件疑義 / 削除 / 簡素化 / サイクル加速 / 自動化の 5 ステップ順序適用</div>
+      </div>
+    </div>
+    <div class="lead" style="margin-top:10px;font-size:11.5px">4 思想統合運用順序: 孫正義（山）→ Huang（問題検証）→ 佐藤裕介（PL 構造化）→ 小野寺（KPI 分岐）→ マスク式 4 原則（実行規律）</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>マスク式発言は INFERENCE Aakash Gupta X ポスト経由 / consulting-playbook-musk-incentive・execution</span><span class="pgn">09 / 11</span></div>
+</div></div></div>
+
+<!-- s10 Ask -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">退任後の 1000 万円で、<span class="em">参入窓</span>を確保する</div>
+    <div class="cc-meta">s10 / Ask</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s10 / Ask</div>
+    <div class="two lr">
+      <div>
+        <div class="col-label">出資条件 v4</div>
+        <table class="dt">
+          <tr><th>項目</th><th>内容</th></tr>
+          <tr><td>金額</td><td>1,000 万円<span class="lbl lbl-f">FACT</span></td></tr>
+          <tr><td>タイミング</td><td>退任後<span class="lbl lbl-f">FACT</span></td></tr>
+          <tr><td>形態</td><td>J-KISS 第一推奨<span class="lbl lbl-i">INF</span></td></tr>
+          <tr><td>バリュエーション</td><td>1 億円キャップ + Discount 15-20%<span class="lbl lbl-i">INF</span></td></tr>
+          <tr><td>出資主体</td><td>個人 / 法人は弁護士・税理士確認後</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="col-label">次アクション 3 分岐</div>
+        <ul class="ulist">
+          <li>合意: J-KISS テンプレート締結 → 退任後着手</li>
+          <li>条件付き合意: 弁護士確認 + バリュエーション再交渉 → 2-4 週間後再 MTG</li>
+          <li>不成立: N&amp;Y Craft 関根案件先行 → 別エンジェル探索</li>
+        </ul>
+        <div class="lead" style="margin-top:8px;font-size:11px;color:var(--n500)">形態選択基準: 経営関与なし = J-KISS / 経営関与希望 = 普通株 / 追加ラウンド想定 = 種類株</div>
+      </div>
+    </div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>出資条件: 本人発言 FACT + 弁護士確認必須 INFERENCE / docs/v4-legal-compliance-judgment.md</span><span class="pgn">10 / 11</span></div>
+</div></div></div>
+
+<!-- s11 弁護士確認 + クロージング -->
+<div class="slideWrap"><div class="slide"><div class="cc-frame">
+  <div class="cc-header">
+    <div class="cc-h1">不確実性を、<span class="em">確認リスト</span>に変えて畳む</div>
+    <div class="cc-meta">s11 / Legal & Closing</div>
+  </div>
+  <div class="cc-body">
+    <div class="cc-num">s11 / 弁護士確認 + クロージング</div>
+    <table class="dt">
+      <tr><th>優先</th><th>確認事項</th><th class="c">リスク</th></tr>
+      <tr><td class="c">1</td><td>J-KISS / 普通株の選択と契約書ドラフト（形態 / キャップ / Discount / 出資主体）</td><td class="c">高</td></tr>
+      <tr><td class="c">2</td><td>水野氏前職 NDA / 競業避止 + 退任時期の法的明確化（在職中出資はインサイダー規制リスク）</td><td class="c">高</td></tr>
+      <tr><td class="c">3</td><td>AGPL-3.0 SaaS 提供時のソース開示義務範囲 + フォールバック（商用ライセンス or MIT/Apache 代替）</td><td class="c">高</td></tr>
+      <tr><td class="c">4</td><td>Anthropic Usage Policy の再包装提供該当性確認</td><td class="c">中</td></tr>
+      <tr><td class="c">5</td><td>N&amp;Y Craft 顧客データの匿名化要件 + 学習データ転用権の整合</td><td class="c">中</td></tr>
+      <tr><td class="c">6</td><td>副業フレームと本業雇用契約の整合 + 紹介手数料覚書の法的性質</td><td class="c">低-中</td></tr>
+    </table>
+    <div class="lead" style="margin-top:10px;font-size:12.5px;color:var(--primary);font-weight:700">実証 1 件目（N&amp;Y Craft）が揃い次第、改めてご報告します。</div>
+    <div class="lead" style="font-size:11px;color:var(--n500)">連絡先: ConsultingOS 代表（担当者名・メール・電話は別途記載）</div>
+  </div>
+  <div class="src-bar"><span class="warn-note">投資推奨ではありません</span><span>弁護士確認必須リスト v4 優先順位付き / 全項目 確認後に確定 docs/v4-legal-compliance-judgment.md</span><span class="pgn">11 / 11</span></div>
+</div></div></div>
+
+</main>
+</body>
+</html>
