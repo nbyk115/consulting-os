@@ -399,12 +399,13 @@ Lazyweb MCP（aboul3ata/lazyweb-skill）は 2026-05-14 に統合（PR #141）し
 
 | 手段 | 用途 |
 |---|---|
-| Lazyweb For Humans（lazyweb.com 手動閲覧）| 257k UI スクリーンの目視参照、token / MCP 不要 |
-| Canva MCP | テンプレート参照（マネージド型、稼働実証済）|
-| `refero.design` | 2,000+ プロダクトの構造化参照、§12.4 業界別パターン |
-| WebSearch | 競合 / 業界事例の画像・UI 検索 |
+| WebSearch | 競合 / 業界事例の参照 URL 検索（コンテナから実行可能、標準手段）|
+| Lazyweb For Humans（lazyweb.com 手動閲覧）| 257k UI スクリーンの目視参照、人間がブラウザ閲覧して構造を共有 |
+| `refero.design` | 2,000+ プロダクトの構造化参照、§12.4 業界別パターン。人間がブラウザ閲覧 |
 
-YOU MUST: visual / deck / LP 制作着手前に上記いずれかで関連参考を最低 3-5 件取得、参照根拠を制作開始時に 1-2 行で言語化（§12.2）。
+> Canva MCP について（2026-05-18 実測）: generate-design は呼べるが、生成画像 URL（design.canva.ai）が本実行環境のネットワーク許可リストで HTTP 403 ブロックされ、ConsultingOS の実行コンテナに画像を取り込めない。よって Canva MCP は ConsultingOS が納品する成果物の生成・参照取り込み手段としては使えない。Canva はユーザーが Canva 上で完結利用する場合のみ可（成果物はユーザーの Canva アカウント内、ConsultingOS は触れない）。PR #235 の「Canva MCP 第一選択・必須」は本環境で不成立のため撤回（PR で creative-director.md を訂正）。
+
+YOU MUST: visual / deck / LP 制作着手前に上記いずれかで関連参考を最低 3-5 件取得、参照根拠を制作開始時に 1-2 行で言語化（§12.2）。MCP 経由でコンテナに画像を取り込む経路は本環境で塞がれているため、URL と構造情報を言語化して参照根拠とする。
 
 ### 12.4 推奨ビジュアル参照パターン（業界別）
 

@@ -51,7 +51,7 @@ npx typeui.sh pull <style-name>
 
 YOU MUST: 案件着手前に creative-director が:
 1. ICP.md からスタイル候補 2-3 件抽出
-2. ux-designer が Lazyweb For Humans / Canva MCP + awesome-design-skills 候補で参照取得
+2. ux-designer が WebSearch / Lazyweb For Humans + awesome-design-skills 候補で参照取得
 3. ユーザー or クライアント承認後に `npx typeui.sh pull` 実行
 4. brand-guardian が DESIGN.md §12.5.1 5 項目機械検証
 
