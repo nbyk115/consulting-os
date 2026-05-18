@@ -91,6 +91,16 @@
 
 反証結果: Step 1 = リポ名 `nbyk115/yorunokotoba`・案件ごとの管理場所（別リポ / consulting-os 内ブランチ混在）は user 明示（FACT）、ブランチ陳腐化は handoff doc 実測（FACT）。Step 2 = 中央レジストリ新設は user の「案件ごと分離」方針と矛盾するため不採用、evolution-log への登録記録のみで構造整合。Step 3 = consulting-os 環境から別リポ案件は GitHub MCP スコープ外で直接検証不可、user 申告 + handoff doc 記載に依拠（明示）。水野さん funding の consulting-os 内資産（`strategy/mizuno-funding-1000man/` + `docs/handoff-mizuno-funding-v4.md`）は本リポ実測（FACT）。Step 4 = 残存リスクなし（記録のみ、不可逆操作なし）。
 
+### 2026-05-18 Canva MCP 第一選択規律の撤回（未検証物理化の同型事象 2 件目）
+
+事象: PR #235（2026-05-15）が creative-director.md に「Canva MCP generate-design を全デザイン生成の第一選択・必ず使う・使わないのは原則禁止」を物理化。根拠は「Canva MCP help コマンド確認」のみで、生成 → 取り込みの end-to-end は未検証だった。programmatic-notes セッションが実際に generate-design を回し、本実行環境が Canva 画像配信ドメイン（design.canva.ai 等）を HTTP 403 ブロックするため生成物を取り込めないと実測。assistant も generate-design + WebFetch で 403 を再現確認（2026-05-18）。OS が必須化したデザイン生成ツールが、本実行環境では成果物を回収できない。
+
+根本原因: lazyweb MCP（2026-05-17 不採用、本ログ上記エントリ）に続く 2 件目の「外部ツールを未検証の実証済主張で規律に物理化 → 実行環境で動かないと後で判明」。さらに assistant が PR #237 / #243 で「Canva MCP 稼働実証済」と未検証のまま main にコミットし、前ターンで 403 の指摘を「別レイヤ・範囲外」と握りつぶした（ハードルール 1「実証済は実測値併記なしで使用禁止」+ ハードルール 2 違反）。
+
+構造対策: creative-director を 4 名 + tech-lead で検証ゲートを通し、Canva MCP 第一選択規律を撤回。ConsultingOS 納品物の生成は HTML + CSS 直接制作を標準、写真的画像は外部モデル + claude-design-handoff の 3 点セット protocol、Canva はユーザーが Canva 上で完結利用する場合のみ。creative-director.md / DESIGN.md §12.3 / ux-designer.md / mcp-ecosystem-catalog / glean-adlc / creative-delegation-prompts.md / video-creative-pipeline / output-quality-rubrics / design-skill-library / handoff 2 件を実態に修正。再発防止の構造対策（物理化前 end-to-end 実測の義務化）は後続 PR で実装。
+
+反証結果: Step 1 = 403 は assistant 自身の generate-design + WebFetch 実測（FACT）、PR #235 の未検証物理化は creative-director.md 実測（FACT）。Step 2 = bb00f40（PR #244）の protocol 追加に対する Hard Rule 13 の本物の削除ペアが本撤回。Step 3 = `generate-design`（4 候補）+ `WebFetch design.canva.ai`（HTTP 403）+ `grep -rn Canva`（第一選択物理化箇所）を実測。Step 4 = 矛盾規律の main 残存リスクを本 PR で撤回し解消、再発防止の構造対策は後続 PR で潰す。
+
 ### 2026-05-07 LinkedIn programmatic コメント 16 failure cluster + Autonomous Mode Protocol 物理化
 
 LinkedIn コメント（TTD Isom Winton 返信、Japan PMP / curated marketplace の役割）で 16 段階の failure を user が逐次検知。根本原因: orchestrator default が「responsive assistant」モードのまま「autonomous analyst」モードへ切替できておらず、ユーザー指摘待ちの reactive correction loop に陥っていた。
