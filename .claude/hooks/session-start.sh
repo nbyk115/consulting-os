@@ -93,6 +93,20 @@ if [ -f "$EVOLUTION_LOG" ] && grep -q "## 再評価カレンダー" "$EVOLUTION_
   done <<< "$OVERDUE"
 fi
 
+# 5. main 遅延検知（案A、2026-05-18 物理化、グローバルスキル鮮度担保）
+# symlink は repo 作業ツリーを指すため、repo が origin/main より遅れているとグローバルスキルも古い。
+# fetch + 遅延検知で警告する（auto-merge はしない: conflict リスク回避、ハードルール 18 の手動 pull 方針を維持）。
+# set -e 下でも hook を落とさない: fetch を if 条件に置き、失敗時は BEHIND_COUNT=0 のまま。
+if [ -d "$REPO_ROOT/.git" ]; then
+  BEHIND_COUNT=0
+  if git -C "$REPO_ROOT" fetch --quiet origin main 2>/dev/null; then
+    BEHIND_COUNT=$(git -C "$REPO_ROOT" rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
+  fi
+  if [ "${BEHIND_COUNT:-0}" -gt 0 ] 2>/dev/null; then
+    MESSAGES+=("SYNC: HEAD が origin/main より ${BEHIND_COUNT} commit 遅れています。グローバルスキルは repo 作業ツリーを反映するため古い内容になります。git pull origin main / 別 branch なら git merge origin/main を実行してください（ハードルール 18）")
+  fi
+fi
+
 # 出力（additionalContext 形式で Claude に注入）
 if [ ${#MESSAGES[@]} -gt 0 ]; then
   CONTEXT=""
