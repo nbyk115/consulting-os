@@ -30,7 +30,7 @@ YOU MUST: 動画制作着手前に必ず以下を定義:
 
 ### Phase 2: 参照ライブラリ query (ux-designer)
 
-DESIGN.md §12 + Lazyweb For Humans (lazyweb.com 手動閲覧) / Canva MCP / WebSearch で動画リファレンス 3-5 件取得:
+DESIGN.md §12 + WebSearch / Lazyweb For Humans (lazyweb.com 手動閲覧) で動画リファレンス 3-5 件取得:
 - 競合動画 (同業界 TikTok / SNS)
 - 参照すべきトーン / 構成 / 演出パターン
 - アンチパターン (既存動画 50 万再生されてないものの理由)

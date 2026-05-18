@@ -47,7 +47,7 @@
 2. **YOU MUST**: 出典なし具体数値（X 割 / X% / 金額 / 年次予測）の断言禁止。FACT / INFERENCE / SPECULATION の 3 ラベルを明示。
 3. **NEVER**: `.env` / `credentials` / `secrets` / API キーを読み取り・出力・コミット。
 4. **NEVER**: `git push --force` / `git reset --hard` / `rm -rf` / `chmod 777` / `--dangerously-skip-permissions` を実行。
-5. **IMPORTANT**: 外部 API POST / PUT / DELETE、他リポ・他サービスアクセス、MCP 書き込み（Figma 編集・GitHub push_files 等）は承認必須。
+5. **IMPORTANT**: 外部 API POST / PUT / DELETE、他リポ・他サービスアクセス、MCP 書き込み（Figma 編集・GitHub push_files 等）は承認必須。【外部ツール物理化の実測義務 2026-05-18 物理化】外部ツール（MCP / plugin / 外部サービス）を ConsultingOS 規律で第一選択 / 必須 / 標準として物理化する PR は、その実行環境での end-to-end 実測（① 生成・呼出コマンド実行 → ② 成果物取り込みコマンド実行 → ③ 実出力を grep 等で検証、403 等の取り込み失敗を検査項目に含む）を承認条件とし、実測コマンドと出力を反証 Step 3 に添付する。「help を見た」「公式が言っている」は実測ではない。lazyweb MCP（PR #237 不採用）と Canva MCP（PR #245 第一選択撤回）の未検証物理化失敗 2 件の構造対策。詳細: `.claude/skills/falsification-check.md` §3.5
 6. **IMPORTANT**: PR は Squash and merge 必須。マージ後ブランチ削除。PR URL をユーザーに提示。
 7. **NEVER**: main への直接 push。必ず feature branch + PR 経由。
 8. **IMPORTANT**: UI 制作時は必ずプロジェクトルートの `DESIGN.md` を参照（色・フォント・余白・コンポーネント全て準拠）。
