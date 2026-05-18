@@ -5,10 +5,10 @@
 <title>Publicis LiveRamp text layer</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1280px; height: 670px; overflow: hidden; background: transparent; }
   body { font-family: "Noto Sans CJK JP", sans-serif; position: relative; }
-  .scrim {
-    position: absolute; inset: 0;
+  .bg {
+    position: absolute; top: 0; left: 0;
+    width: 1280px; height: 670px;
     background: linear-gradient(90deg,
       rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.70) 42%, rgba(0,0,0,0.20) 64%, rgba(0,0,0,0) 78%);
   }
@@ -31,25 +31,17 @@
     margin-top: 24px; font-size: 23px; font-weight: 500;
     line-height: 1.5; color: #cfc8b6; letter-spacing: 0.02em;
   }
-  .rule { margin-top: 32px; width: 56px; height: 3px;
-    background: #e3ae45; border-radius: 2px; }
-  .tag {
-    margin-top: 22px; font-size: 16px; font-weight: 600;
-    letter-spacing: 0.2em; color: #978b6d;
-  }
 </style>
 </head>
 <body>
-  <div class="scrim"></div>
+  <div class="bg"></div>
   <div class="content">
     <div class="eyebrow">PROGRAMMATIC NOTES</div>
     <div class="title">
       Publicisが<span class="accent">3,400億円</span>で<br>
       LiveRampを買った理由
     </div>
-    <div class="subtitle">透明性が不要な、自前データインフラの全体像</div>
-    <div class="rule"></div>
-    <div class="tag">Ad Tech &#215; Data &#215; 2026</div>
+    <div class="subtitle">3つの買収で築いた、自前データインフラ</div>
   </div>
 </body>
 </html>
