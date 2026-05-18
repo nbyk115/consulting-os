@@ -108,8 +108,6 @@ examples/<deck-slug>/
 .col .viz::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.55))}
 ```
 
-Puppeteer は **ローカル画像**なら確実に読み込む（Unsplash URL は環境依存）。
-
 ## 品質チェック
 
 Claude Design 生成物を組み込む前に下記確認：
@@ -237,6 +235,38 @@ YOU MUST: `[Exclusions]` に「no text」を必ず含める。テキストは Co
       ↓
 ⑤ レンダリング画像を成果物として納品、commit + push
 ```
+
+## サムネイル制作 実戦tips（2026-05-18 Publicis記事ケースで物理化）
+
+実案件（note.com 記事サムネイル、外部生成ライオン画像 + テキスト層合成）で
+遭遇したエラーと対処。次回の画像案件で同じ時間を溶かさないための記録。
+
+### Chromium レンダリングの白帯バグ
+
+症状: `chromium --headless --screenshot --window-size=1280,670` で 1280×670 の
+HTML をレンダリングすると、出力画像の下部 15% 前後が透明（白帯）になる。
+原因: body の実レンダリング高が指定値（670px）より低く（実測 565px 前後）、
+`overflow:hidden` が絶対配置の子要素を下端でクリップする。
+対処（YOU MUST）:
+1. 背景・スクリム・テキスト層は全て `position:absolute` + 明示 `width`/`height`。
+   `inset:0` や body 背景は使わない（containing block 高に依存し同じく欠ける）。
+2. レンダリングは目的高より高い window で行う（目的 670 に対し `--window-size=1280,1000`）。
+3. 出力を PIL で目的寸法にクロップする（例: `im.crop((0,0,2560,1340))`）。
+検証: PIL で出力下端行のピクセル alpha を実測し、透明（alpha=0）でないことを確認。
+
+### 日本語フォント
+
+`fc-list :lang=ja | grep -i "noto sans cjk jp"` で未導入なら
+`apt-get install -y fonts-noto-cjk`。font-family は `"Noto Sans CJK JP"` を明示
+（無印 `Noto Sans CJK` は中国字形フォールバックの恐れ、Hard Rule 10 違反）。
+レンダリング画像を必ず目視検証。
+
+### 画像ファイルの受け渡し（git CLI を使わないユーザー向け）
+
+git CLI が不要な経路: GitHub の web アップロード。
+`https://github.com/<owner>/<repo>/upload/<branch>/<dir-path>` を開き、画像を
+ドラッグ&ドロップ → Commit。ConsultingOS が `git pull` で取得。
+チャット添付・URL ダウンロードは不可（上記 protocol のファイル受け渡し制約を参照）。
 
 ## 関連
 
