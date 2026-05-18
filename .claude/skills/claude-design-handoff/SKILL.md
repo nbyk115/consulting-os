@@ -230,13 +230,23 @@ YOU MUST: `[Exclusions]` に「no text」を必ず含める。テキストは Co
       ↓
 ② ユーザーが外部画像モデル（OpenAI 画像モデル / Midjourney 等）で生成
       ↓
-③ ユーザーが生成画像を assets/ に置き、git commit + push
+③ ユーザーが生成画像を assets/ に置き push（git CLI が無くても GitHub web UI の
+   ドラッグ&ドロップで可: github.com/{owner}/{repo}/upload/{branch}/{dir} を開く → ドロップ → Commit）
       ↓
 ④ ConsultingOS が git pull で取得 → text 層を HTML + CSS で合成
    → Chromium でレンダリング → 日本語字形検証（pdffonts / 目視）
+   レンダリングの技術的注意（白帯バグ / フォント / 2倍出力）は
+   `claude-code-ops/references/html-output-patterns.md` §9 参照
       ↓
 ⑤ レンダリング画像を成果物として納品、commit + push
 ```
+
+### デザイン面のアンチパターン（2026-05-18 Publicis サムネイル制作の学習）
+
+- 抽象 SVG グラフィックで概念を図示しない（「分かりにくい」になりやすい）。写真的画像を主役にする
+- テキスト要素はミニマルに（eyebrow + 2 行タイトル + サブタイトル程度。装飾線・タグの盛り過ぎは NG）
+- 写真背景に白文字を載せる時は、背景の実際の明るさに合わせた黒スクリムのグラデーション + text-shadow で可読性を確保
+- 文脈なしの唐突な大きな数字を入れない（タイトルの金額等、文中で自己説明されるものは可）
 
 ## 関連
 
