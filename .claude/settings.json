@@ -211,6 +211,10 @@
             "type": "command",
             "command": ".claude/hooks/template-injection-check.sh",
             "timeout": 5000
+          },
+          {
+            "type": "command",
+            "command": "file=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // .filePath // empty' 2>/dev/null); content=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.content // .new_string // empty' 2>/dev/null); case \"$file\" in .claude/*|CLAUDE.md|*/CLAUDE.md) if echo \"$content\" | grep -qE '(MCP|plugin|generate-design)' && echo \"$content\" | grep -qE '(第一選択|必ず使う|標準とする|使わ.*禁止)'; then echo \"WARNING: 外部ツールを第一選択/必須/標準として規律に物理化した可能性: $file。CLAUDE.md ハードルール 5 + falsification-check §3.5: 実行環境での end-to-end 実測（生成呼出→成果物取込→実出力検証、403 等の取込失敗を含む）の実測コマンドと出力を反証 Step 3 に添付したか確認。lazyweb/Canva の未検証物理化失敗の再発防止（2026-05-18）\"; fi ;; esac"
           }
         ]
       }
